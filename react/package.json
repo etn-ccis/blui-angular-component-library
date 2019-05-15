@@ -1,0 +1,21 @@
+{
+  "name": "Custom-React-Components",
+  "version": "2.0.0",
+  "description": "Custom React components for PX Blue applications",
+  "scripts": {
+    "test": "jest",
+    "build": "cd components && yarn && yarn build",
+    "start": "cd component-demo && yarn && yarn start"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pxblue/custom-components"
+  },
+  "keywords": [
+    "react",
+    "components",
+    "pxblue"
+  ],
+  "author": "pxblue <pxblue@eaton.com>",
+  "license": "BSD-3-Clause"
+}
