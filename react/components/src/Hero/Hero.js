@@ -8,7 +8,7 @@ import ChannelValue from '../ChannelValue/ChannelValue';
 
 export const Hero = ({classes, icon, onClick, value, units, label, valueIcon, iconSize, prefix=false, ...props }) => (
   <div style={{cursor: onClick ? 'pointer' : 'default'}} className={classes.wrapper} onClick={onClick ? () => onClick() : null}>
-    <span className={classes.icon} style={{fontSize: iconSize || 36, height: 36}}>{icon}</span>
+    <span className={classes.icon} style={{fontSize: iconSize, height: 36}}>{icon}</span>
     <span className={classes.values}>
       {!props.children && value &&
         <ChannelValue value={value} units={units} icon={valueIcon} fontSize={'inherit'} />
@@ -22,10 +22,13 @@ export const Hero = ({classes, icon, onClick, value, units, label, valueIcon, ic
 Hero.propTypes = {
   label: PropTypes.string.isRequired,
   icon: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
-  iconSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  iconSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  valueIcon: PropTypes.element,
+  units: PropTypes.string,
 }
 Hero.defaultProps = {
-
+  iconSize: 36
 };
 
 const styles = (theme) => ({
