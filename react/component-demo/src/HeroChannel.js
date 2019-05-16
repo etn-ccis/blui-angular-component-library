@@ -6,12 +6,12 @@ import PropTypes from 'prop-types';
 import ChannelValue from './ChannelValue';
 // import { combine } from './utilities'; 
 
-export const HeroChannel = ({classes, trend, value, units, label, icon, iconSize, prefix=false, ...props }) => (
-  <div className={classes.wrapper}>
-    <span className={classes.icon} style={{fontSize: iconSize || 36, height: iconSize || 36}}>{icon}</span>
+export const HeroChannel = ({classes, icon, onClick, value, units, label, valueIcon, iconSize, prefix=false, ...props }) => (
+  <div style={{cursor: onClick ? 'pointer' : 'default'}} className={classes.wrapper} onClick={onClick ? () => onClick() : null}>
+    <span className={classes.icon} style={{fontSize: iconSize || 36, height: 36}}>{icon}</span>
     <span className={classes.values}>
       {!props.children && value &&
-        <ChannelValue value={value} units={units} trend={trend} fontSize={'inherit'} />
+        <ChannelValue value={value} units={units} icon={valueIcon} fontSize={'inherit'} />
       }
       {props.children}
     </span>
@@ -41,7 +41,9 @@ const styles = (theme) => ({
   icon:{
     lineHeight: 1,
     color: Colors.gray[800],
-    marginBottom: 10
+    marginBottom: 10,
+    display: 'inline-flex',
+    alignItems: 'center'
   },
   values:{
     display: 'flex', 

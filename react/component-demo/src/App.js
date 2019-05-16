@@ -5,7 +5,7 @@ import ChannelValue from './ChannelValue';
 import Trend from '@material-ui/icons/TrendingUp';
 import Timer from '@material-ui/icons/Timer';
 
-import { List, ListItem, ListItemIcon, Typography, ListItemText, Card } from '@material-ui/core';
+import { List, ListItem, ListItemIcon, ListItemText, Card } from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
 import { Pie, Battery } from '@pxblue/react-progress-icons';
 import { GradeA, Leaf, CurrentCircled, VoltageCircled, Temp } from '@pxblue/icons-mui';
@@ -22,16 +22,10 @@ export default ({ ...props }) => (
                     units={'/100'}
                 />
                 <HeroChannel
-                    icon={'🥒'}
-                    label={'Cucumber'}
-                    value={'100'}
-                    units={'Cal.'}
-                />
-                <HeroChannel
                     icon={<Pie fontSize={'inherit'} color={Colors.blue[500]} percent={65} size={36} />}
                     label={'Load'}
                 >
-                    <ChannelValue value={65} units={'%'} trend={<Trend nativeColor={Colors.red[500]} fontSize={'inherit'} />} />
+                    <ChannelValue value={65} units={'%'} icon={<Trend nativeColor={Colors.red[500]} fontSize={'inherit'} />} />
                 </HeroChannel>
                 <HeroChannel
                     icon={<Timer fontSize={'inherit'} color={'inherit'} />}
@@ -70,8 +64,8 @@ export default ({ ...props }) => (
                     primaryTypographyProps={{color: 'inherit', style: {textAlign: 'right'}}}>
                 </ListItemText>
             </ListItem>
-            <ListItem divider>
-                <ListItemIcon><VoltageCircled/></ListItemIcon>
+            <ListItem divider style={{color: Colors.red['500']}}>
+                <ListItemIcon style={{color: 'inherit'}}><VoltageCircled /></ListItemIcon>
                 <ListItemText primary={'Output Voltage'} primaryTypographyProps={{color: 'inherit'}}></ListItemText>
                 <ListItemText 
                     style={{padding: 0}}
@@ -101,7 +95,7 @@ export default ({ ...props }) => (
                 <ListItemText primary={'Temperature'} primaryTypographyProps={{color: 'inherit'}}></ListItemText>
                 <ListItemText 
                     style={{padding: 0}}
-                primary={<ChannelValue trend={<Trend nativeColor={Colors.red[500]}/>} value={68} units={'°F'} />}
+                primary={<ChannelValue icon={<Trend nativeColor={Colors.red[500]}/>} value={68} units={'°F'} />}
                     primaryTypographyProps={{color: 'inherit', style: {textAlign: 'right'}}}>
                 </ListItemText>
             </ListItem>

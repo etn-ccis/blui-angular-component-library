@@ -7,7 +7,7 @@ import Divider from '@material-ui/core/Divider';
 export const HeroBanner = ({classes, divider, ...props }) => (
     <React.Fragment>
         <div className={classes.banner}>
-            {props.children}
+            {props.children.slice(0,4).map((child) => child)}
         </div>
         {divider &&
             <Divider/>

@@ -1,7 +1,6 @@
 import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
-import * as Colors from '@pxblue/colors';
 import PropTypes from 'prop-types';
 import { combine } from './utilities'; 
 
@@ -17,12 +16,12 @@ class ChannelValue extends React.Component {
     );
   }
   render(){
-    const {classes, trend, value, units, prefix=false, fontSize, ...props } = this.props;
+    const {classes, icon, value, units, prefix, fontSize, color, ...props } = this.props;
   
     return (
-      <span className={classes.wrapper} style={{fontSize: fontSize || 'inherit'}}>
-        {trend && 
-          <span className={classes.trendIcon}>{trend}</span>
+      <span className={classes.wrapper} style={{fontSize: fontSize || 'inherit', color: color || 'inherit'}}>
+        {icon && 
+          <span className={classes.icon}>{icon}</span>
         }
         {prefix ? this.getUnitElement() : null}
         <Typography variant={'h6'} color={'inherit'} 
@@ -37,7 +36,7 @@ class ChannelValue extends React.Component {
 }
 ChannelValue.propTypes = {
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
-  trend: PropTypes.element,
+  icon: PropTypes.element,
   units: PropTypes.string,
   prefix: PropTypes.bool
 }
@@ -49,11 +48,11 @@ const styles = (theme) => ({
   wrapper:{
     display: 'inline-flex', 
     alignItems: 'center', 
-    color: Colors.gray[800], 
+    //color: Colors.gray[800], 
     // fontSize: '1.25rem', 
     lineHeight: '1.25rem'
   },
-  trendIcon:{
+  icon:{
     marginRight: 4, 
     display: 'inline', 
     lineHeight: '1.25rem',
