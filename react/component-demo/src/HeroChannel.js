@@ -3,10 +3,33 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import * as Colors from '@pxblue/colors';
 import PropTypes from 'prop-types';
-import { combine } from './utilities'; 
+import ChannelValue from './ChannelValue';
+// import { combine } from './utilities'; 
 
 export const HeroChannel = ({classes, trend, value, units, label, icon, iconSize, prefix=false, ...props }) => (
-  <div style={Object.assign({
+  <div className={classes.wrapper}>
+    <span className={classes.icon} style={{fontSize: iconSize || 36, height: iconSize || 36}}>{icon}</span>
+    <span className={classes.values}>
+      {!props.children && value &&
+        <ChannelValue value={value} units={units} trend={trend} fontSize={'inherit'} />
+      }
+      {props.children}
+    </span>
+    <Typography variant={'subtitle1'} color={'inherit'} className={classes.label}>{label}</Typography>
+  </div>
+); 
+
+HeroChannel.propTypes = {
+  label: PropTypes.string.isRequired,
+  icon: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
+  iconSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+}
+HeroChannel.defaultProps = {
+
+};
+
+const styles = (theme) => ({
+  wrapper:{
     display: 'flex', 
     flexDirection: 'column', 
     alignItems: 'center', 
@@ -14,36 +37,23 @@ export const HeroChannel = ({classes, trend, value, units, label, icon, iconSize
     flex: '1 1 0px',
     color: Colors.gray[500],
     padding: '16px 8px'
-  }, props.style)}>
-    <span style={{fontSize: iconSize || 36, lineHeight: iconSize || '36px', color: Colors.gray[800], marginBottom: 10}} >{icon}</span>
-    <span style={{display: 'flex', alignItems: 'center', color: Colors.gray[800], fontSize: '1.25rem', lineHeight: '1.25rem'}}>
-      {props.children}
-    </span>
-    <Typography variant={'subtitle1'} color={'inherit'} className={combine([classes.text, classes.value])}>{label}</Typography>
-  </div>
-); 
-
-HeroChannel.propTypes = {
-  label: PropTypes.string.isRequired,
-  icon: PropTypes.object.isRequired,
-  iconSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-}
-HeroChannel.defaultProps = {
-
-};
-
-const styles = (theme) => ({
-  text: {
-    //display: 'inline',
-    // color: Colors.gray[800],
+  },
+  icon:{
+    lineHeight: 1,
+    color: Colors.gray[800],
+    marginBottom: 10
+  },
+  values:{
+    display: 'flex', 
+    alignItems: 'center', 
+    color: Colors.gray[800], 
+    fontSize: '1.25rem', 
+    lineHeight: 1,
+  },
+  label: {
     fontSize: 'inherit',
-    lineHeight: 'inherit',
-    letterSpacing: 0
-  },
-  unit:{
-    fontWeight: 300
-  },
-  value:{
+    lineHeight: 1,
+    letterSpacing: 0,
     fontWeight: 600
   }
 });
