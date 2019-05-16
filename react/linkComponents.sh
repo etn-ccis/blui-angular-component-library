@@ -20,7 +20,7 @@ echo -e "${GREEN}Done${NC}"
 
 echo -en "${BLUE}Copying build output into node_modules...${NC}";
 cp -r ./components/package.json ./component-demo/node_modules/@pxblue/react-components/package.json
-cp -r ./components/dist ./component-demo/node_modules/@pxblue/react-components/core
+cp -r ./core ./component-demo/node_modules/@pxblue/react-components/core
 echo -e "${GREEN}Done${NC}"
 
 echo -en "\r\n${BRED}Linking Components: ${NC}"

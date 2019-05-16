@@ -6,6 +6,7 @@
 
 # production
 react/components/dist
+core/
 
 # misc
 .DS_Store
