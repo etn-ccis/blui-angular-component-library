@@ -15,6 +15,9 @@ buildTest.sh
 /component-demo
 /components
 
+# test files
+**/**/*.test.js
+
 # misc
 .DS_Store
 **/**/.DS_Store

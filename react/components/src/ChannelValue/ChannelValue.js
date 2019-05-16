@@ -7,6 +7,7 @@ import { combine } from '../utilities';
 class ChannelValue extends React.Component {
   getUnitElement(){
     const {classes, units} = this.props;
+    if(!units){return null};
     return (
       <Typography variant={"h6"} color={'inherit'} 
         className={combine([classes.text, classes.unit])}
