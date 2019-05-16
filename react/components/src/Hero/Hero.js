@@ -3,10 +3,10 @@ import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import * as Colors from '@pxblue/colors';
 import PropTypes from 'prop-types';
-import ChannelValue from './ChannelValue';
+import ChannelValue from '../ChannelValue/ChannelValue';
 // import { combine } from './utilities'; 
 
-export const HeroChannel = ({classes, icon, onClick, value, units, label, valueIcon, iconSize, prefix=false, ...props }) => (
+export const Hero = ({classes, icon, onClick, value, units, label, valueIcon, iconSize, prefix=false, ...props }) => (
   <div style={{cursor: onClick ? 'pointer' : 'default'}} className={classes.wrapper} onClick={onClick ? () => onClick() : null}>
     <span className={classes.icon} style={{fontSize: iconSize || 36, height: 36}}>{icon}</span>
     <span className={classes.values}>
@@ -19,12 +19,12 @@ export const HeroChannel = ({classes, icon, onClick, value, units, label, valueI
   </div>
 ); 
 
-HeroChannel.propTypes = {
+Hero.propTypes = {
   label: PropTypes.string.isRequired,
   icon: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
   iconSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
-HeroChannel.defaultProps = {
+Hero.defaultProps = {
 
 };
 
@@ -60,4 +60,4 @@ const styles = (theme) => ({
   }
 });
 
-export default withStyles(styles)(HeroChannel);
+export default withStyles(styles)(Hero);

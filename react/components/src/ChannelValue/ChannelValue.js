@@ -2,7 +2,7 @@ import React from 'react';
 import Typography from '@material-ui/core/Typography';
 import { withStyles } from '@material-ui/core/styles';
 import PropTypes from 'prop-types';
-import { combine } from './utilities'; 
+import { combine } from '../utilities'; 
 
 class ChannelValue extends React.Component {
   getUnitElement(){

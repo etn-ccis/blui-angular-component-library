@@ -5,7 +5,7 @@
   "main": "./dist/index.js",
   "scripts": {
     "test": "jest",
-    "build": "yarn && babel components/src --presets @babel/preset-react,@babel/preset-env --out-dir dist"
+    "build": "yarn && babel src --presets @babel/preset-react,@babel/preset-env --out-dir dist"
   },
   "dependencies": {},
   "devDependencies": {

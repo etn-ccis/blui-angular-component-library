@@ -5,7 +5,8 @@
   "scripts": {
     "test": "jest",
     "build": "cd components && yarn && yarn build",
-    "start": "cd component-demo && yarn && yarn start"
+    "link:components": "./linkComponents.sh",
+    "start": "yarn link:components && cd component-demo && yarn && yarn start"
   },
   "repository": {
     "type": "git",

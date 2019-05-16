@@ -5,7 +5,7 @@
 **/**/package-lock.json
 
 # production
-# /build
+react/components/dist
 
 # misc
 .DS_Store
