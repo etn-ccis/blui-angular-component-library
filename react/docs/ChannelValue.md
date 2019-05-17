@@ -16,3 +16,5 @@ import ChannelValue from '@pxblue/react-components/core/ChannelValue';
 * ```units``` (String): the text to display for the units (light text).
 * ```icon``` (Element): the inline icon to display.
 * ```prefix``` (Boolean): whether to show the units before the value. **Default**: false.
+* ```fontSize``` (Number, String): CSS font size value. **Default**: 'inherit'.
+* ```color``` (String): CSS font color value. **Default**: 'inherit'.

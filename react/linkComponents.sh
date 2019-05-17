@@ -15,6 +15,7 @@ yarn build
 cd ..
 
 echo -en "${BLUE}Creating new folder in node_modules...${NC}"
+rm -rf "./component-demo/node_modules/@pxblue/react-components"
 mkdir "./component-demo/node_modules/@pxblue/react-components"
 echo -e "${GREEN}Done${NC}"
 

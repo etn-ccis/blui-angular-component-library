@@ -20,7 +20,7 @@ class ChannelValue extends React.Component {
     const {classes, icon, value, units, prefix, fontSize, color, ...props } = this.props;
   
     return (
-      <span className={classes.wrapper} style={{fontSize: fontSize || 'inherit', color: color || 'inherit'}}>
+      <span className={classes.wrapper} style={{fontSize: fontSize, color: color}}>
         {icon && 
           <span className={classes.icon}>{icon}</span>
         }
@@ -39,19 +39,21 @@ ChannelValue.propTypes = {
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]).isRequired,
   icon: PropTypes.element,
   units: PropTypes.string,
-  prefix: PropTypes.bool
+  prefix: PropTypes.bool,
+  fontSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+  color: PropTypes.string
 }
 ChannelValue.defaultProps = {
-  prefix: false
+  prefix: false,
+  fontSize: 'inherit',
+  color: 'inherit'
 };
 
 const styles = (theme) => ({
   wrapper:{
     display: 'inline-flex', 
     alignItems: 'center', 
-    //color: Colors.gray[800], 
-    // fontSize: '1.25rem', 
-    lineHeight: '1.25rem'
+    lineHeight: 1
   },
   icon:{
     marginRight: 4, 

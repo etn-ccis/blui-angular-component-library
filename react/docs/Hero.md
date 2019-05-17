@@ -52,6 +52,7 @@ import Hero from '@pxblue/react-components/core/Hero';
 * ```icon``` (Element, String)[**required**]: a React Component (e.g., Material Icon) or string value to display.
 * ```label``` (String)[**required**]: text to display below the value. 
 * ```iconSize``` (Number): the size of the icon in pixels. **Default**: 36. **Max**: 36.
+* ```fontSize``` ("normal", "small"): the font size to use for the ```ChannelValue```. **Default**: "normal".
 * ```value``` (Number, String): when displaying a single ```ChannelValue```, the value.
 * ```units``` (String): when displaying a single ```ChannelValue```, the units.
 * ```valueIcon``` (Element): when displaying a single ```ChannelValue```, the inline icon to display.

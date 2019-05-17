@@ -6,12 +6,20 @@ import PropTypes from 'prop-types';
 import ChannelValue from '../ChannelValue/ChannelValue';
 // import { combine } from './utilities'; 
 
-export const Hero = ({classes, icon, onClick, value, units, label, valueIcon, iconSize, prefix=false, ...props }) => (
+const normalizeIconSize = (size) => {
+  size = parseInt(size, 10);
+  return Math.max(10, Math.min(36, size))
+}
+const normalizeFontSize = (size) => {
+  return size === 'small' ? '1rem' : '1.25rem';
+}
+
+export const Hero = ({classes, icon, onClick, value, units, label, valueIcon, iconSize, fontSize, prefix=false, ...props }) => (
   <div style={{cursor: onClick ? 'pointer' : 'default'}} className={classes.wrapper} onClick={onClick ? () => onClick() : null}>
-    <span className={classes.icon} style={{fontSize: iconSize, height: 36}}>{icon}</span>
-    <span className={classes.values}>
+    <span className={classes.icon} style={{fontSize: normalizeIconSize(iconSize), height: 36}}>{icon}</span>
+    <span className={classes.values} style={{fontSize: normalizeFontSize(fontSize)}}>
       {!props.children && value &&
-        <ChannelValue value={value} units={units} icon={valueIcon} fontSize={'inherit'} />
+        <ChannelValue value={value} units={units} icon={valueIcon}/>
       }
       {props.children}
     </span>
@@ -23,12 +31,14 @@ Hero.propTypes = {
   label: PropTypes.string.isRequired,
   icon: PropTypes.oneOfType([PropTypes.element, PropTypes.string]).isRequired,
   iconSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  fontSize: PropTypes.oneOf(['normal','small']),
   value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
   valueIcon: PropTypes.element,
   units: PropTypes.string,
 }
 Hero.defaultProps = {
-  iconSize: 36
+  iconSize: 36,
+  fontSize: 'normal'
 };
 
 const styles = (theme) => ({
@@ -52,7 +62,6 @@ const styles = (theme) => ({
     display: 'flex', 
     alignItems: 'center', 
     color: Colors.gray[800], 
-    fontSize: '1.25rem', 
     lineHeight: 1,
   },
   label: {
