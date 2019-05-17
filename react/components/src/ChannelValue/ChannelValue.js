@@ -16,13 +16,17 @@ class ChannelValue extends React.Component {
       </Typography>
     );
   }
+  changeIconDisplay(icon){
+    return React.cloneElement(icon, {style: Object.assign({},icon.props.style,{display: 'block'})});
+  }
+
   render(){
     const {classes, icon, value, units, prefix, fontSize, color, ...props } = this.props;
   
     return (
       <span className={classes.wrapper} style={{fontSize: fontSize, color: color}}>
         {icon && 
-          <span className={classes.icon}>{icon}</span>
+          <span className={classes.icon}>{this.changeIconDisplay(icon)}</span>
         }
         {prefix ? this.getUnitElement() : null}
         <Typography variant={'h6'} color={'inherit'} 
@@ -57,9 +61,7 @@ const styles = (theme) => ({
   },
   icon:{
     marginRight: 4, 
-    display: 'inline', 
-    lineHeight: '1.25rem',
-    height: '1.25rem'
+    display: 'inline'
   },
   text: {
     fontSize: 'inherit',

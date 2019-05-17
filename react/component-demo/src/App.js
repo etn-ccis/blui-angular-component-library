@@ -20,24 +20,28 @@ export default ({ ...props }) => (
                     label={'Healthy'}
                     value={96}
                     units={'/100'}
+                    fontSize={'normal'}
                 />
                 <Hero
-                    icon={<Pie fontSize={'inherit'} color={Colors.blue[500]} percent={65} size={36} />}
+                    icon={<Pie color={Colors.blue[500]} percent={65} size={36} />}
                     label={'Load'}
+                    fontSize={'normal'}
                 >
                     <ChannelValue value={65} units={'%'} icon={<Trend nativeColor={Colors.red[500]} fontSize={'inherit'} />} />
                 </Hero>
                 <Hero
                     icon={<Timer fontSize={'inherit'} color={'inherit'} />}
                     label={'Estimated'}
+                    fontSize={'normal'}
                 >
                     <ChannelValue value={1} units={'h'} />
                     <ChannelValue value={26} units={'m'} />
                 </Hero>
                 <Hero
-                    icon={<Battery fontSize={'inherit'} color={Colors.blue[500]} percent={100} size={36} />}
+                    icon={<Battery color={Colors.blue[500]} percent={100} size={36} />}
                     value={'Full'}
                     label={'Battery'}
+                    fontSize={'normal'}
                 >
                     <ChannelValue value={'Full'} />
                 </Hero>
