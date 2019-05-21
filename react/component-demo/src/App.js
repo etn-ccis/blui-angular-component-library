@@ -57,7 +57,7 @@ export default ({ ...props }) => (
             </ListItem>
             <ListItem divider>
                 <ListItemIcon><VoltageCircled/></ListItemIcon>
-                <ListItemText primary={'Input Volt.'} primaryTypographyProps={{color: 'inherit'}}></ListItemText>
+                <ListItemText primary={'Input Voltage'} primaryTypographyProps={{color: 'inherit'}}></ListItemText>
                 <ListItemText 
                     style={{padding: 0}}
                     primary={
