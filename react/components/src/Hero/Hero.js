@@ -48,6 +48,7 @@ const styles = (theme) => ({
     alignItems: 'center', 
     justifyContent: 'flex-start',
     flex: '1 1 0px',
+    overflow: 'hidden',
     color: Colors.gray[500],
     padding: '16px 8px'
   },
@@ -55,20 +56,31 @@ const styles = (theme) => ({
     lineHeight: 1,
     color: Colors.gray[800],
     marginBottom: 10,
-    display: 'inline-flex',
-    alignItems: 'center'
+    display: 'block',
+    width: 36,
+    textAlign: 'center',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap'
   },
   values:{
     display: 'flex', 
     alignItems: 'center', 
     color: Colors.gray[800], 
     lineHeight: 1,
+    maxWidth: '100%',
+    overflow: 'hidden'
   },
   label: {
     fontSize: 'inherit',
     lineHeight: 1,
     letterSpacing: 0,
-    fontWeight: 600
+    fontWeight: 600,
+    width: '100%',
+    textAlign: 'center',
+    overflow: 'hidden',
+    textOverflow: 'ellipsis',
+    whiteSpace: 'nowrap'
   }
 });
 
