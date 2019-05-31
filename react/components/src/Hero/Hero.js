@@ -8,7 +8,7 @@ import ChannelValue from '../ChannelValue/ChannelValue';
 
 const normalizeIconSize = (size) => {
   size = parseInt(size, 10);
-  return Math.max(10, Math.min(36, size))
+  return Math.max(10, Math.min(72, size))
 }
 const normalizeFontSize = (size) => {
   return size === 'small' ? '1rem' : '1.25rem';
@@ -16,7 +16,7 @@ const normalizeFontSize = (size) => {
 
 export const Hero = ({classes, icon, onClick, value, units, label, valueIcon, iconSize, fontSize, prefix=false, ...props }) => (
   <div style={{cursor: onClick ? 'pointer' : 'default'}} className={classes.wrapper} onClick={onClick ? () => onClick() : null}>
-    <span className={classes.icon} style={{fontSize: normalizeIconSize(iconSize), height: 36}}>{icon}</span>
+    <span className={classes.icon} style={{fontSize: normalizeIconSize(iconSize), height: Math.max(36, iconSize), width: Math.max(36, iconSize)}}>{icon}</span>
     <span className={classes.values} style={{fontSize: normalizeFontSize(fontSize)}}>
       {!props.children && value &&
         <ChannelValue value={value} units={units} icon={valueIcon}/>
@@ -56,8 +56,9 @@ const styles = (theme) => ({
     lineHeight: 1,
     color: Colors.gray[800],
     marginBottom: 10,
-    display: 'block',
-    width: 36,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
     textAlign: 'center',
     overflow: 'hidden',
     textOverflow: 'ellipsis',

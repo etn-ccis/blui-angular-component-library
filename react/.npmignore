@@ -14,9 +14,12 @@ buildTest.sh
 /.circleci
 /component-demo
 /components
+/docs
 
 # test files
 **/**/*.test.js
+buildTest.sh
+linkComponents.sh
 
 # misc
 .DS_Store

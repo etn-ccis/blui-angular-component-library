@@ -1,9 +1,9 @@
 {
-  "name": "Custom-React-Components",
-  "version": "2.0.0",
-  "description": "Custom React components for PX Blue applications",
+  "name": "@pxblue/react-components",
+  "version": "0.0.1",
+  "description": "React components for PX Blue applications",
   "scripts": {
-    "test": "jest",
+    "test": "cd components && yarn test",
     "build": "cd components && yarn && yarn build",
     "link:components": "yarn link:components:mac",
     "link:components:mac": "./linkComponents.sh",
@@ -13,7 +13,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/pxblue/component-library"
+    "url": "git+https://github.com/pxblue/component-library.git"
   },
   "keywords": [
     "react",
@@ -21,5 +21,13 @@
     "pxblue"
   ],
   "author": "pxblue <pxblue@eaton.com>",
-  "license": "BSD-3-Clause"
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/pxblue/component-library/issues"
+  },
+  "homepage": "https://github.com/pxblue/component-library#readme",
+  "main": "index.js",
+  "directories": {
+    "doc": "docs"
+  }
 }
