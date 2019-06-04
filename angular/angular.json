@@ -93,7 +93,8 @@
               "projects/component-demo/src/assets"
             ],
             "styles": [
-              "projects/component-demo/src/styles.css"
+              "projects/component-demo/src/styles.scss",
+    "./node_modules/typeface-open-sans"
             ],
             "scripts": []
           },
@@ -149,7 +150,8 @@
             "tsConfig": "projects/component-demo/tsconfig.spec.json",
             "karmaConfig": "projects/component-demo/karma.conf.js",
             "styles": [
-              "projects/component-demo/src/styles.css"
+              "projects/component-demo/src/styles.scss",
+    "./node_modules/typeface-open-sans"
             ],
             "scripts": [],
             "assets": [

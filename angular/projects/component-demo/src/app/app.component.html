@@ -1,30 +1,30 @@
 <mat-card>
   <mat-list>
-    <hero-banner [divider]="true" >
-      <hero [allowClick]="true" label="Healthy" value="96"  units="/100" [secondaryIcon]="true" fontSize="small" >
+    <pxb-hero-banner [divider]="true" >
+      <pxb-hero [allowClick]="true" label="Healthy" value="96"  units="/100" [secondaryIcon]="true" fontSize="small" >
         <mat-icon svgIcon="px-icons:bearing" primary></mat-icon>
         <mat-icon secondary class="output" >trending_up</mat-icon>
         
-      </hero>
+      </pxb-hero>
 
-      <hero [allowClick]="true" label="Load" fontSize="small" >
+      <pxb-hero [allowClick]="true" label="Load" fontSize="small" >
         <pie-progress class="progress-icon" percent="70" size="36" primary></pie-progress>
-        <channel-value class="content" value="65" [secondaryIcon]="true" units="%" [prefix]="true" fontSize="small" >
+        <pxb-channel-value class="content" value="65" [secondaryIcon]="true" units="%" [prefix]="true" fontSize="small" >
           <mat-icon secondary class="output">trending_up</mat-icon>
-        </channel-value>
-      </hero>
+        </pxb-channel-value>
+      </pxb-hero>
 
-      <hero [allowClick]="true" label="Estimated" >
+      <pxb-hero [allowClick]="true" label="Estimated" >
         <mat-icon primary>alarm</mat-icon>
-        <channel-value class="content" value="1" units="h"></channel-value>
-        <channel-value class="content" value="26" units="m"></channel-value>
-      </hero>
+        <pxb-channel-value class="content" value="1" units="h"></pxb-channel-value>
+        <pxb-channel-value class="content" value="26" units="m"></pxb-channel-value>
+      </pxb-hero>
 
-      <hero [allowClick]="true" label="Battery"   value="Full" fontSize="small">
+      <pxb-hero [allowClick]="true" label="Battery"   value="Full" fontSize="small">
         <battery-progress class="progress-icon" percent="90" size="36" primary></battery-progress>
-      </hero>
+      </pxb-hero>
 
-    </hero-banner>
+    </pxb-hero-banner>
   </mat-list>
 
   <mat-list >
@@ -32,7 +32,7 @@
         <mat-icon mat-list-icon  svgIcon="px-icons:leaf" class="list-icon"></mat-icon>
       <h4 mat-line>status</h4>
       <div class="channelcontent"> 
-          <channel-value class="content list-value" value="online,ESS+"></channel-value>
+          <pxb-channel-value class="content list-value" value="online,ESS+"></pxb-channel-value>
       </div>
         
     </mat-list-item>
@@ -42,9 +42,9 @@
         <mat-icon mat-list-icon svgIcon="px-icons:voltage_circled" class="list-icon"></mat-icon>
         <h4 mat-line>Input Voltage</h4>
         <div class="channelcontent">
-        <channel-value class="content list-value" value="478" units="V"></channel-value>,
-        <channel-value class="content list-value" value="479" units="V"></channel-value>,
-        <channel-value class="content list-value" value="473" units="V"></channel-value>
+        <pxb-channel-value class="content list-value" value="478" units="V"></pxb-channel-value>,
+        <pxb-channel-value class="content list-value" value="479" units="V"></pxb-channel-value>,
+        <pxb-channel-value class="content list-value" value="473" units="V"></pxb-channel-value>
         </div>
       </mat-list-item>
       <mat-divider></mat-divider>
@@ -53,9 +53,9 @@
         <mat-icon mat-list-icon svgIcon="px-icons:voltage_circled" class="list-icon" color="red"></mat-icon>
         <h4 mat-line>Output Voltage</h4>
         <div class="channelcontent">
-        <channel-value class="content list-value" value="480" units="V"></channel-value>,
-        <channel-value class="content list-value" value="480" units="V"></channel-value>,
-        <channel-value class="content list-value" value="480" units="V"></channel-value>
+        <pxb-channel-value class="content list-value" value="480" units="V"></pxb-channel-value>,
+        <pxb-channel-value class="content list-value" value="480" units="V"></pxb-channel-value>,
+        <pxb-channel-value class="content list-value" value="480" units="V"></pxb-channel-value>
         </div>
       </mat-list-item>
       <mat-divider></mat-divider>
@@ -64,9 +64,9 @@
         <mat-icon mat-list-icon svgIcon="px-icons:current_circled" class="list-icon" color="red"></mat-icon>
         <h4 mat-line>Output Current</h4>
         <div class="channelcontent">
-        <channel-value class="content list-value" value="15" units="A"></channel-value>,
-        <channel-value class="content list-value" value="15" units="A"></channel-value>,
-        <channel-value class="content list-value" value="15" units="A"></channel-value>
+        <pxb-channel-value class="content list-value" value="15" units="A"></pxb-channel-value>,
+        <pxb-channel-value class="content list-value" value="15" units="A"></pxb-channel-value>,
+        <pxb-channel-value class="content list-value" value="15" units="A"></pxb-channel-value>
         </div>
       </mat-list-item>
       <mat-divider></mat-divider>
@@ -75,9 +75,9 @@
           <mat-icon mat-list-icon svgIcon="px-icons:temp" class="list-icon" color="red"></mat-icon>
           <h4 mat-line>Temperature</h4>
           <div class="channelcontent">
-          <channel-value class="content" value="68" [secondaryIcon]="true" units="°F">
+          <pxb-channel-value class="content" value="68" [secondaryIcon]="true" units="°F">
               <mat-icon secondary>trending_up</mat-icon>
-            </channel-value>
+            </pxb-channel-value>
           </div>
         </mat-list-item>
   </mat-list>
