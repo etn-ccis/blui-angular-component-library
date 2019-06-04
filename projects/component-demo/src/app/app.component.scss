@@ -1,0 +1,24 @@
+@import '~@pxblue/colors/palette.scss';
+
+  .progress-icon{
+   color: map-get($pxb-blue, 500);
+   
+  }
+  .list-value{
+    text-align: right;
+  }
+  .output{
+    color: map-get($pxb-red, 500);
+  }
+  .mat-list-base .mat-list-item .mat-line{
+    white-space: normal;
+  }
+  .channelcontent {
+   width: 100%;
+    text-align: right;
+}
+
+.list-icon{
+  color: map-get($pxb-gray, 800);
+}
+

@@ -1,20 +1,86 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/cli">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<mat-card>
+  <mat-list>
+    <hero-banner [divider]="true" >
+      <hero [allowClick]="true" label="Healthy" value="96"  units="/100" [secondaryIcon]="true" fontSize="small" >
+        <mat-icon svgIcon="px-icons:bearing" primary></mat-icon>
+        <mat-icon secondary class="output" >trending_up</mat-icon>
+        
+      </hero>
 
+      <hero [allowClick]="true" label="Load" fontSize="small" >
+        <pie-progress class="progress-icon" percent="70" size="36" primary></pie-progress>
+        <channel-value class="content" value="65" [secondaryIcon]="true" units="%" [prefix]="true" fontSize="small" >
+          <mat-icon secondary class="output">trending_up</mat-icon>
+        </channel-value>
+      </hero>
+
+      <hero [allowClick]="true" label="Estimated" >
+        <mat-icon primary>alarm</mat-icon>
+        <channel-value class="content" value="1" units="h"></channel-value>
+        <channel-value class="content" value="26" units="m"></channel-value>
+      </hero>
+
+      <hero [allowClick]="true" label="Battery"   value="Full" fontSize="small">
+        <battery-progress class="progress-icon" percent="90" size="36" primary></battery-progress>
+      </hero>
+
+    </hero-banner>
+  </mat-list>
+
+  <mat-list >
+    <mat-list-item >
+        <mat-icon mat-list-icon  svgIcon="px-icons:leaf" class="list-icon"></mat-icon>
+      <h4 mat-line>status</h4>
+      <div class="channelcontent"> 
+          <channel-value class="content list-value" value="online,ESS+"></channel-value>
+      </div>
+        
+    </mat-list-item>
+    <mat-divider></mat-divider>
+
+    <mat-list-item >
+        <mat-icon mat-list-icon svgIcon="px-icons:voltage_circled" class="list-icon"></mat-icon>
+        <h4 mat-line>Input Voltage</h4>
+        <div class="channelcontent">
+        <channel-value class="content list-value" value="478" units="V"></channel-value>,
+        <channel-value class="content list-value" value="479" units="V"></channel-value>,
+        <channel-value class="content list-value" value="473" units="V"></channel-value>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+
+    <mat-list-item class="output">
+        <mat-icon mat-list-icon svgIcon="px-icons:voltage_circled" class="list-icon" color="red"></mat-icon>
+        <h4 mat-line>Output Voltage</h4>
+        <div class="channelcontent">
+        <channel-value class="content list-value" value="480" units="V"></channel-value>,
+        <channel-value class="content list-value" value="480" units="V"></channel-value>,
+        <channel-value class="content list-value" value="480" units="V"></channel-value>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+
+    <mat-list-item >
+        <mat-icon mat-list-icon svgIcon="px-icons:current_circled" class="list-icon" color="red"></mat-icon>
+        <h4 mat-line>Output Current</h4>
+        <div class="channelcontent">
+        <channel-value class="content list-value" value="15" units="A"></channel-value>,
+        <channel-value class="content list-value" value="15" units="A"></channel-value>,
+        <channel-value class="content list-value" value="15" units="A"></channel-value>
+        </div>
+      </mat-list-item>
+      <mat-divider></mat-divider>
+
+      <mat-list-item >
+          <mat-icon mat-list-icon svgIcon="px-icons:temp" class="list-icon" color="red"></mat-icon>
+          <h4 mat-line>Temperature</h4>
+          <div class="channelcontent">
+          <channel-value class="content" value="68" [secondaryIcon]="true" units="°F">
+              <mat-icon secondary>trending_up</mat-icon>
+            </channel-value>
+          </div>
+        </mat-list-item>
+  </mat-list>
+
+
+</mat-card>

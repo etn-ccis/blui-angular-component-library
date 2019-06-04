@@ -34,13 +34,13 @@ import {
   MatBottomSheetModule,
   MatBottomSheet
 } from '@angular/material';
-import { ChannelValueComponent } from '../public_api';
+import { HeroComponent } from '../hero/hero.component';
 
-fdescribe('ChannelValueComponent', () => {
+fdescribe('HeroComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-        ChannelValueComponent
+        HeroComponent
       ],
       imports: [
         MatAutocompleteModule,
@@ -77,22 +77,29 @@ fdescribe('ChannelValueComponent', () => {
       schemas: [CUSTOM_ELEMENTS_SCHEMA],
     }).compileComponents();
   }));
-  function sortedClassNames(element: Element): string[] {
-    return element.className.split(' ').sort();
-  }
 
   it('should create the app', () => {
-    const fixture = TestBed.createComponent(ChannelValueComponent);
+    const fixture = TestBed.createComponent(HeroComponent);
     const app = fixture.debugElement.componentInstance;
     expect(app).toBeTruthy();
   });
 
-  // it(`H5 element should have class as 'label'`, () => {
-  //   const fixture = TestBed.createComponent(ChannelValueComponent);
-  //   const channelvalueComponent = fixture.debugElement;
-  //   const labelEle: HTMLElement = channelvalueComponent.query(By.css('h5')).nativeElement;
-  //   // expect(labelEle.getAttribute('class')).toEqual('text units', 'text value');
-  //   expect(sortedClassNames(labelEle))
-  //   .toEqual(['text units', 'text value']);
-  // });
+  it(`Div element should have class as 'wrapper'`, () => {
+    const fixture = TestBed.createComponent(HeroComponent);
+    const heroComponent = fixture.debugElement;
+    const wrapperDiv: HTMLElement = heroComponent.query(By.css('div')).nativeElement;
+    expect(wrapperDiv.getAttribute('class')).toEqual('wrapper');
+  });
+  it(`H5 element should have class as 'label'`, () => {
+    const fixture = TestBed.createComponent(HeroComponent);
+    const heroComponent = fixture.debugElement;
+    const labelEle: HTMLElement = heroComponent.query(By.css('h5')).nativeElement;
+    expect(labelEle.getAttribute('class')).toEqual('label');
+  });
+  it(`H5 element should have class as 'label'`, () => {
+    const fixture = TestBed.createComponent(HeroComponent);
+    const heroComponent = fixture.debugElement;
+    const iconEle: HTMLElement = heroComponent.query(By.css('h5')).nativeElement;
+    expect(iconEle.getAttribute('class')).toEqual('label');
+  });
 });
