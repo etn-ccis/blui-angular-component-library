@@ -1,0 +1,9 @@
+@import '~@pxblue/colors/palette.scss';
+.banner{
+    display: flex; 
+    align-items: center; 
+    justify-content: center;
+  }
+  .divider{
+    color:map-get($pxb-gray, 200);
+  }

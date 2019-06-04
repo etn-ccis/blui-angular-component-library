@@ -1,13 +1,20 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
 
 @Component({
   selector: 'pxb-channel-value',
   template: `
-    <p>
-      channel-value works!
-    </p>
+  <span class="value-box"  [style.color]="color">
+  <span class="secondary-icon" *ngIf="secondaryIcon" [class.smallIcon]="fontSize == 'small'">
+    <ng-content select= "[secondary]"></ng-content>
+  </span>
+  <h5 *ngIf="units && prefix " class="text units">{{units}}</h5>
+  <h5 *ngIf="value" class="text value">{{value}}</h5>
+  <h5 *ngIf="units && !prefix" class="text units">{{units}}</h5>
+</span>
   `,
-  styles: []
+  styleUrls: ['./channel-value.component.scss'], 
+  inputs: [ 'divider', 'fontSize', 'color', 'value', 'units', 'prefix', 'secondaryIcon' ],
+  encapsulation: ViewEncapsulation.None
 })
 export class ChannelValueComponent implements OnInit {
 
@@ -16,4 +23,6 @@ export class ChannelValueComponent implements OnInit {
   ngOnInit() {
   }
 
+  value: string;
+  prefix: boolean= false;
 }
