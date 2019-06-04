@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'hero-banner',
+  selector: 'pxb-hero-banner',
   template: `
         <div class="banner">
           <ng-content></ng-content>
