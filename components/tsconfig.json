@@ -20,16 +20,16 @@
     ],
     "paths": {
       "hero": [
-        "dist/hero"
+        "core/hero"
       ],
       "hero/*": [
-        "dist/hero/*"
+        "core/hero/*"
       ],
       "channel-value": [
-        "dist/channel-value"
+        "core/channel-value"
       ],
       "channel-value/*": [
-        "dist/channel-value/*"
+        "core/channel-value/*"
       ],
       "@pxblue/angular-components/core/*": ["./core/*"]
     }

@@ -4,8 +4,8 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { HeroBannerComponent, HeroComponent } from '../../../hero/src/public_api';
-import { ChannelValueComponent } from '../../../channel-value/src/public_api';
+import { HeroModule } from '@pxblue/angular-components/core/hero';
+import { ChannelValueModule } from '@pxblue/angular-components/core/channel-value';
 
 //pxblue modules
 import { NgProgressIconsModule } from '@pxblue/ng-progress-icons';
@@ -23,13 +23,12 @@ describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
-       AppComponent,
-       HeroBannerComponent,
-       HeroComponent,
-       ChannelValueComponent
+       AppComponent
       ],
       imports: [
         BrowserModule,
+        HeroModule,
+        ChannelValueModule,
         FormsModule,
         MatDividerModule,
         MatIconModule,
