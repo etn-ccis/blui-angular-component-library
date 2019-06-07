@@ -14,7 +14,7 @@ import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
   `,
   styleUrls: ['./channel-value.component.scss'], 
   inputs: [ 'divider', 'fontSize', 'color', 'value', 'units', 'prefix', 'secondaryIcon' ],
-  encapsulation: ViewEncapsulation.None
+  // encapsulation: ViewEncapsulation.None
 })
 export class ChannelValueComponent implements OnInit {
 
