@@ -1,27 +1,36 @@
-# Components
+# PX Blue Custom Angular Components
+This is a library of custom components for use in PX Blue applications. For the most part, these components are meant to simplify building your application by providing re-usable components that implement common use cases in PX Blue and eliminating the need to multiple teams to build their own components for these.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.2.0.
+Currently, we have components available for:
+* ChannelValue (Angular)
+* Hero (Angular)
+* HeroBanner (Angular)
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Installation
+To install the PX Blue angular components from NPM as a dependency for your project, you can run the following command in your project root:
+```
+yarn add @pxblue/angular-components
+```
+> **NOTE**: This install command will not work until the component libraries are published to NPM. Until then you will need to follow the manual linking instructions - see below.
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Building the Library
+To work with this library, first clone down the repository and install dependencies:
+```
+git clone https://github.com/pxblue/component-library
+cd component-library/angular
+yarn install
+```
 
-## Build
+The library can be built by running the following command. The resulting output will be in the /core folder.
+```
+yarn build
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+There is also a demo project (/component-demo) in this repository that shows the components in use. You can automatically build the component library and link them to the node modules for the demo by running:
+```
+yarn link:components
+```
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+You can also build, link, and start the demo application in a single step by calling ```yarn start``` from the /angular directory.
