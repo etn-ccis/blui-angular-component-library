@@ -16,4 +16,7 @@ export class AppComponent {
   ) {
     this.matIconRegistry.addSvgIconSetInNamespace('px-icons', this.domSanitizer.bypassSecurityTrustResourceUrl(iconSet));
   }
+  test(){
+    alert('Hero component');
+  }
 }

@@ -1,16 +1,16 @@
 <mat-card>
   <mat-list>
     <pxb-hero-banner [divider]="true" >
-      <pxb-hero [allowClick]="true" label="Healthy" value="96"  units="/100" [secondaryIcon]="true" fontSize="small" >
+      <pxb-hero [allowClick]="true" label="Healthy" value="96"  units="/100" (click)="test()"  >
         <mat-icon svgIcon="px-icons:bearing" primary></mat-icon>
-        <mat-icon secondary class="output" >trending_up</mat-icon>
+        <mat-icon  class="output" secondary>trending_up</mat-icon>
         
       </pxb-hero>
 
       <pxb-hero [allowClick]="true" label="Load" fontSize="small" >
         <pie-progress class="progress-icon" percent="70" size="36" primary></pie-progress>
-        <pxb-channel-value class="content" value="65" [secondaryIcon]="true" units="%" [prefix]="true" fontSize="small" >
-          <mat-icon secondary class="output">trending_up</mat-icon>
+        <pxb-channel-value class="content" value="65"  units="%" [prefix]="true"  >
+          <mat-icon  class="output" >trending_up</mat-icon>
         </pxb-channel-value>
       </pxb-hero>
 
@@ -75,8 +75,8 @@
           <mat-icon mat-list-icon svgIcon="px-icons:temp" class="list-icon" color="red"></mat-icon>
           <h4 mat-line>Temperature</h4>
           <div class="channelcontent">
-          <pxb-channel-value class="content" value="68" [secondaryIcon]="true" units="°F">
-              <mat-icon secondary>trending_up</mat-icon>
+          <pxb-channel-value class="content" value="68"  units="°F">
+              <mat-icon >trending_up</mat-icon>
             </pxb-channel-value>
           </div>
         </mat-list-item>

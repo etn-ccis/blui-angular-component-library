@@ -13,7 +13,7 @@
   .icon{
     height: 36px;
   }
-  .icon mat-icon{
+  :host ::ng-deep .icon mat-icon{
       line-height: 1;
       color: map-get($pxb-gray, 800);
       margin-bottom: 10;
@@ -60,7 +60,7 @@
 
       }
   }
-  .icon mat-icon svg{
+  :host ::ng-deep .icon mat-icon svg{
 transform: scale(1.5);
 transform-origin: top left;
 }
@@ -89,7 +89,7 @@ transform-origin: top left;
     margin: 0;
   }
 
-  pxb-hero{
+  :host-context(pxb-hero) {
     flex: 1;
     display: none;
     &:nth-child(-n+4){
