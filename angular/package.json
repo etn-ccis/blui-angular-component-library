@@ -4,7 +4,7 @@
     "description": "Angular components for PX Blue applications",
     "main": "./dist",
     "scripts": {
-        "test": "ng test",
+        "test": "cd ./components && ng test --watch=false",
         "build": "./buildComponents.sh",
         "link:components": "yarn link:components:mac",
         "link:components:mac": "./linkComponents.sh",
