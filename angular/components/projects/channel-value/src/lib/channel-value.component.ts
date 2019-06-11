@@ -3,9 +3,9 @@ import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
 @Component({
   selector: 'pxb-channel-value',
   template: `
-    <span class="value-box" [style.color]="color" [style.font-size]="fontSize">
-      <span class="secondary-icon"  >
-        <ng-content ></ng-content>
+    <span class="value-wrapper" [style.color]="color" [style.font-size]="fontSize">
+      <span class="icon">
+        <ng-content></ng-content>
       </span>
       <h5 *ngIf="units && prefix " class="text units">{{units}}</h5>
       <h5 *ngIf="value" class="text value">{{value}}</h5>

@@ -33,3 +33,7 @@ yarn link:components
 ```
 
 You can also build, link, and start the demo application in a single step by calling ```yarn start``` from the /angular directory.
+
+
+## Using the Components
+See the [Docs](./docs) folder for documentation on using these components.

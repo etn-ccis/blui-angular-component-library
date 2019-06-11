@@ -1,10 +1,10 @@
-# PX Blue Custom React Components
-This is a library of custom components for use in PX Blue applications. For the most part, these components are meant to simplify building your application by providing re-usable components that implement common use cases in PX Blue and eliminating the need to multiple teams to build their own components for these.
+# PX Blue UI Components for React
+This is a library of re-usable React components for use in PX Blue applications. For the most part, these components are meant to simplify building your application by providing drop-in components that implement common use cases in PX Blue and eliminate the need for multiple teams to build their own components for these.
 
 Currently, we have components available for:
-* ChannelValue (React)
-* Hero (React)
-* HeroBanner (React)
+* ChannelValue
+* Hero
+* HeroBanner
 
 
 ## Installation
@@ -34,3 +34,6 @@ yarn link:components
 ```
 
 You can also build, link, and start the demo application in a single step by calling ```yarn start``` from the /react directory.
+
+## Using the Components
+See the [Docs](./docs) folder for documentation on using these components.

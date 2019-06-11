@@ -4,7 +4,7 @@ import { Component, Input } from '@angular/core';
   selector: 'pxb-hero-banner',
   template: `
         <div class="banner">
-          <ng-content></ng-content>
+          <ng-content select="pxb-hero"></ng-content>
         </div>
         <mat-divider class="divider" *ngIf="divider"></mat-divider>
       `,
