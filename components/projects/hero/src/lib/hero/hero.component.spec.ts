@@ -9,7 +9,7 @@ import {
 } from '@angular/material';
 import { HeroComponent } from '../hero/hero.component';
 
-fdescribe('HeroComponent', () => {
+describe('HeroComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
