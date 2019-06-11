@@ -1,10 +1,12 @@
-@import '~@pxblue/colors/palette.scss';
-.banner{
-    display: flex; 
-    align-items: center; 
-    justify-content: center;
-  }
-  .divider{
-    color:map-get($pxb-gray, 200);
-  }
- 
+@import "~@pxblue/colors/palette.scss";
+.banner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+:host ::ng-deep pxb-hero:nth-child(n+5){
+  display: none;
+}
+.divider {
+  color: map-get($pxb-gray, 200);
+}

@@ -1,101 +1,56 @@
-@import '~@pxblue/colors/palette.scss';
-.wrapper{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    flex: 1 1 0;
-    overflow: hidden;
-    padding: 16px 8px;
-    color: map-get($pxb-gray, 500);
-    
-  }
-  .icon{
-    height: 36px;
-  }
-  :host ::ng-deep .icon mat-icon{
-      line-height: 1;
-      color: map-get($pxb-gray, 800);
-      margin-bottom: 10;
-      display: block;
-      width: 36px !important;
-      height: 36px !important;
-      text-align: center;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      font-size: 36px;
-  
-  }
-
-  .secondary-icon{
-    margin-right: 4px;
-    display: inline;
-      height: 24px !important;
-      font-size: 20px;
-      
-      mat-icon{
-        width: 24px !important;
-        height: 24px !important;
-        font-size: 24px;
-        svg{
-          transform: scale(0.9);
-          transform-origin: top left; 
-        }
-        
-      }
-      &:empty{
-        display: none;
-      }
-      &.smallIcon{
-        height: 16px !important;
-        width: 16px !important;
-        .mat-icon{
-          font-size: 16px;
-          width: 16px;
-          height: 16px;
-   
-        }
-       
-
-      }
-  }
-  :host ::ng-deep .icon mat-icon svg{
-transform: scale(1.5);
-transform-origin: top left;
+@import "~@pxblue/colors/palette.scss";
+:host {
+  flex: 1 1 0px;
 }
-  
-  .values{
-      display: flex; 
-      align-items: center;
-      color: map-get($pxb-gray, 800);
-      line-height: 1;
-      height: auto !important;
-      min-height: 28px;
-      max-width: 100%;
-      overflow: hidden;
-  }
-  
-  .label {
-    font-size: inherit;
-    line-height: 1;
-    letter-spacing: 0;
-    font-weight: 600;
-    width: 100%;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin: 0;
-  }
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  overflow: hidden;
+  color: map-get($pxb-gray, 500);
+  padding: 16px 8px;
+}
 
-  :host-context(pxb-hero) {
-    flex: 1;
-    display: none;
-    &:nth-child(-n+4){
-      display: block;
-      overflow: hidden;
-    }
-
+// Icon Styles
+.icon {
+  margin-bottom: 10px;
+  text-align: center;
+}
+:host ::ng-deep .icon mat-icon {
+  display: block;
+  width: 100%;
+  height: 100%;
+  font-size: 100%;
+  line-height: 1;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  svg {
+    transform: scale(1.5);
+    transform-origin: top left;
   }
- 
+}
+:host ::ng-deep .icon.large mat-icon svg {
+  transform: scale(3);
+}
+
+// Channel Value Styles
+.channel-value {
+  display: flex;
+}
+
+// Label Styles
+.label {
+  font-size: inherit;
+  line-height: 1;
+  letter-spacing: 0;
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  margin: 0;
+}
