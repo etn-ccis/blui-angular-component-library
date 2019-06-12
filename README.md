@@ -1,4 +1,5 @@
 # PX Blue UI Components
+[![](https://img.shields.io/circleci/project/github/pxblue/component-library/master.svg?style=flat)](https://circleci.com/gh/pxblue/component-library/tree/master)
 This is a library of re-usable components for use in PX Blue applications. For the most part, these components are meant to simplify building your application by providing drop-in components that implement common use cases in PX Blue and eliminate the need for multiple teams to build their own components for these.
 
 Currently, we have components available for:
