@@ -7,8 +7,10 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-          - v1-dependencies-{{ checksum "./angular/package.json" }}-{{ checksum "./react/components/package.json" }}
-          - v1-dependencies-
+          - v1-dependencies-react-{{ checksum "./react/components/package.json" }}
+          - v1-dependencies-react-
+          - v1-dependencies-angular-{{ checksum "./angular/package.json" }}
+          - v1-dependencies-angular-
       - run: 
           name: Install Dependencies
           command: |
@@ -19,10 +21,12 @@ jobs:
             cd ..
       - save_cache:
           paths:
-            - node_modules
-            - react/component/node_modules
             - angular/node_modules
-          key: v1-dependencies-{{ checksum "./angular/package.json" }}-{{ checksum "./react/components/package.json" }}
+          key: v1-dependencies-{{ checksum "./angular/package.json" }}
+      - save_cache:
+          paths:
+            - react/component/node_modules
+          key: v1-dependencies-react-{{ checksum "./react/components/package.json" }}        
       - run:
           name: Build Packages
           command: |
