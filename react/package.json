@@ -29,10 +29,5 @@
   "main": "index.js",
   "directories": {
     "doc": "docs"
-  },
-  "dependencies": {
-    "@babel/preset-env": "^7.4.5",
-    "@babel/preset-react": "^7.0.0",
-    "jest": "^24.8.0"
   }
 }
