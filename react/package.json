@@ -5,11 +5,8 @@
   "scripts": {
     "test": "cd components && yarn test",
     "build": "cd components && yarn && yarn build",
-    "link:components": "yarn link:components:mac",
-    "link:components:mac": "./linkComponents.sh",
-    "link:components:win": "\"%ProgramFiles%/Git/bin/bash.exe\" ./linkComponents.sh",
-    "start": "cd component-demo && yarn && cd .. && yarn link:components && cd component-demo && yarn start",
-    "start:win": "cd component-demo && yarn && cd .. && yarn link:components:win && cd component-demo && yarn start"
+    "link:components": "bash ./linkComponents.sh",
+    "start": "cd component-demo && yarn && cd .. && yarn link:components && cd component-demo && yarn start"
   },
   "repository": {
     "type": "git",
