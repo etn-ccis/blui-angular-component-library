@@ -14,9 +14,9 @@ jobs:
       - run: 
           name: Install Dependencies
           command: |
-            cd react
-            yarn build
-            cd ../angular
+            cd react/components
+            yarn install
+            cd ../../angular
             yarn install
             cd ..
       - save_cache:
