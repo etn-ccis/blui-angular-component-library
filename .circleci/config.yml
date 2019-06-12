@@ -17,14 +17,14 @@ jobs:
             cd ../angular
             yarn install
             cd ..
-         - save_cache:
+     - save_cache:
           paths:
             - node_modules
             - react/components/node_modules
             - angular/node_modules
           key: v1-dependencies-{{ checksum "package.json" }}-{{ checksum "./angular/package.json" }}-{{ checksum "./react/components/package.json" }}              
       - run:
-          name: Test component's utility functions
+          name: Test component's test cases
           command: |
             cd react
             yarn test
