@@ -8,7 +8,7 @@
       <pxb-hero label="Load">
         <pie-progress class="progress-icon" percent="65" size="36" primary></pie-progress>
         <pxb-channel-value value="65" units="%">
-          <mat-icon class="output" [style.color]="colors.red['500']">trending_up</mat-icon>
+          <mat-icon  [style.color]="colors.red['500']">trending_up</mat-icon>
         </pxb-channel-value>
       </pxb-hero>
 
@@ -25,9 +25,10 @@
     </pxb-hero-banner>
   </mat-list>
 
+  
   <mat-list class="list">
     <mat-list-item>
-      <mat-icon mat-list-icon svgIcon="px-icons:leaf" class="list-icon"></mat-icon>
+      <mat-icon mat-list-icon svgIcon="px-icons:leaf" ></mat-icon>
       <h4 class="mat-h3 list-label">Status</h4>
       <div class="list-value">
         <pxb-channel-value value="Online, ESS+"></pxb-channel-value>
@@ -37,7 +38,7 @@
     <mat-divider></mat-divider>
 
     <mat-list-item>
-      <mat-icon mat-list-icon svgIcon="px-icons:voltage_circled" class="list-icon"></mat-icon>
+      <mat-icon mat-list-icon svgIcon="px-icons:voltage_circled" ></mat-icon>
       <h4 class="mat-h3 list-label">Input Voltage</h4>
       <div class="list-value">
         <pxb-channel-value value="478" units="V"></pxb-channel-value>,
@@ -47,8 +48,9 @@
     </mat-list-item>
     <mat-divider></mat-divider>
 
-    <mat-list-item class="error">
-      <mat-icon mat-list-icon svgIcon="px-icons:voltage_circled" class="list-icon" color="red"></mat-icon>
+    <div class="error">
+    <mat-list-item >
+      <mat-icon mat-list-icon svgIcon="px-icons:voltage_circled"  ></mat-icon>
       <h4 class="mat-h3 list-label">Output Voltage</h4>
       <div class="list-value">
         <pxb-channel-value value="480" units="V"></pxb-channel-value>,
@@ -56,10 +58,11 @@
         <pxb-channel-value value="480" units="V"></pxb-channel-value>
       </div>
     </mat-list-item>
+  </div>
     <mat-divider></mat-divider>
 
     <mat-list-item>
-      <mat-icon mat-list-icon svgIcon="px-icons:current_circled" class="list-icon" color="red"></mat-icon>
+      <mat-icon mat-list-icon svgIcon="px-icons:current_circled" ></mat-icon>
       <h4 class="mat-h3 list-label">Output Current</h4>
       <div class="list-value">
         <pxb-channel-value value="15" units="A"></pxb-channel-value>,
@@ -70,7 +73,7 @@
     <mat-divider></mat-divider>
 
     <mat-list-item>
-      <mat-icon mat-list-icon svgIcon="px-icons:temp" class="list-icon" color="red"></mat-icon>
+      <mat-icon mat-list-icon svgIcon="px-icons:temp" ></mat-icon>
       <h4 class="mat-h3 list-label">Temperature</h4>
       <div class="list-value">
         <pxb-channel-value value="68" units="°F" fontSize="36px" color="purple">
@@ -79,6 +82,5 @@
       </div>
     </mat-list-item>
   </mat-list>
-
-
+  
 </mat-card>

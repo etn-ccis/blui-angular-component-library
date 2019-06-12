@@ -44,14 +44,14 @@ imports: [
 <pxb-hero-banner [divider]="true" >
       <pxb-hero [allowClick]="true" label="Healthy" value="96"  units="/100" >
         <mat-icon svgIcon="px-icons:bearing" primary></mat-icon>
-        <mat-icon  class="output" secondary>trending_up</mat-icon>
+        <mat-icon  secondary>trending_up</mat-icon>
         
       </pxb-hero>
 
       <pxb-hero [allowClick]="true" label="Load" fontSize="small" >
         <pie-progress class="progress-icon" percent="70" size="36" primary></pie-progress>
         <pxb-channel-value class="content" value="65"  units="%" [prefix]="true" fontSize="small" >
-          <mat-icon fontSize="small" class="output" >trending_up</mat-icon>
+          <mat-icon fontSize="small" >trending_up</mat-icon>
         </pxb-channel-value>
       </pxb-hero>
 
