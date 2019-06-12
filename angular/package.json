@@ -5,6 +5,7 @@
     "main": "./core",
     "scripts": {
         "test": "cd ./components && ng test --watch=false",
+        "test:artifacts": "bash ./buildTest.sh",
         "build": "bash ./buildComponents.sh",
         "link:components": "bash ./linkComponents.sh",
         "start": "cd component-demo && yarn && cd .. && yarn link:components && cd component-demo && yarn start --open"
