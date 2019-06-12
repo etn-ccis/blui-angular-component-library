@@ -5,6 +5,9 @@ jobs:
       - image: circleci/node:8.11-browsers
     steps:
       - checkout
+      keys:
+          - v1-dependencies-{{ checksum "package.json" }}-{{ checksum "./angular/package.json" }}-{{ checksum "./react/components/package.json" }}
+          - v1-dependencies-
       - run: 
           name: Install Dependencies
           command: |
@@ -14,7 +17,12 @@ jobs:
             yarn install
             cd ..
     
-          
+         - save_cache:
+          paths:
+            - node_modules
+            - react/components/node_modules
+            - angular/node_modules
+          key: v1-dependencies-{{ checksum "package.json" }}-{{ checksum "./angular/package.json" }}-{{ checksum "./react/components/package.json" }}        
               
             
       - run:
