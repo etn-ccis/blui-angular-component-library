@@ -25,11 +25,22 @@ jobs:
           key: v1-dependencies-{{ checksum "./angular/package.json" }}-{{ checksum "./react/components/package.json" }}
       - run:
           name: Build Packages
-          command: yarn build
+          command: |
+            cd react
+            yarn build
+            cd ../angular
+            yarn build
       - run:
-          name: Test progress icon utility functions
+          name: Unit Test
           command: |
             cd react
             yarn test
+            cd ../angular
+            yarn test
+      - run:
+          name: Verify Build Artifacts
+          command: |
+            cd react
+            yarn test:artifacts
             cd ../angular
             yarn test

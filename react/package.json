@@ -4,6 +4,7 @@
   "description": "React components for PX Blue applications",
   "scripts": {
     "test": "cd components && yarn test",
+    "test:artifacts": "bash ./buildTest.sh",
     "build": "cd components && yarn && yarn build",
     "link:components": "yarn link:components:mac",
     "link:components:mac": "./linkComponents.sh",

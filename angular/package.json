@@ -5,7 +5,8 @@
     "main": "./dist",
     "scripts": {
         "test": "cd ./components && ng test --watch=false",
-        "build": "./buildComponents.sh",
+        "test:artifacts": "bash ./buildTest.sh",
+        "build": "./buildComponents.sh ",
         "link:components": "yarn link:components:mac",
         "link:components:mac": "./linkComponents.sh",
         "link:components:win": "bash ./linkComponents.sh",
