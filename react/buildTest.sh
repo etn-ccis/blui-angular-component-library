@@ -4,34 +4,36 @@ GREEN='\033[0;32m'
 GRAY='\033[1;30m'
 NC='\033[0m' # No Color
 
+echo "Checking React Components"
 echo "Checking Root Package..."
 echo "Checking for required files..."
 echo -ne "  readme: "
 if [ ! -f ./README.md ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 echo -ne "  license: "
 if [ ! -f ./LICENSE ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
-
-echo "Checking Custom Component (React)"
-echo "Checking for required files..."
 echo -ne "  package.json: "
 if [ ! -f ./package.json ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
-echo -ne "  readme: "
-if [ ! -f ./README.md ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
-echo -ne "  Hero: "
+
+echo "Checking Hero..."
+echo -ne "  Hero.js: "
 if [ ! -f ./core/Hero/Hero.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
-echo -ne "  Hero index: "
+echo -ne "  index.js: "
 if [ ! -f ./core/Hero/index.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
-echo -ne " HerroBanner:  "
+
+echo "Checking HeroBanner..."
+echo -ne " HeroBanner.js:  "
 if [ ! -f ./core/HeroBanner/HeroBanner.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
-echo -ne " HerroBanner index:  "
+echo -ne " index.js:  "
 if [ ! -f ./core/HeroBanner/index.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
-echo -ne "  ChannelValue: "
+
+echo "Checking Channel Value..."
+echo -ne "  ChannelValue.js: "
 if [ ! -f ./core/ChannelValue/ChannelValue.js  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
-echo -ne "  ChannelValue index: "
+echo -ne "  index.js: "
 if [ ! -f ./core/ChannelValue/index.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
 echo -e "\r\n${GREEN}-----------------------------------"
-echo -e "React Custom packages successfully created"
+echo -e "@pxblue/react-components package successfully created"
 echo -e "-----------------------------------${NC}\r\n\r\n"
 
 exit 0
