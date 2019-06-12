@@ -13,7 +13,7 @@ if [ ! -f ./README.md ]; then echo -e "${RED}Not Found${NC}" && exit 1; else ech
 echo -ne "  license: "
 if [ ! -f ./LICENSE ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
-echo "Checking Theme (Angular)"
+echo "Checking Custom Component (Angular)"
 echo "Checking for required files..."
 echo -ne "  package.json: "
 if [ ! -f ./package.json ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
