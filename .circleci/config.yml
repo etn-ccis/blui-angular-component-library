@@ -7,6 +7,59 @@ jobs:
       - checkout
       - restore_cache:
           keys:
+          - v1-dependencies-{{ checksum "./angular/package.json" }}-{{ checksum "./react/component/package.json" }}
+          - v1-dependencies-
+      - run: 
+          name: Install Dependencies
+          command: |
+            cd react
+            yarn build
+            cd ../angular
+            yarn install
+            cd ..
+      - save_cache:
+          paths:
+            - node_modules
+            - react/component/node_modules
+            - angular/node_modules
+          key: v1-dependencies-{{ checksum "./angular/package.json" }}-{{ checksum "./react/component/package.json" }}
+      - run:
+          name: Build Packages
+          command: yarn build
+      - run:
+          name: Test progress icon utility functions
+          command: |
+            cd react
+            yarn test
+            cd ../angular
+            yarn test
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+version: 2
+jobs:
+  build:
+    docker: 
+      - image: circleci/node:8.11-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
           - v1-dependencies-{{ checksum "./angular/package.json" }}-{{ checksum "./react/components/package.json" }}
           - v1-dependencies-
       - run: 
@@ -17,9 +70,6 @@ jobs:
             cd ../angular
             yarn install
             cd ..
-      - run:
-          name: Build Packages
-          commmand: yarn build
       - save_cache:
           paths:
             - node_modules
