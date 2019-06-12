@@ -3,12 +3,12 @@ jobs:
   build:
     docker: 
       - image: circleci/node:8.11-browsers
-      steps:
+    steps:
       - checkout
       - restore_cache:
-          keys:
-          - v1-dependencies-{{ checksum "package.json" }}-{{ checksum "./angular/package.json" }}-{{ checksum "./react/components/package.json" }}
-          - v1-dependencies-
+        keys:
+            - v1-dependencies-{{ checksum "package.json" }}-{{ checksum "./angular/package.json" }}-{{ checksum "./react/components/package.json" }}
+             - v1-dependencies-
       - run: 
           name: Install Dependencies
           command: |
