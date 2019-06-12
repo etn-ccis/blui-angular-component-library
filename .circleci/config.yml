@@ -18,6 +18,7 @@ jobs:
       - run:
           name: Test component's utility functions
           command: |
-           
-            cd ./angular
+            cd react
+            yarn test
+            cd ../angular
             yarn test
