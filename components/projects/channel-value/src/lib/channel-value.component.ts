@@ -13,7 +13,7 @@ import { Component, OnInit, ViewEncapsulation  } from '@angular/core';
     </span>
   `,
   styleUrls: ['./channel-value.component.scss'], 
-  inputs: [ 'divider', 'fontSize', 'color', 'value', 'units', 'prefix' ],
+  inputs: [ 'fontSize', 'color', 'value', 'units', 'prefix' ],
   
 })
 export class ChannelValueComponent implements OnInit {

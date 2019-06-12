@@ -6,6 +6,8 @@ import {HttpClientModule} from '@angular/common/http';
 
 //pxblue modules
 import { NgProgressIconsModule } from '@pxblue/ng-progress-icons';
+import { HeroModule } from '@pxblue/angular-components/core/hero';
+import { ChannelValueModule } from '@pxblue/angular-components/core/channel-value';
 
 //material modules
 import {MatDividerModule} from '@angular/material/divider'; 
@@ -14,8 +16,7 @@ import { FormsModule } from '@angular/forms';
 import {MatListModule} from '@angular/material/list'; 
 import {MatCardModule} from '@angular/material/card'; 
 import { AppComponent } from './app.component';
-import { HeroModule } from '@pxblue/angular-components/core/hero';
-import { ChannelValueModule } from '@pxblue/angular-components/core/channel-value';
+
 
 @NgModule({
   declarations: [
@@ -23,8 +24,6 @@ import { ChannelValueModule } from '@pxblue/angular-components/core/channel-valu
   ],
   imports: [
     BrowserModule,
-    ChannelValueModule,
-    HeroModule,
     FormsModule,
     MatDividerModule,
     MatIconModule,
@@ -33,6 +32,8 @@ import { ChannelValueModule } from '@pxblue/angular-components/core/channel-valu
     HttpClientModule,
     //pxblue
     NgProgressIconsModule,
+    ChannelValueModule,
+    HeroModule,
   
   ],
   providers: [],
