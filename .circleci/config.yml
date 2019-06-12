@@ -9,7 +9,7 @@ jobs:
           name: Install Dependencies
           command: |
             cd react
-            yarn install
+            yarn build
             cd ../angular
             yarn install
             cd ..
