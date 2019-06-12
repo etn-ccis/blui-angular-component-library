@@ -6,11 +6,8 @@
     "test": "cd components && yarn test",
     "test:artifacts": "bash ./buildTest.sh",
     "build": "cd components && yarn && yarn build",
-    "link:components": "yarn link:components:mac",
-    "link:components:mac": "./linkComponents.sh",
-    "link:components:win": "\"%ProgramFiles%/Git/bin/bash.exe\" ./linkComponents.sh",
-    "start": "cd component-demo && yarn && cd .. && yarn link:components && cd component-demo && yarn start",
-    "start:win": "cd component-demo && yarn && cd .. && yarn link:components:win && cd component-demo && yarn start"
+    "link:components": "bash ./linkComponents.sh",
+    "start": "cd component-demo && yarn && cd .. && yarn link:components && cd component-demo && yarn start"
   },
   "repository": {
     "type": "git",
@@ -30,10 +27,5 @@
   "main": "index.js",
   "directories": {
     "doc": "docs"
-  },
-  "dependencies": {
-    "@babel/preset-env": "^7.4.5",
-    "@babel/preset-react": "^7.0.0",
-    "jest": "^24.8.0"
   }
 }
