@@ -1,0 +1,52 @@
+version: 2
+jobs:
+  build:
+    docker: 
+      - image: circleci/node:8.11-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-dependencies-react-{{ checksum "./react/components/package.json" }}
+          - v1-dependencies-react-
+          - v1-dependencies-angular-{{ checksum "./angular/package.json" }}
+          - v1-dependencies-angular-
+      - run: 
+          name: Install Dependencies
+          command: |
+            cd react/components
+            yarn install
+            cd ../../angular
+            yarn install
+            cd ..
+      - save_cache:
+          name: Save Cache (Angular)
+          paths:
+            - angular/node_modules
+          key: v1-dependencies-angular-{{ checksum "./angular/package.json" }}
+      - save_cache:
+          name: Save Cache (React)
+          paths:
+            - react/component/node_modules
+          key: v1-dependencies-react-{{ checksum "./react/components/package.json" }}        
+      - run:
+          name: Build Packages
+          command: |
+            cd react
+            yarn build
+            cd ../angular
+            yarn build
+      - run:
+          name: Unit Test
+          command: |
+            cd react
+            yarn test
+            cd ../angular
+            yarn test
+      - run:
+          name: Verify Build Artifacts
+          command: |
+            cd react
+            yarn test:artifacts
+            cd ../angular
+            yarn test
