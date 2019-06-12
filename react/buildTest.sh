@@ -16,7 +16,7 @@ echo "Checking for required files..."
 echo -ne "  package.json: "
 if [ ! -f ./package.json ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 echo -ne "  readme: "
-if [ ! -f ./Readme.md ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+if [ ! -f ./README.md ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 echo -ne "  Hero: "
 if [ ! -f ./core/Hero/Hero.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 echo -ne "  Hero index: "
