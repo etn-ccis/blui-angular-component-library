@@ -17,6 +17,9 @@ jobs:
             cd ../angular
             yarn install
             cd ..
+      - run:
+          name: Build Packages
+          commmand: yarn build
       - save_cache:
           paths:
             - node_modules
