@@ -48,7 +48,7 @@ export default ({ ...props }) => (
             </HeroBanner>
             <ListItem divider>
                 <ListItemIcon><Leaf/></ListItemIcon>
-                <ListItemText primary={'Status'} primaryTypographyProps={{color: 'inherit'}}></ListItemText>
+                <ListItemText style={{paddingLeft: 0}} primary={'Status'} primaryTypographyProps={{color: 'inherit'}}></ListItemText>
                 <ListItemText 
                     style={{padding: 0}}
                     primary={<ChannelValue value={'Online, ESS+'} />} 
@@ -57,7 +57,7 @@ export default ({ ...props }) => (
             </ListItem>
             <ListItem divider>
                 <ListItemIcon><VoltageCircled/></ListItemIcon>
-                <ListItemText primary={'Input Voltage'} primaryTypographyProps={{color: 'inherit'}}></ListItemText>
+                <ListItemText style={{paddingLeft: 0}} primary={'Input Voltage'} primaryTypographyProps={{color: 'inherit'}}></ListItemText>
                 <ListItemText 
                     style={{padding: 0}}
                     primary={
@@ -70,7 +70,7 @@ export default ({ ...props }) => (
             </ListItem>
             <ListItem divider style={{color: Colors.red['500']}}>
                 <ListItemIcon style={{color: 'inherit'}}><VoltageCircled /></ListItemIcon>
-                <ListItemText primary={'Output Voltage'} primaryTypographyProps={{color: 'inherit'}}></ListItemText>
+                <ListItemText style={{paddingLeft: 0}} primary={'Output Voltage'} primaryTypographyProps={{color: 'inherit'}}></ListItemText>
                 <ListItemText 
                     style={{padding: 0}}
                     primary={
@@ -83,7 +83,7 @@ export default ({ ...props }) => (
             </ListItem>
             <ListItem divider>
                 <ListItemIcon><CurrentCircled/></ListItemIcon>
-                <ListItemText primary={'Output Current'} primaryTypographyProps={{color: 'inherit'}}></ListItemText>
+                <ListItemText style={{paddingLeft: 0}} primary={'Output Current'} primaryTypographyProps={{color: 'inherit'}}></ListItemText>
                 <ListItemText 
                     style={{padding: 0}}
                     primary={
@@ -96,7 +96,7 @@ export default ({ ...props }) => (
             </ListItem>
             <ListItem>
                 <ListItemIcon><Temp/></ListItemIcon>
-                <ListItemText primary={'Temperature'} primaryTypographyProps={{color: 'inherit'}}></ListItemText>
+                <ListItemText style={{paddingLeft: 0}} primary={'Temperature'} primaryTypographyProps={{color: 'inherit'}}></ListItemText>
                 <ListItemText 
                     style={{padding: 0}}
                 primary={<ChannelValue icon={<Trend nativeColor={Colors.red[500]}/>} value={68} units={'°F'} />}

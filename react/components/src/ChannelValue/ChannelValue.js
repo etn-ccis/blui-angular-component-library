@@ -17,7 +17,7 @@ class ChannelValue extends React.Component {
     );
   }
   changeIconDisplay(icon){
-    return React.cloneElement(icon, {style: Object.assign({},icon.props.style,{display: 'block'})});
+    return React.cloneElement(icon, {style: Object.assign({},icon.props.style,{display: 'block', fontSize: 'inherit'})});
   }
 
   render(){
@@ -61,7 +61,8 @@ const styles = (theme) => ({
   },
   icon:{
     marginRight: 4, 
-    display: 'inline'
+    display: 'inline',
+    fontSize: 'inherit'
   },
   text: {
     fontSize: 'inherit',

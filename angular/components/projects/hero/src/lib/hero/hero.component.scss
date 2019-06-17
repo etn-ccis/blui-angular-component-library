@@ -39,6 +39,7 @@
 // Channel Value Styles
 .channel-value {
   display: flex;
+  color: map-get($pxb-gray, 800);
 }
 
 // Label Styles
