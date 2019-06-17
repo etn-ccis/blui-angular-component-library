@@ -6,7 +6,7 @@
     "scripts": {
         "test": "cd ./components && ng test --watch=false",
         "test:artifacts": "bash ./buildTest.sh",
-        "build": "bash ./buildComponents.sh",
+        "build": "yarn && bash ./buildComponents.sh",
         "link:components": "bash ./linkComponents.sh",
         "start": "cd component-demo && yarn && cd .. && yarn link:components && cd component-demo && yarn start --open"
     },
@@ -15,7 +15,8 @@
         "@angular/material": "^7.2.0",
         "@angular/cdk": "^7.2.0",
         "@pxblue/themes": "^2.0.2",
-        "@pxblue/colors": "^1.0.13"
+        "@pxblue/colors": "^1.0.13",
+        "typeface-open-sans": "^0.0.54"
     },
     "dependencies": {
         "@angular/animations": "~7.2.0",
@@ -58,6 +59,7 @@
         "tsickle": ">=0.34.0",
         "tslib": "^1.9.0",
         "tslint": "~5.11.0",
+        "typeface-open-sans": "^0.0.54",
         "typescript": "~3.2.2"
     },
     "repository": {
