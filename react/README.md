@@ -12,7 +12,7 @@ To install the PX Blue react components from NPM as a dependency for your projec
 ```
 yarn add @pxblue/react-components
 ```
-> **NOTE**: This install command will not work until the component libraries are published to NPM. Until then you will need to follow the manual linking instructions - see below.
+> **NOTE**: This install command will install the package from NPM. If you are a PX Blue developer working with components locally, you will want to follow the manual linking instructions - see below.
 
 
 ## Building the Library
