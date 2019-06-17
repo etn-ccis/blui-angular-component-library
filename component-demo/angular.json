@@ -27,7 +27,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/typeface-open-sans"
             ],
             "scripts": []
           },
@@ -83,7 +84,8 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.scss"
+              "src/styles.scss",
+              "./node_modules/typeface-open-sans"
             ],
             "scripts": [],
             "assets": [
