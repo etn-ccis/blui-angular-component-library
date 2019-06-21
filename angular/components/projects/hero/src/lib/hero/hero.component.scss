@@ -16,6 +16,7 @@
 .icon {
   margin-bottom: 10px;
   text-align: center;
+  color: map-get($pxb-gray, 800);
 }
 :host ::ng-deep .icon mat-icon {
   display: block;
