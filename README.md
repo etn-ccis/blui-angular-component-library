@@ -18,6 +18,8 @@ yarn add @pxblue/react-components
 > **NOTE**: This install command will not work until the component libraries are published to NPM. Until then you will need to follow the manual linking instructions.
 
 ### Angular
+> **NOTE**: Currently this package will support for the projects that are using Angular CLI version 7 and is not available for the projects using Angular CLI version other than 7
+
 To install the PX Blue angular components from NPM as a dependency for your project, you can run the following command in your project root:
 ```
 yarn add @pxblue/angular-components
