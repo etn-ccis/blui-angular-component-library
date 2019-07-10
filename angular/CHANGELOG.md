@@ -1,4 +1,6 @@
 # Change Log
+## v1.1.0
+Enable support for Angular 7+ 
 
 ## v1.0.0
 Angular 7-compatible components
