@@ -6,14 +6,14 @@ Currently, we have components available for:
 * Hero
 * HeroBanner
 
-> **NOTE**: These components are only compatible with Angular 7 projects. We are currently working on providing compatibility with the latest versions of Angular.
-
 ## Installation
 To install the PX Blue angular components from NPM as a dependency for your project, you can run the following command in your project root:
 ```
 yarn add @pxblue/angular-components
 ```
 > **NOTE**: This install command will install the package from NPM. If you are a PX Blue developer working with components locally, you will want to follow the manual linking instructions - see below.
+
+> **NOTE**: This component library requires that your application have @pxblue/themes and @angular/material installed.
 
 
 ## Building the Library
