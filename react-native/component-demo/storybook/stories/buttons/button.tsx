@@ -6,4 +6,6 @@ storiesOf('Buttons', module).add('React Native Button', () => (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
         <Button title={'Press Me!'} onPress={() => {}} color={'blue'}/>
     </View>
-));
+    ), {
+        notes: 'This is just a button.'
+});
