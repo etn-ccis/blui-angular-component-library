@@ -33,6 +33,8 @@
     "@types/storybook__addon-links": "^3.3.5",
     "@types/storybook__react": "^4.0.2",
     "@types/storybook__react-native": "^3.0.5",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
     "babel-jest": "^24.8.0",
     "babel-loader": "^8.0.6",
     "eslint": "^6.1.0",
