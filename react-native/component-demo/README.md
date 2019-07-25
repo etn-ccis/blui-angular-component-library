@@ -1,6 +1,25 @@
 # Component Demo (React Native)
 This application demonstrates the available custom components using [Storybook](https://storybook.js.org/) and can be used as a sandbox during development/testing.
 
+## Getting Started
+
+### General
+
+Dependencies must be installed before launching the app. This can be done by running `yarn install`.
+
+### Android
+
+To launch the app during development, a debug keystore is required. This is *not* committed to version control, and must therefore be created after pulling the repository. The steps are:
+1. Run `keytool -genkey -v -keystore debug.keystore`
+1. Follow the prompts
+1. Move `debug.keystore` into `android/app/`
+
+### iOS
+
+Launching on iOS requires that cocoapods be installed. To do so:
+1. Navigate to `ios/`
+1. Run `pod install`
+
 ## Running the Demo
 To run the demo app, run the following commands for each platform:
 * iOS: `yarn ios`
