@@ -2,15 +2,20 @@
   "name": "@pxblue/react-native-components",
   "version": "0.1.0",
   "description": "Reusable React Native components for PX Blue applications",
-  "main": "index.ts",
   "repository": "https://github.com/pxblue/react-native-components",
   "license": "BSD-3-Clause",
+  "main": "dist/index.js",
+  "types" : "dist/index.d.ts",
+  "scripts": {
+    "build": "rm -rf ./dist && tsc"
+  },
   "dependencies": {
     "@types/react-native": "^0.60.2",
     "react": "^16.8.6",
     "react-native": "^0.60.4"
   },
   "devDependencies": {
-    "@types/react": "^16.8.23"
+    "@types/react": "^16.8.23",
+    "typescript": "^3.5.3"
   }
 }
