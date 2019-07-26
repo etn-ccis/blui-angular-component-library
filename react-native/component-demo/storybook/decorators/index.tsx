@@ -9,3 +9,9 @@ export const centeredBordered = (storyFn: any) => (
     </View>
   </View>
 );
+export const framedRow = (storyFn: any) =>
+  <View style={{ justifyContent: 'center', height: '100%' }}>
+    <View style={{ height: 2, backgroundColor: '#dddddd', flex: 1 }} />
+    {storyFn()}
+    <View style={{ height: 2, backgroundColor: '#dddddd', flex: 1 }} />
+  </View>;
