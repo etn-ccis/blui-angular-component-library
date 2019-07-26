@@ -12,16 +12,17 @@ const notes = {
 storiesOf('InfoListItem', module)
   .addDecorator(withKnobs)
   .addDecorator(framedRow)
-  .add('with only required props', () => (
+  .add('without the fancy stuff', () => (
     <InfoListItem
-      title={text('title', 'test')}
+      title={text('title', 'Test')}
+      subtitle={text('subtitle', 'A simpler view')}
     />
   ), notes)
   .add('with all props', () => (
     <InfoListItem
-      title={text('title', 'test')}
+      title={text('title', 'Test')}
       icon={<Leaf fill="#9944cc" width={24} height={24} />}
       subtitle={text('subtitle', 'the subtitle can be text or a list of elements')}
-      tabColor={color('tabColor', '#4455cc')}
+      color={color('tabColor', '#4455cc')}
     />
   ), notes);
