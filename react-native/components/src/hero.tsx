@@ -3,24 +3,36 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ChannelValue } from './channel-value';
 import * as Colors from '@pxblue/colors';
 
-enum FontSize {
-  Normal = 'NORMAL',
-  Small = 'SMALL'
-}
-
 export interface HeroProps {
+  /** Label to show */
   label: string;
+
+  /** Primary icon */
   icon: React.ReactNode;
-  iconSize?: string | number;
+
+  /** Value for ChannelValue child */
   value?: number | string;
+
+  /** Icon for ChannelValue child */
   valueIcon?: React.ReactNode;
+
+  /** Units for value of ChannelValue child */
   units?: string;
+
+  /** Callback for onPress event  */
   onPress?: () => void;
 }
 
+/**
+ * Hero component
+ *
+ * Used to call attention to particular values of importance to the user.
+ * An arbitrary value, value icon, and units may be added,
+ * or <ChannelValue/> components may be passed as children.
+ */
 export class Hero extends Component<HeroProps> {
   public render() {
-    const {label, icon, iconSize = 36, value, valueIcon, units, onPress, children} = this.props;
+    const {label, icon, value, valueIcon, units, onPress, children} = this.props;
     return (
       <TouchableOpacity onPress={onPress} disabled={!onPress} style={styles.wrapper}>
         <View style={styles.icon}>

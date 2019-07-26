@@ -23,9 +23,9 @@ export interface ChannelValueProps {
 
 /**
  * ChannelValue component
- * 
+ *
  * Used to show a channel value and its units.
- * An arbitrary icon may added
+ * An arbitrary icon may be added
  */
 export class ChannelValue extends Component<ChannelValueProps> {
   public render() {
