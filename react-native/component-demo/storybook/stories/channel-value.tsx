@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { View } from 'react-native';
 import { ChannelValue } from '@pxblue/react-native-components';
-import { text, withKnobs, boolean, select, number, color } from '@storybook/addon-knobs';
+import { text, withKnobs, boolean, number, color } from '@storybook/addon-knobs';
 import Leaf from '@pxblue/icons-svg/leaf.svg';
 
 const notes = {
