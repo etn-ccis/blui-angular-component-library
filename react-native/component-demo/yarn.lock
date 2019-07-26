@@ -1015,6 +1015,11 @@
     "@types/istanbul-reports" "^1.1.1"
     "@types/yargs" "^12.0.9"
 
+"@pxblue/colors@^1.0.13":
+  version "1.0.13"
+  resolved "https://registry.yarnpkg.com/@pxblue/colors/-/colors-1.0.13.tgz#1ed76734267f77dd4b390836f61d01439fc35132"
+  integrity sha512-tneNNYclHmNNIbo6J7XXEumoJZLBXqeO2LFufWxRvIs5yeVVfaJN3zWREl1oo5KP67aDixYgEKB7LH0oeTL+lQ==
+
 "@pxblue/icons-svg@^1.0.15":
   version "1.0.15"
   resolved "https://registry.yarnpkg.com/@pxblue/icons-svg/-/icons-svg-1.0.15.tgz#04c1a08f9f7cb587ea9a4f44d905d87fd405fbfb"

@@ -10,6 +10,7 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@pxblue/colors": "^1.0.13",
     "@pxblue/icons-svg": "^1.0.15",
     "react": "16.8.6",
     "react-native": "0.60.4",
