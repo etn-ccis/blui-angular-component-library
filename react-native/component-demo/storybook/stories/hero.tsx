@@ -17,10 +17,15 @@ storiesOf('Hero', module)
     <Hero label={'Leaf'} icon={icon}/>
   ))
   .add('with value', () => (
-    <Hero label={'Leaf'} icon={icon} value={100}/>
+    <Hero label={'Leaf'} icon={icon} value={text('value', '100')}/>
   ))
   .add('with value and units', () => (
-    <Hero label={'Leaf'} icon={icon} value={100} units={'leaves'}/>
+    <Hero
+      label={'Leaf'}
+      icon={icon}
+      value={text('value', '100')}
+      units={text('units', 'leaves')}
+    />
   ))
   .add('material icon with all props', () => (
     <Hero
