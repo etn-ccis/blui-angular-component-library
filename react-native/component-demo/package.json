@@ -14,7 +14,8 @@
     "@pxblue/icons-svg": "^1.0.15",
     "react": "16.8.6",
     "react-native": "0.60.4",
-    "react-native-svg": "^9.5.3"
+    "react-native-svg": "^9.5.3",
+    "react-native-vector-icons": "^6.6.0"
   },
   "devDependencies": {
     "@babel/core": "^7.5.5",
@@ -30,6 +31,7 @@
     "@types/jest": "^24.0.15",
     "@types/react": "^16.8.23",
     "@types/react-native": "^0.60.2",
+    "@types/react-native-vector-icons": "^6.4.1",
     "@types/react-test-renderer": "^16.8.3",
     "@types/storybook__addon-actions": "^3.4.3",
     "@types/storybook__addon-knobs": "^5.0.3",

@@ -12,7 +12,6 @@ export interface HeroProps {
   label: string;
   icon: React.ReactNode;
   iconSize?: string | number;
-  // fontSize?: FontSize;
   value?: number | string;
   valueIcon?: React.ReactNode;
   units?: string;
@@ -24,7 +23,9 @@ export class Hero extends Component<HeroProps> {
     const {label, icon, iconSize = 36, value, valueIcon, units, onPress, children} = this.props;
     return (
       <TouchableOpacity onPress={onPress} disabled={!onPress} style={styles.wrapper}>
-        {icon}
+        <View style={styles.icon}>
+          {icon}
+        </View>
         <View style={styles.values}>
           {!children && value &&
             <ChannelValue value={value} units={units} icon={valueIcon}/>
@@ -35,14 +36,6 @@ export class Hero extends Component<HeroProps> {
       </TouchableOpacity>
     )
   }
-
-  // private fontSize() {
-  //   const { fontSize } = this.props;
-  //   switch (fontSize) {
-  //     case FontSize.Normal: return 12;
-  //     case FontSize.Small: return 8;
-  //   }
-  // }
 }
 
 const styles = StyleSheet.create({
@@ -52,6 +45,14 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingVertical: 16,
     paddingHorizontal: 8
+  },
+  icon: {
+    marginBottom: 10,
+    alignItems: 'center',
+    justifyContent: 'center',
+    overflow: 'hidden',
+    height: 36,
+    width: 36
   },
   values: {
     alignItems: 'center',
