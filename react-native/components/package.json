@@ -12,6 +12,8 @@
     "test": "jest"
   },
   "dependencies": {
+    "@pxblue/colors": "^1.0.13",
+    "@types/react-native": "^0.60.2",
     "react": "^16.8.6",
     "react-native": "^0.60.4"
   },
