@@ -75,6 +75,7 @@ const styles = StyleSheet.create({
     fontWeight: '600',
     width: '100%',
     overflow: 'hidden',
-    color: Colors.gray['500']
+    color: Colors.gray['500'],
+    textAlign: 'center'
   }
 });
