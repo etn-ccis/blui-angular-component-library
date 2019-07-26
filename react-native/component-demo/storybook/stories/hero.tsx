@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import { withKnobs } from '@storybook/addon-knobs';
+import { text, withKnobs } from '@storybook/addon-knobs';
 import { centered } from '../decorators';
 import { Hero } from '@pxblue/react-native-components';
 import Leaf from '@pxblue/icons-svg/leaf.svg';
@@ -22,6 +22,12 @@ storiesOf('Hero', module)
   .add('with value and units', () => (
     <Hero label={'Leaf'} icon={icon} value={100} units={'leaves'}/>
   ))
-  .add('material icon with value, value icon, and units', () => (
-    <Hero label={'No Clouds'} icon={cloud} value={100} units={'°C'} valueIcon={line}/>
+  .add('material icon with all props', () => (
+    <Hero
+      label={'No Clouds'}
+      icon={cloud}
+      value={text('value', '100')}
+      units={text('units', '°C')}
+      valueIcon={line}
+    />
   ));

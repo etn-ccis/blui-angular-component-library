@@ -39,7 +39,7 @@ export class Hero extends Component<HeroProps> {
           {icon}
         </View>
         <View style={styles.values}>
-          {!children && value &&
+          {!children && !!value &&
             <ChannelValue value={value} units={units} icon={valueIcon}/>
           }
           {children}
