@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import * as Colors from '@pxblue/colors';
 
@@ -36,11 +36,42 @@ export class InfoListItem extends Component<InfoListItemProps> {
 
   private subtitle() {
     const { subtitle } = this.props;
-    const { withGrayText } = styles;
+    const { smallText, withGrayText } = styles;
 
+    if (typeof subtitle === 'string') {
+      return (
+        <Text style={[smallText, withGrayText]}>{subtitle}</Text>
+      );
+    } else if (subtitle !== undefined) {
+      return this.separate(subtitle.map(element =>
+        (typeof element) === 'string'
+          ? <Text style={[smallText, withGrayText]}>{element}</Text>
+          : element
+      ));
+    }
+  }
+
+  private separate(array: Array<React.ReactNode>) {
+    const output: Array<React.ReactNode> = [];
+
+    array.forEach(element => {
+      if (output.length) {
+        output.push(this.interpunct(output.length));
+      }
+
+      output.push(<Fragment key={output.length}>{element}</Fragment>);
+    })
+    
+    return output;
+  }
+
+  private interpunct(key: number) {
+    const { bold, withGrayText, withSmallMargins } = styles;
     return (
-      <Text style={withGrayText}>{subtitle}</Text>
-    );
+      <Text key={key} style={[bold, withGrayText, withSmallMargins]}>
+        {'\u00B7'}
+      </Text>
+    )
   }
 }
 
@@ -49,10 +80,16 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center'
   },
+  bold: {
+    fontWeight: '900'
+  },
   bigText: {
     fontSize: 16,
     fontWeight: '600',
     lineHeight: 24
+  },
+  smallText: {
+    fontSize: 13
   },
   iconContainer: {
 
@@ -66,6 +103,9 @@ const styles = StyleSheet.create({
   withMargins: {
     marginHorizontal: 12
   },
+  withSmallMargins: {
+    marginHorizontal: 4
+  },
   fullHeight: {
     height: '100%'
   },
@@ -73,6 +113,6 @@ const styles = StyleSheet.create({
     height: 72
   },
   withGrayText: {
-    color: Colors.gray[700]
+    color: Colors.gray[600]
   }
 });

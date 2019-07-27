@@ -25,4 +25,12 @@ storiesOf('InfoListItem', module)
       subtitle={text('subtitle', 'the subtitle can be text or a list of elements')}
       color={color('tabColor', '#4455cc')}
     />
+  ), notes)
+  .add('array for subtitles', () => (
+    <InfoListItem
+      title={text('title', 'Test')}
+      icon={<Leaf fill="#9944cc" width={24} height={24} />}
+      subtitle={['4', <Leaf width={12} height={12} />, 'leaves']}
+      color={color('tabColor', '#4455cc')}
+    />
   ), notes);
