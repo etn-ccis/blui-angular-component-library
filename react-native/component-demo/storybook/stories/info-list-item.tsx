@@ -4,6 +4,7 @@ import { InfoListItem } from '@pxblue/react-native-components';
 import { text, withKnobs, color } from '@storybook/addon-knobs';
 import { framedRow } from '../decorators';
 import Leaf from '@pxblue/icons-svg/leaf.svg';
+import { FlatList } from 'react-native';
 
 const notes = {
   notes: 'The borders are NOT part of the component; they are provided for framing only. Any React Element may be passed in as `icon`; if using an svg, its color and size are not controlled by `ChannelValue`'

@@ -49,7 +49,7 @@ export class InfoListItem extends Component<InfoListItemProps> {
         </Text>
       );
     } else if (subtitle !== undefined) {
-      const elements = subtitle
+      const elements = [...subtitle]
         .splice(0, InfoListItem.MAX_SUBTITLE_ELEMENTS)
         .map(element =>
           (typeof element) === 'string'
@@ -58,6 +58,12 @@ export class InfoListItem extends Component<InfoListItemProps> {
         );
 
       return this.separate(elements);
+    } else {
+      return (
+        <Text numberOfLines={1} style={[smallText, withGrayText]} ellipsizeMode="tail">
+          {subtitle}
+        </Text>
+      );
     }
   }
 
