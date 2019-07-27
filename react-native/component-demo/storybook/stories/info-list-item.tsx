@@ -26,6 +26,14 @@ storiesOf('InfoListItem', module)
       color={color('tabColor', '#4455cc')}
     />
   ), notes)
+  .add('with long text', () => (
+    <InfoListItem
+      title={text('title', 'This is a really really really really really really really really long title')}
+      icon={<Leaf fill="#9944cc" width={24} height={24} />}
+      subtitle={text('subtitle', 'this is a really really really really really really really really really really long subtitle')}
+      color={color('tabColor', '#4455cc')}
+    />
+  ), notes)
   .add('array for subtitles', () => (
     <InfoListItem
       title={text('title', 'Test')}

@@ -24,7 +24,9 @@ export class InfoListItem extends Component<InfoListItemProps> {
             {icon}
           </View>
           <View style={contentContainer}>
-            <Text style={[bigText, { color: titleColor }]}>{title}</Text>
+            <Text style={[bigText, { color: titleColor }]} numberOfLines={1} ellipsizeMode="tail">
+              {title}
+            </Text>
             <View style={row}>
               {this.subtitle()}
             </View>
@@ -40,7 +42,9 @@ export class InfoListItem extends Component<InfoListItemProps> {
 
     if (typeof subtitle === 'string') {
       return (
-        <Text style={[smallText, withGrayText]}>{subtitle}</Text>
+        <Text numberOfLines={1} style={[smallText, withGrayText]} ellipsizeMode="tail">
+          {subtitle}
+        </Text>
       );
     } else if (subtitle !== undefined) {
       return this.separate(subtitle.map(element =>
@@ -95,7 +99,8 @@ const styles = StyleSheet.create({
 
   },
   contentContainer: {
-
+    flex: 1,
+    paddingRight: 10
   },
   tab: {
     width: 6
