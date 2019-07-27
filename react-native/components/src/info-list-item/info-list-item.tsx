@@ -11,6 +11,8 @@ export interface InfoListItemProps {
 }
 
 export class InfoListItem extends Component<InfoListItemProps> {
+  private static readonly MAX_SUBTITLE_ELEMENTS = 3;
+
   public render() {
     const { title, icon, color, onPress } = this.props;
     const { bigText, fixedHeight, row, fullHeight, tab, iconContainer, contentContainer, withMargins } = styles;
@@ -47,11 +49,15 @@ export class InfoListItem extends Component<InfoListItemProps> {
         </Text>
       );
     } else if (subtitle !== undefined) {
-      return this.separate(subtitle.map(element =>
-        (typeof element) === 'string'
-          ? <Text style={[smallText, withGrayText]}>{element}</Text>
-          : element
-      ));
+      const elements = subtitle
+        .splice(0, InfoListItem.MAX_SUBTITLE_ELEMENTS)
+        .map(element =>
+          (typeof element) === 'string'
+            ? <Text style={[smallText, withGrayText]}>{element}</Text>
+            : element
+        );
+
+      return this.separate(elements);
     }
   }
 
