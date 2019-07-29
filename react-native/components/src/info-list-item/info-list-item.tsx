@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import * as Colors from '@pxblue/colors';
+import { interleave } from '../helpers/utils';
 
 export interface InfoListItemProps {
   title: string;
@@ -48,51 +49,47 @@ export class InfoListItem extends Component<InfoListItemProps> {
 
   private subtitle() {
     const { subtitle } = this.props;
-    const { smallText, withGrayText } = styles;
 
-    if (typeof subtitle === 'string') {
-      return (
-        <Text numberOfLines={1} style={[smallText, withGrayText]} ellipsizeMode="tail">
-          {subtitle}
-        </Text>
-      );
-    } else if (subtitle !== undefined) {
-      const elements = [...subtitle]
-        .splice(0, InfoListItem.MAX_SUBTITLE_ELEMENTS)
-        .map(element =>
-          (typeof element) === 'string'
-            ? <Text style={[smallText, withGrayText]}>{element}</Text>
-            : element
-        );
-
-      return this.separate(elements);
-    } else {
-      return (
-        <Text numberOfLines={1} style={[smallText, withGrayText]} ellipsizeMode="tail">
-          {subtitle}
-        </Text>
-      );
+    if (!subtitle) {
+      return null;
     }
+
+    const subtitleParts = Array.isArray(subtitle) ? [...subtitle] : [subtitle];
+    const renderableSubtitleParts = subtitleParts
+      .splice(0, InfoListItem.MAX_SUBTITLE_ELEMENTS)
+      .map(element => this.renderableComponent(element));
+    
+    return this.withKeys(this.separate(renderableSubtitleParts));
   }
 
   private separate(array: Array<React.ReactNode>) {
-    const output: Array<React.ReactNode> = [];
-
-    array.forEach(element => {
-      if (output.length) {
-        output.push(this.interpunct(output.length));
-      }
-
-      output.push(<Fragment key={output.length}>{element}</Fragment>);
-    })
-    
-    return output;
+    return interleave(array, () => this.interpunct());
   }
 
-  private interpunct(key: number) {
+  private withKeys(array: Array<React.ReactNode>) {
+    return array.map((element, index) => (
+      <Fragment key={index}>{element}</Fragment>
+    ))
+  }
+
+  private renderableComponent(element: React.ReactNode) {
+    const { smallText, withGrayText } = styles;
+
+    switch (typeof element) {
+      case 'string':
+      case 'number':
+        return (
+          <Text style={[smallText, withGrayText]}>{`${element}`}</Text>
+        );
+      default:
+        return element;
+    }
+  }
+
+  private interpunct() {
     const { bold, withGrayText, withSmallMargins } = styles;
     return (
-      <Text key={key} style={[bold, withGrayText, withSmallMargins]}>
+      <Text style={[bold, withGrayText, withSmallMargins]}>
         {'\u00B7'}
       </Text>
     )
