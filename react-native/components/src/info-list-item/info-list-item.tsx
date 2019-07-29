@@ -5,10 +5,19 @@ import * as Colors from '@pxblue/colors';
 import { interleave } from '../helpers/utils';
 
 export interface InfoListItemProps {
+  /** Title to show */
   title: string;
+
+  /** Subtitle. If an array, will be separated by dots. */
   subtitle?: string | Array<React.ReactNode>;
+
+  /** Icon to render. If provided, its color and size should be set */
   icon?: React.ReactNode;
+
+  /** Color to use for title and tab on left side */
   color?: string;
+
+  /** Callback to be called on press. If provided, will add chevron on the right side of the item */
   onPress?: () => void;
 }
 
