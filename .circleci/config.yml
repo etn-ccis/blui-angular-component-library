@@ -50,3 +50,38 @@ jobs:
             yarn test:artifacts
             cd ../angular
             yarn test
+  react-native-unit-tests:
+    docker: 
+      - image: circleci/node:10.2.0-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-dependencies-react-native-{{ checksum "react-native/components/package.json" }}
+          - v1-dependencies-react-native-
+      - run: 
+          name: Install Dependencies
+          command: |
+            cd react-native/components
+            yarn install
+            cd ../..
+      - save_cache:
+          name: Save Cache
+          paths:
+            - node_modules
+          key: v1-dependencies-react-native-{{ checksum "react-native/components/package.json" }}
+      - run:
+          name: Unit Test
+          command: |
+            cd react-native/components
+            yarn test
+            cd ../..
+
+workflows:
+  version: 2
+  react-and-angular:
+    jobs:
+      - build
+  react-native:
+    jobs:
+      - react-native-unit-tests
