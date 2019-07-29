@@ -52,7 +52,7 @@ jobs:
             yarn test
   react-native-build:
     docker: 
-      - image: circleci/node:10.2.0-browsers
+      - image: circleci/node:10.13.0-browsers
     steps:
       - checkout
       - restore_cache:
@@ -76,7 +76,7 @@ jobs:
             - node_modules
   react-native-unit-tests:
     docker: 
-      - image: circleci/node:10.2.0-browsers
+      - image: circleci/node:10.13.0-browsers
     steps:
       - checkout
       - attach_workspace:
@@ -89,7 +89,7 @@ jobs:
             cd ../..
   react-native-validate-types:
     docker: 
-      - image: circleci/node:10.2.0-browsers
+      - image: circleci/node:10.13.0-browsers
     steps:
       - checkout
       - attach_workspace:
@@ -102,7 +102,7 @@ jobs:
             cd ../..
   react-native-lint:
     docker: 
-      - image: circleci/node:10.2.0-browsers
+      - image: circleci/node:10.13.0-browsers
     steps:
       - checkout
       - attach_workspace:
