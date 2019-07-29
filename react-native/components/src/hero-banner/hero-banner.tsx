@@ -10,6 +10,12 @@ export interface HeroBannerProps {
   children?: React.ReactElement | React.ReactElement[];
 }
 
+/**
+ * HeroBanner component
+ *
+ * Wrapper for 1-4 Hero components that neatly spaces
+ * and displays them in a row.
+ */
 export class HeroBanner extends React.Component<HeroBannerProps> {
   render() {
     const { divider, children } = this.props;
