@@ -3,7 +3,10 @@ import { StyleSheet, View } from 'react-native';
 import * as Colors from '@pxblue/colors';
 
 export interface HeroBannerProps {
+  /** Toggles a bottom divider */
   divider?: boolean;
+
+  /** The children components to render in the HeroBanner */
   children?: React.ReactElement | React.ReactElement[];
 }
 
