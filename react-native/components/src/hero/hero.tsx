@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { ChannelValue } from './channel-value';
+import { ChannelValue } from '../channel-value';
 import * as Colors from '@pxblue/colors';
 
 export interface HeroProps {
