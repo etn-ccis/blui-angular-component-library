@@ -79,7 +79,7 @@ export class InfoListItem extends Component<InfoListItemProps> {
       case 'string':
       case 'number':
         return (
-          <Text style={[smallText, withGrayText]}>{`${element}`}</Text>
+          <Text numberOfLines={1} style={[smallText, withGrayText]}>{`${element}`}</Text>
         );
       default:
         return element;
