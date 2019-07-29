@@ -15,12 +15,14 @@
     "@pxblue/colors": "^1.0.13",
     "@types/react-native": "^0.60.2",
     "react": "^16.8.6",
-    "react-native": "^0.60.4"
+    "react-native": "^0.60.4",
+    "react-native-vector-icons": "^6.6.0"
   },
   "devDependencies": {
     "@types/jest": "^24.0.15",
     "@types/react": "^16.8.23",
     "@types/react-native": "^0.60.2",
+    "@types/react-native-vector-icons": "^6.4.1",
     "@types/react-test-renderer": "^16.8.3",
     "jest": "^24.8.0",
     "react-test-renderer": "^16.8.6",

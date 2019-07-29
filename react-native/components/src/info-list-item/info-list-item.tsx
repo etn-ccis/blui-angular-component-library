@@ -1,5 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import * as Colors from '@pxblue/colors';
 
 export interface InfoListItemProps {
@@ -15,27 +16,34 @@ export class InfoListItem extends Component<InfoListItemProps> {
 
   public render() {
     const { title, icon, color, onPress } = this.props;
-    const { bigText, fixedHeight, row, fullHeight, tab, iconContainer, contentContainer, withMargins } = styles;
+    const { bigText, fixedHeight, row, fullHeight, tab, iconContainer, contentContainer, withMargins, withRightPadding } = styles;
     const titleColor = color || Colors.gray[800];
 
     return (
-      <TouchableOpacity onPress={onPress}>
-        <View style={[fixedHeight, row]}>
-          <View style={[fullHeight, tab, { backgroundColor: color }]} />
-          <View style={[iconContainer, withMargins]}>
-            {icon}
-          </View>
-          <View style={contentContainer}>
-            <Text style={[bigText, { color: titleColor }]} numberOfLines={1} ellipsizeMode="tail">
-              {title}
-            </Text>
-            <View style={row}>
-              {this.subtitle()}
-            </View>
+      <TouchableOpacity onPress={onPress} style={[fixedHeight, row, withRightPadding]} disabled={!onPress}>
+        <View style={[fullHeight, tab, { backgroundColor: color }]} />
+        <View style={[iconContainer, withMargins]}>
+          {icon}
+        </View>
+        <View style={contentContainer}>
+          <Text style={[bigText, { color: titleColor }]} numberOfLines={1} ellipsizeMode="tail">
+            {title}
+          </Text>
+          <View style={row}>
+            {this.subtitle()}
           </View>
         </View>
+        {this.chevron()}
       </TouchableOpacity>
     );
+  }
+
+  private chevron() {
+    if (this.props.onPress) {
+      return (
+        <Icon name="chevron-right" size={24} color={Colors.gray[700]} />
+      );
+    }
   }
 
   private subtitle() {
@@ -96,6 +104,9 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center'
   },
+  withRightPadding: {
+    paddingRight: 6
+  },
   bold: {
     fontWeight: '900'
   },
@@ -108,7 +119,7 @@ const styles = StyleSheet.create({
     fontSize: 13
   },
   iconContainer: {
-
+    width: 24
   },
   contentContainer: {
     flex: 1,
