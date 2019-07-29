@@ -1,4 +1,4 @@
-import { View } from 'react-native';
+import { SafeAreaView, View } from 'react-native';
 import React from 'react';
 
 export const centered = (storyFn: any) => <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>{storyFn()}</View>;
@@ -9,3 +9,4 @@ export const centeredBordered = (storyFn: any) => (
     </View>
   </View>
 );
+export const safeArea = (storyFn: any) => <SafeAreaView>{storyFn()}</SafeAreaView>;

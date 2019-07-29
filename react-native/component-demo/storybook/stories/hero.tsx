@@ -14,14 +14,14 @@ storiesOf('Hero', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .add('with only required props', () => (
-    <Hero label={'Leaf'} icon={icon}/>
+    <Hero label={text('label', 'Leaf')} icon={icon}/>
   ))
   .add('with value', () => (
-    <Hero label={'Leaf'} icon={icon} value={text('value', '100')}/>
+    <Hero label={text('label', 'Leaf')} icon={icon} value={text('value', '100')}/>
   ))
   .add('with value and units', () => (
     <Hero
-      label={'Leaf'}
+      label={text('label', 'Leaf')}
       icon={icon}
       value={text('value', '100')}
       units={text('units', 'leaves')}
@@ -29,7 +29,7 @@ storiesOf('Hero', module)
   ))
   .add('material icon with all props', () => (
     <Hero
-      label={'No Clouds'}
+      label={text('label', 'No Clouds')}
       icon={cloud}
       value={text('value', '100')}
       units={text('units', '°C')}
