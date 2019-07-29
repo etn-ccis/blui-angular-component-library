@@ -100,6 +100,19 @@ jobs:
             cd react-native/components
             yarn verify-build
             cd ../..
+  react-native-lint:
+    docker: 
+      - image: circleci/node:10.2.0-browsers
+    steps:
+      - checkout
+      - attach_workspace:
+          at: react-native/components
+      - run:
+          name: Lint
+          command: |
+            cd react-native/components
+            yarn lint
+            cd ../..
 
 workflows:
   version: 2
@@ -113,5 +126,8 @@ workflows:
           requires:
             - react-native-build
       - react-native-validate-types:
+          requires:
+            - react-native-build
+      - react-native-lint:
           requires:
             - react-native-build
