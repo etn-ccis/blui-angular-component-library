@@ -2,6 +2,7 @@ import React from 'react';
 import TestRenderer from 'react-test-renderer';
 import { InfoListItem } from '.';
 import { Text, View, SectionList } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const OtherComponent = () => <View />;
 
@@ -51,21 +52,51 @@ describe('InfoListItem', () => {
       });
     });
 
-    describe('truncates subtitle elements to a max of 3', () => {
-        const instance = TestRenderer.create(
-          <InfoListItem
-            title={'some title'}
-            subtitle={['a', 'b', 'c', 'd']}
-          />
+    it('truncates subtitle elements to a max of 3', () => {
+      const instance = TestRenderer.create(
+        <InfoListItem
+          title={'some title'}
+          subtitle={['a', 'b', 'c', 'd']}
+        />
+      ).root;
+
+      const textElements = instance.findAllByType(Text);
+
+      const titleCount = 1;
+      const subtitleElementCount = 3;
+      const interpunctCount = 2;
+
+      expect(textElements).toHaveLength(titleCount + subtitleElementCount + interpunctCount);
+    });
+  });
+
+  describe('onPress', () => {
+    let instance: TestRenderer.ReactTestInstance;
+    let onPress: ReturnType<typeof jest.fn>;
+
+    describe('when provided', () => {
+      beforeEach(() => {
+        onPress = jest.fn();
+        instance = TestRenderer.create(
+          <InfoListItem title={'some title'} onPress={onPress} />
         ).root;
+      });
 
-        const textElements = instance.findAllByType(Text);
+      it('shows its chevron icon', () => {
+        expect(instance.findAllByType(Icon)).toHaveLength(1);
+      });
+    });
 
-        const titleCount = 1;
-        const subtitleElementCount = 3;
-        const interpunctCount = 2;
+    describe('when provided', () => {
+      beforeEach(() => {
+        instance = TestRenderer.create(
+          <InfoListItem title={'some title'} />
+        ).root;
+      });
 
-        expect(textElements).toHaveLength(titleCount + subtitleElementCount + interpunctCount);
+      it('does not show its chevron', () => {
+        expect(instance.findAllByType(Icon)).toHaveLength(0);
+      });
     });
   });
 });
