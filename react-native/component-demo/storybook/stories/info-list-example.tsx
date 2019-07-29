@@ -5,47 +5,11 @@ import { FlatList, View } from 'react-native';
 import Flow from '@pxblue/icons-svg/flow.svg';
 import Apple from '@pxblue/icons-svg/apple.svg';
 import { blue, green } from '@pxblue/colors';
-import { color } from '@storybook/addon-knobs';
-import { clearDecorators } from '@storybook/react';
 import * as _ from 'lodash';
-
-interface InfoListItemProps {
-  title: string;
-  subtitle?: string | Array<React.ReactNode>;
-  icon?: React.ReactNode;
-  color?: string;
-  onPress?: () => void;
-}
-
-const randomSubtitle = () => {
-  const number = Math.random();
-
-  if (number < 0.2) {
-    return undefined;
-  } else if (number < 0.5) {
-    return 'string subtitle';
-  } else if (number < 0.8) {
-    return [`${Math.floor(Math.random() * 100)}`, 'Hz'];
-  } else {
-    return [`${Math.floor(Math.random() * 100)}`, 'mL', 'GPM'];
-  }
-}
-
-const getColor = (index: number) => {
-  switch (index % 8) {
-    case 0: return 'red';
-    case 1: return 'orange';
-    case 2: return 'yellow';
-    case 3: return 'green';
-    case 4: return 'blue';
-    case 5: return 'purple';
-    default: return undefined;
-  }
-}
+import { InfoListItemProps } from '@pxblue/react-native-components/dist/info-list-item/info-list-item';
 
 const Separator: React.FunctionComponent = () =>
   <View style={{ height: 1, marginLeft: 40, backgroundColor: '#cccccc' }} />
-
 
 const createInfoListItemProps = (): InfoListItemProps => {
   let subtitle: InfoListItemProps['subtitle'];
