@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, StyleProp, TextStyle } from 'react-native';
+import { Text, View, StyleSheet } from 'react-native';
 
 export interface ChannelValueProps {
   /** Value to show (bold text) */
