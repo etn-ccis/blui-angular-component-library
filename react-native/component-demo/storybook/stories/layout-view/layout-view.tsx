@@ -1,7 +1,7 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { LayoutView } from '@pxblue/react-native-components';
-import { View, Text, SafeAreaView } from 'react-native'
+import { SafeAreaView, Text } from 'react-native'
 
 const header = (
   <SafeAreaView style={{flex: 0, height: '15%', backgroundColor: 'lightblue'}}>

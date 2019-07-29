@@ -1,5 +1,5 @@
 import React, { Fragment } from 'react';
-import { View, Text, SafeAreaView, StyleSheet } from 'react-native';
+import { SafeAreaView } from 'react-native';
 
 export interface LayoutViewProps {
   header?: React.ReactElement;
@@ -12,7 +12,7 @@ export class LayoutView extends React.Component<LayoutViewProps> {
     return (
       <Fragment>
         {this.header()}
-        <SafeAreaView style={styles.content}>
+        <SafeAreaView style={{flex: 1}}>
           {children}
         </SafeAreaView>
         {this.footer()}
@@ -36,9 +36,3 @@ export class LayoutView extends React.Component<LayoutViewProps> {
     }
   }
 }
-
-const styles = StyleSheet.create({
-  content: {
-    flex: 1
-  }
-});
