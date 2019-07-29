@@ -49,13 +49,13 @@ const styles = (theme) => ({
     justifyContent: 'flex-start',
     flex: '1 1 0px',
     overflow: 'hidden',
-    color: Colors.gray[500],
+    color: theme.palette.type === 'dark' ? Colors.gray[300] : Colors.gray[500],
     padding: '16px 8px'
   },
   icon:{
     lineHeight: 1,
-    color: Colors.gray[800],
-    marginBottom: 10,
+    color: theme.palette.type === 'dark' ? Colors.gray[50] : Colors.gray[800],
+    marginBottom: 5,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
@@ -67,14 +67,14 @@ const styles = (theme) => ({
   values:{
     display: 'flex', 
     alignItems: 'center', 
-    color: Colors.gray[800], 
-    lineHeight: 1,
+    color: theme.palette.type === 'dark' ? Colors.gray[50] : Colors.gray[800], 
+    lineHeight: 1.2,
     maxWidth: '100%',
     overflow: 'hidden'
   },
   label: {
     fontSize: 'inherit',
-    lineHeight: 1,
+    lineHeight: 1.2,
     letterSpacing: 0,
     fontWeight: 600,
     width: '100%',
