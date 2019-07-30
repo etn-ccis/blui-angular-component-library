@@ -2,7 +2,10 @@ import React, { Fragment } from 'react';
 import { SafeAreaView } from 'react-native';
 
 export interface LayoutViewProps {
+  /** Element to render as header of the screen */
   header?: React.ReactElement;
+
+  /** Element to render as footer of the screen */
   footer?: React.ReactElement;
 }
 
