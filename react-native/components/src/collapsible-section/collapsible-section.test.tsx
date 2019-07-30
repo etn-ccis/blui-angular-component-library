@@ -38,25 +38,27 @@ describe('CollapsibleSection', () => {
   });
 
   describe('expanding and collapsing', () => {
-    it('pressing the header when it is open collapses the body', () => {
+    it('pressing the header multiple times collapses and expands the content', () => {
       const instance = TestRenderer.create(
         <CollapsibleSection title={'sample collapsible section'} startOpen={true}>
           <Text>Hello</Text>
         </CollapsibleSection>
       );
 
-      let header = instance.root.find(x => x.props.testID === 'header');
-      let content = instance.root.findByType(Collapsible);
+      const header = instance.root.find(x => x.props.testID === 'header');
+      const content = instance.root.findByType(Collapsible);
 
-      expect(content.props.collapsed).toEqual(false);
+      const collapsedAtStart = content.props.collapsed;
 
       header.props.onPress();
+      const collapsedAfterFirstPress = content.props.collapsed;
 
-      header = instance.root.find(x => x.props.testID === 'header');
-      content = instance.root.findByType(Collapsible);
+      header.props.onPress();
+      const collapsedAfterSecondPress = content.props.collapsed;
 
-      expect(content.props.collapsed).toEqual(false);
-
+      expect(collapsedAtStart).toEqual(false);
+      expect(collapsedAfterFirstPress).toEqual(true);
+      expect(collapsedAfterSecondPress).toEqual(false);
     });
   });
 });

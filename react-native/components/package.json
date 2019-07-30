@@ -10,6 +10,7 @@
     "lint": "eslint src/**/*.ts src/**/*.tsx",
     "prepublish": "rm -rf ./dist && tsc",
     "test": "jest",
+    "test:watch": "jest --watch",
     "verify-build": "tsc --noEmit"
   },
   "dependencies": {
