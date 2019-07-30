@@ -33,47 +33,68 @@ export class CollapsibleSection extends Component<CollapsibleSectionProps, Colla
           style={{ flexDirection: 'row' }}
           onPress={() => this.setState({ collapsed: !collapsed })}
         >
-          <View style={{ width: 72 }} />
-          <View style={styles.headerRow} testID={'content'}>
-            <Text style={styles.title}>{title}</Text>
-            <MaterialIcon
-              style={[collapsed ? styles.iconImageUp : styles.iconImageDown]}
-              size={24}
-              name={'apple-keyboard-control'}
-              color={blue[700]}
-            />
+          <View style={[styles.headerContainer, styles.withBackground]}>
+            <View style={[styles.headerRow, styles.withMargin]}>
+              <Text style={styles.title}>{title}</Text>
+              <MaterialIcon
+                style={[collapsed ? styles.iconImageUp : styles.iconImageDown]}
+                size={24}
+                name={'apple-keyboard-control'}
+                color={blue[700]}
+              />
+            </View>
           </View>
         </TouchableOpacity>
-        <Collapsible collapsed={collapsed}>{children}</Collapsible>
+        <Collapsible collapsed={collapsed}>
+          <View style={styles.withBackground}>
+            <View style={[styles.divider, styles.withMargin]} />
+          </View>
+          {children}
+        </Collapsible>
       </View>
     );
   }
 }
 
 const styles = StyleSheet.create({
+  headerContainer: {
+    height: 56,
+    flex: 1
+  },
   headerRow: {
     flex: 1,
-    backgroundColor: 'white',
     flexDirection: 'row',
     alignItems: 'center',
-    paddingRight: 15,
-    height: 56,
+  },
+  divider: {
+    height: 1,
     borderBottomWidth: 1,
-    borderBottomColor: gray[300]
+    borderBottomColor: gray[200]
+  },
+  withBackground: {
+    backgroundColor: 'white'
+  },
+  withMargin: {
+    marginLeft: 28,
+    marginRight: 15
   },
   title: {
     color: blue[700],
     fontSize: 15,
     fontWeight: '600',
-    marginLeft: 21,
     height: 20,
     flex: 1,
-    left: -72
   },
   iconImageUp: {
-    transform: [{ rotate: '0deg' }]
+    transform: [
+      { rotate: '0deg' },
+      { translateY: 4 }
+    ]
   },
   iconImageDown: {
-    transform: [{ rotate: '180deg' }]
+    transform: [
+      { rotate: '180deg' },
+      { translateY: 2 }
+    ]
   }
 });

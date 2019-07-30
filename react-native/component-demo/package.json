@@ -14,6 +14,7 @@
     "@pxblue/icons-svg": "^1.0.15",
     "react": "16.8.6",
     "react-native": "0.60.4",
+    "react-native-collapsible": "^1.5.0",
     "react-native-svg": "^9.5.3",
     "react-native-vector-icons": "^6.6.0"
   },

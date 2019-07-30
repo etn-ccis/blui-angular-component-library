@@ -11,7 +11,7 @@ NC='\033[0m' # No Color
 
 echo -e "${BLUE}Building components...${NC}"
 cd ./components
-yarn build
+yarn prepublish
 cd ..
 
 echo -en "${BLUE}Creating new folder in node_modules...${NC}"

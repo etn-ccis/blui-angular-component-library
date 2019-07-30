@@ -1,44 +1,35 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import { View } from 'react-native';
-import { ChannelValue } from '@pxblue/react-native-components';
-import { text, withKnobs, boolean, number, color } from '@storybook/addon-knobs';
+import { View, StyleSheet } from 'react-native';
+import { text, withKnobs } from '@storybook/addon-knobs';
 import Leaf from '@pxblue/icons-svg/leaf.svg';
+import { safeArea } from '../decorators';
+import { CollapsibleSection } from '@pxblue/react-native-components';
+import { red, gray, blue } from '@pxblue/colors';
 
-storiesOf('ChannelValue', module)
+storiesOf('CollapsibleSection', module)
   .addDecorator(withKnobs)
-  .add('with only required props', () => (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <ChannelValue
-        value={text('value', text('value', '123'))}
-      />
+  .addDecorator(safeArea)
+  .add('With a big icon', () => (
+    <View style={{ height: '100%', paddingVertical: 10, backgroundColor: gray[100] }}>
+      <CollapsibleSection title={text('title', 'Section Title Here')}>
+        <View style={styles.contentContainer}>
+          <Leaf fill={red[700]} width={128} height={128} />
+        </View>
+      </CollapsibleSection>
+      <CollapsibleSection title={'Here\'s Another Section'} startOpen={false}>
+        <View style={styles.contentContainer}>
+          <Leaf fill={blue[700]} width={128} height={128} />
+        </View>
+      </CollapsibleSection>
     </View>
-  ), notes)
-  .add('with icon', () => (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <ChannelValue
-        value={text('value', text('value', '123'))}
-        icon={<Leaf width={40} height={40} fill={'#44cc44'}/>}
-      />
-    </View>
-  ), notes)
-  .add('with units', () => (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <ChannelValue
-        value={text('value', text('value', '123'))}
-        units={text('units', 'hz')}
-      />
-    </View>
-  ), notes)
-  .add('with all props', () => (
-    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-      <ChannelValue
-        value={text('value', text('value', '123'))}
-        icon={<Leaf width={40} height={40} fill={'#44cc44'}/>}
-        units={text('units', 'hz')}
-        prefix={boolean('prefix', false)}
-        fontSize={number('fontSize', 20, { range: true, min: 1, max: 100, step: 1 })}
-        color={color('color', 'blue')}
-      />
-    </View>
-  ), notes);
+  ));
+
+const styles = StyleSheet.create({
+  contentContainer: {
+    height: 200,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'white'
+  }
+})

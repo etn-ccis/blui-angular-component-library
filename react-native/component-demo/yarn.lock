@@ -6305,6 +6305,13 @@ react-native-animatable@^1.2.4:
   dependencies:
     prop-types "^15.5.10"
 
+react-native-collapsible@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/react-native-collapsible/-/react-native-collapsible-1.5.0.tgz#d93b688c9e7bf846543ee504989e601b776ef23b"
+  integrity sha512-O30eD/MHALvKTizzPvjGg1RshQ3PDJMXQRD+mB/cuZeAbKueGc1P20vfL5tajjIm777RjMiCtvyHBhrU700rQA==
+  dependencies:
+    prop-types "^15.6.2"
+
 react-native-color-picker@^0.4.0:
   version "0.4.1"
   resolved "https://registry.yarnpkg.com/react-native-color-picker/-/react-native-color-picker-0.4.1.tgz#84617f259dbdb470651613bb81a85828c13d7e71"
