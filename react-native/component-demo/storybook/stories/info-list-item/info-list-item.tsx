@@ -2,8 +2,14 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { InfoListItem } from '@pxblue/react-native-components';
 import { text, withKnobs, color } from '@storybook/addon-knobs';
-import { framedRow } from '../decorators';
 import Leaf from '@pxblue/icons-svg/leaf.svg';
+import Flow from '@pxblue/icons-svg/flow.svg';
+import Apple from '@pxblue/icons-svg/apple.svg';
+import { View, FlatList } from 'react-native';
+import { InfoListItemProps } from '@pxblue/react-native-components/dist/info-list-item/info-list-item';
+import { green, blue } from '@pxblue/colors';
+import * as _ from 'lodash';
+import { framedRow } from '../../decorators';
 
 const notes = {
   notes: 'The borders are NOT part of the component; they are provided for framing only. Any React Element may be passed in as `icon`; if using an svg, its color and size are not controlled by `ChannelValue`'

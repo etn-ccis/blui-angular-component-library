@@ -29,7 +29,9 @@ To run the demo app, run the following commands for each platform:
 
 ## Linking the Library
 
-The component library must be added to `node_modules/` by running `./link-components.sh` in `<root_dir>/react-native/`. Because this bypasses npm, library dependencies will not be installed during this process. It is therefore to add any dependencies used by the component library to this project. For the most part, that should be things like `@pxblue/colors`. This is not required when the project is published and used in another project.
+The component library must be added to `node_modules/` by running `./link-components.sh` in `<root_dir>/react-native/`. This will occur by default after running `yarn` or `yarn install`, but must be run again whenever the components library is updated.
+
+Because this bypasses npm, library dependencies will not be installed during this process. It is therefore to add any dependencies used by the component library to this project. For the most part, that should be things like `@pxblue/colors`. This is not required when the project is published and used in another project.
 
 ## Troubleshooting
 

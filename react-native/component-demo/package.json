@@ -5,6 +5,7 @@
   "scripts": {
     "ios": "react-native run-ios",
     "android": "react-native run-android",
+    "postinstall": "cd .. && ./link-components.sh && cd component-demo",
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint ."
