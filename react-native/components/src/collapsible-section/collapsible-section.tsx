@@ -5,7 +5,10 @@ import Collapsible from 'react-native-collapsible';
 import { gray, blue } from '@pxblue/colors';
 
 export interface CollapsibleSectionProps {
+  /** Title to show in heading */
   title: string;
+
+  /** Whether or not the section starts open - defaults to true */
   startOpen?: boolean;
 }
 
