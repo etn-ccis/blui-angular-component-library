@@ -1,5 +1,6 @@
 import React, { Fragment } from 'react';
-import { SafeAreaView } from 'react-native';
+import { SafeAreaView, StyleSheet, View } from 'react-native';
+import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 export interface LayoutViewProps {
   /** Element to render as header of the screen */
@@ -10,6 +11,9 @@ export interface LayoutViewProps {
 
   /** Background color for the header, footer, and content */
   backgroundColor?: string;
+
+  /** Controls whether content renders in a KeyboardAwareScrollView or a View */
+  needsKeyboard?: boolean;
 }
 
 /**
@@ -21,15 +25,12 @@ export class LayoutView extends React.Component<LayoutViewProps> {
   private BACKGROUND_COLOR = this.props.backgroundColor ? this.props.backgroundColor : 'transparent';
 
   render() {
-    const { children } = this.props;
     return (
-      <Fragment>
+      <View style={{height: '100%'}}>
         {this.header()}
-        <SafeAreaView style={{flex: 1, backgroundColor: this.BACKGROUND_COLOR}}>
-          {children}
-        </SafeAreaView>
+        {this.content()}
         {this.footer()}
-      </Fragment>
+      </View>
     )
   }
 
@@ -41,6 +42,29 @@ export class LayoutView extends React.Component<LayoutViewProps> {
     }
   }
 
+  private content() {
+    const { needsKeyboard, children } = this.props;
+    if (needsKeyboard) {
+      return (
+        <KeyboardAwareScrollView
+          // bounces={false}
+          enableOnAndroid={true}
+          // enableAutomaticScroll={false}
+          // enableResetScrollToCoords={false}
+          style={{flex: 1, backgroundColor: this.BACKGROUND_COLOR}}
+        >
+          {children}
+        </KeyboardAwareScrollView>
+      );
+    } else {
+      return (
+        <View style={{flex: 1, backgroundColor: this.BACKGROUND_COLOR}}>
+          {children}
+        </View>
+      );
+    }
+  }
+
   private footer() {
     if (this.props.footer) {
       return this.props.footer;
@@ -49,3 +73,9 @@ export class LayoutView extends React.Component<LayoutViewProps> {
     }
   }
 }
+
+const styles = StyleSheet.create({
+  shadow: {
+
+  }
+});
