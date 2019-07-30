@@ -7,15 +7,20 @@ export interface LayoutViewProps {
 
   /** Element to render as footer of the screen */
   footer?: React.ReactElement;
+
+  /** Background color for the header, footer, and content */
+  backgroundColor?: string;
 }
 
 export class LayoutView extends React.Component<LayoutViewProps> {
+  private BACKGROUND_COLOR = this.props.backgroundColor ? this.props.backgroundColor : 'transparent';
+
   render() {
-    const { children } = this.props;
+    const { backgroundColor, children } = this.props;
     return (
       <Fragment>
         {this.header()}
-        <SafeAreaView style={{flex: 1}}>
+        <SafeAreaView style={{flex: 1, backgroundColor: this.BACKGROUND_COLOR}}>
           {children}
         </SafeAreaView>
         {this.footer()}
@@ -27,7 +32,7 @@ export class LayoutView extends React.Component<LayoutViewProps> {
     if (this.props.header) {
       return this.props.header;
     } else {
-      return <SafeAreaView/>;
+      return <SafeAreaView style={{backgroundColor: this.BACKGROUND_COLOR}} testID={'layout-default-header'}/>;
     }
   }
 
@@ -35,7 +40,7 @@ export class LayoutView extends React.Component<LayoutViewProps> {
     if (this.props.footer) {
       return this.props.footer;
     } else {
-      return <SafeAreaView/>
+      return <SafeAreaView style={{backgroundColor: this.BACKGROUND_COLOR}} testID={'layout-default-footer'}/>
     }
   }
 }

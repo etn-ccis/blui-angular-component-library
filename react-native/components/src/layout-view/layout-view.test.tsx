@@ -1,17 +1,18 @@
 import React from 'react';
 import TestRenderer, { ReactTestInstance } from 'react-test-renderer';
 import { LayoutView } from '.';
-import { SafeAreaView, View } from 'react-native';
+import { View } from 'react-native';
 
 describe('LayoutView', () => {
   it('renders the content', () => {
     const instance = TestRenderer.create(
       <LayoutView>
-        <View/>
+        <View testID={'content'}/>
       </LayoutView>
     ).root;
 
-    expect(instance.findAllByType(View)).toHaveLength(1);
+    const content = instance.find(x => x.props.testID == 'content');
+    expect(content).toBeTruthy();
   });
 
   describe('when there is no header or footer', () => {
@@ -23,7 +24,10 @@ describe('LayoutView', () => {
     });
 
     it('renders the default header and footer', () => {
-      expect(instance.findAllByType(SafeAreaView)).toHaveLength(3);
+      const header = instance.find(x => x.props.testID == 'layout-default-header');
+      const footer = instance.find(x => x.props.testID == 'layout-default-footer');
+      expect(header).toBeTruthy();
+      expect(footer).toBeTruthy();
     });
   });
 
@@ -31,13 +35,15 @@ describe('LayoutView', () => {
     let instance: ReactTestInstance;
     beforeEach(() => {
       instance = TestRenderer.create(
-        <LayoutView header={<View/>}/>
+        <LayoutView header={<View testID={'custom-header'}/>}/>
       ).root;
     });
 
     it('renders the header and default footer', () => {
-      expect(instance.findAllByType(SafeAreaView)).toHaveLength(2);
-      expect(instance.findAllByType(View)).toHaveLength(1);
+      const header = instance.find(x => x.props.testID == 'custom-header');
+      const footer = instance.find(x => x.props.testID == 'layout-default-footer');
+      expect(header).toBeTruthy();
+      expect(footer).toBeTruthy();
     });
   });
 
@@ -45,13 +51,15 @@ describe('LayoutView', () => {
     let instance: ReactTestInstance;
     beforeEach(() => {
       instance = TestRenderer.create(
-        <LayoutView footer={<View/>}/>
+        <LayoutView footer={<View testID={'custom-footer'}/>}/>
       ).root;
     });
 
     it('renders the footer and default header', () => {
-      expect(instance.findAllByType(SafeAreaView)).toHaveLength(2);
-      expect(instance.findAllByType(View)).toHaveLength(1);
+      const header = instance.find(x => x.props.testID == 'layout-default-header');
+      const footer = instance.find(x => x.props.testID == 'custom-footer');
+      expect(header).toBeTruthy();
+      expect(footer).toBeTruthy();
     });
   });
 
@@ -59,13 +67,15 @@ describe('LayoutView', () => {
     let instance: ReactTestInstance;
     beforeEach(() => {
       instance = TestRenderer.create(
-        <LayoutView header={<View/>} footer={<View/>}/>
+        <LayoutView header={<View testID={'custom-header'}/>} footer={<View testID={'custom-footer'}/>}/>
       ).root;
     });
 
     it('renders the header and footer', () => {
-      expect(instance.findAllByType(SafeAreaView)).toHaveLength(1);
-      expect(instance.findAllByType(View)).toHaveLength(2);
+      const header = instance.find(x => x.props.testID == 'custom-header');
+      const footer = instance.find(x => x.props.testID == 'custom-footer');
+      expect(header).toBeTruthy();
+      expect(footer).toBeTruthy();
     });
   });
 });
