@@ -12,6 +12,11 @@ export interface LayoutViewProps {
   backgroundColor?: string;
 }
 
+/**
+ * LayoutView component
+ *
+ * Used to render content with an optional header and footer.
+ */
 export class LayoutView extends React.Component<LayoutViewProps> {
   private BACKGROUND_COLOR = this.props.backgroundColor ? this.props.backgroundColor : 'transparent';
 
