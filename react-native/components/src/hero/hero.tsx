@@ -67,6 +67,8 @@ const styles = StyleSheet.create({
     width: 36
   },
   values: {
+    flexDirection: 'row',
+    justifyContent: 'center',
     alignItems: 'center',
     maxWidth: '100%',
   },
