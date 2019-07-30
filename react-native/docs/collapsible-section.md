@@ -15,7 +15,9 @@ Note: Child components will be the content to collapse/expand
 
 ## Props
 
-| Name      | Type    | Required | Default | Examples    |
-|-----------|---------|----------|---------|-------------|
-| title     | string  | yes      |         | 'Any Text'  |
-| startOpen | boolean | no       | true    | true, false |
+| Name      | Type                                              | Required | Default                                                   | Examples                                            |
+|-----------|---------------------------------------------------|----------|-----------------------------------------------------------|-----------------------------------------------------|
+| title     | string                                            | yes      |                                                           | 'Any Text'                                          |
+| startOpen | boolean                                           | no       | true                                                      | true, false                                         |
+| disabled  | boolean                                           | no       | false                                                     | true, false                                         |
+| style     | { titleColor?: string, backgroundColor?: string } | no       | { titleColor: blue[700], backgroundColor: 'transparent' } | { titleColor: 'red' }, { backgroundColor: 'white' } |

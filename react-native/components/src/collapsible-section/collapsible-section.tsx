@@ -10,13 +10,33 @@ export interface CollapsibleSectionProps {
 
   /** Whether or not the section starts open - defaults to true */
   startOpen?: boolean;
+
+  /** Whether to toggle collapse/expand when tapping the header */
+  disabled?: boolean;
+
+  /** Color styles to use */
+  style?: {
+    /** Color to use for title and icon */
+    titleColor?: string;
+
+    /** Background color for component */
+    backgroundColor?: string;
+  }
 }
 
 interface CollapsibleSectionState {
   collapsed: boolean;
 }
 
+/**
+ * Component that provides a header and a collapsible content section
+ */
 export class CollapsibleSection extends Component<CollapsibleSectionProps, CollapsibleSectionState> {
+  public static readonly ICON_SIZE = 24;
+  public static readonly TITLE_COLOR = blue[700];
+  public static readonly DIVIDER_COLOR = gray[200];
+  public static readonly BACKGROUND_COLOR = 'transparent';
+
   constructor(props: CollapsibleSectionProps) {
     super(props);
 
@@ -26,30 +46,34 @@ export class CollapsibleSection extends Component<CollapsibleSectionProps, Colla
   }
 
   public render() {
-    const { title, children } = this.props;
+    const { title, children, disabled, style = {} } = this.props;
     const { collapsed } = this.state;
+
+    const titleColor = style.titleColor || CollapsibleSection.TITLE_COLOR;
+    const backgroundColor = style.backgroundColor || CollapsibleSection.BACKGROUND_COLOR;
 
     return (
       <View>
         <TouchableOpacity
+          disabled={disabled}
           testID={'header'}
           style={{ flexDirection: 'row' }}
-          onPress={() => this.setState({ collapsed: !collapsed })}
+          onPress={() => !disabled && this.setState({ collapsed: !collapsed })}
         >
-          <View style={[styles.headerContainer, styles.withBackground]}>
+          <View style={[styles.headerContainer, { backgroundColor }]}>
             <View style={[styles.headerRow, styles.withMargin]}>
-              <Text style={styles.title}>{title}</Text>
+              <Text style={[styles.title, { color: titleColor }]}>{title}</Text>
               <MaterialIcon
                 style={[collapsed ? styles.iconImageUp : styles.iconImageDown]}
-                size={24}
+                size={CollapsibleSection.ICON_SIZE}
                 name={'apple-keyboard-control'}
-                color={blue[700]}
+                color={titleColor}
               />
             </View>
           </View>
         </TouchableOpacity>
-        <Collapsible collapsed={collapsed}>
-          <View style={styles.withBackground}>
+        <Collapsible collapsed={collapsed} style={{ backgroundColor }}>
+          <View style={{ backgroundColor }}>
             <View style={[styles.divider, styles.withMargin]} />
           </View>
           {children}
@@ -72,17 +96,14 @@ const styles = StyleSheet.create({
   divider: {
     height: 1,
     borderBottomWidth: 1,
-    borderBottomColor: gray[200]
-  },
-  withBackground: {
-    backgroundColor: 'white'
+    borderBottomColor: CollapsibleSection.DIVIDER_COLOR
   },
   withMargin: {
     marginLeft: 28,
     marginRight: 15
   },
   title: {
-    color: blue[700],
+    color: CollapsibleSection.TITLE_COLOR,
     fontSize: 15,
     fontWeight: '600',
     height: 20,
