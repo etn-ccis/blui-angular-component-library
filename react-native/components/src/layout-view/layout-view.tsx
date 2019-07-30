@@ -16,7 +16,7 @@ export class LayoutView extends React.Component<LayoutViewProps> {
   private BACKGROUND_COLOR = this.props.backgroundColor ? this.props.backgroundColor : 'transparent';
 
   render() {
-    const { backgroundColor, children } = this.props;
+    const { children } = this.props;
     return (
       <Fragment>
         {this.header()}

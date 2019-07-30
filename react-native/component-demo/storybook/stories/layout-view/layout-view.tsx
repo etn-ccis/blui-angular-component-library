@@ -25,6 +25,11 @@ storiesOf('LayoutView', module)
       {content}
     </LayoutView>
   ))
+  .add('with a background color and no header and footer', () => (
+    <LayoutView backgroundColor={'lightgreen'}>
+      {content}
+    </LayoutView>
+  ))
   .add('with a header and no footer', () => (
     <LayoutView header={header}>
       {content}
