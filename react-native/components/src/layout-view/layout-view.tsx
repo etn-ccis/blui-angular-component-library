@@ -74,9 +74,3 @@ export class LayoutView extends React.Component<LayoutViewProps> {
     }
   }
 }
-
-const styles = StyleSheet.create({
-  shadow: {
-
-  }
-});
