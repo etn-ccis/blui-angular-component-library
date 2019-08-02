@@ -26,3 +26,15 @@ To run the demo app, run the following commands for each platform:
 * Android: `yarn android`
 
 > NOTE: These commands are just aliases for `react-native run-ios` and `react-native run-android` respectively. For more information about these commands, refer to the [React Native documentation](https://facebook.github.io/react-native/docs/getting-started#running-your-react-native-application-1).
+
+## Linking the Library
+
+The component library must be added to `node_modules/` by running `./link-components.sh` in `<root_dir>/react-native/`. This will occur by default after running `yarn` or `yarn install`, but must be run again whenever the components library is updated.
+
+Because this bypasses npm, library dependencies will not be installed during this process. It is therefore to add any dependencies used by the component library to this project. For the most part, that should be things like `@pxblue/colors`. This is not required when the project is published and used in another project.
+
+## Troubleshooting
+
+After new dependencies are installed, it may be necessary in some cases to run `pod install` in the `ios/` directory.
+
+

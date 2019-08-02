@@ -1,6 +1,6 @@
-import './buttons/button';
-import './icons';
-import './svgs';
 import './channel-value';
+import './collapsible-section';
 import './hero';
+import './hero-banner';
+import './info-list-item';
 import './layout-view';
