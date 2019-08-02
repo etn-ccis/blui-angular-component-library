@@ -1,5 +1,5 @@
-import React, { Fragment } from 'react';
-import { SafeAreaView, StyleSheet, View } from 'react-native';
+import React from 'react';
+import { SafeAreaView, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 
 export interface LayoutViewProps {
