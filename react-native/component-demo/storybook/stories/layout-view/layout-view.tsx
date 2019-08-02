@@ -5,6 +5,13 @@ import { SafeAreaView, Text, View } from 'react-native';
 import faker from 'faker';
 import { Appbar, TextInput } from 'react-native-paper';
 import { blue } from '@pxblue/colors';
+import { withKnobs } from '@storybook/addon-knobs';
+
+const notes = {
+  notes: 'Any React Element may be passed in as `header` or `footer`. ' +
+    'There is also the prop `needsKeyboard` which may be used if there is a text input in the content that needs to not be covered by a keyboard.' +
+    'However, this functionality is buggy when demoed for iOS using Storybook, so check the docs for a gif showing it instead.'
+};
 
 const header = (
   <Appbar.Header style={{backgroundColor: blue[500]}}>
@@ -17,9 +24,9 @@ const header = (
 
 const content = (
   <View style={{flex: 1, marginVertical: 8, marginHorizontal: 16}}>
-    <TextInput mode={'outlined'} label={'Username'} placeholder={'Type Here'}/>
-    <TextInput mode={'outlined'} label={'Password'} placeholder={'Type Here'}/>
-    <Text style={{marginTop: 8}}>{faker.lorem.paragraphs(1)}</Text>
+    <TextInput mode={'outlined'} label={'Text Input 1'} placeholder={'Type Here'}/>
+    <TextInput mode={'outlined'} label={'Text Input 2'} placeholder={'Type Here'}/>
+    <Text style={{marginTop: 8}}>{faker.lorem.paragraphs(2)}</Text>
   </View>
 );
 
@@ -35,28 +42,29 @@ const footer = (
 );
 
 storiesOf('LayoutView', module)
+  .addDecorator(withKnobs)
   .add('with no header and footer', () => (
     <LayoutView>
       {content}
     </LayoutView>
-  ))
+  ), notes)
   .add('with a background color and no header and footer', () => (
     <LayoutView backgroundColor={'lightgreen'}>
       {content}
     </LayoutView>
-  ))
+  ), notes)
   .add('with a header and no footer', () => (
     <LayoutView header={header}>
       {content}
     </LayoutView>
-  ))
+  ), notes)
   .add('with a footer and no header', () => (
     <LayoutView footer={footer}>
       {content}
     </LayoutView>
-  ))
+  ), notes)
   .add('with a footer and header', () => (
     <LayoutView header={header} footer={footer}>
       {content}
     </LayoutView>
-  ));
+  ), notes);

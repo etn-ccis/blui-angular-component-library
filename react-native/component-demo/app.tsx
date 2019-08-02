@@ -1,32 +1,37 @@
 import React from 'react';
 import { SafeAreaView, Text, View } from 'react-native';
-import { TextField } from 'react-native-material-textfield';
 import faker from 'faker';
 import { LayoutView } from '@pxblue/react-native-components';
+import { Appbar, TextInput } from 'react-native-paper';
+import { blue } from "@pxblue/colors";
 
 const header = (
-  <SafeAreaView style={{
-    height: 96,
-    backgroundColor: 'lightblue'
-  }}>
-    <Text>I'm in a header.</Text>
-  </SafeAreaView>
+  <Appbar.Header style={{backgroundColor: blue[500]}}>
+    <Appbar.BackAction/>
+    <Appbar.Content title={'Title'} subtitle={'Subtitle'}/>
+    <Appbar.Action icon={'search'}/>
+    <Appbar.Action icon={'more-vert'}/>
+  </Appbar.Header>
 );
 
 const content = (
   <View style={{flex: 1, marginVertical: 8, marginHorizontal: 16}}>
-    <Text>{faker.lorem.paragraphs(4)}</Text>
-    <TextField title={'Enter your username here'} label={'Username'} placeholder={'Type Here'}/>
-    <TextField title={'Enter your password here'} label={'Password'} placeholder={'Type Here'}/>
+    <Text style={{marginTop: 8}}>{faker.lorem.paragraphs(1)}</Text>
+    <TextInput mode={'outlined'} label={'Text Input 1'} placeholder={'Type Here'}/>
+    <Text style={{marginTop: 8}}>{faker.lorem.paragraphs(3)}</Text>
+    <TextInput mode={'outlined'} label={'Text Input 2'} placeholder={'Type Here'}/>
+    <Text style={{marginTop: 8}}>{faker.lorem.paragraphs(1)}</Text>
   </View>
 );
 
 const footer = (
-  <SafeAreaView style={{
-    height: 96,
-    backgroundColor: 'pink'
-  }}>
-    <Text>I'm in a footer.</Text>
+  <SafeAreaView style={{backgroundColor: blue[500], zIndex: 100}}>
+    <Appbar style={{backgroundColor: blue[500], shadowOpacity: 0}}>
+      <Appbar.Action icon="archive" onPress={() => console.log('Pressed archive')} />
+      <Appbar.Action icon="mail" onPress={() => console.log('Pressed mail')} />
+      <Appbar.Action icon="label" onPress={() => console.log('Pressed label')} />
+      <Appbar.Action icon="delete" onPress={() => console.log('Pressed delete')} />
+    </Appbar>
   </SafeAreaView>
 );
 

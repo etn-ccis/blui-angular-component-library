@@ -14,6 +14,9 @@ export interface LayoutViewProps {
 
   /** Controls whether content renders in a KeyboardAwareScrollView or a View */
   needsKeyboard?: boolean;
+
+  /** ScrollView prop that determines whether the ScrollView can bounce on iOS */
+  bounces?: boolean;
 }
 
 /**
@@ -43,14 +46,12 @@ export class LayoutView extends React.Component<LayoutViewProps> {
   }
 
   private content() {
-    const { needsKeyboard, children } = this.props;
+    const { needsKeyboard, bounces = true, children } = this.props;
     if (needsKeyboard) {
       return (
         <KeyboardAwareScrollView
-          // bounces={false}
+          bounces={bounces}
           enableOnAndroid={true}
-          // enableAutomaticScroll={false}
-          // enableResetScrollToCoords={false}
           style={{flex: 1, backgroundColor: this.BACKGROUND_COLOR}}
         >
           {children}
