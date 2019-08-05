@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ChannelValue } from '../channel-value';
 import * as Colors from '@pxblue/colors';
+import { wrapIcon } from '../icon-wrapper/icon-wrapper';
 
 export interface HeroProps {
   /** Label to show */
@@ -13,8 +14,8 @@ export interface HeroProps {
   /** Value for ChannelValue child */
   value?: number | string;
 
-  /** Icon for ChannelValue child */
-  valueIcon?: React.ReactNode;
+  /** Icon component for ChannelValue child */
+  ValueIconClass?: ReturnType<typeof wrapIcon>;
 
   /** Units for value of ChannelValue child */
   units?: string;
@@ -32,7 +33,7 @@ export interface HeroProps {
  */
 export class Hero extends Component<HeroProps> {
   public render() {
-    const {label, icon, value, valueIcon, units, onPress, children} = this.props;
+    const {label, icon, value, ValueIconClass, units, onPress, children} = this.props;
     return (
       <TouchableOpacity onPress={onPress} disabled={!onPress} style={styles.wrapper}>
         <View style={styles.icon}>
@@ -40,7 +41,7 @@ export class Hero extends Component<HeroProps> {
         </View>
         <View style={styles.values}>
           {!children && !!value &&
-            <ChannelValue value={value} units={units} icon={valueIcon}/>
+            <ChannelValue value={value} units={units} IconClass={ValueIconClass}/>
           }
           {children}
         </View>

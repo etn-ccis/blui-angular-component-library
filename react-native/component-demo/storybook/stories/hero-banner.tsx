@@ -9,8 +9,9 @@ import Ionicon from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { safeArea } from '../decorators';
 import { green, blue, gray, red } from '@pxblue/colors';
+import { wrapIcon } from '@pxblue/react-native-components/dist/icon-wrapper/icon-wrapper';
 
-const icon = <Leaf height={36} width={36} fill={'green'}/>;
+const ChartLineVariant = wrapIcon({ IconClass: MaterialCommunityIcon, name: 'chart-line-variant'})
 
 const heroes = [
   <Hero
@@ -35,7 +36,7 @@ const heroes = [
     label={'Loaded'}
     icon={<MaterialCommunityIcon name={'chart-pie'} size={36} color={blue[500]} />}
   >
-    <ChannelValue value={65} units={'%'} icon={<MaterialCommunityIcon name={'chart-line-variant'} size={12} color={red[500]} />} />
+    <ChannelValue value={65} units={'%'} IconClass={ChartLineVariant} />
   </Hero>,
   <Hero
     label={'Fifth item'}
