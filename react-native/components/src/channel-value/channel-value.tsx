@@ -34,7 +34,7 @@ export class ChannelValue extends Component<ChannelValueProps> {
     return (
       <View style={styles.row}>
         {icon}
-        <Text numberOfLines={1} ellipsizeMode={'tail'} style={{ flex: 1 }}>
+        <Text numberOfLines={1} ellipsizeMode={'tail'} style={{ flex: 1 }} testID={'text-wrapper'}>
           {this.prefixUnits()}
           <Text style={[styles.bold, { fontSize, color }]}>
             {value}
