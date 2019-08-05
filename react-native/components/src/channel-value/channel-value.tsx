@@ -1,13 +1,12 @@
 import React, { Component, ComponentType } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
-import { wrapIcon, IconType, GeneralIcon } from '../icon-wrapper/icon-wrapper';
 
 export interface ChannelValueProps {
   /** Value to show (bold text) */
   value: string | number;
 
   /** Icon component to render */
-  IconClass?: ReturnType<typeof wrapIcon>;
+  IconClass?: ComponentType<{ size: number, color: string }>
 
   /** Text to show for units (light text) */
   units?: string;
