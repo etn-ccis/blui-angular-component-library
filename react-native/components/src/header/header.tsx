@@ -1,16 +1,9 @@
 import React from 'react';
-import {
-  Animated,
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  TouchableWithoutFeedback,
-  View
-} from 'react-native';
+import { Animated, SafeAreaView, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import createAnimatedComponent = Animated.createAnimatedComponent;
+import { blue, white } from '@pxblue/colors';
 
 const AnimatedSafeAreaView = createAnimatedComponent(SafeAreaView);
 
@@ -25,6 +18,8 @@ export interface HeaderProps {
   navigation?: HeaderIcon;
   actionItems?: HeaderIcon[];
   expandable?: boolean;
+  backgroundColor?: string;
+  fontColor?: string;
 }
 
 interface HeaderState {
@@ -67,11 +62,11 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     return (
       <TouchableWithoutFeedback onPress={() => this.onPress()} disabled={!expandable}>
         <AnimatedSafeAreaView style={barStyle}>
-          <View style={contentStyle}>
+          <Animated.View style={contentStyle}>
             {this.navigation()}
             {this.title()}
             {this.actionItems()}
-          </View>
+          </Animated.View>
         </AnimatedSafeAreaView>
       </TouchableWithoutFeedback>
     )
@@ -97,7 +92,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     if ( navigation ) {
       return (
         <TouchableOpacity onPress={navigation.onPress} style={styles.navigation}>
-          <Icon name={navigation.icon} size={Header.ICON_SIZE}/>
+          <Icon name={navigation.icon} size={Header.ICON_SIZE} color={this.fontColor()}/>
         </TouchableOpacity>
       )
     }
@@ -106,8 +101,32 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
   private title() {
     const { title } = this.props;
     return (
-      <Text style={styles.title}>{title}</Text>
+      <View style={styles.titleContainer}>
+        <View style={{flex: 0, justifyContent: 'center'}}>
+          <Animated.Text
+            style={this.titleStyle()}
+            numberOfLines={2}
+            ellipsizeMode={'clip'}
+          >
+            {title}
+          </Animated.Text>
+          {this.subtitle()}
+        </View>
+      </View>
     );
+  }
+
+  private subtitle() {
+    const { subtitle } = this.props;
+    if (subtitle) {
+      return <Animated.Text
+        style={this.subtitleStyle()}
+        numberOfLines={1}
+        ellipsizeMode={'clip'}
+      >
+        {subtitle}
+      </Animated.Text>;
+    }
   }
 
   private actionItems() {
@@ -115,27 +134,65 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     if ( actionItems ) {
       return actionItems.map(actionItem => (
         <TouchableOpacity onPress={actionItem.onPress} style={styles.actionItem}>
-          <Icon name={actionItem.icon} size={Header.ICON_SIZE}/>
+          <Icon name={actionItem.icon} size={Header.ICON_SIZE} color={this.fontColor()}/>
         </TouchableOpacity>
       ))
     }
   }
 
   private barStyle() {
-    return [styles.bar, { height: this.state.headerHeight }];
+    return [styles.bar, {
+      height: this.state.headerHeight,
+      backgroundColor: this.backgroundColor()
+    }];
   }
 
   private contentStyle() {
-    return [styles.content];
+    const contractedPadding = this.props.subtitle ? 8 : 16;
+    return [styles.content, {
+      paddingBottom: this.state.headerHeight.interpolate({
+        inputRange: [Header.REGULAR_HEIGHT, Header.EXTENDED_HEIGHT],
+        outputRange: [contractedPadding, 28]
+      })
+    }];
+  }
+
+  private titleStyle() {
+    return {
+      color: this.fontColor(),
+      fontSize: this.state.headerHeight.interpolate({
+        inputRange: [Header.REGULAR_HEIGHT, Header.EXTENDED_HEIGHT],
+        outputRange: [20, 24]
+      })
+    };
+  }
+
+  private subtitleStyle() {
+    return {
+      color: this.fontColor(),
+      fontWeight: '300',
+      fontSize: this.state.headerHeight.interpolate({
+        inputRange: [Header.REGULAR_HEIGHT, Header.EXTENDED_HEIGHT],
+        outputRange: [18, 22]
+      })
+    };
+  }
+
+  private fontColor() {
+    return this.props.fontColor ? this.props.fontColor : white[500];
+  }
+
+  private backgroundColor() {
+    return this.props.backgroundColor ? this.props.backgroundColor : blue[500];
   }
 }
 
 const styles = StyleSheet.create({
   bar: {
-    width: '100%',
-    backgroundColor: 'lightblue'
+    width: '100%'
   },
   content: {
+    flex: 1,
     paddingTop: 16,
     paddingHorizontal: 16,
     flexDirection: 'row'
@@ -143,10 +200,10 @@ const styles = StyleSheet.create({
   navigation: {
     marginRight: 32
   },
-  title: {
+  titleContainer: {
     flex: 1,
-    fontSize: 20,
-    backgroundColor: 'pink'
+    flexDirection: 'column',
+    justifyContent: 'flex-end'
   },
   actionItem: {
     marginLeft: 24
