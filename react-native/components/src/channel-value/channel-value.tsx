@@ -34,9 +34,13 @@ export class ChannelValue extends Component<ChannelValueProps> {
     return (
       <View style={styles.row}>
         {icon}
-        {this.prefixUnits()}
-        <Text style={[styles.bold, { fontSize, color }]}>{value}</Text>
-        {this.suffixUnits()}
+        <Text numberOfLines={1} ellipsizeMode={'tail'} style={{ flex: 1 }}>
+          {this.prefixUnits()}
+          <Text style={[styles.bold, { fontSize, color }]}>
+            {value}
+          </Text>
+          {this.suffixUnits()}
+        </Text>
       </View>
     );
   }

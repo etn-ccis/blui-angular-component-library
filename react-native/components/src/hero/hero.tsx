@@ -44,7 +44,7 @@ export class Hero extends Component<HeroProps> {
           }
           {children}
         </View>
-        <Text style={styles.label}>{label}</Text>
+        <Text style={styles.label} numberOfLines={1} ellipsizeMode={'tail'}>{label}</Text>
       </TouchableOpacity>
     )
   }
