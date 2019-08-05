@@ -4,6 +4,10 @@ import { ChannelValue } from '.';
 import { Text, TouchableOpacity } from 'react-native';
 
 describe('ChannelValue', () => {
+  const getChildTextComponents = (channelValue: TestRenderer.ReactTestInstance) =>
+    channelValue
+      .findAllByType(Text)
+      .filter(x => x.props.testID !== 'text-wrapper')
 
   describe('units Text element', () => {
     it('only renders one Text element when units are not present', () => {
@@ -11,7 +15,7 @@ describe('ChannelValue', () => {
         <ChannelValue value={123} />
       ).root;
 
-      expect(instance.findAllByType(Text)).toHaveLength(1);
+      expect(getChildTextComponents(instance)).toHaveLength(1);
     });
 
     it('renders units before value when prefix == true', () => {
@@ -23,7 +27,7 @@ describe('ChannelValue', () => {
         />
       ).root;
 
-      const textElements = instance.findAllByType(Text)
+      const textElements = getChildTextComponents(instance);
 
       expect(textElements).toHaveLength(2);
       expect(textElements[0].props.children).toEqual('hz');
@@ -39,7 +43,7 @@ describe('ChannelValue', () => {
         />
       ).root;
 
-      const textElements = instance.findAllByType(Text)
+      const textElements = getChildTextComponents(instance);
 
       expect(textElements).toHaveLength(2);
       expect(textElements[0].props.children).toEqual(123);
@@ -54,7 +58,7 @@ describe('ChannelValue', () => {
         />
       ).root;
 
-      const textElements = instance.findAllByType(Text)
+      const textElements = getChildTextComponents(instance);
 
       expect(textElements).toHaveLength(2);
       expect(textElements[0].props.children).toEqual(123);

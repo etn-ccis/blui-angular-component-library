@@ -18,6 +18,7 @@
     "@types/react-native": "^0.60.2",
     "react": "^16.8.6",
     "react-native": "^0.60.4",
+    "react-native-keyboard-aware-scroll-view": "^0.8.0",
     "react-native-collapsible": "^1.5.0",
     "react-native-status-bar-height": "^2.3.1",
     "react-native-vector-icons": "^6.6.0"
