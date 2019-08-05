@@ -5,7 +5,7 @@ import { SafeAreaView, Text, View } from 'react-native';
 import faker from 'faker';
 import { Appbar, TextInput } from 'react-native-paper';
 import { blue } from '@pxblue/colors';
-import { withKnobs } from '@storybook/addon-knobs';
+import { color, withKnobs } from '@storybook/addon-knobs';
 
 const notes = {
   notes: 'Any React Element may be passed in as `header` or `footer`. ' +
@@ -32,39 +32,34 @@ const content = (
 
 const footer = (
   <SafeAreaView style={{backgroundColor: blue[500], zIndex: 100}}>
-  <Appbar style={{backgroundColor: blue[500], shadowOpacity: 0}}>
-    <Appbar.Action icon="archive" onPress={() => console.log('Pressed archive')} />
-    <Appbar.Action icon="mail" onPress={() => console.log('Pressed mail')} />
-    <Appbar.Action icon="label" onPress={() => console.log('Pressed label')} />
-    <Appbar.Action icon="delete" onPress={() => console.log('Pressed delete')} />
-  </Appbar>
+    <Appbar style={{backgroundColor: blue[500], shadowOpacity: 0}}>
+      <Appbar.Action icon="archive" onPress={() => console.log('Pressed archive')} />
+      <Appbar.Action icon="mail" onPress={() => console.log('Pressed mail')} />
+      <Appbar.Action icon="label" onPress={() => console.log('Pressed label')} />
+      <Appbar.Action icon="delete" onPress={() => console.log('Pressed delete')} />
+    </Appbar>
   </SafeAreaView>
 );
 
 storiesOf('LayoutView', module)
   .addDecorator(withKnobs)
   .add('with no header and footer', () => (
-    <LayoutView>
-      {content}
-    </LayoutView>
-  ), notes)
-  .add('with a background color and no header and footer', () => (
-    <LayoutView backgroundColor={'lightgreen'}>
+    <LayoutView backgroundColor={color('backgroundColor', 'transparent')}>
       {content}
     </LayoutView>
   ), notes)
   .add('with a header and no footer', () => (
-    <LayoutView header={header}>
+    <LayoutView header={header} backgroundColor={color('backgroundColor', 'transparent')}>
       {content}
     </LayoutView>
   ), notes)
   .add('with a footer and no header', () => (
-    <LayoutView footer={footer}>
+    <LayoutView footer={footer} backgroundColor={color('backgroundColor', 'transparent')}>
       {content}
     </LayoutView>
   ), notes)
   .add('with a footer and header', () => (
-    <LayoutView header={header} footer={footer}>
+    <LayoutView header={header} footer={footer} backgroundColor={color('backgroundColor', 'transparent')}>
       {content}
     </LayoutView>
   ), notes);

@@ -41,8 +41,10 @@ describe('LayoutView', () => {
 
     it('renders the header and default footer', () => {
       const header = instance.find(x => x.props.testID == 'custom-header');
+      const defaultHeader = instance.findAllByProps({'testId': 'layout-default-header'});
       const footer = instance.find(x => x.props.testID == 'layout-default-footer');
       expect(header).toBeTruthy();
+      expect(defaultHeader).toHaveLength(0);
       expect(footer).toBeTruthy();
     });
   });
@@ -58,8 +60,10 @@ describe('LayoutView', () => {
     it('renders the footer and default header', () => {
       const header = instance.find(x => x.props.testID == 'layout-default-header');
       const footer = instance.find(x => x.props.testID == 'custom-footer');
+      const defaultFooter = instance.findAllByProps({'testId': 'layout-default-footer'});
       expect(header).toBeTruthy();
       expect(footer).toBeTruthy();
+      expect(defaultFooter).toHaveLength(0);
     });
   });
 
@@ -73,9 +77,13 @@ describe('LayoutView', () => {
 
     it('renders the header and footer', () => {
       const header = instance.find(x => x.props.testID == 'custom-header');
+      const defaultHeader = instance.findAllByProps({'testId': 'layout-default-header'});
       const footer = instance.find(x => x.props.testID == 'custom-footer');
+      const defaultFooter = instance.findAllByProps({'testId': 'layout-default-footer'});
       expect(header).toBeTruthy();
+      expect(defaultHeader).toHaveLength(0);
       expect(footer).toBeTruthy();
+      expect(defaultFooter).toHaveLength(0);
     });
   });
 });

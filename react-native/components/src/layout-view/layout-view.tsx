@@ -25,8 +25,6 @@ export interface LayoutViewProps {
  * Used to render content with an optional header and footer.
  */
 export class LayoutView extends React.Component<LayoutViewProps> {
-  private BACKGROUND_COLOR = this.props.backgroundColor ? this.props.backgroundColor : 'transparent';
-
   render() {
     return (
       <View style={{height: '100%'}}>
@@ -41,7 +39,7 @@ export class LayoutView extends React.Component<LayoutViewProps> {
     if (this.props.header) {
       return this.props.header;
     } else {
-      return <SafeAreaView style={{backgroundColor: this.BACKGROUND_COLOR}} testID={'layout-default-header'}/>;
+      return <SafeAreaView style={{backgroundColor: this.backgroundColor()}} testID={'layout-default-header'}/>;
     }
   }
 
@@ -52,14 +50,14 @@ export class LayoutView extends React.Component<LayoutViewProps> {
         <KeyboardAwareScrollView
           bounces={bounces}
           enableOnAndroid={true}
-          style={{flex: 1, backgroundColor: this.BACKGROUND_COLOR}}
+          style={{flex: 1, backgroundColor: this.backgroundColor()}}
         >
           {children}
         </KeyboardAwareScrollView>
       );
     } else {
       return (
-        <View style={{flex: 1, backgroundColor: this.BACKGROUND_COLOR}}>
+        <View style={{flex: 1, backgroundColor: this.backgroundColor()}}>
           {children}
         </View>
       );
@@ -70,7 +68,11 @@ export class LayoutView extends React.Component<LayoutViewProps> {
     if (this.props.footer) {
       return this.props.footer;
     } else {
-      return <SafeAreaView style={{backgroundColor: this.BACKGROUND_COLOR}} testID={'layout-default-footer'}/>
+      return <SafeAreaView style={{backgroundColor: this.backgroundColor()}} testID={'layout-default-footer'}/>
     }
+  }
+
+  private backgroundColor() {
+    return this.props.backgroundColor ? this.props.backgroundColor : 'transparent';
   }
 }
