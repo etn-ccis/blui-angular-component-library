@@ -34,7 +34,7 @@ export class ChannelValue extends Component<ChannelValueProps> {
     return (
       <View style={styles.row}>
         {icon}
-        <Text numberOfLines={1} ellipsizeMode={'tail'} style={{ flex: 1 }} testID={'text-wrapper'}>
+        <Text numberOfLines={1} ellipsizeMode={'tail'} testID={'text-wrapper'}>
           {this.prefixUnits()}
           <Text style={[styles.bold, { fontSize, color }]}>
             {value}
@@ -73,6 +73,7 @@ export class ChannelValue extends Component<ChannelValueProps> {
 
 const styles = StyleSheet.create({
   row: {
+    maxWidth: '100%',
     flexDirection: 'row',
     alignItems: 'center'
   },
