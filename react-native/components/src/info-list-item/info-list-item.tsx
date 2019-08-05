@@ -36,7 +36,7 @@ export class InfoListItem extends Component<InfoListItemProps> {
           {icon}
         </View>
         <View style={contentContainer}>
-          <Text style={[bigText, { color: titleColor }]} numberOfLines={1} ellipsizeMode="tail">
+          <Text style={[bigText, { color: titleColor }]} numberOfLines={1} ellipsizeMode={'tail'}>
             {title}
           </Text>
           <View style={row}>
