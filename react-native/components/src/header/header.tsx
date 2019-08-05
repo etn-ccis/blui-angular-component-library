@@ -16,18 +16,36 @@ import { blue, white } from '@pxblue/colors';
 const AnimatedSafeAreaView = createAnimatedComponent(SafeAreaView);
 
 export interface HeaderIcon {
+  /** Name of the icon */
   icon: string;
+
+  /** Callback when icon is pressed */
   onPress: () => void;
 }
 
 export interface HeaderProps {
+  /** Header title */
   title: string;
+
+  /** Optional header subtitle */
   subtitle?: string;
+
+  /** Leftmost icon on header, used for navigation */
   navigation?: HeaderIcon;
+
+  /** List of up to three action items on the right of the header */
   actionItems?: HeaderIcon[];
+
+  /** Determines whether the header can be expanded by being pressed */
   expandable?: boolean;
+
+  /** Background color of the header */
   backgroundColor?: string;
+
+  /** Color of the title, subtitle, and icons in the header */
   fontColor?: string;
+
+  /** Background image to render when header is expanded */
   backgroundImage?: ImageSourcePropType;
 }
 
@@ -36,6 +54,12 @@ interface HeaderState {
   headerHeight: Animated.Value;
 }
 
+/**
+ * Header component
+ *
+ * This component is used to display a title and navigation and action items on the top of a screen.
+ * It can be tapped to expand or contract.
+ */
 export class Header extends React.Component<HeaderProps, HeaderState> {
   static readonly REGULAR_HEIGHT = 56 + getStatusBarHeight(true);
   static readonly EXTENDED_HEIGHT = 128 + getStatusBarHeight(true);
@@ -107,7 +131,6 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
             position: 'absolute',
             elevation: 0,
             resizeMode: 'cover',
-            // top: -getStatusBarHeight(true),
             height: this.state.headerHeight,
             opacity: this.state.headerHeight.interpolate({
               inputRange: [Header.REGULAR_HEIGHT, Header.EXTENDED_HEIGHT],
@@ -164,7 +187,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
   private actionItems() {
     const { actionItems } = this.props;
     if ( actionItems ) {
-      return actionItems.map(actionItem => (
+      return actionItems.slice(0, 3).map(actionItem => (
         <TouchableOpacity onPress={actionItem.onPress} style={styles.actionItem}>
           <Icon name={actionItem.icon} size={Header.ICON_SIZE} color={this.fontColor()}/>
         </TouchableOpacity>
