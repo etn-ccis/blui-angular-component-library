@@ -1,5 +1,13 @@
 import React from 'react';
-import { Animated, SafeAreaView, StyleSheet, TouchableOpacity, TouchableWithoutFeedback, View } from 'react-native';
+import {
+  Animated,
+  ImageSourcePropType,
+  SafeAreaView,
+  StyleSheet,
+  TouchableOpacity,
+  TouchableWithoutFeedback,
+  View
+} from 'react-native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import createAnimatedComponent = Animated.createAnimatedComponent;
@@ -20,6 +28,7 @@ export interface HeaderProps {
   expandable?: boolean;
   backgroundColor?: string;
   fontColor?: string;
+  backgroundImage?: ImageSourcePropType;
 }
 
 interface HeaderState {
@@ -28,8 +37,8 @@ interface HeaderState {
 }
 
 export class Header extends React.Component<HeaderProps, HeaderState> {
-  static readonly REGULAR_HEIGHT = 56 + getStatusBarHeight();
-  static readonly EXTENDED_HEIGHT = 128 + getStatusBarHeight();
+  static readonly REGULAR_HEIGHT = 56 + getStatusBarHeight(true);
+  static readonly EXTENDED_HEIGHT = 128 + getStatusBarHeight(true);
   static readonly ICON_SIZE = 24;
 
   private expand: Animated.CompositeAnimation;
@@ -62,6 +71,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     return (
       <TouchableWithoutFeedback onPress={() => this.onPress()} disabled={!expandable}>
         <AnimatedSafeAreaView style={barStyle}>
+          {this.backgroundImage()}
           <Animated.View style={contentStyle}>
             {this.navigation()}
             {this.title()}
@@ -84,6 +94,28 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
       this.setState({
         expanded: true
       });
+    }
+  }
+
+  private backgroundImage() {
+    const { backgroundImage } = this.props;
+    if (backgroundImage) {
+      return (
+        <Animated.Image
+          source={backgroundImage}
+          style={{
+            position: 'absolute',
+            elevation: 0,
+            resizeMode: 'cover',
+            // top: -getStatusBarHeight(true),
+            height: this.state.headerHeight,
+            opacity: this.state.headerHeight.interpolate({
+              inputRange: [Header.REGULAR_HEIGHT, Header.EXTENDED_HEIGHT],
+              outputRange: [0, 0.3]
+            })
+          }}
+        />
+      );
     }
   }
 

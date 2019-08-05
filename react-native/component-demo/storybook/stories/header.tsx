@@ -4,6 +4,8 @@ import { color, text, withKnobs } from '@storybook/addon-knobs';
 import { Header } from '@pxblue/react-native-components';
 import { blue, white } from '@pxblue/colors';
 
+const backgroundImage = require('../assets/farm.jpg');
+
 storiesOf('Header', module)
   .addDecorator(withKnobs)
   .add('with all props', () => (
@@ -19,5 +21,6 @@ storiesOf('Header', module)
       ]}
       backgroundColor={color('backgroundColor', blue[500])}
       fontColor={color('fontColor', white[500])}
+      backgroundImage={backgroundImage}
     />
   ));
