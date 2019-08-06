@@ -248,7 +248,15 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
 
 const styles = StyleSheet.create({
   bar: {
-    width: '100%'
+    width: '100%',
+    shadowColor: 'rgba(0, 0, 0, 0.3)',
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowRadius: 2,
+    shadowOpacity: 1,
+    elevation: 0
   },
   content: {
     flex: 1,
