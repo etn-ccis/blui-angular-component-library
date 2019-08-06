@@ -23,6 +23,11 @@ export interface HeaderIcon {
   onPress: () => void;
 }
 
+export interface SearchableConfig {
+  icon?: string;
+  placeholder?: string;
+}
+
 export interface HeaderProps {
   /** Header title */
   title: string;
@@ -47,10 +52,13 @@ export interface HeaderProps {
 
   /** Background image to render when header is expanded */
   backgroundImage?: ImageSourcePropType;
+
+  searchable?: SearchableConfig;
 }
 
 interface HeaderState {
   expanded: boolean;
+  searching: boolean;
   headerHeight: Animated.Value;
 }
 
@@ -73,6 +81,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
 
     this.state = {
       expanded: false,
+      searching: false,
       headerHeight: new Animated.Value(Header.REGULAR_HEIGHT)
     };
 
@@ -144,6 +153,17 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
 
   private navigation() {
     const { navigation } = this.props;
+    const { searching } = this.state;
+
+    if ( searching ) {
+      return (
+        <View>
+          <TouchableOpacity testID={'header-search-close'} onPress={() => this.onPressSearchClose()} style={styles.navigation}>
+            <Icon name={'arrow-back'} size={Header.ICON_SIZE} color={this.fontColor()}/>
+          </TouchableOpacity>
+        </View>
+      )
+    }
     if ( navigation ) {
       return (
         <View>
@@ -191,9 +211,16 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
   }
 
   private actionItems() {
-    const { actionItems } = this.props;
-    if ( actionItems ) {
-      return actionItems.slice(0, 3).map((actionItem, index) => (
+    const { actionItems, searchable } = this.props;
+    const numItems = searchable ? 2 : 3;
+    let items = actionItems;
+
+    if ( searchable ) {
+      items = [{icon: 'search', onPress: () => this.onPressSearch()}].concat(actionItems || []);
+    }
+
+    if ( items ) {
+      return items.slice(0, numItems).map((actionItem, index) => (
         <View>
           <TouchableOpacity key={`${index}`} testID={`header-action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
             <Icon name={actionItem.icon} size={Header.ICON_SIZE} color={this.fontColor()}/>
@@ -247,6 +274,19 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
 
   private backgroundColor() {
     return this.props.backgroundColor ? this.props.backgroundColor : blue[500];
+  }
+
+  private onPressSearch() {
+    this.contract.start(() => this.setState({ searching: true }));
+    this.setState({
+      expanded: false
+    });
+  }
+
+  private onPressSearchClose() {
+    this.setState({
+      searching: false
+    });
   }
 }
 
