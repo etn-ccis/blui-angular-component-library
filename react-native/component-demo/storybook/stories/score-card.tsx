@@ -7,18 +7,23 @@ import { safeArea, centered, padded } from '../decorators';
 import GradeA from '@pxblue/icons-svg/grade_a.svg';
 import GradeB from '@pxblue/icons-svg/grade_b.svg';
 
+const backgroundImage = require('../assets/farm.jpg');
+
 storiesOf('ScoreCard', module)
   .addDecorator(withKnobs)
   .addDecorator(padded)
-  .add('with arbitrary children', () =>
+  .add('with minimal configuration', () =>
     <ScoreCard headerText={'Portland Datacenter'}>
       <Text style={{ color: 'red' }}>2 Alarms</Text>
       <Text style={{ color: 'blue' }}>2 Events</Text>
       <Text style={{ color: 'orange' }}>2 Predictions</Text>
     </ScoreCard>
   )
-  .add('with multiple header lines', () =>
-    <ScoreCard headerText={['Portland Datacenter', '6 UPS Devices', 'Attention Required']}>
+  .add('with multiple header lines and a background image', () =>
+    <ScoreCard
+      headerText={['Portland Datacenter', '6 UPS Devices', 'Attention Required']}
+      headerBackgroundImage={backgroundImage}
+      >
       <Text style={{ color: 'red' }}>2 Alarms</Text>
       <Text style={{ color: 'blue' }}>2 Events</Text>
       <Text style={{ color: 'orange' }}>2 Predictions</Text>
@@ -26,7 +31,8 @@ storiesOf('ScoreCard', module)
   )
   .add('with a badge and actionRow', () =>
     <ScoreCard
-      headerText={'With a header'}
+      headerText={['Portland Datacenter', '6 UPS Devices', 'Attention Required']}
+      headerBackgroundImage={backgroundImage}
       badge={
         <Hero
           label={'Overall Score'}

@@ -33,7 +33,7 @@ export class ListItem extends Component<Props> {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 10
+    padding: 16
   },
   row: {
     flexDirection: 'row',

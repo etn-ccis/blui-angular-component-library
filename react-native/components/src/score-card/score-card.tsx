@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, TextProps } from 'react-native';
+import { Text, View, StyleSheet, TextProps, ImageSourcePropType, Image } from 'react-native';
 import { red, gray } from '@pxblue/colors';
 import { Hero } from '../hero';
 import { ListItem } from './list-item';
@@ -9,6 +9,9 @@ export interface Props {
   headerText: string | Array<string>;
   badge?: JSX.Element;
   actionRow?: JSX.Element;
+
+  /** Background image to render when header is expanded */
+  headerBackgroundImage?: ImageSourcePropType;
 };
 
 export class ScoreCard extends Component<Props> {
@@ -21,6 +24,7 @@ export class ScoreCard extends Component<Props> {
     return (
       <View style={styles.card}>
         <View style={[styles.padded, styles.header, { backgroundColor: headerColor }]}>
+          {this.backgroundImage()}
           {headerText.map((text, i) =>
             <Text style={[styles.headerText, headerTextProps[i].style]} testID={headerTextProps[i].testID}>
               {text}
@@ -65,12 +69,30 @@ export class ScoreCard extends Component<Props> {
     }
   }
 
+  private backgroundImage() {
+    const { headerBackgroundImage } = this.props;
+    if (headerBackgroundImage) {
+      return (
+        <Image
+          testID={'header-background-image'}
+          source={headerBackgroundImage}
+          style={{
+            position: 'absolute',
+            resizeMode: 'cover',
+            height: 100,
+            opacity: 0.3
+          }}
+        />
+      );
+    }
+  }
+
   private footer() {
     const { actionRow } = this.props;
 
     if (actionRow) {
       return (
-        <View style={[styles.padded, styles.footer]}>
+        <View style={[styles.footer]}>
           {actionRow}
         </View>
       );
@@ -78,7 +100,7 @@ export class ScoreCard extends Component<Props> {
   }
 }
 
-const PADDING_AMOUNT = 10;
+const PADDING_AMOUNT = 16;
 const styles = StyleSheet.create({
   card: {
     shadowColor: gray[900],
@@ -94,8 +116,9 @@ const styles = StyleSheet.create({
     flex: 1
   },
   header: {
-    padding: 10,
-    height: 100
+    padding: PADDING_AMOUNT,
+    height: 100,
+    overflow: 'hidden'
   },
   headerText: {
     color: 'white',
@@ -115,7 +138,6 @@ const styles = StyleSheet.create({
     fontWeight: '200'
   },
   footer: {
-    padding: 10,
     borderTopColor: gray[100],
     borderTopWidth: 1
   },
