@@ -55,12 +55,14 @@ export interface HeaderProps {
   /** Background image to render when header is expanded */
   backgroundImage?: ImageSourcePropType;
 
+  /** Configuration object that determines whether the Header can have a search bar */
   searchable?: SearchableConfig;
 }
 
 interface HeaderState {
   expanded: boolean;
   searching: boolean;
+  query: string;
   headerHeight: Animated.Value;
 }
 
@@ -74,6 +76,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
   static readonly REGULAR_HEIGHT = 56 + getStatusBarHeight(true);
   static readonly EXTENDED_HEIGHT = 128 + getStatusBarHeight(true);
   static readonly ICON_SIZE = 24;
+  static readonly ANIMATION_LENGTH = 300;
 
   private expand: Animated.CompositeAnimation;
   private contract: Animated.CompositeAnimation;
@@ -86,27 +89,33 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     this.state = {
       expanded: false,
       searching: false,
+      query: '',
       headerHeight: new Animated.Value(Header.REGULAR_HEIGHT)
     };
 
     this.expand = Animated.timing(this.state.headerHeight, {
       toValue: Header.EXTENDED_HEIGHT,
-      duration: 300
+      duration: Header.ANIMATION_LENGTH
     });
 
     this.contract = Animated.timing(this.state.headerHeight, {
       toValue: Header.REGULAR_HEIGHT,
-      duration: 300
+      duration: Header.ANIMATION_LENGTH
     });
+  }
+
+  getQuery() {
+    return this.state.query;
   }
 
   render() {
     const { expandable = false } = this.props;
+    const { searching } = this.state;
     const barStyle = this.barStyle();
     const contentStyle = this.contentStyle();
 
     return (
-      <TouchableWithoutFeedback onPress={() => this.onPress()} disabled={!expandable}>
+      <TouchableWithoutFeedback onPress={() => this.onPress()} disabled={!expandable || searching}>
         <AnimatedSafeAreaView style={barStyle}>
           {this.backgroundImage()}
           <Animated.View style={contentStyle}>
@@ -233,29 +242,35 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     return (
       <TextInput
         ref={this.searchRef}
+        style={this.searchStyle()}
         autoFocus={config.autoFocus}
+        onChangeText={text => this.setState({ query: text })}
         placeholder={config.placeholder}
         placeholderTextColor={placeholderTextColor}
+        returnKeyType={'search'}
         selectionColor={placeholderTextColor}
-        style={this.searchStyle()}
+        underlineColorAndroid={'transparent'}
       />
     )
   }
 
   private actionItems() {
     const { actionItems, searchable } = this.props;
-    const { searching } = this.state;
-    const numItems = searchable ? 2 : 3;
+    const { searching, query } = this.state;
     let items = actionItems;
 
     if (searching) {
-      items = [{ icon: 'clear', onPress: () => this.onPressSearchClear() }]
+      if (query) {
+        items = [{ icon: 'clear', onPress: () => this.onPressSearchClear() }]
+      } else {
+        items = [];
+      }
     } else if ( searchable ) {
       items = [{icon: 'search', onPress: () => this.onPressSearch() }].concat(actionItems || []);
     }
 
     if ( items ) {
-      return items.slice(0, numItems).map((actionItem, index) => (
+      return items.slice(0, 3).map((actionItem, index) => (
         <View>
           <TouchableOpacity key={`${index}`} testID={`header-action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
             <Icon name={actionItem.icon} size={Header.ICON_SIZE} color={this.fontColor()}/>
@@ -305,6 +320,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
 
   private searchStyle() {
     return {
+      padding: 0, // TextInput on Android has some default padding, so this needs to be explicitly set to 0
       color: this.fontColor(),
       fontSize: 20
     }
@@ -327,7 +343,8 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
 
   private onPressSearchClose() {
     this.setState({
-      searching: false
+      searching: false,
+      query: ''
     });
   }
 
@@ -336,6 +353,9 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     if (searchInput) {
       searchInput.clear();
     }
+    this.setState({
+      query: ''
+    });
   }
 }
 

@@ -56,11 +56,9 @@ storiesOf('Header', module)
   .add('with search', () => (
     <Header
       expandable={true}
-      title={text('title', 'Title')}
+      title={text('title', 'With Search')}
       navigation={{icon: 'menu', onPress: () => {}}}
       actionItems={[
-        {icon: 'cloud-upload', onPress: () => {}},
-        {icon: 'mail', onPress: () => {}},
         {icon: 'more-vert', onPress: () => {}}
       ].slice(0, (number('action items', 3, { range: true, min: 0, max: 3, step: 1 })))}
       backgroundColor={color('backgroundColor', blue[500])}
