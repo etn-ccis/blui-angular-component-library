@@ -7,14 +7,17 @@ import Apple from '@pxblue/icons-svg/apple.svg';
 import { blue, green } from '@pxblue/colors';
 import * as _ from 'lodash';
 import { InfoListItemProps } from '@pxblue/react-native-components/dist/info-list-item/info-list-item';
+import { wrapIcon } from '@pxblue/react-native-components/dist/icon-wrapper/icon-wrapper';
 
 const Separator: React.FunctionComponent = () =>
   <View style={{ height: 1, marginLeft: 40, backgroundColor: '#cccccc' }} />
 
+const AppleIcon = wrapIcon({ IconClass: Apple });
+
 const createInfoListItemProps = (): InfoListItemProps => {
   let subtitle: InfoListItemProps['subtitle'];
   let color: InfoListItemProps['color'];
-  let icon: InfoListItemProps['icon'];
+  let IconClass: InfoListItemProps['IconClass'];
   let onPress: InfoListItemProps['onPress'];
 
   const subtitleNumber = Math.random();
@@ -34,7 +37,7 @@ const createInfoListItemProps = (): InfoListItemProps => {
   }
 
   if (Math.random() < 0.7) {
-    icon = <Apple width={24} height={24} fill={color || blue[700]} />;
+    IconClass = AppleIcon;
   }
 
   if (Math.random() < 0.5) {
@@ -45,7 +48,7 @@ const createInfoListItemProps = (): InfoListItemProps => {
     title: 'Title',
     subtitle,
     color,
-    icon,
+    IconClass,
     onPress
   }
 }

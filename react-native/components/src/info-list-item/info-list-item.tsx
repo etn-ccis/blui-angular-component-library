@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment, ComponentType } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import * as Colors from '@pxblue/colors';
@@ -11,8 +11,8 @@ export interface InfoListItemProps {
   /** Subtitle. If an array, will be separated by dots. */
   subtitle?: string | Array<React.ReactNode>;
 
-  /** Icon to render. If provided, its color and size should be set */
-  icon?: React.ReactNode;
+  /** Component to render to the left of the title */
+  IconClass?: ComponentType<{ size: number, color: string }>;
 
   /** Color to use for title and tab on left side */
   color?: string;
@@ -25,7 +25,7 @@ export class InfoListItem extends Component<InfoListItemProps> {
   private static readonly MAX_SUBTITLE_ELEMENTS = 3;
 
   public render() {
-    const { title, icon, color, onPress } = this.props;
+    const { title, color, onPress } = this.props;
     const { bigText, fixedHeight, row, fullHeight, tab, iconContainer, contentContainer, withMargins, withRightPadding } = styles;
     const titleColor = color || Colors.gray[800];
 
@@ -33,7 +33,7 @@ export class InfoListItem extends Component<InfoListItemProps> {
       <TouchableOpacity onPress={onPress} style={[fixedHeight, row, withRightPadding]} disabled={!onPress}>
         <View style={[fullHeight, tab, { backgroundColor: color }]} />
         <View style={[iconContainer, withMargins]}>
-          {icon}
+          {this.icon()}
         </View>
         <View style={contentContainer}>
           <Text style={[bigText, { color: titleColor }]} numberOfLines={1} ellipsizeMode={'tail'}>
@@ -46,6 +46,16 @@ export class InfoListItem extends Component<InfoListItemProps> {
         {this.chevron()}
       </TouchableOpacity>
     );
+  }
+
+  private icon() {
+    const { IconClass, color } = this.props;
+
+    if (IconClass) {
+      return (
+        <IconClass size={24} color={color || Colors.gray[800]} />
+      );
+    }
   }
 
   private chevron() {
