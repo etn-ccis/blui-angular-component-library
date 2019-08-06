@@ -126,10 +126,10 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     if (backgroundImage) {
       return (
         <Animated.Image
+          testID={'header-background-image'}
           source={backgroundImage}
           style={{
             position: 'absolute',
-            elevation: 0,
             resizeMode: 'cover',
             height: this.state.headerHeight,
             opacity: this.state.headerHeight.interpolate({
@@ -146,7 +146,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     const { navigation } = this.props;
     if ( navigation ) {
       return (
-        <TouchableOpacity onPress={navigation.onPress} style={styles.navigation}>
+        <TouchableOpacity testID={'header-navigation'} onPress={navigation.onPress} style={styles.navigation}>
           <Icon name={navigation.icon} size={Header.ICON_SIZE} color={this.fontColor()}/>
         </TouchableOpacity>
       )
@@ -159,6 +159,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
       <View style={styles.titleContainer}>
         <View style={{flex: 0, justifyContent: 'center'}}>
           <Animated.Text
+            testID={'header-title'}
             style={this.titleStyle()}
             numberOfLines={2}
             ellipsizeMode={'clip'}
@@ -174,21 +175,24 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
   private subtitle() {
     const { subtitle } = this.props;
     if (subtitle) {
-      return <Animated.Text
-        style={this.subtitleStyle()}
-        numberOfLines={1}
-        ellipsizeMode={'clip'}
-      >
-        {subtitle}
-      </Animated.Text>;
+      return (
+        <Animated.Text
+          testID={'header-subtitle'}
+          style={this.subtitleStyle()}
+          numberOfLines={1}
+          ellipsizeMode={'clip'}
+        >
+          {subtitle}
+        </Animated.Text>
+      );
     }
   }
 
   private actionItems() {
     const { actionItems } = this.props;
     if ( actionItems ) {
-      return actionItems.slice(0, 3).map(actionItem => (
-        <TouchableOpacity onPress={actionItem.onPress} style={styles.actionItem}>
+      return actionItems.slice(0, 3).map((actionItem, index) => (
+        <TouchableOpacity key={`${index}`} testID={`header-action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
           <Icon name={actionItem.icon} size={Header.ICON_SIZE} color={this.fontColor()}/>
         </TouchableOpacity>
       ))
