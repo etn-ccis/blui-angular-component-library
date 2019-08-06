@@ -40,7 +40,7 @@ export class ScoreCard extends Component<Props> {
           {this.backgroundImage()}
           <View style={{ flex: 1 }}>
             {headerText.map((text, i) =>
-              <Text style={[styles.headerText, headerTextProps[i].style]} testID={headerTextProps[i].testID}>
+              <Text style={[styles.headerText, headerTextProps[i].style]} testID={headerTextProps[i].testID} numberOfLines={1} ellipsizeMode={'tail'}>
                 {text}
               </Text>
             )}
