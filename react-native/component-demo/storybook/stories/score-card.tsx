@@ -3,10 +3,8 @@ import { Text } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
 import { text, withKnobs, number } from '@storybook/addon-knobs';
 import { ScoreCard, Hero } from '@pxblue/react-native-components';
-import { safeArea, centered, padded } from '../decorators';
+import { padded } from '../decorators';
 import GradeA from '@pxblue/icons-svg/grade_a.svg';
-import GradeB from '@pxblue/icons-svg/grade_b.svg';
-import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const backgroundImage = require('../assets/farm.jpg');
 
