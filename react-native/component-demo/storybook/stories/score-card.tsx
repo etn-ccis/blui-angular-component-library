@@ -1,11 +1,12 @@
 import React from 'react';
 import { Text } from 'react-native';
 import { storiesOf } from '@storybook/react-native';
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { text, withKnobs, number } from '@storybook/addon-knobs';
 import { ScoreCard, Hero } from '@pxblue/react-native-components';
 import { safeArea, centered, padded } from '../decorators';
 import GradeA from '@pxblue/icons-svg/grade_a.svg';
 import GradeB from '@pxblue/icons-svg/grade_b.svg';
+import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 const backgroundImage = require('../assets/farm.jpg');
 
@@ -19,10 +20,62 @@ storiesOf('ScoreCard', module)
       <Text style={{ color: 'orange' }}>2 Predictions</Text>
     </ScoreCard>
   )
-  .add('using all props', () =>
+  .add('with background and actions', () =>
     <ScoreCard
       headerText={['Portland Datacenter', '6 UPS Devices', 'Attention Required']}
       headerBackgroundImage={backgroundImage}
+      actionItems={[
+        { icon: 'add', onPress: () => {} },
+        { icon: 'autorenew', onPress: () => {} },
+        { icon: 'autorenew', onPress: () => {} }
+      ].slice(0, number('actionItems.length', 2, { range: true, min: 0, max: 3, step: 1}))}
+      badge={
+        <Hero
+          label={'Overall Score'}
+          value={85}
+          units={'/100'}
+          icon={<GradeA width={48} height={48} fill={'orange'} />}
+        />
+      }
+      actionRow={
+        <ScoreCard.ListItem label={'View Location'} onPress={() => {}} />
+      }
+    >
+      <Text style={{ color: 'red' }}>Variable number of actions</Text>
+      <Text style={{ color: 'blue' }}>No overflow handler</Text>
+    </ScoreCard>
+  )
+  .add('with background and actions and onPressOverflow', () =>
+    <ScoreCard
+      headerText={['Portland Datacenter', '6 UPS Devices', 'Attention Required']}
+      headerBackgroundImage={backgroundImage}
+      actionItems={[
+        { icon: 'add', onPress: () => {} },
+        { icon: 'autorenew', onPress: () => {} },
+        { icon: 'autorenew', onPress: () => {} }
+      ].slice(0, number('actionItems.length', 2, { range: true, min: 0, max: 3, step: 1}))}
+      onPressOverflow={() => {}}
+      badge={
+        <Hero
+          label={'Overall Score'}
+          value={85}
+          units={'/100'}
+          icon={<GradeA width={48} height={48} fill={'orange'} />}
+        />
+      }
+      actionRow={
+        <ScoreCard.ListItem label={'View Location'} onPress={() => {}} />
+      }
+    >
+      <Text style={{ color: 'red' }}>Variable number of actions</Text>
+      <Text style={{ color: 'blue' }}>With overflow handler for when actionItems.length > 3</Text>
+    </ScoreCard>
+  )
+  .add('with overflow', () =>
+    <ScoreCard
+      headerText={['Portland Datacenter', '6 UPS Devices', 'Attention Required']}
+      headerBackgroundImage={backgroundImage}
+      onPressOverflow={() => {}}
       badge={
         <Hero
           label={'Overall Score'}

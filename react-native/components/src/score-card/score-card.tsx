@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, TextProps, ImageSourcePropType, Image } from 'react-native';
+import { Text, View, StyleSheet, TextProps, ImageSourcePropType, Image, TouchableOpacity } from 'react-native';
 import { red, gray } from '@pxblue/colors';
-import { Hero } from '../hero';
 import { ListItem } from './list-item';
+import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+
+export interface HeaderIcon {
+  /** Name of the icon */
+  icon: string;
+
+  /** Callback when icon is pressed */
+  onPress: () => void;
+}
 
 export interface Props {
   headerColor?: string;
@@ -12,9 +20,14 @@ export interface Props {
 
   /** Background image to render when header is expanded */
   headerBackgroundImage?: ImageSourcePropType;
+
+  actionItems?: Array<HeaderIcon>;
+
+  onPressOverflow?: () => void;
 };
 
 export class ScoreCard extends Component<Props> {
+  private static readonly ICON_SIZE = 24;
   public static readonly ListItem = ListItem;
 
   public render() {
@@ -25,11 +38,14 @@ export class ScoreCard extends Component<Props> {
       <View style={styles.card}>
         <View style={[styles.padded, styles.header, { backgroundColor: headerColor }]}>
           {this.backgroundImage()}
-          {headerText.map((text, i) =>
-            <Text style={[styles.headerText, headerTextProps[i].style]} testID={headerTextProps[i].testID}>
-              {text}
-            </Text>
-          )}
+          <View style={{ flex: 1 }}>
+            {headerText.map((text, i) =>
+              <Text style={[styles.headerText, headerTextProps[i].style]} testID={headerTextProps[i].testID}>
+                {text}
+              </Text>
+            )}
+          </View>
+          {this.actionItems()}
         </View>
         <View style={[styles.row]}>
           <View style={this.childrenWrapperStyle()}>
@@ -98,6 +114,31 @@ export class ScoreCard extends Component<Props> {
       );
     }
   }
+
+  private actionItems() {
+    const { actionItems, onPressOverflow } = this.props;
+    let items: Array<HeaderIcon> = [];
+
+    if (onPressOverflow && !actionItems || actionItems && actionItems.length > 2 && onPressOverflow) {
+      items = [{ icon: 'more-vert', onPress: onPressOverflow }];
+    } else if (actionItems) {
+      items = actionItems;
+    }
+
+    if (items) {
+      return items.slice(0, 2).map((actionItem, index) => (
+        <View>
+          <TouchableOpacity key={`${index}`} testID={`header-action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
+            <MaterialIcon name={actionItem.icon} size={ScoreCard.ICON_SIZE} color={this.fontColor()}/>
+          </TouchableOpacity>
+        </View>
+      ))
+    }
+  }
+
+  private fontColor() {
+    return 'white';
+  }
 }
 
 const PADDING_AMOUNT = 16;
@@ -115,7 +156,12 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     flex: 1
   },
+  actionItem: {
+    marginLeft: 12
+  },
   header: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
     padding: PADDING_AMOUNT,
     height: 100,
     overflow: 'hidden'
@@ -149,7 +195,7 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   firstColumn: {
-    marginRight: 60
+    marginRight: 90
   }
 });
 
