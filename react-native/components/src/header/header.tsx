@@ -10,8 +10,8 @@ import {
 } from 'react-native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import createAnimatedComponent = Animated.createAnimatedComponent;
 import { blue, white } from '@pxblue/colors';
+import createAnimatedComponent = Animated.createAnimatedComponent;
 
 const AnimatedSafeAreaView = createAnimatedComponent(SafeAreaView);
 
@@ -146,9 +146,11 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     const { navigation } = this.props;
     if ( navigation ) {
       return (
-        <TouchableOpacity testID={'header-navigation'} onPress={navigation.onPress} style={styles.navigation}>
-          <Icon name={navigation.icon} size={Header.ICON_SIZE} color={this.fontColor()}/>
-        </TouchableOpacity>
+        <View>
+          <TouchableOpacity testID={'header-navigation'} onPress={navigation.onPress} style={styles.navigation}>
+            <Icon name={navigation.icon} size={Header.ICON_SIZE} color={this.fontColor()}/>
+          </TouchableOpacity>
+        </View>
       )
     }
   }
@@ -192,9 +194,11 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     const { actionItems } = this.props;
     if ( actionItems ) {
       return actionItems.slice(0, 3).map((actionItem, index) => (
-        <TouchableOpacity key={`${index}`} testID={`header-action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
-          <Icon name={actionItem.icon} size={Header.ICON_SIZE} color={this.fontColor()}/>
-        </TouchableOpacity>
+        <View>
+          <TouchableOpacity key={`${index}`} testID={`header-action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
+            <Icon name={actionItem.icon} size={Header.ICON_SIZE} color={this.fontColor()}/>
+          </TouchableOpacity>
+        </View>
       ))
     }
   }
