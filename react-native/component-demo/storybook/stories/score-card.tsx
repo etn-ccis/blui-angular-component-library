@@ -19,17 +19,7 @@ storiesOf('ScoreCard', module)
       <Text style={{ color: 'orange' }}>2 Predictions</Text>
     </ScoreCard>
   )
-  .add('with multiple header lines and a background image', () =>
-    <ScoreCard
-      headerText={['Portland Datacenter', '6 UPS Devices', 'Attention Required']}
-      headerBackgroundImage={backgroundImage}
-      >
-      <Text style={{ color: 'red' }}>2 Alarms</Text>
-      <Text style={{ color: 'blue' }}>2 Events</Text>
-      <Text style={{ color: 'orange' }}>2 Predictions</Text>
-    </ScoreCard>
-  )
-  .add('with a badge and actionRow', () =>
+  .add('using all props', () =>
     <ScoreCard
       headerText={['Portland Datacenter', '6 UPS Devices', 'Attention Required']}
       headerBackgroundImage={backgroundImage}
