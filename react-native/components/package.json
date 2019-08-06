@@ -1,0 +1,46 @@
+{
+  "name": "@pxblue/react-native-components",
+  "version": "0.1.0",
+  "description": "Reusable React Native components for PX Blue applications",
+  "repository": "https://github.com/pxblue/react-native-components",
+  "license": "BSD-3-Clause",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "lint": "eslint src/**/*.ts src/**/*.tsx",
+    "prepublish": "rm -rf ./dist && tsc",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "verify-build": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@pxblue/colors": "^1.0.13",
+    "@types/react-native": "^0.60.2",
+    "react": "^16.8.6",
+    "react-native": "^0.60.4",
+    "react-native-keyboard-aware-scroll-view": "^0.8.0",
+    "react-native-collapsible": "^1.5.0",
+    "react-native-vector-icons": "^6.6.0"
+  },
+  "devDependencies": {
+    "@react-native-community/eslint-config": "^0.0.5",
+    "@types/jest": "^24.0.15",
+    "@types/react": "^16.8.23",
+    "@types/react-native": "^0.60.2",
+    "@types/react-native-collapsible": "^0.11.0",
+    "@types/react-native-vector-icons": "^6.4.1",
+    "@types/react-test-renderer": "^16.8.3",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
+    "eslint": "^6.1.0",
+    "jest": "^24.8.0",
+    "react-test-renderer": "^16.8.6",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.3"
+  },
+  "files": [
+    "package.json",
+    "LICENSE",
+    "dist/"
+  ]
+}
