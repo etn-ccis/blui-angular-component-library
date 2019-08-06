@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import {
   Animated,
   ImageSourcePropType,
   SafeAreaView,
-  StyleSheet,
+  StyleSheet, TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View
@@ -12,6 +12,7 @@ import { getStatusBarHeight } from 'react-native-status-bar-height';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { blue, white } from '@pxblue/colors';
 import createAnimatedComponent = Animated.createAnimatedComponent;
+import color from 'color';
 
 const AnimatedSafeAreaView = createAnimatedComponent(SafeAreaView);
 
@@ -26,6 +27,7 @@ export interface HeaderIcon {
 export interface SearchableConfig {
   icon?: string;
   placeholder?: string;
+  autoFocus?: boolean;
 }
 
 export interface HeaderProps {
@@ -76,6 +78,8 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
   private expand: Animated.CompositeAnimation;
   private contract: Animated.CompositeAnimation;
 
+  private searchRef = createRef<TextInput>();
+
   constructor(props: HeaderProps) {
     super(props);
 
@@ -107,7 +111,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
           {this.backgroundImage()}
           <Animated.View style={contentStyle}>
             {this.navigation()}
-            {this.title()}
+            {this.content()}
             {this.actionItems()}
           </Animated.View>
         </AnimatedSafeAreaView>
@@ -175,23 +179,37 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     }
   }
 
-  private title() {
-    const { title } = this.props;
+  private content() {
+    const { searchable } = this.props;
+    const { searching } = this.state;
+    let content = [];
+
+    if (searchable && searching) {
+      content = [this.search(searchable)];
+    } else {
+      content = [this.title(), this.subtitle()];
+    }
     return (
       <View style={styles.titleContainer}>
         <View style={{flex: 0, justifyContent: 'center'}}>
-          <Animated.Text
-            testID={'header-title'}
-            style={this.titleStyle()}
-            numberOfLines={2}
-            ellipsizeMode={'clip'}
-          >
-            {title}
-          </Animated.Text>
-          {this.subtitle()}
+          {content}
         </View>
       </View>
     );
+  }
+
+  private title() {
+    const { title } = this.props;
+    return (
+      <Animated.Text
+        testID={'header-title'}
+        style={this.titleStyle()}
+        numberOfLines={2}
+        ellipsizeMode={'clip'}
+      >
+        {title}
+      </Animated.Text>
+    )
   }
 
   private subtitle() {
@@ -210,13 +228,30 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     }
   }
 
+  private search(config: SearchableConfig) {
+    const placeholderTextColor = color(this.fontColor()).fade(0.4).string();
+    return (
+      <TextInput
+        ref={this.searchRef}
+        autoFocus={config.autoFocus}
+        placeholder={config.placeholder}
+        placeholderTextColor={placeholderTextColor}
+        selectionColor={placeholderTextColor}
+        style={this.searchStyle()}
+      />
+    )
+  }
+
   private actionItems() {
     const { actionItems, searchable } = this.props;
+    const { searching } = this.state;
     const numItems = searchable ? 2 : 3;
     let items = actionItems;
 
-    if ( searchable ) {
-      items = [{icon: 'search', onPress: () => this.onPressSearch()}].concat(actionItems || []);
+    if (searching) {
+      items = [{ icon: 'clear', onPress: () => this.onPressSearchClear() }]
+    } else if ( searchable ) {
+      items = [{icon: 'search', onPress: () => this.onPressSearch() }].concat(actionItems || []);
     }
 
     if ( items ) {
@@ -268,6 +303,13 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     };
   }
 
+  private searchStyle() {
+    return {
+      color: this.fontColor(),
+      fontSize: 20
+    }
+  }
+
   private fontColor() {
     return this.props.fontColor ? this.props.fontColor : white[500];
   }
@@ -287,6 +329,13 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     this.setState({
       searching: false
     });
+  }
+
+  private onPressSearchClear() {
+    const searchInput = this.searchRef.current;
+    if (searchInput) {
+      searchInput.clear();
+    }
   }
 }
 
