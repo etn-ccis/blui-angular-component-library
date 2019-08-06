@@ -5,6 +5,7 @@ import { Hero } from './hero';
 import { HeroBanner } from './hero-banner';
 import { InfoListItem } from './info-list-item';
 import { LayoutView } from './layout-view';
+import { SearchScreen } from './search-screen';
 
 export {
   ChannelValue,
@@ -13,5 +14,6 @@ export {
   Hero,
   HeroBanner,
   InfoListItem,
-  LayoutView
+  LayoutView,
+  SearchScreen
 };
