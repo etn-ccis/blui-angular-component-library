@@ -13,16 +13,29 @@ export interface HeaderIcon {
 }
 
 export interface Props {
+  /** Background color of header */
   headerColor?: string;
+
+  /** Text to show in header */
   headerText: string | Array<string>;
+
+  /** Hero compnonent to render on the right side of the card */
   badge?: JSX.Element;
+
+  /** Action item to show at bottom of card */
   actionRow?: JSX.Element;
 
   /** Background image to render when header is expanded */
   headerBackgroundImage?: ImageSourcePropType;
 
+  /**
+   * Array of actions to render in the header.
+   * A maximum of two will be rendered.
+   * If more than two actionItems are passed in and onPressOverflow is provided, only the overflow button will be shown
+   * */
   actionItems?: Array<HeaderIcon>;
 
+  /** Callback to be called when overflow icon is pressed. */
   onPressOverflow?: () => void;
 };
 
@@ -32,19 +45,12 @@ export class ScoreCard extends Component<Props> {
 
   public render() {
     const { children, headerColor = red[700] } = this.props;
-    const headerText = this.headerTextArray();
 
     return (
       <View style={styles.card}>
         <View style={[styles.padded, styles.header, { backgroundColor: headerColor }]}>
           {this.backgroundImage()}
-          <View style={{ flex: 1 }}>
-            {headerText.map((text, i) =>
-              <Text style={[styles.headerText, headerTextProps[i].style]} testID={headerTextProps[i].testID} numberOfLines={1} ellipsizeMode={'tail'}>
-                {text}
-              </Text>
-            )}
-          </View>
+          {this.headerTextElements()}
           {this.actionItems()}
         </View>
         <View style={[styles.row]}>
@@ -54,6 +60,20 @@ export class ScoreCard extends Component<Props> {
           {this.hero()}
         </View>
         {this.footer()}
+      </View>
+    );
+  }
+
+  private headerTextElements() {
+    const headerText = this.headerTextArray();
+
+    return (
+      <View style={{ flex: 1 }}>
+        {headerText.map((text, i) =>
+          <Text style={[styles.headerText, headerTextProps[i].style]} testID={headerTextProps[i].testID} numberOfLines={1} ellipsizeMode={'tail'} key={`${i}`}>
+            {text}
+          </Text>
+        )}
       </View>
     );
   }
@@ -117,18 +137,19 @@ export class ScoreCard extends Component<Props> {
 
   private actionItems() {
     const { actionItems, onPressOverflow } = this.props;
-    let items: Array<HeaderIcon> = [];
 
     if (onPressOverflow && !actionItems || actionItems && actionItems.length > 2 && onPressOverflow) {
-      items = [{ icon: 'more-vert', onPress: onPressOverflow }];
-    } else if (actionItems) {
-      items = actionItems;
-    }
-
-    if (items) {
-      return items.slice(0, 2).map((actionItem, index) => (
+      return (
         <View>
-          <TouchableOpacity key={`${index}`} testID={`header-action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
+          <TouchableOpacity testID={'overflow-item'} onPress={onPressOverflow} style={styles.actionItem}>
+            <MaterialIcon name={'more-vert'} size={ScoreCard.ICON_SIZE} color={this.fontColor()}/>
+          </TouchableOpacity>
+        </View>
+      );
+    } else if (actionItems) {
+      return actionItems.slice(0, 2).map((actionItem, index) => (
+        <View key={`${index}`}>
+          <TouchableOpacity testID={`action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
             <MaterialIcon name={actionItem.icon} size={ScoreCard.ICON_SIZE} color={this.fontColor()}/>
           </TouchableOpacity>
         </View>
@@ -200,7 +221,7 @@ const styles = StyleSheet.create({
 });
 
 const headerTextProps: ReadonlyArray<TextProps> = [
-  { testID: 'header 1', style: styles.headerText1 },
-  { testID: 'header 2', style: styles.headerText2 },
-  { testID: 'header 3', style: styles.headerText3 },
+  { testID: 'header1', style: styles.headerText1 },
+  { testID: 'header2', style: styles.headerText2 },
+  { testID: 'header3', style: styles.headerText3 },
 ];

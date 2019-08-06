@@ -22,6 +22,8 @@ export interface HeroProps {
 
   /** Callback for onPress event  */
   onPress?: () => void;
+
+  testID?: string;
 }
 
 /**
