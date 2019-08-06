@@ -25,8 +25,13 @@ export interface HeaderIcon {
 }
 
 export interface SearchableConfig {
+  /** Icon to override default search icon */
   icon?: string;
+
+  /** Placeholder text for the search input */
   placeholder?: string;
+
+  /** Determines whether the search input will be focused on when it is rendered */
   autoFocus?: boolean;
 }
 
