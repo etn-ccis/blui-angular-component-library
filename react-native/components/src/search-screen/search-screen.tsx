@@ -1,5 +1,5 @@
 import React, { createRef } from 'react';
-import { FlatList, StyleSheet, Text, View } from 'react-native';
+import { FlatList, StyleSheet, View } from 'react-native';
 import { Header, InfoListItem } from '../index';
 import { blue, white } from '@pxblue/colors';
 import { InfoListItemProps } from '../info-list-item/info-list-item';
@@ -54,8 +54,7 @@ export class SearchScreen extends React.Component<SearchScreenProps, SearchScree
   }
 
   private infoList() {
-    const { data } = this.props;
-    const { query } = this.state;
+    const data = this.filterData(this.props.data);
 
     return (
       <FlatList
@@ -65,11 +64,18 @@ export class SearchScreen extends React.Component<SearchScreenProps, SearchScree
       />
     );
   }
+
+  private filterData(data: Array<InfoListItemProps>) {
+    const { query } = this.state;
+
+    return data.filter(value =>
+      value.title.startsWith(query)
+    );
+  }
 }
 
 const styles = StyleSheet.create({
   infoList: {
-    flex: 1,
-    backgroundColor: 'lightblue'
+    flex: 1
   }
 });
