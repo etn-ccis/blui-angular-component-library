@@ -7,7 +7,7 @@ import Apple from '@pxblue/icons-svg/apple.svg';
 import { blue, green } from '@pxblue/colors';
 import * as _ from 'lodash';
 import { InfoListItemProps } from '@pxblue/react-native-components/dist/info-list-item/info-list-item';
-import { wrapIcon } from '@pxblue/react-native-components/dist/icon-wrapper/icon-wrapper';
+import { wrapIcon } from '@pxblue/react-native-components';
 
 const Separator: React.FunctionComponent = () =>
   <View style={{ height: 1, marginLeft: 40, backgroundColor: '#cccccc' }} />

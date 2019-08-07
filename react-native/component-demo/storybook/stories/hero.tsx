@@ -5,7 +5,7 @@ import { centered } from '../decorators';
 import { Hero } from '@pxblue/react-native-components';
 import Leaf from '@pxblue/icons-svg/leaf.svg';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import { wrapIcon } from '@pxblue/react-native-components/dist/icon-wrapper/icon-wrapper';
+import { wrapIcon } from '@pxblue/react-native-components';
 
 const icon = <Leaf height={36} width={36} fill={'green'}/>;
 const Line = wrapIcon({ IconClass: Icon, name: 'chart-line-variant' });

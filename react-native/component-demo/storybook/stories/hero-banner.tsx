@@ -9,7 +9,7 @@ import Ionicon from 'react-native-vector-icons/Ionicons';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { safeArea } from '../decorators';
 import { green, blue, gray, red } from '@pxblue/colors';
-import { wrapIcon } from '@pxblue/react-native-components/dist/icon-wrapper/icon-wrapper';
+import { wrapIcon } from '@pxblue/react-native-components';
 
 const ChartLineVariant = wrapIcon({ IconClass: MaterialCommunityIcon, name: 'chart-line-variant'})
 
