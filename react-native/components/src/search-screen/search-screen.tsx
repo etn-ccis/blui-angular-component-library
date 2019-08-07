@@ -4,8 +4,13 @@ import { Header } from '../index';
 import { HeaderProps } from '../header/header';
 
 export interface SearchScreenProps<T> {
+  /** Predicate function used to filter or include an item based on the query */
   filterPredicate: (item: T, query: string) => boolean;
+
+  /** Props for the Header component */
   headerProps: HeaderProps;
+
+  /** Props for the FlatList component */
   flatListProps: FlatListProps<T>;
 }
 
@@ -13,6 +18,11 @@ interface SearchScreenState {
   query: string;
 }
 
+/**
+ * SearchScreen component
+ *
+ * Uses a Header with a search bar to filter the items in the accompanying FlatList.
+ */
 export class SearchScreen<T> extends React.Component<SearchScreenProps<T>, SearchScreenState> {
   constructor(props: SearchScreenProps<T>) {
     super(props);
