@@ -353,6 +353,10 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
   }
 
   private onPressSearchClose() {
+    const searchInput = this.searchRef.current;
+    if (searchInput) {
+      searchInput.props.onChangeText && searchInput.props.onChangeText('');
+    }
     this.setState({
       searching: false,
       query: ''

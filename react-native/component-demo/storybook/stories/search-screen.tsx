@@ -54,9 +54,9 @@ const createInfoListItemProps = (): InfoListItemProps => {
 const data: Array<InfoListItemProps> = _.range(100).map(createInfoListItemProps);
 
 storiesOf('Search Screen', module)
-  .add('with all props', () => (
+  .add('search info list items', () => (
     <SearchScreen<InfoListItemProps>
-      filterPredicate={(value, query) => value.title.startsWith(query)}
+      filterPredicate={(value, query) => value.title.toLowerCase().startsWith(query.toLowerCase())}
       headerProps={{
         expandable: true,
         title: 'Info List',
@@ -71,7 +71,8 @@ storiesOf('Search Screen', module)
       }}
       flatListProps={{
         data: data,
-        renderItem: item => <InfoListItem {...item.item}/>
+        renderItem: item => <InfoListItem {...item.item}/>,
+        ItemSeparatorComponent: Separator
       }}
     />
   ));
