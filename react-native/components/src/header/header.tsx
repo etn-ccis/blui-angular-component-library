@@ -3,7 +3,8 @@ import {
   Animated,
   ImageSourcePropType,
   SafeAreaView,
-  StyleSheet, TextInput,
+  StyleSheet,
+  TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View
@@ -11,8 +12,8 @@ import {
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { blue, white } from '@pxblue/colors';
-import createAnimatedComponent = Animated.createAnimatedComponent;
 import color from 'color';
+import createAnimatedComponent = Animated.createAnimatedComponent;
 
 const AnimatedSafeAreaView = createAnimatedComponent(SafeAreaView);
 
@@ -33,6 +34,9 @@ export interface SearchableConfig {
 
   /** Determines whether the search input will be focused on when it is rendered */
   autoFocus?: boolean;
+
+  /** Callback for when the text in the search input changes */
+  onChangeText?: (text: string) => void;
 }
 
 export interface HeaderProps {
@@ -107,10 +111,6 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
       toValue: Header.REGULAR_HEIGHT,
       duration: Header.ANIMATION_LENGTH
     });
-  }
-
-  getQuery() {
-    return this.state.query;
   }
 
   render() {
@@ -244,12 +244,18 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
 
   private search(config: SearchableConfig) {
     const placeholderTextColor = color(this.fontColor()).fade(0.4).string();
+    const onChangeText = (text: string) => {
+      this.setState({ query: text });
+      config.onChangeText && config.onChangeText(text);
+    };
+
     return (
       <TextInput
         ref={this.searchRef}
         style={this.searchStyle()}
         autoFocus={config.autoFocus}
-        onChangeText={text => this.setState({ query: text })}
+        numberOfLines={1}
+        onChangeText={onChangeText}
         placeholder={config.placeholder}
         placeholderTextColor={placeholderTextColor}
         returnKeyType={'search'}
@@ -357,6 +363,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     const searchInput = this.searchRef.current;
     if (searchInput) {
       searchInput.clear();
+      searchInput.props.onChangeText && searchInput.props.onChangeText('');
     }
     this.setState({
       query: ''
