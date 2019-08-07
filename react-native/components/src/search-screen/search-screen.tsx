@@ -1,7 +1,6 @@
-import React, { createRef } from 'react';
-import { FlatList, FlatListProps, ListRenderItem, StyleSheet, View } from 'react-native';
+import React from 'react';
+import { FlatList, FlatListProps, StyleSheet, View } from 'react-native';
 import { Header } from '../index';
-import { blue, white } from '@pxblue/colors';
 import { HeaderProps } from '../header/header';
 
 export interface SearchScreenProps<T> {
@@ -15,8 +14,6 @@ interface SearchScreenState {
 }
 
 export class SearchScreen<T> extends React.Component<SearchScreenProps<T>, SearchScreenState> {
-  private headerRef = createRef<Header>();
-
   constructor(props: SearchScreenProps<T>) {
     super(props);
 

@@ -29,14 +29,20 @@ export interface SearchableConfig {
   /** Icon to override default search icon */
   icon?: string;
 
-  /** Placeholder text for the search input */
+  /** TextInput Prop. Placeholder text for the search input */
   placeholder?: string;
 
-  /** Determines whether the search input will be focused on when it is rendered */
+  /** TextInput Prop. Determines whether the search input will be focused on when it is rendered */
   autoFocus?: boolean;
 
-  /** Callback for when the text in the search input changes */
+  /** TextInput Prop. Callback for when the text in the search input changes */
   onChangeText?: (text: string) => void;
+
+  /** TextInput Prop. Determines how the search input will be capitalized */
+  autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters';
+
+  /** TextInput Prop. Determines whether auto-correct is enabled in the search input */
+  autoCorrect?: boolean;
 }
 
 export interface HeaderProps {
@@ -256,7 +262,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
         autoFocus={config.autoFocus}
         numberOfLines={1}
         onChangeText={onChangeText}
-        placeholder={config.placeholder}
+        placeholder={config.placeholder || 'Search'}
         placeholderTextColor={placeholderTextColor}
         returnKeyType={'search'}
         selectionColor={placeholderTextColor}
@@ -282,8 +288,8 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
 
     if ( items ) {
       return items.slice(0, 3).map((actionItem, index) => (
-        <View>
-          <TouchableOpacity key={`${index}`} testID={`header-action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
+        <View key={`${index}`}>
+          <TouchableOpacity testID={`header-action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
             <Icon name={actionItem.icon} size={Header.ICON_SIZE} color={this.fontColor()}/>
           </TouchableOpacity>
         </View>
