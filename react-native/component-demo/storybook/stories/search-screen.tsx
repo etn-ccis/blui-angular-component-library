@@ -1,8 +1,8 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import { SearchScreen } from '@pxblue/react-native-components';
+import { SearchScreen, InfoListItem } from '@pxblue/react-native-components';
 import { View } from 'react-native';
-import { blue, green } from '@pxblue/colors';
+import { blue, green, white } from '@pxblue/colors';
 import Flow from '@pxblue/icons-svg/flow.svg';
 import Apple from '@pxblue/icons-svg/apple.svg';
 import { InfoListItemProps } from '@pxblue/react-native-components/dist/info-list-item/info-list-item';
@@ -55,7 +55,23 @@ const data: Array<InfoListItemProps> = _.range(100).map(createInfoListItemProps)
 
 storiesOf('Search Screen', module)
   .add('with all props', () => (
-    <SearchScreen
-      data={data}
+    <SearchScreen<InfoListItemProps>
+      filterPredicate={(value, query) => value.title.startsWith(query)}
+      headerProps={{
+        expandable: true,
+        title: 'Info List',
+        navigation: {icon: 'menu', onPress: () => {}},
+        actionItems: [{icon: 'more-vert', onPress: () => {}}],
+        backgroundColor: blue[500],
+        fontColor: white[500],
+        searchable: {
+          placeholder: 'Search',
+          autoFocus: true
+        }
+      }}
+      flatListProps={{
+        data: data,
+        renderItem: item => <InfoListItem {...item.item}/>
+      }}
     />
   ));

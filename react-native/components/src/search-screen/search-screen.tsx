@@ -1,21 +1,23 @@
 import React, { createRef } from 'react';
-import { FlatList, StyleSheet, View } from 'react-native';
-import { Header, InfoListItem } from '../index';
+import { FlatList, FlatListProps, ListRenderItem, StyleSheet, View } from 'react-native';
+import { Header } from '../index';
 import { blue, white } from '@pxblue/colors';
-import { InfoListItemProps } from '../info-list-item/info-list-item';
+import { HeaderProps } from '../header/header';
 
-export interface SearchScreenProps {
-  data: Array<InfoListItemProps>
+export interface SearchScreenProps<T> {
+  filterPredicate: (item: T, query: string) => boolean;
+  headerProps: HeaderProps;
+  flatListProps: FlatListProps<T>;
 }
 
 interface SearchScreenState {
   query: string;
 }
 
-export class SearchScreen extends React.Component<SearchScreenProps, SearchScreenState> {
+export class SearchScreen<T> extends React.Component<SearchScreenProps<T>, SearchScreenState> {
   private headerRef = createRef<Header>();
 
-  constructor(props: SearchScreenProps) {
+  constructor(props: SearchScreenProps<T>) {
     super(props);
 
     this.state = {
@@ -33,44 +35,50 @@ export class SearchScreen extends React.Component<SearchScreenProps, SearchScree
   }
 
   private header() {
+    const { headerProps } = this.props;
     return (
       <Header
-        ref={this.headerRef}
-        expandable={true}
-        title={'Info List'}
-        navigation={{icon: 'menu', onPress: () => {}}}
-        actionItems={[
-          {icon: 'more-vert', onPress: () => {}}
-        ]}
-        backgroundColor={blue[500]}
-        fontColor={white[500]}
+        {...headerProps}
         searchable={{
-          placeholder: 'Search',
-          autoFocus: true,
-          onChangeText: text => this.setState({ query: text })
+          ...headerProps.searchable,
+          onChangeText: text => this.onChangeText(text)
         }}
       />
     )
   }
 
   private infoList() {
-    const data = this.filterData(this.props.data);
+    const { flatListProps } = this.props;
 
     return (
       <FlatList
-        data={data}
-        renderItem={item => <InfoListItem {...item.item}/>}
-        style={styles.infoList}
+        {...flatListProps}
+        style={[flatListProps.style, styles.infoList]}
+        data={this.filteredData()}
       />
     );
   }
 
-  private filterData(data: Array<InfoListItemProps>) {
+  private filteredData() {
+    const { flatListProps, filterPredicate } = this.props;
     const { query } = this.state;
 
-    return data.filter(value =>
-      value.title.startsWith(query)
-    );
+    if (flatListProps.data) {
+      return flatListProps.data.filter(value =>
+        filterPredicate(value, query)
+      );
+    } else {
+      return [];
+    }
+  }
+
+  private onChangeText(text: string) {
+    const { headerProps } = this.props;
+
+    this.setState({ query: text });
+    if (headerProps.searchable && headerProps.searchable.onChangeText) {
+      headerProps.searchable.onChangeText(text);
+    }
   }
 }
 
