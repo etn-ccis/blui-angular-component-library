@@ -9,6 +9,7 @@ import { LayoutView } from './layout-view';
 import { ScoreCard } from './score-card';
 import { SearchScreen } from './search-screen';
 import { wrapIcon } from './icon-wrapper/icon-wrapper';
+import { Theme, ThemeProvider, withTheme } from './theme';
 
 export {
   BucketView,
@@ -21,5 +22,8 @@ export {
   LayoutView,
   ScoreCard,
   SearchScreen,
+  Theme,
+  ThemeProvider,
+  withTheme,
   wrapIcon
 };

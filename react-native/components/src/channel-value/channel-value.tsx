@@ -1,5 +1,6 @@
 import React, { Component, ComponentType } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
+import { withTheme, Theme } from '../theme';
 
 export interface ChannelValueProps {
   /** Value to show (bold text) */
@@ -15,10 +16,12 @@ export interface ChannelValueProps {
   prefix?: boolean;
 
   /** Font size for all text */
-  fontSize?: number;
+  fontSize?: keyof Theme['sizes'];
 
   /** Font color for all text */
   color?: string;
+
+  theme: Theme;
 }
 
 /**
@@ -27,16 +30,19 @@ export interface ChannelValueProps {
  * Used to show a channel value and its units.
  * An arbitrary icon may be added
  */
-export class ChannelValue extends Component<ChannelValueProps> {
+class ChannelValueClass extends Component<ChannelValueProps> {
   public render() {
-    const { value, fontSize, color } = this.props;
+    const { value, theme } = this.props;
+
+    const fontColor = this.props.color || theme.colors.text;
+    const fontSize = this.getFontSize();
 
     return (
       <View style={styles.row}>
         {this.icon()}
-        <Text numberOfLines={1} ellipsizeMode={'tail'} testID={'text-wrapper'}>
+        <Text numberOfLines={1} ellipsizeMode={'tail'} testID={'text-wrapper'} style={{ color: fontColor, fontSize }}>
           {this.prefixUnits()}
-          <Text style={[styles.bold, { fontSize, color }]}>
+          <Text style={[styles.bold]}>
             {value}
           </Text>
           {this.suffixUnits()}
@@ -50,7 +56,7 @@ export class ChannelValue extends Component<ChannelValueProps> {
 
     if (IconClass) {
       return (
-        <IconClass size={18} color={color || 'black'} />
+        <IconClass size={this.getFontSize()} color={color || 'black'} />
       );
     }
   }
@@ -70,16 +76,24 @@ export class ChannelValue extends Component<ChannelValueProps> {
   }
 
   private units() {
-    const { fontSize, color, units } = this.props;
+    const { units } = this.props;
     if (units) {
       return (
-        <Text style={[styles.light, { fontSize, color }]}>
+        <Text style={[styles.light]}>
           {units}
         </Text>
       );
     }
   }
+
+  private getFontSize() {
+    const { theme, fontSize } = this.props;
+
+    return theme.sizes[fontSize || 'medium'];
+  }
 }
+
+export const ChannelValue = withTheme(ChannelValueClass);
 
 const styles = StyleSheet.create({
   row: {
