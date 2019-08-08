@@ -22,6 +22,8 @@ export interface HeroProps {
 
   /** Callback for onPress event  */
   onPress?: () => void;
+
+  testID?: string;
 }
 
 /**
@@ -55,17 +57,16 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-    paddingVertical: 16,
-    paddingHorizontal: 8
+    justifyContent: 'center'
   },
   icon: {
-    marginBottom: 10,
+    padding: 0,
+    marginBottom: 4,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    height: 36,
-    width: 36
+    height: 48,
+    width: 48
   },
   values: {
     flexDirection: 'row',
