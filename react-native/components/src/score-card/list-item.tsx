@@ -4,7 +4,13 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { gray } from '@pxblue/colors';
 
 export interface Props {
+  /** Label to be shown on the left */
   label: string;
+
+  /** 
+   * Callback to be called when the component is tapped.
+   * If onPress is provided, a chevron will be rendered.
+   */
   onPress?: () => void;
 };
 

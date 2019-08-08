@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Text, View, StyleSheet, TextProps, ImageSourcePropType, Image, TouchableOpacity } from 'react-native';
-import { red, gray } from '@pxblue/colors';
+import { red, gray, white } from '@pxblue/colors';
 import { ListItem } from './list-item';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 
@@ -158,7 +158,7 @@ export class ScoreCard extends Component<Props> {
   }
 
   private fontColor() {
-    return 'white';
+    return white[500];
   }
 }
 
@@ -174,7 +174,7 @@ const styles = StyleSheet.create({
     },
     borderRadius: 4,
     elevation: 1,
-    backgroundColor: 'white',
+    backgroundColor: white[500],
     flex: 1
   },
   actionItem: {
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     overflow: 'hidden'
   },
   headerText: {
-    color: 'white',
+    color: white[500],
   },
   headerText1: {
     fontSize: 16,
