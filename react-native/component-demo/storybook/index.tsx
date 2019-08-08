@@ -16,6 +16,23 @@ const StorybookUIRoot = getStorybookUI({});
 const ThemedStorybook = () =>
   <ThemeProvider theme={{
     roundness: 3,
+    fonts: {
+      bold: {
+        // fontFamily: 'Beth Ellen',
+        // fontWeight: '900'
+      },
+      regular: {
+        fontFamily: 'Beth Ellen',
+        fontWeight: '900'
+      },
+      medium: {
+      },
+      light: {
+      },
+      thin: {
+        fontWeight: '300'
+      }
+    },
     colors: {
       primary: gray[600],
       background: white[500],

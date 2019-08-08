@@ -36,13 +36,14 @@ class ChannelValueClass extends Component<ChannelValueProps> {
 
     const fontColor = this.props.color || theme.colors.text;
     const fontSize = this.getFontSize();
+    const font = theme.fonts.bold;
 
     return (
       <View style={styles.row}>
         {this.icon()}
         <Text numberOfLines={1} ellipsizeMode={'tail'} testID={'text-wrapper'} style={{ color: fontColor, fontSize }}>
           {this.prefixUnits()}
-          <Text style={[styles.bold]}>
+          <Text style={[styles.bold, font]}>
             {value}
           </Text>
           {this.suffixUnits()}
@@ -76,10 +77,12 @@ class ChannelValueClass extends Component<ChannelValueProps> {
   }
 
   private units() {
-    const { units } = this.props;
+    const { units, theme } = this.props;
+    const font = theme.fonts.thin;
+
     if (units) {
       return (
-        <Text style={[styles.light]}>
+        <Text style={[styles.light, font]}>
           {units}
         </Text>
       );
