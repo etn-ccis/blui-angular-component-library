@@ -5,6 +5,7 @@ import { gray } from '@pxblue/colors';
 export interface DrawerSectionProps {
   title?: string;
   children: React.ReactNode;
+  divider?: boolean;
 }
 
 export class DrawerSection extends React.Component<DrawerSectionProps> {
@@ -32,9 +33,13 @@ export class DrawerSection extends React.Component<DrawerSectionProps> {
   }
 
   private divider() {
-    return (
-      <View style={styles.divider}/>
-    )
+    const { divider = true } = this.props;
+
+    if (divider) {
+      return (
+        <View style={styles.divider}/>
+      )
+    }
   }
 }
 
