@@ -32,7 +32,8 @@ storiesOf('BucketView')
       { name: 'Device C', status: 'stopped', dateAquired: new Date('2019-01-01') },
       { name: 'Device D', status: 'started', dateAquired: new Date('2019-01-02') },
       { name: 'Device E', status: 'started', dateAquired: new Date('2019-02-01') },
-      { name: 'Device F', status: 'stopped', dateAquired: new Date('2019-03-15') }
+      { name: 'Device F', status: 'stopped', dateAquired: new Date('2019-03-15') },
+      { name: 'Device G', status: 'stopped', dateAquired: new Date('2019-03-11') }
     ];
 
     return (
@@ -40,7 +41,7 @@ storiesOf('BucketView')
         data={devices}
         getLabel={getLabel}
         renderItem={device => (
-          <View style={{ backgroundColor: white[900] }}>
+          <View style={{ backgroundColor: white[100] }}>
             <InfoListItem
               title={device.name}
               subtitle={`aquired: ${device.dateAquired.toUTCString()}`}
@@ -50,7 +51,7 @@ storiesOf('BucketView')
         )}
         style={{
           flex: 1,
-          backgroundColor: gray[200],
+          backgroundColor: gray[100],
           padding: 10
         }}
       />
