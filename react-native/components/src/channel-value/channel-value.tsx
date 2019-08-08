@@ -1,12 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component, ComponentType } from 'react';
 import { Text, View, StyleSheet } from 'react-native';
 
 export interface ChannelValueProps {
   /** Value to show (bold text) */
   value: string | number;
 
-  /** Inline icon to display */
-  icon?: React.ReactNode;
+  /** Icon component to render */
+  IconClass?: ComponentType<{ size: number, color: string }>
 
   /** Text to show for units (light text) */
   units?: string;
@@ -29,11 +29,11 @@ export interface ChannelValueProps {
  */
 export class ChannelValue extends Component<ChannelValueProps> {
   public render() {
-    const { value, icon, fontSize, color } = this.props;
+    const { value, fontSize, color } = this.props;
 
     return (
       <View style={styles.row}>
-        {icon}
+        {this.icon()}
         <Text numberOfLines={1} ellipsizeMode={'tail'} testID={'text-wrapper'}>
           {this.prefixUnits()}
           <Text style={[styles.bold, { fontSize, color }]}>
@@ -43,6 +43,16 @@ export class ChannelValue extends Component<ChannelValueProps> {
         </Text>
       </View>
     );
+  }
+
+  private icon() {
+    const { color, IconClass } = this.props;
+
+    if (IconClass) {
+      return (
+        <IconClass size={18} color={color || 'black'} />
+      );
+    }
   }
 
   private prefixUnits() {

@@ -70,7 +70,7 @@ describe('ChannelValue', () => {
     const instance = TestRenderer.create(
       <ChannelValue
         value={123}
-        icon={<TouchableOpacity />}
+        IconClass={() => <TouchableOpacity />}
       />
     ).root;
 

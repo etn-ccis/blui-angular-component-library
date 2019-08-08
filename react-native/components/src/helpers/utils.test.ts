@@ -1,4 +1,4 @@
-import { interleave } from "./utils";
+import { interleave } from './utils';
 
 describe('utils', () => {
   describe('interleave', () => {
