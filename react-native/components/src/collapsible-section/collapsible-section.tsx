@@ -22,6 +22,8 @@ export interface CollapsibleSectionProps {
     /** Background color for component */
     backgroundColor?: string;
   }
+
+  testID?: string;
 }
 
 interface CollapsibleSectionState {

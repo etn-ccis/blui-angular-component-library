@@ -1,3 +1,4 @@
+import { BucketView } from './bucket-view';
 import { ChannelValue } from './channel-value';
 import { CollapsibleSection } from './collapsible-section';
 import { Header } from './header';
@@ -8,6 +9,7 @@ import { LayoutView } from './layout-view';
 import { wrapIcon } from './icon-wrapper/icon-wrapper';
 
 export {
+  BucketView,
   ChannelValue,
   CollapsibleSection,
   Header,
