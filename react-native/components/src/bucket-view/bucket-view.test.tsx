@@ -39,6 +39,7 @@ describe('BucketView', () => {
           data={data}
           renderItem={renderItem}
           getLabel={groupBy}
+          labels={['under 10', 'under 100', 'large']}
         />
       ).root;
     });

@@ -1,9 +1,9 @@
 import React, { Component, ComponentType } from 'react';
 import { View, ViewStyle, StyleProp } from 'react-native';
-import { groupBy, interleave } from '../helpers/utils';
+import { groupBy, interleave, LabeledArrays } from '../helpers/utils';
 import { CollapsibleSection } from '../collapsible-section';
 
-export interface BucketViewProps<T> {
+export interface BucketViewProps<T, TLabel extends string = string> {
   /** Data to be rendered to components */
   data: Array<T>;
 
@@ -14,7 +14,20 @@ export interface BucketViewProps<T> {
    * Function determine label for element.
    * All elements that map to a label will be shown in the same collapsible section
    */
-  getLabel: (datum: T) => string;
+  getLabel: (datum: T) => TLabel;
+
+  /**
+   * A comparitor between labels.
+   * Used to sort labels
+   */
+  compareLabels?: (a: TLabel, b: TLabel) => number;
+
+  /**
+   * Labels to be shown.
+   * getLabel should return an element from this array for any data.
+   * Sutable when labels are from a known group.
+   */
+  labels?: Array<TLabel>;
 
   /** Style for outer container */
   style?: StyleProp<ViewStyle>;
@@ -25,18 +38,33 @@ export interface BucketViewProps<T> {
 
 export class BucketView<T> extends Component<BucketViewProps<T>> {
   public render() {
-    const { data, renderItem, getLabel, style } = this.props;
+    const { data, getLabel, style } = this.props;
     const buckets = groupBy(getLabel, data);
 
     return (
       <View style={style}>
-        {Object.keys(buckets).map(label => (
-          <CollapsibleSection title={label} testID={`collapsible-section[${label}]`} key={label}>
-            {this.bucketContents(buckets[label])}
-          </CollapsibleSection>
-        ))}
+        {this.getLabels(buckets)
+          .filter(label => buckets[label])
+          .map(label => (
+            <CollapsibleSection title={label} testID={`collapsible-section[${label}]`} key={label}>
+              {this.bucketContents(buckets[label])}
+            </CollapsibleSection>
+          )
+        )}
       </View>
     );
+  }
+
+  private getLabels(buckets: LabeledArrays<T>) {
+    const { labels, compareLabels } = this.props;
+
+    if (labels) {
+      return labels;
+    } else if (compareLabels) {
+      return Object.keys(buckets).sort(compareLabels);
+    } else {
+      return Object.keys(buckets);
+    }
   }
 
   private bucketContents(array: Array<T>) {
