@@ -25,6 +25,7 @@
     "react-native-vector-icons": "^6.6.0"
   },
   "devDependencies": {
+    "@pxblue/icons-svg": "^1.0.15",
     "@react-native-community/eslint-config": "^0.0.5",
     "@types/color": "^3.0.0",
     "@types/faker": "^4.1.5",
@@ -38,7 +39,9 @@
     "@typescript-eslint/parser": "^1.13.0",
     "eslint": "^6.1.0",
     "faker": "^4.1.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest": "^24.8.0",
+    "react-native-svg": "^9.6.1",
     "react-test-renderer": "^16.8.6",
     "ts-jest": "^24.0.2",
     "typescript": "^3.5.3"

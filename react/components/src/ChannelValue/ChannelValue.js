@@ -57,7 +57,7 @@ const styles = (theme) => ({
   wrapper:{
     display: 'inline-flex', 
     alignItems: 'center', 
-    lineHeight: 1
+    lineHeight: 1.2
   },
   icon:{
     marginRight: 4, 
