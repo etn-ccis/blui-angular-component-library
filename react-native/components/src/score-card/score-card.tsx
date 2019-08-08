@@ -12,7 +12,7 @@ export interface HeaderIcon {
   onPress: () => void;
 }
 
-export interface Props {
+export interface ScoreCardProps {
   /** Background color of header */
   headerColor?: string;
 
@@ -39,7 +39,13 @@ export interface Props {
   onPressOverflow?: () => void;
 };
 
-export class ScoreCard extends Component<Props> {
+/**
+ * ScoreCard component.
+ * This component renders a "score card" with optional Hero badge,
+ * title and subtitles, and actionRow at the bottom.
+ */
+export class ScoreCard extends Component<ScoreCardProps> {
+  public static readonly PADDING_AMOUNT = 16;
   private static readonly ICON_SIZE = 24;
   public static readonly ListItem = ListItem;
 
@@ -98,7 +104,7 @@ export class ScoreCard extends Component<Props> {
     const { badge } = this.props;
     if (badge) {
       return (
-        <View style={{ position: 'absolute', right: PADDING_AMOUNT, top: -24 }}>
+        <View style={{ position: 'absolute', right: ScoreCard.PADDING_AMOUNT, top: -24 }}>
           {badge}
         </View>
       );
@@ -162,7 +168,6 @@ export class ScoreCard extends Component<Props> {
   }
 }
 
-const PADDING_AMOUNT = 16;
 const styles = StyleSheet.create({
   card: {
     shadowColor: gray[900],
@@ -183,7 +188,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    padding: PADDING_AMOUNT,
+    padding: ScoreCard.PADDING_AMOUNT,
     height: 100,
     overflow: 'hidden'
   },
@@ -209,7 +214,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1
   },
   padded: {
-    padding: PADDING_AMOUNT
+    padding: ScoreCard.PADDING_AMOUNT
   },
   row: {
     flexDirection: 'row',

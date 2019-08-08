@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { gray } from '@pxblue/colors';
 
-export interface Props {
+export interface ListItemProps {
   /** Label to be shown on the left */
   label: string;
 
@@ -14,7 +14,10 @@ export interface Props {
   onPress?: () => void;
 };
 
-export class ListItem extends Component<Props> {
+/**
+ * ListItem component made for use as the default actionRow of a ScoreCard
+ */
+export class ListItem extends Component<ListItemProps> {
   public render() {
     const { label, onPress } = this.props;
 
@@ -31,7 +34,7 @@ export class ListItem extends Component<Props> {
   private chevron() {
     if (this.props.onPress) {
       return (
-        <Icon name="chevron-right" size={24} color={gray[400]} />
+        <Icon name={'chevron-right'} size={24} color={gray[400]} />
       );
     }
   }
