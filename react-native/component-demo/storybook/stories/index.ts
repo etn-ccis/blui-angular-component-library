@@ -1,3 +1,4 @@
+import './bucket-view';
 import './channel-value';
 import './collapsible-section';
 import './header';
