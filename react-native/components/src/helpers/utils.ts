@@ -11,3 +11,20 @@ export const interleave = <TElement, TSeparator>(array: Array<TElement>, separat
 
   return output;
 };
+
+type LabeledArrays<T> = { [label: string]: Array<T> };
+export const groupBy = <T>(getGroup: (data: T) => string, array: Array<T>): LabeledArrays<T> => {
+    const groups: LabeledArrays<T> = {};
+
+    array.forEach(element => {
+      const label = getGroup(element);
+
+      if (groups[label]) {
+        groups[label].push(element);
+      } else {
+        groups[label] = [element];
+      }
+    });
+
+    return groups;
+  }
