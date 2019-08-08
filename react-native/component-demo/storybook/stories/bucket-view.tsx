@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { StyleSheet, View } from 'react-native';
 import { BucketView, InfoListItem } from '@pxblue/react-native-components';
-import { text, withKnobs, boolean, number, color } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import { red, blue, gray, white } from '@pxblue/colors';
 
 type Data = {
@@ -40,8 +40,8 @@ storiesOf('BucketView')
   .add('Sorted by labeled date spans', () => (
     <BucketView
       data={devices}
-      getLabel={getDateLabel}
-      labels={['Last Week', 'Last Month', 'Last Year']}
+      getGroupLabel={getDateLabel}
+      groupLabels={['Last Week', 'Last Month', 'Last Year']}
       renderItem={device => (
         <View style={{ backgroundColor: white[100] }}>
           <InfoListItem
@@ -58,8 +58,8 @@ storiesOf('BucketView')
   .add('Sorted by device names', () => (
     <BucketView
       data={devices}
-      getLabel={device => device.name}
-      compareLabels={(a, b) => a.localeCompare(b)}
+      getGroupLabel={device => device.name}
+      compareGroupLabels={(a, b) => a.localeCompare(b)}
       renderItem={device => (
         <View style={{ backgroundColor: white[100] }}>
           <InfoListItem

@@ -14,20 +14,26 @@ export interface BucketViewProps<T, TLabel extends string = string> {
    * Function determine label for element.
    * All elements that map to a label will be shown in the same collapsible section
    */
-  getLabel: (datum: T) => TLabel;
+  getGroupLabel: (datum: T) => TLabel;
+
+  /**
+   * Labels to be shown.
+   * getGroupLabel should return an element from this array for any data.
+   * Sutable when labels are from a known group.
+   */
+  groupLabels?: Array<TLabel>;
 
   /**
    * A comparitor between labels.
    * Used to sort labels
    */
-  compareLabels?: (a: TLabel, b: TLabel) => number;
+  compareGroupLabels?: (a: TLabel, b: TLabel) => number;
 
   /**
-   * Labels to be shown.
-   * getLabel should return an element from this array for any data.
-   * Sutable when labels are from a known group.
+   * A comparitor between data.
+   * Used to sort items in each group
    */
-  labels?: Array<TLabel>;
+  compareData?: (a: T, b: T) => number;
 
   /** Style for outer container */
   style?: StyleProp<ViewStyle>;
@@ -38,12 +44,12 @@ export interface BucketViewProps<T, TLabel extends string = string> {
 
 export class BucketView<T> extends Component<BucketViewProps<T>> {
   public render() {
-    const { data, getLabel, style } = this.props;
-    const buckets = groupBy(getLabel, data);
+    const { data, getGroupLabel, style } = this.props;
+    const buckets = groupBy(getGroupLabel, data);
 
     return (
       <View style={style}>
-        {this.getLabels(buckets)
+        {this.getGroupLabels(buckets)
           .filter(label => buckets[label])
           .map(label => (
             <CollapsibleSection title={label} testID={`collapsible-section[${label}]`} key={label}>
@@ -55,21 +61,23 @@ export class BucketView<T> extends Component<BucketViewProps<T>> {
     );
   }
 
-  private getLabels(buckets: LabeledArrays<T>) {
-    const { labels, compareLabels } = this.props;
+  private getGroupLabels(buckets: LabeledArrays<T>) {
+    const { groupLabels, compareGroupLabels } = this.props;
 
-    if (labels) {
-      return labels;
-    } else if (compareLabels) {
-      return Object.keys(buckets).sort(compareLabels);
+    if (groupLabels) {
+      return groupLabels;
+    } else if (compareGroupLabels) {
+      return Object.keys(buckets).sort(compareGroupLabels);
     } else {
       return Object.keys(buckets);
     }
   }
 
   private bucketContents(array: Array<T>) {
-    const { renderItem, ItemSeparatorComponent } = this.props;
-    const elements = array.map(renderItem);
+    const { renderItem, ItemSeparatorComponent, compareData } = this.props;
+    const orderedArray = compareData ? array.sort(compareData) : array;
+
+    const elements = orderedArray.map(renderItem);
 
     if (ItemSeparatorComponent) {
       return interleave(elements, () => <ItemSeparatorComponent />)
