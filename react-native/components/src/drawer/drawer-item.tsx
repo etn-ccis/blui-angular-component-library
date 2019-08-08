@@ -7,7 +7,6 @@ export interface DrawerItemProps {
   onPress: () => void;
   label: string;
   IconClass: ComponentType<{ size: number, color: string }>;
-  inactiveText?: string
 }
 
 export class DrawerItem extends React.Component<DrawerItemProps> {
@@ -64,7 +63,7 @@ export class DrawerItem extends React.Component<DrawerItemProps> {
       }];
     } else {
       return [styles.item, {
-        backgroundColor: white[500]
+        backgroundColor: 'transparent'
       }];
     }
   }
@@ -84,7 +83,7 @@ export class DrawerItem extends React.Component<DrawerItemProps> {
   private itemUnderlayColor() {
     const { active } = this.props;
 
-    return active ? blue[300] : gray[500];
+    return active ? blue[300] : gray[50];
   }
 }
 
@@ -104,7 +103,7 @@ const styles = StyleSheet.create({
   },
   label: {
     flex: 1,
-    fontSize: 14,
+    fontSize: 16,
     lineHeight: 19,
     letterSpacing: 0,
     marginLeft: 32,
