@@ -63,6 +63,6 @@ storiesOf('Header', module)
       ].slice(0, (number('action items', 3, { range: true, min: 0, max: 3, step: 1 })))}
       backgroundColor={color('backgroundColor', blue[500])}
       fontColor={color('fontColor', white[500])}
-      searchable={{ placeholder: 'Search', autoFocus: true }}
+      searchableConfig={{ placeholder: 'Search', autoFocus: true }}
     />
   ));

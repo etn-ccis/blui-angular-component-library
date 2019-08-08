@@ -64,7 +64,7 @@ storiesOf('Search Screen', module)
         actionItems: [{icon: 'more-vert', onPress: () => {}}],
         backgroundColor: blue[500],
         fontColor: white[500],
-        searchable: {
+        searchableConfig: {
           placeholder: 'Search',
           autoFocus: true
         }

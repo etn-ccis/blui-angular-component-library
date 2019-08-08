@@ -46,8 +46,8 @@ export class SearchScreen<T> extends React.Component<SearchScreenProps<T>, Searc
     return (
       <Header
         {...headerProps}
-        searchable={{
-          ...headerProps.searchable,
+        searchableConfig={{
+          ...headerProps.searchableConfig,
           onChangeText: text => this.onChangeText(text)
         }}
       />
@@ -83,8 +83,8 @@ export class SearchScreen<T> extends React.Component<SearchScreenProps<T>, Searc
     const { headerProps } = this.props;
 
     this.setState({ query: text });
-    if (headerProps.searchable && headerProps.searchable.onChangeText) {
-      headerProps.searchable.onChangeText(text);
+    if (headerProps.searchableConfig && headerProps.searchableConfig.onChangeText) {
+      headerProps.searchableConfig.onChangeText(text);
     }
   }
 }

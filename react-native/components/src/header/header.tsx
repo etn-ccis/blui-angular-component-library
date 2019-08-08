@@ -71,7 +71,7 @@ export interface HeaderProps {
   backgroundImage?: ImageSourcePropType;
 
   /** Configuration object that determines whether the Header can have a search bar */
-  searchable?: SearchableConfig;
+  searchableConfig?: SearchableConfig;
 }
 
 interface HeaderState {
@@ -200,12 +200,12 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
   }
 
   private content() {
-    const { searchable } = this.props;
+    const { searchableConfig } = this.props;
     const { searching } = this.state;
     let content = [];
 
-    if (searchable && searching) {
-      content = [this.search(searchable)];
+    if (searchableConfig && searching) {
+      content = [this.search(searchableConfig)];
     } else {
       content = [this.title(), this.subtitle()];
     }
@@ -259,6 +259,8 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
       <TextInput
         ref={this.searchRef}
         style={this.searchStyle()}
+        autoCapitalize={config.autoCapitalize}
+        autoCorrect={config.autoCorrect}
         autoFocus={config.autoFocus}
         numberOfLines={1}
         onChangeText={onChangeText}
@@ -272,7 +274,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
   }
 
   private actionItems() {
-    const { actionItems, searchable } = this.props;
+    const { actionItems, searchableConfig } = this.props;
     const { searching, query } = this.state;
     let items = actionItems;
 
@@ -282,7 +284,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
       } else {
         items = [];
       }
-    } else if ( searchable ) {
+    } else if ( searchableConfig ) {
       items = [{icon: 'search', onPress: () => this.onPressSearch() }].concat(actionItems || []);
     }
 
