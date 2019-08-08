@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { createRef } from 'react';
 import {
   Animated,
   ImageSourcePropType,
   SafeAreaView,
   StyleSheet,
+  TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
   View
@@ -11,6 +12,7 @@ import {
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { blue, white } from '@pxblue/colors';
+import color from 'color';
 import createAnimatedComponent = Animated.createAnimatedComponent;
 
 const AnimatedSafeAreaView = createAnimatedComponent(SafeAreaView);
@@ -21,6 +23,26 @@ export interface HeaderIcon {
 
   /** Callback when icon is pressed */
   onPress: () => void;
+}
+
+export interface SearchableConfig {
+  /** Icon to override default search icon */
+  icon?: string;
+
+  /** TextInput Prop. Placeholder text for the search input */
+  placeholder?: string;
+
+  /** TextInput Prop. Determines whether the search input will be focused on when it is rendered */
+  autoFocus?: boolean;
+
+  /** TextInput Prop. Callback for when the text in the search input changes */
+  onChangeText?: (text: string) => void;
+
+  /** TextInput Prop. Determines how the search input will be capitalized */
+  autoCapitalize?: 'none' | 'sentences' | 'words' | 'characters';
+
+  /** TextInput Prop. Determines whether auto-correct is enabled in the search input */
+  autoCorrect?: boolean;
 }
 
 export interface HeaderProps {
@@ -47,10 +69,15 @@ export interface HeaderProps {
 
   /** Background image to render when header is expanded */
   backgroundImage?: ImageSourcePropType;
+
+  /** Configuration object that determines whether the Header can have a search bar */
+  searchableConfig?: SearchableConfig;
 }
 
 interface HeaderState {
   expanded: boolean;
+  searching: boolean;
+  query: string;
   headerHeight: Animated.Value;
 }
 
@@ -64,41 +91,47 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
   static readonly REGULAR_HEIGHT = 56 + getStatusBarHeight(true);
   static readonly EXTENDED_HEIGHT = 128 + getStatusBarHeight(true);
   static readonly ICON_SIZE = 24;
+  static readonly ANIMATION_LENGTH = 300;
 
   private expand: Animated.CompositeAnimation;
   private contract: Animated.CompositeAnimation;
+
+  private searchRef = createRef<TextInput>();
 
   constructor(props: HeaderProps) {
     super(props);
 
     this.state = {
       expanded: false,
+      searching: false,
+      query: '',
       headerHeight: new Animated.Value(Header.REGULAR_HEIGHT)
     };
 
     this.expand = Animated.timing(this.state.headerHeight, {
       toValue: Header.EXTENDED_HEIGHT,
-      duration: 300
+      duration: Header.ANIMATION_LENGTH
     });
 
     this.contract = Animated.timing(this.state.headerHeight, {
       toValue: Header.REGULAR_HEIGHT,
-      duration: 300
+      duration: Header.ANIMATION_LENGTH
     });
   }
 
   render() {
     const { expandable = false } = this.props;
+    const { searching } = this.state;
     const barStyle = this.barStyle();
     const contentStyle = this.contentStyle();
 
     return (
-      <TouchableWithoutFeedback onPress={() => this.onPress()} disabled={!expandable}>
+      <TouchableWithoutFeedback onPress={() => this.onPress()} disabled={!expandable || searching}>
         <AnimatedSafeAreaView style={barStyle}>
           {this.backgroundImage()}
           <Animated.View style={contentStyle}>
             {this.navigation()}
-            {this.title()}
+            {this.content()}
             {this.actionItems()}
           </Animated.View>
         </AnimatedSafeAreaView>
@@ -144,6 +177,17 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
 
   private navigation() {
     const { navigation } = this.props;
+    const { searching } = this.state;
+
+    if ( searching ) {
+      return (
+        <View>
+          <TouchableOpacity testID={'header-search-close'} onPress={() => this.onPressSearchClose()} style={styles.navigation}>
+            <Icon name={'arrow-back'} size={Header.ICON_SIZE} color={this.fontColor()}/>
+          </TouchableOpacity>
+        </View>
+      )
+    }
     if ( navigation ) {
       return (
         <View>
@@ -155,23 +199,37 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     }
   }
 
-  private title() {
-    const { title } = this.props;
+  private content() {
+    const { searchableConfig } = this.props;
+    const { searching } = this.state;
+    let content = [];
+
+    if (searchableConfig && searching) {
+      content = [this.search(searchableConfig)];
+    } else {
+      content = [this.title(), this.subtitle()];
+    }
     return (
       <View style={styles.titleContainer}>
         <View style={{flex: 0, justifyContent: 'center'}}>
-          <Animated.Text
-            testID={'header-title'}
-            style={this.titleStyle()}
-            numberOfLines={2}
-            ellipsizeMode={'clip'}
-          >
-            {title}
-          </Animated.Text>
-          {this.subtitle()}
+          {content}
         </View>
       </View>
     );
+  }
+
+  private title() {
+    const { title } = this.props;
+    return (
+      <Animated.Text
+        testID={'header-title'}
+        style={this.titleStyle()}
+        numberOfLines={2}
+        ellipsizeMode={'clip'}
+      >
+        {title}
+      </Animated.Text>
+    )
   }
 
   private subtitle() {
@@ -190,12 +248,50 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     }
   }
 
+  private search(config: SearchableConfig) {
+    const placeholderTextColor = color(this.fontColor()).fade(0.4).string();
+    const onChangeText = (text: string) => {
+      this.setState({ query: text });
+      config.onChangeText && config.onChangeText(text);
+    };
+
+    return (
+      <TextInput
+        ref={this.searchRef}
+        style={this.searchStyle()}
+        autoCapitalize={config.autoCapitalize}
+        autoCorrect={config.autoCorrect}
+        autoFocus={config.autoFocus}
+        numberOfLines={1}
+        onChangeText={onChangeText}
+        placeholder={config.placeholder || 'Search'}
+        placeholderTextColor={placeholderTextColor}
+        returnKeyType={'search'}
+        selectionColor={placeholderTextColor}
+        underlineColorAndroid={'transparent'}
+      />
+    )
+  }
+
   private actionItems() {
-    const { actionItems } = this.props;
-    if ( actionItems ) {
-      return actionItems.slice(0, 3).map((actionItem, index) => (
-        <View>
-          <TouchableOpacity key={`${index}`} testID={`header-action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
+    const { actionItems, searchableConfig } = this.props;
+    const { searching, query } = this.state;
+    let items = actionItems;
+
+    if (searching) {
+      if (query) {
+        items = [{ icon: 'clear', onPress: () => this.onPressSearchClear() }]
+      } else {
+        items = [];
+      }
+    } else if ( searchableConfig ) {
+      items = [{icon: 'search', onPress: () => this.onPressSearch() }].concat(actionItems || []);
+    }
+
+    if ( items ) {
+      return items.slice(0, 3).map((actionItem, index) => (
+        <View key={`${index}`}>
+          <TouchableOpacity testID={`header-action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
             <Icon name={actionItem.icon} size={Header.ICON_SIZE} color={this.fontColor()}/>
           </TouchableOpacity>
         </View>
@@ -241,12 +337,49 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     };
   }
 
+  private searchStyle() {
+    return {
+      padding: 0, // TextInput on Android has some default padding, so this needs to be explicitly set to 0
+      color: this.fontColor(),
+      fontSize: 20
+    }
+  }
+
   private fontColor() {
     return this.props.fontColor ? this.props.fontColor : white[500];
   }
 
   private backgroundColor() {
     return this.props.backgroundColor ? this.props.backgroundColor : blue[500];
+  }
+
+  private onPressSearch() {
+    this.contract.start(() => this.setState({ searching: true }));
+    this.setState({
+      expanded: false
+    });
+  }
+
+  private onPressSearchClose() {
+    const searchInput = this.searchRef.current;
+    if (searchInput) {
+      searchInput.props.onChangeText && searchInput.props.onChangeText('');
+    }
+    this.setState({
+      searching: false,
+      query: ''
+    });
+  }
+
+  private onPressSearchClear() {
+    const searchInput = this.searchRef.current;
+    if (searchInput) {
+      searchInput.clear();
+      searchInput.props.onChangeText && searchInput.props.onChangeText('');
+    }
+    this.setState({
+      query: ''
+    });
   }
 }
 

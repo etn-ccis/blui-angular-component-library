@@ -15,7 +15,7 @@ storiesOf('Header', module)
       subtitle={text('subtitle', 'Subtitle')}
       navigation={{icon: 'menu', onPress: () => {}}}
       actionItems={[
-        {icon: 'search', onPress: () => {}},
+        {icon: 'cloud-upload', onPress: () => {}},
         {icon: 'mail', onPress: () => {}},
         {icon: 'more-vert', onPress: () => {}}
       ].slice(0, (number('action items', 3, { range: true, min: 0, max: 3, step: 1 })))}
@@ -31,7 +31,7 @@ storiesOf('Header', module)
       subtitle={text('subtitle', 'Subtitle')}
       navigation={{icon: 'menu', onPress: () => {}}}
       actionItems={[
-        {icon: 'search', onPress: () => {}},
+        {icon: 'cloud-upload', onPress: () => {}},
         {icon: 'mail', onPress: () => {}},
         {icon: 'more-vert', onPress: () => {}}
       ].slice(0, (number('action items', 3, { range: true, min: 0, max: 3, step: 1 })))}
@@ -45,11 +45,24 @@ storiesOf('Header', module)
       title={text('title', 'Title')}
       navigation={{icon: 'menu', onPress: () => {}}}
       actionItems={[
-        {icon: 'search', onPress: () => {}},
+        {icon: 'cloud-upload', onPress: () => {}},
         {icon: 'mail', onPress: () => {}},
         {icon: 'more-vert', onPress: () => {}}
       ].slice(0, (number('action items', 3, { range: true, min: 0, max: 3, step: 1 })))}
       backgroundColor={color('backgroundColor', blue[500])}
       fontColor={color('fontColor', white[500])}
+    />
+  ))
+  .add('with search', () => (
+    <Header
+      expandable={true}
+      title={text('title', 'With Search')}
+      navigation={{icon: 'menu', onPress: () => {}}}
+      actionItems={[
+        {icon: 'more-vert', onPress: () => {}}
+      ].slice(0, (number('action items', 3, { range: true, min: 0, max: 3, step: 1 })))}
+      backgroundColor={color('backgroundColor', blue[500])}
+      fontColor={color('fontColor', white[500])}
+      searchableConfig={{ placeholder: 'Search', autoFocus: true }}
     />
   ));

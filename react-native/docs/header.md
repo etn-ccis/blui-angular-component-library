@@ -19,6 +19,10 @@ import { Header } from '@pxblue/react-native-components';
       backgroundColor={'blue'}
       fontColor={'white'}
       backgroundImage={require('../assets/background.jpg')}
+      searchableConfig: {
+        placeholder: 'Search',
+        autoFocus: true
+       }
 />
 ```
 
@@ -34,3 +38,15 @@ import { Header } from '@pxblue/react-native-components';
 | backgroundColor | string                                  | no       | '#007bc1' | 'green', '#6e29e8'                              |
 | fontColor       | string                                  | no       | '#eef0f0' | 'green', '#6e29e8'                              |
 | backgroundImage | ImageSourcePropType                     | no       |           | require('../assets/background.jpg')             |
+| searchableConfig      | SearchableConfig                        | no       |           | { placeholder: 'Search', autoFocus: true }      |
+
+### `SearchableConfig`
+
+| Name           | Type                                          | Required | Default     | Examples |
+|----------------|-----------------------------------------------|----------|-------------|----------|
+| icon           | string                                        | no       | 'search'    |          |
+| placeholder    | string                                        | no       | 'Search'    |          |
+| autoFocus      | boolean                                       | no       | true        |          |
+| onChangeText   | (text: string) => void                        | no       |             |          |
+| autoCapitalize | 'none' | 'sentences' | 'words' | 'characters' | no       | 'sentences' |          |
+| autoCorrect    | boolean                                       | no       | true        |          |
