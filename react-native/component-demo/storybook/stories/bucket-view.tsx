@@ -49,6 +49,9 @@ storiesOf('BucketView')
             />
           </View>
         )}
+        ItemSeparatorComponent={() => (
+          <View style={{ borderBottomColor: white[900], borderBottomWidth: 1 }} />
+        )}
         style={{
           flex: 1,
           backgroundColor: gray[100],

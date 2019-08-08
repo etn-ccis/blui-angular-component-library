@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component, ComponentType } from 'react';
 import { View, ViewStyle, StyleProp } from 'react-native';
-import { groupBy } from '../helpers/utils';
+import { groupBy, interleave } from '../helpers/utils';
 import { CollapsibleSection } from '../collapsible-section';
 
 export interface BucketViewProps<T> {
@@ -18,6 +18,9 @@ export interface BucketViewProps<T> {
 
   /** Style for outer container */
   style?: StyleProp<ViewStyle>;
+
+  /** Optional separator to be rendered between items */
+  ItemSeparatorComponent?: ComponentType;
 };
 
 export class BucketView<T> extends Component<BucketViewProps<T>> {
@@ -29,10 +32,21 @@ export class BucketView<T> extends Component<BucketViewProps<T>> {
       <View style={style}>
         {Object.keys(buckets).map(label => (
           <CollapsibleSection title={label} testID={`collapsible-section[${label}]`} key={label}>
-            {buckets[label].map(renderItem)}
+            {this.bucketContents(buckets[label])}
           </CollapsibleSection>
         ))}
       </View>
     );
+  }
+
+  private bucketContents(array: Array<T>) {
+    const { renderItem, ItemSeparatorComponent } = this.props;
+    const elements = array.map(renderItem);
+
+    if (ItemSeparatorComponent) {
+      return interleave(elements, () => <ItemSeparatorComponent />)
+    } else {
+      return elements;
+    }
   }
 }
