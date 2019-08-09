@@ -115,6 +115,15 @@ const headerContent = (
 
 storiesOf('Drawer', module)
   .addDecorator(withKnobs)
+  .add('Drawer with all props', () => (
+    <DrawerStory
+      pages={2}
+      title={text('title', faker.internet.userName())}
+      subtitle={text('subtitle', faker.internet.exampleEmail())}
+      headerContent={headerContent}
+      footer={footer}
+    />
+  ))
   .add('Drawer with one page', () => (
     <DrawerStory
       pages={1}
