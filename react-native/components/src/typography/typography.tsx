@@ -4,7 +4,14 @@ import { WithTheme, withTheme, Theme } from '../theme/theme';
 import { $DeepPartial } from '@callstack/react-theme-provider';
 
 interface TypographyInnerProps extends TextProps {
+  /**
+   * Key to use for font size.
+   */
   fontSize?: keyof Theme['sizes'];
+
+  /**
+   * Font to use
+   */
   font?: keyof Theme['fonts'];
 }
 
@@ -34,26 +41,41 @@ const createTypography = (getStyle: (theme: Theme) => StyleProp<TextStyle>): Typ
     );
   });
 
+/**
+ * Title component
+ */
 export const Title = createTypography(({ fonts, sizes }) => ({
   ...fonts.bold,
   fontSize: sizes.medium
 }));
 
+/**
+ * Subtitle component
+ */
 export const Subtitle = createTypography(({ fonts, sizes }) => ({
   ...fonts.thin,
   fontSize: sizes.small
 }));
 
+/**
+ * Heading component
+ */
 export const Heading = createTypography(({ fonts, sizes }) => ({
   ...fonts.regular,
   fontSize: sizes.extraLarge
 }));
 
+/**
+ * Subheading component
+ */
 export const Subheading = createTypography(({ fonts, sizes }) => ({
   ...fonts.regular,
   fontSize: sizes.large
 }));
 
+/**
+ * Label component
+ */
 export const Label = createTypography(({ fonts, sizes }) => ({
   ...fonts.regular,
   fontSize: sizes.medium,
