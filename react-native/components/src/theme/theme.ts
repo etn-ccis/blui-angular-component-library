@@ -16,6 +16,7 @@ export interface Theme {
     accent: string;
     error: string;
     text: string;
+    onPrimary: string;
   };
   fonts: {
     bold: Partial<Font>;
@@ -48,6 +49,7 @@ const { ThemeProvider, withTheme } = createTheming<Theme>({
     accent: blue[700],
     error: red[500],
     text: gray[600],
+    onPrimary: white[100]
   },
   sizes: {
     small: 10,

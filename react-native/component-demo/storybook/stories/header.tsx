@@ -8,6 +8,19 @@ const backgroundImage = require('../assets/farm.jpg');
 
 storiesOf('Header', module)
   .addDecorator(withKnobs)
+  .add('with default colors from theme', () => (
+    <Header
+      expandable={true}
+      title={text('title', 'Title')}
+      subtitle={text('subtitle', 'Subtitle')}
+      navigation={{icon: 'menu', onPress: () => {}}}
+      actionItems={[
+        {icon: 'cloud-upload', onPress: () => {}},
+        {icon: 'mail', onPress: () => {}},
+        {icon: 'more-vert', onPress: () => {}}
+      ].slice(0, (number('action items', 3, { range: true, min: 0, max: 3, step: 1 })))}
+    />
+  ))
   .add('with all props and background image', () => (
     <Header
       expandable={true}

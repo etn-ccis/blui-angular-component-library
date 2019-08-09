@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { StyleProp, View, TouchableOpacity, Text, StyleSheet } from 'react-native';
+import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Collapsible from 'react-native-collapsible';
 import { gray, blue } from '@pxblue/colors';
+import { Theme, withTheme } from '../theme';
 
 export interface CollapsibleSectionProps {
   /** Title to show in heading */
@@ -24,6 +25,7 @@ export interface CollapsibleSectionProps {
   }
 
   testID?: string;
+  theme: Theme;
 }
 
 interface CollapsibleSectionState {
@@ -33,11 +35,9 @@ interface CollapsibleSectionState {
 /**
  * Component that provides a header and a collapsible content section
  */
-export class CollapsibleSection extends Component<CollapsibleSectionProps, CollapsibleSectionState> {
+export const CollapsibleSection = withTheme(class CollapsibleSection extends Component<CollapsibleSectionProps, CollapsibleSectionState> {
   public static readonly ICON_SIZE = 24;
   public static readonly TITLE_COLOR = blue[700];
-  public static readonly DIVIDER_COLOR = gray[200];
-  public static readonly BACKGROUND_COLOR = 'transparent';
 
   constructor(props: CollapsibleSectionProps) {
     super(props);
@@ -48,11 +48,11 @@ export class CollapsibleSection extends Component<CollapsibleSectionProps, Colla
   }
 
   public render() {
-    const { title, children, disabled, style = {} } = this.props;
+    const { title, children, disabled, theme, style = {} } = this.props;
     const { collapsed } = this.state;
 
-    const titleColor = style.titleColor || CollapsibleSection.TITLE_COLOR;
-    const backgroundColor = style.backgroundColor || CollapsibleSection.BACKGROUND_COLOR;
+    const titleColor = style.titleColor || theme.colors.primary;
+    const backgroundColor = style.backgroundColor || theme.colors.surface;
 
     return (
       <View>
@@ -75,7 +75,7 @@ export class CollapsibleSection extends Component<CollapsibleSectionProps, Colla
           </View>
         </TouchableOpacity>
         <View style={{ backgroundColor }}>
-          <View style={[styles.divider]} />
+          <View style={[styles.divider, { borderBottomColor: theme.colors.text }]} />
         </View>
         <Collapsible collapsed={collapsed} style={{ backgroundColor }}>
           {children}
@@ -83,7 +83,7 @@ export class CollapsibleSection extends Component<CollapsibleSectionProps, Colla
       </View>
     );
   }
-}
+})
 
 const styles = StyleSheet.create({
   headerContainer: {
@@ -97,8 +97,7 @@ const styles = StyleSheet.create({
   },
   divider: {
     height: 1,
-    borderBottomWidth: 1,
-    borderBottomColor: CollapsibleSection.DIVIDER_COLOR
+    borderBottomWidth: 1
   },
   withMargin: {
     marginLeft: 28,

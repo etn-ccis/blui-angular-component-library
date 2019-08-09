@@ -3,6 +3,8 @@ import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import * as Colors from '@pxblue/colors';
 import { interleave } from '../helpers/utils';
+import { Theme } from '..';
+import { withTheme } from '../theme';
 
 export interface InfoListItemProps {
   /** Title to show */
@@ -19,15 +21,18 @@ export interface InfoListItemProps {
 
   /** Callback to be called on press. If provided, will add chevron on the right side of the item */
   onPress?: () => void;
+
+  theme: Theme;
 }
 
-export class InfoListItem extends Component<InfoListItemProps> {
+class InfoListItemClass extends Component<InfoListItemProps> {
   private static readonly MAX_SUBTITLE_ELEMENTS = 3;
 
   public render() {
-    const { title, color, onPress } = this.props;
+    const { title, color, onPress, theme } = this.props;
     const { bigText, fixedHeight, row, fullHeight, tab, iconContainer, contentContainer, withMargins, withRightPadding } = styles;
-    const titleColor = color || Colors.gray[800];
+    const titleColor = color || theme.colors.text;
+    const bigFont = theme.fonts.bold;
 
     return (
       <TouchableOpacity onPress={onPress} style={[fixedHeight, row, withRightPadding]} disabled={!onPress}>
@@ -36,7 +41,7 @@ export class InfoListItem extends Component<InfoListItemProps> {
           {this.icon()}
         </View>
         <View style={contentContainer}>
-          <Text style={[bigText, { color: titleColor }]} numberOfLines={1} ellipsizeMode={'tail'}>
+          <Text style={[bigText, bigFont, { color: titleColor }]} numberOfLines={1} ellipsizeMode={'tail'}>
             {title}
           </Text>
           <View style={row}>
@@ -59,9 +64,10 @@ export class InfoListItem extends Component<InfoListItemProps> {
   }
 
   private chevron() {
-    if (this.props.onPress) {
+    const { onPress, theme } = this.props;
+    if (onPress) {
       return (
-        <Icon name="chevron-right" size={24} color={Colors.gray[700]} />
+        <Icon name="chevron-right" size={24} color={theme.colors.text} />
       );
     }
   }
@@ -75,8 +81,8 @@ export class InfoListItem extends Component<InfoListItemProps> {
 
     const subtitleParts = Array.isArray(subtitle) ? [...subtitle] : [subtitle];
     const renderableSubtitleParts = subtitleParts
-      .splice(0, InfoListItem.MAX_SUBTITLE_ELEMENTS)
-      .map(element => this.renderableComponent(element));
+      .splice(0, InfoListItemClass.MAX_SUBTITLE_ELEMENTS)
+      .map(element => this.renderableSubtitleComponent(element));
     
     return this.withKeys(this.separate(renderableSubtitleParts));
   }
@@ -91,7 +97,7 @@ export class InfoListItem extends Component<InfoListItemProps> {
     ))
   }
 
-  private renderableComponent(element: React.ReactNode) {
+  private renderableSubtitleComponent(element: React.ReactNode) {
     const { smallText, withGrayText } = styles;
 
     switch (typeof element) {
@@ -114,6 +120,8 @@ export class InfoListItem extends Component<InfoListItemProps> {
     )
   }
 }
+
+export const InfoListItem = withTheme(InfoListItemClass);
 
 const styles = StyleSheet.create({
   row: {

@@ -18,28 +18,34 @@ const ThemedStorybook = () =>
     roundness: 3,
     fonts: {
       bold: {
-        // fontFamily: 'Beth Ellen',
-        // fontWeight: '900'
-      },
-      regular: {
-        fontFamily: 'Beth Ellen',
+        fontFamily: 'Open Sans',
         fontWeight: '900'
       },
+      regular: {
+        fontFamily: 'Open Sans',
+        fontWeight: '600'
+      },
       medium: {
+        fontFamily: 'Open Sans',
+        fontWeight: '400'
       },
       light: {
+        fontFamily: 'Open Sans',
+        fontWeight: '300'
       },
       thin: {
-        fontWeight: '300'
+        fontFamily: 'Open Sans',
+        fontWeight: '200'
       }
     },
     colors: {
-      primary: gray[600],
+      primary: blue[600],
       background: white[500],
-      surface: white[100],
+      surface: white[200],
       accent: blue[700],
       error: red[500],
-      text: gray[600],
+      text: gray[500],
+      onPrimary: white[200]
     },
     sizes: {
       small: 10,
