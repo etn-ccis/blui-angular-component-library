@@ -9,6 +9,8 @@ export interface DrawerSectionProps {
 }
 
 export class DrawerSection extends React.Component<DrawerSectionProps> {
+  static displayName = 'Drawer.Section';
+
   render() {
     const { children } = this.props;
     return (
