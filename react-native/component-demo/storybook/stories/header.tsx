@@ -2,13 +2,13 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { color, number, text, withKnobs } from '@storybook/addon-knobs';
 import { Header } from '@pxblue/react-native-components';
-import { blue, white } from '@pxblue/colors';
+import { blue, white, red, green } from '@pxblue/colors';
 
 const backgroundImage = require('../assets/farm.jpg');
 
 storiesOf('Header', module)
   .addDecorator(withKnobs)
-  .add('with all props and background image', () => (
+  .add('with default colors from theme', () => (
     <Header
       expandable={true}
       title={text('title', 'Title')}
@@ -19,12 +19,9 @@ storiesOf('Header', module)
         {icon: 'mail', onPress: () => {}},
         {icon: 'more-vert', onPress: () => {}}
       ].slice(0, (number('action items', 3, { range: true, min: 0, max: 3, step: 1 })))}
-      backgroundColor={color('backgroundColor', blue[500])}
-      fontColor={color('fontColor', white[500])}
-      backgroundImage={backgroundImage}
     />
   ))
-  .add('with all props', () => (
+  .add('with background image', () => (
     <Header
       expandable={true}
       title={text('title', 'Title')}
@@ -35,8 +32,7 @@ storiesOf('Header', module)
         {icon: 'mail', onPress: () => {}},
         {icon: 'more-vert', onPress: () => {}}
       ].slice(0, (number('action items', 3, { range: true, min: 0, max: 3, step: 1 })))}
-      backgroundColor={color('backgroundColor', blue[500])}
-      fontColor={color('fontColor', white[500])}
+      backgroundImage={backgroundImage}
     />
   ))
   .add('with no subtitle', () => (
@@ -49,8 +45,6 @@ storiesOf('Header', module)
         {icon: 'mail', onPress: () => {}},
         {icon: 'more-vert', onPress: () => {}}
       ].slice(0, (number('action items', 3, { range: true, min: 0, max: 3, step: 1 })))}
-      backgroundColor={color('backgroundColor', blue[500])}
-      fontColor={color('fontColor', white[500])}
     />
   ))
   .add('with search', () => (
@@ -61,8 +55,19 @@ storiesOf('Header', module)
       actionItems={[
         {icon: 'more-vert', onPress: () => {}}
       ].slice(0, (number('action items', 3, { range: true, min: 0, max: 3, step: 1 })))}
-      backgroundColor={color('backgroundColor', blue[500])}
-      fontColor={color('fontColor', white[500])}
       searchableConfig={{ placeholder: 'Search', autoFocus: true }}
+    />
+  ))
+  .add('with specified colors', () => (
+    <Header
+      expandable={true}
+      title={text('title', 'With Search')}
+      navigation={{icon: 'menu', onPress: () => {}}}
+      actionItems={[
+        {icon: 'more-vert', onPress: () => {}}
+      ].slice(0, (number('action items', 3, { range: true, min: 0, max: 3, step: 1 })))}
+      searchableConfig={{ placeholder: 'Search', autoFocus: true }}
+      fontColor={color('fontColor', blue[900])}
+      backgroundColor={color('backgroundColor', blue[100])}
     />
   ));

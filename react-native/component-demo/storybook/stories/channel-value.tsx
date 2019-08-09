@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { View } from 'react-native';
 import { ChannelValue } from '@pxblue/react-native-components';
-import { text, withKnobs, boolean, number, color } from '@storybook/addon-knobs';
+import { text, withKnobs, boolean, number, color, select } from '@storybook/addon-knobs';
 import Leaf from '@pxblue/icons-svg/leaf.svg';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { wrapIcon } from '@pxblue/react-native-components';
@@ -31,11 +31,14 @@ storiesOf('ChannelValue', module)
       />
     </View>
   ), notes)
-  .add('with units', () => (
+  .add('with units and overridden theme', () => (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <ChannelValue
         value={text('value', text('value', '123'))}
         units={text('units', 'hz')}
+        theme={{
+          sizes: { medium: 77 }
+        }}
       />
     </View>
   ), notes)
@@ -46,7 +49,7 @@ storiesOf('ChannelValue', module)
         IconClass={WrappedIcon}
         units={text('units', 'hz')}
         prefix={boolean('prefix', false)}
-        fontSize={number('fontSize', 20, { range: true, min: 1, max: 100, step: 1 })}
+        fontSize={select('fontSize', { small: 'small', medium: 'medium', large: 'large', extraLarge: 'extraLarge' }, 'medium')}
         color={color('color', 'blue')}
       />
     </View>

@@ -1,4 +1,4 @@
-import React, { createRef } from 'react';
+import React, { createRef, Component } from 'react';
 import {
   Animated,
   ImageSourcePropType,
@@ -14,6 +14,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { blue, white } from '@pxblue/colors';
 import color from 'color';
 import createAnimatedComponent = Animated.createAnimatedComponent;
+import { withTheme, Theme, WithTheme } from '../theme';
 
 const AnimatedSafeAreaView = createAnimatedComponent(SafeAreaView);
 
@@ -81,13 +82,7 @@ interface HeaderState {
   headerHeight: Animated.Value;
 }
 
-/**
- * Header component
- *
- * This component is used to display a title and navigation and action items on the top of a screen.
- * It can be tapped to expand or contract.
- */
-export class Header extends React.Component<HeaderProps, HeaderState> {
+class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
   static readonly REGULAR_HEIGHT = 56 + getStatusBarHeight(true);
   static readonly EXTENDED_HEIGHT = 128 + getStatusBarHeight(true);
   static readonly ICON_SIZE = 24;
@@ -98,24 +93,24 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
 
   private searchRef = createRef<TextInput>();
 
-  constructor(props: HeaderProps) {
+  constructor(props: WithTheme<HeaderProps>) {
     super(props);
 
     this.state = {
       expanded: false,
       searching: false,
       query: '',
-      headerHeight: new Animated.Value(Header.REGULAR_HEIGHT)
+      headerHeight: new Animated.Value(HeaderClass.REGULAR_HEIGHT)
     };
 
     this.expand = Animated.timing(this.state.headerHeight, {
-      toValue: Header.EXTENDED_HEIGHT,
-      duration: Header.ANIMATION_LENGTH
+      toValue: HeaderClass.EXTENDED_HEIGHT,
+      duration: HeaderClass.ANIMATION_LENGTH
     });
 
     this.contract = Animated.timing(this.state.headerHeight, {
-      toValue: Header.REGULAR_HEIGHT,
-      duration: Header.ANIMATION_LENGTH
+      toValue: HeaderClass.REGULAR_HEIGHT,
+      duration: HeaderClass.ANIMATION_LENGTH
     });
   }
 
@@ -166,7 +161,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
             resizeMode: 'cover',
             height: this.state.headerHeight,
             opacity: this.state.headerHeight.interpolate({
-              inputRange: [Header.REGULAR_HEIGHT, Header.EXTENDED_HEIGHT],
+              inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
               outputRange: [0, 0.3]
             })
           }}
@@ -183,7 +178,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
       return (
         <View>
           <TouchableOpacity testID={'header-search-close'} onPress={() => this.onPressSearchClose()} style={styles.navigation}>
-            <Icon name={'arrow-back'} size={Header.ICON_SIZE} color={this.fontColor()}/>
+            <Icon name={'arrow-back'} size={HeaderClass.ICON_SIZE} color={this.fontColor()}/>
           </TouchableOpacity>
         </View>
       )
@@ -192,7 +187,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
       return (
         <View>
           <TouchableOpacity testID={'header-navigation'} onPress={navigation.onPress} style={styles.navigation}>
-            <Icon name={navigation.icon} size={Header.ICON_SIZE} color={this.fontColor()}/>
+            <Icon name={navigation.icon} size={HeaderClass.ICON_SIZE} color={this.fontColor()}/>
           </TouchableOpacity>
         </View>
       )
@@ -292,7 +287,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
       return items.slice(0, 3).map((actionItem, index) => (
         <View key={`${index}`}>
           <TouchableOpacity testID={`header-action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
-            <Icon name={actionItem.icon} size={Header.ICON_SIZE} color={this.fontColor()}/>
+            <Icon name={actionItem.icon} size={HeaderClass.ICON_SIZE} color={this.fontColor()}/>
           </TouchableOpacity>
         </View>
       ))
@@ -310,7 +305,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     const contractedPadding = this.props.subtitle ? 8 : 16;
     return [styles.content, {
       paddingBottom: this.state.headerHeight.interpolate({
-        inputRange: [Header.REGULAR_HEIGHT, Header.EXTENDED_HEIGHT],
+        inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
         outputRange: [contractedPadding, 28]
       })
     }];
@@ -320,7 +315,7 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
     return {
       color: this.fontColor(),
       fontSize: this.state.headerHeight.interpolate({
-        inputRange: [Header.REGULAR_HEIGHT, Header.EXTENDED_HEIGHT],
+        inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
         outputRange: [20, 24]
       })
     };
@@ -331,26 +326,31 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
       color: this.fontColor(),
       fontWeight: '300',
       fontSize: this.state.headerHeight.interpolate({
-        inputRange: [Header.REGULAR_HEIGHT, Header.EXTENDED_HEIGHT],
+        inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
         outputRange: [18, 22]
       })
     };
   }
 
   private searchStyle() {
+    const { theme } = this.props;
     return {
       padding: 0, // TextInput on Android has some default padding, so this needs to be explicitly set to 0
       color: this.fontColor(),
-      fontSize: 20
+      fontSize: 20,
+      ...theme.fonts.light
     }
   }
 
   private fontColor() {
-    return this.props.fontColor ? this.props.fontColor : white[500];
+    const { fontColor, theme } = this.props;
+
+    return fontColor || theme.colors.onPrimary;
   }
 
   private backgroundColor() {
-    return this.props.backgroundColor ? this.props.backgroundColor : blue[500];
+    const { backgroundColor, theme } = this.props;
+    return backgroundColor || theme.colors.primary;
   }
 
   private onPressSearch() {
@@ -381,7 +381,15 @@ export class Header extends React.Component<HeaderProps, HeaderState> {
       query: ''
     });
   }
-}
+};
+
+/**
+ * Header component
+ *
+ * This component is used to display a title and navigation and action items on the top of a screen.
+ * It can be tapped to expand or contract.
+ */
+export const Header = withTheme(HeaderClass);
 
 const styles = StyleSheet.create({
   bar: {

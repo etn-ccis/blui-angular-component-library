@@ -1,5 +1,8 @@
 import React, { Component, ComponentType } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, TextStyle, StyleProp, TextProps } from 'react-native';
+import { withTheme, Theme } from '../theme';
+import { Label } from '..';
+import { WithTheme } from '../theme/theme';
 
 export interface ChannelValueProps {
   /** Value to show (bold text) */
@@ -15,42 +18,37 @@ export interface ChannelValueProps {
   prefix?: boolean;
 
   /** Font size for all text */
-  fontSize?: number;
+  fontSize?: keyof Theme['sizes'];
 
   /** Font color for all text */
   color?: string;
 }
 
-/**
- * ChannelValue component
- *
- * Used to show a channel value and its units.
- * An arbitrary icon may be added
- */
-export class ChannelValue extends Component<ChannelValueProps> {
+class ChannelValueClass extends Component<WithTheme<ChannelValueProps>> {
   public render() {
     const { value, fontSize, color } = this.props;
+    const labelOverrides = this.textOverrides();
 
     return (
       <View style={styles.row}>
         {this.icon()}
-        <Text numberOfLines={1} ellipsizeMode={'tail'} testID={'text-wrapper'}>
+        <Label numberOfLines={1} ellipsizeMode={'tail'} testID={'text-wrapper'} fontSize={fontSize} {...labelOverrides}>
           {this.prefixUnits()}
-          <Text style={[styles.bold, { fontSize, color }]}>
+          <Label font={'bold'} fontSize={fontSize} {...labelOverrides}>
             {value}
-          </Text>
+          </Label>
           {this.suffixUnits()}
-        </Text>
+        </Label>
       </View>
     );
   }
 
   private icon() {
-    const { color, IconClass } = this.props;
+    const { color, theme, IconClass } = this.props;
 
     if (IconClass) {
       return (
-        <IconClass size={18} color={color || 'black'} />
+        <IconClass size={this.getFontSize()} color={color || theme.colors.text } />
       );
     }
   }
@@ -69,28 +67,48 @@ export class ChannelValue extends Component<ChannelValueProps> {
     }
   }
 
+  private textOverrides() {
+    const { color, theme } = this.props;
+
+    const output: WithTheme<TextProps> = { theme };
+    if (color) {
+      output.style = { color };
+    }
+    return output;
+  }
+
   private units() {
-    const { fontSize, color, units } = this.props;
+    const { units } = this.props;
+    const labelOverrides = this.textOverrides();
+
     if (units) {
       return (
-        <Text style={[styles.light, { fontSize, color }]}>
+        <Label font={'thin'} {...labelOverrides}>
           {units}
-        </Text>
+        </Label>
       );
     }
   }
+
+  private getFontSize() {
+    const { theme, fontSize } = this.props;
+
+    return theme.sizes[fontSize || 'medium'];
+  }
 }
+
+/**
+ * ChannelValue component
+ *
+ * Used to show a channel value and its units.
+ * An arbitrary icon may be added
+ */
+export const ChannelValue = withTheme(ChannelValueClass);
 
 const styles = StyleSheet.create({
   row: {
     maxWidth: '100%',
     flexDirection: 'row',
     alignItems: 'center'
-  },
-  bold: {
-    fontWeight: '600'
-  },
-  light: {
-    fontWeight: '300'
   }
 })

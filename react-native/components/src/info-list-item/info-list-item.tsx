@@ -1,8 +1,11 @@
 import React, { Component, Fragment, ComponentType } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import * as Colors from '@pxblue/colors';
 import { interleave } from '../helpers/utils';
+import { Theme } from '..';
+import { withTheme } from '../theme';
+import { WithTheme } from '../theme/theme';
+import { Title, Subtitle } from '../typography';
 
 export interface InfoListItemProps {
   /** Title to show */
@@ -19,15 +22,19 @@ export interface InfoListItemProps {
 
   /** Callback to be called on press. If provided, will add chevron on the right side of the item */
   onPress?: () => void;
+
+  theme?: Theme;
 }
 
-export class InfoListItem extends Component<InfoListItemProps> {
+class InfoListItemClass extends Component<WithTheme<InfoListItemProps>> {
   private static readonly MAX_SUBTITLE_ELEMENTS = 3;
 
   public render() {
-    const { title, color, onPress } = this.props;
-    const { bigText, fixedHeight, row, fullHeight, tab, iconContainer, contentContainer, withMargins, withRightPadding } = styles;
-    const titleColor = color || Colors.gray[800];
+    const { title, color, onPress, theme } = this.props;
+    const { fixedHeight, row, fullHeight, tab, iconContainer, contentContainer, withMargins, withRightPadding } = styles;
+    const titleStyle = {
+      color: color || theme.colors.text,
+    }
 
     return (
       <TouchableOpacity onPress={onPress} style={[fixedHeight, row, withRightPadding]} disabled={!onPress}>
@@ -36,9 +43,9 @@ export class InfoListItem extends Component<InfoListItemProps> {
           {this.icon()}
         </View>
         <View style={contentContainer}>
-          <Text style={[bigText, { color: titleColor }]} numberOfLines={1} ellipsizeMode={'tail'}>
+          <Title style={titleStyle} numberOfLines={1} ellipsizeMode={'tail'}>
             {title}
-          </Text>
+          </Title>
           <View style={row}>
             {this.subtitle()}
           </View>
@@ -49,19 +56,20 @@ export class InfoListItem extends Component<InfoListItemProps> {
   }
 
   private icon() {
-    const { IconClass, color } = this.props;
+    const { IconClass, color, theme } = this.props;
 
     if (IconClass) {
       return (
-        <IconClass size={24} color={color || Colors.gray[800]} />
+        <IconClass size={24} color={color || theme.colors.text } />
       );
     }
   }
 
   private chevron() {
-    if (this.props.onPress) {
+    const { onPress, theme } = this.props;
+    if (onPress) {
       return (
-        <Icon name="chevron-right" size={24} color={Colors.gray[700]} />
+        <Icon name="chevron-right" size={24} color={theme.colors.text} />
       );
     }
   }
@@ -75,8 +83,8 @@ export class InfoListItem extends Component<InfoListItemProps> {
 
     const subtitleParts = Array.isArray(subtitle) ? [...subtitle] : [subtitle];
     const renderableSubtitleParts = subtitleParts
-      .splice(0, InfoListItem.MAX_SUBTITLE_ELEMENTS)
-      .map(element => this.renderableComponent(element));
+      .splice(0, InfoListItemClass.MAX_SUBTITLE_ELEMENTS)
+      .map(element => this.renderableSubtitleComponent(element));
     
     return this.withKeys(this.separate(renderableSubtitleParts));
   }
@@ -91,14 +99,21 @@ export class InfoListItem extends Component<InfoListItemProps> {
     ))
   }
 
-  private renderableComponent(element: React.ReactNode) {
-    const { smallText, withGrayText } = styles;
+  private renderableSubtitleComponent(element: React.ReactNode) {
+    const { theme } = this.props;
+    const style = {
+      color: theme.colors.text,
+      fontSize: theme.sizes.small, 
+      ...theme.fonts.thin
+    }
 
     switch (typeof element) {
       case 'string':
       case 'number':
         return (
-          <Text numberOfLines={1} style={[smallText, withGrayText]}>{`${element}`}</Text>
+          <Subtitle numberOfLines={1}>
+            {`${element}`}
+          </Subtitle>
         );
       default:
         return element;
@@ -106,14 +121,20 @@ export class InfoListItem extends Component<InfoListItemProps> {
   }
 
   private interpunct() {
-    const { bold, withGrayText, withSmallMargins } = styles;
+    const { theme } = this.props;
+    const { withSmallMargins } = styles;
     return (
-      <Text style={[bold, withGrayText, withSmallMargins]}>
+      <Title style={withSmallMargins}>
         {'\u00B7'}
-      </Text>
+      </Title>
     )
   }
 }
+
+/**
+ * A flexible component to be rendered within FlatLists
+ */
+export const InfoListItem = withTheme(InfoListItemClass);
 
 const styles = StyleSheet.create({
   row: {
@@ -122,17 +143,6 @@ const styles = StyleSheet.create({
   },
   withRightPadding: {
     paddingRight: 6
-  },
-  bold: {
-    fontWeight: '900'
-  },
-  bigText: {
-    fontSize: 16,
-    fontWeight: '600',
-    lineHeight: 24
-  },
-  smallText: {
-    fontSize: 13
   },
   iconContainer: {
     width: 24
@@ -155,8 +165,5 @@ const styles = StyleSheet.create({
   },
   fixedHeight: {
     height: 72
-  },
-  withGrayText: {
-    color: Colors.gray[600]
   }
 });

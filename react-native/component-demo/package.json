@@ -11,15 +11,16 @@
     "lint": "eslint ."
   },
   "dependencies": {
+    "@callstack/react-theme-provider": "^3.0.3",
     "@pxblue/colors": "^1.0.13",
     "@pxblue/icons-svg": "^1.0.15",
     "faker": "^4.1.0",
     "react": "16.8.6",
     "react-native": "0.60.4",
+    "react-native-collapsible": "^1.5.0",
     "react-native-keyboard-aware-scroll-view": "^0.8.0",
     "react-native-material-textfield": "^0.12.0",
     "react-native-paper": "^2.16.0",
-    "react-native-collapsible": "^1.5.0",
     "react-native-status-bar-height": "^2.3.1",
     "react-native-svg": "^9.5.3",
     "react-native-vector-icons": "^6.6.0"
