@@ -351,7 +351,8 @@ class HeaderClass extends Component<HeaderProps, HeaderState> {
   }
 
   private backgroundColor() {
-    return this.props.backgroundColor ? this.props.backgroundColor : blue[500];
+    const { backgroundColor, theme } = this.props;
+    return backgroundColor || theme.colors.primary;
   }
 
   private onPressSearch() {

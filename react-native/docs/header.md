@@ -7,38 +7,39 @@ The header component displays a title at the top of the screen, as well as an op
 import { Header } from '@pxblue/react-native-components';
 ...
 <Header
-      expandable={true}
-      title={'Title'}
-      subtitle={'Subtitle'}
-      navigation={{icon: 'menu', onPress: () => {}}}
-      actionItems={[
-        {icon: 'search', onPress: () => {}},
-        {icon: 'mail', onPress: () => {}},
-        {icon: 'more-vert', onPress: () => {}}
-      ]}
-      backgroundColor={'blue'}
-      fontColor={'white'}
-      backgroundImage={require('../assets/background.jpg')}
-      searchableConfig: {
-        placeholder: 'Search',
-        autoFocus: true
-       }
+  expandable={true}
+  title={'Title'}
+  subtitle={'Subtitle'}
+  navigation={{icon: 'menu', onPress: () => {}}}
+  actionItems={[
+    {icon: 'search', onPress: () => {}},
+    {icon: 'mail', onPress: () => {}},
+    {icon: 'more-vert', onPress: () => {}}
+  ]}
+  backgroundColor={'blue'}
+  fontColor={'white'}
+  backgroundImage={require('../assets/background.jpg')}
+  searchableConfig: {
+    placeholder: 'Search',
+    autoFocus: true
+    }
 />
 ```
 
 ## Props
 
-| Name            | Type                                    | Required | Default   | Examples                                        |
-|-----------------|-----------------------------------------|----------|-----------|-------------------------------------------------|
-| title           | string                                  | yes      |           |                                                 |
-| subtitle        | string                                  | no       |           |                                                 |
-| navigation      | { icon: string, onPress: () => void }   | no       |           | { icon: 'menu', onPress: openMenu() }           |
-| actionItems     | { icon: string, onPress: () => void }[] | no       |           | [{ icon: 'more-vert', onPress: openOptions() }] |
-| expandable      | boolean                                 | no       | true      |                                                 |
-| backgroundColor | string                                  | no       | '#007bc1' | 'green', '#6e29e8'                              |
-| fontColor       | string                                  | no       | '#eef0f0' | 'green', '#6e29e8'                              |
-| backgroundImage | ImageSourcePropType                     | no       |           | require('../assets/background.jpg')             |
-| searchableConfig      | SearchableConfig                        | no       |           | { placeholder: 'Search', autoFocus: true }      |
+| Name             | Type                                    | Required | Default   | Examples                                             |
+|------------------|-----------------------------------------|----------|-----------|------------------------------------------------------|
+| title            | string                                  | yes      |           |                                                      |
+| subtitle         | string                                  | no       |           |                                                      |
+| navigation       | { icon: string, onPress: () => void }   | no       |           | { icon: 'menu', onPress: openMenu() }                |
+| actionItems      | { icon: string, onPress: () => void }[] | no       |           | [{ icon: 'more-vert', onPress: openOptions() }]      |
+| expandable       | boolean                                 | no       | true      |                                                      |
+| backgroundColor  | string                                  | no       | '#007bc1' | 'green', '#6e29e8'                                   |
+| fontColor        | string                                  | no       | '#eef0f0' | 'green', '#6e29e8'                                   |
+| backgroundImage  | ImageSourcePropType                     | no       |           | require('../assets/background.jpg')                  |
+| searchableConfig | SearchableConfig                        | no       |           | { placeholder: 'Search', autoFocus: true }           |
+| theme            | DeepPartial<Theme>                      | no       |           | { colors: { primary: 'green', onPrimary: 'white' } } |
 
 ### `SearchableConfig`
 

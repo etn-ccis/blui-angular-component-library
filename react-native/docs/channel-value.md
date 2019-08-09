@@ -20,11 +20,12 @@ const WrappedLeaf = wrapIcon({ IconClass: Leaf });
 
 ## Props
 
-| Name      | Type                                             | Required | Default | Examples              |
-|-----------|--------------------------------------------------|----------|---------|-----------------------|
-| value     | string &vert; number                             | yes      |         | 123, 'on'             |
-| IconClass | React.Component<{ size: number, color: string }> | no       |         | &lt;WrappedLeaf /&gt; |
-| units     | string                                           | no       |         | 'hz', '$'             |
-| prefix    | boolean                                          | no       | false   | true, false           |
-| fontSize  | number                                           | no       | 20      | 12, 30                |
-| color     | string                                           | no       | 'black' | 'black', '#000000'    |
+| Name      | Type                                             | Required | Default | Examples                      |
+|-----------|--------------------------------------------------|----------|---------|-------------------------------|
+| value     | string &vert; number                             | yes      |         | 123, 'on'                     |
+| IconClass | React.Component<{ size: number, color: string }> | no       |         | &lt;WrappedLeaf /&gt;         |
+| units     | string                                           | no       |         | 'hz', '$'                     |
+| prefix    | boolean                                          | no       | false   | true, false                   |
+| fontSize  | number                                           | no       | 20      | 12, 30                        |
+| color     | string                                           | no       | 'black' | 'black', '#000000'            |
+| theme     | DeepPartial<Theme>                               | no       |         | { colors: { text: 'green' } } |

@@ -19,11 +19,12 @@ import Battery from '@pxblue/icons-svg/battery.svg';
 
 ## Props
 
-| Name      | Type                 | Required | Default | Examples            |
-|-----------|----------------------|----------|---------|---------------------|
-| label     | string               | yes      |         | 'Battery', 'Health' |
-| icon      | React.ReactNode      | yes      |         |                     |
-| value     | number &#124; string | no       |         | 100, 'off'          |
-| valueIcon | React.ReactNode      | no       |         |                     |
-| units     | string               | no       |         | '%', 'hz', '°C'     |
-| onPress   | () => void           | no       |         |                     |
+| Name      | Type                 | Required | Default | Examples                      |
+|-----------|----------------------|----------|---------|-------------------------------|
+| label     | string               | yes      |         | 'Battery', 'Health'           |
+| icon      | React.ReactNode      | yes      |         |                               |
+| value     | number &#124; string | no       |         | 100, 'off'                    |
+| valueIcon | React.ReactNode      | no       |         |                               |
+| units     | string               | no       |         | '%', 'hz', '°C'               |
+| onPress   | () => void           | no       |         |                               |
+| theme     | DeepPartial<Theme>   | no       |         | { colors: { text: 'green' } } |
