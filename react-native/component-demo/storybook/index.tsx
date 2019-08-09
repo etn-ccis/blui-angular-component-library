@@ -19,7 +19,7 @@ const ThemedStorybook = () =>
     fonts: {
       bold: {
         fontFamily: 'Open Sans',
-        fontWeight: '700'
+        // fontWeight: '700'
       },
       regular: {
         fontFamily: 'Open Sans',
