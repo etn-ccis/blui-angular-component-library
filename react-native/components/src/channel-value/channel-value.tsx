@@ -24,12 +24,6 @@ export interface ChannelValueProps {
   color?: string;
 }
 
-/**
- * ChannelValue component
- *
- * Used to show a channel value and its units.
- * An arbitrary icon may be added
- */
 class ChannelValueClass extends Component<WithTheme<ChannelValueProps>> {
   public render() {
     const { value, fontSize, color } = this.props;
@@ -103,6 +97,12 @@ class ChannelValueClass extends Component<WithTheme<ChannelValueProps>> {
   }
 }
 
+/**
+ * ChannelValue component
+ *
+ * Used to show a channel value and its units.
+ * An arbitrary icon may be added
+ */
 export const ChannelValue = withTheme(ChannelValueClass);
 
 const styles = StyleSheet.create({

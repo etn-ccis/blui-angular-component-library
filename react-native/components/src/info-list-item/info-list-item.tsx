@@ -131,6 +131,9 @@ class InfoListItemClass extends Component<WithTheme<InfoListItemProps>> {
   }
 }
 
+/**
+ * A flexible component to be rendered within FlatLists
+ */
 export const InfoListItem = withTheme(InfoListItemClass);
 
 const styles = StyleSheet.create({

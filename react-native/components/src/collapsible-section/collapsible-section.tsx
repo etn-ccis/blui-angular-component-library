@@ -3,7 +3,7 @@ import { View, TouchableOpacity, Text, StyleSheet } from 'react-native';
 import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Collapsible from 'react-native-collapsible';
 import { gray, blue } from '@pxblue/colors';
-import { Theme, withTheme } from '../theme';
+import { Theme, withTheme, WithTheme } from '../theme';
 import { Title } from '..';
 
 export interface CollapsibleSectionProps {
@@ -24,23 +24,18 @@ export interface CollapsibleSectionProps {
     /** Background color for component */
     backgroundColor?: string;
   }
-
   testID?: string;
-  theme: Theme;
 }
 
 interface CollapsibleSectionState {
   collapsed: boolean;
 }
 
-/**
- * Component that provides a header and a collapsible content section
- */
-export const CollapsibleSection = withTheme(class CollapsibleSection extends Component<CollapsibleSectionProps, CollapsibleSectionState> {
+class CollapsibleSectionClass extends Component<WithTheme<CollapsibleSectionProps>, CollapsibleSectionState> {
   public static readonly ICON_SIZE = 24;
   public static readonly TITLE_COLOR = blue[700];
 
-  constructor(props: CollapsibleSectionProps) {
+  constructor(props: WithTheme<CollapsibleSectionProps>) {
     super(props);
 
     this.state = {
@@ -84,7 +79,12 @@ export const CollapsibleSection = withTheme(class CollapsibleSection extends Com
       </View>
     );
   }
-})
+}
+
+/**
+ * Component that provides a header and a collapsible content section
+ */
+export const CollapsibleSection = withTheme(CollapsibleSectionClass);
 
 const styles = StyleSheet.create({
   headerContainer: {

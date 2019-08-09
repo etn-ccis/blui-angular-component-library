@@ -14,7 +14,7 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import { blue, white } from '@pxblue/colors';
 import color from 'color';
 import createAnimatedComponent = Animated.createAnimatedComponent;
-import { withTheme, Theme } from '../theme';
+import { withTheme, Theme, WithTheme } from '../theme';
 
 const AnimatedSafeAreaView = createAnimatedComponent(SafeAreaView);
 
@@ -73,8 +73,6 @@ export interface HeaderProps {
 
   /** Configuration object that determines whether the Header can have a search bar */
   searchableConfig?: SearchableConfig;
-
-  theme: Theme;
 }
 
 interface HeaderState {
@@ -84,7 +82,7 @@ interface HeaderState {
   headerHeight: Animated.Value;
 }
 
-class HeaderClass extends Component<HeaderProps, HeaderState> {
+class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
   static readonly REGULAR_HEIGHT = 56 + getStatusBarHeight(true);
   static readonly EXTENDED_HEIGHT = 128 + getStatusBarHeight(true);
   static readonly ICON_SIZE = 24;
@@ -95,7 +93,7 @@ class HeaderClass extends Component<HeaderProps, HeaderState> {
 
   private searchRef = createRef<TextInput>();
 
-  constructor(props: HeaderProps) {
+  constructor(props: WithTheme<HeaderProps>) {
     super(props);
 
     this.state = {
