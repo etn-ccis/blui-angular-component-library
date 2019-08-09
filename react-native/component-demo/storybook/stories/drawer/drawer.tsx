@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { color, text, withKnobs } from '@storybook/addon-knobs';
 import { Drawer, wrapIcon } from '@pxblue/react-native-components';
 import Leaf from '@pxblue/icons-svg/leaf.svg';
 import Water from '@pxblue/icons-svg/water.svg';
@@ -9,7 +9,7 @@ import Pxwhite from '@pxblue/icons-svg/pxwhite.svg';
 import Basketball from '@pxblue/icons-svg/basketball_hoop.svg';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { Image, Text } from 'react-native';
-import { gray } from '@pxblue/colors';
+import { blue, gray, white } from '@pxblue/colors';
 import faker from 'faker';
 
 const LeafIcon = wrapIcon({ IconClass: Leaf });
@@ -25,6 +25,8 @@ interface DrawerStoryProps {
   subtitle?: string;
   headerContent?: React.ReactNode;
   footer?: React.ReactNode;
+  backgroundColor?: string;
+  fontColor?: string;
 }
 
 interface DrawerStoryState {
@@ -47,43 +49,43 @@ class DrawerStory extends React.Component<DrawerStoryProps, DrawerStoryState> {
   }
 
   render() {
-    const { pages, title, subtitle, headerContent, footer } = this.props;
+    const { pages, title, subtitle, headerContent, footer, backgroundColor, fontColor } = this.props;
     const { activeItem } = this.state;
     if ( pages === 1) {
       return (
-        <Drawer title={title} subtitle={subtitle} headerContent={headerContent} footer={footer}>
+        <Drawer title={title} subtitle={subtitle} headerContent={headerContent} footer={footer} backgroundColor={backgroundColor} fontColor={fontColor}>
           <Drawer.Page>
             <Drawer.Section title={'Section 1'}>
-              <Drawer.Item active={activeItem === 'first'} onPress={() => this.setActive('first')} label={'Environment'} IconClass={LeafIcon}/>
-              <Drawer.Item active={activeItem === 'second'} onPress={() => this.setActive('second')} label={'Water Pumps'} IconClass={WaterIcon}/>
-              <Drawer.Item active={activeItem === 'third'} onPress={() => this.setActive('third')} label={'Devices'} IconClass={DeviceIcon}/>
+              <Drawer.Item fontColor={backgroundColor} active={activeItem === 'first'} onPress={() => this.setActive('first')} label={'Environment'} IconClass={LeafIcon}/>
+              <Drawer.Item fontColor={backgroundColor} active={activeItem === 'second'} onPress={() => this.setActive('second')} label={'Water Pumps'} IconClass={WaterIcon}/>
+              <Drawer.Item fontColor={backgroundColor} active={activeItem === 'third'} onPress={() => this.setActive('third')} label={'Devices'} IconClass={DeviceIcon}/>
             </Drawer.Section>
             <Drawer.Section title={'Section 2'} divider={false}>
-              <Drawer.Item active={activeItem === 'fourth'} onPress={() => this.setActive('fourth')} label={'PX White'} IconClass={PxwhiteIcon}/>
-              <Drawer.Item active={activeItem === 'fifth'} onPress={() => this.setActive('fifth')} label={'Shooty Hoops'} IconClass={BasketballIcon}/>
+              <Drawer.Item fontColor={backgroundColor} active={activeItem === 'fourth'} onPress={() => this.setActive('fourth')} label={'PX White'} IconClass={PxwhiteIcon}/>
+              <Drawer.Item fontColor={backgroundColor} active={activeItem === 'fifth'} onPress={() => this.setActive('fifth')} label={'Shooty Hoops'} IconClass={BasketballIcon}/>
             </Drawer.Section>
           </Drawer.Page>
         </Drawer>
       )
     } else {
       return (
-        <Drawer title={title} subtitle={subtitle} headerContent={headerContent} footer={footer}>
+        <Drawer title={title} subtitle={subtitle} headerContent={headerContent} footer={footer} backgroundColor={backgroundColor} fontColor={fontColor}>
 
           <Drawer.Page>
             <Drawer.Section title={'Section 1'}>
-              <Drawer.Item active={activeItem === 'first'} onPress={() => this.setActive('first')} label={'Environment'} IconClass={LeafIcon}/>
-              <Drawer.Item active={activeItem === 'second'} onPress={() => this.setActive('second')} label={'Water Pumps'} IconClass={WaterIcon}/>
-              <Drawer.Item active={activeItem === 'third'} onPress={() => this.setActive('third')} label={'Devices'} IconClass={DeviceIcon}/>
+              <Drawer.Item fontColor={backgroundColor} active={activeItem === 'first'} onPress={() => this.setActive('first')} label={'Environment'} IconClass={LeafIcon}/>
+              <Drawer.Item fontColor={backgroundColor} active={activeItem === 'second'} onPress={() => this.setActive('second')} label={'Water Pumps'} IconClass={WaterIcon}/>
+              <Drawer.Item fontColor={backgroundColor} active={activeItem === 'third'} onPress={() => this.setActive('third')} label={'Devices'} IconClass={DeviceIcon}/>
             </Drawer.Section>
             <Drawer.Section title={'Section 2'} divider={false}>
-              <Drawer.Item active={activeItem === 'fourth'} onPress={() => this.setActive('fourth')} label={'PX White'} IconClass={PxwhiteIcon}/>
-              <Drawer.Item active={activeItem === 'fifth'} onPress={() => this.setActive('fifth')} label={'Shooty Hoops'} IconClass={BasketballIcon}/>
+              <Drawer.Item fontColor={backgroundColor} active={activeItem === 'fourth'} onPress={() => this.setActive('fourth')} label={'PX White'} IconClass={PxwhiteIcon}/>
+              <Drawer.Item fontColor={backgroundColor} active={activeItem === 'fifth'} onPress={() => this.setActive('fifth')} label={'Shooty Hoops'} IconClass={BasketballIcon}/>
             </Drawer.Section>
           </Drawer.Page>
 
           <Drawer.Page>
             <Drawer.Section divider={false}>
-              <Drawer.Item active={activeItem === 'sixth'} onPress={() => this.setActive('sixth')} label={'Settings'} IconClass={SettingsIcon}/>
+              <Drawer.Item fontColor={backgroundColor} active={activeItem === 'sixth'} onPress={() => this.setActive('sixth')} label={'Settings'} IconClass={SettingsIcon}/>
             </Drawer.Section>
           </Drawer.Page>
 
@@ -122,6 +124,8 @@ storiesOf('Drawer', module)
       subtitle={text('subtitle', faker.internet.exampleEmail())}
       headerContent={headerContent}
       footer={footer}
+      backgroundColor={color('backgroundColor', blue[500])}
+      fontColor={color('fontColor', white[500])}
     />
   ))
   .add('Drawer with one page', () => (
@@ -129,6 +133,8 @@ storiesOf('Drawer', module)
       pages={1}
       title={text('title', faker.internet.userName())}
       subtitle={text('subtitle', faker.internet.exampleEmail())}
+      backgroundColor={color('backgroundColor', blue[500])}
+      fontColor={color('fontColor', white[500])}
     />
   ))
   .add('Drawer with two pages', () => (
@@ -136,6 +142,8 @@ storiesOf('Drawer', module)
       pages={2}
       title={text('title', faker.internet.userName())}
       subtitle={text('subtitle', faker.internet.exampleEmail())}
+      backgroundColor={color('backgroundColor', blue[500])}
+      fontColor={color('fontColor', white[500])}
     />
   ))
   .add('Drawer with a footer', () => (
@@ -144,6 +152,8 @@ storiesOf('Drawer', module)
       title={text('title', faker.internet.userName())}
       subtitle={text('subtitle', faker.internet.exampleEmail())}
       footer={footer}
+      backgroundColor={color('backgroundColor', blue[500])}
+      fontColor={color('fontColor', white[500])}
     />
   ))
   .add('Drawer with header content', () => (
@@ -152,5 +162,7 @@ storiesOf('Drawer', module)
       title={text('title', faker.internet.userName())}
       subtitle={text('subtitle', faker.internet.exampleEmail())}
       headerContent={headerContent}
+      backgroundColor={color('backgroundColor', blue[500])}
+      fontColor={color('fontColor', white[500])}
     />
   ));

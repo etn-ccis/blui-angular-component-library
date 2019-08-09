@@ -1,9 +1,10 @@
 import React, { createRef } from 'react';
-import { SafeAreaView, ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { DrawerItem } from './drawer-item';
 import { DrawerSection } from './drawer-section';
 import { blue, white } from '@pxblue/colors';
 import { DrawerPage } from './drawer-page';
+import color from 'color';
 import Icon from 'react-native-vector-icons/FontAwesome';
 
 export interface DrawerProps {
@@ -11,6 +12,8 @@ export interface DrawerProps {
   subtitle?: string;
   headerContent?: React.ReactNode;
   footer?: React.ReactNode;
+  backgroundColor?: string;
+  fontColor?: string;
   children: React.ReactElement | [React.ReactElement] | [React.ReactElement, React.ReactElement];
 }
 
@@ -36,7 +39,8 @@ export class Drawer extends React.Component<DrawerProps, DrawerState> {
   public render() {
     return (
       <View style={{ flex: 1 }}>
-        <SafeAreaView style={{ flex: 0, backgroundColor: blue[500] }}/>
+        <StatusBar barStyle={this.statusBarStyle()}/>
+        <SafeAreaView style={{ flex: 0, backgroundColor: this.backgroundColor() }}/>
         <View style={{ flex: 1 }}>
           {this.header()}
           {this.content()}
@@ -48,11 +52,11 @@ export class Drawer extends React.Component<DrawerProps, DrawerState> {
   private header() {
     const { title } = this.props;
     return (
-      <View style={styles.header}>
+      <View style={this.headerStyle()}>
         {this.headerContent()}
         <TouchableOpacity style={{ flexDirection: 'row' }} onPress={() => this.togglePage()} disabled={this.singlePage()}>
           <View style={styles.titleContainer}>
-            <Text numberOfLines={1} ellipsizeMode={'tail'} style={styles.title}>{title}</Text>
+            <Text numberOfLines={1} ellipsizeMode={'tail'} style={this.titleStyle()}>{title}</Text>
             {this.subtitle()}
           </View>
           {this.pageToggleIcon()}
@@ -92,7 +96,7 @@ export class Drawer extends React.Component<DrawerProps, DrawerState> {
 
     if (subtitle) {
       return (
-        <Text numberOfLines={1} ellipsizeMode={'tail'} style={styles.subtitle}>{subtitle}</Text>
+        <Text numberOfLines={1} ellipsizeMode={'tail'} style={this.subtitleStyle()}>{subtitle}</Text>
       );
     }
   }
@@ -141,11 +145,45 @@ export class Drawer extends React.Component<DrawerProps, DrawerState> {
       pageToggled: !pageToggled
     })
   }
+
+  private statusBarStyle() {
+    return color(this.backgroundColor()).isDark() ? 'light-content' : 'dark-content';
+  }
+
+  private headerStyle() {
+    return [
+      styles.header,
+      { backgroundColor: this.backgroundColor() }
+    ];
+  }
+
+  private titleStyle() {
+    return [
+      styles.title,
+      { color: this.fontColor() }
+    ];
+  }
+
+  private subtitleStyle() {
+    return [
+      styles.subtitle,
+      { color: this.fontColor() }
+    ];
+  }
+
+  private backgroundColor() {
+    const { backgroundColor } = this.props;
+    return backgroundColor ? backgroundColor : blue[500];
+  }
+
+  private fontColor() {
+    const { fontColor } = this.props;
+    return fontColor ? fontColor : white[500];
+  }
 }
 
 const styles = StyleSheet.create({
   header: {
-    backgroundColor: blue[500],
     padding: 16
   },
   headerContent: {
@@ -163,12 +201,10 @@ const styles = StyleSheet.create({
     justifyContent: 'flex-end'
   },
   title: {
-    fontSize: 20,
-    color: white[500]
+    fontSize: 20
   },
   subtitle: {
-    fontSize: 13,
-    color: white[500]
+    fontSize: 13
   },
   footer: {
     flex: 1,

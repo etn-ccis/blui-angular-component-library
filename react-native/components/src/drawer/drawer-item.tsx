@@ -1,12 +1,14 @@
 import React, { ComponentType } from 'react';
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
-import { black, blue, gray, white } from '@pxblue/colors';
+import { black, blue, gray } from '@pxblue/colors';
+import color from 'color';
 
 export interface DrawerItemProps {
   active: boolean;
   onPress: () => void;
   label: string;
   IconClass: ComponentType<{ size: number, color: string }>;
+  fontColor?: string;
 }
 
 export class DrawerItem extends React.Component<DrawerItemProps> {
@@ -55,11 +57,12 @@ export class DrawerItem extends React.Component<DrawerItemProps> {
   }
 
   private itemStyle() {
-    const { active } = this.props;
+    const { active, fontColor } = this.props;
+    const backgroundColor = fontColor ? color(fontColor).lighten(1.5).desaturate(0.65).string() : blue[50];
 
     if (active) {
       return [styles.item, {
-        backgroundColor: blue[50]
+        backgroundColor: backgroundColor
       }];
     } else {
       return [styles.item, {
@@ -69,9 +72,10 @@ export class DrawerItem extends React.Component<DrawerItemProps> {
   }
 
   private fontColor() {
-    const { active } = this.props;
+    const { active, fontColor } = this.props;
+    const activeColor = fontColor ? fontColor : blue[500];
 
-    return active ? blue[500] : black[500];
+    return active ? activeColor : black[500];
   }
 
   private fontWeight() {
@@ -81,9 +85,10 @@ export class DrawerItem extends React.Component<DrawerItemProps> {
   }
 
   private itemUnderlayColor() {
-    const { active } = this.props;
+    const { active, fontColor } = this.props;
+    const activeUnderlayColor = fontColor ? color(fontColor).lighten(0.2).string() : blue[300];
 
-    return active ? blue[300] : gray[50];
+    return active ? activeUnderlayColor : gray[50];
   }
 }
 
