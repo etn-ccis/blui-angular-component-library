@@ -8,6 +8,8 @@ import { DrawerPage } from './drawer-page';
 export interface DrawerProps {
   title: string;
   subtitle?: string;
+  headerContent?: React.ReactNode;
+  footer?: React.ReactNode;
   children: React.ReactElement | [React.ReactElement] | [React.ReactElement, React.ReactElement];
 }
 
@@ -28,14 +30,14 @@ export class Drawer extends React.Component<DrawerProps, DrawerState> {
     }
   }
 
-  render() {
+  public render() {
     return (
       <View style={{ flex: 1 }}>
         <SafeAreaView style={{ flex: 0, backgroundColor: blue[500] }}/>
-        <SafeAreaView style={{ flex: 1 }}>
+        <View style={{ flex: 1 }}>
           {this.header()}
           {this.content()}
-        </SafeAreaView>
+        </View>
       </View>
     );
   }
@@ -44,12 +46,25 @@ export class Drawer extends React.Component<DrawerProps, DrawerState> {
     const { title } = this.props;
     return (
       <View style={styles.header}>
+        {this.headerContent()}
         <TouchableOpacity onPress={() => this.togglePage()} disabled={this.singlePage()}>
-          <Text style={styles.title}>User Name</Text>
+          <Text numberOfLines={1} ellipsizeMode={'tail'} style={styles.title}>{title}</Text>
           {this.subtitle()}
         </TouchableOpacity>
       </View>
     )
+  }
+
+  private headerContent() {
+    const { headerContent } = this.props;
+
+    if (headerContent) {
+      return (
+        <View style={styles.headerContent}>
+          {headerContent}
+        </View>
+      )
+    }
   }
 
   private subtitle() {
@@ -57,7 +72,7 @@ export class Drawer extends React.Component<DrawerProps, DrawerState> {
 
     if (subtitle) {
       return (
-        <Text style={styles.subtitle}>{subtitle}</Text>
+        <Text numberOfLines={1} ellipsizeMode={'tail'} style={styles.subtitle}>{subtitle}</Text>
       );
     }
   }
@@ -72,8 +87,21 @@ export class Drawer extends React.Component<DrawerProps, DrawerState> {
     return (
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         {content}
+        {this.footer()}
       </ScrollView>
     )
+  }
+
+  private footer() {
+    const { footer } = this.props;
+
+    if (footer) {
+      return (
+        <View style={styles.footer}>
+          {footer}
+        </View>
+      )
+    }
   }
 
   private singlePage() {
@@ -95,6 +123,11 @@ const styles = StyleSheet.create({
     backgroundColor: blue[500],
     padding: 16
   },
+  headerContent: {
+    flex: 0,
+    justifyContent: 'center',
+    paddingBottom: 8
+  },
   title: {
     fontSize: 20,
     color: white[500]
@@ -102,5 +135,10 @@ const styles = StyleSheet.create({
   subtitle: {
     fontSize: 13,
     color: white[500]
+  },
+  footer: {
+    flex: 1,
+    justifyContent: 'flex-end',
+    padding: 16
   }
 });

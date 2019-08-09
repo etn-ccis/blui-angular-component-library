@@ -9,7 +9,7 @@ import React from 'react';
 export class DrawerPage extends React.Component {
   static displayName = 'Drawer.Page';
 
-  render() {
+  public render() {
     return this.props.children;
   }
 }

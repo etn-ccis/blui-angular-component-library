@@ -12,7 +12,7 @@ export interface DrawerItemProps {
 export class DrawerItem extends React.Component<DrawerItemProps> {
   static displayName = 'Drawer.Item';
 
-  render() {
+  public render() {
     const { onPress } = this.props;
     return (
       <View style={styles.container}>

@@ -11,7 +11,7 @@ export interface DrawerSectionProps {
 export class DrawerSection extends React.Component<DrawerSectionProps> {
   static displayName = 'Drawer.Section';
 
-  render() {
+  public render() {
     const { children } = this.props;
     return (
       <View style={styles.section}>
