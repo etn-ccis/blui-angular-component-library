@@ -1,8 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component, ComponentType } from 'react';
 import { Text, View, StyleSheet, TextProps, ImageSourcePropType, Image, TouchableOpacity } from 'react-native';
 import { red, gray, white } from '@pxblue/colors';
-import { ListItem } from './list-item';
+import ListItem, { ListItemProps } from './list-item';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import { withTheme, WithTheme } from '../theme';
 
 export interface HeaderIcon {
   /** Name of the icon */
@@ -39,15 +40,9 @@ export interface ScoreCardProps {
   onPressOverflow?: () => void;
 };
 
-/**
- * ScoreCard component.
- * This component renders a "score card" with optional Hero badge,
- * title and subtitles, and actionRow at the bottom.
- */
-export class ScoreCard extends Component<ScoreCardProps> {
+class ScoreCard extends Component<WithTheme<ScoreCardProps>> {
   public static readonly PADDING_AMOUNT = 16;
   private static readonly ICON_SIZE = 24;
-  public static readonly ListItem = ListItem;
 
   public render() {
     const { children, headerColor = red[700] } = this.props;
@@ -167,6 +162,19 @@ export class ScoreCard extends Component<ScoreCardProps> {
     return white[500];
   }
 }
+
+// export component with a static reference to ListItem - needed because withTheme HOC hides underlying component with static properties
+const withListItem = <T extends {}>($class: T): T & { ListItem: ComponentType<ListItemProps> } => {
+  ($class as any).ListItem = ListItem;
+  return $class as any;
+}
+
+/**
+ * ScoreCard component.
+ * This component renders a "score card" with optional Hero badge,
+ * title and subtitles, and actionRow at the bottom.
+ */
+export default withListItem(withTheme(ScoreCard));
 
 const styles = StyleSheet.create({
   card: {
