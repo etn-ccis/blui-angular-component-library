@@ -1,3 +1,4 @@
+import { BucketView } from './bucket-view';
 import { ChannelValue } from './channel-value';
 import { CollapsibleSection } from './collapsible-section';
 import { Header } from './header';
@@ -10,6 +11,7 @@ import { SearchScreen } from './search-screen';
 import { wrapIcon } from './icon-wrapper/icon-wrapper';
 
 export {
+  BucketView,
   ChannelValue,
   CollapsibleSection,
   Header,

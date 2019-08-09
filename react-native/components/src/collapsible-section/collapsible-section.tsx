@@ -22,6 +22,8 @@ export interface CollapsibleSectionProps {
     /** Background color for component */
     backgroundColor?: string;
   }
+
+  testID?: string;
 }
 
 interface CollapsibleSectionState {
@@ -72,10 +74,10 @@ export class CollapsibleSection extends Component<CollapsibleSectionProps, Colla
             </View>
           </View>
         </TouchableOpacity>
+        <View style={{ backgroundColor }}>
+          <View style={[styles.divider]} />
+        </View>
         <Collapsible collapsed={collapsed} style={{ backgroundColor }}>
-          <View style={{ backgroundColor }}>
-            <View style={[styles.divider, styles.withMargin]} />
-          </View>
           {children}
         </Collapsible>
       </View>
