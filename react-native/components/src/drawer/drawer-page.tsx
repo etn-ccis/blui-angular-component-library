@@ -1,7 +1,7 @@
 import React from 'react';
 
 /**
- * DrawerPage component
+ * Drawer.Page component
  *
  * This component is simply a pass-through to help the Drawer component
  * decide to render content on it's first page or second.

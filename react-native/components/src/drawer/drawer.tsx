@@ -21,6 +21,12 @@ interface DrawerState {
   pageToggled: boolean;
 }
 
+/**
+ * Drawer component
+ *
+ * This component is meant to be used as the drawer menu that
+ * can be used to switch between screens in your app.
+ */
 export class Drawer extends React.Component<DrawerProps, DrawerState> {
   public static Item = DrawerItem;
   public static Section = DrawerSection;

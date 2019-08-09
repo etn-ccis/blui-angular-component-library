@@ -11,6 +11,12 @@ export interface DrawerItemProps {
   fontColor?: string;
 }
 
+/**
+ * Drawer.Item component
+ *
+ * This component is a tappable list item that has an icon and label,
+ * and is either active or inactive depending on the passed props.
+ */
 export class DrawerItem extends React.Component<DrawerItemProps> {
   static displayName = 'Drawer.Item';
 
@@ -36,9 +42,7 @@ export class DrawerItem extends React.Component<DrawerItemProps> {
     const { IconClass } = this.props;
 
     return (
-      <View style={styles.iconContainer}>
-        <IconClass size={24} color={this.fontColor()} />
-      </View>
+      <IconClass size={24} color={this.fontColor()} />
     );
   }
 
@@ -103,15 +107,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     paddingHorizontal: 16
   },
-  iconContainer: {
-    // marginLeft: 16
-  },
   label: {
     flex: 1,
     fontSize: 16,
     lineHeight: 19,
     letterSpacing: 0,
-    marginLeft: 32,
-    // marginRight: 16
+    marginLeft: 32
   }
 });

@@ -8,6 +8,12 @@ export interface DrawerSectionProps {
   divider?: boolean;
 }
 
+/**
+ * Drawer.Section component
+ *
+ * This component wraps a number of Drawer.Item components and groups them
+ * together with an optional title, and an optional divider.
+ */
 export class DrawerSection extends React.Component<DrawerSectionProps> {
   static displayName = 'Drawer.Section';
 
@@ -50,15 +56,12 @@ const styles = StyleSheet.create({
     paddingTop: 8
   },
   titleContainer: {
-    // backgroundColor: 'lightgreen',
     height: 28,
     paddingHorizontal: 16,
     marginBottom: 10,
     justifyContent: 'flex-end'
   },
   title: {
-    // marginLeft: 16,
-    // marginBottom: 8,
     fontSize: 13,
     color: gray[500]
   },
