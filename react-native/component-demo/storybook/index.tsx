@@ -2,7 +2,7 @@ import React from 'react';
 import { configure, getStorybookUI } from '@storybook/react-native';
 import './rn-addons';
 import { ThemeProvider } from '@pxblue/react-native-components';
-import { gray, white, blue, red } from '@pxblue/colors';
+import { gray, white, blue, red, green } from '@pxblue/colors';
 
 // import stories
 configure(() => {
@@ -48,10 +48,10 @@ const ThemedStorybook = () =>
       onPrimary: white[200]
     },
     sizes: {
-      small: 10,
-      medium: 12,
+      small: 12,
+      medium: 14,
       large: 16,
-      extraLarge: 94
+      extraLarge: 34
     }
   }}>
     <StorybookUIRoot />

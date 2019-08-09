@@ -3,6 +3,7 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ChannelValue } from '../channel-value';
 import * as Colors from '@pxblue/colors';
 import { wrapIcon } from '../icon-wrapper/icon-wrapper';
+import { Theme, withTheme } from '../theme';
 
 export interface HeroProps {
   /** Label to show */
@@ -24,18 +25,17 @@ export interface HeroProps {
   onPress?: () => void;
 
   testID?: string;
+  theme: Theme;
 }
 
-/**
- * Hero component
- *
- * Used to call attention to particular values of importance to the user.
- * An arbitrary value, value icon, and units may be added,
- * or <ChannelValue/> components may be passed as children.
- */
-export class Hero extends Component<HeroProps> {
+class HeroClass extends Component<HeroProps> {
   public render() {
-    const {label, icon, value, ValueIconClass, units, onPress, children} = this.props;
+    const {theme, label, icon, value, ValueIconClass, units, onPress, children} = this.props;
+    const textStyle = {
+      color: theme.colors.text,
+      fontSize: theme.sizes.medium
+    };
+
     return (
       <TouchableOpacity onPress={onPress} disabled={!onPress} style={styles.wrapper}>
         <View style={styles.icon}>
@@ -47,11 +47,22 @@ export class Hero extends Component<HeroProps> {
           }
           {children}
         </View>
-        <Text style={styles.label} numberOfLines={1} ellipsizeMode={'tail'}>{label}</Text>
+        <Text style={[styles.label, textStyle]} numberOfLines={1} ellipsizeMode={'tail'}>
+          {label}
+        </Text>
       </TouchableOpacity>
     )
   }
 }
+
+/**
+ * Hero component
+ *
+ * Used to call attention to particular values of importance to the user.
+ * An arbitrary value, value icon, and units may be added,
+ * or <ChannelValue/> components may be passed as children.
+ */
+export const Hero = withTheme(HeroClass);
 
 const styles = StyleSheet.create({
   wrapper: {
@@ -76,10 +87,8 @@ const styles = StyleSheet.create({
   },
   label: {
     letterSpacing: 0,
-    fontWeight: '600',
     width: '100%',
     overflow: 'hidden',
-    color: Colors.gray['500'],
     textAlign: 'center'
   }
 });

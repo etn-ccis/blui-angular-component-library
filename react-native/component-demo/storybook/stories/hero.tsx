@@ -6,6 +6,7 @@ import { Hero } from '@pxblue/react-native-components';
 import Leaf from '@pxblue/icons-svg/leaf.svg';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { wrapIcon } from '@pxblue/react-native-components';
+import { blue } from '@pxblue/colors';
 
 const icon = <Leaf height={36} width={36} fill={'green'}/>;
 const Line = wrapIcon({ IconClass: Icon, name: 'chart-line-variant' });
@@ -31,7 +32,7 @@ storiesOf('Hero', module)
   .add('material icon with all props', () => (
     <Hero
       label={text('label', 'No Clouds')}
-      icon={Cloud}
+      icon={<Icon name={'cloud-off-outline'} color={blue[300]} size={36} />}
       value={text('value', '100')}
       units={text('units', '°C')}
       ValueIconClass={Line}
