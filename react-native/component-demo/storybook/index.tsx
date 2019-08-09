@@ -19,7 +19,7 @@ const ThemedStorybook = () =>
     fonts: {
       bold: {
         fontFamily: 'Open Sans',
-        fontWeight: '800'
+        fontWeight: '700'
       },
       regular: {
         fontFamily: 'Open Sans',
@@ -30,11 +30,11 @@ const ThemedStorybook = () =>
         fontWeight: '400'
       },
       light: {
-        fontFamily: 'Open Sans',
+        fontFamily: 'Beth Ellen',
         fontWeight: '300'
       },
       thin: {
-        fontFamily: 'Beth Ellen',
+        fontFamily: 'Open Sans',
         fontWeight: '200'
       }
     },
@@ -44,13 +44,13 @@ const ThemedStorybook = () =>
       surface: white[200],
       accent: blue[700],
       error: red[500],
-      text: blue[100],
+      text: gray[600],
       onPrimary: white[200]
     },
     sizes: {
-      small: 6,
+      small: 12,
       medium: 14,
-      large: 16,
+      large: 20,
       extraLarge: 34
     }
   }}>

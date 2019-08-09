@@ -1,11 +1,11 @@
 import React, { Component, Fragment, ComponentType } from 'react';
 import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
-import * as Colors from '@pxblue/colors';
 import { interleave } from '../helpers/utils';
 import { Theme } from '..';
 import { withTheme } from '../theme';
 import { WithTheme } from '../theme/theme';
+import { Title, Subtitle } from '../typography';
 
 export interface InfoListItemProps {
   /** Title to show */
@@ -34,8 +34,6 @@ class InfoListItemClass extends Component<WithTheme<InfoListItemProps>> {
     const { fixedHeight, row, fullHeight, tab, iconContainer, contentContainer, withMargins, withRightPadding } = styles;
     const titleStyle = {
       color: color || theme.colors.text,
-      fontSize: theme.sizes.medium,
-      ...theme.fonts.bold
     }
 
     return (
@@ -45,9 +43,9 @@ class InfoListItemClass extends Component<WithTheme<InfoListItemProps>> {
           {this.icon()}
         </View>
         <View style={contentContainer}>
-          <Text style={titleStyle} numberOfLines={1} ellipsizeMode={'tail'}>
+          <Title style={titleStyle} numberOfLines={1} ellipsizeMode={'tail'}>
             {title}
-          </Text>
+          </Title>
           <View style={row}>
             {this.subtitle()}
           </View>
@@ -113,9 +111,9 @@ class InfoListItemClass extends Component<WithTheme<InfoListItemProps>> {
       case 'string':
       case 'number':
         return (
-          <Text numberOfLines={1} style={style}>
+          <Subtitle numberOfLines={1}>
             {`${element}`}
-          </Text>
+          </Subtitle>
         );
       default:
         return element;
