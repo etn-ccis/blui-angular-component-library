@@ -70,8 +70,8 @@ export class Drawer extends React.Component<DrawerProps, DrawerState> {
 
     if (!this.singlePage()) {
       const icon = pageToggled
-        ? <Icon name={'caret-up'} size={18} color={white[500]}/>
-        : <Icon name={'caret-down'} size={18} color={white[500]}/>;
+        ? <Icon name={'caret-up'} size={18} color={this.fontColor()}/>
+        : <Icon name={'caret-down'} size={18} color={this.fontColor()}/>;
 
       return (
         <View style={styles.titleIconContainer}>{icon}</View>
