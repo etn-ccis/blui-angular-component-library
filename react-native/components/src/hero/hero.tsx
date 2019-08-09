@@ -4,6 +4,7 @@ import { ChannelValue } from '../channel-value';
 import * as Colors from '@pxblue/colors';
 import { wrapIcon } from '../icon-wrapper/icon-wrapper';
 import { Theme, withTheme } from '../theme';
+import { Label } from '..';
 
 export interface HeroProps {
   /** Label to show */
@@ -30,11 +31,7 @@ export interface HeroProps {
 
 class HeroClass extends Component<HeroProps> {
   public render() {
-    const {theme, label, icon, value, ValueIconClass, units, onPress, children} = this.props;
-    const textStyle = {
-      color: theme.colors.text,
-      fontSize: theme.sizes.medium
-    };
+    const {label, icon, value, ValueIconClass, units, onPress, children} = this.props;
 
     return (
       <TouchableOpacity onPress={onPress} disabled={!onPress} style={styles.wrapper}>
@@ -47,9 +44,9 @@ class HeroClass extends Component<HeroProps> {
           }
           {children}
         </View>
-        <Text style={[styles.label, textStyle]} numberOfLines={1} ellipsizeMode={'tail'}>
+        <Label style={styles.label} numberOfLines={1} ellipsizeMode={'tail'}>
           {label}
-        </Text>
+        </Label>
       </TouchableOpacity>
     )
   }
@@ -86,7 +83,6 @@ const styles = StyleSheet.create({
     maxWidth: '100%',
   },
   label: {
-    letterSpacing: 0,
     width: '100%',
     overflow: 'hidden',
     textAlign: 'center'

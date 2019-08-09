@@ -1,6 +1,8 @@
 import React, { Component, ComponentType } from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import { Text, View, StyleSheet, TextStyle, StyleProp, TextProps } from 'react-native';
 import { withTheme, Theme } from '../theme';
+import { Label } from '..';
+import { WithTheme } from '../theme/theme';
 
 export interface ChannelValueProps {
   /** Value to show (bold text) */
@@ -32,32 +34,29 @@ export interface ChannelValueProps {
  */
 class ChannelValueClass extends Component<ChannelValueProps> {
   public render() {
-    const { value, theme } = this.props;
-
-    const fontColor = this.props.color || theme.colors.text;
-    const fontSize = this.getFontSize();
-    const font = theme.fonts.bold;
+    const { value, fontSize, color } = this.props;
+    const labelOverrides = this.textOverrides();
 
     return (
       <View style={styles.row}>
         {this.icon()}
-        <Text numberOfLines={1} ellipsizeMode={'tail'} testID={'text-wrapper'} style={{ color: fontColor, fontSize }}>
+        <Label numberOfLines={1} ellipsizeMode={'tail'} testID={'text-wrapper'} fontSize={fontSize} {...labelOverrides}>
           {this.prefixUnits()}
-          <Text style={[styles.bold, font]}>
+          <Label font={'bold'} fontSize={fontSize} {...labelOverrides}>
             {value}
-          </Text>
+          </Label>
           {this.suffixUnits()}
-        </Text>
+        </Label>
       </View>
     );
   }
 
   private icon() {
-    const { color, IconClass } = this.props;
+    const { color, theme, IconClass } = this.props;
 
     if (IconClass) {
       return (
-        <IconClass size={this.getFontSize()} color={color || 'black'} />
+        <IconClass size={this.getFontSize()} color={color || theme.colors.text } />
       );
     }
   }
@@ -76,15 +75,25 @@ class ChannelValueClass extends Component<ChannelValueProps> {
     }
   }
 
+  private textOverrides() {
+    const { color, theme } = this.props;
+
+    const output: WithTheme<TextProps> = { theme };
+    if (color) {
+      output.style = { color };
+    }
+    return output;
+  }
+
   private units() {
-    const { units, theme } = this.props;
-    const font = theme.fonts.thin;
+    const { units } = this.props;
+    const labelOverrides = this.textOverrides();
 
     if (units) {
       return (
-        <Text style={[styles.light, font]}>
+        <Label font={'thin'} {...labelOverrides}>
           {units}
-        </Text>
+        </Label>
       );
     }
   }
@@ -103,11 +112,5 @@ const styles = StyleSheet.create({
     maxWidth: '100%',
     flexDirection: 'row',
     alignItems: 'center'
-  },
-  bold: {
-    fontWeight: '600'
-  },
-  light: {
-    fontWeight: '300'
   }
 })

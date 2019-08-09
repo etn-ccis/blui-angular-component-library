@@ -124,9 +124,9 @@ class InfoListItemClass extends Component<WithTheme<InfoListItemProps>> {
     const { theme } = this.props;
     const { withSmallMargins } = styles;
     return (
-      <Text style={[theme.fonts.bold, withSmallMargins, { color: theme.colors.text }]}>
+      <Title style={withSmallMargins}>
         {'\u00B7'}
-      </Text>
+      </Title>
     )
   }
 }

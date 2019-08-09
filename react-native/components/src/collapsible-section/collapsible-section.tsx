@@ -4,6 +4,7 @@ import MaterialIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import Collapsible from 'react-native-collapsible';
 import { gray, blue } from '@pxblue/colors';
 import { Theme, withTheme } from '../theme';
+import { Title } from '..';
 
 export interface CollapsibleSectionProps {
   /** Title to show in heading */
@@ -64,7 +65,7 @@ export const CollapsibleSection = withTheme(class CollapsibleSection extends Com
         >
           <View style={[styles.headerContainer, { backgroundColor }]}>
             <View style={[styles.headerRow, styles.withMargin]}>
-              <Text style={[styles.title, { color: titleColor }]}>{title}</Text>
+              <Title style={[styles.title, { color: titleColor }]}>{title}</Title>
               <MaterialIcon
                 style={[collapsed ? styles.iconImageUp : styles.iconImageDown]}
                 size={CollapsibleSection.ICON_SIZE}
@@ -104,9 +105,6 @@ const styles = StyleSheet.create({
     marginRight: 15
   },
   title: {
-    color: CollapsibleSection.TITLE_COLOR,
-    fontSize: 15,
-    fontWeight: '600',
     height: 20,
     flex: 1,
   },

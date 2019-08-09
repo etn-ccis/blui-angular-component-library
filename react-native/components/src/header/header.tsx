@@ -335,10 +335,12 @@ class HeaderClass extends Component<HeaderProps, HeaderState> {
   }
 
   private searchStyle() {
+    const { theme } = this.props;
     return {
       padding: 0, // TextInput on Android has some default padding, so this needs to be explicitly set to 0
       color: this.fontColor(),
-      fontSize: 20
+      fontSize: 20,
+      ...theme.fonts.light
     }
   }
 

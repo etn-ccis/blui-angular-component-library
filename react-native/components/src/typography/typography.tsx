@@ -16,9 +16,7 @@ export type Typography = ComponentType<TypographyProps>;
 
 const createTypography = (getStyle: (theme: Theme) => StyleProp<TextStyle>): Typography => 
   withTheme(({ theme, style, fontSize, font, ...props }: WithTheme<TypographyInnerProps>) => {
-    let customStyle: StyleProp<TextStyle> = {
-      color: theme.colors.text, 
-    };
+    let customStyle: StyleProp<TextStyle> = {};
 
     if (fontSize) {
       customStyle.fontSize = theme.sizes[fontSize];
@@ -32,7 +30,7 @@ const createTypography = (getStyle: (theme: Theme) => StyleProp<TextStyle>): Typ
     }
 
     return (
-      <Text {...props} style={[getStyle(theme), style, customStyle ]} />
+      <Text {...props} style={[{ color: theme.colors.text }, getStyle(theme), customStyle, style ]} />
     );
   });
 
@@ -57,6 +55,7 @@ export const Subheading = createTypography(({ fonts, sizes }) => ({
 }));
 
 export const Label = createTypography(({ fonts, sizes }) => ({
-  ...fonts.thin,
-  fontSize: sizes.medium
+  ...fonts.regular,
+  fontSize: sizes.medium,
+  letterSpacing: 0
 }));
