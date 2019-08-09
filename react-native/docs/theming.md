@@ -119,3 +119,11 @@ import { ThemeProvider } from '@pxblue/react-native-components';
   <YourApp />
 </ThemeProvider>
 ```
+
+## Overriding Themes for Specific Components
+
+All components in this library that use themes have an optional prop call `theme` of type `DeepPartial<Theme>`, allowing you to selectively override items from the theme. For example, the text color can be overriden on a `Title` component with
+
+```typescript
+<Title theme={{ colors: text: { 'green' } }}>My text</Title>
+```

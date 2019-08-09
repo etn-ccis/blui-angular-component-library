@@ -22,8 +22,6 @@ export interface ChannelValueProps {
 
   /** Font color for all text */
   color?: string;
-
-  theme: Theme;
 }
 
 /**
@@ -32,7 +30,7 @@ export interface ChannelValueProps {
  * Used to show a channel value and its units.
  * An arbitrary icon may be added
  */
-class ChannelValueClass extends Component<ChannelValueProps> {
+class ChannelValueClass extends Component<WithTheme<ChannelValueProps>> {
   public render() {
     const { value, fontSize, color } = this.props;
     const labelOverrides = this.textOverrides();
