@@ -59,7 +59,12 @@ const { ThemeProvider, withTheme } = createTheming<Theme>({
   }
 });
 
+type WithTheme<T> = T & {
+  theme: Theme;
+}
+
 export {
   ThemeProvider,
+  WithTheme,
   withTheme
 };
