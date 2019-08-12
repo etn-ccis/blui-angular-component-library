@@ -38,13 +38,13 @@ const ThemedStorybook = () =>
       }
     },
     colors: {
-      primary: blue[600],
+      primary: blue[900],
       background: white[500],
       surface: white[200],
       accent: blue[700],
       error: red[500],
       text: gray[600],
-      onPrimary: white[200]
+      onPrimary: blue[400]
     },
     sizes: {
       small: 12,
