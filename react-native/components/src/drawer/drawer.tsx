@@ -1,7 +1,7 @@
 import React, { createRef } from 'react';
 import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { DrawerItem } from './drawer-item';
-import { DrawerSection } from './drawer-section';
+import DrawerSection from './drawer-section';
 import { DrawerPage } from './drawer-page';
 import color from 'color';
 import Icon from 'react-native-vector-icons/FontAwesome';
