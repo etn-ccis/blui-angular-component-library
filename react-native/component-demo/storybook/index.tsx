@@ -19,17 +19,18 @@ const ThemedStorybook = () =>
     fonts: {
       bold: {
         fontFamily: 'Open Sans',
+        fontWeight: '600'
       },
       regular: {
         fontFamily: 'Open Sans',
-        fontWeight: '600'
+        fontWeight: 'normal'
       },
       medium: {
         fontFamily: 'Open Sans',
         fontWeight: '400'
       },
       light: {
-        fontFamily: 'Beth Ellen',
+        fontFamily: 'Open Sans',
         fontWeight: '300'
       },
       thin: {

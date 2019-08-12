@@ -6,10 +6,19 @@ import { WithTheme, Theme, withTheme } from '../theme';
 import { $DeepPartial } from '@callstack/react-theme-provider';
 
 export interface DrawerItemProps {
+  /** Determines if the drawer item is considered active */
   active: boolean;
+
+  /** Callback when drawer item is pressed */
   onPress: () => void;
+
+  /** Label of drawer item */
   label: string;
+
+  /** Icon class to show on left side of drawer item */
   IconClass: ComponentType<{ size: number, color: string }>;
+
+  /** Override for the font color */
   fontColor?: string;
 
   /**

@@ -9,12 +9,30 @@ import { withTheme, WithTheme, Theme } from '../theme';
 import { $DeepPartial } from '@callstack/react-theme-provider';
 
 export interface DrawerProps {
+  /** Title shown in header of drawer */
   title: string;
+
+  /** Subtitle shown beneath title in header of drawer */
   subtitle?: string;
+
+  /** Optional content to display above the title and subtitle in the header */
   headerContent?: React.ReactNode;
+
+  /** Optional content to display at the bottom of the drawer menu beneath the content */
   footer?: React.ReactNode;
+
+  /** Override for the background color of the drawer header */
   backgroundColor?: string;
+
+  /** Override for the font color of the drawer header */
   fontColor?: string;
+
+  /**
+   * Child elements to be show in the drawer menu.
+   * If there is just one, then there will be only one 'page' of content in the menu.
+   * If there are two, then there will be two 'pages' of content, toggled by tapping the header.
+   * Any elements other than the first two will not be rendered.
+   */
   children: React.ReactElement | [React.ReactElement] | [React.ReactElement, React.ReactElement];
 
   /**

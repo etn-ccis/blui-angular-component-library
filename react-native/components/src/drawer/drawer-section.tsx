@@ -6,8 +6,13 @@ import { Title } from '../typography';
 import { $DeepPartial } from '@callstack/react-theme-provider';
 
 export interface DrawerSectionProps {
+  /** Optional title for the section */
   title?: string;
+
+  /** Child elements to be shown in the drawer section */
   children: React.ReactNode;
+
+  /** Determines whether the section has a bottom border to divide it from other sections */
   divider?: boolean;
 
   /**
