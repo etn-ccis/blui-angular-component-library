@@ -1,7 +1,7 @@
 import React, { Component, ComponentType } from 'react';
 import { Text, View, StyleSheet, TextProps, ImageSourcePropType, Image, TouchableOpacity } from 'react-native';
 import { gray, white } from '@pxblue/colors';
-import ListItem, { ListItemProps, ScoreCardListItem } from './list-item';
+import { ListItemProps, ScoreCardListItem } from './list-item';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
 import { withTheme, WithTheme, Theme } from '../theme';
 import { $DeepPartial } from '@callstack/react-theme-provider';

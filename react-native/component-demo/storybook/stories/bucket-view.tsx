@@ -43,13 +43,12 @@ storiesOf('BucketView')
       getGroupLabel={getDateLabel}
       groupLabels={['Last Week', 'Last Month', 'Last Year']}
       renderItem={device => (
-        <View style={{ backgroundColor: white[100] }}>
-          <InfoListItem
-            title={device.name}
-            subtitle={`aquired: ${device.dateAquired.toUTCString()}`}
-            color={device.status === 'stopped' ? red[800] : blue[800]}
-          />
-        </View>
+        <InfoListItem
+          title={device.name}
+          subtitle={`aquired: ${device.dateAquired.toUTCString()}`}
+          backgroundColor={white[100]}
+          color={device.status === 'stopped' ? red[800] : blue[800]}
+        />
       )}
       ItemSeparatorComponent={Separator}
       style={styles.style}
