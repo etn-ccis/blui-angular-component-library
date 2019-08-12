@@ -31,7 +31,6 @@ export interface DrawerProps {
    * Child elements to be show in the drawer menu.
    * If there is just one, then there will be only one 'page' of content in the menu.
    * If there are two, then there will be two 'pages' of content, toggled by tapping the header.
-   * Any elements other than the first two will not be rendered.
    */
   children: React.ReactElement | [React.ReactElement] | [React.ReactElement, React.ReactElement];
 
