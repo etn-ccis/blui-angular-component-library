@@ -1,7 +1,9 @@
 import React, { ComponentType } from 'react';
 import { StyleSheet, Text, TouchableHighlight, View } from 'react-native';
-import { black, blue, gray } from '@pxblue/colors';
+import { gray } from '@pxblue/colors';
 import color from 'color';
+import { WithTheme, Theme, withTheme } from '../theme';
+import { $DeepPartial } from '@callstack/react-theme-provider';
 
 export interface DrawerItemProps {
   active: boolean;
@@ -9,15 +11,14 @@ export interface DrawerItemProps {
   label: string;
   IconClass: ComponentType<{ size: number, color: string }>;
   fontColor?: string;
+
+  /**
+   * Overrides for theme
+   */
+  theme?: $DeepPartial<Theme>;
 }
 
-/**
- * Drawer.Item component
- *
- * This component is a tappable list item that has an icon and label,
- * and is either active or inactive depending on the passed props.
- */
-export class DrawerItem extends React.Component<DrawerItemProps> {
+class DrawerItemClass extends React.Component<WithTheme<DrawerItemProps>> {
   static displayName = 'Drawer.Item';
 
   public render() {
@@ -48,12 +49,13 @@ export class DrawerItem extends React.Component<DrawerItemProps> {
 
   private label() {
     const { label } = this.props;
+    const font = this.getFont();
 
     return (
       <Text
         ellipsizeMode={'tail'}
         numberOfLines={1}
-        style={[styles.label, { color: this.fontColor(), fontWeight: this.fontWeight() }]}
+        style={[styles.label, font, { color: this.fontColor() }]}
       >
         {label}
       </Text>
@@ -61,8 +63,8 @@ export class DrawerItem extends React.Component<DrawerItemProps> {
   }
 
   private itemStyle() {
-    const { active, fontColor } = this.props;
-    const backgroundColor = fontColor ? color(fontColor).lighten(1.5).desaturate(0.65).string() : blue[50];
+    const { active } = this.props;
+    const backgroundColor = color(this.fontColor()).lighten(1.5).desaturate(0.65).string();
 
     if (active) {
       return [styles.item, {
@@ -76,25 +78,34 @@ export class DrawerItem extends React.Component<DrawerItemProps> {
   }
 
   private fontColor() {
-    const { active, fontColor } = this.props;
-    const activeColor = fontColor ? fontColor : blue[500];
+    const { active, fontColor, theme } = this.props;
+    const activeColor = fontColor ? fontColor : theme.colors.primary;
 
-    return active ? activeColor : black[500];
+    return active ? activeColor : theme.colors.text;
   }
 
-  private fontWeight() {
-    const { active } = this.props;
+  private getFont() {
+    const { active, theme } = this.props;
 
-    return active ? '600' : 'normal';
+    return active ? theme.fonts.bold : theme.fonts.regular;
   }
 
   private itemUnderlayColor() {
-    const { active, fontColor } = this.props;
-    const activeUnderlayColor = fontColor ? color(fontColor).lighten(0.2).string() : blue[300];
+    const { active } = this.props;
+    const activeUnderlayColor = color(this.fontColor()).lighten(0.2).string();
 
     return active ? activeUnderlayColor : gray[50];
   }
 }
+
+/**
+ * Drawer.Item component
+ *
+ * This component is a tappable list item that has an icon and label,
+ * and is either active or inactive depending on the passed props.
+ */
+export const DrawerItem = withTheme(DrawerItemClass);
+export { DrawerItemClass };
 
 const styles = StyleSheet.create({
   container: {

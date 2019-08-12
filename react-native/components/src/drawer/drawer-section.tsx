@@ -1,20 +1,22 @@
 import React from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View } from 'react-native';
+import { withTheme, WithTheme, Theme } from '../theme';
 import { gray } from '@pxblue/colors';
+import { Title } from '../typography';
+import { $DeepPartial } from '@callstack/react-theme-provider';
 
 export interface DrawerSectionProps {
   title?: string;
   children: React.ReactNode;
   divider?: boolean;
+
+  /**
+   * Overrides for theme
+   */
+  theme?: $DeepPartial<Theme>;
 }
 
-/**
- * Drawer.Section component
- *
- * This component wraps a number of Drawer.Item components and groups them
- * together with an optional title, and an optional divider.
- */
-export class DrawerSection extends React.Component<DrawerSectionProps> {
+class DrawerSectionClass extends React.Component<WithTheme<DrawerSectionProps>> {
   static displayName = 'Drawer.Section';
 
   public render() {
@@ -34,7 +36,7 @@ export class DrawerSection extends React.Component<DrawerSectionProps> {
     if (title) {
       return (
         <View style={styles.titleContainer}>
-          <Text style={styles.title}>{title}</Text>
+          <Title>{title}</Title>
         </View>
       )
     }
@@ -51,6 +53,15 @@ export class DrawerSection extends React.Component<DrawerSectionProps> {
   }
 }
 
+/**
+ * Drawer.Section component
+ *
+ * This component wraps a number of Drawer.Item components and groups them
+ * together with an optional title, and an optional divider.
+ */
+export default withTheme(DrawerSectionClass);
+export { DrawerSectionClass };
+
 const styles = StyleSheet.create({
   section: {
     paddingTop: 8
@@ -60,10 +71,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: 16,
     marginBottom: 10,
     justifyContent: 'flex-end'
-  },
-  title: {
-    fontSize: 13,
-    color: gray[500]
   },
   divider: {
     height: 1,

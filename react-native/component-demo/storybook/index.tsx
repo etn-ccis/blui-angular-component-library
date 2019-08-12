@@ -38,7 +38,7 @@ const ThemedStorybook = () =>
       }
     },
     colors: {
-      primary: blue[600],
+      primary: blue[500],
       background: white[500],
       surface: white[200],
       accent: blue[700],

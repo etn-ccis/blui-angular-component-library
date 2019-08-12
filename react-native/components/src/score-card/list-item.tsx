@@ -44,6 +44,7 @@ class ScoreCardListItem extends Component<WithTheme<ListItemProps>> {
  * ListItem component made for use as the default actionRow of a ScoreCard
  */
 export default withTheme(ScoreCardListItem);
+export { ScoreCardListItem };
 
 const styles = StyleSheet.create({
   container: {

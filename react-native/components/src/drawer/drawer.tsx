@@ -1,11 +1,12 @@
 import React, { createRef } from 'react';
 import { SafeAreaView, ScrollView, StatusBar, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { DrawerItem } from './drawer-item';
-import { DrawerSection } from './drawer-section';
-import { blue, white } from '@pxblue/colors';
+import DrawerSection from './drawer-section';
 import { DrawerPage } from './drawer-page';
 import color from 'color';
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { withTheme, WithTheme, Theme } from '../theme';
+import { $DeepPartial } from '@callstack/react-theme-provider';
 
 export interface DrawerProps {
   title: string;
@@ -15,26 +16,25 @@ export interface DrawerProps {
   backgroundColor?: string;
   fontColor?: string;
   children: React.ReactElement | [React.ReactElement] | [React.ReactElement, React.ReactElement];
+
+  /**
+   * Overrides for theme
+   */
+  theme?: $DeepPartial<Theme>;
 }
 
 interface DrawerState {
   pageToggled: boolean;
 }
 
-/**
- * Drawer component
- *
- * This component is meant to be used as the drawer menu that
- * can be used to switch between screens in your app.
- */
-export class Drawer extends React.Component<DrawerProps, DrawerState> {
+class DrawerClass extends React.Component<WithTheme<DrawerProps>, DrawerState> {
   public static Item = DrawerItem;
   public static Section = DrawerSection;
   public static Page = DrawerPage;
 
   private scrollViewRef = createRef<ScrollView>();
 
-  constructor(props: DrawerProps) {
+  constructor(props: WithTheme<DrawerProps>) {
     super(props);
 
     this.state = {
@@ -178,15 +178,23 @@ export class Drawer extends React.Component<DrawerProps, DrawerState> {
   }
 
   private backgroundColor() {
-    const { backgroundColor } = this.props;
-    return backgroundColor ? backgroundColor : blue[500];
+    const { backgroundColor, theme } = this.props;
+    return backgroundColor || theme.colors.primary;
   }
 
   private fontColor() {
-    const { fontColor } = this.props;
-    return fontColor ? fontColor : white[500];
+    const { fontColor, theme } = this.props;
+    return fontColor || theme.colors.onPrimary;
   }
 }
+
+/**
+ * Drawer component
+ *
+ * This component is meant to be used as the drawer menu that
+ * can be used to switch between screens in your app.
+ */
+export const Drawer = withTheme(DrawerClass);
 
 const styles = StyleSheet.create({
   header: {
