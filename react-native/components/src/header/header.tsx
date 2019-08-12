@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { blue, white } from '@pxblue/colors';
+import { black, blue, white } from '@pxblue/colors';
 import color from 'color';
 import createAnimatedComponent = Animated.createAnimatedComponent;
 import { withTheme, Theme, WithTheme } from '../theme';
@@ -350,13 +350,24 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
 
   private fontColor() {
     const { fontColor, theme } = this.props;
+    const { searching } = this.state;
 
-    return fontColor || theme.colors.onPrimary;
+    if (searching) {
+      return theme.colors.text;
+    } else {
+      return fontColor || theme.colors.onPrimary;
+    }
   }
 
   private backgroundColor() {
     const { backgroundColor, theme } = this.props;
-    return backgroundColor || theme.colors.primary;
+    const { searching } = this.state;
+
+    if (searching) {
+      return theme.colors.background;
+    } else {
+      return backgroundColor || theme.colors.primary;
+    }
   }
 
   private onPressSearch() {

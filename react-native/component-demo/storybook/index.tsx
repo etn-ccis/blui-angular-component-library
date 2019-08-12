@@ -2,7 +2,7 @@ import React from 'react';
 import { configure, getStorybookUI } from '@storybook/react-native';
 import './rn-addons';
 import { ThemeProvider } from '@pxblue/react-native-components';
-import { gray, white, blue, red, green } from '@pxblue/colors';
+import { gray, white, blue, red, green, black } from '@pxblue/colors';
 
 // import stories
 configure(() => {
@@ -29,7 +29,7 @@ const ThemedStorybook = () =>
         fontWeight: '400'
       },
       light: {
-        fontFamily: 'Beth Ellen',
+        fontFamily: 'Open Sans',
         fontWeight: '300'
       },
       thin: {
@@ -43,8 +43,8 @@ const ThemedStorybook = () =>
       surface: white[200],
       accent: blue[700],
       error: red[500],
-      text: gray[600],
-      onPrimary: white[200]
+      text: black[500],
+      onPrimary: white[500]
     },
     sizes: {
       small: 12,
