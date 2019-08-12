@@ -15,6 +15,7 @@ import { blue, white } from '@pxblue/colors';
 import color from 'color';
 import createAnimatedComponent = Animated.createAnimatedComponent;
 import { withTheme, Theme, WithTheme } from '../theme';
+import { $DeepPartial } from '@callstack/react-theme-provider';
 
 const AnimatedSafeAreaView = createAnimatedComponent(SafeAreaView);
 
@@ -73,6 +74,11 @@ export interface HeaderProps {
 
   /** Configuration object that determines whether the Header can have a search bar */
   searchableConfig?: SearchableConfig;
+
+  /**
+   * Overrides for theme
+   */
+  theme?: $DeepPartial<Theme>;
 }
 
 interface HeaderState {

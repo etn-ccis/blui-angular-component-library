@@ -1,9 +1,10 @@
 import React, { Component, ComponentType } from 'react';
 import { Text, View, StyleSheet, TextProps, ImageSourcePropType, Image, TouchableOpacity } from 'react-native';
-import { red, gray, white } from '@pxblue/colors';
+import { gray, white } from '@pxblue/colors';
 import ListItem, { ListItemProps } from './list-item';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
-import { withTheme, WithTheme } from '../theme';
+import { withTheme, WithTheme, Theme } from '../theme';
+import { $DeepPartial } from '@callstack/react-theme-provider';
 
 export interface HeaderIcon {
   /** Name of the icon */
@@ -38,6 +39,11 @@ export interface ScoreCardProps {
 
   /** Callback to be called when overflow icon is pressed. */
   onPressOverflow?: () => void;
+
+  /**
+   * Overrides for theme
+   */
+  theme?: $DeepPartial<Theme>;
 };
 
 class ScoreCardClass extends Component<WithTheme<ScoreCardProps>> {
@@ -45,10 +51,14 @@ class ScoreCardClass extends Component<WithTheme<ScoreCardProps>> {
   private static readonly ICON_SIZE = 24;
 
   public render() {
-    const { children, headerColor = red[700] } = this.props;
+    const { children, theme, headerColor = theme.colors.primary } = this.props;
+    const style = {
+      backgroundColor: theme.colors.surface,
+      borderRadius: theme.roundness 
+    }
 
     return (
-      <View style={styles.card}>
+      <View style={[styles.card, style]}>
         <View style={[styles.padded, styles.header, { backgroundColor: headerColor }]}>
           {this.backgroundImage()}
           {this.headerTextElements()}
@@ -185,9 +195,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 0
     },
-    borderRadius: 4,
     elevation: 1,
-    backgroundColor: white[500],
     flex: 1
   },
   actionItem: {

@@ -5,6 +5,7 @@ import Collapsible from 'react-native-collapsible';
 import { gray, blue } from '@pxblue/colors';
 import { Theme, withTheme, WithTheme } from '../theme';
 import { Title } from '..';
+import { $DeepPartial } from '@callstack/react-theme-provider';
 
 export interface CollapsibleSectionProps {
   /** Title to show in heading */
@@ -24,7 +25,14 @@ export interface CollapsibleSectionProps {
     /** Background color for component */
     backgroundColor?: string;
   }
+
+  /** Test ID */
   testID?: string;
+
+  /**
+   * Overrides for theme
+   */
+  theme?: $DeepPartial<Theme>;
 }
 
 interface CollapsibleSectionState {
