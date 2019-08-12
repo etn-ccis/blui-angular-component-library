@@ -15,7 +15,7 @@ export interface ListItemProps {
   onPress?: () => void;
 };
 
-class ScoreCardListItem extends Component<WithTheme<ListItemProps>> {
+class ScoreCardListItemClass extends Component<WithTheme<ListItemProps>> {
   public render() {
     const { label, onPress } = this.props;
 
@@ -43,7 +43,8 @@ class ScoreCardListItem extends Component<WithTheme<ListItemProps>> {
 /**
  * ListItem component made for use as the default actionRow of a ScoreCard
  */
-export default withTheme(ScoreCardListItem);
+export const ScoreCardListItem = withTheme(ScoreCardListItemClass);
+export { ScoreCardListItemClass };
 
 const styles = StyleSheet.create({
   container: {
