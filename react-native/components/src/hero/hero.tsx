@@ -3,8 +3,9 @@ import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ChannelValue } from '../channel-value';
 import * as Colors from '@pxblue/colors';
 import { wrapIcon } from '../icon-wrapper/icon-wrapper';
-import { Theme, withTheme } from '../theme';
+import { Theme, withTheme, WithTheme } from '../theme';
 import { Label } from '..';
+import { $DeepPartial } from '@callstack/react-theme-provider';
 
 export interface HeroProps {
   /** Label to show */
@@ -25,11 +26,18 @@ export interface HeroProps {
   /** Callback for onPress event  */
   onPress?: () => void;
 
+  /**
+   * TestID
+   */
   testID?: string;
-  theme: Theme;
+
+  /**
+   * Overrides for theme
+   */
+  theme?: $DeepPartial<Theme>;
 }
 
-class HeroClass extends Component<HeroProps> {
+class HeroClass extends Component<WithTheme<HeroProps>> {
   public render() {
     const {label, icon, value, ValueIconClass, units, onPress, children} = this.props;
 

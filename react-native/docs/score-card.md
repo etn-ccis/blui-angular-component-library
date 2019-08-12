@@ -51,3 +51,4 @@ This is a basic component to be used as the default actionRow
 |-----------------------|----------------------------------------------|----------|----------|---------------------------------------------------------------------------------------------------|
 | label                 | string                                       | yes      |          | 'View Location'                                                                                   |
 | onPress               | () => void                                   | no       |          | () => myFunction()                                                                                |
+| theme                 | DeepPartial<Theme>                           | no       |          | { roundness: 10}                                                                                  |

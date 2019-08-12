@@ -3,6 +3,7 @@ import { Text, View, StyleSheet, TextStyle, StyleProp, TextProps } from 'react-n
 import { withTheme, Theme } from '../theme';
 import { Label } from '..';
 import { WithTheme } from '../theme/theme';
+import { $DeepPartial } from '@callstack/react-theme-provider';
 
 export interface ChannelValueProps {
   /** Value to show (bold text) */
@@ -22,6 +23,11 @@ export interface ChannelValueProps {
 
   /** Font color for all text */
   color?: string;
+
+  /**
+   * Overrides for theme
+   */
+  theme?: $DeepPartial<Theme>;
 }
 
 class ChannelValueClass extends Component<WithTheme<ChannelValueProps>> {

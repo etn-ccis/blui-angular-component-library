@@ -6,6 +6,7 @@ import { Theme } from '..';
 import { withTheme } from '../theme';
 import { WithTheme } from '../theme/theme';
 import { Title, Subtitle } from '../typography';
+import { $DeepPartial } from '@callstack/react-theme-provider';
 
 export interface InfoListItemProps {
   /** Title to show */
@@ -23,7 +24,10 @@ export interface InfoListItemProps {
   /** Callback to be called on press. If provided, will add chevron on the right side of the item */
   onPress?: () => void;
 
-  theme?: Theme;
+  /**
+   * Overrides for theme
+   */
+  theme?: $DeepPartial<Theme>;
 }
 
 class InfoListItemClass extends Component<WithTheme<InfoListItemProps>> {

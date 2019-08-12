@@ -1,8 +1,10 @@
-import React, { Component } from 'react';
+import React, { Component, ComponentType } from 'react';
 import { Text, View, StyleSheet, TextProps, ImageSourcePropType, Image, TouchableOpacity } from 'react-native';
-import { red, gray, white } from '@pxblue/colors';
-import { ListItem } from './list-item';
+import { gray, white } from '@pxblue/colors';
+import ListItem, { ListItemProps } from './list-item';
 import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import { withTheme, WithTheme, Theme } from '../theme';
+import { $DeepPartial } from '@callstack/react-theme-provider';
 
 export interface HeaderIcon {
   /** Name of the icon */
@@ -37,23 +39,26 @@ export interface ScoreCardProps {
 
   /** Callback to be called when overflow icon is pressed. */
   onPressOverflow?: () => void;
+
+  /**
+   * Overrides for theme
+   */
+  theme?: $DeepPartial<Theme>;
 };
 
-/**
- * ScoreCard component.
- * This component renders a "score card" with optional Hero badge,
- * title and subtitles, and actionRow at the bottom.
- */
-export class ScoreCard extends Component<ScoreCardProps> {
+class ScoreCardClass extends Component<WithTheme<ScoreCardProps>> {
   public static readonly PADDING_AMOUNT = 16;
   private static readonly ICON_SIZE = 24;
-  public static readonly ListItem = ListItem;
 
   public render() {
-    const { children, headerColor = red[700] } = this.props;
+    const { children, theme, headerColor = theme.colors.primary } = this.props;
+    const style = {
+      backgroundColor: theme.colors.surface,
+      borderRadius: theme.roundness 
+    }
 
     return (
-      <View style={styles.card}>
+      <View style={[styles.card, style]}>
         <View style={[styles.padded, styles.header, { backgroundColor: headerColor }]}>
           {this.backgroundImage()}
           {this.headerTextElements()}
@@ -104,7 +109,7 @@ export class ScoreCard extends Component<ScoreCardProps> {
     const { badge } = this.props;
     if (badge) {
       return (
-        <View style={{ position: 'absolute', right: ScoreCard.PADDING_AMOUNT, top: -24 }}>
+        <View style={{ position: 'absolute', right: ScoreCardClass.PADDING_AMOUNT, top: -24 }}>
           {badge}
         </View>
       );
@@ -148,7 +153,7 @@ export class ScoreCard extends Component<ScoreCardProps> {
       return (
         <View>
           <TouchableOpacity testID={'overflow-item'} onPress={onPressOverflow} style={styles.actionItem}>
-            <MaterialIcon name={'more-vert'} size={ScoreCard.ICON_SIZE} color={this.fontColor()}/>
+            <MaterialIcon name={'more-vert'} size={ScoreCardClass.ICON_SIZE} color={this.fontColor()}/>
           </TouchableOpacity>
         </View>
       );
@@ -156,7 +161,7 @@ export class ScoreCard extends Component<ScoreCardProps> {
       return actionItems.slice(0, 2).map((actionItem, index) => (
         <View key={`${index}`}>
           <TouchableOpacity testID={`action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
-            <MaterialIcon name={actionItem.icon} size={ScoreCard.ICON_SIZE} color={this.fontColor()}/>
+            <MaterialIcon name={actionItem.icon} size={ScoreCardClass.ICON_SIZE} color={this.fontColor()}/>
           </TouchableOpacity>
         </View>
       ))
@@ -168,6 +173,19 @@ export class ScoreCard extends Component<ScoreCardProps> {
   }
 }
 
+// export component with a static reference to ListItem - needed because withTheme HOC hides underlying component with static properties
+const withListItem = <T extends {}>($class: T): T & { ListItem: ComponentType<ListItemProps> } => {
+  ($class as any).ListItem = ListItem;
+  return $class as any;
+}
+
+/**
+ * ScoreCard component.
+ * This component renders a "score card" with optional Hero badge,
+ * title and subtitles, and actionRow at the bottom.
+ */
+export const ScoreCard = withListItem(withTheme(ScoreCardClass));
+
 const styles = StyleSheet.create({
   card: {
     shadowColor: gray[900],
@@ -177,9 +195,7 @@ const styles = StyleSheet.create({
       width: 0,
       height: 0
     },
-    borderRadius: 4,
     elevation: 1,
-    backgroundColor: white[500],
     flex: 1
   },
   actionItem: {
@@ -188,7 +204,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    padding: ScoreCard.PADDING_AMOUNT,
+    padding: ScoreCardClass.PADDING_AMOUNT,
     height: 100,
     overflow: 'hidden'
   },
@@ -214,7 +230,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1
   },
   padded: {
-    padding: ScoreCard.PADDING_AMOUNT
+    padding: ScoreCardClass.PADDING_AMOUNT
   },
   row: {
     flexDirection: 'row',

@@ -13,6 +13,11 @@ interface TypographyInnerProps extends TextProps {
    * Font to use
    */
   font?: keyof Theme['fonts'];
+
+  /**
+   * Overrides for theme
+   */
+  theme?: $DeepPartial<Theme>;
 }
 
 export interface TypographyProps extends TypographyInnerProps {
