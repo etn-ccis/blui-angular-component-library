@@ -1,2 +1,2 @@
-import ScoreCard from './score-card';
+import { ScoreCard } from './score-card';
 export { ScoreCard }

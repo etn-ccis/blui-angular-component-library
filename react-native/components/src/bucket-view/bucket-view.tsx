@@ -42,6 +42,9 @@ export interface BucketViewProps<T, TLabel extends string = string> {
   ItemSeparatorComponent?: ComponentType;
 };
 
+/**
+ * A component that groups data into buckets and presents each group in its own CollapsibleSection
+ */
 export class BucketView<T> extends Component<BucketViewProps<T>> {
   public render() {
     const { data, getGroupLabel, style } = this.props;

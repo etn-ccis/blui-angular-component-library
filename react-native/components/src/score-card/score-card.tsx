@@ -40,7 +40,7 @@ export interface ScoreCardProps {
   onPressOverflow?: () => void;
 };
 
-class ScoreCard extends Component<WithTheme<ScoreCardProps>> {
+class ScoreCardClass extends Component<WithTheme<ScoreCardProps>> {
   public static readonly PADDING_AMOUNT = 16;
   private static readonly ICON_SIZE = 24;
 
@@ -99,7 +99,7 @@ class ScoreCard extends Component<WithTheme<ScoreCardProps>> {
     const { badge } = this.props;
     if (badge) {
       return (
-        <View style={{ position: 'absolute', right: ScoreCard.PADDING_AMOUNT, top: -24 }}>
+        <View style={{ position: 'absolute', right: ScoreCardClass.PADDING_AMOUNT, top: -24 }}>
           {badge}
         </View>
       );
@@ -143,7 +143,7 @@ class ScoreCard extends Component<WithTheme<ScoreCardProps>> {
       return (
         <View>
           <TouchableOpacity testID={'overflow-item'} onPress={onPressOverflow} style={styles.actionItem}>
-            <MaterialIcon name={'more-vert'} size={ScoreCard.ICON_SIZE} color={this.fontColor()}/>
+            <MaterialIcon name={'more-vert'} size={ScoreCardClass.ICON_SIZE} color={this.fontColor()}/>
           </TouchableOpacity>
         </View>
       );
@@ -151,7 +151,7 @@ class ScoreCard extends Component<WithTheme<ScoreCardProps>> {
       return actionItems.slice(0, 2).map((actionItem, index) => (
         <View key={`${index}`}>
           <TouchableOpacity testID={`action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
-            <MaterialIcon name={actionItem.icon} size={ScoreCard.ICON_SIZE} color={this.fontColor()}/>
+            <MaterialIcon name={actionItem.icon} size={ScoreCardClass.ICON_SIZE} color={this.fontColor()}/>
           </TouchableOpacity>
         </View>
       ))
@@ -174,7 +174,7 @@ const withListItem = <T extends {}>($class: T): T & { ListItem: ComponentType<Li
  * This component renders a "score card" with optional Hero badge,
  * title and subtitles, and actionRow at the bottom.
  */
-export default withListItem(withTheme(ScoreCard));
+export const ScoreCard = withListItem(withTheme(ScoreCardClass));
 
 const styles = StyleSheet.create({
   card: {
@@ -196,7 +196,7 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    padding: ScoreCard.PADDING_AMOUNT,
+    padding: ScoreCardClass.PADDING_AMOUNT,
     height: 100,
     overflow: 'hidden'
   },
@@ -222,7 +222,7 @@ const styles = StyleSheet.create({
     borderTopWidth: 1
   },
   padded: {
-    padding: ScoreCard.PADDING_AMOUNT
+    padding: ScoreCardClass.PADDING_AMOUNT
   },
   row: {
     flexDirection: 'row',
