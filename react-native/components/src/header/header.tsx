@@ -223,6 +223,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     const { title } = this.props;
     return (
       <Animated.Text
+        key={'header-title'}
         testID={'header-title'}
         style={this.titleStyle()}
         numberOfLines={2}
@@ -238,6 +239,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     if (subtitle) {
       return (
         <Animated.Text
+          key={'header-subtitle'}
           testID={'header-subtitle'}
           style={this.subtitleStyle()}
           numberOfLines={1}
@@ -258,6 +260,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
 
     return (
       <TextInput
+        key={'search-input'}
         ref={this.searchRef}
         style={this.searchStyle()}
         autoCapitalize={config.autoCapitalize}
