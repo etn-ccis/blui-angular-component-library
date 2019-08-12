@@ -5,6 +5,7 @@ import { text, withKnobs, color } from '@storybook/addon-knobs';
 import Leaf from '@pxblue/icons-svg/leaf.svg';
 import { framedRow } from '../../decorators';
 import { wrapIcon } from '@pxblue/react-native-components';
+import { blue } from '@pxblue/colors';
 
 const notes = {
   notes: 'The borders are NOT part of the component; they are provided for framing only. Any React Element may be passed in as `icon`; if using an svg, its color and size are not controlled by `ChannelValue`'
@@ -26,7 +27,8 @@ storiesOf('InfoListItem', module)
       title={text('title', 'Test')}
       IconClass={LeafIcon}
       subtitle={text('subtitle', 'the subtitle can be text or a list of elements')}
-      color={color('tabColor', '#4455cc')}
+      color={color('color', '#4455cc')}
+      backgroundColor={color('backgroundColor', blue[100])}
     />
   ), notes)
   .add('with long text', () => (
