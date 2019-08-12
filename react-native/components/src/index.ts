@@ -1,6 +1,7 @@
 import { BucketView } from './bucket-view';
 import { ChannelValue } from './channel-value';
 import { CollapsibleSection } from './collapsible-section';
+export * from './drawer';
 import { Header } from './header';
 import { Hero } from './hero';
 import { HeroBanner } from './hero-banner';

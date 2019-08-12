@@ -1,6 +1,7 @@
 import './bucket-view';
 import './channel-value';
 import './collapsible-section';
+import './drawer';
 import './header';
 import './hero';
 import './hero-banner';

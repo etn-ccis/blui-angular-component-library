@@ -19,10 +19,11 @@ const ThemedStorybook = () =>
     fonts: {
       bold: {
         fontFamily: 'Open Sans',
+        fontWeight: '600'
       },
       regular: {
         fontFamily: 'Open Sans',
-        fontWeight: '600'
+        fontWeight: 'normal'
       },
       medium: {
         fontFamily: 'Open Sans',
@@ -38,7 +39,7 @@ const ThemedStorybook = () =>
       }
     },
     colors: {
-      primary: blue[600],
+      primary: blue[500],
       background: white[500],
       surface: white[200],
       accent: blue[700],
