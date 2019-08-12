@@ -21,6 +21,9 @@ export interface InfoListItemProps {
   /** Color to use for title and tab on left side */
   color?: string;
 
+  /** Background color of element */
+  backgroundColor?: string;
+
   /** Callback to be called on press. If provided, will add chevron on the right side of the item */
   onPress?: () => void;
 
@@ -34,14 +37,17 @@ class InfoListItemClass extends Component<WithTheme<InfoListItemProps>> {
   private static readonly MAX_SUBTITLE_ELEMENTS = 3;
 
   public render() {
-    const { title, color, onPress, theme } = this.props;
+    const { title, color, backgroundColor, onPress, theme } = this.props;
     const { fixedHeight, row, fullHeight, tab, iconContainer, contentContainer, withMargins, withRightPadding } = styles;
+    const style = {
+      backgroundColor: backgroundColor || 'transparent' 
+    };
     const titleStyle = {
       color: color || theme.colors.text,
-    }
+    };
 
     return (
-      <TouchableOpacity onPress={onPress} style={[fixedHeight, row, withRightPadding]} disabled={!onPress}>
+      <TouchableOpacity onPress={onPress} style={[fixedHeight, row, withRightPadding, style]} disabled={!onPress}>
         <View style={[fullHeight, tab, { backgroundColor: color }]} />
         <View style={[iconContainer, withMargins]}>
           {this.icon()}
