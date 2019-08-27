@@ -73,7 +73,9 @@ const styles = StyleSheet.create({
   wrapper: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    paddingHorizontal: 8,
+    paddingVertical: 16
   },
   icon: {
     padding: 0,

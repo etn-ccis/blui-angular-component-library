@@ -1,6 +1,6 @@
 {
   "name": "@pxblue/react-native-components",
-  "version": "0.1.0",
+  "version": "0.0.1-alpha.1",
   "description": "Reusable React Native components for PX Blue applications",
   "repository": "https://github.com/pxblue/react-native-components",
   "license": "BSD-3-Clause",
@@ -50,6 +50,7 @@
   "files": [
     "package.json",
     "LICENSE",
+    "README.md",
     "dist/"
   ]
 }
