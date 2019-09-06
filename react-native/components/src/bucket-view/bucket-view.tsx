@@ -30,7 +30,7 @@ export interface BucketViewProps<T, TLabel extends string = string> {
   compareGroupLabels?: (a: TLabel, b: TLabel) => number;
 
   /**
-   * A comparitor between data.
+   * A comparator between data.
    * Used to sort items in each group
    */
   compareData?: (a: T, b: T) => number;

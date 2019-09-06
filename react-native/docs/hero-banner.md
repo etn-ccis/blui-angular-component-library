@@ -4,7 +4,7 @@ The HeroBanner component is a simple wrapper component that is used to contain `
 
 ## Example
 ```
-import { HeroBanner, Hero } from '@pxblue/react-native-components;
+import { HeroBanner, Hero } from '@pxblue/react-native-components';
 ...
 <HeroBanner divider>
   <Hero/>

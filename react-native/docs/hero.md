@@ -12,7 +12,7 @@ import Battery from '@pxblue/icons-svg/battery.svg';
 <Hero 
     label={'Charge'}
     icon={<Battery height={36} width={36} color={'green'}/>}
-    icon value={100}
+    value={100}
     units={'%'}
 />
 ```
