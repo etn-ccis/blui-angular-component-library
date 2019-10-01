@@ -5,11 +5,10 @@
 **/**/package-lock.json
 
 # production
-react/components/dist
-core/
+**/**/core
+**/**/dist
 
 # misc
-.DS_Store
 **/**/.DS_Store
 **/**/Thumbs.db
 .env.local
