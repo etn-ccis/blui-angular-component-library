@@ -3,7 +3,7 @@
  */
 
 import {AppRegistry} from 'react-native';
-import {name as appName} from './app.json.js';
+import {name as appName} from './app.json';
 import ThemedStorybook from './storybook';
 
 console.disableYellowBox = true;
