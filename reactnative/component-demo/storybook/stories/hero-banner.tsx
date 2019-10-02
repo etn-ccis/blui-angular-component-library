@@ -1,48 +1,57 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { boolean, withKnobs, number } from '@storybook/addon-knobs';
-import { Hero, HeroBanner, ChannelValue } from '@pxblue/react-native-components';
-import Leaf from '@pxblue/icons-svg/leaf.svg';
-import A from '@pxblue/icons-svg/grade_a.svg';
-import Battery from '@pxblue/icons-svg/battery.svg';
-import Ionicon from 'react-native-vector-icons/Ionicons';
-import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
+// import { Hero, HeroBanner, ChannelValue } from '@pxblue/react-native-components';
+// import Leaf from '@pxblue/icons-svg/leaf.svg';
+// import A from '@pxblue/icons-svg/grade_a.svg';
+// import Battery from '@pxblue/icons-svg/battery.svg';
+// import Ionicon from 'react-native-vector-icons/Ionicons';
+// import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { safeArea } from '../decorators';
-import { green, blue, gray, red } from '@pxblue/colors';
-import { wrapIcon } from '@pxblue/react-native-components';
+// import { green, blue, gray, red } from '@pxblue/colors';
+// import { wrapIcon } from '@pxblue/react-native-components';
 
-const ChartLineVariant = wrapIcon({ IconClass: MaterialCommunityIcon, name: 'chart-line-variant'})
+import { HeroBanner } from '@pxblue/react-native-components';
+import { Text } from 'react-native';
+
+// const ChartLineVariant = wrapIcon({ IconClass: MaterialCommunityIcon, name: 'chart-line-variant'})
+
+// TODO: Restore this test to it's original form
 
 const heroes = [
-  <Hero
-    label={'Healthy'}
-    value={96}
-    units={'/100'}
-    icon={<A height={36} width={36} fill={green[500]} />}
-  />,
-  <Hero
-    label={'Battery'}
-    value={'Full'}
-    icon={<Battery height={36} width={36} fill={blue[500]} />}
-  />,
-  <Hero
-    label={'Estimated'}
-    icon={<Ionicon name={'md-stopwatch'} size={36} color={gray[500]} />}
-  >
-    <ChannelValue value={1} units={'h'} />
-    <ChannelValue value={37} units={'m'} />
-  </Hero>,
-  <Hero
-    label={'Loaded'}
-    icon={<MaterialCommunityIcon name={'chart-pie'} size={36} color={blue[500]} />}
-  >
-    <ChannelValue value={65} units={'%'} IconClass={ChartLineVariant} />
-  </Hero>,
-  <Hero
-    label={'Fifth item'}
-    value={'Will not be shown'}
-    icon={<Battery height={36} width={36} fill={blue[500]} />}
-  />
+  // <Hero
+  //   label={'Healthy'}
+  //   value={96}
+  //   units={'/100'}
+  //   icon={<A height={36} width={36} fill={green[500]} />}
+  // />,
+  // <Hero
+  //   label={'Battery'}
+  //   value={'Full'}
+  //   icon={<Battery height={36} width={36} fill={blue[500]} />}
+  // />,
+  // <Hero
+  //   label={'Estimated'}
+  //   icon={<Ionicon name={'md-stopwatch'} size={36} color={gray[500]} />}
+  // >
+  //   <ChannelValue value={1} units={'h'} />
+  //   <ChannelValue value={37} units={'m'} />
+  // </Hero>,
+  // <Hero
+  //   label={'Loaded'}
+  //   icon={<MaterialCommunityIcon name={'chart-pie'} size={36} color={blue[500]} />}
+  // >
+  //   <ChannelValue value={65} units={'%'} IconClass={ChartLineVariant} />
+  // </Hero>,
+  // <Hero
+  //   label={'Fifth item'}
+  //   value={'Will not be shown'}
+  //   icon={<Battery height={36} width={36} fill={blue[500]} />}
+  // />
+  <Text>A</Text>,
+  <Text>B</Text>,
+  <Text>C</Text>,
+  <Text>D</Text>
 ]
 
 storiesOf('HeroBanner', module)
