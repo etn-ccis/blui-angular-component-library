@@ -8,6 +8,10 @@
 **/**/core
 **/**/dist
 
+# builds
+reactnative/component-demo/ios/build
+reactnative/component-demo/android/app/build
+
 # misc
 **/**/.DS_Store
 **/**/Thumbs.db

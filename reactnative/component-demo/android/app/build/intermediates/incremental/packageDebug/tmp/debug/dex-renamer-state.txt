@@ -1,4 +1,0 @@
-#Tue Oct 08 09:51:52 EDT 2019
-base.0=/Users/e9939461/Desktop/component-library/reactnative/component-demo/android/app/build/intermediates/transforms/dexMerger/debug/0
-path.0=classes.dex
-renamed.0=classes.dex
