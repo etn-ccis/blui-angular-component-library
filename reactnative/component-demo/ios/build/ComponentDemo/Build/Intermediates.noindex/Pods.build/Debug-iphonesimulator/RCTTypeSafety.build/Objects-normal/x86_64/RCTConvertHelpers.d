@@ -1,0 +1,29 @@
+dependencies: \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/node_modules/react-native/Libraries/TypeSafety/RCTConvertHelpers.mm \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Target\ Support\ Files/RCTTypeSafety/RCTTypeSafety-prefix.pch \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/node_modules/react-native/Libraries/TypeSafety/RCTConvertHelpers.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Headers/Public/FBLazyVector/FBLazyVector/FBLazyVector.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Headers/Public/FBLazyVector/FBLazyVector/FBLazyIterator.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Folly/folly/Optional.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Folly/folly/Portability.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Folly/folly/portability/Config.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Folly/folly/CPortability.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Folly/folly/Traits.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Folly/folly/Utility.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Folly/folly/lang/Exception.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Folly/folly/CppAttributes.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Headers/Public/React-Core/React/RCTConvert.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Headers/Public/React-Core/React/RCTAnimationType.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Headers/Public/React-Core/React/RCTBorderStyle.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Headers/Public/React-Core/React/RCTDefines.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Headers/Public/React-Core/React/RCTInspectorDevServerHelper.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Headers/Public/React-Core/React/RCTPackagerConnection.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Headers/Public/React-Core/React/RCTLog.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Headers/Public/React-Core/React/RCTAssert.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Headers/Public/React-Core/React/RCTUtils.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Headers/Public/React-Core/React/RCTPointerEvents.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Headers/Public/React-Core/React/RCTTextDecorationLineType.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Headers/Public/Yoga/yoga/Yoga.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Headers/Public/Yoga/yoga/YGEnums.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Headers/Public/Yoga/yoga/YGMacros.h \
+  /Users/e9939461/Desktop/component-library/reactnative/component-demo/ios/Pods/Headers/Public/Yoga/yoga/YGValue.h

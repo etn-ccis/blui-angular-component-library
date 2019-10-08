@@ -8,8 +8,10 @@
   "types": "core/index.d.ts",
   "scripts": {
     "build": "cd components && yarn build",
+    "install:dependencies": "cd component-demo && yarn && cd ios && pod install && cd ../.. && yarn link:components",
     "link:components": "bash ./linkComponents.sh",
-    "start": "cd component-demo && yarn && cd ios && pod install && cd ../.. && yarn link:components && cd component-demo && yarn ios",
+    "start": "yarn install:dependencies && cd component-demo && yarn ios",
+    "start:android": "yarn install:dependencies && cd component-demo && yarn android",
     "test": "echo \"TODO: TEST\"",
     "test:artifacts": "echo \"TODO: TEST ARTIFACTS\"",
     "prepublish": "cd components && yarn build"
