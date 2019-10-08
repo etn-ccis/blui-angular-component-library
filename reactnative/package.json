@@ -1,17 +1,18 @@
 {
-  "name": "@pxblue/react-native-components",
-  "version": "0.0.1-alpha.1",
+  "name": "component-library-reactnative",
+  "version": "0.0.0",
   "description": "Reusable React Native components for PX Blue applications",
   "repository": "https://github.com/pxblue/component-library/tree/dev/reactnative",
   "license": "BSD-3-Clause",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "core/index.js",
+  "types": "core/index.d.ts",
   "scripts": {
-    "lint": "eslint src/**/*.ts src/**/*.tsx",
-    "prepublish": "rm -rf ./dist && tsc",
-    "test": "jest",
-    "test:watch": "jest --watch",
-    "verify-build": "tsc --noEmit"
+    "build": "cd components && yarn build",
+    "link:components": "bash ./linkComponents.sh",
+    "start": "cd component-demo && yarn && cd ios && pod install && cd ../.. && yarn link:components && cd component-demo && yarn ios",
+    "test": "echo \"TODO: TEST\"",
+    "test:artifacts": "echo \"TODO: TEST ARTIFACTS\"",
+    "prepublish": "cd components && yarn build"
   },
   "dependencies": {
     "@callstack/react-theme-provider": "^3.0.3",
@@ -51,6 +52,9 @@
     "package.json",
     "LICENSE",
     "README.md",
-    "dist/"
-  ]
+    "core/"
+  ],
+  "directories": {
+    "doc": "docs"
+  }
 }

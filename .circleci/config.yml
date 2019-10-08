@@ -113,7 +113,69 @@ jobs:
             cd react-native/components
             yarn lint
             cd ../..
-
+  reactnative-build:
+    docker: 
+      - image: circleci/node:10.13.0-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+          - v1-dependencies-reactnative-{{ checksum "reactnative/components/package.json" }}
+          - v1-dependencies-reactnative-
+      - run: 
+          name: Install Dependencies
+          command: |
+            cd reactnative/components
+            yarn install
+            cd ../..
+      - save_cache:
+          name: Save Cache
+          paths:
+            - node_modules
+          key: v1-dependencies-reactnative-{{ checksum "reactnative/components/package.json" }}
+      - persist_to_workspace:
+          root: reactnative/components/
+          paths:
+            - node_modules
+  reactnative-unit-tests:
+    docker: 
+      - image: circleci/node:10.13.0-browsers
+    steps:
+      - checkout
+      - attach_workspace:
+          at: reactnative/components
+      - run:
+          name: Unit Test
+          command: |
+            cd reactnative/components
+            yarn test
+            cd ../..
+  reactnative-validate-types:
+    docker: 
+      - image: circleci/node:10.13.0-browsers
+    steps:
+      - checkout
+      - attach_workspace:
+          at: reactnative/components
+      - run:
+          name: Tsc --noEmit
+          command: |
+            cd reactnative/components
+            yarn verify-build
+            cd ../..
+  reactnative-lint:
+    docker: 
+      - image: circleci/node:10.13.0-browsers
+    steps:
+      - checkout
+      - attach_workspace:
+          at: reactnative/components
+      - run:
+          name: Lint
+          command: |
+            cd reactnative/components
+            yarn lint
+            cd ../..
 workflows:
   version: 2
   react-and-angular:
@@ -131,3 +193,15 @@ workflows:
       - react-native-lint:
           requires:
             - react-native-build
+  reactnative:
+    jobs:
+      - reactnative-build
+      - reactnative-unit-tests:
+          requires:
+            - reactnative-build
+      - reactnative-validate-types:
+          requires:
+            - reactnative-build
+      - reactnative-lint:
+          requires:
+            - reactnative-build
