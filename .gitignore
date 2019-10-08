@@ -3,6 +3,7 @@
 # dependencies
 **/**/node_modules
 **/**/package-lock.json
+reactnative/component-demo/ios/Pods
 
 # production
 **/**/core
@@ -11,6 +12,7 @@
 # builds
 reactnative/component-demo/ios/build
 reactnative/component-demo/android/app/build
+reactnative/component-demo/android/.gradle
 
 # misc
 **/**/.DS_Store
