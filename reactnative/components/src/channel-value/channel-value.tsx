@@ -1,5 +1,5 @@
 import React, { Component, ComponentType } from 'react';
-import { Text, View, StyleSheet, TextStyle, StyleProp, TextProps } from 'react-native';
+import { View, StyleSheet, TextProps } from 'react-native';
 import { withTheme, Theme } from '../theme';
 import { Label } from '..';
 import { WithTheme } from '../theme/theme';
@@ -32,7 +32,7 @@ export interface ChannelValueProps {
 
 class ChannelValueClass extends Component<WithTheme<ChannelValueProps>> {
   public render() {
-    const { value, fontSize, color } = this.props;
+    const { value, fontSize } = this.props;
     const labelOverrides = this.textOverrides();
 
     return (
@@ -50,11 +50,11 @@ class ChannelValueClass extends Component<WithTheme<ChannelValueProps>> {
   }
 
   private icon() {
-    const { color, theme, IconClass } = this.props;
+    const { IconClass } = this.props;
 
     if (IconClass) {
       return (
-        <IconClass size={this.getFontSize()} color={color || theme.colors.text } />
+        <IconClass size={this.getFontSize()} color={this.getColor() } />
       );
     }
   }
@@ -78,18 +78,18 @@ class ChannelValueClass extends Component<WithTheme<ChannelValueProps>> {
 
     const output: WithTheme<TextProps> = { theme };
     if (color) {
-      output.style = { color };
+      output.style = { color: this.getColor() };
     }
     return output;
   }
 
   private units() {
-    const { units } = this.props;
+    const { units, fontSize } = this.props;
     const labelOverrides = this.textOverrides();
 
     if (units) {
       return (
-        <Label font={'thin'} {...labelOverrides}>
+        <Label font={'thin'} {...labelOverrides} fontSize={fontSize}>
           {units}
         </Label>
       );
@@ -100,6 +100,13 @@ class ChannelValueClass extends Component<WithTheme<ChannelValueProps>> {
     const { theme, fontSize } = this.props;
 
     return theme.sizes[fontSize || 'medium'];
+  }
+
+  private getColor() {
+    const { color, theme } = this.props;
+    if (!color) return theme.colors.text;
+    if (Object.keys(theme.colors).indexOf(color) >= 0) return theme.colors[(color as keyof Theme['colors'])];
+    return color;
   }
 }
 

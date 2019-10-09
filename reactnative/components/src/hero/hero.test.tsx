@@ -1,15 +1,16 @@
 import React from 'react';
 import TestRenderer, { ReactTestInstance } from 'react-test-renderer';
-import { Hero } from '.';
-import { View, Text } from 'react-native';
-import { ChannelValue } from '../channel-value';
+import { Hero, ChannelValue, wrapIcon } from '..';
+import { Text } from 'react-native';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+const Line = wrapIcon({ IconClass: Icon, name: 'chart-line-variant' });
 
 describe('Hero', () => {
   describe('with only a label and icon', () => {
     let instance: ReactTestInstance;
     beforeEach(() => {
       instance = TestRenderer.create(
-        <Hero label={'Hero'} icon={<View/>}/>
+        <Hero label={'Hero'} IconClass={Line}/>
       ).root;
     });
 
@@ -20,8 +21,8 @@ describe('Hero', () => {
     it('renders the label', () => {
       const textElements = instance.findAllByType(Text);
 
-      expect(textElements).toHaveLength(1);
-      expect(textElements[0].props.children).toEqual('Hero');
+      expect(textElements).toHaveLength(2); // first element is the icon
+      expect(textElements[1].props.children).toEqual('Hero');
     });
   });
 
@@ -29,7 +30,7 @@ describe('Hero', () => {
     let instance: ReactTestInstance;
     beforeEach(() => {
       instance = TestRenderer.create(
-        <Hero label={'Hero'} icon={<View/>} value={'100'} units={'%'} onPress={jest.fn()}/>
+        <Hero label={'Hero'} IconClass={Line} value={'100'} units={'%'} onPress={jest.fn()}/>
       ).root;
     });
 

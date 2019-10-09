@@ -13,7 +13,7 @@
     "link:components": "bash ./linkComponents.sh",
     "start": "yarn install:dependencies:ios && cd component-demo && yarn ios",
     "start:android": "yarn install:dependencies:android && cd component-demo && yarn android",
-    "test": "echo \"TODO: TEST\"",
+    "test": "cd components && yarn test",
     "test:artifacts": "echo \"TODO: TEST ARTIFACTS\"",
     "prepublish": "cd components && yarn build"
   },

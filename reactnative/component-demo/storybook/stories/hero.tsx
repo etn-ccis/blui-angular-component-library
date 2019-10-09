@@ -2,39 +2,54 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { centered } from '../decorators';
-import { Hero } from '@pxblue/react-native-components';
-import Leaf from '@pxblue/icons-svg/leaf.svg';
+import { Hero, ChannelValue } from '@pxblue/react-native-components';
+import _Leaf from '@pxblue/icons-svg/leaf.svg';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { wrapIcon } from '@pxblue/react-native-components';
-import { blue } from '@pxblue/colors';
 
-const icon = <Leaf height={36} width={36} fill={'green'}/>;
+const Leaf = wrapIcon({ IconClass: _Leaf });
 const Line = wrapIcon({ IconClass: Icon, name: 'chart-line-variant' });
-const Cloud = wrapIcon({ IconClass: Icon, name: 'cloud-off-outline' });
+const Clock = wrapIcon({ IconClass: Icon, name: 'clock-outline' });
 
 storiesOf('Hero', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
-  .add('with only required props', () => (
-    <Hero label={text('label', 'Leaf')} icon={icon}/>
-  ))
-  .add('with value', () => (
-    <Hero label={text('label', 'Leaf')} icon={icon} value={text('value', '100')}/>
-  ))
-  .add('with value and units', () => (
+  .add('with basic properties', () => (
     <Hero
-      label={text('label', 'Leaf')}
-      icon={icon}
-      value={text('value', '100')}
-      units={text('units', 'leaves')}
+      label={text('label', 'Efficiency')} 
+      IconClass={Leaf} 
+      value={text('value', '94')}
+      units={text('units', '%')}
     />
   ))
-  .add('material icon with all props', () => (
-    <Hero
-      label={text('label', 'No Clouds')}
-      icon={<Icon name={'cloud-off-outline'} color={blue[300]} size={36} />}
-      value={text('value', '100')}
-      units={text('units', '°C')}
+  .add('with ChannelValue children', () => (
+    <Hero 
+      label={text('label', 'Duration')} 
+      IconClass={Clock} 
+    >
+      <ChannelValue fontSize={'large'} value={text('hours', '1')} units={'h'}/>
+      <ChannelValue fontSize={'large'} value={text('minutes', '27')} units={'m'}/>
+    </Hero>
+  ))
+  .add('with press event', () => (
+    <Hero 
+      label={text('label', 'Efficiency')} 
+      IconClass={Leaf} 
+      value={text('value', '94')} 
+      units={text('units', '%')}
+      onPress={() => console.log('pressed')}
+    />
+  ))
+  .add('with full customization', () => (
+    <Hero 
+      label={text('label', 'Efficiency')} 
+      IconClass={Leaf} 
+      iconSize={48}
+      iconColor={'primary'}
+      fontSize={'extraLarge'}
+      value={text('value', '94')} 
       ValueIconClass={Line}
+      valueColor={'green'}
+      units={text('units', '%')}
     />
   ));

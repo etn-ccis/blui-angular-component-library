@@ -1,4 +1,4 @@
-import React, { ComponentType, Component } from 'react';
+import React, { ComponentType } from 'react';
 import { SvgProps } from 'react-native-svg';
 import { IconProps } from 'react-native-vector-icons/Icon';
 

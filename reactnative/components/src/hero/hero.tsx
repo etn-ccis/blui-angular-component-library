@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, ComponentType } from 'react';
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ChannelValue } from '../channel-value';
 import * as Colors from '@pxblue/colors';
@@ -12,13 +12,28 @@ export interface HeroProps {
   label: string;
 
   /** Primary icon */
-  icon: React.ReactNode;
+  // icon: React.ReactNode;
+
+  /** Primary icon */
+  IconClass: ComponentType<{ size: number, color: string }>
+
+  /** Primary icon color */
+  iconSize?: number
+
+  /** Primary icon color */
+  iconColor?: string
+
+  /** Primary icon color */
+  fontSize?: keyof Theme['sizes'];
 
   /** Value for ChannelValue child */
   value?: number | string;
 
   /** Icon component for ChannelValue child */
-  ValueIconClass?: ReturnType<typeof wrapIcon>;
+  ValueIconClass?: ComponentType<{ size: number, color: string }>//ReturnType<typeof wrapIcon>;
+
+  /** Value string color */
+  valueColor?: string
 
   /** Units for value of ChannelValue child */
   units?: string;
@@ -39,16 +54,16 @@ export interface HeroProps {
 
 class HeroClass extends Component<WithTheme<HeroProps>> {
   public render() {
-    const {label, icon, value, ValueIconClass, units, onPress, children} = this.props;
+    const {label, value, ValueIconClass, valueColor, fontSize, units, onPress, children} = this.props;
 
     return (
       <TouchableOpacity onPress={onPress} disabled={!onPress} style={styles.wrapper}>
         <View style={styles.icon}>
-          {icon}
+          {this.icon()}
         </View>
         <View style={styles.values}>
           {!children && !!value &&
-            <ChannelValue value={value} units={units} IconClass={ValueIconClass}/>
+            <ChannelValue value={value} units={units} IconClass={ValueIconClass} color={valueColor} fontSize={fontSize || 'large'}/>
           }
           {children}
         </View>
@@ -57,6 +72,26 @@ class HeroClass extends Component<WithTheme<HeroProps>> {
         </Label>
       </TouchableOpacity>
     )
+  }
+
+  private icon() {
+    const { IconClass, iconColor } = this.props;
+    if (IconClass) {
+      return (
+        <IconClass size={this.normalizeIconSize()} color={this.getColor(iconColor)} />
+      );
+    }
+  }
+  private normalizeIconSize() {
+    const { iconSize } = this.props;
+    if(!iconSize) return 36;
+    return Math.max(10, Math.min(48, iconSize));
+  }
+  private getColor(color: string | undefined) {
+    const { theme } = this.props;
+    if (!color) return theme.colors.text;
+    if (Object.keys(theme.colors).indexOf(color) >= 0) return theme.colors[(color as keyof Theme['colors'])];
+    return color;
   }
 }
 
