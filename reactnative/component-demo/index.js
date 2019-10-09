@@ -3,9 +3,9 @@
  */
 
 import {AppRegistry} from 'react-native';
+import StoryBook from './storybook';
 import {name as appName} from './app.json';
-import ThemedStorybook from './storybook';
 
 console.disableYellowBox = true;
 
-AppRegistry.registerComponent(appName, () => ThemedStorybook);
+AppRegistry.registerComponent(appName, () => StoryBook);

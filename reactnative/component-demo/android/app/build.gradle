@@ -76,7 +76,7 @@ import com.android.build.OutputFile
  */
 
 project.ext.react = [
-    entryFile: "button.tsx",
+    entryFile: "index.js",
     enableHermes: false,  // clean and rebuild if changing
 ]
 
@@ -176,15 +176,6 @@ android {
 
         }
     }
-
-    packagingOptions {
-        pickFirst '**/armeabi-v7a/libc++_shared.so'
-        pickFirst '**/x86/libc++_shared.so'
-        pickFirst '**/arm64-v8a/libc++_shared.so'
-        pickFirst '**/x86_64/libc++_shared.so'
-        pickFirst '**/x86/libjsc.so'
-        pickFirst '**/armeabi-v7a/libjsc.so'
-    }
 }
 
 dependencies {
@@ -192,11 +183,11 @@ dependencies {
     implementation "com.facebook.react:react-native:+"  // From node_modules
 
     if (enableHermes) {
-      def hermesPath = "../../node_modules/hermesvm/android/";
-      debugImplementation files(hermesPath + "hermes-debug.aar")
-      releaseImplementation files(hermesPath + "hermes-release.aar")
+        def hermesPath = "../../node_modules/hermes-engine/android/";
+        debugImplementation files(hermesPath + "hermes-debug.aar")
+        releaseImplementation files(hermesPath + "hermes-release.aar")
     } else {
-      implementation jscFlavor
+        implementation jscFlavor
     }
 }
 
@@ -208,4 +199,3 @@ task copyDownloadableDepsToLibs(type: Copy) {
 }
 
 apply from: file("../../node_modules/@react-native-community/cli-platform-android/native_modules.gradle"); applyNativeModulesAppBuildGradle(project)
-apply from: "../../node_modules/react-native-vector-icons/fonts.gradle"
