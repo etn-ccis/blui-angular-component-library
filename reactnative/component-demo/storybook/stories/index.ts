@@ -10,4 +10,4 @@ import './hero-banner';
 // import './score-card';
 // import './search-screen';
 // import './theme';
-// import './typography';
+import './typography';

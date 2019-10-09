@@ -1,4 +1,6 @@
+import React from 'react';
 import { getStorybookUI, configure } from '@storybook/react-native';
+import { ThemeProvider } from '@pxblue/react-native-components';
 
 import './rn-addons';
 
@@ -11,8 +13,10 @@ configure(() => {
 // To find allowed options for getStorybookUI
 const StorybookUIRoot = getStorybookUI({});
 
-// If you are using React Native vanilla and after installation you don't see your app name here, write it manually.
-// If you use Expo you can safely remove this line.
-// AppRegistry.registerComponent('ComponentDemo', () => StorybookUIRoot);
+const ThemedStorybook = () => (
+  <ThemeProvider>
+    <StorybookUIRoot/>
+  </ThemeProvider>
+);
 
-export default StorybookUIRoot;
+export default ThemedStorybook;
