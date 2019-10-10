@@ -26,10 +26,12 @@ export interface Theme {
     thin: Partial<Font>;
   };
   sizes: {
+    extraSmall: number;
     small: number;
     medium: number;
     large: number;
     extraLarge: number;
+    giant: number;
   };
 };
 
@@ -69,10 +71,12 @@ const { ThemeProvider, withTheme } = createTheming<Theme>({
     onPrimary: white[50]
   },
   sizes: {
+    extraSmall: 10,
     small: 12,
     medium: 16,
-    large: 24,
-    extraLarge: 34
+    large: 20,
+    extraLarge: 24,
+    giant: 34
   }
 });
 

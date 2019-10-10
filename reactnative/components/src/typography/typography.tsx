@@ -77,7 +77,7 @@ export const Subtitle = createTypography(({ fonts, sizes }) => ({
  */
 export const Heading = createTypography(({ fonts, sizes }) => ({
   ...fonts.regular,
-  fontSize: sizes.extraLarge
+  fontSize: sizes.giant
 }));
 
 /**
@@ -85,7 +85,7 @@ export const Heading = createTypography(({ fonts, sizes }) => ({
  */
 export const Subheading = createTypography(({ fonts, sizes }) => ({
   ...fonts.regular,
-  fontSize: sizes.large
+  fontSize: sizes.extraLarge
 }));
 
 /**
