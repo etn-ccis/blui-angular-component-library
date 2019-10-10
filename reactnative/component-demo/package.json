@@ -10,14 +10,14 @@
     "test": "jest"
   },
   "dependencies": {
-    "react": "16.9.0",
-    "react-native": "0.61.2",
     "@callstack/react-theme-provider": "^3.0.3",
     "@pxblue/colors": "^1.0.13",
     "@pxblue/icons-svg": "^1.0.15",
-    "@pxblue/react-native-components": "latest",
+    "@pxblue/react-native-components": "^1.0.0-beta.0",
     "color": "^3.1.2",
     "faker": "^4.1.0",
+    "react": "16.9.0",
+    "react-native": "0.61.2",
     "react-native-collapsible": "^1.5.0",
     "react-native-keyboard-aware-scroll-view": "^0.8.0",
     "react-native-material-textfield": "^0.12.0",
