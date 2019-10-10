@@ -4,18 +4,9 @@ This is a library of re-usable React Native components for use in PX Blue applic
 
 
 Currently, we have components available for:
-* TODO: UPDATE THESE APPROPRIATELY
-* BucketView
 * ChannelValue
-* CollapsibleSection
-* Drawer
-* Header
 * Hero
 * HeroBanner
-* InfoListItem
-* LayoutView
-* ScoreCard
-* SearchScreen
 * Typography
 
 
