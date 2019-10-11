@@ -1,8 +1,21 @@
 {
-  "name": "component-library-reactnative",
-  "version": "0.0.0",
+  "name": "@pxblue/react-native-components",
+  "version": "1.0.2",
+  "author": "pxblue <pxblue@eaton.com>",
   "description": "Reusable React Native components for PX Blue applications",
-  "repository": "https://github.com/pxblue/component-library/tree/dev/reactnative",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pxblue/component-library"
+  },
+  "keywords": [
+    "react native",
+    "components",
+    "pxblue"
+  ],
+  "bugs": {
+    "url": "https://github.com/pxblue/component-library/issues"
+  },
+  "homepage": "https://github.com/pxblue/component-library#readme",
   "license": "BSD-3-Clause",
   "main": "core/index.js",
   "types": "core/index.d.ts",
@@ -13,7 +26,7 @@
     "link:components": "bash ./linkComponents.sh",
     "start": "yarn install:dependencies:ios && cd component-demo && yarn ios",
     "start:android": "yarn install:dependencies:android && cd component-demo && yarn android",
-    "test": "echo \"TODO: TEST\"",
+    "test": "cd components && yarn test",
     "test:artifacts": "echo \"TODO: TEST ARTIFACTS\"",
     "prepublish": "cd components && yarn build"
   },
@@ -22,14 +35,19 @@
     "@pxblue/colors": "^1.0.13",
     "@types/react-native": "^0.60.2",
     "color": "^3.1.2",
-    "react": "^16.8.6",
-    "react-native": "^0.60.4",
     "react-native-collapsible": "^1.5.0",
     "react-native-keyboard-aware-scroll-view": "^0.8.0",
-    "react-native-status-bar-height": "^2.3.1",
+    "react-native-status-bar-height": "^2.3.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-native": "^0.60.4",
     "react-native-vector-icons": "^6.6.0"
   },
   "devDependencies": {
+    "react": "^16.8.6",
+    "react-native": "^0.59.8",
+    "react-native-vector-icons": "^6.6.0",
     "@pxblue/icons-svg": "^1.0.15",
     "@react-native-community/eslint-config": "^0.0.5",
     "@types/color": "^3.0.0",

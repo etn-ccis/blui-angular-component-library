@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { View } from 'react-native';
 import { ChannelValue } from '@pxblue/react-native-components';
-import { text, withKnobs, boolean, number, color, select } from '@storybook/addon-knobs';
+import { text, withKnobs, boolean, color, select } from '@storybook/addon-knobs';
 import Leaf from '@pxblue/icons-svg/leaf.svg';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { wrapIcon } from '@pxblue/react-native-components';
@@ -16,10 +16,18 @@ const WrappedIcon = wrapIcon({ IconClass: Icon, name: 'chart-pie' });
 
 storiesOf('ChannelValue', module)
   .addDecorator(withKnobs)
-  .add('with only required props', () => (
+  .add('with value', () => (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <ChannelValue
         value={text('value', text('value', '123'))}
+      />
+    </View>
+  ), notes)
+  .add('with units', () => (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <ChannelValue
+        value={text('value', text('value', '123'))}
+        units={text('units', 'hz')}
       />
     </View>
   ), notes)
@@ -27,18 +35,18 @@ storiesOf('ChannelValue', module)
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <ChannelValue
         value={text('value', text('value', '123'))}
+        units={text('units', 'hz')}
         IconClass={WrappedLeaf}
       />
     </View>
   ), notes)
-  .add('with units and overridden theme', () => (
+  .add('with extraLarge font size', () => (
     <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
       <ChannelValue
         value={text('value', text('value', '123'))}
         units={text('units', 'hz')}
-        theme={{
-          sizes: { medium: 77 }
-        }}
+        fontSize={'extraLarge'}
+        IconClass={WrappedLeaf}
       />
     </View>
   ), notes)
@@ -51,6 +59,18 @@ storiesOf('ChannelValue', module)
         prefix={boolean('prefix', false)}
         fontSize={select('fontSize', { small: 'small', medium: 'medium', large: 'large', extraLarge: 'extraLarge' }, 'medium')}
         color={color('color', 'blue')}
+      />
+    </View>
+  ), notes)
+  .add('with overridden theme', () => (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <ChannelValue
+        value={text('value', text('value', '123'))}
+        units={text('units', 'hz')}
+        color="error"
+        theme={{
+          sizes: { medium: 77 }
+        }}
       />
     </View>
   ), notes);
