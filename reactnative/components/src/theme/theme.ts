@@ -41,23 +41,23 @@ const { ThemeProvider, withTheme } = createTheming<Theme>({
   roundness: 3,
   fonts: {
     bold: {
-      //fontFamily: 'Open Sans',
+      fontFamily: 'Open Sans',
       fontWeight: '600'
     },
-    regular: {
-      //fontFamily: 'Open Sans',
-      fontWeight: 'normal'
-    },
     medium: {
-      //fontFamily: 'Open Sans',
+      fontFamily: 'Open Sans',
       fontWeight: '400'
     },
+    regular: {
+      fontFamily: 'Open Sans',
+      fontWeight: 'normal'
+    },
     light: {
-      //fontFamily: 'Open Sans',
+      fontFamily: 'Open Sans',
       fontWeight: '300'
     },
     thin: {
-      //fontFamily: 'Open Sans',
+      fontFamily: 'Open Sans',
       fontWeight: '200'
     }
   },

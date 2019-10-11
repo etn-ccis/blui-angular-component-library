@@ -29,14 +29,14 @@ export interface TypographyProps extends TypographyInnerProps {
   theme?: $DeepPartial<Theme>;
 }
 
-export type Typography = ComponentType<TypographyProps>;
+type Typography = ComponentType<TypographyProps>;
 
 /*
  * createTypography is a component-generator function. It takes one argument.
  *     getStyle: a function that takes in a theme and returns a text style object
  * createTypography returns a theme-wrapped text component that utilizes that styles and theme that are provided
 */
-const createTypography = (getStyle: (theme: Theme) => StyleProp<TextStyle>): Typography => 
+const createTypography = (getStyle: (theme: Theme) => StyleProp<TextStyle>): Typography =>
   withTheme(({ theme, style, fontSize, font, color, ...props }: WithTheme<TypographyInnerProps>) => {
     let customStyle: StyleProp<TextStyle> = {};
 
@@ -52,55 +52,48 @@ const createTypography = (getStyle: (theme: Theme) => StyleProp<TextStyle>): Typ
     }
 
     return (
-      <Text {...props} style={[{ color: (color ? theme.colors[color] : theme.colors.text) }, getStyle(theme), customStyle, style ]} />
+      <Text {...props} style={[{ color: (color ? theme.colors[color] : theme.colors.text) }, getStyle(theme), customStyle, style]} />
     );
   });
 
 /**
- * Title component
+ * Typography Components
  */
-export const Title = createTypography(({ fonts, sizes }) => ({
-  ...fonts.bold,
-  fontSize: sizes.medium
+export const H1 = createTypography(({ fonts, sizes }) => ({
+  ...fonts.light,
+  fontSize: 96
 }));
-
-/**
- * Subtitle component
- */
-export const Subtitle = createTypography(({ fonts, sizes }) => ({
-  ...fonts.thin,
-  fontSize: sizes.small
+export const H2 = createTypography(({ fonts, sizes }) => ({
+  ...fonts.light,
+  fontSize: 60
 }));
-
-/**
- * Heading component
- */
-export const Heading = createTypography(({ fonts, sizes }) => ({
-  ...fonts.regular,
+export const H3 = createTypography(({ fonts, sizes }) => ({
+  ...fonts.medium,
+  fontSize: 48
+}));
+export const H4 = createTypography(({ fonts, sizes }) => ({
+  ...fonts.medium,
   fontSize: sizes.giant
 }));
-
-/**
- * Subheading component
- */
-export const Subheading = createTypography(({ fonts, sizes }) => ({
-  ...fonts.regular,
+export const H5 = createTypography(({ fonts, sizes }) => ({
+  ...fonts.medium,
   fontSize: sizes.extraLarge
 }));
-
-/**
- * Label component
- */
+export const H6 = createTypography(({ fonts, sizes }) => ({
+  ...fonts.bold,
+  fontSize: sizes.large,
+  letterSpacing: 0
+}));
 export const Label = createTypography(({ fonts, sizes }) => ({
   ...fonts.regular,
   fontSize: sizes.medium,
   letterSpacing: 0
 }));
-
-/**
- * Body component
- */
 export const Body = createTypography(({ fonts, sizes }) => ({
+  ...fonts.light,
+  fontSize: sizes.medium
+}));
+export const Subtitle = createTypography(({ fonts, sizes }) => ({
   ...fonts.regular,
   fontSize: sizes.small
 }));

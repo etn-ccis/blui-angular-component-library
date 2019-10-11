@@ -112,10 +112,12 @@ If you need to override the theme, you can do so by providing a ```theme``` prop
     onPrimary: white[200]
   },
   sizes: {
+    extraSmall: 10,
     small: 12,
-    medium: 14,
+    medium: 16,
     large: 20,
-    extraLarge: 34
+    extraLarge: 24,
+    giant: 34
   }
 }}>
   <YourApp />

@@ -3,25 +3,22 @@ Typography components are used to render text on the screen. This library provid
 
 <img width="20%" alt="Typography Elements" src="./images/typography.png">
 
-We provide components for:
-- ```<Heading>```
-- ```<Subheading>```
-- ```<Title>```
-- ```<Subtitle>```
-- ```<Label>```
-- ```<Body>```
+We provide components for: ```<H1>```, ```<H2>```, ```<H3>```, ```<H4>```, ```<H5>```, ```<H6>```, ```<Label>```, ```<Body>```, ```<Subtitle>```
 
 ### Usage
 ```
-import { Subtitle, Title, Label, Heading, Subheading, Body } from '@pxblue/react-native-components';
+import * as Typography from '@pxblue/react-native-components';
 ...
 <View>
-    <Heading>This is a Heading</Heading>
-    <Subheading>This is a Subheading</Subheading>
-    <Title>This is a Title</Title>
-    <Subtitle>This is a Subtitle</Subtitle>
-    <Label>This is a Label</Label>
-    <Body>This is Body</Body>
+    <Typography.H1>Head. 1</Typography.H1>
+    <Typography.H2>Heading 2</Typography.H2>
+    <Typography.H3>Heading 3</Typography.H3>
+    <Typography.H4>Heading 4</Typography.H4>
+    <Typography.H5>Heading 5</Typography.H5>
+    <Typography.H6>Heading 6</Typography.H6>
+    <Typography.Label>Label</Typography.Label>
+    <Typography.Body>Body</Typography.Body>
+    <Typography.Subtitle>Subtitle</Typography.Subtitle>
 </View>
 ```
 
@@ -31,6 +28,6 @@ All typography components in this library share a common API.
 | Prop Name | Description                             | Type                                                                      | Required | Default | Examples                      |
 |-----------|-----------------------------------------|---------------------------------------------------------------------------|----------|---------|-------------------------------|
 | font      | The font style (from the theme)         | 'bold' &vert; 'regular' &vert; 'medium' &vert; 'light' &vert; 'thin'      | no       |         | 'bold'                        |
-| fontSize  | The font size (from the theme)          | 'small' &vert; 'medium' &vert; 'large' &vert; 'extraLarge'                | no       |         | 'large'                       |
+| fontSize  | The font size (from the theme)          | 'extraSmall' &vert; 'small' &vert; 'medium' &vert; 'large' &vert; 'extraLarge' &vert; 'giant'               | no       |         | 'large'                       |
 | color     | The font color (from theme palette)     | 'primary' &vert; 'accent' &vert; 'error' &vert; 'text' &vert; 'onPrimary' | no       | 'text'  | 'primary'                     |
 | theme     | Theme partial for default styling       | `DeepPartial<Theme>`                                                      | no       |         | { colors: { text: 'green' } } |
