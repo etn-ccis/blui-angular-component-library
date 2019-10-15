@@ -89,7 +89,7 @@ class ChannelValueClass extends Component<WithTheme<ChannelValueProps>> {
 
     if (units) {
       return (
-        <Label font={'thin'} {...labelOverrides} fontSize={fontSize}>
+        <Label font={'light'} {...labelOverrides} fontSize={fontSize}>
           {units}
         </Label>
       );

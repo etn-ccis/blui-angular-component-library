@@ -68,32 +68,36 @@ export const H2 = createTypography(({ fonts, sizes }) => ({
   fontSize: 60
 }));
 export const H3 = createTypography(({ fonts, sizes }) => ({
-  ...fonts.medium,
+  ...fonts.regular,
   fontSize: 48
 }));
 export const H4 = createTypography(({ fonts, sizes }) => ({
-  ...fonts.medium,
+  ...fonts.regular,
   fontSize: sizes.giant
 }));
 export const H5 = createTypography(({ fonts, sizes }) => ({
-  ...fonts.medium,
+  ...fonts.regular,
   fontSize: sizes.extraLarge
 }));
 export const H6 = createTypography(({ fonts, sizes }) => ({
-  ...fonts.bold,
+  ...fonts.semiBold,
   fontSize: sizes.large,
   letterSpacing: 0
+}));
+export const Body = createTypography(({ fonts, sizes }) => ({
+  ...fonts.regular,
+  fontSize: sizes.medium
 }));
 export const Label = createTypography(({ fonts, sizes }) => ({
   ...fonts.regular,
   fontSize: sizes.medium,
   letterSpacing: 0
 }));
-export const Body = createTypography(({ fonts, sizes }) => ({
-  ...fonts.light,
-  fontSize: sizes.medium
-}));
 export const Subtitle = createTypography(({ fonts, sizes }) => ({
-  ...fonts.regular,
+  ...fonts.semiBold,
   fontSize: sizes.small
+}));
+export const Caption = createTypography(({ fonts, sizes }) => ({
+  ...fonts.regular,
+  fontSize: sizes.tiny
 }));

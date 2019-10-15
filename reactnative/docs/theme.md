@@ -16,17 +16,20 @@ A Theme is a single JSON object with the following structure:
     onPrimary: string
   }
   fonts: {
-    bold: Partial<Font>
-    regular: Partial<Font>
-    medium: Partial<Font>
-    light: Partial<Font>
-    thin: Partial<Font>
+    extraBold: Partial<Font>;
+    bold: Partial<Font>;
+    semiBold: Partial<Font>;
+    regular: Partial<Font>;
+    light: Partial<Font>;
   }
   sizes: {
-    small: number
-    medium: number
-    large: number
-    extraLarge: number
+    tiny: number;
+    extraSmall: number;
+    small: number;
+    medium: number;
+    large: number;
+    extraLarge: number;
+    giant: number;
   }
 }
 ```
@@ -81,25 +84,25 @@ If you need to override the theme, you can do so by providing a ```theme``` prop
 <ThemeProvider theme={{
   roundness: 3,
   fonts: {
+    extraBold: {
+      fontFamily: 'Open Sans',
+      fontWeight: '800'
+    },
     bold: {
       fontFamily: 'Open Sans',
       fontWeight: '700'
     },
-    regular: {
+    semiBold: {
       fontFamily: 'Open Sans',
       fontWeight: '600'
     },
-    medium: {
+    regular: {
       fontFamily: 'Open Sans',
       fontWeight: '400'
     },
     light: {
-      fontFamily: 'Beth Ellen',
-      fontWeight: '300'
-    },
-    thin: {
       fontFamily: 'Open Sans',
-      fontWeight: '200'
+      fontWeight: '300'
     }
   },
   colors: {
@@ -112,8 +115,9 @@ If you need to override the theme, you can do so by providing a ```theme``` prop
     onPrimary: white[200]
   },
   sizes: {
-    extraSmall: 10,
-    small: 12,
+    tiny: 10,
+    extraSmall: 12,
+    small: 14,
     medium: 16,
     large: 20,
     extraLarge: 24,

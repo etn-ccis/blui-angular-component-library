@@ -7,7 +7,7 @@ import _A from '@pxblue/icons-svg/grade_a.svg';
 import _Battery from '@pxblue/icons-svg/battery.svg';
 import MaterialCommunityIcon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { safeArea } from '../decorators';
-import { green, blue, gray, red } from '@pxblue/colors';
+import { green, blue, gray } from '@pxblue/colors';
 import { wrapIcon } from '@pxblue/react-native-components';
 
 const ChartLineVariant = wrapIcon({ IconClass: MaterialCommunityIcon, name: 'chart-line-variant'})

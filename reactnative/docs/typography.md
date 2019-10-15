@@ -3,7 +3,7 @@ Typography components are used to render text on the screen. This library provid
 
 <img width="20%" alt="Typography Elements" src="./images/typography.png">
 
-We provide components for: ```<H1>```, ```<H2>```, ```<H3>```, ```<H4>```, ```<H5>```, ```<H6>```, ```<Label>```, ```<Body>```, ```<Subtitle>```
+We provide components for: ```<H1>```, ```<H2>```, ```<H3>```, ```<H4>```, ```<H5>```, ```<H6>```, ```<Label>```, ```<Body>```, ```<Subtitle>```, ```<Caption>```
 
 ### Usage
 ```
@@ -19,15 +19,16 @@ import * as Typography from '@pxblue/react-native-components';
     <Typography.Label>Label</Typography.Label>
     <Typography.Body>Body</Typography.Body>
     <Typography.Subtitle>Subtitle</Typography.Subtitle>
+    <Typography.Caption>Caption</Typography.Caption>
 </View>
 ```
 
 ### API
 All typography components in this library share a common API.
 
-| Prop Name | Description                             | Type                                                                      | Required | Default | Examples                      |
-|-----------|-----------------------------------------|---------------------------------------------------------------------------|----------|---------|-------------------------------|
-| font      | The font style (from the theme)         | 'bold' &vert; 'regular' &vert; 'medium' &vert; 'light' &vert; 'thin'      | no       |         | 'bold'                        |
-| fontSize  | The font size (from the theme)          | 'extraSmall' &vert; 'small' &vert; 'medium' &vert; 'large' &vert; 'extraLarge' &vert; 'giant'               | no       |         | 'large'                       |
-| color     | The font color (from theme palette)     | 'primary' &vert; 'accent' &vert; 'error' &vert; 'text' &vert; 'onPrimary' | no       | 'text'  | 'primary'                     |
-| theme     | Theme partial for default styling       | `DeepPartial<Theme>`                                                      | no       |         | { colors: { text: 'green' } } |
+| Prop Name | Description                             | Type                               | Required | Default | Examples                      |
+|-----------|-----------------------------------------|------------------------------------|----------|---------|-------------------------------|
+| font      | The font style (from the theme)         | keyof [`theme.fonts`](./theme.md)  | no       |         | 'bold'                        |
+| fontSize  | The font size (from the theme)          | keyof [`theme.sizes`](./theme.md)  | no       |         | 'large'                       |
+| color     | The font color (from theme palette)     | keyof [`theme.colors`](./theme.md) | no       | 'text'  | 'primary'                     |
+| theme     | Theme partial for default styling       | `DeepPartial<Theme>`               | no       |         | { colors: { text: 'green' } } |
