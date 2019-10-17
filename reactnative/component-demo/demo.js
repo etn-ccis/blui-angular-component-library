@@ -3,11 +3,11 @@ import { Card, ListItem } from 'react-native-elements';
 import {
     HeroBanner,
     Hero,
+    Header,
     ThemeProvider,
-    Title,
+    H6,
     ChannelValue,
-    wrapIcon,
-    Label
+    wrapIcon
 } from '@pxblue/react-native-components';
 
 import MatIcon from 'react-native-vector-icons/MaterialIcons';
@@ -17,6 +17,7 @@ import _A from '@pxblue/icons-svg/grade_a.svg';
 import _Battery from '@pxblue/icons-svg/battery.svg';
 
 import * as PXBColors from '@pxblue/colors';
+const backgroundImage = require('./storybook/assets/farm.jpg');
 
 const ChartLineVariant = wrapIcon({ IconClass: MaterialCommunityIcon, name: 'chart-line-variant' })
 const Battery = wrapIcon({ IconClass: _Battery });
@@ -26,20 +27,23 @@ const Clock = wrapIcon({ IconClass: MaterialCommunityIcon, name: 'clock-outline'
 
 export default class App extends React.Component {
     render() {
-        // return (
-        //     <ThemeProvider>
-        //         <HeroBanner divider>
-        //     <Hero
-        //         label={'Battery'}
-        //         value={'Full'}
-        //         IconClass={Battery}
-        //         iconColor={PXBColors.blue[500]}
-        //     />
-        //     </HeroBanner>
-        //     </ThemeProvider>
-        // );
         return (
             <ThemeProvider>
+                <Header
+                    expandable={true}
+                    // startExpanded={true}
+                    // backgroundColor={'#f33333'}
+                    title={'Custom Title'}
+                    // subtitle={'Custom Subtitle Length'}
+                    navigation={{ icon: 'menu', onPress: () => { } }}
+                    actionItems={[
+                        { icon: 'cloud-upload', onPress: () => { } },
+                        { icon: 'mail', onPress: () => { } },
+                        { icon: 'more-vert', onPress: () => { } }
+                    ]}
+                    backgroundImage={backgroundImage}
+                    searchableConfig={{ placeholder: 'Search', autoFocus: true }}
+                />
                 <Card containerStyle={{ padding: 0 }}>
                     <HeroBanner>
                         <Hero
@@ -81,7 +85,7 @@ export default class App extends React.Component {
                     <ListItem
                         topDivider
                         leftIcon={<MatIcon name={'wb-sunny'} size={24} style={{ marginRight: 10 }} />}
-                        title={<Title>Temperature</Title>}
+                        title={<H6>Temperature</H6>}
                         rightElement={
                             <ChannelValue value={68} units={'°F'} />
                         }
@@ -89,7 +93,7 @@ export default class App extends React.Component {
                     <ListItem
                         topDivider
                         leftIcon={<MatIcon name={'wb-sunny'} size={24} style={{ marginRight: 10 }} />}
-                        title={<Title>Temperature</Title>}
+                        title={<H6>Temperature</H6>}
                         rightElement={
                             <ChannelValue value={68} units={'°F'} />
                         }
@@ -97,18 +101,18 @@ export default class App extends React.Component {
                     <ListItem
                         topDivider
                         leftIcon={<MatIcon name={'wb-sunny'} size={24} style={{ marginRight: 10 }} />}
-                        title={<Title>Temperature</Title>}
+                        title={<H6>Temperature</H6>}
                         rightElement={
                             <React.Fragment>
                                 <ChannelValue value={1} units={'h'} IconClass={Clock} />
-                                <ChannelValue value={24} units={'m'}/>
+                                <ChannelValue value={24} units={'m'} />
                             </React.Fragment>
                         }
                     />
                     <ListItem
                         topDivider
                         leftIcon={<MatIcon name={'wb-sunny'} size={24} style={{ marginRight: 10 }} />}
-                        title={<Title>Temperature</Title>}
+                        title={<H6>Temperature</H6>}
                         rightElement={
                             <ChannelValue value={68} units={'°F'} />
                         }

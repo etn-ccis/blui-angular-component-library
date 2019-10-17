@@ -2,7 +2,7 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { color, number, text, withKnobs } from '@storybook/addon-knobs';
 import { Header } from '@pxblue/react-native-components';
-import { blue, white, red, green } from '@pxblue/colors';
+import { blue } from '@pxblue/colors';
 
 const backgroundImage = require('../assets/farm.jpg');
 

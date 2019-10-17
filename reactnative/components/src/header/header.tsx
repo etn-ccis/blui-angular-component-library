@@ -11,7 +11,6 @@ import {
 } from 'react-native';
 import { getStatusBarHeight } from 'react-native-status-bar-height';
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { black, blue, white } from '@pxblue/colors';
 import color from 'color';
 import createAnimatedComponent = Animated.createAnimatedComponent;
 import { withTheme, Theme, WithTheme } from '../theme';
@@ -63,6 +62,9 @@ export interface HeaderProps {
   /** Determines whether the header can be expanded by being pressed */
   expandable?: boolean;
 
+  /** Determines whether the header should start in the expanded state */
+  startExpanded?: boolean;
+
   /** Background color of the header */
   backgroundColor?: string;
 
@@ -103,10 +105,10 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     super(props);
 
     this.state = {
-      expanded: false,
+      expanded: props.startExpanded || false,
       searching: false,
       query: '',
-      headerHeight: new Animated.Value(HeaderClass.REGULAR_HEIGHT)
+      headerHeight: props.startExpanded ? new Animated.Value(HeaderClass.EXTENDED_HEIGHT) : new Animated.Value(HeaderClass.REGULAR_HEIGHT)
     };
 
     this.expand = Animated.timing(this.state.headerHeight, {
@@ -162,13 +164,16 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
         <Animated.Image
           testID={'header-background-image'}
           source={backgroundImage}
+          resizeMethod={'resize'}
           style={{
             position: 'absolute',
+            width: '100%',
             resizeMode: 'cover',
             height: this.state.headerHeight,
+            // opacity: 0.3
             opacity: this.state.headerHeight.interpolate({
               inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
-              outputRange: [0, 0.3]
+              outputRange: [0.2, 0.3]
             })
           }}
         />
@@ -180,20 +185,20 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     const { navigation } = this.props;
     const { searching } = this.state;
 
-    if ( searching ) {
+    if (searching) {
       return (
         <View>
           <TouchableOpacity testID={'header-search-close'} onPress={() => this.onPressSearchClose()} style={styles.navigation}>
-            <Icon name={'arrow-back'} size={HeaderClass.ICON_SIZE} color={this.fontColor()}/>
+            <Icon name={'arrow-back'} size={HeaderClass.ICON_SIZE} color={this.fontColor()} />
           </TouchableOpacity>
         </View>
       )
     }
-    if ( navigation ) {
+    if (navigation) {
       return (
         <View>
           <TouchableOpacity testID={'header-navigation'} onPress={navigation.onPress} style={styles.navigation}>
-            <Icon name={navigation.icon} size={HeaderClass.ICON_SIZE} color={this.fontColor()}/>
+            <Icon name={navigation.icon} size={HeaderClass.ICON_SIZE} color={this.fontColor()} />
           </TouchableOpacity>
         </View>
       )
@@ -212,7 +217,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     }
     return (
       <View style={styles.titleContainer}>
-        <View style={{flex: 0, justifyContent: 'center'}}>
+        <View style={{ flex: 0, justifyContent: 'center' }}>
           {content}
         </View>
       </View>
@@ -263,8 +268,8 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
         key={'search-input'}
         ref={this.searchRef}
         style={this.searchStyle()}
-        autoCapitalize={config.autoCapitalize}
-        autoCorrect={config.autoCorrect}
+        autoCapitalize={config.autoCapitalize || 'none'}
+        autoCorrect={config.autoCorrect || false}
         autoFocus={config.autoFocus}
         numberOfLines={1}
         onChangeText={onChangeText}
@@ -288,15 +293,15 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
       } else {
         items = [];
       }
-    } else if ( searchableConfig ) {
-      items = [{icon: 'search', onPress: () => this.onPressSearch() }].concat(actionItems || []);
+    } else if (searchableConfig) {
+      items = [{ icon: 'search', onPress: () => this.onPressSearch() }].concat(actionItems || []);
     }
 
-    if ( items ) {
+    if (items) {
       return items.slice(0, 3).map((actionItem, index) => (
         <View key={`${index}`}>
           <TouchableOpacity testID={`header-action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
-            <Icon name={actionItem.icon} size={HeaderClass.ICON_SIZE} color={this.fontColor()}/>
+            <Icon name={actionItem.icon} size={HeaderClass.ICON_SIZE} color={this.fontColor()} />
           </TouchableOpacity>
         </View>
       ))
@@ -311,7 +316,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
   }
 
   private contentStyle() {
-    const contractedPadding = this.props.subtitle ? 8 : 16;
+    const contractedPadding = this.props.subtitle && !this.state.searching ? 8 : 16;
     return [styles.content, {
       paddingBottom: this.state.headerHeight.interpolate({
         inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
