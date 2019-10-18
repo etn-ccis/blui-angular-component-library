@@ -34,7 +34,7 @@ export default class App extends React.Component {
                     // startExpanded={true}
                     // backgroundColor={'#f33333'}
                     title={'Custom Title'}
-                    // subtitle={'Custom Subtitle Length'}
+                    subtitle={'Custom Subtitle with Really Long Length'}
                     navigation={{ icon: 'menu', onPress: () => { } }}
                     actionItems={[
                         { icon: 'cloud-upload', onPress: () => { } },

@@ -4,6 +4,7 @@ import {
   ImageSourcePropType,
   SafeAreaView,
   StyleSheet,
+  StatusBar,
   TextInput,
   TouchableOpacity,
   TouchableWithoutFeedback,
@@ -129,16 +130,19 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     const contentStyle = this.contentStyle();
 
     return (
-      <TouchableWithoutFeedback onPress={() => this.onPress()} disabled={!expandable || searching}>
-        <AnimatedSafeAreaView style={barStyle}>
-          {this.backgroundImage()}
-          <Animated.View style={contentStyle}>
-            {this.navigation()}
-            {this.content()}
-            {this.actionItems()}
-          </Animated.View>
-        </AnimatedSafeAreaView>
-      </TouchableWithoutFeedback>
+      <>
+        <StatusBar barStyle={this.statusBarStyle()} />
+        <TouchableWithoutFeedback onPress={() => this.onPress()} disabled={!expandable || searching}>
+          <AnimatedSafeAreaView style={barStyle}>
+            {this.backgroundImage()}
+            <Animated.View style={contentStyle}>
+              {this.navigation()}
+              {this.content()}
+              {this.actionItems()}
+            </Animated.View>
+          </AnimatedSafeAreaView>
+        </TouchableWithoutFeedback>
+      </>
     )
   }
 
@@ -159,7 +163,8 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
 
   private backgroundImage() {
     const { backgroundImage } = this.props;
-    if (backgroundImage) {
+    const { searching } = this.state;
+    if (backgroundImage && !searching) {
       return (
         <Animated.Image
           testID={'header-background-image'}
@@ -232,7 +237,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
         testID={'header-title'}
         style={this.titleStyle()}
         numberOfLines={2}
-        ellipsizeMode={'clip'}
+        ellipsizeMode={'tail'}
       >
         {title}
       </Animated.Text>
@@ -248,7 +253,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
           testID={'header-subtitle'}
           style={this.subtitleStyle()}
           numberOfLines={1}
-          ellipsizeMode={'clip'}
+          ellipsizeMode={'tail'}
         >
           {subtitle}
         </Animated.Text>
@@ -298,13 +303,17 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     }
 
     if (items) {
-      return items.slice(0, 3).map((actionItem, index) => (
-        <View key={`${index}`}>
-          <TouchableOpacity testID={`header-action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
-            <Icon name={actionItem.icon} size={HeaderClass.ICON_SIZE} color={this.fontColor()} />
-          </TouchableOpacity>
+      return (
+        <View style={styles.actionPanel}>
+          {items.slice(0, 3).map((actionItem, index) => (
+            <View key={`${index}`}>
+              <TouchableOpacity testID={`header-action-item${index}`} onPress={actionItem.onPress} style={index !== 0 ? styles.actionItem : {}}>
+                <Icon name={actionItem.icon} size={HeaderClass.ICON_SIZE} color={this.fontColor()} />
+              </TouchableOpacity>
+            </View>
+          ))}
         </View>
-      ))
+      )
     }
   }
 
@@ -316,7 +325,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
   }
 
   private contentStyle() {
-    const contractedPadding = this.props.subtitle && !this.state.searching ? 8 : 16;
+    const contractedPadding = this.props.subtitle && !this.state.searching ? 12 : 16;
     return [styles.content, {
       paddingBottom: this.state.headerHeight.interpolate({
         inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
@@ -326,22 +335,32 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
   }
 
   private titleStyle() {
+    const { theme } = this.props;
     return {
       color: this.fontColor(),
+      width: this.state.headerHeight.interpolate({
+        inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
+        outputRange: ['50%', '100%']
+      }),
       fontSize: this.state.headerHeight.interpolate({
         inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
-        outputRange: [20, 24]
+        outputRange: [theme.sizes.large, theme.sizes.extraLarge]
       })
     };
   }
 
   private subtitleStyle() {
+    const { theme } = this.props;
     return {
       color: this.fontColor(),
-      fontWeight: '300',
+      width: this.state.headerHeight.interpolate({
+        inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
+        outputRange: ['50%', '100%']
+      }),
+      fontWeight: theme.fonts.light.fontWeight,
       fontSize: this.state.headerHeight.interpolate({
         inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
-        outputRange: [18, 22]
+        outputRange: [theme.sizes.medium, theme.sizes.large]
       })
     };
   }
@@ -351,9 +370,13 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     return {
       padding: 0, // TextInput on Android has some default padding, so this needs to be explicitly set to 0
       color: this.fontColor(),
-      fontSize: 20,
+      fontSize: theme.sizes.large,
       ...theme.fonts.light
     }
+  }
+
+  private statusBarStyle() {
+    return color(this.backgroundColor()).isDark() ? 'light-content' : 'dark-content';
   }
 
   private fontColor() {
@@ -372,7 +395,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     const { searching } = this.state;
 
     if (searching) {
-      return theme.colors.background;
+      return theme.colors.surface;
     } else {
       return backgroundColor || theme.colors.primary;
     }
@@ -435,12 +458,19 @@ const styles = StyleSheet.create({
     flexDirection: 'row'
   },
   navigation: {
-    marginRight: 32
+    marginRight: 16
   },
   titleContainer: {
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'flex-end'
+  },
+  actionPanel: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    position: 'absolute',
+    right: 16,
+    height: 56
   },
   actionItem: {
     marginLeft: 24
