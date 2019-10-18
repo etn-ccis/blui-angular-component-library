@@ -4,10 +4,8 @@ import { color, number, text, withKnobs } from '@storybook/addon-knobs';
 import { Header } from '@pxblue/react-native-components';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import { red, green } from '@pxblue/colors';
-import Leaf from '@pxblue/icons-svg/leaf.svg';
 import { wrapIcon } from '@pxblue/react-native-components';
 
-const LeafIcon = wrapIcon({ IconClass: Leaf });
 const MailIcon = wrapIcon({IconClass: Icon, name:'mail'});
 const MenuIcon = wrapIcon({IconClass: Icon, name:'menu'});
 const MoreIcon = wrapIcon({IconClass: Icon, name:'more-vert'});

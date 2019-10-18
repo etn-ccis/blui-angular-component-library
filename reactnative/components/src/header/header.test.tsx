@@ -1,7 +1,10 @@
 import React from 'react';
 import TestRenderer, { ReactTestInstance } from 'react-test-renderer';
 import { Header } from '.';
+import { wrapIcon } from '..'
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import faker from 'faker';
+const MenuIcon = wrapIcon({IconClass: Icon, name:'menu'});
 
 describe('Header', () => {
   describe('with only required props', () => {
@@ -34,11 +37,11 @@ describe('Header', () => {
         <Header
           title={'Test Title'}
           subtitle={'Subtitle'}
-          navigation={{icon: 'menu', onPress: () => {}}}
+          navigation={{icon: MenuIcon, onPress: () => {}}}
           actionItems={[
-            {icon: 'search', onPress: () => {}},
-            {icon: 'mail', onPress: () => {}},
-            {icon: 'more-vert', onPress: () => {}}
+            {icon: MenuIcon, onPress: () => {}},
+            {icon: MenuIcon, onPress: () => {}},
+            {icon: MenuIcon, onPress: () => {}}
           ]}
           backgroundColor={'blue'}
           fontColor={'white'}
@@ -72,10 +75,10 @@ describe('Header', () => {
         <Header
           title={'Test Title'}
           actionItems={[
-            {icon: 'search', onPress: () => {}},
-            {icon: 'mail', onPress: () => {}},
-            {icon: 'more-vert', onPress: () => {}},
-            {icon: 'clear', onPress: () => {}}
+            {icon: MenuIcon, onPress: () => {}},
+            {icon: MenuIcon, onPress: () => {}},
+            {icon: MenuIcon, onPress: () => {}},
+            {icon: MenuIcon, onPress: () => {}}
           ]}
         />
       ).root;
