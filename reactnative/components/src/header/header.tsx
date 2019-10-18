@@ -328,7 +328,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
 
     if (items) {
       return (
-        <View style={styles.actionPanel}>
+        <View style={this.state.expanded ? styles.actionPanel : {flexDirection: 'row', alignItems: 'flex-start'}}>
           {items.slice(0, 3).map((actionItem, index) => (
             <View key={`${index}`}>
               <TouchableOpacity testID={`header-action-item${index}`} onPress={actionItem.onPress} style={index !== 0 ? styles.actionItem : {}}>
@@ -362,10 +362,10 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     const { theme } = this.props;
     return {
       color: this.fontColor(),
-      width: this.state.headerHeight.interpolate({
-        inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
-        outputRange: ['50%', '100%']
-      }),
+      // width: this.state.headerHeight.interpolate({
+      //   inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
+      //   outputRange: ['50%', '100%']
+      // }),
       fontSize: this.state.headerHeight.interpolate({
         inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
         outputRange: [theme.sizes.large, theme.sizes.extraLarge]
@@ -377,10 +377,10 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     const { theme } = this.props;
     return {
       color: this.fontColor(),
-      width: this.state.headerHeight.interpolate({
-        inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
-        outputRange: ['50%', '100%']
-      }),
+      // width: this.state.headerHeight.interpolate({
+      //   inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
+      //   outputRange: ['50%', '100%']
+      // }),
       fontWeight: theme.fonts.light.fontWeight,
       fontSize: this.state.headerHeight.interpolate({
         inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
