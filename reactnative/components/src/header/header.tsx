@@ -1,4 +1,4 @@
-import React, { createRef, Component } from 'react';
+import React, { createRef, Component, ComponentType } from 'react';
 import {
   Animated,
   ImageSourcePropType,
@@ -15,13 +15,17 @@ import Icon from 'react-native-vector-icons/MaterialIcons';
 import color from 'color';
 import createAnimatedComponent = Animated.createAnimatedComponent;
 import { withTheme, Theme, WithTheme } from '../theme';
+import { wrapIcon } from '../icon-wrapper/icon-wrapper';
 import { $DeepPartial } from '@callstack/react-theme-provider';
+
+const ClearIcon = wrapIcon({ IconClass: Icon, name: 'clear' })
+const SearchIcon = wrapIcon({ IconClass: Icon, name: 'search' })
 
 const AnimatedSafeAreaView = createAnimatedComponent(SafeAreaView);
 
 export interface HeaderIcon {
   /** Name of the icon */
-  icon: string;
+  icon: ComponentType<{ size: number, color: string }>;
 
   /** Callback when icon is pressed */
   onPress: () => void;
@@ -29,7 +33,7 @@ export interface HeaderIcon {
 
 export interface SearchableConfig {
   /** Icon to override default search icon */
-  icon?: string;
+  icon?: ComponentType<{ size: number, color: string }>;
 
   /** TextInput Prop. Placeholder text for the search input */
   placeholder?: string;
@@ -203,10 +207,16 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
       return (
         <View>
           <TouchableOpacity testID={'header-navigation'} onPress={navigation.onPress} style={styles.navigation}>
-            <Icon name={navigation.icon} size={HeaderClass.ICON_SIZE} color={this.fontColor()} />
+            {this.icon(navigation.icon)}
           </TouchableOpacity>
         </View>
       )
+    }
+  }
+
+  private icon(IconClass: ComponentType<{ size: number, color: string }>){
+    if(IconClass){
+      return <IconClass size={HeaderClass.ICON_SIZE} color={this.fontColor()}/>
     }
   }
 
@@ -290,16 +300,30 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
   private actionItems() {
     const { actionItems, searchableConfig } = this.props;
     const { searching, query } = this.state;
-    let items = actionItems;
+    let items : HeaderIcon[] = actionItems || [];
 
     if (searching) {
       if (query) {
-        items = [{ icon: 'clear', onPress: () => this.onPressSearchClear() }]
+        items = [
+          { 
+            icon: ClearIcon, 
+            onPress: () => this.onPressSearchClear() 
+          }
+        ]
       } else {
         items = [];
       }
-    } else if (searchableConfig) {
-      items = [{ icon: 'search', onPress: () => this.onPressSearch() }].concat(actionItems || []);
+    } 
+    else if (searchableConfig) {
+      items = [
+        { 
+          icon: SearchIcon, 
+          onPress: () => this.onPressSearch() 
+        }
+      ];
+      if(actionItems){
+        items = items.concat(actionItems)
+      }
     }
 
     if (items) {
@@ -308,7 +332,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
           {items.slice(0, 3).map((actionItem, index) => (
             <View key={`${index}`}>
               <TouchableOpacity testID={`header-action-item${index}`} onPress={actionItem.onPress} style={index !== 0 ? styles.actionItem : {}}>
-                <Icon name={actionItem.icon} size={HeaderClass.ICON_SIZE} color={this.fontColor()} />
+                {this.icon(actionItem.icon)}
               </TouchableOpacity>
             </View>
           ))}

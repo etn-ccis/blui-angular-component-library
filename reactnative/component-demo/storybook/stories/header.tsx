@@ -2,8 +2,16 @@ import React from 'react';
 import { storiesOf } from '@storybook/react-native';
 import { color, number, text, withKnobs } from '@storybook/addon-knobs';
 import { Header } from '@pxblue/react-native-components';
+import Icon from 'react-native-vector-icons/MaterialIcons';
 import { blue } from '@pxblue/colors';
+import Leaf from '@pxblue/icons-svg/leaf.svg';
+import { wrapIcon } from '@pxblue/react-native-components';
 
+const LeafIcon = wrapIcon({ IconClass: Leaf });
+const MailIcon = wrapIcon({IconClass: Icon, name:'mail'});
+const MenuIcon = wrapIcon({IconClass: Icon, name:'menu'});
+const MoreIcon = wrapIcon({IconClass: Icon, name:'more-vert'});
+const CloudIcon = wrapIcon({IconClass: Icon, name:'cloud-upload'});
 const backgroundImage = require('../assets/farm.jpg');
 
 storiesOf('Header', module)
@@ -13,11 +21,11 @@ storiesOf('Header', module)
       expandable={true}
       title={text('title', 'Title')}
       subtitle={text('subtitle', 'Subtitle')}
-      navigation={{icon: 'menu', onPress: () => {}}}
+      navigation={{icon: MenuIcon, onPress: () => {}}}
       actionItems={[
-        {icon: 'cloud-upload', onPress: () => {}},
-        {icon: 'mail', onPress: () => {}},
-        {icon: 'more-vert', onPress: () => {}}
+        {icon: MailIcon, onPress: () => {}},
+        {icon: CloudIcon, onPress: () => {}},
+        {icon: MoreIcon, onPress: () => {}},
       ].slice(0, (number('action items', 3, { range: true, min: 0, max: 3, step: 1 })))}
     />
   ))
@@ -26,11 +34,11 @@ storiesOf('Header', module)
       expandable={true}
       title={text('title', 'Title')}
       subtitle={text('subtitle', 'Subtitle')}
-      navigation={{icon: 'menu', onPress: () => {}}}
+      navigation={{icon: MenuIcon, onPress: () => {}}}
       actionItems={[
-        {icon: 'cloud-upload', onPress: () => {}},
-        {icon: 'mail', onPress: () => {}},
-        {icon: 'more-vert', onPress: () => {}}
+        {icon: MailIcon, onPress: () => {}},
+        {icon: MailIcon, onPress: () => {}},
+        {icon: MailIcon, onPress: () => {}},
       ].slice(0, (number('action items', 3, { range: true, min: 0, max: 3, step: 1 })))}
       backgroundImage={backgroundImage}
     />
@@ -39,11 +47,11 @@ storiesOf('Header', module)
     <Header
       expandable={true}
       title={text('title', 'Title')}
-      navigation={{icon: 'menu', onPress: () => {}}}
+      navigation={{icon: MenuIcon, onPress: () => {}}}
       actionItems={[
-        {icon: 'cloud-upload', onPress: () => {}},
-        {icon: 'mail', onPress: () => {}},
-        {icon: 'more-vert', onPress: () => {}}
+        {icon: MailIcon, onPress: () => {}},
+        {icon: MailIcon, onPress: () => {}},
+        {icon: MailIcon, onPress: () => {}},
       ].slice(0, (number('action items', 3, { range: true, min: 0, max: 3, step: 1 })))}
     />
   ))
@@ -51,9 +59,9 @@ storiesOf('Header', module)
     <Header
       expandable={true}
       title={text('title', 'With Search')}
-      navigation={{icon: 'menu', onPress: () => {}}}
+      navigation={{icon: MenuIcon, onPress: () => {}}}
       actionItems={[
-        {icon: 'more-vert', onPress: () => {}}
+        {icon: MoreIcon, onPress: () => {}},
       ].slice(0, (number('action items', 3, { range: true, min: 0, max: 3, step: 1 })))}
       searchableConfig={{ placeholder: 'Search', autoFocus: true }}
     />
@@ -62,9 +70,9 @@ storiesOf('Header', module)
     <Header
       expandable={true}
       title={text('title', 'With Search')}
-      navigation={{icon: 'menu', onPress: () => {}}}
+      navigation={{icon: MenuIcon, onPress: () => {}}}
       actionItems={[
-        {icon: 'more-vert', onPress: () => {}}
+        {icon: MoreIcon, onPress: () => {}},
       ].slice(0, (number('action items', 3, { range: true, min: 0, max: 3, step: 1 })))}
       searchableConfig={{ placeholder: 'Search', autoFocus: true }}
       fontColor={color('fontColor', blue[900])}

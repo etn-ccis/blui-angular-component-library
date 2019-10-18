@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { View } from 'react-native';
 import { Card, ListItem } from 'react-native-elements';
 import {
     HeroBanner,
@@ -24,22 +25,26 @@ const Battery = wrapIcon({ IconClass: _Battery });
 const A = wrapIcon({ IconClass: _A });
 const Pie = wrapIcon({ IconClass: MaterialCommunityIcon, name: 'chart-pie' });
 const Clock = wrapIcon({ IconClass: MaterialCommunityIcon, name: 'clock-outline' });
+const MailIcon = wrapIcon({IconClass: MatIcon, name:'mail'});
+const MenuIcon = wrapIcon({IconClass: MatIcon, name:'menu'});
+const MoreIcon = wrapIcon({IconClass: MatIcon, name:'more-vert'});
+const CloudIcon = wrapIcon({IconClass: MatIcon, name:'cloud-upload'});
 
 export default class App extends React.Component {
     render() {
         return (
             <ThemeProvider>
+                <View style={{backgroundColor: PXBColors.gray[50]}}>
                 <Header
                     expandable={true}
                     // startExpanded={true}
-                    // backgroundColor={'#f33333'}
+                    // backgroundColor={'green'}
                     title={'Custom Title'}
                     subtitle={'Custom Subtitle with Really Long Length'}
-                    navigation={{ icon: 'menu', onPress: () => { } }}
+                    navigation={{ icon: MenuIcon, onPress: () => { } }}
                     actionItems={[
-                        { icon: 'cloud-upload', onPress: () => { } },
-                        { icon: 'mail', onPress: () => { } },
-                        { icon: 'more-vert', onPress: () => { } }
+                        {icon: MailIcon, onPress: () => {}},
+                        {icon: MoreIcon, onPress: () => {}},
                     ]}
                     backgroundImage={backgroundImage}
                     searchableConfig={{ placeholder: 'Search', autoFocus: true }}
@@ -118,6 +123,7 @@ export default class App extends React.Component {
                         }
                     />
                 </Card>
+                </View>
             </ThemeProvider>
         );
     }
