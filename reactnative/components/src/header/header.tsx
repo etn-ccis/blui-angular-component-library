@@ -246,6 +246,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     const { title } = this.props;
     return (
       <Animated.Text
+        key="title_key"
         testID={'header-title'}
         style={this.titleStyle()}
         numberOfLines={2}
@@ -261,6 +262,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     if (subtitle) {
       return (
         <Animated.Text
+        key="subtitle_key"
           testID={'header-subtitle'}
           style={this.subtitleStyle()}
           numberOfLines={1}
@@ -277,6 +279,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     if (info) {
       return (
         <Animated.Text
+        key="info_key"
           testID={'header-info'}
           style={this.infoStyle()}
           numberOfLines={1}
@@ -347,7 +350,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
       return (
         <View style={this.state.expanded ? styles.actionPanel : {flexDirection: 'row', alignItems: 'flex-start'}}>
           {items.slice(0, 3).map((actionItem, index) => (
-            <View key={`${index}`}>
+            <View key={`action_${index}`}>
               <TouchableOpacity testID={`header-action-item${index}`} onPress={actionItem.onPress} style={index !== 0 ? styles.actionItem : {}}>
                 {this.icon(actionItem.icon)}
               </TouchableOpacity>

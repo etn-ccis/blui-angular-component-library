@@ -94,7 +94,8 @@ class ScoreCardClass extends Component<WithTheme<ScoreCardProps>> {
 
     return (
       <View style={{ flex: 1 }}>
-        <Typography.H7 style={{ color: this.fontColor() }}
+        <Typography.H7 testID={'header_title'}
+          style={{ color: this.fontColor() }}
           font={'semiBold'}
           numberOfLines={1}
           ellipsizeMode={'tail'}
@@ -102,7 +103,8 @@ class ScoreCardClass extends Component<WithTheme<ScoreCardProps>> {
           {headerTitle}
         </Typography.H7>
         {headerSubtitle ?
-          <Typography.Subtitle style={{ color: this.fontColor() }}
+          <Typography.Subtitle testID={'header_subtitle'}
+            style={{ color: this.fontColor() }}
             font={'regular'}
             numberOfLines={1}
             ellipsizeMode={'tail'}
@@ -111,7 +113,8 @@ class ScoreCardClass extends Component<WithTheme<ScoreCardProps>> {
           </Typography.Subtitle> : null
         }
         {headerInfo ?
-          <Typography.Subtitle style={{ color: this.fontColor() }}
+          <Typography.Subtitle testID={'header_info'}
+            style={{ color: this.fontColor() }}
             font={'light'}
             numberOfLines={1}
             ellipsizeMode={'tail'}
