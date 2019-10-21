@@ -71,7 +71,7 @@ class ScoreCardClass extends Component<WithTheme<ScoreCardProps>> {
 
     return (
       <View style={[styles.card, newStyle, style]}>
-        <View style={[styles.header, { backgroundColor: headerColor }]}>
+        <View style={[styles.header, { backgroundColor: headerColor, borderTopLeftRadius: theme.roundness, borderTopRightRadius: theme.roundness }]}>
           {this.backgroundImage()}
           <View style={[styles.padded, styles.headerContent]}>
             {this.headerText()}
@@ -200,12 +200,12 @@ export const ScoreCard = withTheme(ScoreCardClass);
 
 const styles = StyleSheet.create({
   card: {
-    shadowColor: gray[900],
-    shadowOpacity: 0.3,
-    shadowRadius: 4,
+    shadowColor: black[900],
+    shadowOpacity: 0.4,
+    shadowRadius: 3,
     shadowOffset: {
       width: 0,
-      height: 0
+      height: 1
     },
     elevation: 1,
     flex: 1

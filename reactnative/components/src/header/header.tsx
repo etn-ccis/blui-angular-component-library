@@ -58,6 +58,9 @@ export interface HeaderProps {
   /** Optional header subtitle */
   subtitle?: string;
 
+  /** Optional header third line of text (hidden when collapsed) */
+  info?: string;
+
   /** Leftmost icon on header, used for navigation */
   navigation?: HeaderIcon;
 
@@ -97,7 +100,7 @@ interface HeaderState {
 
 class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
   static readonly REGULAR_HEIGHT = 56 + getStatusBarHeight(true);
-  static readonly EXTENDED_HEIGHT = 128 + getStatusBarHeight(true);
+  static readonly EXTENDED_HEIGHT = 200 + getStatusBarHeight(true);
   static readonly ICON_SIZE = 24;
   static readonly ANIMATION_LENGTH = 300;
 
@@ -228,7 +231,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     if (searchableConfig && searching) {
       content = [this.search(searchableConfig)];
     } else {
-      content = [this.title(), this.subtitle()];
+      content = [this.title(), this.info(), this.subtitle()];
     }
     return (
       <View style={styles.titleContainer}>
@@ -243,7 +246,6 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     const { title } = this.props;
     return (
       <Animated.Text
-        key={'header-title'}
         testID={'header-title'}
         style={this.titleStyle()}
         numberOfLines={2}
@@ -259,13 +261,28 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     if (subtitle) {
       return (
         <Animated.Text
-          key={'header-subtitle'}
           testID={'header-subtitle'}
           style={this.subtitleStyle()}
           numberOfLines={1}
           ellipsizeMode={'tail'}
         >
           {subtitle}
+        </Animated.Text>
+      );
+    }
+  }
+
+  private info() {
+    const { info } = this.props;
+    if (info) {
+      return (
+        <Animated.Text
+          testID={'header-info'}
+          style={this.infoStyle()}
+          numberOfLines={1}
+          ellipsizeMode={'tail'}
+        >
+          {info}
         </Animated.Text>
       );
     }
@@ -362,15 +379,15 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     const { theme } = this.props;
     return {
       color: this.fontColor(),
-      // width: this.state.headerHeight.interpolate({
-      //   inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
-      //   outputRange: ['50%', '100%']
-      // }),
       fontWeight: theme.fonts.semiBold.fontWeight,
+      lineHeight: this.state.headerHeight.interpolate({
+        inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
+        outputRange: [theme.sizes.large, 30]
+      }),
       fontFamily: theme.fonts.semiBold.fontFamily,
       fontSize: this.state.headerHeight.interpolate({
         inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
-        outputRange: [theme.sizes.large, theme.sizes.extraLarge]
+        outputRange: [theme.sizes.large, 30]
       })
     };
   }
@@ -379,14 +396,30 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     const { theme } = this.props;
     return {
       color: this.fontColor(),
-      // width: this.state.headerHeight.interpolate({
-      //   inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
-      //   outputRange: ['50%', '100%']
-      // }),
       fontWeight: theme.fonts.light.fontWeight,
+      lineHeight: 18,
+      fontFamily: theme.fonts.light.fontFamily,
+      fontSize: 18,
+    };
+  }
+
+  private infoStyle() {
+    const { theme } = this.props;
+    return {
+      color: this.fontColor(),
+      fontWeight: theme.fonts.regular.fontWeight,
+      lineHeight: this.state.headerHeight.interpolate({
+        inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
+        outputRange: [0.1, theme.sizes.large]
+      }),
+      opacity: this.state.headerHeight.interpolate({
+        inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
+        outputRange: [0, 1]
+      }),
+      fontFamily: theme.fonts.light.fontFamily,
       fontSize: this.state.headerHeight.interpolate({
         inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
-        outputRange: [theme.sizes.large, theme.sizes.extraLarge]
+        outputRange: [0.1, theme.sizes.large]
       })
     };
   }

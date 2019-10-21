@@ -34,6 +34,8 @@ const MailIcon = wrapIcon({ IconClass: MatIcon, name: 'mail' });
 const MenuIcon = wrapIcon({ IconClass: MatIcon, name: 'menu' });
 const MoreIcon = wrapIcon({ IconClass: MatIcon, name: 'more-vert' });
 
+const PADDING = 10;
+
 export default class App extends React.Component {
     render() {
         return (
@@ -43,8 +45,9 @@ export default class App extends React.Component {
                         expandable={true}
                         // startExpanded={true}
                         // backgroundColor={'green'}
-                        title={'Overview'}
+                        title={'South Tin Mill'}
                         subtitle={'Gary Steel Works'}
+                        info={'Online'}
                         navigation={{ icon: MenuIcon, onPress: () => { } }}
                         actionItems={[
                             { icon: MailIcon, onPress: () => { } },
@@ -53,7 +56,7 @@ export default class App extends React.Component {
                         backgroundImage={backgroundImage}
                         searchableConfig={{ placeholder: 'Search', autoFocus: true }}
                     />
-                    <ScrollView contentContainerStyle={{ padding: 16 }}>
+                    <ScrollView contentContainerStyle={{ padding: PADDING }}>
                         <ScoreCard
                             // headerText={['Portland Datacenter', '6 UPS Devices', 'Attention Required']}
                             // headerColor={PXBColors.yellow[500]}
@@ -100,7 +103,7 @@ export default class App extends React.Component {
                             </View>
                         </ScoreCard>
                         <ScoreCard
-                            style={{marginTop: 16}}
+                            style={{ marginTop: PADDING }}
                             headerColor={PXBColors.red[500]}
                             headerTitle={'Substation 3'}
                             headerSubtitle={'High Humidity Alarm'}
@@ -113,7 +116,7 @@ export default class App extends React.Component {
                             onPressOverflow={() => { }}
                             // badgeOffset={-55}
                             badge={
-                                <HeroBanner style={{ flex: 0, minWidth: 180, justifyContent:'flex-end'}}>
+                                <HeroBanner style={{ flex: 0, minWidth: 180, justifyContent: 'flex-end' }}>
                                     <Hero
                                         label={'Temperature'}
                                         iconColor={PXBColors.black[500]}
@@ -155,7 +158,7 @@ export default class App extends React.Component {
                                 />
                             </View>
                         </ScoreCard>
-                        <Card containerStyle={{ padding: 0, margin: 0, marginTop: 16 }}>
+                        <Card containerStyle={{ padding: 0, margin: 0, marginTop: PADDING }}>
                             <HeroBanner>
                                 <Hero
                                     label={'Healthy'}
@@ -221,7 +224,7 @@ export default class App extends React.Component {
                                 }
                             />
                         </Card>
-                        <Card containerStyle={{ padding: 0, margin: 0, marginTop: 16 }}>
+                        <Card containerStyle={{ padding: 0, margin: 0, marginTop: PADDING, marginBottom: PADDING }}>
                             <InfoListItem
                                 title={'Emerson Field West'}
                                 subtitle={['DG 100', 'EDR 5000', 'Online']}
@@ -247,9 +250,9 @@ export default class App extends React.Component {
                                 onPress={() => { }}
                             />
                         </Card>
-
+                        <SafeAreaView />
                     </ScrollView>
-                    <SafeAreaView />
+
                 </View>
             </ThemeProvider>
         );
