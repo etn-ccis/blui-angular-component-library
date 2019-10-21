@@ -327,7 +327,7 @@
   dependencies:
     tslib "^1.9.0"
 
-"@pxblue/themes@^2.1.0":
+"@pxblue/themes@^2.0.2":
   version "2.1.0"
   resolved "https://registry.yarnpkg.com/@pxblue/themes/-/themes-2.1.0.tgz#cae223f37aac743697a8f3cc835b16b56dfc694e"
   integrity sha512-ctA9HaQYmPlj8kQ8qUfO8TRWP5l7gPYSoKvD1Z2mA1KmjCTSTVS7ros/Z1VF9k5Jz4ic5KtDg0T/wJxyAJWgKA==

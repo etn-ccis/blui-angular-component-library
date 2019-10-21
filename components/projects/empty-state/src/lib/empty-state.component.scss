@@ -1,0 +1,24 @@
+:host {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:host ::ng-deep [empty-icon]{
+  display: block;
+  font-size: 100px;
+  height: 100%;
+  width: 100%;
+  text-align: center;
+}
+
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h2, h4 {
+  text-align: center;
+}

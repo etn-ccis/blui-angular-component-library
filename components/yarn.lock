@@ -325,10 +325,10 @@
   dependencies:
     tslib "^1.9.0"
 
-"@pxblue/themes@^2.0.2":
-  version "2.0.3"
-  resolved "https://registry.yarnpkg.com/@pxblue/themes/-/themes-2.0.3.tgz#773f7f175f492ff82a624e35634f85265ff0460f"
-  integrity sha512-/ry81ZrLHKs0LwhAFlPkuuaCzwf+1uaJsLTjNXRVQJIw+dl+eqtieWsj8kH52oEoeB1M9iY7uLEZGH3wGe1fUw==
+"@pxblue/themes@^2.1.0":
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/@pxblue/themes/-/themes-2.1.0.tgz#cae223f37aac743697a8f3cc835b16b56dfc694e"
+  integrity sha512-ctA9HaQYmPlj8kQ8qUfO8TRWP5l7gPYSoKvD1Z2mA1KmjCTSTVS7ros/Z1VF9k5Jz4ic5KtDg0T/wJxyAJWgKA==
   dependencies:
     "@pxblue/colors" "^1.0.13"
     typeface-open-sans "^0.0.54"
