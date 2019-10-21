@@ -126,8 +126,7 @@ class ScoreCardClass extends Component<WithTheme<ScoreCardProps>> {
     const { badge, badgeOffset = 0 } = this.props;
     if (badge) {
       return (
-        // <View style={styles.hero}>
-        <View style={{ marginTop: badgeOffset }}>
+        <View style={{ flex: 0, marginTop: badgeOffset }}>
           {badge}
         </View>
       );
@@ -213,10 +212,6 @@ const styles = StyleSheet.create({
   actionItem: {
     marginLeft: 12
   },
-  hero: {
-    flex: 0,
-    marginRight: ScoreCardClass.PADDING_AMOUNT,
-  },
   header: {
     height: 100,
     overflow: 'hidden'
@@ -238,7 +233,4 @@ const styles = StyleSheet.create({
     alignItems: 'stretch',
     padding: ScoreCardClass.PADDING_AMOUNT
   },
-  firstColumn: {
-    marginRight: 90
-  }
 });

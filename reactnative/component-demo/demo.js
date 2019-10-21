@@ -58,9 +58,6 @@ export default class App extends React.Component {
                     />
                     <ScrollView contentContainerStyle={{ padding: PADDING }}>
                         <ScoreCard
-                            // headerText={['Portland Datacenter', '6 UPS Devices', 'Attention Required']}
-                            // headerColor={PXBColors.yellow[500]}
-                            // headerFontColor={'green'}
                             headerTitle={'Portland Datacenter Long Name'}
                             headerSubtitle={'6 UPS Devices'}
                             headerInfo={'Attention Required'}
@@ -68,17 +65,18 @@ export default class App extends React.Component {
                             actionItems={[
                                 { icon: MoreIcon, onPress: () => { } }
                             ]}
-                            onPressOverflow={() => { }}
-                            badgeOffset={-70}
+                            badgeOffset={-55}
                             badge={
-                                <Hero
-                                    label={'Score'}
-                                    iconSize={48}
-                                    iconColor={PXBColors.green[500]}
-                                    value={98}
-                                    units={'/100'}
-                                    IconClass={A}
-                                />
+                                <HeroBanner style={{ flex: 0, minWidth: 80, justifyContent: 'flex-end' }}>
+                                    <Hero
+                                        label={'Score'}
+                                        iconSize={48}
+                                        iconColor={PXBColors.green[500]}
+                                        value={98}
+                                        units={'/100'}
+                                        IconClass={A}
+                                    />
+                                </HeroBanner>
                             }
                             actionRow={
                                 <ScoreCard.ListItem label={'View Location'} onPress={() => { }} />
@@ -113,8 +111,6 @@ export default class App extends React.Component {
                                 { icon: MailIcon, onPress: () => { } },
                                 { icon: MoreIcon, onPress: () => { } }
                             ]}
-                            onPressOverflow={() => { }}
-                            // badgeOffset={-55}
                             badge={
                                 <HeroBanner style={{ flex: 0, minWidth: 180, justifyContent: 'flex-end' }}>
                                     <Hero
@@ -128,7 +124,6 @@ export default class App extends React.Component {
                                     <Hero
                                         label={'Humidity'}
                                         iconSize={70}
-                                        // iconBackgroundColor={'rgba(255,255,255,0.8)'}
                                         iconColor={PXBColors.blue[200]}
                                         value={78}
                                         units={'%'}
@@ -246,7 +241,6 @@ export default class App extends React.Component {
                                 subtitle={['DG 100', 'EDR 5000', 'Online']}
                                 subtitleSeparator={'/'}
                                 hidePadding={false}
-                                // color={PXBColors.blue[500]}
                                 onPress={() => { }}
                             />
                         </Card>

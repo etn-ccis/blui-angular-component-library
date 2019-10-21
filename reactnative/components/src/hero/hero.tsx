@@ -58,11 +58,11 @@ export interface HeroProps {
 
 class HeroClass extends Component<WithTheme<HeroProps>> {
   public render() {
-    const {theme, label, value, ValueIconClass, valueColor, fontSize, units, onPress, iconSize, iconBackgroundColor, children, style} = this.props;
+    const {theme, label, value, ValueIconClass, valueColor, fontSize, units, onPress, iconBackgroundColor, children, style} = this.props;
 
     return (
       <TouchableOpacity onPress={onPress} disabled={!onPress} style={[styles.wrapper, style]}>
-        <View style={[styles.icon, {backgroundColor: iconBackgroundColor || theme.colors.surface, borderRadius: this.normalizeIconSize()}]}>
+        <View style={[styles.icon, {backgroundColor: iconBackgroundColor || theme.colors.surface, borderRadius: 24}]}>
           {this.icon()}
         </View>
         <View style={styles.values}>
