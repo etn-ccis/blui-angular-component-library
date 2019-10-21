@@ -3,6 +3,7 @@ import Hero from '@pxblue/react-components/core/Hero';
 import HeroBanner from '@pxblue/react-components/core/HeroBanner';
 import ChannelValue from '@pxblue/react-components/core/ChannelValue';
 import EmptyState from '@pxblue/react-components/core/EmptyState';
+import TrendingUpIcon from '@material-ui/icons/TrendingUp'
 import Trend from '@material-ui/icons/TrendingUp';
 import Timer from '@material-ui/icons/Timer';
 
@@ -10,7 +11,6 @@ import {List, ListItem, ListItemIcon, ListItemText, Card, Tab, Tabs} from '@mate
 import * as Colors from '@pxblue/colors';
 import { Pie, Battery } from '@pxblue/react-progress-icons';
 import { GradeA, Leaf, CurrentCircled, VoltageCircled, Temp } from '@pxblue/icons-mui';
-import Icon from "@material-ui/core/Icon";
 import Button from "@material-ui/core/Button";
 
 export default ({ ...props }) => (
@@ -116,9 +116,7 @@ export default ({ ...props }) => (
                 <Tab label={"SUB-CONTENT"} />
             </Tabs>
             <EmptyState
-                icon={
-                    <Icon name="trending-up" size={100} color={Colors.gray[500]} />
-                }
+                icon={<TrendingUpIcon style={{ fontSize: '100px', marginBottom: '15px' }} />}
                 title={'Predictions Page Coming Soon'}
                 description={'A fully redesigned predictions page is coming in our next release!'}
                 actions={ <Button title="LEARN MORE" type={'outline'} /> }
