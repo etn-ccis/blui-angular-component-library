@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import { Text, View, StyleSheet, TextProps, ImageSourcePropType, Image, TouchableOpacity } from 'react-native';
-import { gray, white } from '@pxblue/colors';
+import React, { Component, ComponentType } from 'react';
+import { View, StyleSheet, ImageSourcePropType, Image, TouchableOpacity, StyleProp, ViewStyle } from 'react-native';
+import { gray, black } from '@pxblue/colors';
 import { ScoreCardListItem } from './list-item';
-import MaterialIcon from 'react-native-vector-icons/MaterialIcons';
+import * as Typography from '../typography';
 import { withTheme, WithTheme, Theme } from '../theme';
 import { $DeepPartial } from '@callstack/react-theme-provider';
 
 export interface HeaderIcon {
   /** Name of the icon */
-  icon: string;
+  icon: ComponentType<{ size: number, color: string }>;
 
   /** Callback when icon is pressed */
   onPress: () => void;
@@ -18,11 +18,23 @@ export interface ScoreCardProps {
   /** Background color of header */
   headerColor?: string;
 
-  /** Text to show in header */
-  headerText: string | Array<string>;
+  /** Primary text to show in header */
+  headerTitle: string;
 
-  /** Hero compnonent to render on the right side of the card */
+  /** Second line of text to show in header */
+  headerSubtitle?: string;
+
+  /** Third line of text to show in header */
+  headerInfo?: string;
+
+  /** Color to use for header text and icons */
+  headerFontColor?: string;
+
+  /** Hero component to render on the right side of the card */
   badge?: JSX.Element;
+
+  /** Offset to shift the badges up or down */
+  badgeOffset?: number;
 
   /** Action item to show at bottom of card */
   actionRow?: JSX.Element;
@@ -30,15 +42,14 @@ export interface ScoreCardProps {
   /** Background image to render when header is expanded */
   headerBackgroundImage?: ImageSourcePropType;
 
+  /** Style configuration for the wrapper View */
+  style?: StyleProp<ViewStyle>;
+
   /**
    * Array of actions to render in the header.
    * A maximum of two will be rendered.
-   * If more than two actionItems are passed in and onPressOverflow is provided, only the overflow button will be shown
    * */
   actionItems?: Array<HeaderIcon>;
-
-  /** Callback to be called when overflow icon is pressed. */
-  onPressOverflow?: () => void;
 
   /**
    * Overrides for theme
@@ -52,65 +63,71 @@ class ScoreCardClass extends Component<WithTheme<ScoreCardProps>> {
   private static readonly ICON_SIZE = 24;
 
   public render() {
-    const { children, theme, headerColor = theme.colors.primary } = this.props;
-    const style = {
+    const { children, theme, headerColor = theme.colors.primary, style } = this.props;
+    const newStyle = {
       backgroundColor: theme.colors.surface,
-      borderRadius: theme.roundness 
+      borderRadius: theme.roundness
     }
 
     return (
-      <View style={[styles.card, style]}>
-        <View style={[styles.padded, styles.header, { backgroundColor: headerColor }]}>
+      <View style={[styles.card, newStyle, style]}>
+        <View style={[styles.header, { backgroundColor: headerColor }]}>
           {this.backgroundImage()}
-          {this.headerTextElements()}
-          {this.actionItems()}
+          <View style={[styles.padded, styles.headerContent]}>
+            {this.headerText()}
+            {this.actionItems()}
+          </View>
         </View>
         <View style={[styles.row]}>
-          <View style={this.childrenWrapperStyle()}>
+          <View style={{ flex: 1, justifyContent: 'center', marginRight: this.props.badge ? 16 : 0 }}>
             {children}
           </View>
-          {this.hero()}
+          {this.heroes()}
         </View>
         {this.footer()}
       </View>
     );
   }
 
-  private headerTextElements() {
-    const headerText = this.headerTextArray();
+  private headerText() {
+    const { headerTitle, headerSubtitle, headerInfo } = this.props;
 
     return (
       <View style={{ flex: 1 }}>
-        {headerText.map((text, i) =>
-          <Text style={[styles.headerText, headerTextProps[i].style]} testID={headerTextProps[i].testID} numberOfLines={1} ellipsizeMode={'tail'} key={`${i}`}>
-            {text}
-          </Text>
-        )}
+        <Typography.H7 style={{ color: this.fontColor() }}
+          font={'semiBold'}
+          numberOfLines={1}
+          ellipsizeMode={'tail'}
+        >
+          {headerTitle}
+        </Typography.H7>
+        {headerSubtitle ?
+          <Typography.Subtitle style={{ color: this.fontColor() }}
+            font={'regular'}
+            numberOfLines={1}
+            ellipsizeMode={'tail'}
+          >
+            {headerSubtitle}
+          </Typography.Subtitle> : null
+        }
+        {headerInfo ?
+          <Typography.Subtitle style={{ color: this.fontColor() }}
+            font={'light'}
+            numberOfLines={1}
+            ellipsizeMode={'tail'}
+          >
+            {headerInfo}
+          </Typography.Subtitle> : null}
       </View>
     );
   }
 
-  private childrenWrapperStyle() {
-    const { badge } = this.props;
-
-    if (badge) {
-      return [styles.padded, styles.firstColumn];
-    } else {
-      return [styles.padded];
-    }
-  }
-
-  private headerTextArray(): Array<string> {
-    const { headerText } = this.props;
-
-    return typeof headerText === 'string' ? [headerText] : headerText.slice(0, 3);
-  }
-
-  private hero() {
-    const { badge } = this.props;
+  private heroes() {
+    const { badge, badgeOffset = 0 } = this.props;
     if (badge) {
       return (
-        <View style={{ position: 'absolute', right: ScoreCardClass.PADDING_AMOUNT, top: -24 }}>
+        // <View style={styles.hero}>
+        <View style={{ marginTop: badgeOffset }}>
           {badge}
         </View>
       );
@@ -126,9 +143,10 @@ class ScoreCardClass extends Component<WithTheme<ScoreCardProps>> {
           source={headerBackgroundImage}
           style={{
             position: 'absolute',
+            width: '100%',
             resizeMode: 'cover',
-            height: 100,
-            opacity: 0.3
+            height: '100%',
+            opacity: 0.1
           }}
         />
       );
@@ -148,29 +166,28 @@ class ScoreCardClass extends Component<WithTheme<ScoreCardProps>> {
   }
 
   private actionItems() {
-    const { actionItems, onPressOverflow } = this.props;
+    const { actionItems } = this.props;
 
-    if (onPressOverflow && !actionItems || actionItems && actionItems.length > 2 && onPressOverflow) {
-      return (
-        <View>
-          <TouchableOpacity testID={'overflow-item'} onPress={onPressOverflow} style={styles.actionItem}>
-            <MaterialIcon name={'more-vert'} size={ScoreCardClass.ICON_SIZE} color={this.fontColor()}/>
-          </TouchableOpacity>
-        </View>
-      );
-    } else if (actionItems) {
+    if (actionItems) {
       return actionItems.slice(0, 2).map((actionItem, index) => (
         <View key={`${index}`}>
           <TouchableOpacity testID={`action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
-            <MaterialIcon name={actionItem.icon} size={ScoreCardClass.ICON_SIZE} color={this.fontColor()}/>
+            {this.icon(actionItem.icon)}
           </TouchableOpacity>
         </View>
       ))
     }
   }
 
+  private icon(IconClass: ComponentType<{ size: number, color: string }>) {
+    if (IconClass) {
+      return <IconClass size={ScoreCardClass.ICON_SIZE} color={this.fontColor()} />
+    }
+  }
+
   private fontColor() {
-    return white[500];
+    const { headerFontColor, theme } = this.props;
+    return headerFontColor || theme.colors.onPrimary;
   }
 }
 
@@ -184,7 +201,7 @@ export const ScoreCard = withTheme(ScoreCardClass);
 const styles = StyleSheet.create({
   card: {
     shadowColor: gray[900],
-    shadowOpacity: 0.6,
+    shadowOpacity: 0.3,
     shadowRadius: 4,
     shadowOffset: {
       width: 0,
@@ -196,32 +213,21 @@ const styles = StyleSheet.create({
   actionItem: {
     marginLeft: 12
   },
+  hero: {
+    flex: 0,
+    marginRight: ScoreCardClass.PADDING_AMOUNT,
+  },
   header: {
-    flexDirection: 'row',
-    alignItems: 'flex-start',
-    padding: ScoreCardClass.PADDING_AMOUNT,
     height: 100,
     overflow: 'hidden'
   },
-  headerText: {
-    color: white[500],
-  },
-  headerText1: {
-    fontSize: 16,
-    fontWeight: '700',
-    paddingBottom: 4
-  },
-  headerText2: {
-    fontSize: 14,
-    fontWeight: '400',
-    paddingBottom: 3
-  },
-  headerText3: {
-    fontSize: 14,
-    fontWeight: '200'
+  headerContent: {
+    flexDirection: 'row',
+    alignItems: 'flex-start',
+    padding: ScoreCardClass.PADDING_AMOUNT,
   },
   footer: {
-    borderTopColor: gray[100],
+    borderTopColor: black[50],
     borderTopWidth: 1
   },
   padded: {
@@ -229,15 +235,10 @@ const styles = StyleSheet.create({
   },
   row: {
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'stretch',
+    padding: ScoreCardClass.PADDING_AMOUNT
   },
   firstColumn: {
     marginRight: 90
   }
 });
-
-const headerTextProps: ReadonlyArray<TextProps> = [
-  { testID: 'header1', style: styles.headerText1 },
-  { testID: 'header2', style: styles.headerText2 },
-  { testID: 'header3', style: styles.headerText3 },
-];

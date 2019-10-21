@@ -14,7 +14,7 @@ import { getStatusBarHeight } from 'react-native-status-bar-height';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import color from 'color';
 import createAnimatedComponent = Animated.createAnimatedComponent;
-import { withTheme, Theme, WithTheme } from '../theme';
+import { withTheme, Theme, WithTheme, ThemeProvider } from '../theme';
 import { wrapIcon } from '../icon-wrapper/icon-wrapper';
 import { $DeepPartial } from '@callstack/react-theme-provider';
 
@@ -62,7 +62,7 @@ export interface HeaderProps {
   navigation?: HeaderIcon;
 
   /** List of up to three action items on the right of the header */
-  actionItems?: HeaderIcon[];
+  actionItems?: Array<HeaderIcon>;
 
   /** Determines whether the header can be expanded by being pressed */
   expandable?: boolean;
@@ -366,6 +366,8 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
       //   inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
       //   outputRange: ['50%', '100%']
       // }),
+      fontWeight: theme.fonts.semiBold.fontWeight,
+      fontFamily: theme.fonts.semiBold.fontFamily,
       fontSize: this.state.headerHeight.interpolate({
         inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
         outputRange: [theme.sizes.large, theme.sizes.extraLarge]
@@ -384,7 +386,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
       fontWeight: theme.fonts.light.fontWeight,
       fontSize: this.state.headerHeight.interpolate({
         inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
-        outputRange: [theme.sizes.medium, theme.sizes.large]
+        outputRange: [theme.sizes.large, theme.sizes.extraLarge]
       })
     };
   }
@@ -394,6 +396,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     return {
       padding: 0, // TextInput on Android has some default padding, so this needs to be explicitly set to 0
       color: this.fontColor(),
+      fontFamily: theme.fonts.light.fontFamily,
       fontSize: theme.sizes.large,
       ...theme.fonts.light
     }
@@ -497,6 +500,6 @@ const styles = StyleSheet.create({
     height: 56
   },
   actionItem: {
-    marginLeft: 24
+    marginLeft: 16
   }
 });

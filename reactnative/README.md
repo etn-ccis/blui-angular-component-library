@@ -8,6 +8,9 @@ Currently, we have components available for:
 * Hero
 * HeroBanner
 * Typography
+* Header
+* InfoListItem
+* ScoreCard
 
 
 ## Installation
