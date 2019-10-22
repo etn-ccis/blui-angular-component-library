@@ -26,6 +26,7 @@ const MoreIcon = wrapIcon({IconClass: Icon, name:'more-vert'});
 |-------------------|-----------------------------------------|-----------------------|----------|--------------------------|--------------------------------------------|
 | title             | The text to show on the first line      | `string`              | yes      |                          | 'Hello World'                              |
 | subtitle          | The text to show on the second line     | `string`              | no       |                          | 'Subtitle'                                 |
+| info              | Third line of text (hidden on collapse) | `string`              | no       |                          | 'Hidden Text'                              |
 | navigation        | Icon to show left of the title          | `HeaderIcon`          | no       |                          | `{icon: MenuIcon, onClick: () => {}}`      |
 | actionItems       | Icons to show to the right of the title | `HeaderIcon[]`        | no       |                          |                                            |
 | expandable        | Allow the header to expand/collapse     | `boolean`             | no       | `false`                  |                                            |

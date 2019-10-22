@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { StyleSheet, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { withTheme, WithTheme } from '../theme';
-import { H6 } from '../typography';
+import { Body } from '../typography';
 
 export interface ListItemProps {
   /** Label to be shown on the left */
@@ -21,9 +21,9 @@ class ScoreCardListItemClass extends Component<WithTheme<ListItemProps>> {
 
     return (
       <TouchableOpacity style={[styles.container, styles.row]} disabled={!onPress} onPress={onPress}>
-        <H6 style={styles.fill}>
+        <Body font={'semiBold'} style={styles.fill}>
           {label}
-        </H6>
+        </Body>
         {this.chevron()}
       </TouchableOpacity>
     );

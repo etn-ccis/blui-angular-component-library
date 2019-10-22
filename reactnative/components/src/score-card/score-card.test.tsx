@@ -1,4 +1,4 @@
-import React  from 'react';
+import React from 'react';
 import TestRenderer, { ReactTestInstance } from 'react-test-renderer';
 import { ScoreCard } from '.';
 import { View } from 'react-native';
@@ -12,14 +12,14 @@ describe('ScoreCard', () => {
       let instance: ReactTestInstance;
       beforeEach(() => {
         instance = TestRenderer.create(
-          <ScoreCard headerText={'Hello'} />
+          <ScoreCard headerTitle={'Hello'} />
         ).root;
       });
 
       it('finds a single header text element', () => {
-        expect(instance.find(x => x.props.testID == 'header1')).toBeTruthy();
-        expect(instance.findAll(x => x.props.testID == 'header2')).toHaveLength(0);
-        expect(instance.findAll(x => x.props.testID == 'header3')).toHaveLength(0);
+        expect(instance.find(x => x.props.testID == 'header_title')).toBeTruthy();
+        expect(instance.findAll(x => x.props.testID == 'header_subtitle')).toHaveLength(0);
+        expect(instance.findAll(x => x.props.testID == 'header_info')).toHaveLength(0);
       });
     });
 
@@ -27,29 +27,18 @@ describe('ScoreCard', () => {
       let instance: ReactTestInstance;
       beforeEach(() => {
         instance = TestRenderer.create(
-          <ScoreCard headerText={['Hello', 'World', '!!']} />
+          <ScoreCard
+            headerTitle={'Portland Datacenter Long Name'}
+            headerSubtitle={'6 UPS Devices'}
+            headerInfo={'Attention Required'}
+          />
         ).root;
       });
 
       it('renders at all three', () => {
-        expect(instance.find(x => x.props.testID == 'header1')).toBeTruthy();
-        expect(instance.find(x => x.props.testID == 'header2')).toBeTruthy();
-        expect(instance.find(x => x.props.testID == 'header3')).toBeTruthy();
-      });
-    });
-
-    describe('when an array of less than three strings is passed', () => {
-      let instance: ReactTestInstance;
-      beforeEach(() => {
-        instance = TestRenderer.create(
-          <ScoreCard headerText={['Hello']} />
-        ).root;
-      });
-
-      it('only renders 1 header text element', () => {
-        expect(instance.find(x => x.props.testID == 'header1')).toBeTruthy();
-        expect(instance.findAll(x => x.props.testID == 'header2')).toHaveLength(0);
-        expect(instance.findAll(x => x.props.testID == 'header3')).toHaveLength(0);
+        expect(instance.find(x => x.props.testID == 'header_title')).toBeTruthy();
+        expect(instance.find(x => x.props.testID == 'header_subtitle')).toBeTruthy();
+        expect(instance.find(x => x.props.testID == 'header_info')).toBeTruthy();
       });
     });
   });
@@ -59,7 +48,7 @@ describe('ScoreCard', () => {
       let instance: ReactTestInstance;
       beforeEach(() => {
         instance = TestRenderer.create(
-          <ScoreCard headerText={'Hello'} actionRow={<View testID={'my-action'} />} />
+          <ScoreCard headerTitle={'Hello'} actionRow={<View testID={'my-action'} />} />
         ).root;
       });
 
@@ -74,7 +63,7 @@ describe('ScoreCard', () => {
       let instance: ReactTestInstance;
       beforeEach(() => {
         instance = TestRenderer.create(
-          <ScoreCard headerText={'Hello'} badge={<Hero testID={'my-badge'} label={'...'} IconClass={Line} />} />
+          <ScoreCard headerTitle={'Hello'} badge={<Hero testID={'my-badge'} label={'...'} IconClass={Line} />} />
         ).root;
       });
 
@@ -84,8 +73,8 @@ describe('ScoreCard', () => {
     });
   });
 
-  describe('actionItems and onPressOverflow', () => {
-    describe('when 2 actionItems and onPressOverflow are passed in', () => {
+  describe('actionItems', () => {
+    describe('when 2 actionItems are passed in', () => {
       let instance: ReactTestInstance;
       let firstCallback: ReturnType<typeof jest.fn>;
       let secondCallback: ReturnType<typeof jest.fn>;
@@ -94,12 +83,11 @@ describe('ScoreCard', () => {
         secondCallback = jest.fn();
         instance = TestRenderer.create(
           <ScoreCard
-            headerText={'Hello'}
+            headerTitle={'Hello'}
             actionItems={[
-              { icon: 'autorenew', onPress: firstCallback },
-              { icon: 'autorenew', onPress: secondCallback }
+              { icon: Line, onPress: firstCallback },
+              { icon: Line, onPress: secondCallback }
             ]}
-            onPressOverflow={jest.fn()}
           />
         ).root;
       });
@@ -122,102 +110,27 @@ describe('ScoreCard', () => {
         expect(firstCallback).not.toHaveBeenCalled();
         expect(secondCallback).toHaveBeenCalled();
       });
-
-      it('doesn\'t render the overflow icon', () => {
-        expect(instance.findAll(x => x.props.testID == 'overflow-item')).toHaveLength(0);
-      });
     });
 
-    describe('when more than 2 actionItems and onPressOverflow are passed in', () => {
+    describe('when more than 2 actionItems are passed in', () => {
       let instance: ReactTestInstance;
       beforeEach(() => {
         instance = TestRenderer.create(
           <ScoreCard
-            headerText={'Hello'}
+            headerTitle={'Hello'}
             actionItems={[
-              { icon: 'autorenew', onPress: jest.fn() },
-              { icon: 'autorenew', onPress: jest.fn() },
-              { icon: 'autorenew', onPress: jest.fn() }
-            ]}
-            onPressOverflow={jest.fn()}
-          />
-        ).root;
-      });
-
-      it('doesn\'t render the action items', () => {
-        expect(instance.findAll(x => x.props.testID == 'action-item0')).toHaveLength(0);
-        expect(instance.findAll(x => x.props.testID == 'action-item1')).toHaveLength(0);
-      });
-
-      it('renders the overflow icon', () => {
-        expect(instance.find(x => x.props.testID == 'overflow-item')).toBeTruthy();
-      });
-    });
-
-    describe('when 1 actionItem and onPressOverflow are passed in', () => {
-      let instance: ReactTestInstance;
-      beforeEach(() => {
-        instance = TestRenderer.create(
-          <ScoreCard
-            headerText={'Hello'}
-            actionItems={[
-              { icon: 'autorenew', onPress: jest.fn() }
-            ]}
-            onPressOverflow={jest.fn()}
-          />
-        ).root;
-      });
-
-      it('renders a single actionItem', () => {
-        expect(instance.find(x => x.props.testID == 'action-item0')).toBeTruthy();
-        expect(instance.findAll(x => x.props.testID == 'action-item1')).toHaveLength(0);
-      });
-
-      it('doesn\'t render the overflow icon', () => {
-        expect(instance.findAll(x => x.props.testID == 'overflow-item')).toHaveLength(0);
-      });
-    });
-
-    describe('when more than 2 actionItems are passed in, but onPressOverflow is not', () => {
-      let instance: ReactTestInstance;
-      beforeEach(() => {
-        instance = TestRenderer.create(
-          <ScoreCard
-            headerText={'Hello'}
-            actionItems={[
-              { icon: 'autorenew', onPress: jest.fn() },
-              { icon: 'autorenew', onPress: jest.fn() },
-              { icon: 'autorenew', onPress: jest.fn() }
+              { icon: Line, onPress: jest.fn() },
+              { icon: Line, onPress: jest.fn() },
+              { icon: Line, onPress: jest.fn() }
             ]}
           />
         ).root;
       });
 
-      it('renders only two actionItems', () => {
+      it('renders only the first two items', () => {
         expect(instance.find(x => x.props.testID == 'action-item0')).toBeTruthy();
         expect(instance.find(x => x.props.testID == 'action-item1')).toBeTruthy();
-      });
-
-      it('doesn\'t render the overflow icon', () => {
-        expect(instance.findAll(x => x.props.testID == 'overflow-item')).toHaveLength(0);
-      });
-    });
-
-    describe('when onPressOverflow is passed in, but actionItems are not', () => {
-      let instance: ReactTestInstance;
-      beforeEach(() => {
-        instance = TestRenderer.create(
-          <ScoreCard headerText={'Hello'} onPressOverflow={jest.fn()} />
-        ).root;
-      });
-
-      it('doesn\'t render any actionItems', () => {
-        expect(instance.findAll(x => x.props.testID == 'action-item0')).toHaveLength(0);
-        expect(instance.findAll(x => x.props.testID == 'action-item1')).toHaveLength(0);
-      });
-
-      it('renders the overflow icon', () => {
-        expect(instance.find(x => x.props.testID == 'overflow-item')).toBeTruthy();
+        expect(instance.findAll(x => x.props.testID == 'action-item2')).toHaveLength(0);
       });
     });
   });
