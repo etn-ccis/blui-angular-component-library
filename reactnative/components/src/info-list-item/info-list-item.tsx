@@ -119,7 +119,7 @@ class InfoListItemClass extends Component<WithTheme<InfoListItemProps>> {
   }
   private avatarStyle() {
     const { theme, statusColor } = this.props;
-    let avatarStyle = { ...styles.avatar };
+    const avatarStyle = { ...styles.avatar };
     avatarStyle.backgroundColor = statusColor || theme.colors.primary;
     return avatarStyle;
   }
