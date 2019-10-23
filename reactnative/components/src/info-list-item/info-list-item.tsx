@@ -2,9 +2,10 @@ import React, { Component, Fragment, ComponentType } from 'react';
 import { StyleSheet, View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 import { interleave } from '../helpers/utils';
-import { Theme, withTheme, WithTheme} from '../theme';
+import { Theme, withTheme, WithTheme } from '../theme';
 import { Body, Subtitle } from '../typography';
 import { $DeepPartial } from '@callstack/react-theme-provider';
+import * as Colors from '@pxblue/colors';
 
 export interface InfoListItemProps {
   /** Title to show */
@@ -16,17 +17,35 @@ export interface InfoListItemProps {
   /** Subtitle Separator. Displays between array of subtitle items */
   subtitleSeparator?: string;
 
+  /** Specifies whether to show color background around the icon */
+  avatar?: boolean;
+
   /** Component to render to the left of the title */
   IconClass?: ComponentType<{ size: number, color: string }>;
 
-  /** Color to use for title and tab on left side */
-  color?: string;
+  /** Color to use for stripe */
+  statusColor?: string;
+
+  /** Color to use for title text */
+  fontColor?: string;
+
+  /** Color to use for icon */
+  iconColor?: string;
 
   /** Background color of element */
   backgroundColor?: string;
 
   /* Hide left padding when icon is not present */
   hidePadding?: boolean;
+
+  /* Reduce overall height of listItem */
+  dense?: boolean;
+
+  /* Whether to show the bottom divider for the list item */
+  divider?: 'full' | 'partial';
+
+  /* Component to render on the right */
+  rightComponent?: JSX.Element;
 
   /** Callback to be called on press. If provided, will add chevron on the right side of the item */
   onPress?: () => void;
@@ -41,52 +60,95 @@ class InfoListItemClass extends Component<WithTheme<InfoListItemProps>> {
   private static readonly MAX_SUBTITLE_ELEMENTS = 3;
 
   public render() {
-    const { title, color, backgroundColor, onPress, theme } = this.props;
-    const { fixedHeight, row, fullHeight, tab, iconContainer, contentContainer, withMargins, withRightPadding } = styles;
+    const { title, statusColor, dense, fontColor, backgroundColor, onPress, theme } = this.props;
+    const { row, fullHeight, tab, iconContainer, contentContainer, withMargins, withRightPadding } = styles;
     const style = {
-      backgroundColor: backgroundColor || 'transparent' 
+      backgroundColor: backgroundColor || 'transparent'
     };
     const titleStyle = {
-      color: color || theme.colors.text,
+      color: fontColor || theme.colors.text,
+      lineHeight: theme.sizes.medium
+    };
+    const fixedHeight = {
+      height: dense ? 52 : 72,
     };
 
     return (
-      <TouchableOpacity onPress={onPress} style={[fixedHeight, row, withRightPadding, style]} disabled={!onPress}>
-        <View style={[fullHeight, tab, { backgroundColor: color }]} />
-        {this.props.IconClass || !this.props.hidePadding ? 
-          <View style={[iconContainer, withMargins]}>
-            {this.icon()}
-          </View> 
-          : null
-        }
-        <View style={contentContainer}>
-          <Body style={titleStyle} numberOfLines={1} ellipsizeMode={'tail'} font={'bold'}>
-            {title}
-          </Body>
-          <View style={row}>
-            {this.subtitle()}
+      <View style={[fixedHeight,style]}>
+        <TouchableOpacity onPress={onPress} style={[fullHeight, row, withRightPadding]} disabled={!onPress} activeOpacity={0.7}>
+          <View style={[fullHeight, tab, { backgroundColor: statusColor }]} />
+          {this.props.IconClass || !this.props.hidePadding ?
+            <View style={[iconContainer, withMargins]}>
+              {this.icon()}
+            </View>
+            : null
+          }
+          <View style={contentContainer}>
+            <Body style={titleStyle} numberOfLines={1} ellipsizeMode={'tail'} font={'semiBold'}>
+              {title}
+            </Body>
+            <View style={row}>
+              {this.subtitle()}
+            </View>
           </View>
-        </View>
-        {this.chevron()}
-      </TouchableOpacity>
+          {this.rightComponent()}
+          {this.divider()}
+        </TouchableOpacity>
+      </View>
     );
   }
 
   private icon() {
-    const { IconClass, color, theme } = this.props;
-
+    const { IconClass, avatar } = this.props;
     if (IconClass) {
       return (
-        <IconClass size={24} color={color || theme.colors.text } />
+        <View style={avatar ? this.avatarStyle() : null}>
+          <IconClass size={24} color={this.iconColor()} />
+        </View>
       );
     }
   }
 
-  private chevron() {
-    const { onPress, theme } = this.props;
-    if (onPress) {
+  private iconColor() {
+    const { avatar, statusColor, iconColor, theme } = this.props;
+    if (iconColor) return iconColor;
+    if (avatar) {
+      return statusColor ? theme.colors.onPrimary : theme.colors.text;
+    }
+    return statusColor ? statusColor : theme.colors.text;
+  }
+  private avatarStyle() {
+    const { theme, statusColor } = this.props;
+    let avatarStyle = { ...styles.avatar };
+    avatarStyle.backgroundColor = statusColor || theme.colors.primary;
+    return avatarStyle;
+  }
+
+  private rightComponent() {
+    const { onPress, theme, rightComponent } = this.props;
+    if (rightComponent){
+      return rightComponent;
+    }
+    else if (onPress) {
       return (
         <Icon name="chevron-right" size={24} color={theme.colors.text} />
+      );
+    }
+  }
+
+  private divider() {
+    const { divider } = this.props;
+    if (divider) {
+      return (
+        <View style={{
+          position: 'absolute',
+          bottom: 0,
+          right: 0,
+          left: divider === 'partial' ? 72 : 0,
+          alignItems: 'stretch'
+        }}>
+          <View style={[styles.divider]} />
+        </View>
       );
     }
   }
@@ -102,7 +164,7 @@ class InfoListItemClass extends Component<WithTheme<InfoListItemProps>> {
     const renderableSubtitleParts = subtitleParts
       .splice(0, InfoListItemClass.MAX_SUBTITLE_ELEMENTS)
       .map(element => this.renderableSubtitleComponent(element));
-    
+
     return this.withKeys(this.separate(renderableSubtitleParts));
   }
 
@@ -152,14 +214,30 @@ const styles = StyleSheet.create({
     alignItems: 'center'
   },
   withRightPadding: {
-    paddingRight: 6
+    paddingRight: 16
   },
   iconContainer: {
-    width: 24
+    marginLeft: 10,
+    width: 40,
+    alignItems: 'flex-start',
+    justifyContent: 'center'
+  },
+  avatar: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: 'transparent'
   },
   contentContainer: {
     flex: 1,
-    paddingHorizontal: 10
+    paddingHorizontal: 16
+  },
+  divider: {
+    height: 1,
+    borderBottomWidth: 1,
+    borderColor: Colors.black['50']
   },
   tab: {
     width: 6
@@ -172,8 +250,5 @@ const styles = StyleSheet.create({
   },
   fullHeight: {
     height: '100%'
-  },
-  fixedHeight: {
-    height: 72
   }
 });

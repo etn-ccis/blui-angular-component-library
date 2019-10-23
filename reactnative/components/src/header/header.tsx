@@ -102,6 +102,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
   static readonly REGULAR_HEIGHT = 56 + getStatusBarHeight(true);
   static readonly EXTENDED_HEIGHT = 200 + getStatusBarHeight(true);
   static readonly ICON_SIZE = 24;
+  static readonly ICON_SPACING = 16;
   static readonly ANIMATION_LENGTH = 300;
 
   private expand: Animated.CompositeAnimation;
@@ -217,9 +218,9 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     }
   }
 
-  private icon(IconClass: ComponentType<{ size: number, color: string }>){
-    if(IconClass){
-      return <IconClass size={HeaderClass.ICON_SIZE} color={this.fontColor()}/>
+  private icon(IconClass: ComponentType<{ size: number, color: string }>) {
+    if (IconClass) {
+      return <IconClass size={HeaderClass.ICON_SIZE} color={this.fontColor()} />
     }
   }
 
@@ -234,11 +235,16 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
       content = [this.title(), this.info(), this.subtitle()];
     }
     return (
-      <View style={styles.titleContainer}>
+      <Animated.View style={[styles.titleContainer, {
+        marginRight: this.state.headerHeight.interpolate({
+          inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
+          outputRange: [this.actionPanelWidth(), 0]
+        })
+      }]}>
         <View style={{ flex: 0, justifyContent: 'center' }}>
           {content}
         </View>
-      </View>
+      </Animated.View>
     );
   }
 
@@ -249,7 +255,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
         key="title_key"
         testID={'header-title'}
         style={this.titleStyle()}
-        numberOfLines={2}
+        numberOfLines={1}
         ellipsizeMode={'tail'}
       >
         {title}
@@ -262,7 +268,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     if (subtitle) {
       return (
         <Animated.Text
-        key="subtitle_key"
+          key="subtitle_key"
           testID={'header-subtitle'}
           style={this.subtitleStyle()}
           numberOfLines={1}
@@ -279,7 +285,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     if (info) {
       return (
         <Animated.Text
-        key="info_key"
+          key="info_key"
           testID={'header-info'}
           style={this.infoStyle()}
           numberOfLines={1}
@@ -320,35 +326,35 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
   private actionItems() {
     const { actionItems, searchableConfig } = this.props;
     const { searching, query } = this.state;
-    let items : HeaderIcon[] = actionItems || [];
+    let items: HeaderIcon[] = actionItems || [];
 
     if (searching) {
       if (query) {
         items = [
-          { 
-            icon: ClearIcon, 
-            onPress: () => this.onPressSearchClear() 
+          {
+            icon: ClearIcon,
+            onPress: () => this.onPressSearchClear()
           }
         ]
       } else {
         items = [];
       }
-    } 
+    }
     else if (searchableConfig) {
       items = [
-        { 
-          icon: SearchIcon, 
-          onPress: () => this.onPressSearch() 
+        {
+          icon: SearchIcon,
+          onPress: () => this.onPressSearch()
         }
       ];
-      if(actionItems){
+      if (actionItems) {
         items = items.concat(actionItems)
       }
     }
 
     if (items) {
       return (
-        <View style={this.state.expanded ? styles.actionPanel : {flexDirection: 'row', alignItems: 'flex-start'}}>
+        <View style={styles.actionPanel}>
           {items.slice(0, 3).map((actionItem, index) => (
             <View key={`action_${index}`}>
               <TouchableOpacity testID={`header-action-item${index}`} onPress={actionItem.onPress} style={index !== 0 ? styles.actionItem : {}}>
@@ -492,6 +498,15 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
       query: ''
     });
   }
+
+  private actionPanelWidth() {
+    const { actionItems, searchableConfig } = this.props;
+    let length = actionItems ? actionItems.length : 0;
+    if (searchableConfig) length++;
+    if (length < 1) return 0;
+    length = Math.min(3, length);
+    return (length * (HeaderClass.ICON_SIZE + HeaderClass.ICON_SPACING))
+  }
 };
 
 /**
@@ -518,10 +533,10 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 16,
     paddingHorizontal: 16,
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   navigation: {
-    marginRight: 16
+    marginRight: 32
   },
   titleContainer: {
     flex: 1,
