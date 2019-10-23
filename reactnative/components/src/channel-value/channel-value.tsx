@@ -54,7 +54,9 @@ class ChannelValueClass extends Component<WithTheme<ChannelValueProps>> {
 
     if (IconClass) {
       return (
-        <IconClass size={this.getFontSize()} color={this.getColor() } />
+        <View style={{ marginRight: Math.round(this.getFontSize() / 6) }}>
+          <IconClass size={this.getFontSize()} color={this.getColor()} />
+        </View>
       );
     }
   }
