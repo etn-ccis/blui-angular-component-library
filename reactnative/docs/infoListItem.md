@@ -13,7 +13,7 @@ const LeafIcon = wrapIcon({ IconClass: Leaf });
     title={'Title'}
     IconClass={LeafIcon}
     subtitle={'A subtitle'}
-    color={PXBColors.red[500]}
+    statusColor={PXBColors.red[500]}
     backgroundColor={PXBColors.blue[50]}
 />
 ```
@@ -35,8 +35,13 @@ You can also supply an array of items that will be displayed as a character-sepa
 | subtitle          | The text to show on the second line     | `string` &vert; `Array<React.ReactNode>`           | no       |                     | 'Subtitle', ['one', 'two', <LeafIcon/>] |
 | subtitleSeparator | Separator character for subtitle        | `string`                                           | no       | '·' ('\u00B7')      | '-', '/'                                |
 | IconClass         | A component to render for the icon      | `React.Component<{ size: number, color: string }>` | no       |                     | `WrappedLeaf`                           |
-| hidePadding       | Remove left padding if no icon is used  | `boolean`                                          | no       | false               | true                                    |
-| color             | Status stripe and title text color      | `string`                                           | no       |                     | '#ff3333', 'orange'                     |
+| hidePadding       | Remove left padding if no icon is used  | `boolean`                                          | no       | false               |                                         |
+| avatar            | Show colored background for icon        | `boolean`                                          | no       | false               |                                         |
+| dense             | Smaller height row with less padding    | `boolean`                                          | no       | false               |                                         |
+| divider           | Show a row separator below the row      | 'full' &vert; 'partial'                            | no       |                     |                                         |
+| rightComponent    | Component to render on the right side   | `JSX.Element`                                      | no       |                     | `<ChannelValue/>`                       |
+| statusColor       | Status stripe and icon color            | `string`                                           | no       |                     | '#ff3333', 'orange'                     |
+| fontColor         | Title text color                        | `string`                                           | no       |                     | '#ff3333', 'orange'                     |
 | backgroundColor   | The color used for the background       | `string`                                           | no       |                     | 'white', 'blue'                         |
 | onPress           | A function to execute when clicked      | `function`                                         | no       |                     | `() => console.log('pressed')`          |
 | theme             | Theme partial for default styling       | `DeepPartial<Theme>`                               | no       |                     | { colors: { text: 'green' } }           |

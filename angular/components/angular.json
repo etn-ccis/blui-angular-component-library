@@ -72,6 +72,41 @@
           }
         }
       }
+    },
+    "empty-state": {
+      "root": "projects/empty-state",
+      "sourceRoot": "projects/empty-state/src",
+      "projectType": "library",
+      "prefix": "pxb",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-ng-packagr:build",
+          "options": {
+            "tsConfig": "projects/empty-state/tsconfig.lib.json",
+            "project": "projects/empty-state/ng-package.json"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/empty-state/src/test.ts",
+            "tsConfig": "projects/empty-state/tsconfig.spec.json",
+            "karmaConfig": "projects/empty-state/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/empty-state/tsconfig.lib.json",
+              "projects/empty-state/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "hero"
