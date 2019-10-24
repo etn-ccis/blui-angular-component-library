@@ -16,7 +16,7 @@ imports: [
     <mat-icon empty-icon>notifications_none</mat-icon>
 </empty-state>
 ```
-
+ 
 ## Available properties
 * ```title``` (String) [**required**]: the primary description.
 * ```description``` (String): more detailed explanation of what the title means.
