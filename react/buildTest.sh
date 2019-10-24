@@ -33,7 +33,7 @@ echo -ne "  index.js: "
 if [ ! -f ./core/ChannelValue/index.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
 echo "Checking Empty State..."
-echo -ne "  ChannelValue.js: "
+echo -ne "  EmptyState.js: "
 if [ ! -f ./core/EmptyState/EmptyState.js  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 echo -ne "  index.js: "
 if [ ! -f ./core/EmptyState/index.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
