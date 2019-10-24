@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import { InfoListItem } from '@pxblue/react-native-components';
+import { InfoListItem, ChannelValue } from '@pxblue/react-native-components';
 import { text, boolean, withKnobs, color } from '@storybook/addon-knobs';
 import Leaf from '@pxblue/icons-svg/leaf.svg';
 import { framedRow } from '../../decorators';
@@ -20,12 +20,14 @@ storiesOf('InfoListItem', module)
       title={text('title', 'Test')}
       subtitle={text('subtitle', 'A simpler view')}
       hidePadding={boolean('hidePadding', true)}
+      divider={boolean('divider', true) ? 'full' : undefined}
     />
   ), notes)
   .add('with icon', () => (
     <InfoListItem
       title={text('title', 'Test')}
       IconClass={LeafIcon}
+      iconColor={color('iconColor', '#ff3333')}
       subtitle={text('subtitle', 'A simpler view')}
     />
   ), notes)
@@ -34,7 +36,8 @@ storiesOf('InfoListItem', module)
       title={text('title', 'Test')}
       IconClass={LeafIcon}
       subtitle={text('subtitle', 'A simpler view')}
-      color={color('statusColor', '#ff3333')}
+      statusColor={color('statusColor', '#ff3333')}
+      fontColor={color('fontColor', '#ff3333')}
       backgroundColor={color('backgroundColor', PXBColors.blue[50])}
     />
   ), notes)
@@ -52,5 +55,13 @@ storiesOf('InfoListItem', module)
       IconClass={LeafIcon}
       subtitle={['4', <Leaf width={12} height={12} />, 'leaves']}
       subtitleSeparator={text('separator', '-')}
+    />
+  ), notes)
+  .add('with custom control', () => (
+    <InfoListItem
+      title={text('title', 'Test')}
+      IconClass={LeafIcon}
+      subtitle={text('subtitle', 'A simpler view')}
+      rightComponent={<ChannelValue value={15} units={'A'}/>}
     />
   ), notes);

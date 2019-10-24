@@ -84,6 +84,10 @@ export const H6 = createTypography(({ fonts, sizes }) => ({
   fontSize: sizes.large,
   letterSpacing: 0
 }));
+export const H7 = createTypography(({ fonts, sizes }) => ({
+  ...fonts.semiBold,
+  fontSize: 18
+}));
 export const Body = createTypography(({ fonts, sizes }) => ({
   ...fonts.regular,
   fontSize: sizes.medium

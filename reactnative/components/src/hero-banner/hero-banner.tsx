@@ -52,6 +52,6 @@ const styles = StyleSheet.create({
     height: 1,
     width: '100%',
     borderBottomWidth: 1,
-    borderColor: Colors.black['100']
+    borderColor: Colors.black['50']
   }
 });

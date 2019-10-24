@@ -39,7 +39,7 @@ export interface Theme {
 // TODO: This default theme is the PX Blue theme...it should be extracted to the @pxblue/themes package
 // and this default theme should be something a bit more generic/material (colors).
 const { ThemeProvider, withTheme } = createTheming<Theme>({
-  roundness: 3,
+  roundness: 4,
   fonts: {
     extraBold: {
       fontFamily: 'Open Sans',

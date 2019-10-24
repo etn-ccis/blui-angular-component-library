@@ -14,7 +14,7 @@ import { getStatusBarHeight } from 'react-native-status-bar-height';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import color from 'color';
 import createAnimatedComponent = Animated.createAnimatedComponent;
-import { withTheme, Theme, WithTheme } from '../theme';
+import { withTheme, Theme, WithTheme, ThemeProvider } from '../theme';
 import { wrapIcon } from '../icon-wrapper/icon-wrapper';
 import { $DeepPartial } from '@callstack/react-theme-provider';
 
@@ -58,11 +58,14 @@ export interface HeaderProps {
   /** Optional header subtitle */
   subtitle?: string;
 
+  /** Optional header third line of text (hidden when collapsed) */
+  info?: string;
+
   /** Leftmost icon on header, used for navigation */
   navigation?: HeaderIcon;
 
   /** List of up to three action items on the right of the header */
-  actionItems?: HeaderIcon[];
+  actionItems?: Array<HeaderIcon>;
 
   /** Determines whether the header can be expanded by being pressed */
   expandable?: boolean;
@@ -97,8 +100,9 @@ interface HeaderState {
 
 class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
   static readonly REGULAR_HEIGHT = 56 + getStatusBarHeight(true);
-  static readonly EXTENDED_HEIGHT = 128 + getStatusBarHeight(true);
+  static readonly EXTENDED_HEIGHT = 200 + getStatusBarHeight(true);
   static readonly ICON_SIZE = 24;
+  static readonly ICON_SPACING = 16;
   static readonly ANIMATION_LENGTH = 300;
 
   private expand: Animated.CompositeAnimation;
@@ -214,9 +218,9 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     }
   }
 
-  private icon(IconClass: ComponentType<{ size: number, color: string }>){
-    if(IconClass){
-      return <IconClass size={HeaderClass.ICON_SIZE} color={this.fontColor()}/>
+  private icon(IconClass: ComponentType<{ size: number, color: string }>) {
+    if (IconClass) {
+      return <IconClass size={HeaderClass.ICON_SIZE} color={this.fontColor()} />
     }
   }
 
@@ -228,14 +232,19 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     if (searchableConfig && searching) {
       content = [this.search(searchableConfig)];
     } else {
-      content = [this.title(), this.subtitle()];
+      content = [this.title(), this.info(), this.subtitle()];
     }
     return (
-      <View style={styles.titleContainer}>
+      <Animated.View style={[styles.titleContainer, {
+        marginRight: this.state.headerHeight.interpolate({
+          inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
+          outputRange: [this.actionPanelWidth(), 0]
+        })
+      }]}>
         <View style={{ flex: 0, justifyContent: 'center' }}>
           {content}
         </View>
-      </View>
+      </Animated.View>
     );
   }
 
@@ -243,10 +252,10 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     const { title } = this.props;
     return (
       <Animated.Text
-        key={'header-title'}
+        key="title_key"
         testID={'header-title'}
         style={this.titleStyle()}
-        numberOfLines={2}
+        numberOfLines={1}
         ellipsizeMode={'tail'}
       >
         {title}
@@ -259,13 +268,30 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     if (subtitle) {
       return (
         <Animated.Text
-          key={'header-subtitle'}
+          key="subtitle_key"
           testID={'header-subtitle'}
           style={this.subtitleStyle()}
           numberOfLines={1}
           ellipsizeMode={'tail'}
         >
           {subtitle}
+        </Animated.Text>
+      );
+    }
+  }
+
+  private info() {
+    const { info } = this.props;
+    if (info) {
+      return (
+        <Animated.Text
+          key="info_key"
+          testID={'header-info'}
+          style={this.infoStyle()}
+          numberOfLines={1}
+          ellipsizeMode={'tail'}
+        >
+          {info}
         </Animated.Text>
       );
     }
@@ -300,37 +326,37 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
   private actionItems() {
     const { actionItems, searchableConfig } = this.props;
     const { searching, query } = this.state;
-    let items : HeaderIcon[] = actionItems || [];
+    let items: HeaderIcon[] = actionItems || [];
 
     if (searching) {
       if (query) {
         items = [
-          { 
-            icon: ClearIcon, 
-            onPress: () => this.onPressSearchClear() 
+          {
+            icon: ClearIcon,
+            onPress: () => this.onPressSearchClear()
           }
         ]
       } else {
         items = [];
       }
-    } 
+    }
     else if (searchableConfig) {
       items = [
-        { 
-          icon: SearchIcon, 
-          onPress: () => this.onPressSearch() 
+        {
+          icon: SearchIcon,
+          onPress: () => this.onPressSearch()
         }
       ];
-      if(actionItems){
+      if (actionItems) {
         items = items.concat(actionItems)
       }
     }
 
     if (items) {
       return (
-        <View style={this.state.expanded ? styles.actionPanel : {flexDirection: 'row', alignItems: 'flex-start'}}>
+        <View style={styles.actionPanel}>
           {items.slice(0, 3).map((actionItem, index) => (
-            <View key={`${index}`}>
+            <View key={`action_${index}`}>
               <TouchableOpacity testID={`header-action-item${index}`} onPress={actionItem.onPress} style={index !== 0 ? styles.actionItem : {}}>
                 {this.icon(actionItem.icon)}
               </TouchableOpacity>
@@ -362,13 +388,15 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     const { theme } = this.props;
     return {
       color: this.fontColor(),
-      // width: this.state.headerHeight.interpolate({
-      //   inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
-      //   outputRange: ['50%', '100%']
-      // }),
+      fontWeight: theme.fonts.semiBold.fontWeight,
+      lineHeight: this.state.headerHeight.interpolate({
+        inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
+        outputRange: [theme.sizes.large, 30]
+      }),
+      fontFamily: theme.fonts.semiBold.fontFamily,
       fontSize: this.state.headerHeight.interpolate({
         inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
-        outputRange: [theme.sizes.large, theme.sizes.extraLarge]
+        outputRange: [theme.sizes.large, 30]
       })
     };
   }
@@ -377,14 +405,30 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     const { theme } = this.props;
     return {
       color: this.fontColor(),
-      // width: this.state.headerHeight.interpolate({
-      //   inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
-      //   outputRange: ['50%', '100%']
-      // }),
       fontWeight: theme.fonts.light.fontWeight,
+      lineHeight: 18,
+      fontFamily: theme.fonts.light.fontFamily,
+      fontSize: 18,
+    };
+  }
+
+  private infoStyle() {
+    const { theme } = this.props;
+    return {
+      color: this.fontColor(),
+      fontWeight: theme.fonts.regular.fontWeight,
+      lineHeight: this.state.headerHeight.interpolate({
+        inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
+        outputRange: [0.1, theme.sizes.large]
+      }),
+      opacity: this.state.headerHeight.interpolate({
+        inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
+        outputRange: [0, 1]
+      }),
+      fontFamily: theme.fonts.light.fontFamily,
       fontSize: this.state.headerHeight.interpolate({
         inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
-        outputRange: [theme.sizes.medium, theme.sizes.large]
+        outputRange: [0.1, theme.sizes.large]
       })
     };
   }
@@ -394,6 +438,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     return {
       padding: 0, // TextInput on Android has some default padding, so this needs to be explicitly set to 0
       color: this.fontColor(),
+      fontFamily: theme.fonts.light.fontFamily,
       fontSize: theme.sizes.large,
       ...theme.fonts.light
     }
@@ -453,6 +498,15 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
       query: ''
     });
   }
+
+  private actionPanelWidth() {
+    const { actionItems, searchableConfig } = this.props;
+    let length = actionItems ? actionItems.length : 0;
+    if (searchableConfig) length++;
+    if (length < 1) return 0;
+    length = Math.min(3, length);
+    return (length * (HeaderClass.ICON_SIZE + HeaderClass.ICON_SPACING))
+  }
 };
 
 /**
@@ -479,10 +533,10 @@ const styles = StyleSheet.create({
     flex: 1,
     paddingTop: 16,
     paddingHorizontal: 16,
-    flexDirection: 'row'
+    flexDirection: 'row',
   },
   navigation: {
-    marginRight: 16
+    marginRight: 32
   },
   titleContainer: {
     flex: 1,
@@ -497,6 +551,6 @@ const styles = StyleSheet.create({
     height: 56
   },
   actionItem: {
-    marginLeft: 24
+    marginLeft: 16
   }
 });
