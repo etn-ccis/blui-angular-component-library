@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import { EmptyState } from '@pxblue/react-native-components';
+import {ChannelValue, EmptyState} from '@pxblue/react-native-components';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import {
    Text,
@@ -12,6 +12,19 @@ import {
 import {Button, Card, Icon} from 'react-native-elements';
 //@ts-ignore
 import * as Colors from '@pxblue/colors';
+
+const actionNotes = {
+
+};
+const placeholderNotes = {
+
+};
+const subcontentNotes = {
+
+};
+const textOnlyNotes = {
+
+};
 
 const devices = [
    {
@@ -34,38 +47,22 @@ const devices = [
    },
 ];
 
-const actionNotes = {
-
-};
-const placeholderNotes = {
-
-};
-const subcontentNotes = {
-
-};
-const textOnlyNotes = {
-
-};
-const notes = {
-   notes: 'Any React Element may be passed in as `icon`; if using an svg, its color and size are not controlled by `ChannelValue`'
-};
-
 storiesOf('EmptyState', module)
    .addDecorator(withKnobs)
    .add('text only', () => (
       <EmptyState
          icon={<Icon name="notifications" size={100} color={Colors.gray[500]} />}
-         title={'No Alarms Found'}
+         title={text('title', 'No Alarms Found')}
       />
    ), textOnlyNotes)
    .add('actions', () => (
       <EmptyState
          icon={<Icon name="devices" size={100} color={Colors.gray[500]} />}
-         title={'No Devices'}
+         title={text('title', 'No Alarms Found')}
          actions={
             <Button
                icon={<Icon name="add-circle-outline" color={Colors.white[500]} />}
-               title=" Add Device"
+               title={text('button title', 'Add Device')}
             />
          }
       />
@@ -83,9 +80,9 @@ storiesOf('EmptyState', module)
             icon={
                <Icon name="trending-up" size={100} color={Colors.gray[500]} />
             }
-            title={'Predictions Page Coming Soon'}
-            description={'A fully redesigned predictions page is coming in our next release!'}
-            actions={ <Button title="LEARN MORE" type={'outline'} /> }
+            title={text('title', 'Predictions Page Coming Soon')}
+            description={text('description', 'A fully redesigned predictions page is coming in our next release!')}
+            actions={ <Button title={text('button title', 'LEARN MORE')} type={'outline'} /> }
          />
       </ImageBackground>
    ), placeholderNotes)
@@ -118,7 +115,7 @@ storiesOf('EmptyState', module)
                      icon={
                         <Icon name="devices" size={100} color={Colors.gray[500]} />
                      }
-                     title={'No Data'}
+                     title={text('title', 'No Data')}
                   />
                )}
             </Card>
