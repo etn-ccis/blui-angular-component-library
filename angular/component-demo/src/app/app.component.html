@@ -86,37 +86,11 @@
 </mat-card>
 
 <mat-card>
-  <mat-tab-group>
-    <mat-tab label="ACTION">
-      <empty-state title="No Devices">
-        <mat-icon empty-icon>devices</mat-icon>
-        <button mat-raised-button color="primary" actions>
-          <mat-icon>add_circle</mat-icon>
-          ADD DEVICE
-        </button>
-      </empty-state>
-    </mat-tab>
-
-    <mat-tab label="TEXT ONLY">
-      <empty-state title="No Alarms Found">
-        <mat-icon empty-icon>notifications_none</mat-icon>
-      </empty-state>
-    </mat-tab>
-
-    <mat-tab label="PLACEHOLDER">
-      <empty-state title="Predictions Page Coming Soon"
-                   description="A fully redesigned predictions page is coming in our next release!">
-        <mat-icon empty-icon>trending_up</mat-icon>
-        <button mat-stroked-button color="primary" actions>
-          LEARN MORE
-        </button>
-      </empty-state>`
-    </mat-tab>
-
-    <mat-tab label="SUB-CONTENT">
-      <subcontent></subcontent>
-    </mat-tab>
-  </mat-tab-group>
-
-
+  <empty-state title="No Devices">
+    <mat-icon empty-icon>devices</mat-icon>
+    <button mat-raised-button color="primary" actions>
+      <mat-icon>add_circle</mat-icon>
+      ADD DEVICE
+    </button>
+  </empty-state>
 </mat-card>
