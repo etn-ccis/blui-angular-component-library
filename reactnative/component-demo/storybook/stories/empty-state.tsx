@@ -1,6 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import {ChannelValue, EmptyState} from '@pxblue/react-native-components';
+import { EmptyState } from '@pxblue/react-native-components';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import {
    Text,
