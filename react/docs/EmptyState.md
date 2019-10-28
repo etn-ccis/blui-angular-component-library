@@ -12,7 +12,7 @@ import EmptyState from '@pxblue/react-components/core/EmptyState';
 />
 ```
  
-## Available properties
+## API
 * ```title``` (String) [**required**]: the primary description.
 * ```description``` (String): more detailed explanation of what the title means.
 * ```icon``` (Element): dynamic icon content.
