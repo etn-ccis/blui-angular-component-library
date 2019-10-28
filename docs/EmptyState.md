@@ -17,8 +17,12 @@ imports: [
 </empty-state>
 ```
  
-## Available properties
-* ```title``` (String) [**required**]: the primary description.
-* ```description``` (String): more detailed explanation of what the title means.
-* ```empty-icon``` (ng-content): dynamic icon content.
-* ```actions``` (ng-content): dynamic content that a user can interact with (buttons, forms, etc).
+ ## API
+ 
+ | Name        | Type        | Required | Default | Examples                                                  |
+ |-------------|-------------|----------|---------|-----------------------------------------------------------|
+ | title       | string      | yes      |         | 'No Data Found'                                           |
+ | description | string      | no       |         | 'Come back to this page later, it's under construction'   |
+ | empty-icon  | ng-content  | no       |         | `<mat-icon empty-icon>devices</mat-icon>`                 |
+ | actions     | ng-content  | no       |         | `<button actions>ADD DEVICE</button>`   |   
+
