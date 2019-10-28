@@ -1,5 +1,230 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
+exports[`EmptyState Tests  Actions Renders 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+      "padding": 10,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#727e84",
+        },
+        Object {
+          "fontFamily": "Open Sans",
+          "fontSize": 20,
+          "fontWeight": "600",
+          "letterSpacing": 0,
+        },
+        Object {},
+        Object {
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Test
+  </Text>
+  <View
+    style={
+      Object {
+        "marginTop": 10,
+      }
+    }
+  >
+    <View
+      style={
+        Object {
+          "borderRadius": 3,
+        }
+      }
+    >
+      <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
+        style={
+          Object {
+            "opacity": 1,
+          }
+        }
+      >
+        <View
+          style={
+            Object {
+              "alignItems": "center",
+              "backgroundColor": "#2089dc",
+              "borderColor": "#2089dc",
+              "borderRadius": 3,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "padding": 8,
+            }
+          }
+        >
+          <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "justifyContent": "center",
+                }
+              }
+              theme={
+                Object {
+                  "colors": Object {
+                    "disabled": "hsl(208, 8%, 90%)",
+                    "divider": "#bcbbc1",
+                    "error": "#ff190c",
+                    "grey0": "#393e42",
+                    "grey1": "#43484d",
+                    "grey2": "#5e6977",
+                    "grey3": "#86939e",
+                    "grey4": "#bdc6cf",
+                    "grey5": "#e1e8ee",
+                    "greyOutline": "#bbb",
+                    "platform": Object {
+                      "android": Object {
+                        "error": "#f44336",
+                        "primary": "#2196f3",
+                        "secondary": "#9C27B0",
+                        "success": "#4caf50",
+                        "warning": "#ffeb3b",
+                      },
+                      "ios": Object {
+                        "error": "#ff3b30",
+                        "primary": "#007aff",
+                        "secondary": "#5856d6",
+                        "success": "#4cd964",
+                        "warning": "#ffcc00",
+                      },
+                    },
+                    "primary": "#2089dc",
+                    "searchBg": "#303337",
+                    "secondary": "#8F0CE8",
+                    "success": "#52c41a",
+                    "warning": "#faad14",
+                  },
+                }
+              }
+              underlayColor="white"
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "black",
+                      "fontSize": 24,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "fontFamily": "Material Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+                testID="iconIcon"
+              >
+                
+              </Text>
+            </View>
+          </View>
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 18,
+                "paddingBottom": 1,
+                "paddingTop": 2,
+                "textAlign": "center",
+              }
+            }
+          >
+             Add Device
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
+
+exports[`EmptyState Tests  Description Renders 1`] = `
+<View
+  style={
+    Object {
+      "alignItems": "center",
+      "flex": 1,
+      "justifyContent": "center",
+      "padding": 10,
+    }
+  }
+>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#727e84",
+        },
+        Object {
+          "fontFamily": "Open Sans",
+          "fontSize": 20,
+          "fontWeight": "600",
+          "letterSpacing": 0,
+        },
+        Object {},
+        Object {
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Test
+  </Text>
+  <Text
+    style={
+      Array [
+        Object {
+          "color": "#007bc1",
+        },
+        Object {
+          "fontFamily": "Open Sans",
+          "fontSize": 14,
+          "fontWeight": "600",
+        },
+        Object {},
+        Object {
+          "textAlign": "center",
+        },
+      ]
+    }
+  >
+    Description
+  </Text>
+</View>
+`;
+
 exports[`EmptyState Tests  Icon Renders 1`] = `
 <View
   style={
@@ -11,295 +236,47 @@ exports[`EmptyState Tests  Icon Renders 1`] = `
     }
   }
 >
-  <View
-    style={
-      Object {
-        "display": "flex",
-        "fontSize": 100,
-        "marginBottom": 15,
-      }
-    }
-  >
-    <View>
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "transparent",
-            "justifyContent": "center",
-          }
-        }
-        theme={
-          Object {
-            "colors": Object {
-              "disabled": "hsl(208, 8%, 90%)",
-              "divider": "#bcbbc1",
-              "error": "#ff190c",
-              "grey0": "#393e42",
-              "grey1": "#43484d",
-              "grey2": "#5e6977",
-              "grey3": "#86939e",
-              "grey4": "#bdc6cf",
-              "grey5": "#e1e8ee",
-              "greyOutline": "#bbb",
-              "platform": Object {
-                "android": Object {
-                  "error": "#f44336",
-                  "primary": "#2196f3",
-                  "secondary": "#9C27B0",
-                  "success": "#4caf50",
-                  "warning": "#ffeb3b",
-                },
-                "ios": Object {
-                  "error": "#ff3b30",
-                  "primary": "#007aff",
-                  "secondary": "#5856d6",
-                  "success": "#4cd964",
-                  "warning": "#ffcc00",
-                },
-              },
-              "primary": "#2089dc",
-              "searchBg": "#303337",
-              "secondary": "#8F0CE8",
-              "success": "#52c41a",
-              "warning": "#faad14",
-            },
-          }
-        }
-        underlayColor="white"
-      >
-        <Text
-          allowFontScaling={false}
-          style={
-            Array [
-              Object {
-                "color": "black",
-                "fontSize": 24,
-              },
-              Object {
-                "backgroundColor": "transparent",
-              },
-              Object {
-                "fontFamily": "Material Icons",
-                "fontStyle": "normal",
-                "fontWeight": "normal",
-              },
-              Object {},
-            ]
-          }
-          testID="iconIcon"
-        >
-          
-        </Text>
-      </View>
-    </View>
-  </View>
   <Text
+    allowFontScaling={false}
     style={
-      Object {
-        "color": "#727e84",
-        "fontSize": 20,
-        "fontWeight": "500",
-        "paddingBottom": 10,
-        "textAlign": "center",
-      }
-    }
-  >
-    Test
-  </Text>
-</View>
-`;
-
-exports[`EmptyState Tests  Only Actions Renders 1`] = `
-<View
-  style={
-    Object {
-      "alignItems": "center",
-      "flex": 1,
-      "justifyContent": "center",
-      "padding": 10,
-    }
-  }
->
-  <Text
-    style={
-      Object {
-        "color": "#727e84",
-        "fontSize": 20,
-        "fontWeight": "500",
-        "paddingBottom": 10,
-        "textAlign": "center",
-      }
-    }
-  >
-    Test
-  </Text>
-  <View
-    style={
-      Object {
-        "borderRadius": 3,
-      }
-    }
-  >
-    <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
-      style={
+      Array [
         Object {
-          "opacity": 1,
-        }
-      }
-    >
-      <View
-        style={
-          Object {
-            "alignItems": "center",
-            "backgroundColor": "#2089dc",
-            "borderColor": "#2089dc",
-            "borderRadius": 3,
-            "borderWidth": 0,
-            "flexDirection": "row",
-            "justifyContent": "center",
-            "padding": 8,
-          }
-        }
-      >
-        <View>
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "justifyContent": "center",
-              }
-            }
-            theme={
-              Object {
-                "colors": Object {
-                  "disabled": "hsl(208, 8%, 90%)",
-                  "divider": "#bcbbc1",
-                  "error": "#ff190c",
-                  "grey0": "#393e42",
-                  "grey1": "#43484d",
-                  "grey2": "#5e6977",
-                  "grey3": "#86939e",
-                  "grey4": "#bdc6cf",
-                  "grey5": "#e1e8ee",
-                  "greyOutline": "#bbb",
-                  "platform": Object {
-                    "android": Object {
-                      "error": "#f44336",
-                      "primary": "#2196f3",
-                      "secondary": "#9C27B0",
-                      "success": "#4caf50",
-                      "warning": "#ffeb3b",
-                    },
-                    "ios": Object {
-                      "error": "#ff3b30",
-                      "primary": "#007aff",
-                      "secondary": "#5856d6",
-                      "success": "#4cd964",
-                      "warning": "#ffcc00",
-                    },
-                  },
-                  "primary": "#2089dc",
-                  "searchBg": "#303337",
-                  "secondary": "#8F0CE8",
-                  "success": "#52c41a",
-                  "warning": "#faad14",
-                },
-              }
-            }
-            underlayColor="white"
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": "black",
-                    "fontSize": 24,
-                  },
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  Object {
-                    "fontFamily": "Material Icons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-              testID="iconIcon"
-            >
-              
-            </Text>
-          </View>
-        </View>
-        <Text
-          style={
-            Object {
-              "color": "white",
-              "fontSize": 18,
-              "paddingBottom": 1,
-              "paddingTop": 2,
-              "textAlign": "center",
-            }
-          }
-        >
-           Add Device
-        </Text>
-      </View>
-    </View>
-  </View>
-</View>
-`;
-
-exports[`EmptyState Tests  Only Description Renders 1`] = `
-<View
-  style={
-    Object {
-      "alignItems": "center",
-      "flex": 1,
-      "justifyContent": "center",
-      "padding": 10,
+          "color": "#727e84",
+          "fontSize": 100,
+        },
+        undefined,
+        Object {
+          "fontFamily": "Material Design Icons",
+          "fontStyle": "normal",
+          "fontWeight": "normal",
+        },
+        Object {},
+      ]
     }
-  }
->
-  <Text
-    style={
-      Object {
-        "color": "#727e84",
-        "fontSize": 20,
-        "fontWeight": "500",
-        "paddingBottom": 10,
-        "textAlign": "center",
-      }
-    }
+    testID="icon"
   >
-    Test
+    
   </Text>
   <Text
     style={
-      Object {
-        "color": "#007bc1",
-        "fontSize": 14,
-        "fontWeight": "500",
-        "paddingBottom": 10,
-        "textAlign": "center",
-      }
+      Array [
+        Object {
+          "color": "#727e84",
+        },
+        Object {
+          "fontFamily": "Open Sans",
+          "fontSize": 20,
+          "fontWeight": "600",
+          "letterSpacing": 0,
+        },
+        Object {},
+        Object {
+          "textAlign": "center",
+        },
+      ]
     }
   >
-    Description
+    Test
   </Text>
 </View>
 `;
@@ -317,13 +294,21 @@ exports[`EmptyState Tests  Only Title Renders 1`] = `
 >
   <Text
     style={
-      Object {
-        "color": "#727e84",
-        "fontSize": 20,
-        "fontWeight": "500",
-        "paddingBottom": 10,
-        "textAlign": "center",
-      }
+      Array [
+        Object {
+          "color": "#727e84",
+        },
+        Object {
+          "fontFamily": "Open Sans",
+          "fontSize": 20,
+          "fontWeight": "600",
+          "letterSpacing": 0,
+        },
+        Object {},
+        Object {
+          "textAlign": "center",
+        },
+      ]
     }
   >
     EmptyState
@@ -344,26 +329,41 @@ exports[`EmptyState Tests  Title, actions, Description Renders 1`] = `
 >
   <Text
     style={
-      Object {
-        "color": "#727e84",
-        "fontSize": 20,
-        "fontWeight": "500",
-        "paddingBottom": 10,
-        "textAlign": "center",
-      }
+      Array [
+        Object {
+          "color": "#727e84",
+        },
+        Object {
+          "fontFamily": "Open Sans",
+          "fontSize": 20,
+          "fontWeight": "600",
+          "letterSpacing": 0,
+        },
+        Object {},
+        Object {
+          "textAlign": "center",
+        },
+      ]
     }
   >
     EmptyState
   </Text>
   <Text
     style={
-      Object {
-        "color": "#007bc1",
-        "fontSize": 14,
-        "fontWeight": "500",
-        "paddingBottom": 10,
-        "textAlign": "center",
-      }
+      Array [
+        Object {
+          "color": "#007bc1",
+        },
+        Object {
+          "fontFamily": "Open Sans",
+          "fontSize": 14,
+          "fontWeight": "600",
+        },
+        Object {},
+        Object {
+          "textAlign": "center",
+        },
+      ]
     }
   >
     Description
@@ -371,127 +371,135 @@ exports[`EmptyState Tests  Title, actions, Description Renders 1`] = `
   <View
     style={
       Object {
-        "borderRadius": 3,
+        "marginTop": 10,
       }
     }
   >
     <View
-      accessible={true}
-      clickable={true}
-      isTVSelectable={true}
-      onClick={[Function]}
-      onResponderGrant={[Function]}
-      onResponderMove={[Function]}
-      onResponderRelease={[Function]}
-      onResponderTerminate={[Function]}
-      onResponderTerminationRequest={[Function]}
-      onStartShouldSetResponder={[Function]}
       style={
         Object {
-          "opacity": 1,
+          "borderRadius": 3,
         }
       }
     >
       <View
+        accessible={true}
+        clickable={true}
+        isTVSelectable={true}
+        onClick={[Function]}
+        onResponderGrant={[Function]}
+        onResponderMove={[Function]}
+        onResponderRelease={[Function]}
+        onResponderTerminate={[Function]}
+        onResponderTerminationRequest={[Function]}
+        onStartShouldSetResponder={[Function]}
         style={
           Object {
-            "alignItems": "center",
-            "backgroundColor": "#2089dc",
-            "borderColor": "#2089dc",
-            "borderRadius": 3,
-            "borderWidth": 0,
-            "flexDirection": "row",
-            "justifyContent": "center",
-            "padding": 8,
+            "opacity": 1,
           }
         }
       >
-        <View>
-          <View
-            style={
-              Object {
-                "alignItems": "center",
-                "backgroundColor": "transparent",
-                "justifyContent": "center",
-              }
-            }
-            theme={
-              Object {
-                "colors": Object {
-                  "disabled": "hsl(208, 8%, 90%)",
-                  "divider": "#bcbbc1",
-                  "error": "#ff190c",
-                  "grey0": "#393e42",
-                  "grey1": "#43484d",
-                  "grey2": "#5e6977",
-                  "grey3": "#86939e",
-                  "grey4": "#bdc6cf",
-                  "grey5": "#e1e8ee",
-                  "greyOutline": "#bbb",
-                  "platform": Object {
-                    "android": Object {
-                      "error": "#f44336",
-                      "primary": "#2196f3",
-                      "secondary": "#9C27B0",
-                      "success": "#4caf50",
-                      "warning": "#ffeb3b",
-                    },
-                    "ios": Object {
-                      "error": "#ff3b30",
-                      "primary": "#007aff",
-                      "secondary": "#5856d6",
-                      "success": "#4cd964",
-                      "warning": "#ffcc00",
-                    },
-                  },
-                  "primary": "#2089dc",
-                  "searchBg": "#303337",
-                  "secondary": "#8F0CE8",
-                  "success": "#52c41a",
-                  "warning": "#faad14",
-                },
-              }
-            }
-            underlayColor="white"
-          >
-            <Text
-              allowFontScaling={false}
-              style={
-                Array [
-                  Object {
-                    "color": "black",
-                    "fontSize": 24,
-                  },
-                  Object {
-                    "backgroundColor": "transparent",
-                  },
-                  Object {
-                    "fontFamily": "Material Icons",
-                    "fontStyle": "normal",
-                    "fontWeight": "normal",
-                  },
-                  Object {},
-                ]
-              }
-              testID="iconIcon"
-            >
-              
-            </Text>
-          </View>
-        </View>
-        <Text
+        <View
           style={
             Object {
-              "color": "white",
-              "fontSize": 18,
-              "paddingBottom": 1,
-              "paddingTop": 2,
-              "textAlign": "center",
+              "alignItems": "center",
+              "backgroundColor": "#2089dc",
+              "borderColor": "#2089dc",
+              "borderRadius": 3,
+              "borderWidth": 0,
+              "flexDirection": "row",
+              "justifyContent": "center",
+              "padding": 8,
             }
           }
         >
-           Add Device
-        </Text>
+          <View>
+            <View
+              style={
+                Object {
+                  "alignItems": "center",
+                  "backgroundColor": "transparent",
+                  "justifyContent": "center",
+                }
+              }
+              theme={
+                Object {
+                  "colors": Object {
+                    "disabled": "hsl(208, 8%, 90%)",
+                    "divider": "#bcbbc1",
+                    "error": "#ff190c",
+                    "grey0": "#393e42",
+                    "grey1": "#43484d",
+                    "grey2": "#5e6977",
+                    "grey3": "#86939e",
+                    "grey4": "#bdc6cf",
+                    "grey5": "#e1e8ee",
+                    "greyOutline": "#bbb",
+                    "platform": Object {
+                      "android": Object {
+                        "error": "#f44336",
+                        "primary": "#2196f3",
+                        "secondary": "#9C27B0",
+                        "success": "#4caf50",
+                        "warning": "#ffeb3b",
+                      },
+                      "ios": Object {
+                        "error": "#ff3b30",
+                        "primary": "#007aff",
+                        "secondary": "#5856d6",
+                        "success": "#4cd964",
+                        "warning": "#ffcc00",
+                      },
+                    },
+                    "primary": "#2089dc",
+                    "searchBg": "#303337",
+                    "secondary": "#8F0CE8",
+                    "success": "#52c41a",
+                    "warning": "#faad14",
+                  },
+                }
+              }
+              underlayColor="white"
+            >
+              <Text
+                allowFontScaling={false}
+                style={
+                  Array [
+                    Object {
+                      "color": "black",
+                      "fontSize": 24,
+                    },
+                    Object {
+                      "backgroundColor": "transparent",
+                    },
+                    Object {
+                      "fontFamily": "Material Icons",
+                      "fontStyle": "normal",
+                      "fontWeight": "normal",
+                    },
+                    Object {},
+                  ]
+                }
+                testID="iconIcon"
+              >
+                
+              </Text>
+            </View>
+          </View>
+          <Text
+            style={
+              Object {
+                "color": "white",
+                "fontSize": 18,
+                "paddingBottom": 1,
+                "paddingTop": 2,
+                "textAlign": "center",
+              }
+            }
+          >
+             Add Device
+          </Text>
+        </View>
       </View>
     </View>
   </View>

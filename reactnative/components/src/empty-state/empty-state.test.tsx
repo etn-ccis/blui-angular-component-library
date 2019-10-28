@@ -1,14 +1,16 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import { Button, Icon } from 'react-native-elements';
-import {EmptyState} from "./empty-state";
+import { Button, Icon as RNIcon } from 'react-native-elements';
+import { wrapIcon, EmptyState } from '..';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+const Line = wrapIcon({ IconClass: Icon, name: 'chart-line-variant' });
 
 
 describe('EmptyState Tests ', function () {
 
    it('Icon Renders', () => {
       const tree = renderer.create(
-         <EmptyState title={'Test'} icon={<Icon name="add-circle-outline"/>}/>
+         <EmptyState title={'Test'} IconClass={Line}/>
       ).toJSON();
       expect(tree).toMatchSnapshot();
    });
@@ -31,7 +33,7 @@ describe('EmptyState Tests ', function () {
       const tree = renderer.create(
          <EmptyState title={'Test'} actions={
             <Button
-               icon={<Icon name="add-circle-outline"/>}
+               icon={<RNIcon name="add-circle-outline"/>}
                title=" Add Device"
             />
          } />
@@ -43,7 +45,7 @@ describe('EmptyState Tests ', function () {
       const tree = renderer.create(
          <EmptyState  title={'EmptyState'} description={'Description'} actions={
             <Button
-               icon={<Icon name="add-circle-outline"/>}
+               icon={<RNIcon name="add-circle-outline"/>}
                title=" Add Device"
             />
          }/>
