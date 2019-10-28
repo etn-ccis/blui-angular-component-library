@@ -26,8 +26,8 @@ echo -e "${GREEN}Done${NC}"
 
 echo -en "\r\n${BRED}Linking Components: ${NC}"
 if [ ! -f ./component-demo/node_modules/@pxblue/react-components/package.json ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
-if [ ! -s ./component-demo/node_modules/@pxblue/react-components/core ]; 
-    then 
+if [ ! -s ./component-demo/node_modules/@pxblue/react-components/core ];
+    then
         if [ ! -f ./component-demo/node_modules/@pxblue/react-components/core/index.js ];
         then echo -e "${BRED}Not Linked${NC}" && exit 1; 
         fi;
