@@ -17,10 +17,10 @@ import { EmptyState } from '@pxblue/react-native-components';
 
 ## Props
 
-| Name        | Type     | Required | Default | Examples                      |
-|-------------|----------|----------|---------|-------------------------------|
-| title       | string   | yes      |         | 'No Data Found'                     |
-| description | string   | no       |         | 'Come back to this page later, it's under construction'       |
-| icon        | element  | no       |         | \<Icon name="devices" size={100} color={Colors.gray[500]  />   |
-| actions     | element  | no       |         | \<Button title={'click me'} />          |
+| Name        | Type     | Required | Default | Examples                                                        |
+|-------------|----------|----------|---------|-----------------------------------------------------------------|
+| title       | string   | yes      |         | 'No Data Found'                                                 |
+| description | string   | no       |         | 'Come back to this page later, it's under construction'         |
+| icon        | element  | no       |         | `<Icon name="devices" size={100} color={Colors.gray[500]  />`   |
+| actions     | element  | no       |         | `<Button title={'click me'} />`                                 |
 
