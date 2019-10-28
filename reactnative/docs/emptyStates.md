@@ -15,7 +15,7 @@ import { EmptyState } from '@pxblue/react-native-components';
 />
 ```
 
-## Props
+## API
 
 | Name        | Type     | Required | Default | Examples                                                        |
 |-------------|----------|----------|---------|-----------------------------------------------------------------|
