@@ -1,6 +1,7 @@
 // import { BucketView } from './bucket-view';
 import { ChannelValue } from './channel-value';
 // import { CollapsibleSection } from './collapsible-section';
+import { EmptyState} from "./empty-state";
 // export * from './drawer';
 import { Header } from './header';
 import { Hero } from './hero';
@@ -16,6 +17,7 @@ export * from './typography';
 export {
   // BucketView,
   ChannelValue,
+  EmptyState,
   // CollapsibleSection,
   Header,
   Hero,
