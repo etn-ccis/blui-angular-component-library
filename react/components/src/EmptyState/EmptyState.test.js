@@ -63,9 +63,9 @@ describe("EmptyState", () => {
         );
         expect(wrapper.find(Typography).length).toEqual(2);
         wrapper = shallow(
-            <EmptyState icon={<PersonIcon />} />
+            <EmptyState icon={<PersonIcon />} title="Test"/>
         );
-        expect(wrapper.find(Typography).length).toEqual(0);
+        expect(wrapper.find(Typography).length).toEqual(1);
     });
     it('renders with actions', () => {
         let wrapper = shallow(
