@@ -5,7 +5,7 @@ import ChannelValue from '@pxblue/react-components/core/ChannelValue';
 import EmptyState from '@pxblue/react-components/core/EmptyState';
 
 import DevicesIcon from '@material-ui/icons/Devices'
-import AddIcon from '@material-ui/icons/AddCircleOutlined'
+import {Add}  from '@material-ui/icons'
 
 import Trend from '@material-ui/icons/TrendingUp';
 import Timer from '@material-ui/icons/Timer';
@@ -126,12 +126,12 @@ export default ({...props}) => (
         <Card style={{marginTop: '10px'}}>
             <EmptyState
                 icon={
-                    <DevicesIcon style={{fontSize: '100px', marginBottom: '15px'}}/>
+                    <DevicesIcon fontSize={'inherit'}/>
                 }
                 title={"No Devices"}
                 actions={
-                    <Button variant="contained" color="primary" style={{margin: '10px'}}>
-                        <AddIcon style={{marginRight: '5px'}}/>
+                    <Button variant="contained" color="primary">
+                        <Add style={{marginRight: '5px'}}/>
                         Add Device
                     </Button>
                 }
