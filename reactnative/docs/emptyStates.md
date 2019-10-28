@@ -22,5 +22,6 @@ import { EmptyState } from '@pxblue/react-native-components';
 | title       | string   | yes      |         | 'No Data Found'                                                 |
 | description | string   | no       |         | 'Come back to this page later, it's under construction'         |
 | icon        | element  | no       |         | `<Icon name="devices" size={100} color={Colors.gray[500]  />`   |
+| iconStyles  | Object   | no       |         | `{fontSize:'500px', marginBottom: '55px'}`                      |
 | actions     | element  | no       |         | `<Button title={'click me'} />`                                 |
 

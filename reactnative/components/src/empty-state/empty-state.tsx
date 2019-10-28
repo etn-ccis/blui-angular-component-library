@@ -3,9 +3,10 @@ import { Text, View, StyleSheet } from 'react-native';
 import * as Colors from '@pxblue/colors';
 
 export interface EmptyStateProps {
-   title?: string;
+   title: string;
    description?: string;
    icon?: any; // DOM?
+   iconStyles?: any;
    actions?: any; // DOM?
 }
 
@@ -30,15 +31,20 @@ const styles = StyleSheet.create({
       textAlign: 'center',
       paddingBottom: 10,
    },
+   icon: {
+      marginBottom: 15,
+      display: 'flex',
+      fontSize: 100
+   }
 });
 
 export class EmptyState extends React.Component<EmptyStateProps> {
    render() {
-      const { title, description, icon, actions } = this.props;
+      const { title, description, icon, actions, iconStyles } = this.props;
       return (
          <View style={styles.container}>
-            {icon}
-            {title ? <Text style={styles.title}>{title}</Text> : null}
+            {icon ? <View style={Object.assign(styles.icon, iconStyles)}>{icon}</View> : null }
+            {<Text style={styles.title}>{title}</Text>}
             {description ? <Text style={styles.description}>{description}</Text> : null}
             {actions ? actions : null}
          </View>

@@ -8,7 +8,7 @@ describe('EmptyState Tests ', function () {
 
    it('Icon Renders', () => {
       const tree = renderer.create(
-         <EmptyState icon={<Icon name="add-circle-outline"/>}/>
+         <EmptyState title={'Test'} icon={<Icon name="add-circle-outline"/>}/>
       ).toJSON();
       expect(tree).toMatchSnapshot();
    });
@@ -22,14 +22,14 @@ describe('EmptyState Tests ', function () {
 
    it('Only Description Renders', () => {
       const tree = renderer.create(
-         <EmptyState description={'Description'} />
+         <EmptyState title={'Test'} description={'Description'} />
       ).toJSON();
       expect(tree).toMatchSnapshot();
    });
 
    it('Only Actions Renders', () => {
       const tree = renderer.create(
-         <EmptyState actions={
+         <EmptyState title={'Test'} actions={
             <Button
                icon={<Icon name="add-circle-outline"/>}
                title=" Add Device"
