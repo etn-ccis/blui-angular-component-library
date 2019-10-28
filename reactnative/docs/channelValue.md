@@ -25,6 +25,6 @@ const Battery = wrapIcon({ IconClass: _Battery });
 | IconClass | A component to render for the icon      | `React.Component<{ size: number, color: string }>`                 | no       |                     | `<WrappedLeaf/>`              |
 | units     | The units for the supplied value        | `string`                                                           | no       |                     | 'hz', '$'                     |
 | prefix    | If true, shows units before the value   | `boolean`                                                          | no       | false               | true, false                   |
-| fontSize  | The size of the font for the value      | `extraSmall` &vert; `'small'` &vert; `'medium'` &vert; `'large'` &vert; `'extraLarge'` &vert; `giant` | no       | 'medium'            | 12, 30                        |
+| fontSize  | The size of the font for the value      | keyof [`theme.sizes`](./theme.md)                                  | no       | 'medium'            | 'extraLarge'                  |
 | color     | The color used for the text elements    | `string`                                                           | no       | `theme.colors.text` | 'black', '#000000'            |
 | theme     | Theme partial for default styling       | `DeepPartial<Theme>`                                               | no       |                     | { colors: { text: 'green' } } |

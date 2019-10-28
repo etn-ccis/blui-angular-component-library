@@ -15,7 +15,7 @@ storiesOf('Hero', module)
   .addDecorator(withKnobs)
   .addDecorator(centered)
   .add('with basic properties', () => (
-    <Hero
+    <Hero style={{width: '100%'}}
       label={text('label', 'Efficiency')} 
       IconClass={Leaf} 
       value={text('value', '94')}
@@ -23,7 +23,7 @@ storiesOf('Hero', module)
     />
   ))
   .add('with ChannelValue children', () => (
-    <Hero 
+    <Hero style={{width: '100%'}}
       label={text('label', 'Duration')} 
       IconClass={Clock} 
     >
@@ -32,7 +32,7 @@ storiesOf('Hero', module)
     </Hero>
   ))
   .add('with press event', () => (
-    <Hero 
+    <Hero style={{width: '100%'}}
       label={text('label', 'Efficiency')} 
       IconClass={Leaf} 
       value={text('value', '94')} 
@@ -41,7 +41,7 @@ storiesOf('Hero', module)
     />
   ))
   .add('with full customization', () => (
-    <Hero 
+    <Hero style={{width: '100%'}}
       label={text('label', 'Efficiency')} 
       IconClass={Leaf} 
       iconSize={48}

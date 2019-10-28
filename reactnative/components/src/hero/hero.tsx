@@ -1,9 +1,7 @@
 import React, { Component, ComponentType } from 'react';
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native';
+import { StyleSheet, TouchableOpacity, View, StyleProp, ViewStyle } from 'react-native';
 import { ChannelValue } from '../channel-value';
-import * as Colors from '@pxblue/colors';
-import { wrapIcon } from '../icon-wrapper/icon-wrapper';
-import { Theme, withTheme, WithTheme } from '../theme';
+import { Theme, withTheme, WithTheme, ThemeProvider } from '../theme';
 import { Label } from '..';
 import { $DeepPartial } from '@callstack/react-theme-provider';
 
@@ -24,6 +22,9 @@ export interface HeroProps {
   iconColor?: string
 
   /** Primary icon color */
+  iconBackgroundColor?: string
+
+  /** Primary icon color */
   fontSize?: keyof Theme['sizes'];
 
   /** Value for ChannelValue child */
@@ -41,6 +42,9 @@ export interface HeroProps {
   /** Callback for onPress event  */
   onPress?: () => void;
 
+  /** Style configuration for the wrapper View */
+  style?: StyleProp<ViewStyle>;
+
   /**
    * TestID
    */
@@ -54,11 +58,11 @@ export interface HeroProps {
 
 class HeroClass extends Component<WithTheme<HeroProps>> {
   public render() {
-    const {label, value, ValueIconClass, valueColor, fontSize, units, onPress, children} = this.props;
+    const {theme, label, value, ValueIconClass, valueColor, fontSize, units, onPress, iconBackgroundColor, children, style} = this.props;
 
     return (
-      <TouchableOpacity onPress={onPress} disabled={!onPress} style={styles.wrapper}>
-        <View style={styles.icon}>
+      <TouchableOpacity onPress={onPress} disabled={!onPress} style={[styles.wrapper, style]}>
+        <View style={[styles.icon, {backgroundColor: iconBackgroundColor || theme.colors.surface, borderRadius: 24}]}>
           {this.icon()}
         </View>
         <View style={styles.values}>

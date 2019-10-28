@@ -28,7 +28,8 @@
             ],
             "styles": [
               "src/styles.scss",
-              "./node_modules/typeface-open-sans"
+              "./node_modules/typeface-open-sans",
+              "./node_modules/@pxblue/themes/angular/theme.scss"
             ],
             "scripts": []
           },
@@ -85,7 +86,8 @@
             "karmaConfig": "src/karma.conf.js",
             "styles": [
               "src/styles.scss",
-              "./node_modules/typeface-open-sans"
+              "./node_modules/typeface-open-sans",
+              "./node_modules/@pxblue/themes/angular/theme.scss"
             ],
             "scripts": [],
             "assets": [

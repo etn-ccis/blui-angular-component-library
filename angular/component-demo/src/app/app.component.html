@@ -25,7 +25,7 @@
     </pxb-hero-banner>
   </mat-list>
 
-  
+
   <mat-list class="list" style="padding: 0">
     <mat-list-item>
       <mat-icon mat-list-icon svgIcon="px-icons:leaf"></mat-icon>
@@ -82,5 +82,15 @@
       </div>
     </mat-list-item>
   </mat-list>
-  
+
+</mat-card>
+
+<mat-card style="margin-top:10px">
+  <empty-state title="No Devices">
+    <mat-icon empty-icon>devices</mat-icon>
+    <button mat-raised-button color="primary" actions>
+      <mat-icon>add_circle</mat-icon>
+      ADD DEVICE
+    </button>
+  </empty-state>
 </mat-card>

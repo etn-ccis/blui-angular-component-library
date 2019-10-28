@@ -993,10 +993,10 @@
   resolved "https://registry.yarnpkg.com/@pxblue/icons-svg/-/icons-svg-1.0.17.tgz#cce36cf2f8806161a20cf694954fc1fca364fedc"
   integrity sha512-HOGsepT6zKnGNzegm4piqUd8WrolB8C/wKdrq5rHIy5ygj+BIlmqgHcjdhDjHeb6rqIEFtnS1Wx+xPIMt2xNwg==
 
-"@pxblue/react-native-components@^1.0.0-beta.1":
-  version "1.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@pxblue/react-native-components/-/react-native-components-1.0.0-beta.1.tgz#3841f03fc3e32cd7c2f647e94f7f440ade085a0d"
-  integrity sha512-MbHSqg2bfnG8nMCC9jUdPU05PCBewmKRxk+nu3BC7yDcXUEdOKvm1ELQ7b411d5hB+sN8woAjstaj4i6Py+ORg==
+"@pxblue/react-native-components@latest":
+  version "1.0.2"
+  resolved "https://registry.yarnpkg.com/@pxblue/react-native-components/-/react-native-components-1.0.2.tgz#df44b8987848645840433b8be1e3171acdbd0e6d"
+  integrity sha512-slGAfoQpR/OBH5C2zTBf4kFipKgQbmPC6pnHlthtDlc5fNp0ZzWgcuERJUqywMn8SayyYv7H6ElIyrl7LSJ6RA==
   dependencies:
     "@callstack/react-theme-provider" "^3.0.3"
     "@pxblue/colors" "^1.0.13"

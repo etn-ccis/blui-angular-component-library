@@ -20,6 +20,7 @@ storiesOf('Typography', module)
       <Typography.Label>Label</Typography.Label>
       <Typography.Body>Body</Typography.Body>
       <Typography.Subtitle>Subtitle</Typography.Subtitle>
+      <Typography.Caption>Caption</Typography.Caption>
     </View>
   )
   .add('with color props', () =>

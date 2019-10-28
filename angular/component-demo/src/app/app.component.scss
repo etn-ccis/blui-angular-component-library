@@ -22,3 +22,7 @@
   color: map-get($pxb-blue, 500);
 }
 
+::ng-deep .mat-tab-body {
+  height: 400px;
+  padding: 20px;
+}

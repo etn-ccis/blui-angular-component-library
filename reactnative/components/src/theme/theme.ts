@@ -19,13 +19,14 @@ export interface Theme {
     onPrimary: string;
   };
   fonts: {
+    extraBold: Partial<Font>;
     bold: Partial<Font>;
+    semiBold: Partial<Font>;
     regular: Partial<Font>;
-    medium: Partial<Font>;
     light: Partial<Font>;
-    thin: Partial<Font>;
   };
   sizes: {
+    tiny: number;
     extraSmall: number;
     small: number;
     medium: number;
@@ -38,27 +39,27 @@ export interface Theme {
 // TODO: This default theme is the PX Blue theme...it should be extracted to the @pxblue/themes package
 // and this default theme should be something a bit more generic/material (colors).
 const { ThemeProvider, withTheme } = createTheming<Theme>({
-  roundness: 3,
+  roundness: 4,
   fonts: {
+    extraBold: {
+      fontFamily: 'Open Sans',
+      fontWeight: '800'
+    },
     bold: {
+      fontFamily: 'Open Sans',
+      fontWeight: '700'
+    },
+    semiBold: {
       fontFamily: 'Open Sans',
       fontWeight: '600'
     },
-    medium: {
-      fontFamily: 'Open Sans',
-      fontWeight: '400'
-    },
     regular: {
       fontFamily: 'Open Sans',
-      fontWeight: 'normal'
+      fontWeight: '400'
     },
     light: {
       fontFamily: 'Open Sans',
       fontWeight: '300'
-    },
-    thin: {
-      fontFamily: 'Open Sans',
-      fontWeight: '200'
     }
   },
   colors: {
@@ -71,8 +72,9 @@ const { ThemeProvider, withTheme } = createTheming<Theme>({
     onPrimary: white[50]
   },
   sizes: {
-    extraSmall: 10,
-    small: 12,
+    tiny: 10,
+    extraSmall: 12,
+    small: 14,
     medium: 16,
     large: 20,
     extraLarge: 24,
