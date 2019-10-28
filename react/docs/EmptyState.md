@@ -13,7 +13,9 @@ import EmptyState from '@pxblue/react-components/core/EmptyState';
 ```
  
 ## API
-* ```title``` (String) [**required**]: the primary description.
-* ```description``` (String): more detailed explanation of what the title means.
-* ```icon``` (Element): dynamic icon content.
-* ```actions``` (Element): dynamic content that a user can interact with (buttons, forms, etc).
+| Name        | Type     | Required | Default | Examples                                                  |
+|-------------|----------|----------|---------|-----------------------------------------------------------|
+| title       | string   | yes      |         | 'No Data Found'                                           |
+| description | string   | no       |         | 'Come back to this page later, it's under construction'   |
+| icon        | element  | no       |         | `<DevicesIcon/>`                                          |
+| actions     | element  | no       |         | `<Button>Add Device</Button>`                             |      
