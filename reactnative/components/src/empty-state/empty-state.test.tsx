@@ -20,14 +20,14 @@ describe('EmptyState Tests ', function () {
       expect(tree).toMatchSnapshot();
    });
 
-   it('Only Description Renders', () => {
+   it('Description Renders', () => {
       const tree = renderer.create(
          <EmptyState title={'Test'} description={'Description'} />
       ).toJSON();
       expect(tree).toMatchSnapshot();
    });
 
-   it('Only Actions Renders', () => {
+   it('Actions Renders', () => {
       const tree = renderer.create(
          <EmptyState title={'Test'} actions={
             <Button
