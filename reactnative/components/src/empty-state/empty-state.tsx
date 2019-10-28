@@ -1,13 +1,13 @@
 import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
+import {Text, View, StyleSheet, StyleProp, ViewStyle} from 'react-native';
 import * as Colors from '@pxblue/colors';
 
 export interface EmptyStateProps {
    title: string;
    description?: string;
-   icon?: any; // DOM?
-   iconStyles?: any;
-   actions?: any; // DOM?
+   icon?: JSX.Element;
+   iconStyles?: StyleProp<ViewStyle>;
+   actions?: JSX.Element;
 }
 
 const styles = StyleSheet.create({
