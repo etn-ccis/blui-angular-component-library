@@ -1,6 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter } from 'react-router-dom';
 import EmptyState from "./EmptyState";
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -39,7 +38,7 @@ describe("EmptyState", () => {
 
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<BrowserRouter><EmptyState icon={<PersonIcon />} title="Test" description="Test Description" actions={<Button> Test </Button>}/></BrowserRouter>, div);
+        ReactDOM.render(<EmptyState icon={<PersonIcon />} title="Test" description="Test Description" actions={<Button> Test </Button>}/>, div);
         ReactDOM.unmountComponentAtNode(div);
     });
     it('renders with frame class', () => {
