@@ -22,8 +22,7 @@
     "enzyme-adapter-react-16": "^1.8.0",
     "jest": "^24.0.0",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6",
-    "react-router-dom": "^5.1.2"
+    "react-dom": "^16.8.6"
   },
   "peerDependencies": {
     "@material-ui/core": "^3.9.3",
