@@ -19,11 +19,13 @@ echo -e "${GREEN}Done${NC}"
 
 echo -en "${BLUE}Copying build output into node_modules...${NC}";
 cp -r ./package.json ./component-demo/node_modules/@pxblue/angular-components/package.json
+cp -r ./index.ts ./component-demo/node_modules/@pxblue/angular-components/index.ts
 cp -r ./core ./component-demo/node_modules/@pxblue/angular-components/core
 echo -e "${GREEN}Done${NC}"
 
 echo -en "\r\n${BRED}Linking Components: ${NC}"
 if [ ! -f ./component-demo/node_modules/@pxblue/angular-components/package.json ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
+if [ ! -f ./component-demo/node_modules/@pxblue/angular-components/index.ts ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
 if [ ! -s ./component-demo/node_modules/@pxblue/angular-components/core ]; 
     then 
         if [ ! -f ./component-demo/node_modules/@pxblue/angular-components/core/channel-value/package.json ];
