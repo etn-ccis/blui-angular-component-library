@@ -123,7 +123,7 @@ export default ({...props}) => (
                 </ListItem>
             </List>
         </Card>
-        <Card style={{marginTop: '10px'}}>
+        <Card style={{marginTop: '10px', padding: '10px'}}>
             <EmptyState
                 icon={
                     <DevicesIcon fontSize={'inherit'}/>

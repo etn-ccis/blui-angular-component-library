@@ -1,4 +1,5 @@
 
+yarn
 cd ./components
 yarn
 ng build channel-value

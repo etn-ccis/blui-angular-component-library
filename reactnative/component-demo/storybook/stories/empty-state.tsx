@@ -1,35 +1,36 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react-native';
-import { EmptyState } from '@pxblue/react-native-components';
+import { EmptyState, wrapIcon } from '@pxblue/react-native-components';
+import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
+const Clock = wrapIcon({ IconClass: Icon, name: 'clock-outline' });
 import { text, withKnobs } from '@storybook/addon-knobs';
-import {
-   StyleSheet,
-   ImageBackground,
-} from 'react-native';
-import {Button, Icon} from 'react-native-elements';
+import { ImageBackground } from 'react-native';
+import {Button, Icon as RNEIcon} from 'react-native-elements';
+
 //@ts-ignore
 import * as Colors from '@pxblue/colors';
 
 storiesOf('EmptyState', module)
    .addDecorator(withKnobs)
-   .add('text only', () => (
+   .add('basic usage', () => (
       <EmptyState
-         icon={<Icon name="notifications" size={100} color={Colors.gray[500]} />}
+         // icon={<Icon name="notifications" size={100} color={Colors.gray[500]} />}
+         IconClass={Clock} 
          title={text('title', 'No Alarms Found')}
       />
-   ), {})
-   .add('actions', () => (
+   ))
+   .add('with actions', () => (
       <EmptyState
-         icon={<Icon name="devices" size={100} color={Colors.gray[500]} />}
+         IconClass={Clock} 
          title={text('title', 'No Alarms Found')}
          actions={
             <Button
-               icon={<Icon name="add-circle-outline" color={Colors.white[500]} />}
-               title={text('button title', 'Add Device')}
+               icon={<RNEIcon name="add-circle-outline" color={Colors.white[500]} containerStyle={{marginRight: 5}} />}
+               title={text('button title', 'Add Alarm')}
             />
          }
       />
-   ), {})
+   ))
    .add('placeholder', () => (
       <ImageBackground
          source={{
@@ -40,12 +41,10 @@ storiesOf('EmptyState', module)
          imageStyle={{ opacity: .2}}
       >
          <EmptyState
-            icon={
-               <Icon name="trending-up" size={100} color={Colors.gray[500]} />
-            }
-            title={text('title', 'Predictions Page Coming Soon')}
-            description={text('description', 'A fully redesigned predictions page is coming in our next release!')}
-            actions={ <Button title={text('button title', 'LEARN MORE')} type={'outline'} /> }
+            IconClass={Clock} 
+            title={text('title', 'Alarms Page Coming Soon')}
+            description={text('description', 'A fully redesigned alarms page is coming in our next release!')}
+            actions={ <Button title={text('button title', 'Learn More')} type={'outline'} /> }
          />
       </ImageBackground>
-   ), {});
+   ));
