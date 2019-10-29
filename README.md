@@ -34,4 +34,4 @@ You can also build, link, and start the demo application in a single step by cal
 
 
 ## Using the Components
-See the [Docs](./docs) folder for documentation on using these components.
+See the [documentation](https://github.com/pxblue/component-library/tree/dev/angular/docs) for information on using these components.
