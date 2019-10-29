@@ -1,10 +1,7 @@
 # PX Blue Custom Angular Components
 This is a library of custom components for use in PX Blue applications. For the most part, these components are meant to simplify building your application by providing re-usable components that implement common use cases in PX Blue and eliminating the need to multiple teams to build their own components for these.
 
-Currently, we have components available for:
-* ChannelValue
-* Hero
-* HeroBanner
+Refer to the [documentation](https://github.com/pxblue/component-library/tree/dev/angular/docs) for a list of available components.
 
 ## Installation
 To install the PX Blue angular components from NPM as a dependency for your project, you can run the following command in your project root:

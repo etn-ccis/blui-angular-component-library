@@ -1,10 +1,7 @@
 # PX Blue UI Components for React
 This is a library of re-usable React components for use in PX Blue applications. For the most part, these components are meant to simplify building your application by providing drop-in components that implement common use cases in PX Blue and eliminate the need for multiple teams to build their own components for these.
 
-Currently, we have components available for:
-* ChannelValue
-* Hero
-* HeroBanner
+Refer to the [documentation](https://github.com/pxblue/component-library/tree/dev/react/docs) for a list of available components.
 
 
 ## Installation
