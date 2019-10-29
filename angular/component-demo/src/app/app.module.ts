@@ -8,7 +8,7 @@ import { AppComponent } from './app.component';
 import { NgProgressIconsModule } from '@pxblue/ng-progress-icons';
 import { HeroModule } from '@pxblue/angular-components/core/hero';
 import { ChannelValueModule } from '@pxblue/angular-components/core/channel-value';
-import { EmptyStateModule } from '@pxblue/angular-components`';
+import { EmptyStateModule } from '@pxblue/angular-components';
 
 //material modules
 import {MatDividerModule} from '@angular/material/divider';
