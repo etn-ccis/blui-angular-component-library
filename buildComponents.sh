@@ -11,7 +11,6 @@ cd ..
 rm -rf ./core
 cp -r ./components/core ./core
 
-
 # copy index
-rm ./core/index.ts
-cp ./components/index.ts ./core/index.ts
+rm -rf ./core/index.ts
+cp -r index.ts ./core/index.ts
