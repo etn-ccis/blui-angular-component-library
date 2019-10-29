@@ -86,14 +86,14 @@ describe('Empty State Component', () => {
 @Component({
     selector: 'test-app',
     template: `
-        <empty-state class="withIcon">
+        <pxb-empty-state class="withIcon">
             <span empty-icon></span>
-        </empty-state>
-        <empty-state class="empty"></empty-state>
+        </pxb-empty-state>
+        <pxb-empty-state class="empty"></pxb-empty-state>
 
-        <empty-state class="withActions">
+        <pxb-empty-state class="withActions">
             <span actions></span>
-        </empty-state>
+        </pxb-empty-state>
     `
 })
 class TestEmpty { }

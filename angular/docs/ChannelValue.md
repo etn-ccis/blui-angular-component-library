@@ -9,7 +9,7 @@ Icons are passed in as a child element of the ChannelValue component.
 ## Usage
 ```
 // app.module.ts
-import { ChannelValueModule } from '@pxblue/angular-components/core/channel-value';
+import { ChannelValueModule } from '@pxblue/angular-components';
 ...
 imports: [
     ChannelValueModule

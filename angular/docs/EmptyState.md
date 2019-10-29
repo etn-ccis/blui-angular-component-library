@@ -8,7 +8,7 @@ The Empty State component is an element that can be used as a placeholder when n
 ## Usage
 ```
 // app.module.ts
-import { EmptyStateModule } from '@pxblue/angular-components/core/empty-state';
+import { EmptyStateModule } from '@pxblue/angular-components';
 ...
 imports: [
     EmptyStateModule
@@ -16,13 +16,13 @@ imports: [
 ```
 ```
 // your-component.html
-<empty-state title="No Devices Found">
+<pxb-empty-state title="No Devices Found">
   <mat-icon empty-icon>notifications_none</mat-icon>
   <button mat-raised-button color="primary" actions>
     <mat-icon>add_circle</mat-icon>
     ADD DEVICE
   </button>
-</empty-state>
+</pxb-empty-state>
 ```
  
 ## API

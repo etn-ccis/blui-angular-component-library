@@ -10,7 +10,7 @@ The value section of the Hero utilizes a [ChannelValue](./ChannelValue.md) compo
 ### Hero Usage
 ```
 // app.module.ts
-import { HeroModule } from '@pxblue/angular-components/core/hero';
+import { HeroModule } from '@pxblue/angular-components';
 
 ...
 imports: [
