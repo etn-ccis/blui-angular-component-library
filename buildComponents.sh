@@ -12,5 +12,5 @@ rm -rf ./core
 cp -r ./components/core ./core
 
 # copy index
-rm -rf ./core/index.ts
-cp -r index.ts ./core/index.ts
+rm -rf ./core/index.js
+cp -r index.js ./core/index.js
