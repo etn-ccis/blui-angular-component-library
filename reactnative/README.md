@@ -34,7 +34,7 @@ yarn link:components
 You can also build, link, and start the demo application in a single step by calling ```yarn start``` from the /reactnative directory.
 
 ## Using the Components
-See the [Docs](https://github.com/pxblue/component-library/tree/dev/reactnative/docs) folder for documentation on using these components.
+See the [documentation](https://github.com/pxblue/component-library/tree/dev/reactnative/docs) for information on using these components.
 
 
 ## NOTES

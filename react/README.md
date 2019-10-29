@@ -33,4 +33,4 @@ yarn link:components
 You can also build, link, and start the demo application in a single step by calling ```yarn start``` from the /react directory.
 
 ## Using the Components
-See the [Docs](./docs) folder for documentation on using these components.
+See the [documentation](https://github.com/pxblue/component-library/tree/dev/react/docs) for information on using these components.
