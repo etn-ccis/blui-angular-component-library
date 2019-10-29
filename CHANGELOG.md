@@ -1,4 +1,8 @@
 # Change Log
+
+## v1.2.0
+Adds a new component for EmptyState
+
 ## v1.1.0
 Enable support for Angular 7+ 
 
