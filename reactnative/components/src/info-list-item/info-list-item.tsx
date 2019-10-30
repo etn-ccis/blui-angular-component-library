@@ -61,7 +61,7 @@ class InfoListItemClass extends Component<WithTheme<InfoListItemProps>> {
 
   public render() {
     const { title, statusColor, dense, fontColor, backgroundColor, onPress, theme } = this.props;
-    const { row, fullHeight, tab, iconContainer, contentContainer, withMargins, withRightPadding } = styles;
+    const { row, fullHeight, tab, iconContainer, contentContainer, withRightPadding } = styles;
     const style = {
       backgroundColor: backgroundColor || 'transparent'
     };
@@ -78,7 +78,7 @@ class InfoListItemClass extends Component<WithTheme<InfoListItemProps>> {
         <TouchableOpacity onPress={onPress} style={[fullHeight, row, withRightPadding]} disabled={!onPress} activeOpacity={0.7}>
           <View style={[fullHeight, tab, { backgroundColor: statusColor }]} />
           {this.props.IconClass || !this.props.hidePadding ?
-            <View style={[iconContainer, withMargins]}>
+            <View style={iconContainer}>
               {this.icon()}
             </View>
             : null
@@ -241,9 +241,6 @@ const styles = StyleSheet.create({
   },
   tab: {
     width: 6
-  },
-  withMargins: {
-    marginLeft: 10
   },
   withSmallMargins: {
     marginHorizontal: 4

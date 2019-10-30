@@ -1,6 +1,7 @@
 import React, { Component, ComponentType } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Theme, withTheme, WithTheme } from '../theme';
+import { $DeepPartial } from '@callstack/react-theme-provider';
 import { H6, Subtitle } from '..';
 
 export interface EmptyStateProps {
@@ -21,6 +22,11 @@ export interface EmptyStateProps {
 
    /* Optional actions to render below the text */
    actions?: JSX.Element;
+   
+   /**
+   * Overrides for theme
+   */
+  theme?: $DeepPartial<Theme>;
 }
 
 class EmptyStateClass extends Component<WithTheme<EmptyStateProps>> {

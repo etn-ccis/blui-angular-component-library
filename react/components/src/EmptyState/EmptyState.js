@@ -6,7 +6,35 @@ import * as PXBColors from '@pxblue/colors'
 
 //Material-UI Components
 import Typography from '@material-ui/core/Typography';
-import {Hero} from "../Hero/Hero";
+
+class EmptyState extends React.Component {
+  render() {
+    const { icon, title, description, actions, classes, iconStyles } = this.props;
+    return (
+      <div className={classes.frame}>
+        {icon &&
+          <div style={Object.assign({ marginBottom: '15px', display: 'flex', fontSize: '100px' }, iconStyles)}>
+            {icon}
+          </div>
+        }
+        <Typography variant="h6" color="inherit">{title}</Typography>
+        {description && <Typography variant="subtitle2" color="primary">{description}</Typography>}
+        {actions &&
+          <div style={{ marginTop: '10px' }}>
+            {actions}
+          </div>
+        }
+      </div>
+    )
+  }
+}
+EmptyState.propTypes = {
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string,
+  icon: PropTypes.element,
+  actions: PropTypes.element
+};
+EmptyState.defaultProps = {};
 
 const styles = theme => ({
   frame: {
@@ -20,35 +48,5 @@ const styles = theme => ({
     alignItems: 'center',
   }
 })
-
-class EmptyState extends React.Component {
-  render() {
-    const { icon, title, description, actions, classes, iconStyles } = this.props;
-    return (
-      <div className={classes.frame}>
-        {icon &&
-          <div style={Object.assign({marginBottom: '15px', display: 'flex', fontSize: '100px'}, iconStyles)}>
-            {icon}
-          </div>
-        }
-        <Typography variant="h6" color="inherit">{title}</Typography>
-        {description && <Typography variant="subtitle2" color="primary">{description}</Typography>}
-        {actions &&
-          <div style={{marginTop: '10px'}}>
-            {actions}
-          </div>
-        }
-      </div>
-    )
-  }
-}
-EmptyState.propTypes = {
-  title: PropTypes.string.isRequired,
-  description: PropTypes.string,
-  icon: PropTypes.element,
-  actions: PropTypes.element,
-  iconStyles: PropTypes.Object
-};
-EmptyState.defaultProps = {};
 
 export default withStyles(styles)(EmptyState);
