@@ -1,5 +1,4 @@
 import { createTheming } from '@callstack/react-theme-provider';
-import { gray, white, blue, red, lightBlue } from '@pxblue/colors';
 import { TextStyle } from 'react-native';
 
 type Font = {
@@ -36,40 +35,40 @@ export interface Theme {
   };
 };
 
-// TODO: This default theme is the PX Blue theme...it should be extracted to the @pxblue/themes package
-// and this default theme should be something a bit more generic/material (colors).
+/* This is the default theme for the component library (Material) */
 const { ThemeProvider, withTheme } = createTheming<Theme>({
   roundness: 4,
   fonts: {
     extraBold: {
-      fontFamily: 'Open Sans',
+      fontFamily: 'System',
       fontWeight: '800'
     },
     bold: {
-      fontFamily: 'Open Sans',
+      fontFamily: 'System',
       fontWeight: '700'
     },
     semiBold: {
-      fontFamily: 'Open Sans',
+      fontFamily: 'System',
       fontWeight: '600'
     },
     regular: {
-      fontFamily: 'Open Sans',
+      fontFamily: 'System',
       fontWeight: '400'
     },
     light: {
-      fontFamily: 'Open Sans',
+      fontFamily: 'System',
       fontWeight: '300'
     }
   },
+  // default material theme colors
   colors: {
-    primary: blue[500],
-    background: gray[50],
-    surface: white[50],
-    accent: lightBlue[500],
-    error: red[500],
-    text: gray[500],
-    onPrimary: white[50]
+    primary: '#6200EE',
+    background: "#FFFFFF",
+    surface: '#FFFFFF',
+    accent: '#03DAC6',
+    error: '#B00020',
+    text: '#000000',
+    onPrimary: '#FFFFFF'
   },
   sizes: {
     tiny: 10,
