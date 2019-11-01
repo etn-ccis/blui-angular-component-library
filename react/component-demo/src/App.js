@@ -11,110 +11,19 @@ import { Add } from '@material-ui/icons'
 import Trend from '@material-ui/icons/TrendingUp';
 import Timer from '@material-ui/icons/Timer';
 
-import { List, ListItem, ListItemIcon, ListItemText, Card } from '@material-ui/core';
+import { List, Card } from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
 import { Pie, Battery } from '@pxblue/react-progress-icons';
 import { GradeA, Leaf, CurrentCircled, VoltageCircled, Temp } from '@pxblue/icons-mui';
 import Button from "@material-ui/core/Button";
 
-import { createMuiTheme, MuiThemeProvider } from '@material-ui/core';
-import * as PXBThemes from '@pxblue/themes/react';
-
 export default ({ ...props }) => (
     <div style={{padding: 10}}>
-        <Card style={{ marginBottom: '10px' }}>
-            <List style={{ color: Colors.gray['800'], padding: 0 }}>
-                <InfoListItem dense
-                    onClick={() => alert('click')}
-                    title={'Test'}
-                    icon={<Leaf color={'inherit'} />}
-                    rightComponent={<Leaf color={'inherit'} />}
-                />
-                <InfoListItem
-                    // onClick={() => alert('click')}
-                    title={'Test'}
-                    statusColor={Colors.red[500]}
-                    icon={<Leaf color={'inherit'} />}
-                />
-                <InfoListItem dense
-                    // onClick={() => alert('click')}
-                    title={'Test'}
-                    icon={<Leaf color={'inherit'} />}
-                    iconColor={Colors.green[500]}
-                    rightComponent={<Leaf color={'inherit'} />}
-                />
-                <InfoListItem 
-                    onClick={() => alert('click')}
-                    title={'Test'}
-                    icon={<Leaf color={'inherit'} />}
-                    avatar
-                />
-                <InfoListItem dense
-                    onClick={() => alert('click')}
-                    title={'Test'}
-                    statusColor={Colors.red[500]}
-                    icon={<Leaf color={'inherit'} />}
-                    avatar
-                />
-                <InfoListItem 
-                    onClick={() => alert('click')}
-                    title={'Test'}
-                    icon={<Leaf color={'inherit'} />}
-                    // statusColor={Colors.red[500]}
-                    iconColor={Colors.green[500]}
-                    avatar
-                />
-            </List>
-        </Card>
-        <MuiThemeProvider theme={createMuiTheme(PXBThemes.blueDark)}>
-            <Card style={{ marginBottom: '10px' }}>
-                <List style={{ color: Colors.gray['300'], padding: 0 }}>
-                    <InfoListItem dense
-                        onClick={() => alert('click')}
-                        title={'Test'}
-                        icon={<Leaf color={'inherit'} />}
-                    />
-                    <InfoListItem 
-                        onClick={() => alert('click')}
-                        title={'Test'}
-                        statusColor={Colors.red[500]}
-                        icon={<Leaf color={'inherit'} />}
-                    />
-                    <InfoListItem dense
-                        onClick={() => alert('click')}
-                        title={'Test'}
-                        icon={<Leaf color={'inherit'} />}
-                        iconColor={Colors.green[500]}
-                    />
-                    <InfoListItem 
-                        onClick={() => alert('click')}
-                        title={'Test'}
-                        icon={<Leaf color={'inherit'} />}
-                        avatar
-                    />
-                    <InfoListItem dense
-                        onClick={() => alert('click')}
-                        title={'Test'}
-                        statusColor={Colors.red[500]}
-                        icon={<Leaf color={'inherit'} />}
-                        avatar
-                    />
-                    <InfoListItem 
-                        onClick={() => alert('click')}
-                        title={'Test'}
-                        icon={<Leaf color={'inherit'} />}
-                        iconColor={Colors.green[500]}
-                        avatar
-                    />
-                </List>
-            </Card>
-        </MuiThemeProvider>
-
         <Card>
             <List style={{ color: Colors.gray['800'], padding: 0 }}>
                 <HeroBanner divider>
                     <Hero
-                        icon={<GradeA fontSize={'inherit'} color={'inherit'} nativeColor={Colors.green[500]} />}
+                        icon={<GradeA fontSize={'inherit'} color={'inherit'} htmlColor={Colors.green[500]} />}
                         label={'Healthy'}
                         value={96}
                         units={'/100'}
@@ -126,7 +35,7 @@ export default ({ ...props }) => (
                         fontSize={'normal'}
                     >
                         <ChannelValue value={65} units={'%'}
-                            icon={<Trend nativeColor={Colors.red[500]} fontSize={'inherit'} />} />
+                            icon={<Trend htmlColor={Colors.red[500]} fontSize={'inherit'} />} />
                     </Hero>
                     <Hero
                         icon={<Timer fontSize={'inherit'} color={'inherit'} />}
@@ -145,74 +54,42 @@ export default ({ ...props }) => (
                         <ChannelValue value={'Full'} />
                     </Hero>
                 </HeroBanner>
-                <ListItem divider>
-                    <ListItemIcon><Leaf /></ListItemIcon>
-                    <ListItemText style={{ paddingLeft: 0 }} primary={'Status'}
-                        primaryTypographyProps={{ color: 'inherit' }}></ListItemText>
-                    <ListItemText
-                        style={{ padding: 0 }}
-                        primary={<ChannelValue value={'Online, ESS+'} />}
-                        primaryTypographyProps={{ color: 'inherit', style: { textAlign: 'right' } }}>
-                    </ListItemText>
-                </ListItem>
-                <ListItem divider>
-                    <ListItemIcon><VoltageCircled /></ListItemIcon>
-                    <ListItemText style={{ paddingLeft: 0 }} primary={'Input Voltage'}
-                        primaryTypographyProps={{ color: 'inherit' }}></ListItemText>
-                    <ListItemText
-                        style={{ padding: 0 }}
-                        primary={
-                            <span>
-                                <ChannelValue value={478} units={'V'} />, <ChannelValue value={479}
-                                    units={'V'} />, <ChannelValue
-                                    value={473} units={'V'} />
-                            </span>
-                        }
-                        primaryTypographyProps={{ color: 'inherit', style: { textAlign: 'right' } }}>
-                    </ListItemText>
-                </ListItem>
-                <ListItem divider style={{ color: Colors.red['500'] }}>
-                    <ListItemIcon style={{ color: 'inherit' }}><VoltageCircled /></ListItemIcon>
-                    <ListItemText style={{ paddingLeft: 0 }} primary={'Output Voltage'}
-                        primaryTypographyProps={{ color: 'inherit' }}></ListItemText>
-                    <ListItemText
-                        style={{ padding: 0 }}
-                        primary={
-                            <span>
-                                <ChannelValue value={480} units={'V'} />, <ChannelValue value={480}
-                                    units={'V'} />, <ChannelValue
-                                    value={480} units={'V'} />
-                            </span>
-                        }
-                        primaryTypographyProps={{ color: 'inherit', style: { textAlign: 'right' } }}>
-                    </ListItemText>
-                </ListItem>
-                <ListItem divider>
-                    <ListItemIcon><CurrentCircled /></ListItemIcon>
-                    <ListItemText style={{ paddingLeft: 0 }} primary={'Output Current'}
-                        primaryTypographyProps={{ color: 'inherit' }}></ListItemText>
-                    <ListItemText
-                        style={{ padding: 0 }}
-                        primary={
-                            <span>
-                                <ChannelValue value={15} units={'A'} />, <ChannelValue value={15}
-                                    units={'A'} />, <ChannelValue
-                                    value={14.9} units={'A'} />
-                            </span>
-                        }
-                        primaryTypographyProps={{ color: 'inherit', style: { textAlign: 'right' } }}>
-                    </ListItemText>
-                </ListItem>
-                <ListItem>
-                    <ListItemIcon><Temp /></ListItemIcon>
-                    <ListItemText style={{ paddingLeft: 0 }} primary={'Temperature'}
-                        primaryTypographyProps={{ color: 'inherit' }}></ListItemText>
-                    <ListItemText
-                        style={{ padding: 0 }}
-                        primary={<ChannelValue icon={<Trend nativeColor={Colors.red[500]} />} value={68} units={'°F'} />}
-                        primaryTypographyProps={{ color: 'inherit', style: { textAlign: 'right' } }}>
-                    </ListItemText>
-                </ListItem>
+                <InfoListItem dense
+                    title={'Status'}
+                    divider={'full'}
+                    statusColor={Colors.green[500]}
+                    subtitleSeparator={'/'}
+                    icon={<Leaf color={'inherit'} />}
+                    rightComponent={<ChannelValue value={'Online, ESS+'} />}
+                />
+                <InfoListItem
+                    title={'Input Voltage'}
+                    divider={'full'}
+                    subtitle={['Phase A, Phase B, Phase C']}
+                    icon={<VoltageCircled />}
+                    rightComponent={<span><ChannelValue value={478} units={'V'} />, <ChannelValue value={479} units={'V'} />, <ChannelValue value={473} units={'V'} /></span>}
+                />
+                <InfoListItem
+                    title={'Output Voltage'}
+                    divider={'full'}
+                    statusColor={Colors.red[500]}
+                    fontColor={Colors.red[500]}
+                    subtitle={['Phase A, Phase B, Phase C']}
+                    icon={<VoltageCircled color={'inherit'}/>}
+                    rightComponent={<span style={{color: Colors.red[500]}}><ChannelValue value={480} units={'V'} />, <ChannelValue value={480} units={'V'} />, <ChannelValue value={480} units={'V'} /></span>}
+                />
+                <InfoListItem dense
+                    title={'Output Current'}
+                    divider={'full'}
+                    icon={<CurrentCircled color={'inherit'}/>}
+                    rightComponent={<span><ChannelValue value={15} units={'A'} />, <ChannelValue value={14.9} units={'A'} />, <ChannelValue value={15} units={'A'} /></span>}
+                />
+                <InfoListItem dense
+                    title={'Temperature'}
+                    divider={'full'}
+                    icon={<Temp />}
+                    rightComponent={<ChannelValue icon={<Trend htmlColor={Colors.red[500]} />} value={68} units={'°F'} />}
+                />
             </List>
         </Card>
         <Card style={{ marginTop: '10px', padding: '10px' }}>
