@@ -80,7 +80,7 @@ class InfoListItemClass extends React.Component {
         const renderableSubtitleParts = subtitleParts
             .splice(0, MAX_SUBTITLE_ELEMENTS)
             .map(element => this.renderableSubtitleComponent(element));
-        return withKeys(separate(renderableSubtitleParts, this.interpunct));
+        return withKeys(separate(renderableSubtitleParts, () => this.interpunct()));
     }
     renderableSubtitleComponent(element) {
         switch (typeof element) {
