@@ -14,6 +14,18 @@ if [ ! -f ./LICENSE ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo 
 echo -ne "  package.json: "
 if [ ! -f ./package.json ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
+echo "Checking Channel Value..."
+echo -ne "  ChannelValue.js: "
+if [ ! -f ./core/ChannelValue/ChannelValue.js  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+echo -ne "  index.js: "
+if [ ! -f ./core/ChannelValue/index.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+
+echo "Checking Empty State..."
+echo -ne "  EmptyState.js: "
+if [ ! -f ./core/EmptyState/EmptyState.js  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+echo -ne "  index.js: "
+if [ ! -f ./core/EmptyState/index.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+
 echo "Checking Hero..."
 echo -ne "  Hero.js: "
 if [ ! -f ./core/Hero/Hero.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
@@ -26,17 +38,12 @@ if [ ! -f ./core/HeroBanner/HeroBanner.js ]; then echo -e "${RED}Not Found${NC}"
 echo -ne " index.js:  "
 if [ ! -f ./core/HeroBanner/index.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
-echo "Checking Channel Value..."
-echo -ne "  ChannelValue.js: "
-if [ ! -f ./core/ChannelValue/ChannelValue.js  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
-echo -ne "  index.js: "
-if [ ! -f ./core/ChannelValue/index.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+echo "Checking InfoListItem..."
+echo -ne " InfoListItem.js:  "
+if [ ! -f ./core/InfoListItem/InfoListItem.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+echo -ne " index.js:  "
+if [ ! -f ./core/InfoListItem/index.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
-echo "Checking Empty State..."
-echo -ne "  EmptyState.js: "
-if [ ! -f ./core/EmptyState/EmptyState.js  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
-echo -ne "  index.js: "
-if [ ! -f ./core/EmptyState/index.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
 echo -e "\r\n${GREEN}-----------------------------------"
 echo -e "@pxblue/react-components package successfully created"
