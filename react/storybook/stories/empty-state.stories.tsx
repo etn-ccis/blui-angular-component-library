@@ -14,8 +14,6 @@ import {text, withKnobs} from '@storybook/addon-knobs';
 import {storiesOf} from '@storybook/react';
 
 export const stories = storiesOf('Empty State', module);
-// Add the `withKnobs` decorator to add knobs support to your stories.
-// You can also configure `withKnobs` as a global decorator.
 stories.addDecorator(withKnobs);
 
 stories.add('Actions', () => {
@@ -46,7 +44,6 @@ stories.add('Placeholder', () => {
                          onClick={action('Button Clicked')}>{actionText}</Button>}
     />;
 });
-
 
 stories.add('Text Only', () => {
     const title = text('Title', 'No Alarms Found');
