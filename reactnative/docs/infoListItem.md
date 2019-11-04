@@ -35,6 +35,7 @@ You can also supply an array of items that will be displayed as a character-sepa
 | subtitle          | The text to show on the second line     | `string` &vert; `Array<React.ReactNode>`           | no       |                     | 'Subtitle', ['one', 'two', <LeafIcon/>] |
 | subtitleSeparator | Separator character for subtitle        | `string`                                           | no       | '·' ('\u00B7')      | '-', '/'                                |
 | IconClass         | A component to render for the icon      | `React.Component<{ size: number, color: string }>` | no       |                     | `WrappedLeaf`                           |
+| iconColor         | The color of the primary icon           | `string`                                           | no       |                     | 'red'                                   |
 | hidePadding       | Remove left padding if no icon is used  | `boolean`                                          | no       | false               |                                         |
 | avatar            | Show colored background for icon        | `boolean`                                          | no       | false               |                                         |
 | dense             | Smaller height row with less padding    | `boolean`                                          | no       | false               |                                         |

@@ -100,12 +100,12 @@ class InfoListItemClass extends React.Component {
         return statusColor ? statusColor : 'inherit';
     }
     wrapperStyle() {
-        const { backgroundColor, dense, onClick } = this.props;
-        return {
+        const { backgroundColor, dense, onClick, style } = this.props;
+        return Object.assign({
             backgroundColor: backgroundColor || 'transparent',
             cursor: onClick ? 'pointer' : 'default',
             height: dense ? 52 : 72
-        }
+        }, style);
     }
 }
 
@@ -121,6 +121,7 @@ InfoListItemClass.propTypes = {
     onClick: PropTypes.func,
     rightComponent: PropTypes.element,
     statusColor: PropTypes.string,
+    style: PropTypes.object,
     subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.array]),
     subtitleSeparator: PropTypes.string,
     title: PropTypes.string.isRequired

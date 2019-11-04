@@ -60,35 +60,37 @@ export default ({ ...props }) => (
                     statusColor={Colors.green[500]}
                     subtitleSeparator={'/'}
                     icon={<Leaf color={'inherit'} />}
-                    rightComponent={<ChannelValue value={'Online, ESS+'} />}
+                    rightComponent={<ChannelValue fontSize={16} value={'Online, ESS+'} />}
                 />
                 <InfoListItem
                     title={'Input Voltage'}
                     divider={'full'}
-                    subtitle={['Phase A, Phase B, Phase C']}
+                    avatar
+                    subtitle={['Phase A', 'Phase B', 'Phase C']}
                     icon={<VoltageCircled />}
-                    rightComponent={<span><ChannelValue value={478} units={'V'} />, <ChannelValue value={479} units={'V'} />, <ChannelValue value={473} units={'V'} /></span>}
+                    rightComponent={<span><ChannelValue fontSize={16} value={478} units={'V'} />, <ChannelValue fontSize={16} value={479} units={'V'} />, <ChannelValue fontSize={16} value={473} units={'V'} /></span>}
                 />
                 <InfoListItem
                     title={'Output Voltage'}
                     divider={'full'}
+                    avatar
                     statusColor={Colors.red[500]}
                     fontColor={Colors.red[500]}
-                    subtitle={['Phase A, Phase B, Phase C']}
+                    subtitle={['Phase A', 'Phase B', 'Phase C']}
                     icon={<VoltageCircled color={'inherit'}/>}
-                    rightComponent={<span style={{color: Colors.red[500]}}><ChannelValue value={480} units={'V'} />, <ChannelValue value={480} units={'V'} />, <ChannelValue value={480} units={'V'} /></span>}
+                    rightComponent={<span style={{color: Colors.red[500]}}><ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} /></span>}
                 />
                 <InfoListItem dense
                     title={'Output Current'}
                     divider={'full'}
                     icon={<CurrentCircled color={'inherit'}/>}
-                    rightComponent={<span><ChannelValue value={15} units={'A'} />, <ChannelValue value={14.9} units={'A'} />, <ChannelValue value={15} units={'A'} /></span>}
+                    rightComponent={<span><ChannelValue fontSize={16} value={15} units={'A'} />, <ChannelValue fontSize={16} value={14.9} units={'A'} />, <ChannelValue fontSize={16} value={15} units={'A'} /></span>}
                 />
                 <InfoListItem dense
                     title={'Temperature'}
                     divider={'full'}
                     icon={<Temp />}
-                    rightComponent={<ChannelValue icon={<Trend htmlColor={Colors.red[500]} />} value={68} units={'°F'} />}
+                    rightComponent={<ChannelValue fontSize={16} icon={<Trend htmlColor={Colors.red[500]} />} value={68} units={'°F'} />}
                 />
             </List>
         </Card>
