@@ -14,13 +14,11 @@ import {storiesOf} from '@storybook/react';
 
 
 export const stories = storiesOf('Hero', module);
-// Add the `withKnobs` decorator to add knobs support to your stories.
-// You can also configure `withKnobs` as a global decorator.
 stories.addDecorator(withKnobs);
 
 stories.add('with basic properties', () => (
     <Hero
-        icon={<GradeA fontSize={'inherit'} color={'inherit'} nativeColor={Colors.green[500]}/>}
+        icon={<GradeA fontSize={'inherit'} htmlColor={Colors.blue[500]}/>}
         label={text('label', 'Efficiency')}
         value={text('value', '94')}
         units={text('units', '%')}
@@ -30,7 +28,7 @@ stories.add('with basic properties', () => (
 stories.add('with ChannelValue children', () => (
     <Hero
         label={text('label', 'Duration')}
-        icon={<GradeA fontSize={'inherit'} color={'inherit'} nativeColor={Colors.green[500]}/>}>
+        icon={<Leaf fontSize={'inherit'} htmlColor={Colors.green[500]}/>}>
         <ChannelValue fontSize={'large'} value={number('hours', 1)} units={'h'}/>
         <ChannelValue fontSize={'large'} value={number('minutes', 27)} units={'m'}/>
     </Hero>
