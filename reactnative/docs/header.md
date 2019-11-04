@@ -39,6 +39,7 @@ const MoreIcon = wrapIcon({IconClass: Icon, name:'more-vert'});
 
 #### HeaderIcon
 Header icons specified as a JSON object with the following properties:
+
 | Key               | Description                             | Type                                               | Required | Default             | Examples                                |
 |-------------------|-----------------------------------------|----------------------------------------------------|----------|---------------------|-----------------------------------------|
 | icon              | A component to render for the icon      | `React.Component<{ size: number, color: string }>` | yes      |                     | `WrappedLeaf`                           |
