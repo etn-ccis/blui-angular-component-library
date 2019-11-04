@@ -1,9 +1,7 @@
-
 //@ts-ignore
-import * as Colors from "@pxblue/colors";
 import React from 'react';
 //@ts-ignore
-import { action } from '@storybook/addon-actions';
+import {action} from '@storybook/addon-actions';
 //@ts-ignore
 import EmptyState from '@pxblue/react-components/core/EmptyState';
 
@@ -12,33 +10,48 @@ import AddIcon from '@material-ui/icons/AddCircleOutlined'
 import Button from '@material-ui/core/Button';
 import AlertIcon from '@material-ui/icons/NotificationImportant';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
+import {text, withKnobs} from '@storybook/addon-knobs';
+import {storiesOf} from '@storybook/react';
 
-export default {
-   title: 'EmptyState',
-};
+export const stories = storiesOf('Empty State', module);
+// Add the `withKnobs` decorator to add knobs support to your stories.
+// You can also configure `withKnobs` as a global decorator.
+stories.addDecorator(withKnobs);
 
-export const actions = () =>
-   <EmptyState
-      icon={<DevicesIcon fontSize={'inherit'}/>}
-      title={"No Devices"}
-      actions={
-         <Button variant="contained" color="primary" style={{ margin: '10px' }} onClick={action('clicked')}>
-            <AddIcon style={{ marginRight: '5px' }} />
-            Add Device
-         </Button>
-      }
-   />;
+stories.add('Actions', () => {
+    const title = text('Title', 'No Devices');
+    const actionText = text('Action Text', 'Add Device');
+    return <EmptyState
+        icon={<DevicesIcon fontSize={'inherit'}/>}
+        title={title}
+        actions={
+            <Button variant="contained" color="primary" style={{margin: '10px'}} onClick={action('Button Clicked')}>
+                <AddIcon style={{marginRight: '5px'}}/>
+                {actionText}
+            </Button>
+        }
+    />
+});
 
-export const placeholder = () =>
-   <EmptyState
-      icon={<TrendingUpIcon fontSize={'inherit'} style={{marginBottom: '0'}}/>}
-      title={"Predictions Page Coming Soon"}
-      description={"A fully redesigned predictions page is coming in our next release!"}
-      actions={<Button variant="outlined" size="small" color="primary" style={{ margin: '10px' }}>Learn More</Button>}
-   />;
+stories.add('Placeholder', () => {
+    const title = text('Title', 'Predictions Page Coming Soon');
+    const description = text('Description', 'A fully redesigned predictions page is coming in our next release!');
+    const actionText = text('Action Text', 'Learn More');
+    return <EmptyState
+        icon={<TrendingUpIcon fontSize={'inherit'} style={{marginBottom: '0'}}/>}
+        title={title}
+        description={description}
+        actions={<Button variant="outlined" size="small" color="primary"
+                         style={{ margin: '10px'}}
+                         onClick={action('Button Clicked')}>{actionText}</Button>}
+    />;
+});
 
-export const textOnly = () =>
-   <EmptyState
-      icon={<AlertIcon fontSize={'inherit'}/>}
-      title={"No Alarms Found"}
-   />;
+
+stories.add('Text Only', () => {
+    const title = text('Title', 'No Alarms Found');
+    return <EmptyState
+        icon={<AlertIcon fontSize={'inherit'}/>}
+        title={title}
+    />;
+});
