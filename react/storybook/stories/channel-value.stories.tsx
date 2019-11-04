@@ -47,7 +47,7 @@ stories.add('with extraLarge font size', () => (
             value={text('value', text('value', '123'))}
             units={text('units', 'hz')}
             icon={<Trend htmlColor={Colors.red[500]}/>}
-            fontSize={number('font size', 20)}
+            fontSize={number('font size', 30)}
         />
     </div>
 ));
@@ -58,7 +58,7 @@ stories.add('with all props', () => (
             units={text('units', 'hz')}
             color={text('color', 'blue')}
             icon={<Trend htmlColor={Colors.red[500]}/>}
-            fontSize={number('font size', 20)}
+            fontSize={number('font size', 30)}
             prefix={boolean('prefix', false)}
         />
     </div>
