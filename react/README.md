@@ -30,7 +30,7 @@ There is also a demo project (/component-demo) in this repository that shows the
 yarn link:components
 ```
 
-You can also build, link, and start the demo application in a single step by calling ```yarn start``` from the /react directory.  There is also a interactive Storybook demo application that showcases how to interact with each component.  The Storybook demo can be viewed by running `yarn start:storybook`.
+You can also build, link, and start the demo application in a single step by calling ```yarn start``` from the /react directory.  There is also a Storybook demo application which showcases each component's API within a sandbox environment.  The Storybook demo can be viewed by running `yarn start:storybook`.
 
 ## Using the Components
 See the [documentation](https://github.com/pxblue/component-library/tree/dev/react/docs) for information on using these components.
