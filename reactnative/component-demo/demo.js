@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { View, ScrollView, SafeAreaView } from 'react-native';
-import { Card, ListItem } from 'react-native-elements';
+import { Card, ListItem, Button } from 'react-native-elements';
 import {
     HeroBanner,
     Hero,
@@ -10,7 +10,8 @@ import {
     ChannelValue,
     ScoreCard,
     InfoListItem,
-    wrapIcon
+    wrapIcon,
+    EmptyState
 } from '@pxblue/react-native-components';
 
 import MatIcon from 'react-native-vector-icons/MaterialIcons';
@@ -55,6 +56,16 @@ export default class App extends React.Component {
                         searchableConfig={{ placeholder: 'Search', autoFocus: true }}
                     />
                     <ScrollView>
+                        <Card>
+                            <EmptyState 
+                                title={'Nothing Found'} 
+                                description={'Not a single thing'}
+                                IconClass={ChartLineVariant} 
+                                actions={<Button title={'Add a Device'} type={'outline'} />}
+                                // iconSize={200} 
+                                // iconColor={'red'}
+                            />
+                        </Card>
                         <Card containerStyle={{ padding: 0, margin: PADDING, marginBottom: PADDING }}>
                             <HeroBanner>
                                 <Hero

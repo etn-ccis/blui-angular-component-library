@@ -1,4 +1,10 @@
 # Change Log
+
+## v1.2.1
+- Adds a new component for EmptyState
+- New index file for simpler import syntax
+    - `import {XXX} from '@pxblue/angular-components'`
+
 ## v1.1.0
 Enable support for Angular 7+ 
 

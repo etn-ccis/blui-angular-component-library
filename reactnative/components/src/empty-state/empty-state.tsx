@@ -1,14 +1,72 @@
-import * as React from 'react';
-import { Text, View, StyleSheet } from 'react-native';
-import * as Colors from '@pxblue/colors';
+import React, { Component, ComponentType } from 'react';
+import { View, StyleSheet } from 'react-native';
+import { Theme, withTheme, WithTheme } from '../theme';
+import { $DeepPartial } from '@callstack/react-theme-provider';
+import { H6, Subtitle } from '..';
 
 export interface EmptyStateProps {
+   /* Primary text to display */
    title: string;
+
+   /* Secondary text to display */
    description?: string;
-   icon?: any; // DOM?
-   iconStyles?: any;
-   actions?: any; // DOM?
+
+   /* Icon to display */
+   IconClass?: ComponentType<{ size: number, color: string }>
+
+   /** Primary icon color */
+   iconSize?: number
+
+   /** Primary icon color */
+   iconColor?: string
+
+   /* Optional actions to render below the text */
+   actions?: JSX.Element;
+   
+   /**
+   * Overrides for theme
+   */
+  theme?: $DeepPartial<Theme>;
 }
+
+class EmptyStateClass extends Component<WithTheme<EmptyStateProps>> {
+   render() {
+      const { title, description, actions } = this.props;
+      return (
+         <View style={styles.container}>
+            {this.icon()}
+            <H6 style={{textAlign: 'center'}}>{title}</H6>
+            {description ? <Subtitle color={'primary'} style={{textAlign: 'center'}}>{description}</Subtitle> : null}
+            {actions ? <View style={{marginTop: 10}}>{actions}</View> : null}
+         </View>
+      )
+   }
+   private icon() {
+      const { IconClass, iconColor } = this.props;
+      if (IconClass) {
+         return (
+            <IconClass size={this.normalizeIconSize()} color={this.getColor(iconColor)} />
+         );
+      }
+   }
+   private normalizeIconSize() {
+      const { iconSize } = this.props;
+      if (!iconSize) return 100;
+      return Math.max(100, Math.min(200, iconSize));
+   }
+   private getColor(color: string | undefined) {
+      const { theme } = this.props;
+      if (!color) return theme.colors.text;
+      if (Object.keys(theme.colors).indexOf(color) >= 0) return theme.colors[(color as keyof Theme['colors'])];
+      return color;
+   }
+}
+/**
+ * Empty State component
+ *
+ * Used as a placeholder when no content is available for a particular area/screen in your application.
+ */
+export const EmptyState = withTheme(EmptyStateClass);
 
 const styles = StyleSheet.create({
    container: {
@@ -16,38 +74,5 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       alignItems: 'center',
       padding: 10
-   },
-   title: {
-      fontSize: 20,
-      fontWeight: '500',
-      color: Colors.gray[500],
-      paddingBottom: 10,
-      textAlign: 'center',
-   },
-   description: {
-      color: Colors.blue[500],
-      fontSize: 14,
-      fontWeight: '500',
-      textAlign: 'center',
-      paddingBottom: 10,
-   },
-   icon: {
-      marginBottom: 15,
-      display: 'flex',
-      fontSize: 100
    }
 });
-
-export class EmptyState extends React.Component<EmptyStateProps> {
-   render() {
-      const { title, description, icon, actions, iconStyles } = this.props;
-      return (
-         <View style={styles.container}>
-            {icon ? <View style={Object.assign(styles.icon, iconStyles)}>{icon}</View> : null }
-            {<Text style={styles.title}>{title}</Text>}
-            {description ? <Text style={styles.description}>{description}</Text> : null}
-            {actions ? actions : null}
-         </View>
-      )
-   }
-}

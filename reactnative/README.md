@@ -3,14 +3,7 @@
 This is a library of re-usable React Native components for use in PX Blue applications. For the most part, these components are meant to simplify building your application by providing drop-in components that implement common use cases in PX Blue and eliminate the need for multiple teams to build their own components for these.
 
 
-Currently, we have components available for:
-* ChannelValue
-* Hero
-* HeroBanner
-* Typography
-* Header
-* InfoListItem
-* ScoreCard
+Refer to the [documentation](https://github.com/pxblue/component-library/tree/dev/reactnative/docs) for a list of available components.
 
 
 ## Installation
@@ -41,7 +34,7 @@ yarn link:components
 You can also build, link, and start the demo application in a single step by calling ```yarn start``` from the /reactnative directory.
 
 ## Using the Components
-See the [Docs](https://github.com/pxblue/component-library/tree/dev/reactnative/docs) folder for documentation on using these components.
+See the [documentation](https://github.com/pxblue/component-library/tree/dev/reactnative/docs) for information on using these components.
 
 
 ## NOTES

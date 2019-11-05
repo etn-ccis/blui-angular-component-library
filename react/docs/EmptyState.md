@@ -1,5 +1,7 @@
-# EmptyState Component
-The Empty State component is a placeholder for missing data or permissions, future features, or even errors.
+# Empty State Component
+The Empty State component is an element that can be used as a placeholder when no data is present (such as an empty list, or a placeholder page for future content). This is only used when no data is available, rather than during loading (see [empty states pattern](https://pxblue.github.io/patterns/empty-states)).
+
+<img width="100%" alt="Empty State component with action button" src="./images/emptyState.png">
 
 ## Usage
 ```
@@ -13,10 +15,10 @@ import EmptyState from '@pxblue/react-components/core/EmptyState';
 ```
  
 ## API
-| Name        | Type     | Required | Default | Examples                                                  |
-|-------------|----------|----------|---------|-----------------------------------------------------------|
-| title       | string   | yes      |         | 'No Data Found'                                           |
-| description | string   | no       |         | 'Come back to this page later, it's under construction'   |
-| icon        | element  | no       |         | `<DevicesIcon fontSize={'inherit'}/>`                     |
-| iconStyles  | Object   | no       |         | `{fontSize:'500px', marginBottom: '55px'}`                |
-| actions     | element  | no       |         | `<Button>Add Device</Button>`                             |      
+| Prop Name   | Description                             | Type              | Required | Default | Examples                              |
+|-------------|-----------------------------------------|-------------------|----------|---------|---------------------------------------|
+| title       | The main text to display                | `string`          | yes      |         | 'No Data Found'                       |
+| description | The secondary text to display           | `string`          | no       |         | 'Come back to this page later'        |
+| icon        | The primary icon                        | `React.Component` | no       |         | `<DevicesIcon fontSize={'inherit'}/>` |
+| actions     | Additional components to render below   | `React.Component` | no       |         | `<Button>Add Device</Button>`         |
+
