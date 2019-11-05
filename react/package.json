@@ -7,7 +7,8 @@
     "test:artifacts": "bash ./buildTest.sh",
     "build": "cd components && yarn && yarn build",
     "link:components": "bash ./linkComponents.sh",
-    "start": "cd component-demo/demo && yarn && cd ../storybook && yarn && cd ../.. && yarn link:components && cd component-demo/demo && yarn start"
+    "start": "cd component-demo/demo && yarn && cd ../.. && yarn link:components && cd component-demo/demo && yarn start",
+    "start:storybook": "cd component-demo/storybook && yarn && cd ../.. && yarn link:components && cd component-demo/storybook && yarn start"
   },
   "repository": {
     "type": "git",
