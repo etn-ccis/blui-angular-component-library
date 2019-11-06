@@ -15,6 +15,9 @@ import {storiesOf} from '@storybook/react';
 
 export const stories = storiesOf('Empty State', module);
 stories.addDecorator(withKnobs);
+stories.addParameters({
+    notes: { markdown: require('./../../../docs/EmptyState.md')}
+});
 
 stories.add('Actions', () => {
     const title = text('Title', 'No Devices');

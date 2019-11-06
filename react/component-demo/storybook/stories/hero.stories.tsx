@@ -14,6 +14,9 @@ import {storiesOf} from '@storybook/react';
 
 
 export const stories = storiesOf('Hero', module);
+stories.addParameters({
+   notes: { markdown: require('./../../../docs/Hero.md')}
+});
 stories.addDecorator(withKnobs);
 
 stories.add('with basic properties', () => (

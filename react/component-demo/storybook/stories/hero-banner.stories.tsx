@@ -15,6 +15,9 @@ import {storiesOf} from '@storybook/react';
 
 export const stories = storiesOf('Hero Banner', module);
 stories.addDecorator(withKnobs);
+stories.addParameters({
+    notes: { markdown: 'TODO'}
+});
 
 
 const heroes = [
