@@ -8,8 +8,9 @@
     "build": "cd components && yarn && yarn build",
     "link:components": "bash ./linkComponents.sh",
     "install:dependencies": "cd component-demo/showcase && yarn && cd ../storybook && yarn && cd ../..",
-    "start": "yarn install:dependencies && yarn link:components && cd component-demo/showcase && yarn start",
-    "start:storybook": "yarn install:dependencies && yarn link:components && cd component-demo/storybook && yarn start"
+    "start:showcase": "yarn install:dependencies && yarn link:components && cd component-demo/showcase && yarn start",
+    "start:storybook": "yarn install:dependencies && yarn link:components && cd component-demo/storybook && yarn start",
+    "start": "yarn start:showcase"
   },
   "repository": {
     "type": "git",

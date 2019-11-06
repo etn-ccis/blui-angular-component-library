@@ -55,7 +55,7 @@ stories.add('with long text', () => {
 stories.add('array for subtitles', () => {
     return <InfoListItem dense
         title={text('Title', 'Temperature')}
-        subtitle={['4', <Leaf width={12} height={12} />, 'leaves']}
+        subtitle={['4', <Leaf fontSize={'inherit'} />, 'leaves']}
         subtitleSeparator={text('separator', '-')}
         divider={'full'}
         icon={<Temp />}
