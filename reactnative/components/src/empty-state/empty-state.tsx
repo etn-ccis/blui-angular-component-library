@@ -3,6 +3,8 @@ import { View, StyleSheet } from 'react-native';
 import { Theme, withTheme, WithTheme } from '../theme';
 import { $DeepPartial } from '@callstack/react-theme-provider';
 import { H6, Subtitle } from '..';
+import { $DeepPartial } from '@callstack/react-theme-provider';
+
 
 export interface EmptyStateProps {
    /* Primary text to display */
@@ -22,7 +24,7 @@ export interface EmptyStateProps {
 
    /* Optional actions to render below the text */
    actions?: JSX.Element;
-   
+
    /**
    * Overrides for theme
    */

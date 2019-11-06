@@ -25,4 +25,4 @@ const Battery = wrapIcon({ IconClass: _Battery });
 | iconSize    | The size of the primary icon (100-200)  | `number`                                           | no       | 100     | 24                              |
 | iconColor   | The color of the primary icon           | `string`                                           | no       | `text`  | 'red'                           |
 | actions     | Additional components to render below   | `JSX.Element`                                      | no       |         | `<Button title={'click me'} />` |
-| theme       | Theme partial for default styling       | `DeepPartial<Theme>`                               | no       |         | { colors: { text: 'green' } }    |
+| theme       | Theme partial for default styling       | `DeepPartial<Theme>`                               | no       |         | { colors: { text: 'green' } }   |

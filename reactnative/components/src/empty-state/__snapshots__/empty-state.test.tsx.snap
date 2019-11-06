@@ -15,10 +15,10 @@ exports[`EmptyState Tests  Actions Renders 1`] = `
     style={
       Array [
         Object {
-          "color": "#727e84",
+          "color": "#000000",
         },
         Object {
-          "fontFamily": "Open Sans",
+          "fontFamily": "System",
           "fontSize": 20,
           "fontWeight": "600",
           "letterSpacing": 0,
@@ -185,10 +185,10 @@ exports[`EmptyState Tests  Description Renders 1`] = `
     style={
       Array [
         Object {
-          "color": "#727e84",
+          "color": "#000000",
         },
         Object {
-          "fontFamily": "Open Sans",
+          "fontFamily": "System",
           "fontSize": 20,
           "fontWeight": "600",
           "letterSpacing": 0,
@@ -206,10 +206,10 @@ exports[`EmptyState Tests  Description Renders 1`] = `
     style={
       Array [
         Object {
-          "color": "#007bc1",
+          "color": "#6200EE",
         },
         Object {
-          "fontFamily": "Open Sans",
+          "fontFamily": "System",
           "fontSize": 14,
           "fontWeight": "600",
         },
@@ -241,7 +241,7 @@ exports[`EmptyState Tests  Icon Renders 1`] = `
     style={
       Array [
         Object {
-          "color": "#727e84",
+          "color": "#000000",
           "fontSize": 100,
         },
         undefined,
@@ -261,10 +261,10 @@ exports[`EmptyState Tests  Icon Renders 1`] = `
     style={
       Array [
         Object {
-          "color": "#727e84",
+          "color": "#000000",
         },
         Object {
-          "fontFamily": "Open Sans",
+          "fontFamily": "System",
           "fontSize": 20,
           "fontWeight": "600",
           "letterSpacing": 0,
@@ -296,10 +296,10 @@ exports[`EmptyState Tests  Only Title Renders 1`] = `
     style={
       Array [
         Object {
-          "color": "#727e84",
+          "color": "#000000",
         },
         Object {
-          "fontFamily": "Open Sans",
+          "fontFamily": "System",
           "fontSize": 20,
           "fontWeight": "600",
           "letterSpacing": 0,
@@ -331,10 +331,10 @@ exports[`EmptyState Tests  Title, actions, Description Renders 1`] = `
     style={
       Array [
         Object {
-          "color": "#727e84",
+          "color": "#000000",
         },
         Object {
-          "fontFamily": "Open Sans",
+          "fontFamily": "System",
           "fontSize": 20,
           "fontWeight": "600",
           "letterSpacing": 0,
@@ -352,10 +352,10 @@ exports[`EmptyState Tests  Title, actions, Description Renders 1`] = `
     style={
       Array [
         Object {
-          "color": "#007bc1",
+          "color": "#6200EE",
         },
         Object {
-          "fontFamily": "Open Sans",
+          "fontFamily": "System",
           "fontSize": 14,
           "fontWeight": "600",
         },

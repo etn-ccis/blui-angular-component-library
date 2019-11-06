@@ -35,9 +35,11 @@ const MoreIcon = wrapIcon({IconClass: Icon, name:'more-vert'});
 | fontColor         | The color used for the text             | `string`              | no       | `theme.colors.onPrimary` | '#000000'                                  |
 | backgroundImage   | An image to display in the header       | `ImageSourcePropType` | no       |                          | `require('../assets/background.jpg')`      |
 | searchableConfig  | Configuration for search behavior       | `SearchableConfig`    | no       |                          | { placeholder: 'Search', autoFocus: true } |
+| theme             | Theme partial for default styling       | `DeepPartial<Theme>`  | no       |                          | { colors: { text: 'green' } }              |
 
 #### HeaderIcon
 Header icons specified as a JSON object with the following properties:
+
 | Key               | Description                             | Type                                               | Required | Default             | Examples                                |
 |-------------------|-----------------------------------------|----------------------------------------------------|----------|---------------------|-----------------------------------------|
 | icon              | A component to render for the icon      | `React.Component<{ size: number, color: string }>` | yes      |                     | `WrappedLeaf`                           |
