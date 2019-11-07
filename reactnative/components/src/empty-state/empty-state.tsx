@@ -1,9 +1,8 @@
 import React, { Component, ComponentType } from 'react';
 import { View, StyleSheet } from 'react-native';
 import { Theme, withTheme, WithTheme } from '../theme';
-import { H6, Subtitle } from '..';
 import { $DeepPartial } from '@callstack/react-theme-provider';
-
+import { H6, Subtitle } from '..';
 
 export interface EmptyStateProps {
    /* Primary text to display */
