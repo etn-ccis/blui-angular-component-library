@@ -16,9 +16,9 @@ cd ..
 
 echo -en "${BLUE}Creating new folder in node_modules...${NC}"
 rm -rf "./component-demo/showcase/node_modules/@pxblue/react-components"
-mkdir "./component-demo/showcase/node_modules/@pxblue/react-components"
+mkdir -p "./component-demo/showcase/node_modules/@pxblue/react-components"
 rm -rf "./component-demo/storybook/node_modules/@pxblue/react-components"
-mkdir "./component-demo/storybook/node_modules/@pxblue/react-components"
+mkdir -p "./component-demo/storybook/node_modules/@pxblue/react-components"
 echo -e "${GREEN}Done${NC}"
 
 echo -en "${BLUE}Copying build output into node_modules...${NC}";
