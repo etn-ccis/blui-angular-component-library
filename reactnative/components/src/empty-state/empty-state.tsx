@@ -22,7 +22,7 @@ export interface EmptyStateProps {
 
    /* Optional actions to render below the text */
    actions?: JSX.Element;
-   
+
    /**
    * Overrides for theme
    */
