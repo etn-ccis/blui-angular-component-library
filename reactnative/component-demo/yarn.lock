@@ -1006,6 +1006,14 @@
     react-native-keyboard-aware-scroll-view "^0.8.0"
     react-native-status-bar-height "^2.3.1"
 
+"@pxblue/themes@^2.2.3":
+  version "2.2.3"
+  resolved "https://registry.yarnpkg.com/@pxblue/themes/-/themes-2.2.3.tgz#2bfe06dbfa0c2d0ae8f82f5516a30df665aa291c"
+  integrity sha512-CNKleocaCqALkVQKw+s2Kuoc1wLndJ42xR42+dbSbd9/4m2D9KboY82rdpVi9LPK9cJmZ0EQ/EfueGti8U9xlQ==
+  dependencies:
+    "@pxblue/colors" "^1.0.13"
+    typeface-open-sans "^0.0.54"
+
 "@reach/router@^1.2.1":
   version "1.2.1"
   resolved "https://registry.yarnpkg.com/@reach/router/-/router-1.2.1.tgz#34ae3541a5ac44fa7796e5506a5d7274a162be4e"
@@ -7628,6 +7636,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typeface-open-sans@^0.0.54:
+  version "0.0.54"
+  resolved "https://registry.yarnpkg.com/typeface-open-sans/-/typeface-open-sans-0.0.54.tgz#20f5b5ea5c7f95d89dc1f8b2d2b1457680129cee"
+  integrity sha512-w6wOd6EicZdZKf0jSU/K3EzEi3zFgvWQSN7NOpRIQI5KeMWmC5Pg/lqtBVJHB0pRChYRmLdhf4h8ROur0A3JZQ==
 
 typescript@^3.6.3:
   version "3.6.3"
