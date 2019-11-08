@@ -28,8 +28,8 @@ class InfoListItemClass extends React.Component {
                     <ListItemText
                         primary={title}
                         secondary={this.subtitle()}
-                        primaryTypographyProps={{ variant: 'body1', style: { fontWeight: 600, lineHeight: 0.9, color: fontColor || 'inherit' } }}
-                        secondaryTypographyProps={{ variant: 'subtitle2', style: { fontWeight: 400, lineHeight: 1 } }}
+                        primaryTypographyProps={{ noWrap: true, variant: 'body1', style: { fontWeight: 600, lineHeight: 0.9, display: 'block', color: fontColor || 'inherit' } }}
+                        secondaryTypographyProps={{ noWrap: true, variant: 'subtitle2', style: { fontWeight: 400, lineHeight: 1 } }}
                     />
                 </div>
                 {this.rightComponent()}
@@ -145,7 +145,8 @@ const styles = theme => ({
     },
     contentContainer: {
         flex: '1 1 0px',
-        padding: '0 16px'
+        padding: '0 16px',
+        overflow: 'hidden'
     },
     divider:{
         position: 'absolute', 
@@ -155,6 +156,7 @@ const styles = theme => ({
         backgroundColor: theme.palette.type === 'light' ? PXBColors.black[50] : PXBColors.black[700]
     },
     wrapper: {
+        boxSizing: 'border-box',
         width: '100%',
         display: 'flex',
         position: 'relative',
