@@ -22,6 +22,7 @@ import _Humidity from '@pxblue/icons-svg/moisture';
 import _Battery from '@pxblue/icons-svg/battery.svg';
 
 import * as PXBColors from '@pxblue/colors';
+import { ReactNativeThemes } from '@pxblue/themes';
 const backgroundImage = require('./storybook/assets/farm.jpg');
 
 const ChartLineVariant = wrapIcon({ IconClass: MaterialCommunityIcon, name: 'chart-line-variant' })
@@ -40,7 +41,7 @@ const PADDING = 10;
 export default class App extends React.Component {
     render() {
         return (
-            <ThemeProvider>
+            <ThemeProvider theme={ReactNativeThemes.blue}>
                 <View style={{ flex: 1, backgroundColor: PXBColors.gray[50] }}>
                     <Header
                         expandable={true}
