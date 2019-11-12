@@ -9,7 +9,15 @@ import color from 'color';
 import { separate, withKeys } from '../utilities';
 
 //Material-UI Components
-import { ListItemText } from '@material-ui/core';
+import {
+    Avatar,
+    ListItem,
+    ListItemAvatar,
+    ListItemIcon,
+    ListItemSecondaryAction,
+    ListItemText,
+    Typography
+} from '@material-ui/core';
 
 const MAX_SUBTITLE_ELEMENTS = 6;
 
@@ -17,51 +25,62 @@ class InfoListItemClass extends React.Component {
     render() {
         const { classes, fontColor, onClick, statusColor, title, divider } = this.props;
         return (
-            <div className={classes.wrapper} onClick={onClick ? () => onClick() : null} style={this.wrapperStyle()}>
+            <ListItem style={this.wrapperStyle()} onClick={onClick ? () => onClick() : null}>
                 <div className={classes.statusStripe} style={{ backgroundColor: statusColor }}></div>
-                {(this.props.icon || !this.props.hidePadding) &&
-                    <div className={classes.iconContainer}>
-                        {this.icon()}
-                    </div>
-                }
-                <div className={classes.contentContainer}>
-                    <ListItemText
-                        primary={title}
-                        secondary={this.subtitle()}
-                        primaryTypographyProps={{ noWrap: true, variant: 'body1', style: { fontWeight: 600, lineHeight: 0.9, display: 'block', color: fontColor || 'inherit' } }}
-                        secondaryTypographyProps={{ noWrap: true, variant: 'subtitle2', style: { fontWeight: 400, lineHeight: 1 } }}
-                    />
-                </div>
+                {(this.props.icon || !this.props.hidePadding) && this.icon()}
+                <ListItemText
+                    primary={title}
+                    secondary={this.subtitle()}
+                    primaryTypographyProps={{ noWrap: true, variant: 'body1', className: classes.title, style: { color: fontColor || 'inherit' } }}
+                    secondaryTypographyProps={{ noWrap: true, variant: 'subtitle2', className: classes.subtitle }}
+                />
                 {this.rightComponent()}
-                {this.props.divider && 
-                    <div className={classes.divider} style={{left: divider === 'full' ? 0 : 72}}/>
+                {this.props.divider &&
+                    <div className={classes.divider} style={{ zIndex: 0, left: divider === 'full' ? 0 : 72 }} />
                 }
-            </div>
+            </ListItem>
         )
     }
     icon() {
-        const { avatar, classes, icon, statusColor, theme } = this.props;
-        if (icon) {
+        const { avatar, hidePadding, icon, statusColor, theme } = this.props;
+        if (icon && avatar) {
             return (
-                <div className={avatar ? classes.avatar : ''}
-                    style={{
-                        color: this.iconColor(),
-                        backgroundColor: avatar ? statusColor || theme.palette.primary[500] : 'transparent'
-                    }}
-                >
+                <ListItemAvatar>
+                    <Avatar style={{ backgroundColor: statusColor || theme.palette.primary[500] }}>
+                        {icon}
+                    </Avatar>
+                </ListItemAvatar>
+            )
+        }
+        else if (icon) {
+            return (
+                <ListItemIcon style={{ color: this.iconColor() }}>
                     {icon}
-                </div>
+                </ListItemIcon>
+            );
+        }
+        else if (!hidePadding) {
+            return (
+                <ListItemAvatar>
+                    <Avatar style={{ backgroundColor: 'transparent' }}/>
+                </ListItemAvatar>
             );
         }
     }
     rightComponent() {
         const { onClick, rightComponent } = this.props;
         if (rightComponent) {
-            return rightComponent;
+            return (
+                <div style={{ flex: '0 0 auto', marginLeft: 16 }}>
+                    {rightComponent}
+                </div>
+            );
         }
         else if (onClick) {
             return (
-                <Chevron color={'inherit'} />
+                <ListItemSecondaryAction>
+                    <Chevron color={'inherit'} />
+                </ListItemSecondaryAction>
             );
         }
     }
@@ -69,28 +88,22 @@ class InfoListItemClass extends React.Component {
     interpunct() {
         const { classes, subtitleSeparator } = this.props;
         const { withSmallMargins } = classes;
-        return (<span className={withSmallMargins}>{subtitleSeparator || '\u00B7'}</span>);
+        return (
+            <Typography className={withSmallMargins + ' ' + classes.separator}>
+                {subtitleSeparator || '\u00B7'}
+            </Typography>);
     }
     subtitle() {
         const { subtitle } = this.props;
-        if (!subtitle) {
-            return null;
-        }
+        if (!subtitle) { return null }
+        if (typeof subtitle === 'string') { return subtitle }
+
         const subtitleParts = Array.isArray(subtitle) ? [...subtitle] : [subtitle];
-        const renderableSubtitleParts = subtitleParts
-            .splice(0, MAX_SUBTITLE_ELEMENTS)
-            .map(element => this.renderableSubtitleComponent(element));
+        const renderableSubtitleParts = subtitleParts.splice(0, MAX_SUBTITLE_ELEMENTS);
+
         return withKeys(separate(renderableSubtitleParts, () => this.interpunct()));
     }
-    renderableSubtitleComponent(element) {
-        switch (typeof element) {
-            case 'string':
-            case 'number':
-                return (<span>{`${element}`}</span>);
-            default:
-                return element;
-        }
-    }
+
     iconColor() {
         const { avatar, statusColor, iconColor, theme } = this.props;
         if (iconColor) return iconColor;
@@ -134,52 +147,37 @@ InfoListItemClass.defaultProps = {
 };
 
 const styles = theme => ({
-    avatar: {
-        width: 40,
-        height: 40,
-        borderRadius: 20,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-    contentContainer: {
-        flex: '1 1 0px',
-        padding: '0 16px',
-        overflow: 'hidden'
-    },
-    divider:{
-        position: 'absolute', 
-        bottom: 0, 
-        right: 0, 
-        height: 1, 
+    divider: {
+        position: 'absolute',
+        bottom: 0,
+        right: 0,
+        height: 1,
         backgroundColor: theme.palette.type === 'light' ? PXBColors.black[50] : PXBColors.black[700]
     },
-    wrapper: {
-        boxSizing: 'border-box',
-        width: '100%',
-        display: 'flex',
-        position: 'relative',
-        flexDirection: 'row',
-        alignItems: 'center',
-        paddingRight: 16
-    },
     statusStripe: {
+        position: 'absolute',
+        top: 0,
+        bottom: 0,
+        left: 0,
         width: 6,
-        height: '100%'
-    },
-    iconContainer: {
-        marginLeft: 10,
-        width: 40,
-        height: 40,
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'flex-start',
-        justifyContent: 'center'
+        zIndex: 100
     },
     withSmallMargins: {
         margin: `0 4px`
+    },
+    title: {
+        fontWeight: 600,
+        lineHeight: 1.2,
+        display: 'block'
+    },
+    subtitle: {
+        fontWeight: 400,
+        lineHeight: 1.3
+    },
+    separator: {
+        display: 'inline-block',
+        lineHeight: 1.3,
+        color: 'inherit'
     }
 })
-
 export default withStyles(styles, { withTheme: true })(InfoListItemClass);
