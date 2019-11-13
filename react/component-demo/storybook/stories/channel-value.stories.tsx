@@ -3,7 +3,7 @@ import Trend from '@material-ui/icons/TrendingUp';
 import * as Colors from '@pxblue/colors';
 //@ts-ignore
 import ChannelValue from '@pxblue/react-components/core/ChannelValue';
-import {boolean, number, text, withKnobs} from '@storybook/addon-knobs';
+import {boolean, number, text, withKnobs, color} from '@storybook/addon-knobs';
 import {storiesOf} from '@storybook/react';
 import React from 'react';
 
@@ -53,7 +53,7 @@ stories.add('with all props', () => (
         <ChannelValue
             value={text('value', text('value', '123'))}
             units={text('units', 'hz')}
-            color={text('color', 'blue')}
+            color={color('textColor', Colors.red[500])}
             icon={<Trend htmlColor={Colors.red[500]}/>}
             fontSize={number('font size', 30)}
             prefix={boolean('prefix', false)}
