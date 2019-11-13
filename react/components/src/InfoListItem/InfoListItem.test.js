@@ -4,11 +4,10 @@ import InfoListItem from "./InfoListItem";
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 
-import Chevron from '@material-ui/icons/ChevronRight';
+import { ListItemAvatar } from '@material-ui/core';
 
-import Button from '@material-ui/core/Button';
+import Chevron from '@material-ui/icons/ChevronRight';
 import PersonIcon from '@material-ui/icons/Person';
-import Typography from '@material-ui/core/Typography';
 
 import * as PXBColors from '@pxblue/colors'
 
@@ -20,6 +19,7 @@ import {
     // describeConformance,
     getClasses,
 } from '@material-ui/core/test-utils';
+
 
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -46,23 +46,15 @@ describe("InfoListItem", () => {
         ReactDOM.render(<InfoListItem title={'test'} />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
-    it('renders with wrapper class', () => {
-        const wrapper = shallow(
-            <InfoListItem title="Test" />
-        );
-        expect(wrapper.hasClass(classes.wrapper)).toEqual(true);
-    });
     it('renders with icon', () => {
         let wrapper = shallow(
             <InfoListItem hidePadding icon={<PersonIcon />} title="Test" />
         );
         expect(wrapper.find(PersonIcon).length).toEqual(1);
-        expect(wrapper.find(`.${classes.iconContainer}`).length).toEqual(1);
         wrapper = shallow(
             <InfoListItem hidePadding title="Test" />
         );
         expect(wrapper.find(PersonIcon).length).toEqual(0);
-        expect(wrapper.find(`.${classes.iconContainer}`).length).toEqual(0);
     });
     it('renders correct icon Color', () => {
         let wrapper = shallow(
@@ -95,11 +87,11 @@ describe("InfoListItem", () => {
         let wrapper = shallow(
             <InfoListItem avatar icon={<PersonIcon />} title="Test" />
         );
-        expect(wrapper.find(`.${classes.avatar}`).length).toEqual(1);
+        expect(wrapper.find(ListItemAvatar).length).toEqual(1);
         wrapper = shallow(
             <InfoListItem title="Test" icon={<PersonIcon />} />
         );
-        expect(wrapper.find(`.${classes.avatar}`).length).toEqual(0);
+        expect(wrapper.find(ListItemAvatar).length).toEqual(0);
     });
     it('renders rightComponent', () => {
         let wrapper = shallow(
