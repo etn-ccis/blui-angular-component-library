@@ -1,5 +1,9 @@
 # Change Log
 
+## v2.0.0
+- PX Blue theme is no longer bundled with the component library
+    - Theme is now available from [@pxblue/themes](https://www.npmjs.com/package/@pxblue/themes)
+
 ## v1.1.0
 Adds new components for:
 - EmptyState
