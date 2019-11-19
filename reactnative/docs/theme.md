@@ -1,5 +1,5 @@
 # Theming
-Components in this library are themed using [@callstack/react-theme-provider](https://github.com/callstack/react-theme-provider). When using the ```<ThemeProvider``` from this library, all child components will inherit variou styling properties from the default theme.
+Components in this library are themed using [@callstack/react-theme-provider](https://github.com/callstack/react-theme-provider). When using the ```<ThemeProvider``` from this library, all child components will inherit various styling properties from the default theme.
 
 ## Overview
 A Theme is a single JSON object with the following structure:
@@ -85,23 +85,23 @@ If you need to override the theme, you can do so by providing a ```theme``` prop
   roundness: 3,
   fonts: {
     extraBold: {
-      fontFamily: 'Open Sans',
+      fontFamily: 'MyFont',
       fontWeight: '800'
     },
     bold: {
-      fontFamily: 'Open Sans',
+      fontFamily: 'MyFont',
       fontWeight: '700'
     },
     semiBold: {
-      fontFamily: 'Open Sans',
+      fontFamily: 'MyFont',
       fontWeight: '600'
     },
     regular: {
-      fontFamily: 'Open Sans',
+      fontFamily: 'MyFont',
       fontWeight: '400'
     },
     light: {
-      fontFamily: 'Open Sans',
+      fontFamily: 'MyFont',
       fontWeight: '300'
     }
   },

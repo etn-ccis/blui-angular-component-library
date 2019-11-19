@@ -388,7 +388,6 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     const { theme } = this.props;
     return {
       color: this.fontColor(),
-      fontWeight: theme.fonts.semiBold.fontWeight,
       lineHeight: this.state.headerHeight.interpolate({
         inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
         outputRange: [theme.sizes.large, 30]
@@ -405,7 +404,6 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     const { theme } = this.props;
     return {
       color: this.fontColor(),
-      fontWeight: theme.fonts.light.fontWeight,
       lineHeight: 18,
       fontFamily: theme.fonts.light.fontFamily,
       fontSize: 18,
@@ -416,16 +414,15 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
     const { theme } = this.props;
     return {
       color: this.fontColor(),
-      fontWeight: theme.fonts.regular.fontWeight,
       lineHeight: this.state.headerHeight.interpolate({
         inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
-        outputRange: [0.1, theme.sizes.large]
+        outputRange: [0.1, theme.sizes.large*1.05] // Avoid clipping top of CAP letters
       }),
       opacity: this.state.headerHeight.interpolate({
         inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
         outputRange: [0, 1]
       }),
-      fontFamily: theme.fonts.light.fontFamily,
+      fontFamily: theme.fonts.regular.fontFamily,
       fontSize: this.state.headerHeight.interpolate({
         inputRange: [HeaderClass.REGULAR_HEIGHT, HeaderClass.EXTENDED_HEIGHT],
         outputRange: [0.1, theme.sizes.large]
