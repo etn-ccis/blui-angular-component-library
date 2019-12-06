@@ -32,7 +32,8 @@ EmptyState.propTypes = {
   title: PropTypes.string.isRequired,
   description: PropTypes.string,
   icon: PropTypes.element,
-  actions: PropTypes.element
+  actions: PropTypes.element,
+  iconStyles: PropTypes.object,
 };
 EmptyState.defaultProps = {};
 
