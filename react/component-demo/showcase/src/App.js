@@ -6,23 +6,29 @@ import EmptyState from '@pxblue/react-components/core/EmptyState';
 import InfoListItem from '@pxblue/react-components/core/InfoListItem';
 import Drawer from '@pxblue/react-components/core/Drawer';
 import DevicesIcon from '@material-ui/icons/Devices'
-import { Add } from '@material-ui/icons'
+import {Add} from '@material-ui/icons'
 
 import Trend from '@material-ui/icons/TrendingUp';
 import Timer from '@material-ui/icons/Timer';
 
-import { List, Card } from '@material-ui/core';
+import {Card, List} from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
-import { Pie, Battery } from '@pxblue/react-progress-icons';
-import { GradeA, Leaf, CurrentCircled, VoltageCircled, Temp } from '@pxblue/icons-mui';
+import {Battery, Pie} from '@pxblue/react-progress-icons';
+import {CurrentCircled, GradeA, Leaf, Temp, VoltageCircled} from '@pxblue/icons-mui';
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Background from './background.png';
+// Material-UI Icons
+import FolderIcon from '@material-ui/icons/Folder';
+import InfoIcon from '@material-ui/icons/Info';
+import MoveToInboxIcon from '@material-ui/icons/MoveToInbox';
+import SendIcon from '@material-ui/icons/Send';
+import SettingsIcon from '@material-ui/icons/Settings';
 
 export default ({ ...props }) => (
     <>
     <Drawer
-        header= {{
+        header = {{
             style: {
                 backgroundImage: `url(${Background})`,
                 color: 'white'
@@ -34,6 +40,39 @@ export default ({ ...props }) => (
                 </div>
             }
         }
+        body = { {
+            navGroups: [ {
+                title: 'Monitor',
+                links: [
+                    {
+                        title:'Alerts',
+                        route:'/alerts',
+                        icon:<MoveToInboxIcon/>
+                    },
+                    {
+                        title:'Schedule',
+                        route:'/schedule',
+                        icon:<SendIcon/>
+                    },
+                    {
+                        title:'Products',
+                        route:'/products',
+                        icon:<FolderIcon/>
+                    },
+                    {
+                        title:'Event Log',
+                        route:'/eventlog',
+                        icon:<InfoIcon/>
+                    },
+                    {
+                        title:'Settings',
+                        route:'/settings',
+                        icon:<SettingsIcon/>
+                    }
+                ]
+            }
+        ]
+        } }
     />
     <div style={{padding: 10}}>
         <Card>

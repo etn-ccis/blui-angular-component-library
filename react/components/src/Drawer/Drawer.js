@@ -224,6 +224,53 @@ class SideNav extends React.Component {
       </Toolbar>
     }
 
+    drawContent() {
+      const { classes } = this.props;
+      if (!this.props.body) {
+          return <></>
+      } else return <div
+          className={classes.drawerWidthFull}
+          style={{
+              flex: '1 1 0px',
+              overflowY: 'auto',
+              overflowX: 'hidden'
+          }}
+          onMouseEnter={() => {
+              this.hoverDelay = setTimeout(() => this.setState({drawerHover: true}), 500)
+          }
+          }
+          onMouseLeave={() => {
+              clearTimeout(this.hoverDelay);
+              this.setState({drawerHover: false})
+          }
+          }
+      >
+          {this.props.body.navGroups && this.props.body.navGroups.map((navGroup, index) => <>
+              <List subheader={
+                  <ListSubheader
+                      className={classes.subheader}
+                      style={{
+                          position: 'unset',
+                          color: (this.state.drawerOpen || this.state.drawerHover ? '' : 'transparent')
+                      }}
+                  >
+                      {navGroup.title}
+                  </ListSubheader>
+              }>
+                  <Divider />
+                  {navGroup.links.map((link, index) => <>{this.NavigationListItem({
+                      title: link.title,
+                      route: '',
+                      icon: link.icon
+                  })}</>
+                  )}
+              </List>
+              <Divider />
+              </>
+          )}
+      </div>
+    }
+
   render() {
       const { classes } = this.props;
       return (
@@ -245,32 +292,8 @@ class SideNav extends React.Component {
                   }}
               >
                   {this.drawHeader()}
-
                   <Divider />
-                  <div
-                      className={classes.drawerWidthFull}
-                      style={{
-                          flex: '1 1 0px',
-                          overflowY: 'auto',
-                          overflowX: 'hidden'
-                      }}
-                      onMouseEnter={() => {
-                          this.hoverDelay = setTimeout(() => this.setState({drawerHover: true}), 500)
-                      }
-                      }
-                      onMouseLeave={() => {
-                          clearTimeout(this.hoverDelay);
-                          this.setState({drawerHover: false})
-                      }
-                      }
-                  >
-                      {this.state.showUserMenu ? this.getUserNavigation() : this.getPrimaryNavigation()}
-                      <div style={{ flex: '1 1 0px' }} />
-                      <Divider />
-                      {this.getSecondaryNavigation()}
-                      <Divider />
-                      {this.getUserNavigation()}
-                  </div>
+                  {this.drawContent()}
               </div>
           </Drawer>
       );
