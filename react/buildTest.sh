@@ -44,6 +44,12 @@ if [ ! -f ./core/InfoListItem/InfoListItem.js ]; then echo -e "${RED}Not Found${
 echo -ne " index.js:  "
 if [ ! -f ./core/InfoListItem/index.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
+echo "Checking ScoreCard..."
+echo -ne " ScoreCard.js:  "
+if [ ! -f ./core/ScoreCard/ScoreCard.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+echo -ne " index.js:  "
+if [ ! -f ./core/ScoreCard/index.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+
 
 echo -e "\r\n${GREEN}-----------------------------------"
 echo -e "@pxblue/react-components package successfully created"

@@ -19,7 +19,7 @@ class ScoreCardClass extends React.Component {
                     </div>
                 </div>
                 <div className={classes.content}>
-                    <div style={{ flex: '1 1 0px' }}>
+                    <div className={classes.bodyWrapper}>
                         {this.props.children}
                     </div>
                     {this.heroes()}
@@ -62,10 +62,13 @@ class ScoreCardClass extends React.Component {
         }
     }
     heroes() {
-        const { badge, badgeOffset = 0 } = this.props;
+        const { badge, classes, badgeOffset = 0 } = this.props;
         if (badge) {
             return (
-                <div style={{ flex: '0 0 auto', alignSelf: badgeOffset !== 0 ? 'flex-start' : 'center', marginTop: badgeOffset, marginRight: 16, marginLeft: 16 }}>
+                <div className={classes.badgeWrapper} style={{ 
+                    alignSelf: badgeOffset !== 0 ? 'flex-start' : 'center', 
+                    marginTop: badgeOffset
+                }}>
                     {badge}
                 </div>
             );
@@ -138,6 +141,14 @@ const styles = theme => ({
         display: 'flex',
         alignItems: 'center',
         position: 'relative',
+    },
+    bodyWrapper: { 
+        flex: '1 1 0px', 
+    },
+    badgeWrapper:{
+        flex: '0 0 auto', 
+        marginRight: 16, 
+        marginLeft: 16,
     },
     actionItem: {
         marginLeft: theme.spacing(1.5),
