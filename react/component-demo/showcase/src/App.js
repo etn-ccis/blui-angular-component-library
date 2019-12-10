@@ -4,7 +4,7 @@ import HeroBanner from '@pxblue/react-components/core/HeroBanner';
 import ChannelValue from '@pxblue/react-components/core/ChannelValue';
 import EmptyState from '@pxblue/react-components/core/EmptyState';
 import InfoListItem from '@pxblue/react-components/core/InfoListItem';
-
+import Drawer from '@pxblue/react-components/core/Drawer';
 import DevicesIcon from '@material-ui/icons/Devices'
 import { Add } from '@material-ui/icons'
 
@@ -16,8 +16,25 @@ import * as Colors from '@pxblue/colors';
 import { Pie, Battery } from '@pxblue/react-progress-icons';
 import { GradeA, Leaf, CurrentCircled, VoltageCircled, Temp } from '@pxblue/icons-mui';
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import Background from './background.png';
 
 export default ({ ...props }) => (
+    <>
+    <Drawer
+        header= {{
+            style: {
+                backgroundImage: `url(${Background})`,
+                color: 'white'
+            },
+            content:
+                <div style={{'paddingLeft': '40px'}}>
+                    <Typography variant="subtitle2" color="inherit">Project</Typography>
+                    <Typography variant="h6" color="blue" style={{'marginTop': '-10px'}}>Washington</Typography>
+                </div>
+            }
+        }
+    />
     <div style={{padding: 10}}>
         <Card>
             <List style={{ color: Colors.gray['800'], padding: 0 }}>
@@ -109,5 +126,6 @@ export default ({ ...props }) => (
             />
         </Card>
     </div >
+    </>
 );
 
