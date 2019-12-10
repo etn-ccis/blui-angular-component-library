@@ -6,12 +6,7 @@ import { withStyles } from '@material-ui/core/styles';
 
 class ScoreCardClass extends React.Component {
     render() {
-        // TODO: make sure we have all of the API properties covered
-        // TODO: PropTypes documentation
-        // TODO: Documentation (including updated components)
         // TODO: Unit Tests and Storybook Stories
-        // TODO: Responsiveness?
-        // TODO: Hero update for icon background
 
         const { classes, style, headerColor } = this.props;
         return (
@@ -89,17 +84,24 @@ class ScoreCardClass extends React.Component {
         }
     }
     fontColor() {
-        const { headerFontColor, theme } = this.props;
+        const { headerFontColor } = this.props;
         return headerFontColor || Colors.white[50];
     }
 }
 
 ScoreCardClass.propTypes = {
-
+    headerTitle: PropTypes.string.isRequired,
+    headerSubtitle: PropTypes.string,
+    headerInfo: PropTypes.string,
+    headerColor: PropTypes.string,
+    headerFontColor: PropTypes.string,
+    headerBackgroundImage: PropTypes.string,
+    actionItems: PropTypes.arrayOf(PropTypes.element),
+    badge: PropTypes.element,
+    badgeOffset: PropTypes.number,
+    actionRow: PropTypes.element
 };
-ScoreCardClass.defaultProps = {
-
-};
+ScoreCardClass.defaultProps = { };
 
 const styles = theme => ({
     card: {

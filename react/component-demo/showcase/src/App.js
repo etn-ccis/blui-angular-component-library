@@ -20,182 +20,126 @@ import { Pie, Battery } from '@pxblue/react-progress-icons';
 import { GradeA, Leaf, CurrentCircled, VoltageCircled, Temp, Moisture as Humidity } from '@pxblue/icons-mui';
 import Button from "@material-ui/core/Button";
 
-// import farm from './farm.jpg';
 import top from './topology_40.png';
 
-export default ({ ...props }) => (
+export default () => (
     <div style={{ padding: 10 }}>
-        <ScoreCard
-            style={{maxWidth: 400}}
-            headerColor={Colors.red[500]}
-            headerBackgroundImage={top}
-            headerTitle={'Substation 3'}
-            headerSubtitle={'High Humidity Alarm'}
-            headerInfo={'4 Devices'}
-            headerFontColor={Colors.white[50]}
-            actionItems={[
-                <MoreVert onClick={() => alert('something did')} />,
-            ]}
-            badge={
-                <HeroBanner style={{minWidth: 210}}>
-                    <Hero
-                        icon={<Temp fontSize={'inherit'} htmlColor={Colors.black[500]} />}
-                        label={'Temperature'}
-                        iconSize={48}
-                        value={98}
-                        units={'°F'}
-                        fontSize={'normal'}
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+            <ScoreCard
+                style={{ maxWidth: 400 }}
+                headerColor={Colors.red[500]}
+                headerBackgroundImage={top}
+                headerTitle={'Substation 3'}
+                headerSubtitle={'High Humidity Alarm'}
+                headerInfo={'4 Devices'}
+                headerFontColor={Colors.white[50]}
+                actionItems={[
+                    <MoreVert onClick={() => alert('something did')} />,
+                ]}
+                badge={
+                    <HeroBanner style={{ minWidth: 210 }}>
+                        <Hero
+                            icon={<Temp fontSize={'inherit'} htmlColor={Colors.black[500]} />}
+                            label={'Temperature'}
+                            iconSize={48}
+                            value={98}
+                            units={'°F'}
+                            fontSize={'normal'}
+                        />
+                        <Hero
+                            icon={<Humidity fontSize={'inherit'} htmlColor={Colors.blue[300]} />}
+                            label={'Humidity'}
+                            value={54}
+                            units={'%'}
+                            iconSize={48}
+                            fontSize={'normal'}
+                        />
+                    </HeroBanner>
+                }
+                badgeOffset={0}
+                actionRow={
+                    <List style={{margin: 0}}>
+                        <ListItem>
+                            <ListItemText primary="View Location" />
+                            <ListItemSecondaryAction> <ChevronRight /> </ListItemSecondaryAction>
+                        </ListItem>
+                    </List>
+                }
+            >
+                <List style={{ padding: '16px 0' }}>
+                    <InfoListItem dense style={{ height: 36 }}
+                        fontColor={Colors.red[500]}
+                        iconColor={Colors.red[500]}
+                        title={'1 Alarm'}
+                        icon={<Leaf color={'inherit'} />}
                     />
-                    <Hero
-                        icon={<Humidity fontSize={'inherit'} htmlColor={Colors.blue[300]} />}
-                        label={'Humidity'}
-                        value={54}
-                        units={'%'}
-                        iconSize={48}
-                        fontSize={'normal'}
+                    <InfoListItem dense style={{ height: 36 }}
+                        fontColor={Colors.blue[500]}
+                        iconColor={Colors.blue[500]}
+                        title={'1 Event'}
+                        icon={<Leaf color={'inherit'} />}
                     />
-                </HeroBanner>
-            }
-            badgeOffset={0}
-            actionRow={
-                <List>
-                    <ListItem>
-                        <ListItemText primary="View Location" />
-                        <ListItemSecondaryAction> <ChevronRight /> </ListItemSecondaryAction>
-                    </ListItem>
+                    <InfoListItem dense style={{ height: 36 }}
+                        title={'Online'}
+                        icon={<Leaf color={'inherit'} />}
+                    />
                 </List>
-            }
-        >
-            <List style={{ padding: '16px 0' }}>
-                <InfoListItem dense style={{height: 36}}
-                    fontColor={Colors.red[500]}
-                    iconColor={Colors.red[500]}
-                    title={'1 Alarm'}
-                    icon={<Leaf color={'inherit'} />}
-                />
-                <InfoListItem dense style={{height: 36}}
-                    fontColor={Colors.blue[500]}
-                    iconColor={Colors.blue[500]}
-                    title={'1 Event'}
-                    icon={<Leaf color={'inherit'} />}
-                />
-                <InfoListItem dense style={{height: 36}}
-                    title={'Online'}
-                    icon={<Leaf color={'inherit'} />}
-                />
-            </List>
-        </ScoreCard>
-        <ScoreCard
-            style={{ marginTop: 16 }}
-            headerColor={Colors.blue[500]}
-            headerBackgroundImage={top}
-            headerTitle={'Substation 3'}
-            headerSubtitle={'Normal'}
-            headerInfo={'4 Devices'}
-            headerFontColor={Colors.white[50]}
-            actionItems={[
-                <MoreVert onClick={() => alert('something did')} />,
-            ]}
-            badge={
-                <HeroBanner style={{minWidth: 850}} maxItems={12}>
-                    <Hero
-                        icon={<Temp fontSize={'inherit'} htmlColor={Colors.black[500]} />}
-                        label={'Temperature'}
-                        iconSize={48}
-                        value={98}
-                        units={'°F'}
-                        fontSize={'normal'}
+            </ScoreCard>
+            <ScoreCard
+                style={{ flex: '1 1 0px', maxWidth: 400, marginLeft: 10 }}
+                headerColor={Colors.blue[500]}
+                headerBackgroundImage={top}
+                headerTitle={'Substation 3'}
+                headerSubtitle={'Normal'}
+                headerInfo={'4 Devices'}
+                headerFontColor={Colors.white[50]}
+                actionItems={[
+                    <MoreVert onClick={() => alert('something did')} />,
+                ]}
+                badge={
+                    <HeroBanner>
+                        <Hero
+                            icon={<GradeA fontSize={'inherit'} htmlColor={Colors.green[500]} />}
+                            iconBackgroundColor={Colors.white[50]}
+                            label={'Health'}
+                            iconSize={72}
+                            value={98}
+                            units={'%'}
+                            fontSize={'normal'}
+                        />
+                    </HeroBanner>
+                }
+                badgeOffset={-52}
+                actionRow={
+                    <List style={{margin: 0}}>
+                        <ListItem>
+                            <ListItemText primary="View Location" />
+                            <ListItemSecondaryAction> <ChevronRight /> </ListItemSecondaryAction>
+                        </ListItem>
+                    </List>
+                }
+            >
+                <List style={{ padding: '16px 0' }}>
+                    <InfoListItem dense style={{ height: 36 }}
+                        title={'0 Alarms'}
+                        icon={<Leaf color={'inherit'} />}
                     />
-                    <Hero
-                        icon={<Humidity fontSize={'inherit'} htmlColor={Colors.blue[300]} />}
-                        label={'Humidity'}
-                        value={54}
-                        units={'%'}
-                        iconSize={48}
-                        fontSize={'normal'}
+                    <InfoListItem dense style={{ height: 36 }}
+                        fontColor={Colors.blue[500]}
+                        iconColor={Colors.blue[500]}
+                        title={'1 Event'}
+                        icon={<Leaf color={'inherit'} />}
                     />
-                    <Hero
-                        icon={<Temp fontSize={'inherit'} htmlColor={Colors.black[500]} />}
-                        label={'Temperature'}
-                        iconSize={48}
-                        value={98}
-                        units={'°F'}
-                        fontSize={'normal'}
+                    <InfoListItem dense style={{ height: 36 }}
+                        title={'Online'}
+                        icon={<Leaf color={'inherit'} />}
                     />
-                    <Hero
-                        icon={<Humidity fontSize={'inherit'} htmlColor={Colors.blue[300]} />}
-                        label={'Humidity'}
-                        value={54}
-                        units={'%'}
-                        iconSize={48}
-                        fontSize={'normal'}
-                    />
-                    <Hero
-                        icon={<Temp fontSize={'inherit'} htmlColor={Colors.black[500]} />}
-                        label={'Temperature'}
-                        iconSize={48}
-                        value={98}
-                        units={'°F'}
-                        fontSize={'normal'}
-                    />
-                    <Hero
-                        icon={<Humidity fontSize={'inherit'} htmlColor={Colors.blue[300]} />}
-                        label={'Humidity'}
-                        value={54}
-                        units={'%'}
-                        iconSize={48}
-                        fontSize={'normal'}
-                    />
-                    <Hero
-                        icon={<Temp fontSize={'inherit'} htmlColor={Colors.black[500]} />}
-                        label={'Temperature'}
-                        iconSize={48}
-                        value={98}
-                        units={'°F'}
-                        fontSize={'normal'}
-                    />
-                    <Hero
-                        icon={<Humidity fontSize={'inherit'} htmlColor={Colors.blue[300]} />}
-                        label={'Humidity'}
-                        value={54}
-                        units={'%'}
-                        iconSize={48}
-                        fontSize={'normal'}
-                    />
-
-                </HeroBanner>
-            }
-            badgeOffset={-40}
-            actionRow={
-                <List>
-                    <ListItem>
-                        <ListItemText primary="View Location" />
-                        <ListItemSecondaryAction> <ChevronRight /> </ListItemSecondaryAction>
-                    </ListItem>
                 </List>
-            }
-        >
-            <List style={{ padding: '16px 0' }}>
-                <InfoListItem dense style={{height: 36}}
-                    // fontColor={Colors.red[500]}
-                    // iconColor={Colors.red[500]}
-                    title={'0 Alarms'}
-                    icon={<Leaf color={'inherit'} />}
-                />
-                <InfoListItem dense style={{height: 36}}
-                    fontColor={Colors.blue[500]}
-                    iconColor={Colors.blue[500]}
-                    title={'1 Event'}
-                    icon={<Leaf color={'inherit'} />}
-                />
-                <InfoListItem dense style={{height: 36}}
-                    title={'Online'}
-                    icon={<Leaf color={'inherit'} />}
-                />
-            </List>
-        </ScoreCard>
+            </ScoreCard>
 
-        <Card style={{ marginTop: 20 }}>
+        </div>
+
+        <Card style={{ marginTop: 10 }}>
             <List style={{ color: Colors.gray['800'], padding: 0 }}>
                 <HeroBanner divider>
                     <Hero
