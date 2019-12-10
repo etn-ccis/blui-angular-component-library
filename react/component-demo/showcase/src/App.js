@@ -5,7 +5,6 @@ import ChannelValue from '@pxblue/react-components/core/ChannelValue';
 import EmptyState from '@pxblue/react-components/core/EmptyState';
 import InfoListItem from '@pxblue/react-components/core/InfoListItem';
 import ScoreCard from '@pxblue/react-components/core/ScoreCard';
-// import { ScoreCard } from './ScoreCard';
 
 import DevicesIcon from '@material-ui/icons/Devices'
 import { Add } from '@material-ui/icons'
