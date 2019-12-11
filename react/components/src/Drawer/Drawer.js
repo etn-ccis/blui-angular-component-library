@@ -13,6 +13,7 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import DrawerHeader from "./DrawerHeader";
 
 class SideNav extends React.Component {
 
@@ -187,7 +188,11 @@ class SideNav extends React.Component {
                         height: '100%',
                     }}
                 >
-                    {this.drawHeader()}
+                    <DrawerHeader
+                        header={this.props.header}
+                        onClick={() => this.toggleDrawer()}
+                        parentState={this.state}/>
+
                     {this.drawSubheader()}
                     {this.drawContent()}
                     {this.drawFooter()}
