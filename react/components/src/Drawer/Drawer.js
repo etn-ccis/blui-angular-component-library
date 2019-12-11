@@ -69,7 +69,8 @@ class SideNav extends React.Component {
                         ...this.props.subheader.styles,
                         flex: '1 1 0px',
                         paddingLeft: '40px',
-                        paddingRight: '10px'
+                        paddingRight: '10px',
+                        visibility: (this.state.drawerOpen ? '' : 'hidden')
                     }}>
                 {this.props.subheader.content}
             </div>
