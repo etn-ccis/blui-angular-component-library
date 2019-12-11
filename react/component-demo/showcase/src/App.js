@@ -6,7 +6,7 @@ import EmptyState from '@pxblue/react-components/core/EmptyState';
 import InfoListItem from '@pxblue/react-components/core/InfoListItem';
 import Drawer from '@pxblue/react-components/core/Drawer';
 import DevicesIcon from '@material-ui/icons/Devices'
-import {Add, Dashboard, Devices, Gavel, Help, PinDrop, Settings, Toc} from '@material-ui/icons'
+import {Add, ArrowDropDown, Dashboard, Devices, Gavel, Help, PinDrop, Settings, Toc} from '@material-ui/icons'
 
 import Trend from '@material-ui/icons/TrendingUp';
 import Timer from '@material-ui/icons/Timer';
@@ -20,11 +20,11 @@ import Typography from "@material-ui/core/Typography";
 import Background from './background.png';
 import EatonLogo from "./EatonLogo.svg";
 // Material-UI Icons
-import FolderIcon from '@material-ui/icons/Folder';
-import InfoIcon from '@material-ui/icons/Info';
 import MoveToInboxIcon from '@material-ui/icons/MoveToInbox';
 import SendIcon from '@material-ui/icons/Send';
-import SettingsIcon from '@material-ui/icons/Settings';
+import ExpansionPanel from "@material-ui/core/ExpansionPanel";
+import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
+import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 
 export default ({ ...props }) => (
     <>
@@ -41,13 +41,35 @@ export default ({ ...props }) => (
                 </div>
             }
         }
+        subheader = { {
+            content:
+                <ExpansionPanel style={{
+                    '-webkit-box-shadow': 'none',
+                    '-moz-box-shadow': 'none',
+                    'box-shadow': 'none',
+                }}>
+                    <ExpansionPanelSummary
+                        expandIcon={<ArrowDropDown />}
+                    >
+                        <Typography variant={'h6'}>All Locations</Typography>
+                    </ExpansionPanelSummary>
+                    <ExpansionPanelDetails>
+                        <Typography>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
+                            sit amet blandit leo lobortis eget.
+                        </Typography>
+                    </ExpansionPanelDetails>
+                </ExpansionPanel>
+        } }
+
         body = { {
             navGroups: [ {
                 links: [
                     {
                         title:'Overview',
                         route:'/overview',
-                        icon:<Dashboard/>
+                        icon:<Dashboard/>,
+                        onClick: () => alert('clicked')
                     },
                     {
                         title:'Timeline',
@@ -84,6 +106,26 @@ export default ({ ...props }) => (
                             icon:<SendIcon/>
                         }
                     ]
+                },
+                {
+                    pinBottom: true,
+                    links: [
+                        {
+                            title: 'Settings',
+                            route: '/settings',
+                            icon: <Settings/>
+                        },
+                        {
+                            title: 'Legal',
+                            route: '/legal',
+                            icon: <Gavel/>
+                        },
+                        {
+                            title: 'Help',
+                            route: '/help',
+                            icon: <Help/>
+                        },
+                    ]
                 }
             ]
         } }
@@ -108,8 +150,8 @@ export default ({ ...props }) => (
                 ]
             }],
             content:
-                <div style={{'display': 'flex', 'justify-content': 'center'}}>
-                    <img src={EatonLogo} style={{'margin': '20px'}} alt="Eaton Logo" height={50} width={'auto'}/>
+                <div style={{'display': 'flex', 'justifyContent': 'center'}}>
+                    <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
                 </div>
         }}
     />
