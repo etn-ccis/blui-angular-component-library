@@ -87,25 +87,25 @@ export default ({ ...props }) => (
                     },
                 ]
             },
-                {
-                    title:
-                        <div style={{'display': 'flex', 'justifyContent': 'space-between'}}>
-                            <div>About</div>
-                            <div>Software Version v1.0.3</div>
-                        </div>,
-                    links: [
-                        {
-                            title:'User Guide',
-                            onClick: () => { alert('user guide') },
-                            icon:<MoveToInboxIcon/>
-                        },
-                        {
-                            title:'License Agreement',
-                            onClick: () => { alert('license agreement') },
-                            icon:<SendIcon/>
-                        }
-                    ]
-                }
+            {
+                title:
+                    <div style={{'display': 'flex', 'justifyContent': 'space-between'}}>
+                        <div>About</div>
+                        <div>Software Version v1.0.3</div>
+                    </div>,
+                links: [
+                    {
+                        title:'User Guide',
+                        onClick: () => { alert('user guide') },
+                        icon:<MoveToInboxIcon/>
+                    },
+                    {
+                        title:'License Agreement',
+                        onClick: () => { alert('license agreement') },
+                        icon:<SendIcon/>
+                    }
+                ]
+            }
             ]
         } }
         footer = {{
@@ -129,7 +129,7 @@ export default ({ ...props }) => (
                 ]
             }],
             content:
-                <div style={{'display': 'flex', 'justifyContent': 'center'}}>
+                <div style={{'display': 'flex', 'justifyContent': 'left'}}>
                     <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
                 </div>
         }}

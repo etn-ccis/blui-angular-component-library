@@ -124,7 +124,9 @@ class SideNav extends React.Component {
                     }}
                 >
                     {this.createRouteItems(this.props.footer.navGroups)}
-                    {this.props.footer.content}
+                    <div style={{visibility: (this.state.drawerOpen ? '' : 'hidden')}}>
+                        {this.props.footer.content}
+                    </div>
                 </div>
             </>
         );
