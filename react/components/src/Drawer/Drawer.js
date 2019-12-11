@@ -14,6 +14,9 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import DrawerHeader from "./DrawerHeader";
+import DrawerSubheader from "./DrawerSubheader";
+import DrawerBody from "./DrawerBody";
+import DrawerFooter from "./DrawerFooter";
 
 class SideNav extends React.Component {
 
@@ -30,108 +33,12 @@ class SideNav extends React.Component {
         this.hoverDelay = setTimeout(() => this.setState({ drawerHover: true }), 500);
     };
 
-    onNavLeave() {
-
-    }
-
     toggleNavMenu() {
         this.setState({ showUserMenu: !this.state.showUserMenu });
     }
 
     toggleDrawer() {
         this.setState({ drawerOpen: !this.state.drawerOpen });
-    }
-
-    drawHeader() {
-        const { classes } = this.props;
-        return (
-            <>
-            <Toolbar className={classes.flush + ' ' + classes.drawerWidthFull} style={this.props.header.style}>
-                <IconButton color="inherit" onClick={() => this.toggleDrawer()}>
-                    <MenuIcon />
-                </IconButton>
-                {(this.state.drawerOpen || this.state.drawerHover) && this.props.header.content}
-            </Toolbar>
-            <Divider />
-            </>
-        );
-    }
-
-    drawSubheader() {
-        if (!this.props.subheader) {
-            return <></>;
-        }
-        const { classes } = this.props;
-        return (
-            <div
-                className={classes.drawerWidthFull}
-                style={
-                    {
-                        ...this.props.subheader.styles,
-                        flex: '1 1 0px',
-                        paddingLeft: '40px',
-                        paddingRight: '10px',
-                        visibility: (this.state.drawerOpen ? '' : 'hidden')
-                    }}>
-                {this.props.subheader.content}
-            </div>
-        );
-    }
-
-    drawContent() {
-        if (!this.props.body) {
-            return <></>;
-        }
-        const { classes } = this.props;
-        return (
-            <div
-                className={classes.drawerWidthFull}
-                style={{
-                    flex: '1 1 0px',
-                }}
-                onMouseEnter={() => {
-                    this.hoverDelay = setTimeout(() => this.setState({ drawerHover: true }), 500);
-                }}
-                onMouseLeave={() => {
-                    clearTimeout(this.hoverDelay);
-                    this.setState({ drawerHover: false });
-                }}
-            >
-                {this.createRouteItems(this.props.body.navGroups)}
-            </div>
-        );
-    }
-
-    drawFooter() {
-        if (!this.props.footer) {
-            return <></>;
-        }
-        const { classes } = this.props;
-        return (
-            <>
-                <Divider/>
-                <div
-                    className={classes.drawerWidthFull}
-                    style={{
-                        flex: '1 1 0px',
-                        position: 'absolute',
-                        bottom: 0,
-                    }}
-                    onMouseEnter={() => {
-                        this.hoverDelay = setTimeout(() => this.setState({ drawerHover: true }), 500);
-                    }}
-                    onMouseLeave={() => {
-                        clearTimeout(this.hoverDelay);
-                        this.setState({ drawerHover: false });
-                    }}
-                >
-                    {this.createRouteItems(this.props.footer.navGroups)}
-                    <div style={{visibility: (this.state.drawerOpen ? '' : 'hidden')}}>
-                        {this.props.footer.content}
-                    </div>
-                </div>
-            </>
-        );
     }
 
     createRouteItems(navGroups) {
@@ -191,11 +98,35 @@ class SideNav extends React.Component {
                     <DrawerHeader
                         header={this.props.header}
                         onClick={() => this.toggleDrawer()}
-                        parentState={this.state}/>
+                        parentState={this.state}
+                        classes={classes}/>
 
-                    {this.drawSubheader()}
-                    {this.drawContent()}
-                    {this.drawFooter()}
+                        <div
+                            onMouseEnter={() => {
+                                this.hoverDelay = setTimeout(() => this.setState({drawerHover: true}), 500);
+                            }}
+                            onMouseLeave={() => {
+                                clearTimeout(this.hoverDelay);
+                                this.setState({drawerHover: false});
+                            }}
+                        >
+                            <DrawerSubheader
+                                subheader={this.props.subheader}
+                                parentState={this.state}
+                                classes={classes}/>
+
+                            <DrawerBody
+                                body={this.props.body}
+                                createRouteItems={(items) => this.createRouteItems(items)}
+                                parentState={this.state}
+                                classes={classes}/>
+
+                            <DrawerFooter
+                                footer={this.props.footer}
+                                createRouteItems={(items) => this.createRouteItems(items)}
+                                parentState={this.state}
+                                classes={classes}/>
+                        </div>
                 </div>
             </Drawer>
         );
@@ -235,20 +166,6 @@ const styles = theme => ({
     noPadding: {
         padding: 0,
     },
-    drawerMargin: {
-        [theme.breakpoints.down('xs')]: {
-            marginLeft: 0,
-        },
-        marginLeft: theme.spacing.unit * 7,
-        transition: 'margin 175ms cubic-bezier(.4, 0, .2, 1)',
-    },
-    drawerMarginFull: {
-        [theme.breakpoints.down('xs')]: {
-            marginLeft: 0,
-        },
-        marginLeft: theme.spacing.unit * 45,
-        transition: 'margin 175ms cubic-bezier(.4, 0, .2, 1)',
-    },
     drawerWidthFull: {
         width: theme.spacing.unit * 45,
         transition: 'width 175ms cubic-bezier(.4, 0, .2, 1)',
@@ -257,16 +174,6 @@ const styles = theme => ({
         width: theme.spacing.unit * 7,
         overflow: 'hidden',
         transition: 'width 175ms cubic-bezier(.4, 0, .2, 1)',
-    },
-    drawer: {
-        maxWidth: '85%',
-        width: theme.spacing.unit * 45,
-    },
-    header: {
-        height: '180px',
-        color: 'white',
-        background: theme.palette.primary['500'],
-        padding: '16px',
     },
     subheader: {
         paddingLeft: '15px',
