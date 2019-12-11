@@ -6,6 +6,9 @@ import IconButton from '@material-ui/core/IconButton';
 import Divider from '@material-ui/core/Divider';
 // Material-UI Icons
 import MenuIcon from '@material-ui/icons/Menu';
+import PropTypes from "prop-types";
+import * as Colors from '@pxblue/colors';
+import {Typography} from "@material-ui/core";
 
 class DrawerHeader extends React.Component {
 
@@ -13,15 +16,46 @@ class DrawerHeader extends React.Component {
         super(props);
     }
 
+    getHeaderContent() {
+        const { classes } = this.props;
+        return this.props.content || (
+            <div className={classes.content}>
+
+                <Typography variant={'h5'} className={classes.title}>
+                    {this.props.title}
+                </Typography>
+
+                {this.props.subtitle &&
+                    <Typography variant={'subtitle1'} className={classes.subtitle}>
+                        {this.props.subtitle}
+                    </Typography>}
+
+                {this.props.info &&
+                    <Typography variant={'subtitle2'} className={classes.info}>
+                        {this.props.info}
+                    </Typography>}
+            </div>
+        );
+    }
+
     render() {
         const { classes } = this.props;
         return (
             <>
-                <Toolbar className={classes.flush + ' ' + this.props.classes.drawerWidthFull} style={this.props.header.style}>
-                    <IconButton color="inherit" onClick={() => this.props.onClick()}>
-                        <MenuIcon />
+                <Toolbar
+                     className={classes.root + ' ' + this.props.styles.drawerWidthFull}
+                     style={{
+                         backgroundColor: this.props.backgroundColor,
+                         color: this.props.textColor,
+                         backgroundImage: this.props.backgroundImage
+                     }}
+                >
+                    <IconButton className={classes.icon} color={'inherit'} onClick={() => this.props.onClick()}>
+                        {this.props.icon}
                     </IconButton>
-                    {(this.props.parentState.drawerOpen || this.props.parentState.drawerHover) && this.props.header.content}
+
+                    {this.getHeaderContent()}
+
                 </Toolbar>
                 <Divider />
             </>
@@ -29,9 +63,41 @@ class DrawerHeader extends React.Component {
     }
 }
 
+DrawerHeader.propTypes = {
+    title: PropTypes.string.isRequired,
+    subtitle: PropTypes.string,
+    info: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    textColor: PropTypes.string,
+    backgroundImage: PropTypes.string,
+    icon: PropTypes.element,
+    classes: PropTypes.object
+};
+
+DrawerHeader.defaultProps = {
+    icon: <MenuIcon />,
+    textColor: Colors.white[50],
+    backgroundColor: Colors.blue[500]
+};
+
 const styles = theme => ({
-    flush: {
+    root: {
         paddingLeft: theme.spacing.unit * 0.5,
+    },
+    content: {
+        padding: '20px'
+    },
+    icon: {
+
+    },
+    title: {
+
+    },
+    subtitle: {
+
+    },
+    info: {
+        marginTop: '10px'
     }
 });
 

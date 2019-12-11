@@ -36,17 +36,17 @@ export default ({ ...props }) => (
             },
             content:
                 <div style={{'paddingLeft': '40px'}}>
-                    <Typography variant="subtitle2" color="inherit">Project</Typography>
-                    <Typography variant="h6" color="blue" style={{'marginTop': '-10px'}}>Washington</Typography>
+                    <Typography variant="subtitle2">Project</Typography>
+                    <Typography variant="h6" style={{'marginTop': '-10px'}}>Washington</Typography>
                 </div>
             }
         }
         subheader = { {
             content:
                 <ExpansionPanel style={{
-                    '-webkit-box-shadow': 'none',
-                    '-moz-box-shadow': 'none',
-                    'box-shadow': 'none',
+                    'WebkitBoxShadow': 'none',
+                    'MozBoxShadow': 'none',
+                    'BoxShadow': 'none',
                 }}>
                     <ExpansionPanelSummary
                         expandIcon={<ArrowDropDown />}

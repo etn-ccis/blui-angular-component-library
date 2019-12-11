@@ -13,14 +13,13 @@ class DrawerSubheader extends React.Component {
         }
         return (
             <div
-                className={this.props.classes.drawerWidthFull}
+                className={this.props.styles.drawerWidthFull}
                 style={
                     {
                         ...this.props.subheader.styles,
                         flex: '1 1 0px',
                         paddingLeft: '40px',
                         paddingRight: '10px',
-                        visibility: (this.props.parentState.drawerOpen ? '' : 'hidden')
                     }}>
                 {this.props.subheader.content}
             </div>

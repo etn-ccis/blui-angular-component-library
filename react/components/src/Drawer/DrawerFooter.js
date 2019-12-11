@@ -17,7 +17,7 @@ class DrawerFooter extends React.Component {
             <>
                 <Divider/>
                 <div
-                    className={this.props.classes.drawerWidthFull}
+                    className={this.props.styles.drawerWidthFull}
                     style={{
                         flex: '1 1 0px',
                         position: 'absolute',

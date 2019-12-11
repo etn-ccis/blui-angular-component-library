@@ -13,7 +13,7 @@ class DrawerBody extends React.Component {
         }
         return (
             <div
-                className={this.props.classes.drawerWidthFull}
+                className={this.props.styles.drawerWidthFull}
                 style={{flex: '1 1 0px' }}
             >
                 {this.props.createRouteItems(this.props.body.navGroups)}

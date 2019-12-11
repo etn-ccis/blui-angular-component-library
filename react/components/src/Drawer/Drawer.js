@@ -1,9 +1,13 @@
 import React from 'react';
+import {NavLink} from 'react-router-dom';
 
 import {withStyles} from '@material-ui/core/styles';
 import {Drawer} from '@material-ui/core';
+import Toolbar from '@material-ui/core/Toolbar';
+import IconButton from '@material-ui/core/IconButton';
 import Divider from '@material-ui/core/Divider';
 // Material-UI Icons
+import MenuIcon from '@material-ui/icons/Menu';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -76,6 +80,7 @@ class SideNav extends React.Component {
 
     render() {
         const { classes } = this.props;
+        const header = this.props.header;
         return (
             <Drawer variant="permanent" open={true} onClose={() => this.toggleDrawer()}>
                 <div
@@ -92,10 +97,20 @@ class SideNav extends React.Component {
                     }}
                 >
                     <DrawerHeader
-                        header={this.props.header}
+                        title={header.title}
+                        subtitle={header.subtitle}
+                        info={header.info}
+                        backgroundColor={header.backgroundColor}
+                        backgroundImage={header.backgroundImage}
+                        textColor={header.textColor}
+                        icon={header.icon}
+                        content={header.content}
+                        classes={header.classes}
+
+
                         onClick={() => this.toggleDrawer()}
                         parentState={this.state}
-                        classes={classes}/>
+                        styles={classes}/>
 
                         <div
                             onMouseEnter={() => {
@@ -109,19 +124,19 @@ class SideNav extends React.Component {
                             <DrawerSubheader
                                 subheader={this.props.subheader}
                                 parentState={this.state}
-                                classes={classes}/>
+                                styles={classes}/>
 
                             <DrawerBody
                                 body={this.props.body}
                                 createRouteItems={(items) => this.createRouteItems(items)}
                                 parentState={this.state}
-                                classes={classes}/>
+                                styles={classes}/>
 
                             <DrawerFooter
                                 footer={this.props.footer}
                                 createRouteItems={(items) => this.createRouteItems(items)}
                                 parentState={this.state}
-                                classes={classes}/>
+                                styles={classes}/>
                         </div>
                 </div>
             </Drawer>
@@ -162,6 +177,20 @@ const styles = theme => ({
     noPadding: {
         padding: 0,
     },
+    drawerMargin: {
+        [theme.breakpoints.down('xs')]: {
+            marginLeft: 0,
+        },
+        marginLeft: theme.spacing.unit * 7,
+        transition: 'margin 175ms cubic-bezier(.4, 0, .2, 1)',
+    },
+    drawerMarginFull: {
+        [theme.breakpoints.down('xs')]: {
+            marginLeft: 0,
+        },
+        marginLeft: theme.spacing.unit * 45,
+        transition: 'margin 175ms cubic-bezier(.4, 0, .2, 1)',
+    },
     drawerWidthFull: {
         width: theme.spacing.unit * 45,
         transition: 'width 175ms cubic-bezier(.4, 0, .2, 1)',
@@ -170,6 +199,16 @@ const styles = theme => ({
         width: theme.spacing.unit * 7,
         overflow: 'hidden',
         transition: 'width 175ms cubic-bezier(.4, 0, .2, 1)',
+    },
+    drawer: {
+        maxWidth: '85%',
+        width: theme.spacing.unit * 45,
+    },
+    header: {
+        height: '180px',
+        color: 'white',
+        background: theme.palette.primary['500'],
+        padding: '16px',
     },
     subheader: {
         paddingLeft: '15px',
