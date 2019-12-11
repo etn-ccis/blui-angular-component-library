@@ -6,7 +6,7 @@ import EmptyState from '@pxblue/react-components/core/EmptyState';
 import InfoListItem from '@pxblue/react-components/core/InfoListItem';
 import Drawer from '@pxblue/react-components/core/Drawer';
 import DevicesIcon from '@material-ui/icons/Devices'
-import {Add} from '@material-ui/icons'
+import {Add, Dashboard, Devices, Gavel, Help, PinDrop, Settings, Toc} from '@material-ui/icons'
 
 import Trend from '@material-ui/icons/TrendingUp';
 import Timer from '@material-ui/icons/Timer';
@@ -18,6 +18,7 @@ import {CurrentCircled, GradeA, Leaf, Temp, VoltageCircled} from '@pxblue/icons-
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Background from './background.png';
+import EatonLogo from "./EatonLogo.svg";
 // Material-UI Icons
 import FolderIcon from '@material-ui/icons/Folder';
 import InfoIcon from '@material-ui/icons/Info';
@@ -42,37 +43,75 @@ export default ({ ...props }) => (
         }
         body = { {
             navGroups: [ {
-                title: 'Monitor',
                 links: [
                     {
-                        title:'Alerts',
-                        route:'/alerts',
-                        icon:<MoveToInboxIcon/>
+                        title:'Overview',
+                        route:'/overview',
+                        icon:<Dashboard/>
                     },
                     {
-                        title:'Schedule',
-                        route:'/schedule',
-                        icon:<SendIcon/>
+                        title:'Timeline',
+                        route:'/timeline',
+                        icon:<Toc/>
                     },
                     {
-                        title:'Products',
-                        route:'/products',
-                        icon:<FolderIcon/>
+                        title:'Locations',
+                        route:'/locations',
+                        icon:<PinDrop/>
                     },
                     {
-                        title:'Event Log',
-                        route:'/eventlog',
-                        icon:<InfoIcon/>
+                        title:'Devices',
+                        route:'/devices',
+                        icon:<Devices/>
                     },
-                    {
-                        title:'Settings',
-                        route:'/settings',
-                        icon:<SettingsIcon/>
-                    }
                 ]
-            }
-        ]
+            },
+                {
+                    title:
+                        <div style={{'display': 'flex', 'justifyContent': 'space-between'}}>
+                            <div>About</div>
+                            <div>Software Version v1.0.3</div>
+                        </div>,
+                    links: [
+                        {
+                            title:'User Guide',
+                            route:'/alerts',
+                            icon:<MoveToInboxIcon/>
+                        },
+                        {
+                            title:'License Agreement',
+                            route:'/schedule',
+                            icon:<SendIcon/>
+                        }
+                    ]
+                }
+            ]
         } }
+        footer = {{
+            navGroups: [{
+                links: [
+                    {
+                        title: 'Settings',
+                        route: '/settings',
+                        icon: <Settings/>
+                    },
+                    {
+                        title: 'Legal',
+                        route: '/legal',
+                        icon: <Gavel/>
+                    },
+                    {
+                        title: 'Help',
+                        route: '/help',
+                        icon: <Help/>
+                    },
+                ]
+            }],
+            content:
+                <div style={{'display': 'flex', 'justify-content': 'center'}}>
+                    <img src={EatonLogo} style={{'margin': '20px'}} alt="Eaton Logo" height={50} width={'auto'}/>
+                </div>
+        }}
     />
     <div style={{padding: 10}}>
         <Card>

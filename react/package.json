@@ -10,8 +10,10 @@
     "install:dependencies": "cd component-demo/showcase && yarn && cd ../storybook && yarn && cd ../..",
     "start:showcase": "yarn install:dependencies && yarn link:components && cd component-demo/showcase && yarn start",
     "start:storybook": "yarn install:dependencies && yarn link:components && cd component-demo/storybook && yarn start",
-    "start": "yarn start:showcase"
+    "start": "yarn start:showcase",
+    "prettier": "prettier \"components/src/Drawer/**/**.{ts,tsx,js,jsx,json,css,scss,html}\" --write"
   },
+  "prettier": "@pxblue/prettier-config",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pxblue/component-library.git"
@@ -30,5 +32,12 @@
   "main": "index.js",
   "directories": {
     "doc": "docs"
+  },
+  "dependencies": {
+    "react-router-dom": "^5.1.2"
+  },
+  "devDependencies": {
+    "@pxblue/prettier-config": "^1.0.1",
+    "prettier": "^1.19.1"
   }
 }
