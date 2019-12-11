@@ -21,6 +21,7 @@ class SideNav extends React.Component {
         this.state = {
             showUserMenu: false,
             drawerOpen: false,
+            selected: undefined,
         };
     }
 
@@ -154,9 +155,9 @@ class SideNav extends React.Component {
                         <>
                             {this.NavigationListItem({
                                 title: link.title,
-                                route: link.route,
                                 icon: link.icon,
-                                key: (link.title + index)
+                                key: (link.title + index),
+                                onClick: link.onClick
                             })}
                         </>
                     ))}
@@ -192,17 +193,18 @@ class SideNav extends React.Component {
         );
     }
 
-    NavigationListItem({ title, route, icon, index, onClick }) {
+    NavigationListItem({ title, icon, index, onClick }) {
         const { classes } = this.props;
         const open = this.state.drawerHover || this.state.drawerOpen;
-        const action = () => this.setState({ drawerOpen: false, drawerHover: false });
+        const action = () => {
+            this.setState({ drawerOpen: false, drawerHover: false, selected: title });
+            onClick();
+        };
+        const selected = this.state.selected === title;
         return (
             <ListItem
                 key={index}
-                className={classes.listItem + ' ' + (open ? classes.open : '')}
-                activeClassName={classes.listItemSelected}
-                component={NavLink}
-                to={route}
+                className={classes.listItem + ' ' + (open ? classes.open : '') + ' ' + (selected ? classes.listItemSelected : '')}
                 onClick={() => action()}
             >
                 <ListItemIcon className={classes.listIcon}>{icon}</ListItemIcon>

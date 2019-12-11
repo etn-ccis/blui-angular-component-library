@@ -67,23 +67,22 @@ export default ({ ...props }) => (
                 links: [
                     {
                         title:'Overview',
-                        route:'/overview',
+                        onClick: () => { alert('overview') },
                         icon:<Dashboard/>,
-                        onClick: () => alert('clicked')
                     },
                     {
                         title:'Timeline',
-                        route:'/timeline',
+                        onClick: () => { alert('timeline') },
                         icon:<Toc/>
                     },
                     {
                         title:'Locations',
-                        route:'/locations',
+                        onClick: () => { alert('locations') },
                         icon:<PinDrop/>
                     },
                     {
                         title:'Devices',
-                        route:'/devices',
+                        onClick: () => { alert('devices') },
                         icon:<Devices/>
                     },
                 ]
@@ -97,34 +96,14 @@ export default ({ ...props }) => (
                     links: [
                         {
                             title:'User Guide',
-                            route:'/alerts',
+                            onClick: () => { alert('user guide') },
                             icon:<MoveToInboxIcon/>
                         },
                         {
                             title:'License Agreement',
-                            route:'/schedule',
+                            onClick: () => { alert('license agreement') },
                             icon:<SendIcon/>
                         }
-                    ]
-                },
-                {
-                    pinBottom: true,
-                    links: [
-                        {
-                            title: 'Settings',
-                            route: '/settings',
-                            icon: <Settings/>
-                        },
-                        {
-                            title: 'Legal',
-                            route: '/legal',
-                            icon: <Gavel/>
-                        },
-                        {
-                            title: 'Help',
-                            route: '/help',
-                            icon: <Help/>
-                        },
                     ]
                 }
             ]
@@ -134,17 +113,17 @@ export default ({ ...props }) => (
                 links: [
                     {
                         title: 'Settings',
-                        route: '/settings',
+                        onClick: () => { alert('settings') },
                         icon: <Settings/>
                     },
                     {
                         title: 'Legal',
-                        route: '/legal',
+                        onClick: () => { alert('legal') },
                         icon: <Gavel/>
                     },
                     {
                         title: 'Help',
-                        route: '/help',
+                        onClick: () => { alert('help') },
                         icon: <Help/>
                     },
                 ]
