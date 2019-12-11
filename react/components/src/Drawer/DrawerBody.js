@@ -1,8 +1,5 @@
 import React from 'react';
-
 import {withStyles} from '@material-ui/core/styles';
-
-// Material-UI Icons
 
 class DrawerBody extends React.Component {
 

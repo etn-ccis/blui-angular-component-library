@@ -1,13 +1,9 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
 
 import {withStyles} from '@material-ui/core/styles';
 import {Drawer} from '@material-ui/core';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
 import Divider from '@material-ui/core/Divider';
 // Material-UI Icons
-import MenuIcon from '@material-ui/icons/Menu';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
