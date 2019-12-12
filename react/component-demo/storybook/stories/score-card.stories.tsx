@@ -1,6 +1,8 @@
 
 import React from 'react';
 //@ts-ignore
+import {action} from '@storybook/addon-actions';
+//@ts-ignore
 import * as PXBColors from "@pxblue/colors";
 //@ts-ignore
 import { GradeA, Leaf, Temp, GradeA, Device, Moisture as Humidity } from '@pxblue/icons-mui';
@@ -47,11 +49,15 @@ stories.add('background and actions', () => {
             headerColor={color('backgroundColor', PXBColors.red[500])}
             headerFontColor={color('fontColor', PXBColors.white[50])}
             headerBackgroundImage={backgroundImage}
+            actionLimit={number('Action Limit', 3, {range: true, min: 1, max: 6, step: 1})}
             actionItems={[
-                <MoreVert onClick={() => alert('clicked more')} />,
-                <Search onClick={() => alert('clicked search')} />,
-                <Mail onClick={() => alert('clicked mail')} />
-            ].slice(0, number('actionItems.length', 1, { range: true, min: 0, max: 3, step: 1 }))}
+                <MoreVert onClick={action('clicked more')} />,
+                <Search onClick={action('clicked search')} />,
+                <Mail onClick={action('clicked mail')} />,
+                <Notifications onClick={action('clicked alarms')} />,
+                <ListAlt onClick={action('clicked list')} />,
+                <Cloud onClick={action('clicked cloud')} />
+            ].slice(0, number('Actions Length', 1, { range: true, min: 0, max: 6, step: 1 }))}
             actionRow={
                 <List style={{ margin: 0 }}>
                     <ListItem>
@@ -98,7 +104,7 @@ stories.add('with hero badges', () => {
             headerFontColor={PXBColors.white[50]}
             headerBackgroundImage={backgroundImage}
             actionItems={[
-                <MoreVert onClick={() => alert('clicked more')} />,
+                <MoreVert onClick={action('clicked more')} />,
             ]}
             actionRow={
                 <List style={{ margin: 0 }}>
@@ -133,7 +139,7 @@ stories.add('with score badge', () => {
             headerFontColor={PXBColors.white[50]}
             headerBackgroundImage={backgroundImage}
             actionItems={[
-                <MoreVert onClick={() => alert('clicked more')} />,
+                <MoreVert onClick={action('clicked more')} />,
             ]}
             actionRow={
                 <List style={{ margin: 0 }}>

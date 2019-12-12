@@ -46,7 +46,7 @@ class InfoListItemClass extends React.Component {
         if (icon && avatar) {
             return (
                 <ListItemAvatar>
-                    <Avatar style={{ backgroundColor: statusColor || theme.palette.primary[500] }}>
+                    <Avatar style={{ backgroundColor: statusColor || theme.palette.primary[500], color: this.iconColor() }}>
                         {icon}
                     </Avatar>
                 </ListItemAvatar>

@@ -81,7 +81,7 @@ describe("ScoreCard", () => {
         expect(wrapper.find(`.${classes.actionItem}`).length).toEqual(1);
         expect(wrapper.find(MoreVert).length).toEqual(1);
         wrapper = shallow(
-            <ScoreCard headerTitle={'Test'} 
+            <ScoreCard actionLimit={2} headerTitle={'Test'} 
                 actionItems={[
                     <MoreVert/>,
                     <MoreVert/>,

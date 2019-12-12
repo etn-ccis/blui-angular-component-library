@@ -55,6 +55,7 @@ import { Temp } from '@pxblue/icons-mui';
 | headerFontColor       | The color for text and icons in header      | `string`              | no       | `white`                      | '#000000'                             |
 | headerBackgroundImage | An image to display in the header           | `string`              | no       |                              | `import bg from './path/to/image.png'`|
 | actionItems           | Icons to show to the right of the text      | `JSX.Element[]`       | no       |                              |                                       |
+| actionLimit           | Max number of action icons in the header    | `number`              | no       | 3                            |                                       |
 | badge                 | The component to render in the callout area | `React.Component`     | no       |                              | `<HeroBanner><Hero/></HeroBanner>`    |
 | badgeOffset           | Vertical offset for the badge component     | `number`              | no       |                              | -55                                   |
 | actionRow             | Component to render for the footer          | `React.Component`     | no       |                              | `<ListItem/>`                         |

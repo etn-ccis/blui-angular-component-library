@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 
-export const HeroBanner = ({ classes, divider, limit = 4, ...props }) => {
+export const HeroBanner = ({ classes, divider, limit, ...props }) => {
     const isArray = Array.isArray(props.children);
     return (
         <React.Fragment>
@@ -18,10 +18,12 @@ export const HeroBanner = ({ classes, divider, limit = 4, ...props }) => {
 };
 
 HeroBanner.propTypes = {
-    divider: PropTypes.bool
+    divider: PropTypes.bool,
+    limit: PropTypes.number,
 }
 HeroBanner.defaultProps = {
-    divider: false
+    divider: false,
+    limit: 4,
 };
 
 const styles = (theme) => ({

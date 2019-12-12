@@ -6,8 +6,6 @@ import { withStyles } from '@material-ui/core/styles';
 
 class ScoreCardClass extends React.Component {
     render() {
-        // TODO: Unit Tests and Storybook Stories
-
         const { classes, style, headerColor } = this.props;
         return (
             <Card className={classes.card} style={style}>
@@ -39,23 +37,22 @@ class ScoreCardClass extends React.Component {
 
     headerText() {
         const { headerTitle, headerSubtitle, headerInfo, classes } = this.props;
-        return (<div className={classes.flexColumn} style={{ flex: '1 1 0px' }}>
-            {/* TODO: Line limits and overflow fix */}
-            <Typography variant={'h6'} style={{ color: this.fontColor(), fontWeight: 600, fontSize: '1.125rem' }}>{headerTitle}</Typography>
+        return (<div className={classes.flexColumn} style={{ flex: '1 1 0px', overflow: 'hidden' }}>
+            <Typography variant={'h6'} noWrap style={{ color: this.fontColor(), fontWeight: 600, fontSize: '1.125rem' }}>{headerTitle}</Typography>
             {headerSubtitle &&
-                <Typography variant={'body2'} style={{ color: this.fontColor(), lineHeight: 1.4 }}>{headerSubtitle}</Typography>
+                <Typography noWrap variant={'body2'} style={{ color: this.fontColor(), lineHeight: 1.4 }}>{headerSubtitle}</Typography>
             }
             {headerInfo &&
-                <Typography variant={'body2'} style={{ color: this.fontColor(), fontWeight: 300 }}>{headerInfo}</Typography>
+                <Typography noWrap variant={'body2'} style={{ color: this.fontColor(), fontWeight: 300 }}>{headerInfo}</Typography>
             }
         </div>);
     }
     actionItems() {
-        const { actionItems, classes } = this.props;
+        const { actionItems, classes, actionLimit } = this.props;
 
         if (actionItems) {
-            return actionItems.slice(0, 2).map((actionItem, index) => (
-                <div key={`$index}`} className={classes.actionItem}>
+            return actionItems.slice(0, actionLimit).map((actionItem, index) => (
+                <div key={`${index}`} className={classes.actionItem}>
                     {actionItem}
                 </div>
             ))
@@ -102,9 +99,12 @@ ScoreCardClass.propTypes = {
     actionItems: PropTypes.arrayOf(PropTypes.element),
     badge: PropTypes.element,
     badgeOffset: PropTypes.number,
-    actionRow: PropTypes.element
+    actionRow: PropTypes.element,
+    actionLimit: PropTypes.number,
 };
-ScoreCardClass.defaultProps = { };
+ScoreCardClass.defaultProps = { 
+    actionLimit: 3,
+};
 
 const styles = theme => ({
     card: {
