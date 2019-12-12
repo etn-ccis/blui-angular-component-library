@@ -144,6 +144,10 @@ class SideNav extends React.Component {
     }
 
     NavigationListItem({ title, icon, index, onClick }) {
+        if (!title && !icon) {
+            return <></>
+        }
+
         const { classes } = this.props;
         const open = this.state.drawerHover || this.state.drawerOpen;
         const action = () => {

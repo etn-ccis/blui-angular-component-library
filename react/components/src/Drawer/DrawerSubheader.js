@@ -20,6 +20,7 @@ class DrawerSubheader extends React.Component {
                         flex: '1 1 0px',
                         paddingLeft: '40px',
                         paddingRight: '10px',
+                        visibility: (this.props.parentState.drawerOpen ? '' : 'hidden')
                     }}>
                 {this.props.subheader.content}
             </div>
