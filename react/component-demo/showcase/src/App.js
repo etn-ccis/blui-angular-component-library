@@ -4,138 +4,141 @@ import HeroBanner from '@pxblue/react-components/core/HeroBanner';
 import ChannelValue from '@pxblue/react-components/core/ChannelValue';
 import EmptyState from '@pxblue/react-components/core/EmptyState';
 import InfoListItem from '@pxblue/react-components/core/InfoListItem';
-import Drawer from '@pxblue/react-components/core/Drawer';
+import ScoreCard from '@pxblue/react-components/core/ScoreCard';
+
 import DevicesIcon from '@material-ui/icons/Devices'
-import {Add, ArrowDropDown, Dashboard, Devices, Gavel, Help, PinDrop, Settings, Toc} from '@material-ui/icons'
+import { Add } from '@material-ui/icons'
 
 import Trend from '@material-ui/icons/TrendingUp';
 import Timer from '@material-ui/icons/Timer';
 
-import {Card, List} from '@material-ui/core';
+import { List, Card, ListItem, ListItemText, ListItemSecondaryAction } from '@material-ui/core';
+import { ChevronRight, MoreVert } from '@material-ui/icons';
 import * as Colors from '@pxblue/colors';
-import {Battery, Pie} from '@pxblue/react-progress-icons';
-import {CurrentCircled, GradeA, Leaf, Temp, VoltageCircled} from '@pxblue/icons-mui';
+import { Pie, Battery } from '@pxblue/react-progress-icons';
+import { GradeA, Leaf, CurrentCircled, VoltageCircled, Temp, Moisture as Humidity } from '@pxblue/icons-mui';
 import Button from "@material-ui/core/Button";
-import Typography from "@material-ui/core/Typography";
-import Background from './background.png';
-import EatonLogo from "./EatonLogo.svg";
-// Material-UI Icons
-import MoveToInboxIcon from '@material-ui/icons/MoveToInbox';
-import SendIcon from '@material-ui/icons/Send';
-import ExpansionPanel from "@material-ui/core/ExpansionPanel";
-import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
-import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 
-export default ({ ...props }) => (
-    <>
-    <Drawer
-        header = {{
-            style: {
-                backgroundImage: `url(${Background})`,
-                color: 'white'
-            },
-            content:
-                <div style={{'paddingLeft': '40px'}}>
-                    <Typography variant="subtitle2">Project</Typography>
-                    <Typography variant="h6" style={{'marginTop': '-10px'}}>Washington</Typography>
-                </div>
-            }
-        }
-        subheader = { {
-            content:
-                <ExpansionPanel style={{
-                    'WebkitBoxShadow': 'none',
-                    'MozBoxShadow': 'none',
-                    'BoxShadow': 'none',
-                }}>
-                    <ExpansionPanelSummary
-                        expandIcon={<ArrowDropDown />}
-                    >
-                        <Typography variant={'h6'}>All Locations</Typography>
-                    </ExpansionPanelSummary>
-                    <ExpansionPanelDetails>
-                        <Typography>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex,
-                            sit amet blandit leo lobortis eget.
-                        </Typography>
-                    </ExpansionPanelDetails>
-                </ExpansionPanel>
-        } }
+import top from './topology_40.png';
 
-        body = { {
-            navGroups: [ {
-                links: [
-                    {
-                        title:'Overview',
-                        onClick: () => { alert('overview') },
-                        icon:<Dashboard/>,
-                    },
-                    {
-                        title:'Timeline',
-                        onClick: () => { alert('timeline') },
-                        icon:<Toc/>
-                    },
-                    {
-                        title:'Locations',
-                        onClick: () => { alert('locations') },
-                        icon:<PinDrop/>
-                    },
-                    {
-                        title:'Devices',
-                        onClick: () => { alert('devices') },
-                        icon:<Devices/>
-                    },
-                ]
-            },
-            {
-                title:
-                    <div style={{'display': 'flex', 'justifyContent': 'space-between'}}>
-                        <div>About</div>
-                        <div>Software Version v1.0.3</div>
-                    </div>,
-                links: [
-                    {
-                        title:'User Guide',
-                        onClick: () => { alert('user guide') },
-                        icon:<MoveToInboxIcon/>
-                    },
-                    {
-                        title:'License Agreement',
-                        onClick: () => { alert('license agreement') },
-                        icon:<SendIcon/>
-                    }
-                ]
-            }
-            ]
-        } }
-        footer = {{
-            navGroups: [{
-                links: [
-                    {
-                        title: 'Settings',
-                        onClick: () => { alert('settings') },
-                        icon: <Settings/>
-                    },
-                    {
-                        title: 'Legal',
-                        onClick: () => { alert('legal') },
-                        icon: <Gavel/>
-                    },
-                    {
-                        title: 'Help',
-                        onClick: () => { alert('help') },
-                        icon: <Help/>
-                    },
-                ]
-            }],
-            content:
-                <div style={{'display': 'flex', 'justifyContent': 'left'}}>
-                    <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
-                </div>
-        }}
-    />
-    <div style={{padding: 10}}>
-        <Card>
+export default () => (
+    <div style={{ padding: 10 }}>
+        <div style={{ display: 'flex', flexWrap: 'wrap' }}>
+            <ScoreCard
+                style={{ maxWidth: 400 }}
+                headerColor={Colors.red[500]}
+                headerBackgroundImage={top}
+                headerTitle={'Substation 3'}
+                headerSubtitle={'High Humidity Alarm'}
+                headerInfo={'4 Devices'}
+                headerFontColor={Colors.white[50]}
+                actionItems={[
+                    <MoreVert onClick={() => alert('something did')} />,
+                ]}
+                badge={
+                    <HeroBanner style={{ minWidth: 210 }}>
+                        <Hero
+                            icon={<Temp fontSize={'inherit'} htmlColor={Colors.black[500]} />}
+                            label={'Temperature'}
+                            iconSize={48}
+                            value={98}
+                            units={'°F'}
+                            fontSize={'normal'}
+                        />
+                        <Hero
+                            icon={<Humidity fontSize={'inherit'} htmlColor={Colors.blue[300]} />}
+                            label={'Humidity'}
+                            value={54}
+                            units={'%'}
+                            iconSize={48}
+                            fontSize={'normal'}
+                        />
+                    </HeroBanner>
+                }
+                badgeOffset={0}
+                actionRow={
+                    <List style={{margin: 0}}>
+                        <ListItem>
+                            <ListItemText primary="View Location" />
+                            <ListItemSecondaryAction> <ChevronRight /> </ListItemSecondaryAction>
+                        </ListItem>
+                    </List>
+                }
+            >
+                <List style={{ padding: '16px 0' }}>
+                    <InfoListItem dense style={{ height: 36 }}
+                        fontColor={Colors.red[500]}
+                        iconColor={Colors.red[500]}
+                        title={'1 Alarm'}
+                        icon={<Leaf color={'inherit'} />}
+                    />
+                    <InfoListItem dense style={{ height: 36 }}
+                        fontColor={Colors.blue[500]}
+                        iconColor={Colors.blue[500]}
+                        title={'1 Event'}
+                        icon={<Leaf color={'inherit'} />}
+                    />
+                    <InfoListItem dense style={{ height: 36 }}
+                        title={'Online'}
+                        icon={<Leaf color={'inherit'} />}
+                    />
+                </List>
+            </ScoreCard>
+            <ScoreCard
+                style={{ flex: '1 1 0px', maxWidth: 400, marginLeft: 10 }}
+                headerColor={Colors.blue[500]}
+                headerBackgroundImage={top}
+                headerTitle={'Substation 3'}
+                headerSubtitle={'Normal'}
+                headerInfo={'4 Devices'}
+                headerFontColor={Colors.white[50]}
+                actionItems={[
+                    <MoreVert onClick={() => alert('something did')} />,
+                ]}
+                badge={
+                    <HeroBanner>
+                        <Hero
+                            icon={<GradeA fontSize={'inherit'} htmlColor={Colors.green[500]} />}
+                            iconBackgroundColor={Colors.white[50]}
+                            label={'Health'}
+                            iconSize={72}
+                            value={98}
+                            units={'%'}
+                            fontSize={'normal'}
+                        />
+                    </HeroBanner>
+                }
+                badgeOffset={-52}
+                actionRow={
+                    <List style={{margin: 0}}>
+                        <ListItem>
+                            <ListItemText primary="View Location" />
+                            <ListItemSecondaryAction> <ChevronRight /> </ListItemSecondaryAction>
+                        </ListItem>
+                    </List>
+                }
+            >
+                <List style={{ padding: '16px 0' }}>
+                    <InfoListItem dense style={{ height: 36 }}
+                        title={'0 Alarms'}
+                        icon={<Leaf color={'inherit'} />}
+                    />
+                    <InfoListItem dense style={{ height: 36 }}
+                        fontColor={Colors.blue[500]}
+                        iconColor={Colors.blue[500]}
+                        title={'1 Event'}
+                        icon={<Leaf color={'inherit'} />}
+                    />
+                    <InfoListItem dense style={{ height: 36 }}
+                        title={'Online'}
+                        icon={<Leaf color={'inherit'} />}
+                    />
+                </List>
+            </ScoreCard>
+
+        </div>
+
+        <Card style={{ marginTop: 10 }}>
             <List style={{ color: Colors.gray['800'], padding: 0 }}>
                 <HeroBanner divider>
                     <Hero
@@ -193,13 +196,13 @@ export default ({ ...props }) => (
                     statusColor={Colors.red[500]}
                     fontColor={Colors.red[500]}
                     subtitle={['Phase A', 'Phase B', 'Phase C']}
-                    icon={<VoltageCircled color={'inherit'}/>}
-                    rightComponent={<span style={{color: Colors.red[500]}}><ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} /></span>}
+                    icon={<VoltageCircled color={'inherit'} />}
+                    rightComponent={<span style={{ color: Colors.red[500] }}><ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} /></span>}
                 />
                 <InfoListItem dense
                     title={'Output Current'}
                     divider={'full'}
-                    icon={<CurrentCircled color={'inherit'}/>}
+                    icon={<CurrentCircled color={'inherit'} />}
                     rightComponent={<span><ChannelValue fontSize={16} value={15} units={'A'} />, <ChannelValue fontSize={16} value={14.9} units={'A'} />, <ChannelValue fontSize={16} value={15} units={'A'} /></span>}
                 />
                 <InfoListItem dense
@@ -225,6 +228,5 @@ export default ({ ...props }) => (
             />
         </Card>
     </div >
-    </>
 );
 

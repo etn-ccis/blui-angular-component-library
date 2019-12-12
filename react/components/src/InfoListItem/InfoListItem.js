@@ -23,9 +23,9 @@ const MAX_SUBTITLE_ELEMENTS = 6;
 
 class InfoListItemClass extends React.Component {
     render() {
-        const { classes, fontColor, onClick, statusColor, title, divider } = this.props;
+        const { classes, fontColor, onClick, statusColor, title, divider, dense } = this.props;
         return (
-            <ListItem style={this.wrapperStyle()} onClick={onClick ? () => onClick() : null}>
+            <ListItem style={this.wrapperStyle()} onClick={onClick ? () => onClick() : null} dense={dense}>
                 <div className={classes.statusStripe} style={{ backgroundColor: statusColor }}></div>
                 {(this.props.icon || !this.props.hidePadding) && this.icon()}
                 <ListItemText
@@ -46,7 +46,7 @@ class InfoListItemClass extends React.Component {
         if (icon && avatar) {
             return (
                 <ListItemAvatar>
-                    <Avatar style={{ backgroundColor: statusColor || theme.palette.primary[500] }}>
+                    <Avatar style={{ backgroundColor: statusColor || theme.palette.primary[500], color: this.iconColor() }}>
                         {icon}
                     </Avatar>
                 </ListItemAvatar>

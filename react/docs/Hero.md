@@ -36,6 +36,7 @@ import Hero from '@pxblue/react-components/core/Hero';
 | icon                | The primary icon                        | `React.Component` &vert; `string`                                  | yes      |                        | `<Icon/>`                      |
 | label               | The text shown below the `ChannelValue` | `string`                                                           | yes      |                        | 'Status'                       |
 | iconSize            | The size of the primary icon (10-72)    | `number`                                                           | no       | 36                     | 24                             |
+| iconBackgroundColor | The color used behind the primary icon  | `string`                                                           | no       | 'transparent'          | 'red'                          |
 | fontSize            | The text size for the value line        | 'normal' &vert; 'small'                                            | no       | 'normal'               |                                |
 | value               | The value for the channel               | `string` &vert; `number`                                           | no       |                        | 240, 'Off'                     |
 | units               | Text to show after the value            | `string`                                                           | no       |                        | 'Hz', '$'                      |
@@ -63,3 +64,4 @@ import Hero from '@pxblue/react-components/core/Hero';
 | Prop Name | Description                             | Type      | Required | Default | Examples |
 |-----------|-----------------------------------------|-----------|----------|---------|----------|
 | divider   | Whether to show the line separator      | `boolean` | no       | false   |          |
+| limit   | Max number of children to display       | `number`  | no       | 4       |          |
