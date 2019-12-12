@@ -15,7 +15,7 @@ import { storiesOf } from '@storybook/react';
 //@ts-ignore
 import * as Colors from '@pxblue/colors';
 
-const backgroundImage = require('../topology_40.png');
+const backgroundImage = require('../assets/topology_40.png');
 
 
 export const stories = storiesOf('Score Card', module);

@@ -22,7 +22,7 @@ import {boolean, color, number, object, select, text, withKnobs} from '@storyboo
 import {storiesOf} from '@storybook/react';
 import React from 'react';
 // @ts-ignore
-import Background from '../assets/background.png';
+import Background from '../assets/topology_40.png';
 // @ts-ignore
 import EatonLogo from "../assets/EatonLogo.svg";
 // @ts-ignore
@@ -36,24 +36,42 @@ stories.addParameters({
 stories.addDecorator(withKnobs);
 
 
+stories.add('with header style overrides', () => {
 
-
-stories.add('with custom header content', () => {
+   const title = text('title', 'PX Blue Drawer,');
+   const subtitle = text('subtitle', 'with custom styles applied');
+   const info = text('info', 'Depending on your use case, it might make sense to adjust the styles.');
 
    const classes = object('classes', {
       root: {
-         'padding': '0px',
-         'backgroundColor': 'red'
+         minHeight: '100px'
+      },
+      content: {
+         padding: '20px'
+      },
+      icon: {
+         height: '50px',
+         color: 'cyan'
+      },
+      title: {
+         color: 'white'
+      },
+      subtitle: {
+         color: 'rust',
+         fontSize: '12px',
+         fontWeight: '700'
+      },
+      info: {
+         fontSize: '12px',
+         color: 'gold'
       }
    });
 
    const header = {
-      classes,
-      content:
-         <div style={{'paddingLeft': '40px'}}>
-            <Typography variant="subtitle2">Custom</Typography>
-            <Typography variant="h6" style={{'marginTop': '-10px'}}>Element Content</Typography>
-         </div>
+      title,
+      subtitle,
+      info,
+      classes
    };
 
    return <Drawer
