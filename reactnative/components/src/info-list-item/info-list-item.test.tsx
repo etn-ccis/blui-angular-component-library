@@ -7,7 +7,6 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 const OtherComponent = () => <View />;
 
 describe('InfoListItem', () => {
-  // TODO: test that the padding is gone with hidePadding prop
   describe('subtitle', () => {
     describe('string subtitle', () => {
       it('renders as a Text element when a string is passed in', () => {
