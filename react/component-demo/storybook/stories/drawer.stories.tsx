@@ -79,6 +79,19 @@ stories.add('with header style overrides', () => {
    />
 });
 
+
+stories.add('with custom header content', () => {
+   return <Drawer
+      header={{
+         content:
+            <div style={{'paddingLeft': '40px'}}>
+               <Typography variant="subtitle2">Custom</Typography>
+               <Typography variant="h6" style={{'marginTop': '-10px'}}>Element Content</Typography>
+            </div>
+      }}
+   />
+});
+
 stories.add('with standard inputs', () => {
    const headerGroupId = 'Header';
    const bodyGroupId = 'Body';
