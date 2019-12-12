@@ -82,7 +82,7 @@ class SideNav extends React.Component {
         const { classes } = this.props;
         const header = this.props.header;
         return (
-            <Drawer variant="permanent" open={true} onClose={() => this.toggleDrawer()}>
+            <Drawer variant="permanent" open={true} onClose={() => this.toggleDrawer()} classes={{paper: classes.paper}}>
                 <div
                     className={
                         'flexVert ' +
@@ -96,6 +96,7 @@ class SideNav extends React.Component {
                         height: '100%',
                     }}
                 >
+                    <div className={classes.drawerWidthFull}>
                     <DrawerHeader
                         title={header.title}
                         subtitle={header.subtitle}
@@ -105,12 +106,10 @@ class SideNav extends React.Component {
                         textColor={header.textColor}
                         icon={header.icon}
                         content={header.content}
-                        classes={header.classes}
-
+                        overrides={header.classes || {}}
 
                         onClick={() => this.toggleDrawer()}
-                        parentState={this.state}
-                        styles={classes}/>
+                        parentState={this.state}/>
 
                         <div
                             onMouseEnter={() => {
@@ -123,21 +122,19 @@ class SideNav extends React.Component {
                         >
                             <DrawerSubheader
                                 subheader={this.props.subheader}
-                                parentState={this.state}
-                                styles={classes}/>
+                                parentState={this.state}/>
 
                             <DrawerBody
                                 body={this.props.body}
                                 createRouteItems={(items) => this.createRouteItems(items)}
-                                parentState={this.state}
-                                styles={classes}/>
+                                parentState={this.state}/>
 
                             <DrawerFooter
                                 footer={this.props.footer}
                                 createRouteItems={(items) => this.createRouteItems(items)}
-                                parentState={this.state}
-                                styles={classes}/>
+                                parentState={this.state}/>
                         </div>
+                </div>
                 </div>
             </Drawer>
         );
@@ -169,14 +166,17 @@ class SideNav extends React.Component {
 }
 
 const styles = theme => ({
+    paper: {
+        overflow: 'hidden'
+    },
     flush: {
-        paddingLeft: theme.spacing.unit * 0.5,
+        paddingLeft: theme.spacing(0.5),
     },
     toolbar: {
         [theme.breakpoints.down('xs')]: {
             paddingLeft: 0,
         },
-        paddingLeft: theme.spacing.unit * 2,
+        paddingLeft: theme.spacing(2),
     },
     noPadding: {
         padding: 0,
@@ -185,28 +185,28 @@ const styles = theme => ({
         [theme.breakpoints.down('xs')]: {
             marginLeft: 0,
         },
-        marginLeft: theme.spacing.unit * 7,
+        marginLeft: theme.spacing(7),
         transition: 'margin 175ms cubic-bezier(.4, 0, .2, 1)',
     },
     drawerMarginFull: {
         [theme.breakpoints.down('xs')]: {
             marginLeft: 0,
         },
-        marginLeft: theme.spacing.unit * 45,
+        marginLeft: theme.spacing(45),
         transition: 'margin 175ms cubic-bezier(.4, 0, .2, 1)',
     },
     drawerWidthFull: {
-        width: theme.spacing.unit * 45,
+        width: theme.spacing(45),
         transition: 'width 175ms cubic-bezier(.4, 0, .2, 1)',
     },
     drawerWidthCollapsed: {
-        width: theme.spacing.unit * 7,
+        width: theme.spacing(7),
         overflow: 'hidden',
         transition: 'width 175ms cubic-bezier(.4, 0, .2, 1)',
     },
     drawer: {
         maxWidth: '85%',
-        width: theme.spacing.unit * 45,
+        width: theme.spacing(45),
     },
     header: {
         height: '180px',
@@ -217,6 +217,7 @@ const styles = theme => ({
     subheader: {
         paddingLeft: '15px',
         paddingRight: '15px',
+        cursor: 'pointer'
     },
     listItem: {
         paddingLeft: '15px',

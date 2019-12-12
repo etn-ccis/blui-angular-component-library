@@ -36,19 +36,42 @@ stories.addParameters({
 stories.addDecorator(withKnobs);
 
 
-const headerGroupId = 'Header';
-const subheaderGroupId = 'Subheader';
-const bodyGroupId = 'Body';
-const footerGroupId = 'Footer';
 
 
-function createHeader() {
+stories.add('with custom header content', () => {
+
+   const classes = object('classes', {
+      root: {
+         'padding': '0px',
+         'backgroundColor': 'red'
+      }
+   });
+
+   const header = {
+      classes,
+      content:
+         <div style={{'paddingLeft': '40px'}}>
+            <Typography variant="subtitle2">Custom</Typography>
+            <Typography variant="h6" style={{'marginTop': '-10px'}}>Element Content</Typography>
+         </div>
+   };
+
+   return <Drawer
+      header={header}
+   />
+});
+
+stories.add('with standard inputs', () => {
+   const headerGroupId = 'Header';
+   const bodyGroupId = 'Body';
+   const footerGroupId = 'Footer';
+
+   // Header
    const title = text('title', 'PX Blue Drawer', headerGroupId);
    const subtitle = text('subtitle', 'A modern marvel of engineering', headerGroupId);
    const info = text('info', '', headerGroupId);
    const backgroundColor = color('backgroundColor', Colors.blue[800], headerGroupId);
    const textColor = color('textColor', Colors.white[50], headerGroupId);
-   const injectContent = boolean('inject custom element', false, headerGroupId);
 
    const iconOptions = select('icon', ['Menu', 'Fitness'], 'Menu', headerGroupId);
    let icon;
@@ -75,39 +98,25 @@ function createHeader() {
          break;
    }
 
-   const classes = object('classes', {
-      content: {
-         'padding': '80px'
-      }
-   }, headerGroupId);
+   const header = {
+      title,
+      subtitle,
+      info,
+      backgroundColor,
+      backgroundImage,
+      textColor,
+      icon
+   };
 
-   return {
-            title,
-            subtitle,
-            info,
-            backgroundColor,
-            backgroundImage,
-            textColor,
-            icon,
-            classes,
-            content: injectContent ?
-         <div style={{'paddingLeft': '40px'}}>
-            <Typography variant="subtitle2">Custom</Typography>
-            <Typography variant="h6" style={{'marginTop': '-10px'}}>Element Content</Typography>
-         </div> : ''
-      };
-}
+   function createSubheader() {
+      const showSubheader = boolean('show subheader', false, '');
 
-function createSubheader() {
-   const showSubheader = boolean('show subheader', false, subheaderGroupId);
+      return showSubheader ? {
+         content: <div>Subheader</div>
+      } : undefined;
+   }
 
-   return showSubheader ? {
-      content: <div>Subheader</div>
-   } : undefined;
-}
-
-function createBody() {
-
+   // Body
    const groupTitle1 = text('Group 1 Title', 'NavGroup 1', bodyGroupId);
    const groupTitle2 = text('Group 2 Title', 'NavGroup 2', bodyGroupId);
 
@@ -118,7 +127,7 @@ function createBody() {
    const link5 = text('link 5', 'User Guide', bodyGroupId);
    const link6 = text('link 6', 'License Agreement', bodyGroupId);
 
-   return {
+   const body = {
       navGroups: [ {
          title: groupTitle1,
          links: [
@@ -165,24 +174,20 @@ function createBody() {
          }
       ]
    };
-}
 
-function createFooter() {
+   // Footer
    const showFooter = boolean('show footer', true, footerGroupId);
 
-  return {
-     content: showFooter ?
-        <div style={{'display': 'flex', 'justifyContent': 'center'}}>
-           <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
-        </div> : ''
-  }
-}
+   const footer = {
+      content: showFooter ?
+         <div style={{'display': 'flex', 'justifyContent': 'center'}}>
+            <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
+         </div> : ''
+   };
 
-stories.add('fully customizable', () => {
    return <Drawer
-      header={createHeader()}
-      subheader={createSubheader()}
-      body={createBody()}
-      footer={createFooter()}
+      header={header}
+      body={body}
+      footer={footer}
    />
 });

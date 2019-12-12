@@ -11,15 +11,12 @@ class DrawerSubheader extends React.Component {
         if (!this.props.subheader) {
             return <></>;
         }
+        const { classes } = this.props;
         return (
             <div
-                className={this.props.styles.drawerWidthFull}
+                className={classes.root}
                 style={
                     {
-                        ...this.props.subheader.styles,
-                        flex: '1 1 0px',
-                        paddingLeft: '40px',
-                        paddingRight: '10px',
                         visibility: (this.props.parentState.drawerOpen ? '' : 'hidden')
                     }}>
                 {this.props.subheader.content}
@@ -28,6 +25,12 @@ class DrawerSubheader extends React.Component {
     }
 }
 
-const styles = theme => ({});
+const styles = theme => ({
+    root: {
+        flex: '1 1 0px',
+        paddingLeft: '40px',
+        paddingRight: '10px',
+    }
+});
 
 export default withStyles(styles)(DrawerSubheader);

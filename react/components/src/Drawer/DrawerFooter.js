@@ -13,16 +13,12 @@ class DrawerFooter extends React.Component {
         if (!this.props.footer) {
             return <></>;
         }
+        const { classes } = this.props;
         return (
             <>
                 <Divider/>
                 <div
-                    className={this.props.styles.drawerWidthFull}
-                    style={{
-                        flex: '1 1 0px',
-                        position: 'absolute',
-                        bottom: 0,
-                    }}
+                    className={classes.root}
                 >
                     {this.props.createRouteItems(this.props.footer.navGroups)}
                     <div style={{visibility: (this.props.parentState.drawerOpen ? '' : 'hidden')}}>
@@ -34,6 +30,13 @@ class DrawerFooter extends React.Component {
     }
 }
 
-const styles = theme => ({});
+const styles = theme => ({
+    root: {
+        width: '100%',
+        flex: '1 1 0px',
+        position: 'absolute',
+        bottom: 0,
+    }
+});
 
 export default withStyles(styles)(DrawerFooter);

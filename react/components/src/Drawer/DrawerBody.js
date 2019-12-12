@@ -11,10 +11,10 @@ class DrawerBody extends React.Component {
         if (!this.props.body) {
             return <></>;
         }
+        const { classes } = this.props;
         return (
             <div
-                className={this.props.styles.drawerWidthFull}
-                style={{flex: '1 1 0px' }}
+                className={classes.root}
             >
                 {this.props.createRouteItems(this.props.body.navGroups)}
             </div>
@@ -22,6 +22,11 @@ class DrawerBody extends React.Component {
     }
 }
 
-const styles = theme => ({});
+const styles = theme => ({
+    root: {
+        flex: '1 1 0px',
+        width: '100%'
+    }
+});
 
 export default withStyles(styles)(DrawerBody);

@@ -19,19 +19,19 @@ class DrawerHeader extends React.Component {
     getHeaderContent() {
         const { classes } = this.props;
         return this.props.content || (
-            <div className={classes.content}>
+            <div className={classes.content} styles={this.props.overrides.content}>
 
-                <Typography variant={'h5'} className={classes.title}>
+                <Typography variant={'h5'} className={classes.title} styles={this.props.overrides.title}>
                     {this.props.title}
                 </Typography>
 
                 {this.props.subtitle &&
-                    <Typography variant={'subtitle1'} className={classes.subtitle}>
+                    <Typography variant={'subtitle1'} className={classes.subtitle} styles={this.props.overrides.subtitle}>
                         {this.props.subtitle}
                     </Typography>}
 
                 {this.props.info &&
-                    <Typography variant={'subtitle2'} className={classes.info}>
+                    <Typography variant={'subtitle2'} className={classes.info} styles={this.props.overrides.info}>
                         {this.props.info}
                     </Typography>}
             </div>
@@ -43,14 +43,16 @@ class DrawerHeader extends React.Component {
         return (
             <>
                 <Toolbar
-                     className={classes.root + ' ' + this.props.styles.drawerWidthFull}
+                     className={classes.root}
                      style={{
                          backgroundColor: this.props.backgroundColor,
                          color: this.props.textColor,
-                         backgroundImage: this.props.backgroundImage
+                         backgroundImage: this.props.backgroundImage,
+                         ...this.props.overrides.root,
                      }}
                 >
-                    <IconButton className={classes.icon} color={'inherit'} onClick={() => this.props.onClick()}>
+                    <IconButton className={classes.icon} styles={this.props.overrides.icon} color={'inherit'}
+                                onClick={() => this.props.onClick()}>
                         {this.props.icon}
                     </IconButton>
 
@@ -82,7 +84,8 @@ DrawerHeader.defaultProps = {
 
 const styles = theme => ({
     root: {
-        paddingLeft: theme.spacing.unit * 0.5,
+        paddingLeft: theme.spacing(0.5),
+        width: '100%',
     },
     content: {
         padding: '20px'
