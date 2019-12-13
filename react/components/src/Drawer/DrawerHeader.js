@@ -45,8 +45,8 @@ class DrawerHeader extends React.Component {
                 <Toolbar
                      className={classes.root}
                      style={{
-                         backgroundColor: this.props.backgroundColor,
                          color: this.props.textColor,
+                         backgroundColor: this.props.backgroundColor,
                          backgroundImage: this.props.backgroundImage,
                          ...this.props.overrides.root,
                      }}
@@ -73,7 +73,7 @@ DrawerHeader.propTypes = {
     textColor: PropTypes.string,
     backgroundImage: PropTypes.string,
     icon: PropTypes.element,
-    classes: PropTypes.object
+    overrides: PropTypes.object
 };
 
 DrawerHeader.defaultProps = {

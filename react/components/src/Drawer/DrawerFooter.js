@@ -2,6 +2,8 @@ import React from 'react';
 
 import {withStyles} from '@material-ui/core/styles';
 import Divider from "@material-ui/core/Divider";
+import PropTypes from "prop-types";
+
 
 class DrawerFooter extends React.Component {
 
@@ -10,9 +12,6 @@ class DrawerFooter extends React.Component {
     }
 
     render() {
-        if (!this.props.footer) {
-            return <></>;
-        }
         const { classes } = this.props;
         return (
             <>
@@ -20,15 +19,20 @@ class DrawerFooter extends React.Component {
                 <div
                     className={classes.root}
                 >
-                    {this.props.createRouteItems(this.props.footer.navGroups)}
+                    {this.props.createRouteItems(this.props.navGroups)}
                     <div style={{visibility: (this.props.parentState.drawerOpen ? '' : 'hidden')}}>
-                        {this.props.footer.content}
+                        {this.props.content}
                     </div>
                 </div>
             </>
         );
     }
 }
+
+DrawerFooter.propTypes = {
+    content: PropTypes.element,
+    navGroups: PropTypes.arrayOf(PropTypes.object),
+};
 
 const styles = theme => ({
     root: {

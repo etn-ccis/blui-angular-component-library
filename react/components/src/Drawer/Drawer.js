@@ -1,13 +1,9 @@
 import React from 'react';
-import {NavLink} from 'react-router-dom';
 
 import {withStyles} from '@material-ui/core/styles';
 import {Drawer} from '@material-ui/core';
-import Toolbar from '@material-ui/core/Toolbar';
-import IconButton from '@material-ui/core/IconButton';
 import Divider from '@material-ui/core/Divider';
 // Material-UI Icons
-import MenuIcon from '@material-ui/icons/Menu';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -96,7 +92,10 @@ class SideNav extends React.Component {
                         height: '100%',
                     }}
                 >
-                    <div className={classes.drawerWidthFull}>
+                    <div className={classes.drawerWidthFull}
+                         style={{
+                             height: '100%',
+                         }}>
                     <DrawerHeader
                         title={header.title}
                         subtitle={header.subtitle}
@@ -112,6 +111,9 @@ class SideNav extends React.Component {
                         parentState={this.state}/>
 
                         <div
+                            style={{
+                                height: '100%',
+                            }}
                             onMouseEnter={() => {
                                 this.hoverDelay = setTimeout(() => this.setState({drawerHover: true}), 500);
                             }}
@@ -120,19 +122,26 @@ class SideNav extends React.Component {
                                 this.setState({drawerHover: false});
                             }}
                         >
-                            <DrawerSubheader
-                                subheader={this.props.subheader}
+                            {this.props.subheader && <DrawerSubheader
+                                content={this.props.subheader.content}
+                                overrides={this.props.subheader.classes || {}}
                                 parentState={this.state}/>
+                            }
 
-                            <DrawerBody
-                                body={this.props.body}
+                            {this.props.body && <DrawerBody
+                                navGroups={this.props.body.navGroups}
+                                backgroundColor={this.props.body.backgroundColor}
                                 createRouteItems={(items) => this.createRouteItems(items)}
+                                overrides={this.props.body.classes || {}}
                                 parentState={this.state}/>
+                            }
 
-                            <DrawerFooter
-                                footer={this.props.footer}
+                            {this.props.footer && <DrawerFooter
+                                content={this.props.footer.content}
                                 createRouteItems={(items) => this.createRouteItems(items)}
+                                overrides={this.props.footer.classes || {}}
                                 parentState={this.state}/>
+                            }
                         </div>
                 </div>
                 </div>
