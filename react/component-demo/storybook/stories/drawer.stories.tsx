@@ -40,21 +40,21 @@ stories.add('with header style overrides', () => {
 
    const title = text('title', 'PX Blue Drawer,');
    const subtitle = text('subtitle', 'with custom styles applied');
-   const info = text('info', 'Depending on your use case, it might make sense to adjust the styles.');
+   const info = text('info', 'Depending on your situation, it might make sense ' +
+      'to adjust the default styles, rather than overriding the entire header content');
 
    const classes = object('classes', {
       root: {
          minHeight: '100px'
       },
       content: {
-         padding: '20px'
+         padding: '40px'
       },
       icon: {
-         height: '50px',
          color: 'cyan'
       },
       title: {
-         color: 'white'
+         color: 'cyan'
       },
       subtitle: {
          color: 'rust',
@@ -63,7 +63,7 @@ stories.add('with header style overrides', () => {
       },
       info: {
          fontSize: '12px',
-         color: 'gold'
+         color: 'white'
       }
    });
 
@@ -83,6 +83,7 @@ stories.add('with header style overrides', () => {
 stories.add('with custom header content', () => {
    return <Drawer
       header={{
+         backgroundColor: 'red',
          content:
             <div style={{'paddingLeft': '40px'}}>
                <Typography variant="subtitle2">Custom</Typography>
