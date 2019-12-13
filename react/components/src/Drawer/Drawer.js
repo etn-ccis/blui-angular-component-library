@@ -20,7 +20,7 @@ class SideNav extends React.Component {
         super(props);
         this.state = {
             showUserMenu: false,
-            drawerOpen: false,
+            drawerOpen: this.props.open === undefined ? true : false,
             selected: undefined,
         };
     }
