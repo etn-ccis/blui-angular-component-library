@@ -7,7 +7,7 @@ import {
     Devices,
     FitnessCenter,
     NotificationsActive,
-    PinDrop,
+    PinDrop, Search,
     Toc
 } from '@material-ui/icons';
 import MenuIcon from '@material-ui/icons/Menu';
@@ -235,7 +235,7 @@ stories.add('with header style overrides', () => {
    const title = text('title', 'PX Blue Drawer,');
    const subtitle = text('subtitle', 'with custom styles applied');
    const info = text('info', 'Depending on your situation, it might make sense ' +
-      'to adjust the default styles, rather than injecting the header content');
+      'to adjust the default styles, rather than injecting your own header content');
 
    const classes = object('classes', {
       root: {
@@ -302,7 +302,10 @@ stories.add('with custom subheader content', () => {
     const value = optionsKnob(label, valuesObj, defaultValue, optionsObj);
 
 
-    const filter = <TextField id="outlined-basic" label="filter" variant="outlined" />
+    const filter = <>
+        <TextField id="outlined-basic" label="filter" variant="outlined" />
+        <Search style={{position: 'relative', right: '40px', top: '15px'}}/>
+        </>
     const accordion = <ExpansionPanel>
         <ExpansionPanelSummary
             expandIcon={<ExpandMoreIcon />}
