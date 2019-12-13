@@ -1,6 +1,7 @@
 import React from 'react';
 import {withStyles} from '@material-ui/core/styles';
 import PropTypes from "prop-types";
+import {Divider} from "@material-ui/core";
 
 class DrawerSubheader extends React.Component {
 
@@ -11,14 +12,17 @@ class DrawerSubheader extends React.Component {
     render() {
         const { classes } = this.props;
         return (
-            <div
-                className={classes.root}
-                style={{
-                        visibility: (this.props.parentState.drawerOpen ? '' : 'hidden'),
-                        ...this.props.overrides.root
-                    }}>
-                {this.props.content}
-            </div>
+            <>
+                <div
+                    className={classes.root}
+                    style={{
+                            visibility: (this.props.parentState.drawerOpen ? '' : 'hidden'),
+                            ...this.props.overrides.root
+                        }}>
+                    {this.props.content}
+                </div>
+                <Divider />
+            </>
         );
     }
 }
