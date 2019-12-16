@@ -80,7 +80,7 @@ The subheader only accepts children nodes to render as input.
 
 ## Drawer Body
 The `DrawerBody` accepts an array of `NavGroup` objects and renders them below the subheader.
-Each link inside a NavGroup consists of an optional icon and a link title.
+Each link inside a `NavGroup` consists of an optional icon and a link title.
 
 
 ### Drawer Body API
@@ -91,7 +91,7 @@ Each link inside a NavGroup consists of an optional icon and a link title.
 | overrides       | Style prop overrides                    | `Object`      | no       |         |
 
 ## Drawer Footer
-The `DrawerFooter` is an optional section that renders at the bottom of the Drawer's side navigation menu.
+The `DrawerFooter` is an optional section that renders at the bottom of the `Drawer`'s side navigation menu.
 It can be used to add optional images, version information, or any custom content.
 
 
