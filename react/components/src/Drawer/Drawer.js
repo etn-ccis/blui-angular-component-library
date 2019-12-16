@@ -13,8 +13,16 @@ import DrawerHeader from "./DrawerHeader";
 import DrawerSubheader from "./DrawerSubheader";
 import DrawerBody from "./DrawerBody";
 import DrawerFooter from "./DrawerFooter";
+import Hidden from "@material-ui/core/Hidden";
+import AppBar from "@material-ui/core/AppBar";
+import Typography from "@material-ui/core/Typography";
+import IconButton from "@material-ui/core/IconButton";
+import Toolbar from "@material-ui/core/Toolbar";
+import MenuIcon from '@material-ui/icons/Menu';
+import Backdrop from "@material-ui/core/Backdrop";
 
 class SideNav extends React.Component {
+
 
     constructor(props) {
         super(props);
@@ -74,78 +82,136 @@ class SideNav extends React.Component {
         ));
     }
 
-    render() {
+    getDrawerContents() {
         const { classes } = this.props;
         const header = this.props.header;
+       return  <div className={classes.drawerWidthFull}
+             style={{
+                 height: '100%',
+             }}>
+            <DrawerHeader
+                title={header.title}
+                subtitle={header.subtitle}
+                info={header.info}
+                backgroundColor={header.backgroundColor}
+                backgroundImage={header.backgroundImage}
+                textColor={header.textColor}
+                icon={header.icon}
+                content={header.content}
+                overrides={header.classes || {}}
+
+                onClick={() => this.toggleDrawer()}
+                parentState={this.state}/>
+
+            <div
+                style={{
+                    height: '100%',
+                }}
+                onMouseEnter={() => {
+                    this.hoverDelay = setTimeout(() => this.setState({drawerHover: true}), 500);
+                }}
+                onMouseLeave={() => {
+                    clearTimeout(this.hoverDelay);
+                    this.setState({drawerHover: false});
+                }}
+            >
+                {this.props.subheader && <DrawerSubheader
+                    content={this.props.subheader.content}
+                    overrides={this.props.subheader.classes || {}}
+                    parentState={this.state}/>
+                }
+
+                {this.props.body && <DrawerBody
+                    navGroups={this.props.body.navGroups}
+                    backgroundColor={this.props.body.backgroundColor}
+                    createRouteItems={(items) => this.createRouteItems(items)}
+                    overrides={this.props.body.classes || {}}
+                    parentState={this.state}/>
+                }
+
+                {this.props.footer && <DrawerFooter
+                    content={this.props.footer.content}
+                    createRouteItems={(items) => this.createRouteItems(items)}
+                    overrides={this.props.footer.classes || {}}
+                    parentState={this.state}/>
+                }
+            </div>
+        </div>
+    }
+
+    getMobileNavigationMenu() {
+        const { classes } = this.props;
         return (
-            <Drawer variant="permanent" open={true} onClose={() => this.toggleDrawer()} classes={{paper: classes.paper}}>
-                <div
-                    className={
-                        'flexVert ' +
-                        (this.state.drawerHover
-                            ? classes.drawerWidthFull
-                            : this.state.drawerOpen
+            <Drawer
+                open={this.state.drawerOpen}
+                onClose={() => this.toggleDrawer()}
+                classes={{ paper: classes.drawer }}
+            >
+                <div className={
+                    'flexVert ' +
+                    (this.state.drawerHover
+                        ? classes.drawerWidthFull
+                        : this.state.drawerOpen
                             ? classes.drawerWidthFull
                             : classes.drawerWidthCollapsed)
-                    }
-                    style={{
-                        height: '100%',
-                    }}
-                >
-                    <div className={classes.drawerWidthFull}
-                         style={{
-                             height: '100%',
-                         }}>
-                    <DrawerHeader
-                        title={header.title}
-                        subtitle={header.subtitle}
-                        info={header.info}
-                        backgroundColor={header.backgroundColor}
-                        backgroundImage={header.backgroundImage}
-                        textColor={header.textColor}
-                        icon={header.icon}
-                        content={header.content}
-                        overrides={header.classes || {}}
+                }
+                     style={{
+                         height: '100%',
+                         overflow: 'hidden'
+                     }}>
 
-                        onClick={() => this.toggleDrawer()}
-                        parentState={this.state}/>
-
-                        <div
-                            style={{
-                                height: '100%',
-                            }}
-                            onMouseEnter={() => {
-                                this.hoverDelay = setTimeout(() => this.setState({drawerHover: true}), 500);
-                            }}
-                            onMouseLeave={() => {
-                                clearTimeout(this.hoverDelay);
-                                this.setState({drawerHover: false});
-                            }}
-                        >
-                            {this.props.subheader && <DrawerSubheader
-                                content={this.props.subheader.content}
-                                overrides={this.props.subheader.classes || {}}
-                                parentState={this.state}/>
-                            }
-
-                            {this.props.body && <DrawerBody
-                                navGroups={this.props.body.navGroups}
-                                backgroundColor={this.props.body.backgroundColor}
-                                createRouteItems={(items) => this.createRouteItems(items)}
-                                overrides={this.props.body.classes || {}}
-                                parentState={this.state}/>
-                            }
-
-                            {this.props.footer && <DrawerFooter
-                                content={this.props.footer.content}
-                                createRouteItems={(items) => this.createRouteItems(items)}
-                                overrides={this.props.footer.classes || {}}
-                                parentState={this.state}/>
-                            }
-                        </div>
-                </div>
+                    {this.getDrawerContents()}
                 </div>
             </Drawer>
+        );
+    }
+
+    getDesktopNavigationMenu() {
+        const { classes } = this.props;
+        return <Drawer variant="permanent" classes={{paper: classes.paper}}>
+            <div
+                className={
+                    'flexVert ' +
+                    (this.state.drawerHover
+                        ? classes.drawerWidthFull
+                        : this.state.drawerOpen
+                            ? classes.drawerWidthFull
+                            : classes.drawerWidthCollapsed)
+                }
+                style={{
+                    height: '100%'
+                }}
+            >
+                {this.getDrawerContents()}
+            </div>
+        </Drawer>
+    }
+
+    render() {
+        const { classes } = this.props;
+        return (
+            <>
+            <Hidden smUp>
+                <div className={classes.mobileToolbar}>
+                    <AppBar position="static" color="primary">
+                        <Toolbar className={classes.toolbar}>
+                            <IconButton color="inherit" onClick={() => this.toggleDrawer()}>
+                                <MenuIcon />
+                            </IconButton>
+                            <Typography variant="h6" color="inherit">
+                                Selected Page Name
+                            </Typography>
+                        </Toolbar>
+                    </AppBar>
+                </div>
+                {this.getMobileNavigationMenu()}
+                <Backdrop open={this.state.drawerOpen}/>
+            </Hidden>
+
+            <Hidden smDown>
+                {this.getDesktopNavigationMenu()}
+            </Hidden>
+            </>
         );
     }
 
@@ -174,12 +240,19 @@ class SideNav extends React.Component {
     }
 }
 
-const styles = theme => ({
+const styles = theme => {
+    return {
     paper: {
         overflow: 'hidden'
     },
     flush: {
         paddingLeft: theme.spacing(0.5),
+    },
+    mobileToolbar: {
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%'
     },
     toolbar: {
         [theme.breakpoints.down('xs')]: {
@@ -264,6 +337,6 @@ const styles = theme => ({
     // these must be defined, even if empty so we can reference them in other nested rules
     listIcon: {},
     open: {},
-});
+}};
 
 export default withStyles(styles)(SideNav);
