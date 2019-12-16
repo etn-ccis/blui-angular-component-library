@@ -68,55 +68,10 @@ const defaultBody = {
 };
 
 stories.add('with standard inputs', () => {
-    const appbarGroupId = 'App Bar'
+    const appbarGroupId = 'App Bar';
     const headerGroupId = 'Header';
     const bodyGroupId = 'Body';
     const footerGroupId = 'Footer';
-
-    // App Bar
-    const appbarTitle = text('title', 'Example Title', appbarGroupId);
-    const appbarSubtitle = text('subtitle', 'More information goes here.', appbarGroupId);
-    const appbarBackgroundColor = color('backgroundColor', Colors.blue[800], appbarGroupId);
-    const appbarTextColor = color('textColor', Colors.white[50], appbarGroupId);
-    const appbarIconOptions = select('icon', ['Menu', 'Inbox'], 'Menu', appbarGroupId);
-
-    let appbarIcon;
-    switch (appbarIconOptions) {
-        case 'Menu':
-            appbarIcon = <MenuIcon/>;
-            break;
-        case 'Inbox':
-            appbarIcon = <MoveToInboxIcon/>;
-            break;
-    }
-
-    const appbarBackground = select('backgroundImage', ['None', 'Gradient', 'Pattern'], 'None', appbarGroupId);
-    let appbarBackgroundImage;
-    switch (appbarBackground) {
-        case 'None':
-            appbarBackgroundImage = undefined;
-            break;
-        case 'Gradient':
-            appbarBackgroundImage = 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)';
-            break;
-        case 'Pattern':
-            appbarBackgroundImage = `url(${Background})`;
-            break;
-    }
-
-    const appbar = {
-        title: appbarTitle,
-        subtitle: appbarSubtitle,
-        backgroundColor: appbarBackgroundColor,
-        textColor: appbarTextColor,
-        icon: appbarIcon,
-        backgroundImage: appbarBackgroundImage,
-        classes: {
-            root: {
-                backgroundSize: 'cover'
-            }
-        }
-    };
 
     // Header
     const headerTitle = text('title', 'PX Blue Drawer', headerGroupId);
@@ -164,6 +119,51 @@ stories.add('with standard inputs', () => {
             }
         }
     };
+
+   // App Bar
+   const appbarTitle = text('title', 'Example Title', appbarGroupId);
+   const appbarSubtitle = text('subtitle', 'More information goes here.', appbarGroupId);
+   const appbarBackgroundColor = color('backgroundColor', Colors.blue[800], appbarGroupId);
+   const appbarTextColor = color('textColor', Colors.white[50], appbarGroupId);
+   const appbarIconOptions = select('icon', ['Menu', 'Inbox'], 'Menu', appbarGroupId);
+
+   let appbarIcon;
+   switch (appbarIconOptions) {
+      case 'Menu':
+         appbarIcon = <MenuIcon/>;
+         break;
+      case 'Inbox':
+         appbarIcon = <MoveToInboxIcon/>;
+         break;
+   }
+
+   const appbarBackground = select('backgroundImage', ['None', 'Gradient', 'Pattern'], 'None', appbarGroupId);
+   let appbarBackgroundImage;
+   switch (appbarBackground) {
+      case 'None':
+         appbarBackgroundImage = undefined;
+         break;
+      case 'Gradient':
+         appbarBackgroundImage = 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)';
+         break;
+      case 'Pattern':
+         appbarBackgroundImage = `url(${Background})`;
+         break;
+   }
+
+   const appbar = {
+      title: appbarTitle,
+      subtitle: appbarSubtitle,
+      backgroundColor: appbarBackgroundColor,
+      textColor: appbarTextColor,
+      icon: appbarIcon,
+      backgroundImage: appbarBackgroundImage,
+      classes: {
+         root: {
+            backgroundSize: 'cover'
+         }
+      }
+   };
 
     // Body
     const groupTitle1 = text('title1', 'NavGroup 1', bodyGroupId);
