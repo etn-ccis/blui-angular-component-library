@@ -1,35 +1,35 @@
 import {ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, TextField, Typography} from "@material-ui/core";
 import {
-    Accessibility,
-    AddAPhoto,
-    AirportShuttle,
-    Dashboard,
-    Devices,
-    FitnessCenter,
-    NotificationsActive,
-    PinDrop, Search,
-    Toc
+   Accessibility,
+   AddAPhoto,
+   AirportShuttle,
+   Dashboard,
+   Devices,
+   FitnessCenter,
+   NotificationsActive,
+   PinDrop,
+   Search,
+   Toc
 } from '@material-ui/icons';
-// @ts-ignore
-import { withInfo } from '@storybook/addon-info';
+import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MenuIcon from '@material-ui/icons/Menu';
 import MoveToInboxIcon from '@material-ui/icons/MoveToInbox';
 import SendIcon from '@material-ui/icons/Send';
+// @ts-ignore
+import * as Colors from '@pxblue/colors';
 //@ts-ignore
 import Drawer from '@pxblue/react-components/core/Drawer';
 import {action} from "@storybook/addon-actions";
+// @ts-ignore
 
 import {boolean, color, number, object, optionsKnob, select, text, withKnobs} from '@storybook/addon-knobs';
+import {OptionsKnobOptionsDisplay} from "@storybook/addon-knobs/dist/components/types/Options";
 import {storiesOf} from '@storybook/react';
 import React from 'react';
 // @ts-ignore
-import Background from '../assets/topology_40.png';
-// @ts-ignore
 import EatonLogo from "../assets/EatonLogo.svg";
 // @ts-ignore
-import * as Colors from '@pxblue/colors';
-import {OptionsKnobOptionsDisplay} from "@storybook/addon-knobs/dist/components/types/Options";
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import Background from '../assets/topology_40.png';
 
 
 export const stories = storiesOf('Drawer', module);
