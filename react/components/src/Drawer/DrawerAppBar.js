@@ -75,8 +75,6 @@ DrawerAppBar.propTypes = {
 
 DrawerAppBar.defaultProps = {
     icon: <MenuIcon />,
-    textColor: Colors.white[50],
-    backgroundColor: Colors.blue[500]
 };
 
 const styles = theme => ({

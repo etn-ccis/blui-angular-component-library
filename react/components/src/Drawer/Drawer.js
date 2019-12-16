@@ -199,9 +199,9 @@ class SideNav extends React.Component {
                     title={appbar.title || this.props.header.title}
                     subtitle={appbar.subtitle}
                     info={appbar.info}
-                    backgroundColor={appbar.backgroundColor}
+                    backgroundColor={appbar.backgroundColor || this.props.header.backgroundColor}
                     backgroundImage={appbar.backgroundImage}
-                    textColor={appbar.textColor}
+                    textColor={appbar.textColor || this.props.header.textColor }
                     icon={appbar.icon || this.props.header.icon}
                     content={appbar.content}
                     overrides={appbar.classes || {}}

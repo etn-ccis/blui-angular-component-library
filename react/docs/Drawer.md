@@ -11,8 +11,8 @@ The Drawer component is the parent container; it manages the state of the drawer
 import Drawer from '@pxblue/react-components/core/Drawer';
 
 return <Drawer
-        appbar={appbar}
         header={header}
+        appbar={appbar}
         subheader={subheader}
         body={body}
         footer={footer}
@@ -23,35 +23,52 @@ return <Drawer
 | Prop Name           | Description                             | Type       | Required |              
 |---------------------|-----------------------------------------|------------|----------|
 | header              | Top part of side nav                    | `Object`   | yes      |
+| appbar              | Top bar that appears on mobile          | `Object`   | yes      |
 | subheader           | Section between header and body         | `Object`   | no       |
 | body                | Links                                   | `Object`   | yes      |
 | footer              | Bottom part of side nav                 | `Object`   | no       |
-| appbar              | Top bar that appears on mobile          | `Object`   | yes      |
 
 
 ## Drawer Header
-The `DrawerHeader` is the top-most part of the Drawer's side navigation menu.
-It is used to toggle the Drawer open or closed, and has an API intended to make it fully customizable.
+The `DrawerHeader` is the top part of the `Drawer`'s side navigation menu.
+It is used to toggle the `Drawer` open or closed, and has an API intended to make it fully customizable.
 The `DrawerHeader` supports text inputs or can accept children nodes to render instead.
 
 
 ### Drawer Header API
-| Prop Name       | Description                             | Type          | Required | Default |
-|-----------------|-----------------------------------------|---------------|----------|---------|
-| title           |  Main text                              | `string`      | yes      |         |   
-| subtitle        | Secondary text                          | `string`      | no       |         |
-| info            | Third line of header text               | `string`      | no       |         |
-| textColor       | Text color                              | `string`      | no       |         |
-| backgroundColor | Background color                        | `string`      | no       |         |
-| backgroundImage | Gradient or Image background            | `string`      | no       |         |
-| icon            | Used to toggle drawer open or closed    | `JSX Element` | no       |         |
-| content         | Custom content for header               | `JSX Element` | no       |         |
-| overrides       | Style prop overrides                    | `Object`      | no       |         |
+| Prop Name       | Description                             | Type          | Required | Default            |
+|-----------------|-----------------------------------------|---------------|----------|--------------------|
+| title           |  Main text                              | `string`      | yes      |                    |   
+| subtitle        | Secondary text                          | `string`      | no       |                    |
+| info            | Third line of header text               | `string`      | no       |                    |
+| textColor       | Text color                              | `string`      | no       | `Colors.white[50]` |
+| backgroundColor | Background color                        | `string`      | no       | `Colors.blue[500]` |
+| backgroundImage | Gradient or Image background            | `string`      | no       |                    |
+| icon            | Used to toggle drawer open or closed    | `JSX Element` | no       | `<MenuIcon />`     | 
+| content         | Custom content for header               | `JSX Element` | no       |                    |
+| overrides       | Style prop overrides                    | `Object`      | no       |                    |
+
+## Drawer Appbar
+The `DrawerAppbar` only appears on small viewports as as a topbar that can toggle the side navigation menu open or closed.
+It shares a lot of input props as the `DrawerHeader`, and inherits some of the `DrawerHeader`'s props.
+
+### Drawer Appbar API
+| Prop Name       | Description                          | Type          | Required | Default                        |
+|-----------------|--------------------------------------|---------------|----------|--------------------------------|
+| title           |  Main text                           | `string`      | yes      | `DrawerHeader.title`           |   
+| subtitle        | Secondary text                       | `string`      | no       |                                |
+| textColor       | Text color                           | `string`      | no       | `DrawerHeader.textColor`       |
+| backgroundColor | Background color                     | `string`      | no       | `DrawerHeader.backgroundColor` |
+| backgroundImage | Gradient or Image background         | `string`      | no       |                                |
+| icon            | Icon displayed                       | `JSX Element` | no       | `DrawerHeader.icon`            |
+| content         | Custom content for header            | `JSX Element` | no       |                                |
+| overrides       | Style prop overrides                 | `Object`      | no       |                                |
 
 
 ## Drawer Subheader
 The `DrawerSubheader` is an optional subsection that renders below the header and above the body of the side navigation menu.
 It can be used to support additional content, such as filtering options or more information.
+The subheader only accepts children nodes to render as input.
 
 
 ### Drawer Header API
