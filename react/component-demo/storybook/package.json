@@ -8,7 +8,6 @@
     "@pxblue/icons-mui": "^1.0.15",
     "@pxblue/react-components": "^1.1.0",
     "@pxblue/themes": "^2.0.0",
-    "@storybook/addon-info": "^5.2.5",
     "@types/jest": "^24.0.20",
     "@types/node": "12.11.7",
     "@types/react": "16.9.11",

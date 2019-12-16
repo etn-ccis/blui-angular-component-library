@@ -73,6 +73,7 @@ DrawerHeader.propTypes = {
     textColor: PropTypes.string,
     backgroundImage: PropTypes.string,
     icon: PropTypes.element,
+    content: PropTypes.element,
     overrides: PropTypes.object
 };
 

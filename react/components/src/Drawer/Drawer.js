@@ -20,6 +20,7 @@ import IconButton from "@material-ui/core/IconButton";
 import Toolbar from "@material-ui/core/Toolbar";
 import MenuIcon from '@material-ui/icons/Menu';
 import Backdrop from "@material-ui/core/Backdrop";
+import DrawerAppBar from "./DrawerAppBar";
 
 class SideNav extends React.Component {
 
@@ -189,21 +190,25 @@ class SideNav extends React.Component {
 
     render() {
         const { classes } = this.props;
+        const appbar = this.props.appbar || {};
         return (
             <>
             <Hidden smUp>
-                <div className={classes.mobileToolbar}>
-                    <AppBar position="static" color="primary">
-                        <Toolbar className={classes.toolbar}>
-                            <IconButton color="inherit" onClick={() => this.toggleDrawer()}>
-                                <MenuIcon />
-                            </IconButton>
-                            <Typography variant="h6" color="inherit">
-                                Selected Page Name
-                            </Typography>
-                        </Toolbar>
-                    </AppBar>
-                </div>
+
+                <DrawerAppBar
+                    title={appbar.title || this.props.header.title}
+                    subtitle={appbar.subtitle}
+                    info={appbar.info}
+                    backgroundColor={appbar.backgroundColor}
+                    backgroundImage={appbar.backgroundImage}
+                    textColor={appbar.textColor}
+                    icon={appbar.icon || this.props.header.icon}
+                    content={appbar.content}
+                    overrides={appbar.classes || {}}
+
+                    onClick={() => this.toggleDrawer()}
+                    parentState={this.state}
+                />
                 {this.getMobileNavigationMenu()}
                 <Backdrop open={this.state.drawerOpen}/>
             </Hidden>
@@ -247,12 +252,6 @@ const styles = theme => {
     },
     flush: {
         paddingLeft: theme.spacing(0.5),
-    },
-    mobileToolbar: {
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%'
     },
     toolbar: {
         [theme.breakpoints.down('xs')]: {

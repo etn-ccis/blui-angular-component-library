@@ -10,6 +10,8 @@ import {
     PinDrop, Search,
     Toc
 } from '@material-ui/icons';
+// @ts-ignore
+import { withInfo } from '@storybook/addon-info';
 import MenuIcon from '@material-ui/icons/Menu';
 import MoveToInboxIcon from '@material-ui/icons/MoveToInbox';
 import SendIcon from '@material-ui/icons/Send';
@@ -35,7 +37,6 @@ stories.addParameters({
    notes: { markdown: require('./../../../docs/Drawer.md')}
 });
 stories.addDecorator(withKnobs);
-
 
 const defaultBody = {
     navGroups: [
@@ -67,49 +68,94 @@ const defaultBody = {
 };
 
 stories.add('with standard inputs', () => {
+    const appbarGroupId = 'App Bar'
     const headerGroupId = 'Header';
     const bodyGroupId = 'Body';
     const footerGroupId = 'Footer';
 
-    // Header
-    const title = text('title', 'PX Blue Drawer', headerGroupId);
-    const subtitle = text('subtitle', 'A modern marvel of engineering', headerGroupId);
-    const info = text('info', '', headerGroupId);
-    const headerBackgroundColor = color('backgroundColor', Colors.blue[800], headerGroupId);
-    const headerTextColor = color('textColor', Colors.white[50], headerGroupId);
+    // App Bar
+    const appbarTitle = text('title', 'Example Title', appbarGroupId);
+    const appbarSubtitle = text('subtitle', 'More information goes here.', appbarGroupId);
+    const appbarBackgroundColor = color('backgroundColor', Colors.blue[800], appbarGroupId);
+    const appbarTextColor = color('textColor', Colors.white[50], appbarGroupId);
+    const appbarIconOptions = select('icon', ['Menu', 'Inbox'], 'Menu', appbarGroupId);
 
-
-    const iconOptions = select('icon', ['Menu', 'Fitness'], 'Menu', headerGroupId);
-    let icon;
-    switch (iconOptions) {
+    let appbarIcon;
+    switch (appbarIconOptions) {
         case 'Menu':
-            icon = <MenuIcon/>;
+            appbarIcon = <MenuIcon/>;
             break;
-        case 'Fitness':
-            icon = <FitnessCenter/>;
+        case 'Inbox':
+            appbarIcon = <MoveToInboxIcon/>;
             break;
     }
 
-    const background = select('backgroundImage', ['None', 'Gradient', 'Pattern'], 'None', headerGroupId);
-    let backgroundImage;
-    switch (background) {
+    const appbarBackground = select('backgroundImage', ['None', 'Gradient', 'Pattern'], 'None', appbarGroupId);
+    let appbarBackgroundImage;
+    switch (appbarBackground) {
         case 'None':
-            backgroundImage = undefined;
+            appbarBackgroundImage = undefined;
             break;
         case 'Gradient':
-            backgroundImage = 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)';
+            appbarBackgroundImage = 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)';
             break;
         case 'Pattern':
-            backgroundImage = `url(${Background})`;
+            appbarBackgroundImage = `url(${Background})`;
+            break;
+    }
+
+    const appbar = {
+        title: appbarTitle,
+        subtitle: appbarSubtitle,
+        backgroundColor: appbarBackgroundColor,
+        textColor: appbarTextColor,
+        icon: appbarIcon,
+        backgroundImage: appbarBackgroundImage,
+        classes: {
+            root: {
+                backgroundSize: 'cover'
+            }
+        }
+    };
+
+    // Header
+    const headerTitle = text('title', 'PX Blue Drawer', headerGroupId);
+    const headerSubtitle = text('subtitle', 'A modern marvel of engineering', headerGroupId);
+    const headerInfo = text('info', '', headerGroupId);
+    const headerBackgroundColor = color('backgroundColor', Colors.blue[800], headerGroupId);
+    const headerTextColor = color('textColor', Colors.white[50], headerGroupId);
+
+    const headerIconOptions = select('icon', ['Menu', 'Fitness'], 'Menu', headerGroupId);
+    let headerIcon;
+    switch (headerIconOptions) {
+        case 'Menu':
+            headerIcon = <MenuIcon/>;
+            break;
+        case 'Fitness':
+            headerIcon = <FitnessCenter/>;
+            break;
+    }
+
+    const headerBackground = select('backgroundImage', ['None', 'Gradient', 'Pattern'], 'None', headerGroupId);
+    let headerBackgroundImage;
+    switch (headerBackground) {
+        case 'None':
+            headerBackgroundImage = undefined;
+            break;
+        case 'Gradient':
+            headerBackgroundImage = 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)';
+            break;
+        case 'Pattern':
+            headerBackgroundImage = `url(${Background})`;
             break;
     }
 
     const header = {
-        title,
-        subtitle,
-        info,
-        icon,
-        backgroundImage,
+        title: headerTitle,
+        subtitle: headerSubtitle,
+        info: headerInfo,
+        icon: headerIcon,
+        backgroundImage: headerBackgroundImage,
         textColor: headerTextColor,
         backgroundColor: headerBackgroundColor,
         classes: {
@@ -224,6 +270,7 @@ stories.add('with standard inputs', () => {
     };
 
     return <Drawer
+        appbar={appbar}
         header={header}
         body={body}
         footer={footer}
