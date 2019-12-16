@@ -97,10 +97,7 @@ const styles = theme => ({
 
     },
     toolbar: {
-        [theme.breakpoints.down('xs')]: {
-            paddingLeft: 0,
-        },
-        paddingLeft: theme.spacing(2),
+        paddingLeft: theme.spacing(1.5),
     }
 });
 

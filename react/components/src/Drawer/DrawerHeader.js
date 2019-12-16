@@ -85,6 +85,9 @@ DrawerHeader.defaultProps = {
 
 const styles = theme => ({
     root: {
+        [theme.breakpoints.down('xs')]: {
+            paddingLeft: theme.spacing(1.5),
+        },
         paddingLeft: theme.spacing(0.5),
         width: '100%',
     },

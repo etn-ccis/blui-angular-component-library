@@ -75,7 +75,7 @@ stories.add('with standard inputs', () => {
 
     // Header
     const headerTitle = text('title', 'PX Blue Drawer', headerGroupId);
-    const headerSubtitle = text('subtitle', 'A modern marvel of engineering', headerGroupId);
+    const headerSubtitle = text('subtitle', 'Organize your menu items here', headerGroupId);
     const headerInfo = text('info', '', headerGroupId);
     const headerBackgroundColor = color('backgroundColor', Colors.blue[800], headerGroupId);
     const headerTextColor = color('textColor', Colors.white[50], headerGroupId);

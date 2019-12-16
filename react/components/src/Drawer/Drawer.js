@@ -28,18 +28,9 @@ class SideNav extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            showUserMenu: false,
-            drawerOpen: this.props.open === undefined ? true : false,
+            drawerOpen: this.props.open === undefined ? true : this.props.open,
             selected: undefined,
         };
-    }
-
-    onNavEnter() {
-        this.hoverDelay = setTimeout(() => this.setState({ drawerHover: true }), 500);
-    };
-
-    toggleNavMenu() {
-        this.setState({ showUserMenu: !this.state.showUserMenu });
     }
 
     toggleDrawer() {
@@ -169,7 +160,9 @@ class SideNav extends React.Component {
 
     getDesktopNavigationMenu() {
         const { classes } = this.props;
-        return <Drawer variant="permanent" classes={{paper: classes.paper}}>
+        return <Drawer variant="permanent"
+                       open={this.state.drawerOpen}
+                       classes={{paper: classes.paper}}>
             <div
                 className={
                     'flexVert ' +
@@ -189,12 +182,10 @@ class SideNav extends React.Component {
     }
 
     render() {
-        const { classes } = this.props;
         const appbar = this.props.appbar || {};
         return (
             <>
             <Hidden smUp>
-
                 <DrawerAppBar
                     title={appbar.title || this.props.header.title}
                     subtitle={appbar.subtitle}
@@ -213,7 +204,7 @@ class SideNav extends React.Component {
                 <Backdrop open={this.state.drawerOpen}/>
             </Hidden>
 
-            <Hidden smDown>
+            <Hidden xsDown>
                 {this.getDesktopNavigationMenu()}
             </Hidden>
             </>
@@ -298,13 +289,20 @@ const styles = theme => {
     subheader: {
         paddingLeft: '15px',
         paddingRight: '15px',
-        cursor: 'pointer'
+        cursor: 'pointer',
+        [theme.breakpoints.down('xs')]: {
+            paddingLeft: theme.spacing(3),
+            paddingRight: theme.spacing(3),
+        },
     },
     listItem: {
         paddingLeft: '15px',
         paddingRight: '15px',
         '&:hover': {
             backgroundColor: 'rgba(0, 0, 0, 0.08)',
+        },
+        [theme.breakpoints.down('xs')]: {
+            paddingLeft: theme.spacing(3),
         },
     },
     listItemSelected: {
