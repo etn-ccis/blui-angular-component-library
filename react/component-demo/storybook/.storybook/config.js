@@ -4,7 +4,7 @@ import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { React as ReactThemes } from '@pxblue/themes';
 import * as Colors from '@pxblue/colors';
 import 'typeface-open-sans';
-import './styles.css';
+import './styles.scss';
 import { addReadme } from 'storybook-readme';
 
 addParameters({
