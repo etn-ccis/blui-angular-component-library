@@ -12,7 +12,6 @@ import Drawer from '@pxblue/react-components/core/Drawer';
 
 return <Drawer
         header={header}
-        appbar={appbar}
         subheader={subheader}
         body={body}
         footer={footer}
@@ -23,7 +22,6 @@ return <Drawer
 | Prop Name           | Description                             | Type       | Required |              
 |---------------------|-----------------------------------------|------------|----------|
 | header              | Top part of side nav                    | `Object`   | yes      |
-| appbar              | Top bar that appears on mobile          | `Object`   | yes      |
 | subheader           | Section between header and body         | `Object`   | no       |
 | body                | Links                                   | `Object`   | yes      |
 | footer              | Bottom part of side nav                 | `Object`   | no       |
@@ -47,23 +45,6 @@ The `DrawerHeader` supports text inputs or can accept children nodes to render i
 | icon            | Used to toggle drawer open or closed    | `JSX Element` | no       | `<MenuIcon />`     | 
 | content         | Custom content for header               | `JSX Element` | no       |                    |
 | overrides       | Style prop overrides                    | `Object`      | no       |                    |
-
-## Drawer Appbar
-Similar to the `DrawerHeader`, the `DrawerAppbar` only appears on small viewports and is used to open the side nav on mobile devices.
-It inherits most of its propTypes from `DrawerHeader`. 
-
-### Drawer Appbar API
-| Prop Name       | Description                          | Type          | Required | Default                        |
-|-----------------|--------------------------------------|---------------|----------|--------------------------------|
-| title           |  Main text                           | `string`      | yes      | `DrawerHeader.title`           |   
-| subtitle        | Secondary text                       | `string`      | no       |                                |
-| textColor       | Text color                           | `string`      | no       | `DrawerHeader.textColor`       |
-| backgroundColor | Background color                     | `string`      | no       | `DrawerHeader.backgroundColor` |
-| backgroundImage | Gradient or Image background         | `string`      | no       |                                |
-| icon            | Icon displayed                       | `JSX Element` | no       | `DrawerHeader.icon`            |
-| content         | Custom content for header            | `JSX Element` | no       |                                |
-| overrides       | Style prop overrides                 | `Object`      | no       |                                |
-
 
 ## Drawer Subheader
 The `DrawerSubheader` is an optional section that renders below the header and above the body of the side navigation menu.

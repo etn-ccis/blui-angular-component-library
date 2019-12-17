@@ -14,13 +14,7 @@ import DrawerSubheader from "./DrawerSubheader";
 import DrawerBody from "./DrawerBody";
 import DrawerFooter from "./DrawerFooter";
 import Hidden from "@material-ui/core/Hidden";
-import AppBar from "@material-ui/core/AppBar";
-import Typography from "@material-ui/core/Typography";
-import IconButton from "@material-ui/core/IconButton";
-import Toolbar from "@material-ui/core/Toolbar";
-import MenuIcon from '@material-ui/icons/Menu';
 import Backdrop from "@material-ui/core/Backdrop";
-import DrawerAppBar from "./DrawerAppBar";
 
 class SideNav extends React.Component {
 
@@ -186,20 +180,6 @@ class SideNav extends React.Component {
         return (
             <>
             <Hidden smUp>
-                <DrawerAppBar
-                    title={appbar.title || this.props.header.title}
-                    subtitle={appbar.subtitle}
-                    info={appbar.info}
-                    backgroundColor={appbar.backgroundColor || this.props.header.backgroundColor}
-                    backgroundImage={appbar.backgroundImage}
-                    textColor={appbar.textColor || this.props.header.textColor }
-                    icon={appbar.icon || this.props.header.icon}
-                    content={appbar.content}
-                    overrides={appbar.classes || {}}
-
-                    onClick={() => this.toggleDrawer()}
-                    parentState={this.state}
-                />
                 {this.getMobileNavigationMenu()}
                 <Backdrop open={this.state.drawerOpen}/>
             </Hidden>
