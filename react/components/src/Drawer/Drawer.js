@@ -22,7 +22,7 @@ class SideNav extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            drawerOpen: this.props.open === undefined ? true : this.props.open,
+            drawerOpen: this.props.open === undefined ? true : this.props.defaultState,
             selected: undefined,
         };
     }
@@ -117,6 +117,7 @@ class SideNav extends React.Component {
 
                 {this.props.footer && <DrawerFooter
                     content={this.props.footer.content}
+                    backgroundColor={this.props.footer.backgroundColor}
                     createRouteItems={(items) => this.createRouteItems(items)}
                     overrides={this.props.footer.classes || {}}
                     parentState={this.state}/>
@@ -176,7 +177,6 @@ class SideNav extends React.Component {
     }
 
     render() {
-        const appbar = this.props.appbar || {};
         return (
             <>
             <Hidden smUp>

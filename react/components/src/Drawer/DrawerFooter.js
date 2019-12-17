@@ -18,6 +18,9 @@ class DrawerFooter extends React.Component {
                 <Divider/>
                 <div
                     className={classes.root}
+                    style={{
+                        backgroundColor: this.props.backgroundColor
+                    }}
                 >
                     {this.props.createRouteItems(this.props.navGroups)}
                     <div style={{visibility: (this.props.parentState.drawerOpen ? '' : 'hidden')}}>
@@ -31,6 +34,7 @@ class DrawerFooter extends React.Component {
 
 DrawerFooter.propTypes = {
     content: PropTypes.element,
+    backgroundColor: PropTypes.string,
     navGroups: PropTypes.arrayOf(PropTypes.object),
 };
 

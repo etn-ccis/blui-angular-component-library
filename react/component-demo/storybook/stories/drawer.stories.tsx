@@ -219,8 +219,10 @@ stories.add('with standard inputs', () => {
 
     // Footer
     const showFooter = boolean('show footer', true, footerGroupId);
+    const footerBackgroundColor = color('backgroundColor', Colors.white[50], footerGroupId);
 
-    const footer = {
+   const footer = {
+       backgroundColor: footerBackgroundColor,
         content: showFooter ?
             <div style={{'display': 'flex', 'justifyContent': 'center'}}>
                 <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
