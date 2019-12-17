@@ -17,11 +17,14 @@ import * as Colors from '@pxblue/colors';
 
 const backgroundImage = require('../assets/topology_40.png');
 
+const README = require('./../../../docs/ScoreCard.md').default;
 
 export const stories = storiesOf('Score Card', module);
 stories.addDecorator(withKnobs);
 stories.addParameters({
-    notes: { markdown: require('./../../../docs/InfoListItem.md') }
+    readme: {
+        sidebar: README,
+    },
 });
 
 stories.add('minimal configuration', () => {

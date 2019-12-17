@@ -30,11 +30,14 @@ import React from 'react';
 import EatonLogo from "../assets/EatonLogo.svg";
 // @ts-ignore
 import Background from '../assets/topology_40.png';
+const README = require('./../../../docs/Drawer.md').default;
 
 
 export const stories = storiesOf('Drawer', module);
 stories.addParameters({
-   notes: { markdown: require('./../../../docs/Drawer.md')}
+   readme: {
+      sidebar: README,
+   },
 });
 stories.addDecorator(withKnobs);
 
