@@ -49,8 +49,8 @@ The `DrawerHeader` supports text inputs or can accept children nodes to render i
 | overrides       | Style prop overrides                    | `Object`      | no       |                    |
 
 ## Drawer Appbar
-The `DrawerAppbar` only appears on small viewports as as a topbar that can toggle the side navigation menu open or closed.
-It shares a lot of input props as the `DrawerHeader`, and inherits some of the `DrawerHeader`'s props.
+Similar to the `DrawerHeader`, the `DrawerAppbar` only appears on small viewports and is used to open the side nav on mobile devices.
+It inherits most of its propTypes from `DrawerHeader`. 
 
 ### Drawer Appbar API
 | Prop Name       | Description                          | Type          | Required | Default                        |
@@ -66,8 +66,8 @@ It shares a lot of input props as the `DrawerHeader`, and inherits some of the `
 
 
 ## Drawer Subheader
-The `DrawerSubheader` is an optional subsection that renders below the header and above the body of the side navigation menu.
-It can be used to support additional content, such as filtering options or more information.
+The `DrawerSubheader` is an optional section that renders below the header and above the body of the side navigation menu.
+It can be used to support additional content, such as filtering options or to display more information.
 The subheader only accepts children nodes to render as input.
 
 
@@ -92,7 +92,7 @@ Each link inside a `NavGroup` consists of an optional icon and a link title.
 
 ## Drawer Footer
 The `DrawerFooter` is an optional section that renders at the bottom of the `Drawer`'s side navigation menu.
-It can be used to add optional images, version information, or any custom content.
+It can be used to add optional images, bottom navigation options, or any custom content.
 
 
 ### Drawer Footer API
