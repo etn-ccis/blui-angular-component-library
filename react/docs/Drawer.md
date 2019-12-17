@@ -19,12 +19,15 @@ return <Drawer
 ```
 
 ### Drawer API
-| Prop Name           | Description                             | Type       | Required |              
-|---------------------|-----------------------------------------|------------|----------|
-| header              | Top part of side nav                    | `Object`   | yes      |
-| subheader           | Section between header and body         | `Object`   | no       |
-| body                | Links                                   | `Object`   | yes      |
-| footer              | Bottom part of side nav                 | `Object`   | no       |
+| Prop Name           | Description                             | Type        | Required | Default  |          
+|---------------------|-----------------------------------------|-------------|----------|----------|
+| header              | Top part of side nav                    | `Object`    | yes      |          |
+| subheader           | Section between header and body         | `Object`    | no       |          |
+| body                | Links                                   | `Object`    | yes      |          |
+| footer              | Bottom part of side nav                 | `Object`    | no       |          |
+| open                | Manually set the drawer state           | `boolean`   | no       |          |
+| defaultOpen         | Default state of the Drawer             | `boolean`   | no       | true     |
+| onClose             | Callback when drawer is closed          | `function`  | no       |          |
 
 
 ## Drawer Header

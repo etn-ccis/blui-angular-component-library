@@ -27,6 +27,10 @@ class SideNav extends React.Component {
         };
     }
 
+    isDrawerOpen() {
+        return this.state.drawerOpen || this.props.open;
+    }
+
     toggleDrawer() {
         this.setState({ drawerOpen: !this.state.drawerOpen });
     }
@@ -44,7 +48,7 @@ class SideNav extends React.Component {
                             className={classes.subheader}
                             style={{
                                 position: 'unset',
-                                color: this.state.drawerOpen || this.state.drawerHover ? '' : 'transparent',
+                                color: this.isDrawerOpen() || this.state.drawerHover ? '' : 'transparent',
                             }}
                         >
                             {navGroup.title}
@@ -130,15 +134,15 @@ class SideNav extends React.Component {
         const { classes } = this.props;
         return (
             <Drawer
-                open={this.state.drawerOpen}
-                onClose={() => this.toggleDrawer()}
+                open={this.isDrawerOpen()}
+                onClose={() => { this.toggleDrawer(); this.props.onClose()} }
                 classes={{ paper: classes.drawer }}
             >
                 <div className={
                     'flexVert ' +
                     (this.state.drawerHover
                         ? classes.drawerWidthFull
-                        : this.state.drawerOpen
+                        : this.isDrawerOpen()
                             ? classes.drawerWidthFull
                             : classes.drawerWidthCollapsed)
                 }
@@ -156,14 +160,14 @@ class SideNav extends React.Component {
     getDesktopNavigationMenu() {
         const { classes } = this.props;
         return <Drawer variant="permanent"
-                       open={this.state.drawerOpen}
+                       open={this.isDrawerOpen()}
                        classes={{paper: classes.paper}}>
             <div
                 className={
                     'flexVert ' +
                     (this.state.drawerHover
                         ? classes.drawerWidthFull
-                        : this.state.drawerOpen
+                        : this.isDrawerOpen()
                             ? classes.drawerWidthFull
                             : classes.drawerWidthCollapsed)
                 }
@@ -181,7 +185,7 @@ class SideNav extends React.Component {
             <>
             <Hidden smUp>
                 {this.getMobileNavigationMenu()}
-                <Backdrop open={this.state.drawerOpen}/>
+                <Backdrop open={this.isDrawerOpen()}/>
             </Hidden>
 
             <Hidden xsDown>
@@ -197,7 +201,7 @@ class SideNav extends React.Component {
         }
 
         const { classes } = this.props;
-        const open = this.state.drawerHover || this.state.drawerOpen;
+        const open = this.state.drawerHover || this.isDrawerOpen();
         const action = () => {
             this.setState({ drawerOpen: false, drawerHover: false, selected: title });
             onClick();
