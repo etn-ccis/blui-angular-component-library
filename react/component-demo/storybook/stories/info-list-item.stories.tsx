@@ -81,6 +81,15 @@ stories.add('with custom control', () => {
         rightComponent={<ChannelValue value={text('value', '15')} units={text('units', 'A')} />}
     />
 });
+stories.add('with custom leftComponent', () => {
+    return <InfoListItem dense
+        title={text('title', 'Test')}
+        divider={boolean('divider', true) ? 'full' : undefined}
+        hidePadding={boolean('hidePadding', true)}
+        icon={<Device />}
+        leftComponent={<ChannelValue value={text('value', '15')} units={text('units', 'A')} />}
+    />
+});
 stories.add('in a full list', () => {
     return (
         <List style={{ color: PXBColors.gray['800'], padding: 0 }}>

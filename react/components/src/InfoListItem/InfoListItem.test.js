@@ -110,6 +110,12 @@ describe("InfoListItem", () => {
         expect(wrapper.find(Chevron).length).toEqual(0);
         expect(wrapper.find(PersonIcon).length).toEqual(1);
     });
+    it('renders leftComponent', () => {
+        let wrapper = shallow(
+            <InfoListItem title="Test" leftComponent={<PersonIcon/>}/>
+        );
+        expect(wrapper.find(PersonIcon).length).toEqual(1);
+    });
 })
 
 
