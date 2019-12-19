@@ -23,12 +23,14 @@ const MAX_SUBTITLE_ELEMENTS = 6;
 
 class InfoListItemClass extends React.Component {
     render() {
-        const { classes, fontColor, onClick, statusColor, title, divider, dense } = this.props;
+        const { classes, fontColor, leftComponent, onClick, statusColor, title, divider, dense } = this.props;
         return (
             <ListItem style={this.wrapperStyle()} onClick={onClick ? () => onClick() : null} dense={dense}>
                 <div className={classes.statusStripe} style={{ backgroundColor: statusColor }}></div>
                 {(this.props.icon || !this.props.hidePadding) && this.icon()}
+                {leftComponent}
                 <ListItemText
+                    style={leftComponent ? { marginLeft: 16 } : {}}
                     primary={title}
                     secondary={this.subtitle()}
                     primaryTypographyProps={{ noWrap: true, variant: 'body1', className: classes.title, style: { color: fontColor || 'inherit' } }}
@@ -62,7 +64,7 @@ class InfoListItemClass extends React.Component {
         else if (!hidePadding) {
             return (
                 <ListItemAvatar>
-                    <Avatar style={{ backgroundColor: 'transparent' }}/>
+                    <Avatar style={{ backgroundColor: 'transparent' }} />
                 </ListItemAvatar>
             );
         }
@@ -131,6 +133,7 @@ InfoListItemClass.propTypes = {
     hidePadding: PropTypes.bool,
     icon: PropTypes.element,
     iconColor: PropTypes.string,
+    leftComponent: PropTypes.element,
     onClick: PropTypes.func,
     rightComponent: PropTypes.element,
     statusColor: PropTypes.string,
