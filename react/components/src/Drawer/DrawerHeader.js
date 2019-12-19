@@ -74,13 +74,16 @@ DrawerHeader.propTypes = {
     backgroundImage: PropTypes.string,
     icon: PropTypes.element,
     content: PropTypes.element,
-    overrides: PropTypes.object
+    overrides: PropTypes.object,
+    onClick: PropTypes.func
 };
 
 DrawerHeader.defaultProps = {
     icon: <MenuIcon />,
     textColor: Colors.white[50],
-    backgroundColor: Colors.blue[500]
+    backgroundColor: Colors.blue[500],
+    overrides: {},
+    onClick: () => {}
 };
 
 const styles = theme => ({

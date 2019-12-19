@@ -18,7 +18,7 @@ import SendIcon from '@material-ui/icons/Send';
 // @ts-ignore
 import * as Colors from '@pxblue/colors';
 //@ts-ignore
-import Drawer from '@pxblue/react-components/core/Drawer';
+import { Drawer, DrawerHeader } from '@pxblue/react-components/core/Drawer';
 import {action} from "@storybook/addon-actions";
 // @ts-ignore
 
@@ -71,7 +71,6 @@ const defaultBody = {
 };
 
 stories.add('with standard inputs', () => {
-    const appbarGroupId = 'App Bar';
     const headerGroupId = 'Header';
     const bodyGroupId = 'Body';
     const footerGroupId = 'Footer';
@@ -107,21 +106,6 @@ stories.add('with standard inputs', () => {
             headerBackgroundImage = `url(${Background})`;
             break;
     }
-
-    const header = {
-        title: headerTitle,
-        subtitle: headerSubtitle,
-        info: headerInfo,
-        icon: headerIcon,
-        backgroundImage: headerBackgroundImage,
-        textColor: headerTextColor,
-        backgroundColor: headerBackgroundColor,
-        classes: {
-            root: {
-                backgroundSize: '400px'
-            }
-        }
-    };
 
     // Body
     const groupTitle1 = text('title1', 'NavGroup 1', bodyGroupId);
@@ -230,10 +214,25 @@ stories.add('with standard inputs', () => {
     };
 
     return <Drawer
-        header={header}
         body={body}
-        footer={footer}
-    />
+        footer={footer}>
+
+       <DrawerHeader
+          title={headerTitle}
+          subtitle={headerSubtitle}
+          info={headerInfo}
+          icon={headerIcon}
+          backgroundImage={headerBackgroundImage}
+          textColor={headerTextColor}
+          backgroundColor={headerBackgroundColor}
+          overrides={{
+             root: {
+                backgroundSize: '400px'
+             }
+          }}
+       />
+
+    </Drawer>
 });
 
 stories.add('with header style overrides', () => {

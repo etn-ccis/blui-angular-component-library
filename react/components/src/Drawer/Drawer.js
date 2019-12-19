@@ -72,14 +72,37 @@ class SideNav extends React.Component {
         ));
     }
 
+    findChildByType(type) {
+        const empty = <></>;
+        return React.Children.map(this.props.children, child => {
+            if (child.type) {
+                const name = child.type.displayName;
+                if (name && name.includes(type)) {
+                    return child;
+                }
+            }
+        }) || [empty];
+    }
+
+    getHeader() {
+        const header = this.findChildByType('DrawerHeader')[0];
+        const onClick = () => { this.toggleDrawer(); };
+        return <>
+            {React.cloneElement(header, { onClick } )}
+        </>;
+    }
+
     getDrawerContents() {
         const { classes } = this.props;
-        const header = this.props.header;
+
        return  <div className={classes.drawerWidthFull}
              style={{
                  height: '100%',
              }}>
-            <DrawerHeader
+
+
+           {this.getHeader()}
+           {/*<DrawerHeader
                 title={header.title}
                 subtitle={header.subtitle}
                 info={header.info}
@@ -91,7 +114,7 @@ class SideNav extends React.Component {
                 overrides={header.classes || {}}
 
                 onClick={() => this.toggleDrawer()}
-                parentState={this.state}/>
+                parentState={this.state}/> */}
 
             <div
                 style={{
