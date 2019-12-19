@@ -14,8 +14,9 @@ import { boolean, color, text, number, withKnobs } from '@storybook/addon-knobs'
 import { storiesOf } from '@storybook/react';
 //@ts-ignore
 import * as Colors from '@pxblue/colors';
+const README = require('./../../../docs/ScoreCard.md').default;
 
-const backgroundImage = require('../topology_40.png');
+const backgroundImage = require('../assets/topology_40.png');
 
 const heros: any[] = [
     <Hero
@@ -41,7 +42,9 @@ const heros: any[] = [
 export const stories = storiesOf('Score Card', module);
 stories.addDecorator(withKnobs);
 stories.addParameters({
-    notes: { markdown: require('./../../../docs/ScoreCard.md') }
+   readme: {
+      sidebar: README,
+   },
 });
 
 stories.add('minimal configuration', () => {
