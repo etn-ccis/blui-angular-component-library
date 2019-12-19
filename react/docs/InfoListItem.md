@@ -29,6 +29,7 @@ import * as Colors from '@pxblue/colors';
 | hidePadding       | Remove left padding if no icon is used  | `boolean`                                          | no       | false               |                                         |
 | icon              | A component to render for the icon      | `React.Component`                                  | no       |                     | `<Leaf color={'inherit'} />`            |
 | iconColor         | Color override for the row icon         | `string`                                           | no       |                     |                                         |
+| leftComponent     | Component to render on the left side    | `React.Component`                                  | no       |                     | `<ListItemText/>`                       |
 | onClick           | A function to execute when clicked      | `function`                                         | no       |                     | `() => console.log('pressed')`          |
 | rightComponent    | Component to render on the right side   | `React.Component`                                  | no       |                     | `<ChannelValue/>`                       |
 | statusColor       | Status stripe and icon color            | `string`                                           | no       |                     | '#ff3333', 'orange'                     |
