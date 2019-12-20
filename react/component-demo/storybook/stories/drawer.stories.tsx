@@ -18,7 +18,7 @@ import SendIcon from '@material-ui/icons/Send';
 // @ts-ignore
 import * as Colors from '@pxblue/colors';
 //@ts-ignore
-import { Drawer, DrawerHeader, DrawerSubheader, DrawerBody } from '@pxblue/react-components/core/Drawer';
+import { Drawer, DrawerHeader, DrawerSubheader, DrawerBody, DrawerFooter } from '@pxblue/react-components/core/Drawer';
 import {action} from "@storybook/addon-actions";
 // @ts-ignore
 
@@ -185,16 +185,7 @@ stories.add('with standard inputs', () => {
     const showFooter = boolean('show footer', true, footerGroupId);
     const footerBackgroundColor = color('backgroundColor', Colors.white[50], footerGroupId);
 
-   const footer = {
-       backgroundColor: footerBackgroundColor,
-        content: showFooter ?
-            <div style={{'display': 'flex', 'justifyContent': 'center'}}>
-                <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
-            </div> : ''
-    };
-
-    return <Drawer
-        footer={footer}>
+    return <Drawer>
 
        <DrawerHeader
           title={headerTitle}
@@ -227,6 +218,14 @@ stories.add('with standard inputs', () => {
                 links: links2
              }
           ]}
+       />
+
+       <DrawerFooter
+          backgroundColor={footerBackgroundColor}
+          content={showFooter ?
+             <div style={{'display': 'flex', 'justifyContent': 'center'}}>
+                <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
+             </div> : ''}
        />
 
     </Drawer>

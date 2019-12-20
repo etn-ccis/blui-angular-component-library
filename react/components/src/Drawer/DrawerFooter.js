@@ -38,6 +38,11 @@ DrawerFooter.propTypes = {
     navGroups: PropTypes.arrayOf(PropTypes.object),
 };
 
+DrawerFooter.defaultProps = {
+    overrides: {},
+};
+
+
 const styles = theme => ({
     root: {
         width: '100%',

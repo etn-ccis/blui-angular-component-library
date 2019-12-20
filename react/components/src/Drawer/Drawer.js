@@ -107,6 +107,15 @@ class SideNav extends React.Component {
         </>;
     }
 
+    getFooter() {
+        const footer = this.findChildByType('DrawerFooter')[0];
+        return <>
+            {footer && React.cloneElement(footer, {
+                createRouteItems: (items) => this.createRouteItems(items)
+            })}
+        </>;
+    }
+
     getDrawerContents() {
         const { classes } = this.props;
 
@@ -132,22 +141,7 @@ class SideNav extends React.Component {
             >
                 {this.getSubHeader()}
                 {this.getBody()}
-
-                {/*this.props.body && <DrawerBody
-                    navGroups={this.props.body.navGroups}
-                    backgroundColor={this.props.body.backgroundColor}
-                    createRouteItems={(items) => this.createRouteItems(items)}
-                    overrides={this.props.body.classes || {}}
-                    parentState={this.state}/> */
-                }
-
-                {this.props.footer && <DrawerFooter
-                    content={this.props.footer.content}
-                    backgroundColor={this.props.footer.backgroundColor}
-                    createRouteItems={(items) => this.createRouteItems(items)}
-                    overrides={this.props.footer.classes || {}}
-                    parentState={this.state}/>
-                }
+                {this.getFooter()}
             </div>
         </div>
     }
