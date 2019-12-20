@@ -88,7 +88,14 @@ class SideNav extends React.Component {
         const header = this.findChildByType('DrawerHeader')[0];
         const onClick = () => { this.toggleDrawer(); };
         return <>
-            {React.cloneElement(header, { onClick } )}
+            {header && React.cloneElement(header, { onClick } )}
+        </>;
+    }
+
+    getSubHeader() {
+        const subheader = this.findChildByType('DrawerSubheader')[0];
+        return <>
+            {subheader && React.cloneElement(subheader)}
         </>;
     }
 
@@ -128,11 +135,7 @@ class SideNav extends React.Component {
                     this.setState({drawerHover: false});
                 }}
             >
-                {this.props.subheader && <DrawerSubheader
-                    content={this.props.subheader.content}
-                    overrides={this.props.subheader.classes || {}}
-                    parentState={this.state}/>
-                }
+                {this.getSubHeader()}
 
                 {this.props.body && <DrawerBody
                     navGroups={this.props.body.navGroups}

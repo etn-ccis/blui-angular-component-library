@@ -18,7 +18,7 @@ import SendIcon from '@material-ui/icons/Send';
 // @ts-ignore
 import * as Colors from '@pxblue/colors';
 //@ts-ignore
-import { Drawer, DrawerHeader } from '@pxblue/react-components/core/Drawer';
+import { Drawer, DrawerHeader, DrawerSubheader } from '@pxblue/react-components/core/Drawer';
 import {action} from "@storybook/addon-actions";
 // @ts-ignore
 
@@ -338,15 +338,14 @@ stories.add('with custom subheader content', () => {
         }
     });
 
-    const subheader = {
-        content: value === 'Filter' ? filter : accordion,
-        classes
-    };
-
     return <Drawer
         header={header}
-        subheader={subheader}
         body={defaultBody}
-        />
+        >
+       <DrawerSubheader>
+          content={value === 'Filter' ? filter : accordion}
+          overrides={classes}
+       </DrawerSubheader>
+    </Drawer>
 });
 
