@@ -1,6 +1,8 @@
 import React from 'react';
 import {withStyles} from '@material-ui/core/styles';
 import PropTypes from "prop-types";
+import MenuIcon from "@material-ui/core/SvgIcon/SvgIcon";
+import * as Colors from "@pxblue/colors";
 
 class DrawerBody extends React.Component {
 
@@ -37,5 +39,10 @@ DrawerBody.propTypes = {
     backgroundColor: PropTypes.string,
     overrides: PropTypes.object
 };
+
+DrawerBody.defaultProps = {
+    overrides: {},
+};
+
 
 export default withStyles(styles)(DrawerBody);

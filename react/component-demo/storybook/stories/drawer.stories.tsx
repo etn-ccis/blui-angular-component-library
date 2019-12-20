@@ -18,7 +18,7 @@ import SendIcon from '@material-ui/icons/Send';
 // @ts-ignore
 import * as Colors from '@pxblue/colors';
 //@ts-ignore
-import { Drawer, DrawerHeader, DrawerSubheader } from '@pxblue/react-components/core/Drawer';
+import { Drawer, DrawerHeader, DrawerSubheader, DrawerBody } from '@pxblue/react-components/core/Drawer';
 import {action} from "@storybook/addon-actions";
 // @ts-ignore
 
@@ -41,8 +41,8 @@ stories.addParameters({
 });
 stories.addDecorator(withKnobs);
 
-const defaultBody = {
-    navGroups: [
+const defaultBody = <DrawerBody
+    navGroups={[
         {
             links: [
                 {
@@ -67,8 +67,8 @@ const defaultBody = {
                 }
             ]
         }
-    ]
-};
+    ]}
+/>
 
 stories.add('with standard inputs', () => {
     const headerGroupId = 'Header';
@@ -181,26 +181,6 @@ stories.add('with standard inputs', () => {
         }
     ].slice(0, numberLinksGroup2);
 
-
-    const body = {
-        backgroundColor: bodyBackgroundColor,
-        navGroups: [
-            {
-                title: groupTitle1,
-                links: links1
-            },
-            {
-                title:
-                    <div style={{'display': 'flex', 'justifyContent': 'space-between'}}>
-                        <div>{groupTitle2}</div>
-                        <div>Software Version v1.0.3</div>
-                    </div>,
-                links: links2
-                }
-            ]
-    };
-
-
     // Footer
     const showFooter = boolean('show footer', true, footerGroupId);
     const footerBackgroundColor = color('backgroundColor', Colors.white[50], footerGroupId);
@@ -214,7 +194,6 @@ stories.add('with standard inputs', () => {
     };
 
     return <Drawer
-        body={body}
         footer={footer}>
 
        <DrawerHeader
@@ -230,6 +209,24 @@ stories.add('with standard inputs', () => {
                 backgroundSize: '400px'
              }
           }}
+       />
+
+       <DrawerBody
+          backgroundColor={bodyBackgroundColor}
+          navGroups={[
+             {
+                title: groupTitle1,
+                links: links1
+             },
+             {
+                title:
+                   <div style={{'display': 'flex', 'justifyContent': 'space-between'}}>
+                      <div>{groupTitle2}</div>
+                      <div>Software Version v1.0.3</div>
+                   </div>,
+                links: links2
+             }
+          ]}
        />
 
     </Drawer>
@@ -266,31 +263,22 @@ stories.add('with header style overrides', () => {
       }
    });
 
-   const header = {
-      title,
-      subtitle,
-      info,
-      classes
-   };
-
-   return <Drawer
-      header={header}
-      body={defaultBody}
-   />
+   return <Drawer>
+      <DrawerHeader title={title} subtitle={subtitle} info={info} overrides={classes} />
+      {defaultBody}
+   </Drawer>
 });
 
 
 stories.add('with custom header content', () => {
-   return <Drawer
-      header={{
-         content:
-            <div style={{'paddingLeft': '40px'}}>
-               <Typography variant="subtitle2">Custom</Typography>
-               <Typography variant="h6" style={{'marginTop': '-10px'}}>Header Content</Typography>
-            </div>
-      }}
-      body={defaultBody}
-   />
+   return <Drawer>
+      <DrawerHeader content={
+         <div style={{'paddingLeft': '40px'}}>
+            <Typography variant="subtitle2">Custom</Typography>
+            <Typography variant="h6" style={{'marginTop': '-10px'}}>Header Content</Typography>
+         </div>} />
+      {defaultBody}
+       </Drawer>
 });
 
 stories.add('with custom subheader content', () => {
@@ -325,10 +313,7 @@ stories.add('with custom subheader content', () => {
                 sit amet blandit leo lobortis eget.
             </Typography>
         </ExpansionPanelDetails>
-    </ExpansionPanel>
-    const header = {
-        title: 'Subheader Demo'
-    };
+    </ExpansionPanel>;
 
     const classes = object('classes', {
         root: {
@@ -338,14 +323,13 @@ stories.add('with custom subheader content', () => {
         }
     });
 
-    return <Drawer
-        header={header}
-        body={defaultBody}
-        >
+    return <Drawer>
+       <DrawerHeader title={"Subheader Demo"} />
        <DrawerSubheader>
           content={value === 'Filter' ? filter : accordion}
           overrides={classes}
        </DrawerSubheader>
+       {defaultBody}
     </Drawer>
 });
 

@@ -18,7 +18,6 @@ import Backdrop from "@material-ui/core/Backdrop";
 
 class SideNav extends React.Component {
 
-
     constructor(props) {
         super(props);
         this.state = {
@@ -99,6 +98,15 @@ class SideNav extends React.Component {
         </>;
     }
 
+    getBody() {
+        const body = this.findChildByType('DrawerBody')[0];
+        return <>
+            {body && React.cloneElement(body, {
+                createRouteItems: (items) => this.createRouteItems(items)
+            })}
+        </>;
+    }
+
     getDrawerContents() {
         const { classes } = this.props;
 
@@ -109,19 +117,6 @@ class SideNav extends React.Component {
 
 
            {this.getHeader()}
-           {/*<DrawerHeader
-                title={header.title}
-                subtitle={header.subtitle}
-                info={header.info}
-                backgroundColor={header.backgroundColor}
-                backgroundImage={header.backgroundImage}
-                textColor={header.textColor}
-                icon={header.icon}
-                content={header.content}
-                overrides={header.classes || {}}
-
-                onClick={() => this.toggleDrawer()}
-                parentState={this.state}/> */}
 
             <div
                 style={{
@@ -136,13 +131,14 @@ class SideNav extends React.Component {
                 }}
             >
                 {this.getSubHeader()}
+                {this.getBody()}
 
-                {this.props.body && <DrawerBody
+                {/*this.props.body && <DrawerBody
                     navGroups={this.props.body.navGroups}
                     backgroundColor={this.props.body.backgroundColor}
                     createRouteItems={(items) => this.createRouteItems(items)}
                     overrides={this.props.body.classes || {}}
-                    parentState={this.state}/>
+                    parentState={this.state}/> */
                 }
 
                 {this.props.footer && <DrawerFooter
