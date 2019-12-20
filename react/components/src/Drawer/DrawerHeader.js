@@ -29,11 +29,6 @@ class DrawerHeader extends React.Component {
                     <Typography variant={'subtitle1'} className={classes.subtitle} style={this.props.overrides.subtitle}>
                         {this.props.subtitle}
                     </Typography>}
-
-                {this.props.info &&
-                    <Typography variant={'subtitle2'} className={classes.info} style={this.props.overrides.info}>
-                        {this.props.info}
-                    </Typography>}
             </div>
         );
     }
@@ -68,7 +63,6 @@ class DrawerHeader extends React.Component {
 DrawerHeader.propTypes = {
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string,
-    info: PropTypes.string,
     backgroundColor: PropTypes.string,
     textColor: PropTypes.string,
     backgroundImage: PropTypes.string,
@@ -106,9 +100,6 @@ const styles = theme => ({
     subtitle: {
 
     },
-    info: {
-        marginTop: '10px'
-    }
 });
 
 export default withStyles(styles)(DrawerHeader);
