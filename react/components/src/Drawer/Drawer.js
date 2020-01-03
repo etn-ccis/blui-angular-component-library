@@ -21,7 +21,6 @@ class SideNav extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-           // drawerOpen: this.props.open === undefined ? true : this.props.defaultState,
             hovered: false,
             selected: undefined,
         };
@@ -30,12 +29,6 @@ class SideNav extends React.Component {
     isDrawerOpen() {
         return this.state.hover || this.props.open;
     }
-/*
-    toggleDrawer() {
-        this.setState({ drawerOpen: !this.state.drawerOpen });
-    }
-    *.
- */
 
     createRouteItems(navGroups) {
         if (!navGroups) {

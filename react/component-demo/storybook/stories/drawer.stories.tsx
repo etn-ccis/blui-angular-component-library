@@ -28,8 +28,6 @@ import {storiesOf} from '@storybook/react';
 import React from 'react';
 // @ts-ignore
 import EatonLogo from "../assets/EatonLogo.svg";
-// @ts-ignore
-import Background from '../assets/topology_40.png';
 const README = require('./../../../docs/Drawer.md').default;
 const backgroundImage = require('../assets/topology_40.png');
 
@@ -231,6 +229,7 @@ stories.add('with standard inputs', () => {
 });
 
 stories.add('with header style overrides', () => {
+   const open = boolean('Open', true);
 
    const title = text('title', 'PX Blue Drawer,');
    const subtitle = text('subtitle', 'with custom styles applied');
@@ -261,7 +260,7 @@ stories.add('with header style overrides', () => {
       }
    });
 
-   return <Drawer open={true}>
+   return <Drawer open={open}>
       <DrawerHeader title={title} subtitle={subtitle} info={info} overrides={classes} />
       {defaultBody}
    </Drawer>
@@ -269,7 +268,8 @@ stories.add('with header style overrides', () => {
 
 
 stories.add('with custom header content', () => {
-   return <Drawer>
+   const open = boolean('Open', true);
+   return <Drawer open={open}>
       <DrawerHeader content={
          <div style={{'paddingLeft': '40px'}}>
             <Typography variant="subtitle2">Custom</Typography>
@@ -280,6 +280,7 @@ stories.add('with custom header content', () => {
 });
 
 stories.add('with custom subheader content', () => {
+   const open = boolean('Open', true);
     const label = 'content';
     const valuesObj = {
         Filter: 'Filter',
@@ -321,12 +322,11 @@ stories.add('with custom subheader content', () => {
         }
     });
 
-    return <Drawer>
+    return <Drawer open={open}>
        <DrawerHeader title={"Subheader Demo"} />
-       <DrawerSubheader>
+       <DrawerSubheader
           content={value === 'Filter' ? filter : accordion}
-          overrides={classes}
-       </DrawerSubheader>
+          overrides={classes} />
        {defaultBody}
     </Drawer>
 });

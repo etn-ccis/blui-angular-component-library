@@ -33,6 +33,10 @@ DrawerSubheader.propTypes = {
     overrides: PropTypes.object
 };
 
+DrawerSubheader.defaultProps = {
+    overrides: {},
+};
+
 const styles = theme => ({
     root: {
         flex: '1 1 0px',
