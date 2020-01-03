@@ -23,7 +23,7 @@ class DrawerFooter extends React.Component {
                     }}
                 >
                     {this.props.createRouteItems(this.props.navGroups)}
-                    <div style={{visibility: (this.props.parentState.drawerOpen ? '' : 'hidden')}}>
+                    <div style={{visibility: (this.props.open ? '' : 'hidden')}}>
                         {this.props.content}
                     </div>
                 </div>
@@ -33,6 +33,7 @@ class DrawerFooter extends React.Component {
 }
 
 DrawerFooter.propTypes = {
+    open: PropTypes.bool,
     content: PropTypes.element,
     backgroundColor: PropTypes.string,
     navGroups: PropTypes.arrayOf(PropTypes.object),

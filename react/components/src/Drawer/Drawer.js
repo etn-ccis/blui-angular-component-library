@@ -21,18 +21,21 @@ class SideNav extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            drawerOpen: this.props.open === undefined ? true : this.props.defaultState,
+           // drawerOpen: this.props.open === undefined ? true : this.props.defaultState,
+            hovered: false,
             selected: undefined,
         };
     }
 
     isDrawerOpen() {
-        return this.state.drawerOpen || this.props.open;
+        return this.state.hover || this.props.open;
     }
-
+/*
     toggleDrawer() {
         this.setState({ drawerOpen: !this.state.drawerOpen });
     }
+    *.
+ */
 
     createRouteItems(navGroups) {
         if (!navGroups) {
@@ -47,7 +50,7 @@ class SideNav extends React.Component {
                             className={classes.subheader}
                             style={{
                                 position: 'unset',
-                                color: this.isDrawerOpen() || this.state.drawerHover ? '' : 'transparent',
+                                color: this.isDrawerOpen() ? '' : 'transparent',
                             }}
                         >
                             {navGroup.title}
@@ -85,16 +88,17 @@ class SideNav extends React.Component {
 
     getHeader() {
         const header = this.findChildByType('DrawerHeader')[0];
-        const onClick = () => { this.toggleDrawer(); };
         return <>
-            {header && React.cloneElement(header, { onClick } )}
+            {header && React.cloneElement(header)}
         </>;
     }
 
     getSubHeader() {
         const subheader = this.findChildByType('DrawerSubheader')[0];
         return <>
-            {subheader && React.cloneElement(subheader)}
+            {subheader && React.cloneElement(subheader, {
+                open: this.isDrawerOpen()
+            })}
         </>;
     }
 
@@ -111,7 +115,8 @@ class SideNav extends React.Component {
         const footer = this.findChildByType('DrawerFooter')[0];
         return <>
             {footer && React.cloneElement(footer, {
-                createRouteItems: (items) => this.createRouteItems(items)
+                createRouteItems: (items) => this.createRouteItems(items),
+                open: this.isDrawerOpen()
             })}
         </>;
     }
@@ -132,11 +137,11 @@ class SideNav extends React.Component {
                     height: '100%',
                 }}
                 onMouseEnter={() => {
-                    this.hoverDelay = setTimeout(() => this.setState({drawerHover: true}), 500);
+                    this.hoverDelay = setTimeout(() => this.setState({hover: true}), 500);
                 }}
                 onMouseLeave={() => {
                     clearTimeout(this.hoverDelay);
-                    this.setState({drawerHover: false});
+                    this.setState({hover: false});
                 }}
             >
                 {this.getSubHeader()}
@@ -181,7 +186,7 @@ class SideNav extends React.Component {
             <div
                 className={
                     'flexVert ' +
-                    (this.state.drawerHover
+                    (this.state.hover
                         ? classes.drawerWidthFull
                         : this.isDrawerOpen()
                             ? classes.drawerWidthFull
@@ -219,7 +224,7 @@ class SideNav extends React.Component {
         const { classes } = this.props;
         const open = this.state.drawerHover || this.isDrawerOpen();
         const action = () => {
-            this.setState({ drawerOpen: false, drawerHover: false, selected: title });
+            this.setState({ hover: false, selected: title });
             onClick();
         };
         const selected = this.state.selected === title;

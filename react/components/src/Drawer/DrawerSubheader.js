@@ -16,7 +16,7 @@ class DrawerSubheader extends React.Component {
                 <div
                     className={classes.root}
                     style={{
-                            visibility: (this.props.parentState.drawerOpen ? '' : 'hidden'),
+                            visibility: (this.props.open ? '' : 'hidden'),
                             ...this.props.overrides.root
                         }}>
                     {this.props.content}
@@ -28,6 +28,7 @@ class DrawerSubheader extends React.Component {
 }
 
 DrawerSubheader.propTypes = {
+    open: PropTypes.bool,
     content: PropTypes.element,
     overrides: PropTypes.object
 };

@@ -21,7 +21,7 @@ class DrawerHeader extends React.Component {
         return this.props.content || (
             <div className={classes.content} style={this.props.overrides.content}>
 
-                <Typography variant={'h5'} className={classes.title} style={this.props.overrides.title}>
+                <Typography variant={'h6'} className={classes.title} style={this.props.overrides.title}>
                     {this.props.title}
                 </Typography>
 
@@ -34,7 +34,7 @@ class DrawerHeader extends React.Component {
     }
 
     render() {
-        const { classes } = this.props;
+        const { classes, icon} = this.props;
         return (
             <>
                 <Toolbar
@@ -42,14 +42,17 @@ class DrawerHeader extends React.Component {
                      style={{
                          color: this.props.textColor,
                          backgroundColor: this.props.backgroundColor,
-                         backgroundImage: this.props.backgroundImage,
+                         backgroundImage: `url(${this.props.backgroundImage}`,
                          ...this.props.overrides.root,
                      }}
                 >
+
+                {icon && <div className={classes.navigation}>
                     <IconButton className={classes.icon} style={this.props.overrides.icon} color={'inherit'}
                                 onClick={() => this.props.onClick()}>
-                        {this.props.icon}
+                        {icon}
                     </IconButton>
+                </div>}
 
                     {this.getHeaderContent()}
 
@@ -73,7 +76,6 @@ DrawerHeader.propTypes = {
 };
 
 DrawerHeader.defaultProps = {
-    icon: <MenuIcon />,
     textColor: Colors.white[50],
     backgroundColor: Colors.blue[500],
     overrides: {},
@@ -87,18 +89,37 @@ const styles = theme => ({
         },
         paddingLeft: theme.spacing(0.5),
         width: '100%',
+        alignItems: 'flex-start',
+        boxSizing: 'border-box'
     },
     content: {
-        padding: '20px'
+        [theme.breakpoints.down('xs')]: {
+            minHeight: theme.spacing(7),
+        },
+        minHeight: theme.spacing(8),
+        display: 'flex',
+        justifyContent: 'center',
+        alignSelf: 'stretch',
+        flexDirection: 'column'
+    },
+    navigation: {
+        [theme.breakpoints.down('xs')]: {
+            height: theme.spacing(7),
+        },
+        height: theme.spacing(8),
+        display: 'flex',
+        alignItems: 'center',
     },
     icon: {
 
     },
     title: {
-
+        fontWeight: 600,
+        lineHeight: '1.25rem'
     },
     subtitle: {
-
+        fontWeight: 300,
+        lineHeight: '1rem'
     },
 });
 

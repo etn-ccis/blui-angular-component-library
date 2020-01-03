@@ -31,6 +31,7 @@ import EatonLogo from "../assets/EatonLogo.svg";
 // @ts-ignore
 import Background from '../assets/topology_40.png';
 const README = require('./../../../docs/Drawer.md').default;
+const backgroundImage = require('../assets/topology_40.png');
 
 
 export const stories = storiesOf('Drawer', module);
@@ -75,6 +76,8 @@ stories.add('with standard inputs', () => {
     const bodyGroupId = 'Body';
     const footerGroupId = 'Footer';
 
+   const open = boolean('Open', true, 'Drawer');
+
     // Header
     const headerTitle = text('title', 'PX Blue Drawer', headerGroupId);
     const headerSubtitle = text('subtitle', 'Organize your menu items here', headerGroupId);
@@ -92,17 +95,14 @@ stories.add('with standard inputs', () => {
             break;
     }
 
-    const headerBackground = select('backgroundImage', ['None', 'Gradient', 'Pattern'], 'None', headerGroupId);
+    const headerBackground = select('backgroundImage', ['None', 'Pattern'], 'None', headerGroupId);
     let headerBackgroundImage;
     switch (headerBackground) {
         case 'None':
             headerBackgroundImage = undefined;
             break;
-        case 'Gradient':
-            headerBackgroundImage = 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%)';
-            break;
         case 'Pattern':
-            headerBackgroundImage = `url(${Background})`;
+            headerBackgroundImage = backgroundImage;
             break;
     }
 
@@ -184,7 +184,8 @@ stories.add('with standard inputs', () => {
     const showFooter = boolean('show footer', true, footerGroupId);
     const footerBackgroundColor = color('backgroundColor', Colors.white[50], footerGroupId);
 
-    return <Drawer>
+
+    return <Drawer open={open}>
 
        <DrawerHeader
           title={headerTitle}
@@ -260,7 +261,7 @@ stories.add('with header style overrides', () => {
       }
    });
 
-   return <Drawer>
+   return <Drawer open={true}>
       <DrawerHeader title={title} subtitle={subtitle} info={info} overrides={classes} />
       {defaultBody}
    </Drawer>
