@@ -86,8 +86,10 @@ const styles = theme => ({
     root: {
         [theme.breakpoints.down('xs')]: {
             paddingLeft: theme.spacing(1.5),
+            paddingRight: theme.spacing(1.5),
         },
-        paddingLeft: theme.spacing(0.5),
+        paddingRight: theme.spacing(2),
+        paddingLeft: theme.spacing(2),
         width: '100%',
         alignItems: 'flex-start',
         boxSizing: 'border-box'
@@ -96,6 +98,8 @@ const styles = theme => ({
         [theme.breakpoints.down('xs')]: {
             minHeight: theme.spacing(7),
         },
+        paddingLeft: theme.spacing(4),
+        paddingRight: theme.spacing(1.5),
         minHeight: theme.spacing(8),
         display: 'flex',
         justifyContent: 'center',
@@ -111,7 +115,7 @@ const styles = theme => ({
         alignItems: 'center',
     },
     icon: {
-
+        padding: 0
     },
     title: {
         fontWeight: 600,
