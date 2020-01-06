@@ -82,15 +82,18 @@ stories.add('with standard inputs', () => {
     const headerBackgroundColor = color('backgroundColor', Colors.blue[800], headerGroupId);
     const headerTextColor = color('textColor', Colors.white[50], headerGroupId);
 
-    const headerIconOptions = select('icon', ['Menu', 'Fitness'], 'Menu', headerGroupId);
+    const headerIconOptions = select('icon', ['Menu', 'Fitness', 'None'], 'Menu', headerGroupId);
     let headerIcon;
     switch (headerIconOptions) {
-        case 'Menu':
+       case 'Menu':
             headerIcon = <MenuIcon/>;
             break;
         case 'Fitness':
             headerIcon = <FitnessCenter/>;
             break;
+       case 'None':
+          headerIcon = undefined;
+          break;
     }
 
     const headerBackground = select('backgroundImage', ['None', 'Pattern'], 'None', headerGroupId);
