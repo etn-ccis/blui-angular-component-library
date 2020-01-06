@@ -21,12 +21,12 @@ class DrawerHeader extends React.Component {
         return this.props.content || (
             <div className={classes.content} style={this.props.overrides.content}>
 
-                <Typography variant={'h6'} className={classes.title} style={this.props.overrides.title}>
+                <Typography noWrap variant={'h6'} className={classes.title} style={this.props.overrides.title}>
                     {this.props.title}
                 </Typography>
 
                 {this.props.subtitle &&
-                    <Typography variant={'subtitle1'} className={classes.subtitle} style={this.props.overrides.subtitle}>
+                    <Typography noWrap variant={'subtitle1'} className={classes.subtitle} style={this.props.overrides.subtitle}>
                         {this.props.subtitle}
                     </Typography>}
             </div>
@@ -104,7 +104,8 @@ const styles = theme => ({
         display: 'flex',
         justifyContent: 'center',
         alignSelf: 'stretch',
-        flexDirection: 'column'
+        flexDirection: 'column',
+        width: '80%'
     },
     navigation: {
         [theme.breakpoints.down('xs')]: {
@@ -118,11 +119,11 @@ const styles = theme => ({
     },
     title: {
         fontWeight: 600,
-        lineHeight: '1.25rem'
+        lineHeight: '1.25rem',
     },
     subtitle: {
         fontWeight: 300,
-        lineHeight: '1rem'
+        lineHeight: '1.2rem' // Anything lower than 1.2rem cuts off bottom text of 'g' or 'y'.
     },
 });
 
