@@ -317,19 +317,18 @@ stories.add('with custom subheader content', () => {
         </ExpansionPanelDetails>
     </ExpansionPanel>;
 
-    const classes = object('classes', {
-        root: {
-            display: 'flex',
-            justifyContent: 'center',
-            padding: '20px'
-        }
-    });
-
     return <Drawer open={open}>
        <DrawerHeader title={"Subheader Demo"} />
-       <DrawerSubheader
-          overrides={classes}>
-          {value === 'Filter' ? filter : accordion}
+       <DrawerSubheader>
+          <div
+             style={{
+                visibility: (open ? 'inherit' : 'hidden'),
+                display: 'flex',
+                justifyContent: 'center',
+                padding: '20px'
+             }}>
+             {value === 'Filter' ? filter : accordion}
+          </div>
        </DrawerSubheader>
        {defaultBody}
     </Drawer>
