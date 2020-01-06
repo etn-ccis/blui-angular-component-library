@@ -231,45 +231,6 @@ stories.add('with standard inputs', () => {
     </Drawer>
 });
 
-stories.add('with header style overrides', () => {
-   const open = boolean('Open', true);
-
-   const title = text('title', 'PX Blue Drawer,');
-   const subtitle = text('subtitle', 'with custom styles applied');
-   const info = text('info', 'Depending on your situation, it might make sense ' +
-      'to adjust the default styles, rather than injecting your own header content');
-
-   const classes = object('classes', {
-      root: {
-         minHeight: '100px'
-      },
-      content: {
-         padding: '40px'
-      },
-      icon: {
-         color: 'cyan'
-      },
-      title: {
-         color: 'cyan'
-      },
-      subtitle: {
-         color: 'rust',
-         fontSize: '12px',
-         fontWeight: '700'
-      },
-      info: {
-         fontSize: '12px',
-         color: 'white'
-      }
-   });
-
-   return <Drawer open={open}>
-      <DrawerHeader title={title} subtitle={subtitle} info={info} overrides={classes} />
-      {defaultBody}
-   </Drawer>
-});
-
-
 stories.add('with custom header content', () => {
    const open = boolean('Open', true);
    return <Drawer open={open}>
