@@ -291,13 +291,14 @@ const styles = theme => {
     subheader: {
         paddingLeft: '15px',
         paddingRight: '15px',
-        cursor: 'pointer',
+        cursor: 'text',
         [theme.breakpoints.down('xs')]: {
             paddingLeft: theme.spacing(3),
             paddingRight: theme.spacing(3),
         },
     },
     listItem: {
+        cursor: 'pointer',
         paddingLeft: '15px',
         paddingRight: '15px',
         '&:hover': {
