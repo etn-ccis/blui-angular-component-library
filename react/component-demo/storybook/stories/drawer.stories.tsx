@@ -210,7 +210,7 @@ stories.add('with standard inputs', () => {
                 links: links1
              },
              {
-                title:
+                content:
                    <div style={{'display': 'flex', 'justifyContent': 'space-between'}}>
                       <div>{groupTitle2}</div>
                       <div>Software Version v1.0.3</div>

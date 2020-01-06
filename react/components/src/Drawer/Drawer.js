@@ -1,7 +1,7 @@
 import React from 'react';
 
 import {withStyles} from '@material-ui/core/styles';
-import {Drawer} from '@material-ui/core';
+import {Drawer, Typography} from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
 // Material-UI Icons
 import ListSubheader from '@material-ui/core/ListSubheader';
@@ -38,6 +38,7 @@ class SideNav extends React.Component {
         return navGroups.map((navGroup, index) => (
             <>
                 <List
+                    style={{'paddingBottom': '0'}}
                     subheader={
                         <ListSubheader
                             className={classes.subheader}
@@ -46,11 +47,16 @@ class SideNav extends React.Component {
                                 color: this.isDrawerOpen() ? '' : 'transparent',
                             }}
                         >
-                            {navGroup.title}
+
+                            {navGroup.title &&
+                                <Typography noWrap variant={'subtitle2'} className={classes.navGroupTextHeader}>
+                                    {navGroup.title}
+                                </Typography>}
+                            {navGroup.content}
                         </ListSubheader>
                     }
                 >
-                    {navGroup.title && <Divider />}
+                    {(navGroup.title || navGroup.content) && <Divider />}
                     {navGroup.links.map((link, index) => (
                         <>
                             {this.NavigationListItem({
@@ -327,6 +333,13 @@ const styles = theme => {
     listItemText: {
         paddingLeft: '1px',
     },
+        navGroupTextHeader: {
+            width: '95%',
+            display: 'block',
+            alignItems: 'center',
+            lineHeight: '3rem',
+            height: theme.spacing(6),
+        },
     // these must be defined, even if empty so we can reference them in other nested rules
     listIcon: {},
     open: {},
