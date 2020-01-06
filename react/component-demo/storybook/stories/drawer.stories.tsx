@@ -328,8 +328,9 @@ stories.add('with custom subheader content', () => {
     return <Drawer open={open}>
        <DrawerHeader title={"Subheader Demo"} />
        <DrawerSubheader
-          content={value === 'Filter' ? filter : accordion}
-          overrides={classes} />
+          overrides={classes}>
+          {value === 'Filter' ? filter : accordion}
+       </DrawerSubheader>
        {defaultBody}
     </Drawer>
 });
