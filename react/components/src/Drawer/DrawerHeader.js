@@ -123,7 +123,8 @@ const styles = theme => ({
     },
     subtitle: {
         fontWeight: 300,
-        lineHeight: '1.2rem' // Anything lower than 1.2rem cuts off bottom text of 'g' or 'y'.
+        lineHeight: '1.2rem', // Anything lower than 1.2rem cuts off bottom text of 'g' or 'y'.
+        marginTop: '-2px'
     },
 });
 
