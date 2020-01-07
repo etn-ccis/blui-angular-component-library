@@ -250,21 +250,11 @@ const styles = theme => {
         overflow: 'hidden',
         position: 'unset'
     },
-    flush: {
-        paddingLeft: theme.spacing(0.5),
-    },
     toolbar: {
         [theme.breakpoints.down('xs')]: {
             paddingLeft: 0,
         },
         paddingLeft: theme.spacing(2),
-    },
-    drawerMarginFull: {
-        [theme.breakpoints.down('xs')]: {
-            marginLeft: 0,
-        },
-        marginLeft: theme.spacing(45),
-        transition: 'margin 175ms cubic-bezier(.4, 0, .2, 1)',
     },
     drawerWidthFull: {
         width: theme.spacing(45),
@@ -286,8 +276,8 @@ const styles = theme => {
         padding: '16px',
     },
     subheader: {
-        paddingLeft: '15px',
-        paddingRight: '15px',
+        paddingLeft: theme.spacing(2),
+        paddingRight: theme.spacing(2),
         cursor: 'text',
         [theme.breakpoints.down('xs')]: {
             paddingLeft: theme.spacing(3),
@@ -306,9 +296,6 @@ const styles = theme => {
         lineHeight: '3rem',
         height: theme.spacing(6),
     },
-    // these must be defined, even if empty so we can reference them in other nested rules
-    listIcon: {},
-    open: {},
     selected: {
         content: '""',
         zIndex: 0,
