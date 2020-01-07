@@ -161,22 +161,12 @@ class SideNav extends React.Component {
         return (
             <Drawer
                 open={this.isDrawerOpen()}
-                onClose={() => { this.toggleDrawer(); this.props.onClose()} }
-                classes={{ paper: classes.drawer }}
-            >
-                <div className={
-                    'flexVert ' +
-                    (this.state.drawerHover
-                        ? classes.drawerWidthFull
-                        : this.isDrawerOpen()
-                            ? classes.drawerWidthFull
-                            : classes.drawerWidthCollapsed)
-                }
+                classes={{ paper: classes.drawer }}>
+                <div className={this.isDrawerOpen() ? classes.drawerWidthFull : classes.drawerWidthCollapsed}
                      style={{
                          height: '100%',
                          overflow: 'hidden'
                      }}>
-
                     {this.getDrawerContents()}
                 </div>
             </Drawer>
@@ -190,12 +180,11 @@ class SideNav extends React.Component {
                        classes={{paper: classes.paper}}>
             <div
                 className={
-                    'flexVert ' +
-                    (this.state.hover
+                    this.state.hover
                         ? classes.drawerWidthFull
                         : this.isDrawerOpen()
                             ? classes.drawerWidthFull
-                            : classes.drawerWidthCollapsed)
+                            : classes.drawerWidthCollapsed
                 }
                 style={{
                     height: '100%'
@@ -269,16 +258,6 @@ const styles = theme => {
             paddingLeft: 0,
         },
         paddingLeft: theme.spacing(2),
-    },
-    noPadding: {
-        padding: 0,
-    },
-    drawerMargin: {
-        [theme.breakpoints.down('xs')]: {
-            marginLeft: 0,
-        },
-        marginLeft: theme.spacing(7),
-        transition: 'margin 175ms cubic-bezier(.4, 0, .2, 1)',
     },
     drawerMarginFull: {
         [theme.breakpoints.down('xs')]: {
