@@ -2,7 +2,6 @@ import React from 'react';
 import {withStyles} from '@material-ui/core/styles';
 import PropTypes from "prop-types";
 import MenuIcon from "@material-ui/core/SvgIcon/SvgIcon";
-import * as Colors from "@pxblue/colors";
 import * as PXBColors from "@pxblue/colors";
 
 class DrawerBody extends React.Component {
@@ -12,12 +11,13 @@ class DrawerBody extends React.Component {
     }
 
     render() {
-        const { classes } = this.props;
+        const { classes, theme } = this.props;
+        const defaultBackgroundColor = PXBColors.white[50]; // TODO, dark theme compatible
         return (
             <div
                 className={classes.root}
                 style={{
-                    backgroundColor: this.props.backgroundColor
+                    backgroundColor: this.props.backgroundColor || defaultBackgroundColor
                 }}
             >
                 {this.props.createRouteItems(this.props)}
@@ -43,11 +43,4 @@ DrawerBody.propTypes = {
     titleColor: PropTypes.string,
 };
 
-DrawerBody.defaultProps = {
-    backgroundColor: PXBColors.white[50],
-    selectedColor: PXBColors.black[500],
-    fontColor: PXBColors.gray[500],
-    iconColor: PXBColors.blue[500],
-};
-
-export default withStyles(styles)(DrawerBody);
+export default withStyles(styles, { withTheme: true })(DrawerBody);

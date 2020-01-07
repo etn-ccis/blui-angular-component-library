@@ -66,10 +66,10 @@ class SideNav extends React.Component {
                                     navProps: navProps,
                                     title: link.title,
                                     subtitle: link.subtitle,
-                                icon: link.icon,
-                                key: (link.title + index),
-                                status: link.status,
-                                onClick: link.onClick
+                                    icon: link.icon,
+                                    key: (link.title + index),
+                                    status: link.status,
+                                    onClick: link.onClick
                             })}
                         </>
                     ))}
@@ -224,17 +224,19 @@ class SideNav extends React.Component {
             return <></>
         }
 
-        const { classes } = this.props;
+        const { classes, theme } = this.props;
         const open = this.state.drawerHover || this.isDrawerOpen();
+        const selected = this.state.selected === title;
+        const defaultSelectedBackgroundColor = theme.palette.secondary[50];
         const action = () => {
             this.setState({ hover: false, selected: title });
             onClick();
         };
-        const selected = this.state.selected === title;
         return (
             <div style={{position: 'relative'}} className={classes.listItem}>
                 {selected &&
-                    <div className={classes.selected} style={{backgroundColor: navProps.selectedColor}} />}
+                    <div className={classes.selected}
+                    style={{backgroundColor: navProps.selectedColor || defaultSelectedBackgroundColor}} />}
                 <InfoListItem dense
                     title={title}
                     subtitle={subtitle}
@@ -342,4 +344,4 @@ const styles = theme => {
     }
 }};
 
-export default withStyles(styles)(SideNav);
+export default withStyles(styles, { withTheme: true })(SideNav);

@@ -19,14 +19,14 @@ class DrawerHeader extends React.Component {
     getHeaderContent() {
         const { classes } = this.props;
         return this.props.content || (
-            <div className={classes.content} style={this.props.overrides.content}>
+            <div className={classes.content}>
 
-                <Typography noWrap variant={'h6'} className={classes.title} style={this.props.overrides.title}>
+                <Typography noWrap variant={'h6'} className={classes.title}>
                     {this.props.title}
                 </Typography>
 
                 {this.props.subtitle &&
-                    <Typography noWrap variant={'subtitle1'} className={classes.subtitle} style={this.props.overrides.subtitle}>
+                    <Typography noWrap variant={'subtitle1'} className={classes.subtitle}>
                         {this.props.subtitle}
                     </Typography>}
             </div>
@@ -34,21 +34,20 @@ class DrawerHeader extends React.Component {
     }
 
     render() {
-        const { classes, icon} = this.props;
+        const { classes, icon, theme} = this.props;
         return (
             <>
                 <Toolbar
                      className={classes.root}
                      style={{
-                         color: this.props.fontColor,
-                         backgroundColor: this.props.backgroundColor,
-                         backgroundImage: `url(${this.props.backgroundImage}`,
-                         ...this.props.overrides.root,
+                         color: this.props.fontColor || Colors.white[50], // TODO: Dark theme
+                         backgroundColor: this.props.backgroundColor || Colors.blue[500], // TODO: Dark Theme
+                         backgroundImage: `url(${this.props.backgroundImage}`
                      }}
                 >
 
                 {icon && <div className={classes.navigation}>
-                    <IconButton className={classes.icon} style={this.props.overrides.icon} color={'inherit'}
+                    <IconButton className={classes.icon} color={'inherit'}
                                 onClick={() => this.props.onClick()}>
                         {icon}
                     </IconButton>
@@ -71,14 +70,10 @@ DrawerHeader.propTypes = {
     backgroundImage: PropTypes.string,
     icon: PropTypes.element,
     content: PropTypes.element,
-    overrides: PropTypes.object,
     onClick: PropTypes.func
 };
 
 DrawerHeader.defaultProps = {
-    fontColor: Colors.white[50],
-    backgroundColor: Colors.blue[500],
-    overrides: {},
     onClick: () => {}
 };
 
@@ -128,4 +123,4 @@ const styles = theme => ({
     },
 });
 
-export default withStyles(styles)(DrawerHeader);
+export default withStyles(styles, { withTheme: true })(DrawerHeader);
