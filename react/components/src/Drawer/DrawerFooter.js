@@ -22,7 +22,7 @@ class DrawerFooter extends React.Component {
                         backgroundColor: this.props.backgroundColor
                     }}
                 >
-                    {this.props.createRouteItems(this.props.navGroups)}
+                    {this.props.createRouteItems(this.props)}
                     <div style={{visibility: (this.props.open ? '' : 'hidden')}}>
                         {this.props.content}
                     </div>

@@ -3,6 +3,7 @@ import {withStyles} from '@material-ui/core/styles';
 import PropTypes from "prop-types";
 import MenuIcon from "@material-ui/core/SvgIcon/SvgIcon";
 import * as Colors from "@pxblue/colors";
+import * as PXBColors from "@pxblue/colors";
 
 class DrawerBody extends React.Component {
 
@@ -16,11 +17,10 @@ class DrawerBody extends React.Component {
             <div
                 className={classes.root}
                 style={{
-                    backgroundColor: this.props.backgroundColor,
-                    ...this.props.overrides.root
+                    backgroundColor: this.props.backgroundColor
                 }}
             >
-                {this.props.createRouteItems(this.props.navGroups)}
+                {this.props.createRouteItems(this.props)}
             </div>
         );
     }
@@ -37,12 +37,17 @@ const styles = theme => ({
 DrawerBody.propTypes = {
     navGroups: PropTypes.arrayOf(PropTypes.object),
     backgroundColor: PropTypes.string,
-    overrides: PropTypes.object
+    selectedColor: PropTypes.string,
+    fontColor: PropTypes.string,
+    iconColor: PropTypes.string,
+    titleColor: PropTypes.string,
 };
 
 DrawerBody.defaultProps = {
-    overrides: {},
+    backgroundColor: PXBColors.white[50],
+    selectedColor: PXBColors.black[500],
+    fontColor: PXBColors.gray[500],
+    iconColor: PXBColors.blue[500],
 };
-
 
 export default withStyles(styles)(DrawerBody);

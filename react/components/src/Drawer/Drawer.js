@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from "prop-types";
 
 import {withStyles} from '@material-ui/core/styles';
 import {Drawer, Typography} from '@material-ui/core';
@@ -15,6 +16,8 @@ import DrawerBody from "./DrawerBody";
 import DrawerFooter from "./DrawerFooter";
 import Hidden from "@material-ui/core/Hidden";
 import Backdrop from "@material-ui/core/Backdrop";
+import {InfoListItem} from "../index";
+import * as PXBColors from "@pxblue/colors";
 
 class SideNav extends React.Component {
 
@@ -30,12 +33,12 @@ class SideNav extends React.Component {
         return this.state.hover || this.props.open;
     }
 
-    createRouteItems(navGroups) {
-        if (!navGroups) {
+    createRouteItems(navProps) {
+        if (!navProps.navGroups) {
             return <></>;
         }
         const { classes } = this.props;
-        return navGroups.map((navGroup, index) => (
+        return navProps.navGroups.map((navGroup, index) => (
             <>
                 <List
                     style={{'paddingBottom': '0'}}
@@ -60,9 +63,12 @@ class SideNav extends React.Component {
                     {navGroup.links.map((link, index) => (
                         <>
                             {this.NavigationListItem({
-                                title: link.title,
+                                    navProps: navProps,
+                                    title: link.title,
+                                    subtitle: link.subtitle,
                                 icon: link.icon,
                                 key: (link.title + index),
+                                status: link.status,
                                 onClick: link.onClick
                             })}
                         </>
@@ -213,7 +219,7 @@ class SideNav extends React.Component {
         );
     }
 
-    NavigationListItem({ title, icon, index, onClick }) {
+    NavigationListItem({ navProps, title, subtitle, icon, index, status, onClick }) {
         if (!title && !icon) {
             return <></>
         }
@@ -226,14 +232,21 @@ class SideNav extends React.Component {
         };
         const selected = this.state.selected === title;
         return (
-            <ListItem
-                key={index}
-                className={classes.listItem + ' ' + (open ? classes.open : '') + ' ' + (selected ? classes.listItemSelected : '')}
-                onClick={() => action()}
-            >
-                <ListItemIcon className={classes.listIcon}>{icon}</ListItemIcon>
-                <ListItemText inset className={classes.listItemText} primary={title} />
-            </ListItem>
+            <div style={{position: 'relative'}} className={classes.listItem}>
+                {selected &&
+                    <div className={classes.selected} style={{backgroundColor: navProps.selectedColor}} />}
+                <InfoListItem dense
+                    title={title}
+                    subtitle={subtitle}
+                    divider={'full'}
+                    statusColor={status}
+                    fontColor={navProps.fontColor}
+                    icon={icon}
+                    iconColor={navProps.iconColor}
+                    backgroundColor={'transparent'}
+                    onClick={() => action()}
+                />
+        </div>
         );
     }
 }
@@ -298,52 +311,35 @@ const styles = theme => {
         },
     },
     listItem: {
-        cursor: 'pointer',
-        paddingLeft: '15px',
-        paddingRight: '15px',
         '&:hover': {
             backgroundColor: 'rgba(0, 0, 0, 0.08)',
-        },
-        [theme.breakpoints.down('xs')]: {
-            paddingLeft: theme.spacing(3),
-        },
+        }
     },
-    listItemSelected: {
-        position: 'relative',
-        '&:hover': {
-            backgroundColor: 'transparent',
-        },
-        '&:before': {
-            content: '""',
-            zIndex: -1,
-            position: 'absolute',
-            height: '100%',
-            width: 'calc(100% - 8px)',
-            left: 0,
-            top: 0,
-            backgroundColor: theme.palette.primary['50'],
-            borderRadius: '0px 24px 24px 0px',
-        },
-        '&$open:hover:before': {
-            backgroundColor: theme.palette.primary['100'],
-        },
-        '& $listIcon': {
-            color: theme.palette.primary['500'],
-        },
+    navGroupTextHeader: {
+        width: '95%',
+        display: 'block',
+        alignItems: 'center',
+        lineHeight: '3rem',
+        height: theme.spacing(6),
     },
-    listItemText: {
-        paddingLeft: '1px',
-    },
-        navGroupTextHeader: {
-            width: '95%',
-            display: 'block',
-            alignItems: 'center',
-            lineHeight: '3rem',
-            height: theme.spacing(6),
-        },
     // these must be defined, even if empty so we can reference them in other nested rules
     listIcon: {},
     open: {},
+    selected: {
+        content: '""',
+        zIndex: 0,
+        position: 'absolute',
+        height: '100%',
+        width: 'calc(100% - 8px)',
+        left: 0,
+        top: 0,
+        backgroundColor: theme.palette.primary['50'],
+        borderRadius: '0px 24px 24px 0px',
+        opacity: .9,
+        '&hover': {
+            opacity: 1,
+        }
+    }
 }};
 
 export default withStyles(styles)(SideNav);

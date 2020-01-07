@@ -70,17 +70,18 @@ const defaultBody = <DrawerBody
 />
 
 stories.add('with standard inputs', () => {
+    const drawerGroupId = 'Drawer';
     const headerGroupId = 'Header';
     const bodyGroupId = 'Body';
     const footerGroupId = 'Footer';
 
-   const open = boolean('Open', true, 'Drawer');
+   const open = boolean('Open', true, drawerGroupId);
 
     // Header
     const headerTitle = text('title', 'PX Blue Drawer', headerGroupId);
     const headerSubtitle = text('subtitle', 'Organize your menu items here', headerGroupId);
     const headerBackgroundColor = color('backgroundColor', Colors.blue[800], headerGroupId);
-    const headerTextColor = color('textColor', Colors.white[50], headerGroupId);
+    const headerFontColor = color('fontColor', Colors.white[50], headerGroupId);
 
     const headerIconOptions = select('icon', ['Menu', 'Fitness', 'None'], 'Menu', headerGroupId);
     let headerIcon;
@@ -110,7 +111,10 @@ stories.add('with standard inputs', () => {
     // Body
     const groupTitle1 = text('title1', 'NavGroup 1', bodyGroupId);
     const groupTitle2 = text('title2', 'NavGroup 2', bodyGroupId);
+    const bodyFontcolor = color('fontColor', Colors.black[500], bodyGroupId);
+    const bodyIconColor = color('iconColor', Colors.blue[500], bodyGroupId);
     const bodyBackgroundColor = color('backgroundColor', Colors.white[50], bodyGroupId);
+    const bodySelectedColor = color('selectedColor', Colors.blue[50], bodyGroupId);
 
     const numberLinksGroup1 = number('links1', 4, {
         range: true,
@@ -129,6 +133,7 @@ stories.add('with standard inputs', () => {
         {
             title: 'Overview',
             onClick: action('Overview'),
+            status: Colors.yellow[500],
             icon: <Dashboard/>,
         },
         {
@@ -139,6 +144,7 @@ stories.add('with standard inputs', () => {
         {
             title: 'Locations',
             onClick: action('Locations'),
+            status: Colors.yellow[500],
             icon: <PinDrop/>
         },
         {
@@ -166,6 +172,7 @@ stories.add('with standard inputs', () => {
         },
         {
             title: 'License Agreement',
+            subtitle: 'For Eaton employees only',
             onClick: action('License Agreement'),
             icon: <SendIcon/>
         },
@@ -185,15 +192,14 @@ stories.add('with standard inputs', () => {
     const showFooter = boolean('show footer', true, footerGroupId);
     const footerBackgroundColor = color('backgroundColor', Colors.white[50], footerGroupId);
 
-
-    return <Drawer open={open}>
+    return <Drawer open={open} >
 
        <DrawerHeader
           title={headerTitle}
           subtitle={headerSubtitle}
           icon={headerIcon}
           backgroundImage={headerBackgroundImage}
-          textColor={headerTextColor}
+          fontColor={headerFontColor}
           backgroundColor={headerBackgroundColor}
           overrides={{
              root: {
@@ -203,6 +209,9 @@ stories.add('with standard inputs', () => {
        />
 
        <DrawerBody
+          iconColor={bodyIconColor}
+          fontColor={bodyFontcolor}
+          selectedColor={bodySelectedColor}
           backgroundColor={bodyBackgroundColor}
           navGroups={[
              {

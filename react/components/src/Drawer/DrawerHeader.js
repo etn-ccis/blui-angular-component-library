@@ -40,7 +40,7 @@ class DrawerHeader extends React.Component {
                 <Toolbar
                      className={classes.root}
                      style={{
-                         color: this.props.textColor,
+                         color: this.props.fontColor,
                          backgroundColor: this.props.backgroundColor,
                          backgroundImage: `url(${this.props.backgroundImage}`,
                          ...this.props.overrides.root,
@@ -67,7 +67,7 @@ DrawerHeader.propTypes = {
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string,
     backgroundColor: PropTypes.string,
-    textColor: PropTypes.string,
+    fontColor: PropTypes.string,
     backgroundImage: PropTypes.string,
     icon: PropTypes.element,
     content: PropTypes.element,
@@ -76,7 +76,7 @@ DrawerHeader.propTypes = {
 };
 
 DrawerHeader.defaultProps = {
-    textColor: Colors.white[50],
+    fontColor: Colors.white[50],
     backgroundColor: Colors.blue[500],
     overrides: {},
     onClick: () => {}
