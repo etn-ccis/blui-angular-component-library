@@ -133,7 +133,6 @@ stories.add('with standard inputs', () => {
         {
             title: 'Overview',
             onClick: action('Overview'),
-            status: Colors.yellow[500],
             icon: <Dashboard/>,
         },
         {
@@ -144,11 +143,12 @@ stories.add('with standard inputs', () => {
         {
             title: 'Locations',
             onClick: action('Locations'),
-            status: Colors.yellow[500],
             icon: <PinDrop/>
         },
         {
             title: 'Devices',
+            subtitle: '5 new warnings',
+            status: Colors.yellow[500],
             onClick: action('Devices'),
             icon: <Devices/>
         },
