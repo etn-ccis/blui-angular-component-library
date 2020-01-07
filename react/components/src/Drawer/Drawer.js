@@ -52,7 +52,9 @@ class SideNav extends React.Component {
                         >
 
                             {navGroup.title &&
-                                <Typography noWrap variant={'subtitle2'} className={classes.navGroupTextHeader}>
+                                <Typography noWrap
+                                    variant={'subtitle2'}
+                                    className={classes.navGroupTextHeader}>
                                     {navGroup.title}
                                 </Typography>}
                             {navGroup.content}
@@ -256,7 +258,8 @@ class SideNav extends React.Component {
 const styles = theme => {
     return {
     paper: {
-        overflow: 'hidden'
+        overflow: 'hidden',
+        position: 'unset'
     },
     flush: {
         paddingLeft: theme.spacing(0.5),

@@ -230,12 +230,12 @@ stories.add('with standard inputs', () => {
        />
 
        <DrawerFooter
-          backgroundColor={footerBackgroundColor}
-          content={showFooter ?
-             <div style={{'display': 'flex', 'justifyContent': 'center'}}>
-                <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
-             </div> : ''}
-       />
+          backgroundColor={footerBackgroundColor}>
+          {showFooter ?
+          <div style={{'display': 'flex', 'justifyContent': 'center'}}>
+             <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
+          </div> : ''}
+       </DrawerFooter>
 
     </Drawer>
 });

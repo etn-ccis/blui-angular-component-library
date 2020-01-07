@@ -28,7 +28,7 @@ class DrawerBody extends React.Component {
 
 const styles = theme => ({
     root: {
-        flex: '1 1 0px',
+        flexGrow: 1,
         width: '100%',
         height: '100%'
     }
