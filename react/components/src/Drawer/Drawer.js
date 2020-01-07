@@ -50,7 +50,6 @@ class SideNav extends React.Component {
                                 color: this.isDrawerOpen() ? '' : 'transparent',
                             }}
                         >
-
                             {navGroup.title &&
                                 <Typography noWrap
                                     variant={'subtitle2'}
@@ -69,7 +68,6 @@ class SideNav extends React.Component {
                                     title: link.title,
                                     subtitle: link.subtitle,
                                     icon: link.icon,
-                                    key: (link.title + index),
                                     status: link.status,
                                     onClick: link.onClick
                             })}
