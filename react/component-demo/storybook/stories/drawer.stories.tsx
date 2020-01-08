@@ -240,8 +240,10 @@ stories.add('with standard inputs', () => {
 stories.add('with custom header', () => {
    const open = boolean('Open', true);
    return <Drawer open={open}>
-      <DrawerHeader content={
-         <div style={{'paddingLeft': '20px', 'paddingTop': '10px'}}>
+      <DrawerHeader
+         icon={<MenuIcon />}
+         content={
+         <div style={{'paddingLeft': '20px', 'paddingTop': '4px'}}>
             <Typography variant="subtitle2">Customizable</Typography>
             <Typography variant="h6" style={{'marginTop': '-10px'}}>Header Content Goes Here</Typography>
          </div>} />
@@ -285,7 +287,9 @@ stories.add('with subheader', () => {
     </ExpansionPanel>;
 
     return <Drawer open={open}>
-       <DrawerHeader title={"Subheader Demo"} />
+       <DrawerHeader
+          icon={<MenuIcon />}
+          title={"Subheader Demo"} />
        <DrawerSubheader>
           <div
              style={{

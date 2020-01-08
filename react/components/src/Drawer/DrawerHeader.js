@@ -74,7 +74,6 @@ DrawerHeader.propTypes = {
 };
 
 DrawerHeader.defaultProps = {
-    icon: <MenuIcon />,
     onClick: () => {}
 };
 

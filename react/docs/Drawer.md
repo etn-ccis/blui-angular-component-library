@@ -38,7 +38,7 @@ The `DrawerHeader` supports text inputs or can accept children nodes to render i
 | fontColor       | Text color                              | `string`      | no       | `Colors.white[50]` |
 | backgroundColor | Background color                        | `string`      | no       | `Colors.blue[500]` |
 | backgroundImage | Gradient or Image background            | `string`      | no       |                    |
-| icon            | Used to toggle drawer open or closed    | `JSX Element` | no       | `<MenuIcon />`     | 
+| icon            | Used to toggle drawer open or closed    | `JSX Element` | no       |                    | 
 | content         | Custom content for header               | `JSX Element` | no       |                    |
 | onClick         | Function to run when icon is clicked    | `function`    | no       | `() => {}`         |
 
