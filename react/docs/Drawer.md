@@ -33,7 +33,7 @@ The `DrawerHeader` supports text inputs or can accept children nodes to render i
 ### Drawer Header API
 | Prop Name       | Description                             | Type          | Required | Default            |
 |-----------------|-----------------------------------------|---------------|----------|--------------------|
-| title           |  Main text                              | `string`      | yes      |                    |   
+| title           |  Main text                              | `string`      | no      |                    |   
 | subtitle        | Secondary text                          | `string`      | no       |                    |
 | fontColor       | Text color                              | `string`      | no       | `Colors.white[50]` |
 | backgroundColor | Background color                        | `string`      | no       | `Colors.blue[500]` |
