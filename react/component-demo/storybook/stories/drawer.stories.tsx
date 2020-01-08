@@ -243,7 +243,7 @@ stories.add('with custom header', () => {
       <DrawerHeader
          icon={<MenuIcon />}
          content={
-         <div style={{'paddingLeft': '20px', 'paddingTop': '4px'}}>
+         <div style={{'paddingLeft': '20px', 'paddingTop': '12px'}}>
             <Typography variant="subtitle2">Customizable</Typography>
             <Typography variant="h6" style={{'marginTop': '-10px'}}>Header Content Goes Here</Typography>
          </div>} />

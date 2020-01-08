@@ -42,6 +42,7 @@ class DrawerBody extends React.Component {
             <>
                 <List
                     style={{'paddingBottom': '0'}}
+                    className={navGroup.bottom ? classes.bottom : ''}
                     subheader={
                         <ListSubheader
                             className={classes.subheader}
@@ -151,6 +152,9 @@ const styles = theme => ({
         '&hover': {
             opacity: 1,
         }
+    },
+    bottom: {
+        // TODO: put this group at the bottom of the body
     }
 });
 
