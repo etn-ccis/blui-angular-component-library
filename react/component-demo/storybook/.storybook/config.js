@@ -5,7 +5,6 @@ import { React as ReactThemes } from '@pxblue/themes';
 import * as Colors from '@pxblue/colors';
 import 'typeface-open-sans';
 import './styles.scss';
-import { addReadme } from 'storybook-readme';
 
 addParameters({
     options: {
@@ -36,5 +35,4 @@ addParameters({
 // automatically import all files ending in *.stories.js
 configure(require.context('../stories', true, /\.stories\.(js|tsx)$/), module);
 
-addDecorator(addReadme);
 addDecorator(storyFn => <MuiThemeProvider theme={createMuiTheme(ReactThemes.blue)}><div className={'wrapper'} style={{ color: Colors.gray['800']}}>{storyFn()}</div></MuiThemeProvider>);
