@@ -24,8 +24,7 @@ class SideNav extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            hovered: false,
-            selected: undefined
+            hovered: false
         };
     }
 
@@ -65,9 +64,8 @@ class SideNav extends React.Component {
             {body && React.cloneElement(body, {
                 createRouteItems: (items) => this.createRouteItems(items),
                 open: this.isDrawerOpen(),
-                selected: this.state.selected,
-                onSelect: (title) => {
-                    this.setState({ hover: false, selected: title });
+                onSelect: () => {
+                    this.setState({ hover: false });
                 }
             })}
         </>;

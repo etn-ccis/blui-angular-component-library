@@ -13,6 +13,9 @@ class DrawerBody extends React.Component {
 
     constructor(props) {
         super(props);
+        this.state = {
+            selected: undefined
+        };
     }
 
     render() {
@@ -82,10 +85,11 @@ class DrawerBody extends React.Component {
         }
 
         const { classes, theme, selectedColor, iconColor, fontColor } = this.props;
-        const selected = this.props.selected === title;
+        const selected = this.state.selected === title;
         const defaultSelectedBackgroundColor = theme.palette.secondary[50];
         const action = () => {
-            this.props.onSelect(title);
+            this.props.onSelect();
+            this.setState({ selected: title });
             onClick();
         };
         return (
@@ -152,7 +156,6 @@ const styles = theme => ({
 
 DrawerBody.propTypes = {
     open: PropTypes.boolean,
-    selected: PropTypes.string,
     onSelect: PropTypes.func,
 
     navGroups: PropTypes.arrayOf(PropTypes.object),
