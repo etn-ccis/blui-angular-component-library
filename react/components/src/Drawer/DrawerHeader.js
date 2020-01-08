@@ -33,6 +33,15 @@ class DrawerHeader extends React.Component {
         );
     }
 
+    backgroundImage() {
+        const { backgroundImage, classes } = this.props;
+        if (backgroundImage) {
+            return (
+                <div className={classes.headerBackground} style={{ backgroundImage: `url(${backgroundImage})` }} />
+            );
+        }
+    }
+
     render() {
         const { classes, icon, theme} = this.props;
         return (
@@ -42,10 +51,9 @@ class DrawerHeader extends React.Component {
                      style={{
                          color: this.props.fontColor || Colors.white[50], // TODO: Dark theme
                          backgroundColor: this.props.backgroundColor || theme.palette.primary[500],
-                         backgroundImage: `url(${this.props.backgroundImage}`
                      }}
                 >
-
+                {this.backgroundImage()}
                 {icon && <div className={classes.navigation}>
                     <IconButton className={classes.icon} color={'inherit'}
                                 onClick={() => this.props.onClick()}>
@@ -79,12 +87,8 @@ DrawerHeader.defaultProps = {
 
 const styles = theme => ({
     root: {
-        [theme.breakpoints.down('xs')]: {
-            paddingRight: theme.spacing(1.5),
-            paddingLeft: theme.spacing(.5),
-        },
-        paddingRight: theme.spacing(2),
-        paddingLeft: theme.spacing(.5),
+        paddingRight: 0,
+        paddingLeft: 0,
         width: '100%',
         alignItems: 'flex-start',
         boxSizing: 'border-box'
@@ -93,8 +97,8 @@ const styles = theme => ({
         [theme.breakpoints.down('xs')]: {
             minHeight: theme.spacing(7),
         },
-        paddingLeft: theme.spacing(2.5),
-        paddingRight: theme.spacing(1.5),
+        marginLeft: theme.spacing(2),
+        paddingRight: theme.spacing(2),
         minHeight: theme.spacing(8),
         display: 'flex',
         justifyContent: 'center',
@@ -106,6 +110,7 @@ const styles = theme => ({
         [theme.breakpoints.down('xs')]: {
             height: theme.spacing(7),
         },
+        padding: theme.spacing(0.5),
         height: theme.spacing(8),
         display: 'flex',
         alignItems: 'center',
@@ -120,6 +125,15 @@ const styles = theme => ({
         fontWeight: 300,
         lineHeight: '1.2rem', // Anything lower than 1.2rem cuts off bottom text of 'g' or 'y'.
         marginTop: '-2px'
+    },
+    headerBackground: {
+        position: 'absolute',
+        zIndex: 0,
+        width: '100%',
+        backgroundSize: 'cover',
+        height: '100%',
+        opacity: 0.3,
+        backgroundPosition: 'center',
     },
 });
 

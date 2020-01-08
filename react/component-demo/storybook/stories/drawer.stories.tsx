@@ -18,7 +18,7 @@ import SendIcon from '@material-ui/icons/Send';
 // @ts-ignore
 import * as Colors from '@pxblue/colors';
 //@ts-ignore
-import { Drawer, DrawerHeader, DrawerSubheader, DrawerBody, DrawerFooter } from '@pxblue/react-components/core/Drawer';
+import { Drawer, DrawerHeader, DrawerSubheader, DrawerBody, DrawerFooter, DrawerNavGroup } from '@pxblue/react-components/core/Drawer';
 import {action} from "@storybook/addon-actions";
 // @ts-ignore
 
@@ -28,7 +28,8 @@ import {storiesOf} from '@storybook/react';
 import React from 'react';
 // @ts-ignore
 import EatonLogo from "../assets/EatonLogo.svg";
-const backgroundImage = require('../assets/topology_40.png');
+// const backgroundImage = require('../assets/topology_40.png');
+const backgroundImage = require('../assets/farm.jpg');
 
 export const stories = storiesOf('Drawer', module);
 
@@ -37,34 +38,56 @@ stories.addParameters({
    notes: { markdown: require('./../../../docs/Drawer.md')}
 });
 
-const defaultBody = <DrawerBody
-    navGroups={[
-        {
-            links: [
-                {
-                    title: 'User Guide',
-                    onClick: action('User Guide'),
-                    icon: <MoveToInboxIcon/>
-                },
-                {
-                    title: 'License Agreement',
-                    onClick: action('License Agreement'),
-                    icon: <SendIcon/>
-                },
-                {
-                    title: 'Accessibility',
-                    onClick: action('Accessibility'),
-                    icon: <Accessibility/>
-                },
-                {
-                    title: 'Notifications',
-                    onClick: action('Notifications'),
-                    icon: <NotificationsActive/>
-                }
-            ]
-        }
-    ]}
-/>
+let selected: string = 'Notifications';
+
+const defaultBody = <DrawerBody>
+   <DrawerNavGroup
+      title={'Default Group'}
+      items={
+      [
+         {
+            title: 'User Guide',
+            onClick: () => {
+               selected = 'User Guide';
+               action('User Guide')
+            },
+            icon: <MoveToInboxIcon/>,
+            active: selected === 'User Guide'
+
+         },
+         {
+            title: 'License Agreement',
+            onClick: () => {
+               selected = 'License Agreement';
+               action('License Agreement')
+            },
+            icon: <SendIcon/>,
+            active: selected === 'License Agreement'
+         },
+         {
+            title: 'Accessibility',
+            onClick: () => {
+               selected = 'Accessibility';
+               action('Accessibility')
+            },
+            icon: <Accessibility/>,
+            active: selected === 'Accessibility'
+         },
+         {
+            title: 'Notifications',
+            onClick: () => {
+               selected = 'Notifications',
+               action('Notifications')
+            },
+            icon: <NotificationsActive/>,
+            active: selected === 'Notifications'
+         }
+      ]
+   }
+   />
+   <div style={{flex: '1 1 0px'}} />
+   </DrawerBody>;
+
 
 stories.add('with standard inputs', () => {
     const drawerGroupId = 'Drawer';
@@ -73,6 +96,12 @@ stories.add('with standard inputs', () => {
     const footerGroupId = 'Footer';
 
    const open = boolean('Open', true, drawerGroupId);
+   const width = number('Width', 350, {
+      range: true,
+      min: 200,
+      max: 700,
+      step: 50,
+   }, drawerGroupId);
 
     // Header
     const headerTitle = text('title', 'PX Blue Drawer', headerGroupId);
@@ -108,7 +137,7 @@ stories.add('with standard inputs', () => {
     // Body
     const groupTitle1 = text('title1', 'NavGroup 1', bodyGroupId);
     const groupTitle2 = text('title2', 'NavGroup 2', bodyGroupId);
-    const bodyFontcolor = color('fontColor', '', bodyGroupId);
+    const bodyFontColor = color('fontColor', '', bodyGroupId);
     const bodyIconColor = color('iconColor', '', bodyGroupId);
     const bodyBackgroundColor = color('backgroundColor', '', bodyGroupId);
     const bodySelectedColor = color('selectedColor', '', bodyGroupId);
@@ -189,7 +218,7 @@ stories.add('with standard inputs', () => {
     const showFooter = boolean('show footer', true, footerGroupId);
     const footerBackgroundColor = color('backgroundColor', Colors.white[50], footerGroupId);
 
-    return <Drawer open={open} >
+    return <Drawer open={open} width={width} >
 
        <DrawerHeader
           title={headerTitle}
@@ -207,31 +236,24 @@ stories.add('with standard inputs', () => {
 
        <DrawerBody
           iconColor={bodyIconColor}
-          fontColor={bodyFontcolor}
+          fontColor={bodyFontColor}
           selectedColor={bodySelectedColor}
-          backgroundColor={bodyBackgroundColor}
-          navGroups={[
-             {
-                title: groupTitle1,
-                links: links1
-             },
-             {
-                content:
-                   <div style={{'display': 'flex', 'justifyContent': 'space-between'}}>
-                      <div>{groupTitle2}</div>
-                      <div>Software Version v1.0.3</div>
-                   </div>,
-                links: links2
-             }
-          ]}
-       />
+          backgroundColor={bodyBackgroundColor} >
+          <DrawerNavGroup items={links1} title={groupTitle1} />
+          <DrawerNavGroup items={links2} content={
+             <div style={{'display': 'flex', 'justifyContent': 'space-between'}}>
+                <div>{groupTitle2}</div>
+                <div>Software Version v1.0.3</div>
+             </div>
+          } />
+       </DrawerBody>
 
        <DrawerFooter
           backgroundColor={footerBackgroundColor}>
           {showFooter ?
           <div style={{'display': 'flex', 'justifyContent': 'center'}}>
-             <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
-          </div> : ''}
+          <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
+       </div> : ''}
        </DrawerFooter>
 
     </Drawer>
@@ -289,7 +311,7 @@ stories.add('with subheader', () => {
     return <Drawer open={open}>
        <DrawerHeader
           icon={<MenuIcon />}
-          title={"Subheader Demo"} />
+          title={"Subheader Demox"} />
        <DrawerSubheader>
           <div
              style={{

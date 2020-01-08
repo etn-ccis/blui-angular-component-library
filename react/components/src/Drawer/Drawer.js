@@ -80,7 +80,7 @@ class SideNav extends React.Component {
     }
 
     getMobileNavigationMenu() {
-        const { classes } = this.props;
+        const { classes, theme } = this.props;
         return (
             <Drawer
                 open={this.isDrawerOpen()}
@@ -97,10 +97,11 @@ class SideNav extends React.Component {
     }
 
     getDesktopNavigationMenu() {
-        const { classes } = this.props;
+        const { classes, theme } = this.props;
         return <Drawer variant="permanent"
                        open={this.isDrawerOpen()}
-                       classes={{paper: classes.paper}}>
+                       classes={{paper: classes.paper}}
+                        style={{minHeight: '100%'}}>
             <div
                 className={
                     this.state.hover
@@ -110,7 +111,8 @@ class SideNav extends React.Component {
                             : classes.drawerWidthCollapsed
                 }
                 style={{
-                    height: '100%'
+                    height: '100%',
+                    width: this.isDrawerOpen() ? this.props.width || theme.spacing(45) : undefined
                 }}
             >
                 {this.getDrawerContents()}
@@ -121,25 +123,27 @@ class SideNav extends React.Component {
     getDrawerContents() {
         const { classes } = this.props;
 
-        return  <div className={classes.drawerWidthFull} style={{
-            flexDirection: 'column', display: 'flex', height: '100%'
-        }}>
-            <div style={{flexShrink: '0'}}>{this.getHeader()}</div>
-            <div
-                style={{ flexDirection: 'column', flex: '1 0 auto'}}
-                onMouseEnter={() => {
-                    this.hoverDelay = setTimeout(() => this.setState({hover: true}), 500);
-                }}
-                onMouseLeave={() => {
-                    clearTimeout(this.hoverDelay);
-                    this.setState({hover: false});
-                }}
-            >
-                <div style={{flexShrink: '0'}}>{this.getSubHeader()}</div>
-                <div style={{flex: '1 0 auto'}}>{this.getBody()}</div>
-                <div style={{flexShrink: '0'}}>{this.getFooter()}</div>
+        return  (
+            <div className={classes.drawerWidthFull} style={{
+                flexDirection: 'column', display: 'flex', height: '100%'
+            }}>
+                {this.getHeader()}
+                <div
+                    style={{ flexDirection: 'column', flex: '1 1 0px', display: 'flex'}}
+                    onMouseEnter={() => {
+                        this.hoverDelay = setTimeout(() => this.setState({hover: true}), 500);
+                    }}
+                    onMouseLeave={() => {
+                        clearTimeout(this.hoverDelay);
+                        this.setState({hover: false});
+                    }}
+                >
+                    {this.getSubHeader()}
+                    {this.getBody()}
+                    {this.getFooter()}
+                </div>
             </div>
-        </div>
+        )
     }
 
     render() {
@@ -162,7 +166,7 @@ const styles = theme => {
     return {
     paper: {
         overflow: 'hidden',
-        position: 'unset'
+        position: 'unset',
     },
     toolbar: {
         [theme.breakpoints.down('xs')]: {
@@ -171,7 +175,7 @@ const styles = theme => {
         paddingLeft: theme.spacing(2),
     },
     drawerWidthFull: {
-        width: theme.spacing(45),
+        // width: theme.spacing(45),
         transition: 'width 175ms cubic-bezier(.4, 0, .2, 1)',
     },
     drawerWidthCollapsed: {

@@ -57,6 +57,7 @@ const defaultBody = <DrawerBody
         },
        {
           bottom: true,
+          title: 'put me on the bottom',
           links: [
              {
                 title: 'Settings',
@@ -83,12 +84,12 @@ stories.add('basic usage', () => {
    const open = boolean('Open', true);
 
     return <DrawerLayout>
-      <Drawer open={open}>
+      <Drawer open={open} width={1000}>
 
           <DrawerHeader
             icon={<MenuIcon />}
             content={
-               <div style={{'paddingLeft': '20px', 'paddingTop': '12px'}}>
+               <div style={{'paddingLeft': '20px', 'paddingTop': '8px'}}>
                   <Typography variant="subtitle2" style={{fontWeight: 100}}>PX Blue</Typography>
                   <Typography variant="h6" style={{'marginTop': '-10px'}}>DrawerLayout</Typography>
                </div>
