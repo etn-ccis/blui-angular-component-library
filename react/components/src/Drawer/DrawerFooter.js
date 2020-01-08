@@ -22,7 +22,6 @@ class DrawerFooter extends React.Component {
                         backgroundColor: this.props.backgroundColor
                     }}
                 >
-                    {this.props.createRouteItems(this.props)}
                     {this.props.children}
                 </div>
             </>
@@ -33,7 +32,6 @@ class DrawerFooter extends React.Component {
 DrawerFooter.propTypes = {
     open: PropTypes.bool,
     backgroundColor: PropTypes.string,
-    navGroups: PropTypes.arrayOf(PropTypes.object),
 };
 
 const styles = theme => ({

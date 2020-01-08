@@ -25,58 +25,12 @@ class SideNav extends React.Component {
         super(props);
         this.state = {
             hovered: false,
-            selected: undefined,
+            selected: undefined
         };
     }
 
     isDrawerOpen() {
         return this.state.hover || this.props.open;
-    }
-
-    createRouteItems(navProps) {
-        if (!navProps.navGroups) {
-            return <></>;
-        }
-        const { classes } = this.props;
-        return navProps.navGroups.map((navGroup, index) => (
-            <>
-                <List
-                    style={{'paddingBottom': '0'}}
-                    subheader={
-                        <ListSubheader
-                            className={classes.subheader}
-                            style={{
-                                position: 'unset',
-                                color: this.isDrawerOpen() ? '' : 'transparent',
-                            }}
-                        >
-                            {navGroup.title &&
-                                <Typography noWrap
-                                    variant={'subtitle2'}
-                                    className={classes.navGroupTextHeader}>
-                                    {navGroup.title}
-                                </Typography>}
-                            {navGroup.content}
-                        </ListSubheader>
-                    }
-                >
-                    {(navGroup.title || navGroup.content) && <Divider />}
-                    {navGroup.links.map((link, index) => (
-                        <>
-                            {this.NavigationListItem({
-                                    navProps: navProps,
-                                    title: link.title,
-                                    subtitle: link.subtitle,
-                                    icon: link.icon,
-                                    status: link.status,
-                                    onClick: link.onClick
-                            })}
-                        </>
-                    ))}
-                </List>
-                <Divider />
-            </>
-        ));
     }
 
     findChildByType(type) {
@@ -109,7 +63,12 @@ class SideNav extends React.Component {
         const body = this.findChildByType('DrawerBody')[0];
         return <>
             {body && React.cloneElement(body, {
-                createRouteItems: (items) => this.createRouteItems(items)
+                createRouteItems: (items) => this.createRouteItems(items),
+                open: this.isDrawerOpen(),
+                selected: this.state.selected,
+                onSelect: (title) => {
+                    this.setState({ hover: false, selected: title });
+                }
             })}
         </>;
     }
@@ -127,18 +86,12 @@ class SideNav extends React.Component {
     getDrawerContents() {
         const { classes } = this.props;
 
-       return  <div className={classes.drawerWidthFull}
-             style={{
-                 height: '100%',
-             }}>
-
-
-           {this.getHeader()}
-
+       return  <div className={classes.drawerWidthFull} style={{
+            flexDirection: 'column', display: 'flex', height: '100%'
+        }}>
+            <div style={{flexShrink: '0'}}>{this.getHeader()}</div>
             <div
-                style={{
-                    height: '100%',
-                }}
+                style={{ flexDirection: 'column', flex: '1 0 auto'}}
                 onMouseEnter={() => {
                     this.hoverDelay = setTimeout(() => this.setState({hover: true}), 500);
                 }}
@@ -147,9 +100,9 @@ class SideNav extends React.Component {
                     this.setState({hover: false});
                 }}
             >
-                {this.getSubHeader()}
-                {this.getBody()}
-                {this.getFooter()}
+                <div style={{flexShrink: '0'}}>{this.getSubHeader()}</div>
+                <div style={{flex: '1 0 auto'}}>{this.getBody()}</div>
+                <div style={{flexShrink: '0'}}>{this.getFooter()}</div>
             </div>
         </div>
     }
@@ -207,39 +160,6 @@ class SideNav extends React.Component {
             </>
         );
     }
-
-    NavigationListItem({ navProps, title, subtitle, icon, index, status, onClick }) {
-        if (!title && !icon) {
-            return <></>
-        }
-
-        const { classes, theme } = this.props;
-        const open = this.state.drawerHover || this.isDrawerOpen();
-        const selected = this.state.selected === title;
-        const defaultSelectedBackgroundColor = theme.palette.secondary[50];
-        const action = () => {
-            this.setState({ hover: false, selected: title });
-            onClick();
-        };
-        return (
-            <div style={{position: 'relative'}} className={classes.listItem}>
-                {selected &&
-                    <div className={classes.selected}
-                    style={{backgroundColor: navProps.selectedColor || defaultSelectedBackgroundColor}} />}
-                <InfoListItem dense
-                    title={title}
-                    subtitle={subtitle}
-                    divider={'full'}
-                    statusColor={status}
-                    fontColor={navProps.fontColor}
-                    icon={icon}
-                    iconColor={navProps.iconColor}
-                    backgroundColor={'transparent'}
-                    onClick={() => action()}
-                />
-        </div>
-        );
-    }
 }
 
 const styles = theme => {
@@ -266,48 +186,6 @@ const styles = theme => {
     drawer: {
         maxWidth: '85%',
         width: theme.spacing(45),
-    },
-    header: {
-        height: '180px',
-        color: 'white',
-        background: theme.palette.primary['500'],
-        padding: '16px',
-    },
-    subheader: {
-        paddingLeft: theme.spacing(2),
-        paddingRight: theme.spacing(2),
-        cursor: 'text',
-        [theme.breakpoints.down('xs')]: {
-            paddingLeft: theme.spacing(3),
-            paddingRight: theme.spacing(3),
-        },
-    },
-    listItem: {
-        '&:hover': {
-            backgroundColor: 'rgba(0, 0, 0, 0.08)',
-        }
-    },
-    navGroupTextHeader: {
-        width: '95%',
-        display: 'block',
-        alignItems: 'center',
-        lineHeight: '3rem',
-        height: theme.spacing(6),
-    },
-    selected: {
-        content: '""',
-        zIndex: 0,
-        position: 'absolute',
-        height: '100%',
-        width: 'calc(100% - 8px)',
-        left: 0,
-        top: 0,
-        backgroundColor: theme.palette.primary['50'],
-        borderRadius: '0px 24px 24px 0px',
-        opacity: .9,
-        '&hover': {
-            opacity: 1,
-        }
     }
 }};
 
