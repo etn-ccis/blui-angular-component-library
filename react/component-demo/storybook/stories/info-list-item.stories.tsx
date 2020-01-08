@@ -8,14 +8,11 @@ import { List } from '@material-ui/core';
 import { boolean, color, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
-const README = require('./../../../docs/InfoListItem.md').default;
 
 export const stories = storiesOf('Info List Item', module);
 stories.addDecorator(withKnobs);
 stories.addParameters({
-   readme: {
-      sidebar: README,
-   },
+   notes: { markdown: require('./../../../docs/InfoListItem.md')}
 });
 
 stories.add('basic list item', () => {

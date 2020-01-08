@@ -17,9 +17,7 @@ const README = require('./../../../docs/EmptyState.md').default;
 export const stories = storiesOf('Empty State', module);
 stories.addDecorator(withKnobs);
 stories.addParameters({
-    readme: {
-        sidebar: README,
-    },
+    notes: { markdown: require('./../../../docs/EmptyState.md')}
 });
 
 stories.add('Actions', () => {

@@ -28,17 +28,14 @@ import {storiesOf} from '@storybook/react';
 import React from 'react';
 // @ts-ignore
 import EatonLogo from "../assets/EatonLogo.svg";
-const README = require('./../../../docs/Drawer.md').default;
 const backgroundImage = require('../assets/topology_40.png');
 
-
 export const stories = storiesOf('Drawer', module);
-stories.addParameters({
-   readme: {
-      sidebar: README,
-   },
-});
+
 stories.addDecorator(withKnobs);
+stories.addParameters({
+   notes: { markdown: require('./../../../docs/Drawer.md')}
+});
 
 const defaultBody = <DrawerBody
     navGroups={[
@@ -240,19 +237,19 @@ stories.add('with standard inputs', () => {
     </Drawer>
 });
 
-stories.add('with custom header content', () => {
+stories.add('with custom header', () => {
    const open = boolean('Open', true);
    return <Drawer open={open}>
       <DrawerHeader content={
-         <div style={{'paddingLeft': '40px'}}>
-            <Typography variant="subtitle2">Custom</Typography>
-            <Typography variant="h6" style={{'marginTop': '-10px'}}>Header Content</Typography>
+         <div style={{'paddingLeft': '20px', 'paddingTop': '10px'}}>
+            <Typography variant="subtitle2">Customizable</Typography>
+            <Typography variant="h6" style={{'marginTop': '-10px'}}>Header Content Goes Here</Typography>
          </div>} />
       {defaultBody}
        </Drawer>
 });
 
-stories.add('with custom subheader content', () => {
+stories.add('with subheader', () => {
    const open = boolean('Open', true);
     const label = 'content';
     const valuesObj = {

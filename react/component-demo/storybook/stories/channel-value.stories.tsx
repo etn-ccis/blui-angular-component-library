@@ -6,16 +6,12 @@ import ChannelValue from '@pxblue/react-components/core/ChannelValue';
 import {boolean, number, text, withKnobs, color} from '@storybook/addon-knobs';
 import {storiesOf} from '@storybook/react';
 import React from 'react';
-const README = require('./../../../docs/ChannelValue.md').default;
-
 
 export const stories = storiesOf('Channel Value', module);
-stories.addParameters({
-   readme: {
-      sidebar: README,
-   },
-});
 stories.addDecorator(withKnobs);
+stories.addParameters({
+   notes: { markdown: require('./../../../docs/ChannelValue.md')}
+});
 
 stories.add('with value', () => (
     <div style={{display: 'flex', justifyContent: 'center'}}>

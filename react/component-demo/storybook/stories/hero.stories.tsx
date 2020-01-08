@@ -11,16 +11,13 @@ import { GradeA, Leaf, CurrentCircled, VoltageCircled, Temp } from '@pxblue/icon
 
 import {text, number, withKnobs} from '@storybook/addon-knobs';
 import {storiesOf} from '@storybook/react';
-const README = require('./../../../docs/Hero.md').default;
 
 
 export const stories = storiesOf('Hero', module);
-stories.addParameters({
-   readme: {
-      sidebar: README,
-   },
-});
 stories.addDecorator(withKnobs);
+stories.addParameters({
+   notes: { markdown: require('./../../../docs/Hero.md')}
+});
 
 stories.add('with basic properties', () => (
     <Hero

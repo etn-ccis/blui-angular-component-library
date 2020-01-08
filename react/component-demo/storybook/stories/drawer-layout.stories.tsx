@@ -11,16 +11,12 @@ import {storiesOf} from '@storybook/react';
 import React from 'react';
 // @ts-ignore
 import EatonLogo from "../assets/EatonLogo.svg";
-// @ts-ignore
-const README = require('./../../../docs/Drawer.md').default;
 
 export const stories = storiesOf('Drawer Layout', module);
-stories.addParameters({
-   readme: {
-      sidebar: README,
-   },
-});
 stories.addDecorator(withKnobs);
+stories.addParameters({
+   notes: { markdown: require('./../../../docs/DrawerLayout.md')}
+});
 
 const defaultBody = <DrawerBody
     navGroups={[
