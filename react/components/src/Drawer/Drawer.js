@@ -81,30 +81,6 @@ class SideNav extends React.Component {
         </>;
     }
 
-    getDrawerContents() {
-        const { classes } = this.props;
-
-       return  <div className={classes.drawerWidthFull} style={{
-            flexDirection: 'column', display: 'flex', height: '100%'
-        }}>
-            <div style={{flexShrink: '0'}}>{this.getHeader()}</div>
-            <div
-                style={{ flexDirection: 'column', flex: '1 0 auto'}}
-                onMouseEnter={() => {
-                    this.hoverDelay = setTimeout(() => this.setState({hover: true}), 500);
-                }}
-                onMouseLeave={() => {
-                    clearTimeout(this.hoverDelay);
-                    this.setState({hover: false});
-                }}
-            >
-                <div style={{flexShrink: '0'}}>{this.getSubHeader()}</div>
-                <div style={{flex: '1 0 auto'}}>{this.getBody()}</div>
-                <div style={{flexShrink: '0'}}>{this.getFooter()}</div>
-            </div>
-        </div>
-    }
-
     getMobileNavigationMenu() {
         const { classes } = this.props;
         return (
@@ -142,6 +118,30 @@ class SideNav extends React.Component {
                 {this.getDrawerContents()}
             </div>
         </Drawer>
+    }
+
+    getDrawerContents() {
+        const { classes } = this.props;
+
+        return  <div className={classes.drawerWidthFull} style={{
+            flexDirection: 'column', display: 'flex', height: '100%'
+        }}>
+            <div style={{flexShrink: '0'}}>{this.getHeader()}</div>
+            <div
+                style={{ flexDirection: 'column', flex: '1 0 auto'}}
+                onMouseEnter={() => {
+                    this.hoverDelay = setTimeout(() => this.setState({hover: true}), 500);
+                }}
+                onMouseLeave={() => {
+                    clearTimeout(this.hoverDelay);
+                    this.setState({hover: false});
+                }}
+            >
+                <div style={{flexShrink: '0'}}>{this.getSubHeader()}</div>
+                <div style={{flex: '1 0 auto'}}>{this.getBody()}</div>
+                <div style={{flexShrink: '0'}}>{this.getFooter()}</div>
+            </div>
+        </div>
     }
 
     render() {
