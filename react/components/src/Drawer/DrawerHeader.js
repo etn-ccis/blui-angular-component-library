@@ -41,7 +41,7 @@ class DrawerHeader extends React.Component {
                      className={classes.root}
                      style={{
                          color: this.props.fontColor || Colors.white[50], // TODO: Dark theme
-                         backgroundColor: this.props.backgroundColor || Colors.blue[500], // TODO: Dark Theme
+                         backgroundColor: this.props.backgroundColor || theme.palette.primary[500],
                          backgroundImage: `url(${this.props.backgroundImage}`
                      }}
                 >
