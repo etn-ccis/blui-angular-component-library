@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import {withStyles} from '@material-ui/core/styles';
 import {Drawer, Typography} from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
-// Material-UI Icons
+
 import ListSubheader from '@material-ui/core/ListSubheader';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
@@ -62,7 +62,6 @@ class SideNav extends React.Component {
         const body = this.findChildByType('DrawerBody')[0];
         return <>
             {body && React.cloneElement(body, {
-                createRouteItems: (items) => this.createRouteItems(items),
                 open: this.isDrawerOpen(),
                 onSelect: () => {
                     this.setState({ hover: false });
@@ -75,7 +74,6 @@ class SideNav extends React.Component {
         const footer = this.findChildByType('DrawerFooter')[0];
         return <>
             {footer && React.cloneElement(footer, {
-                createRouteItems: (items) => this.createRouteItems(items),
                 open: this.isDrawerOpen()
             })}
         </>;
