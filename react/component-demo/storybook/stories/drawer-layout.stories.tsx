@@ -1,5 +1,16 @@
-import {Accessibility, NotificationsActive} from '@material-ui/icons';
+import {Typography} from "@material-ui/core";
+import {
+   Accessibility,
+   Apps,
+   FormatListBulleted,
+   Gavel,
+   Help,
+   NotificationsActive,
+   PinDrop,
+   Settings
+} from '@material-ui/icons';
 import MoveToInboxIcon from '@material-ui/icons/MoveToInbox';
+import MenuIcon from '@material-ui/icons/Menu';
 import SendIcon from '@material-ui/icons/Send';
 // @ts-ignore
 import {Drawer, DrawerBody, DrawerFooter, DrawerHeader} from '@pxblue/react-components/core/Drawer';
@@ -23,39 +34,66 @@ const defaultBody = <DrawerBody
         {
             links: [
                 {
-                    title: 'User Guide',
-                    onClick: action('User Guide'),
-                    icon: <MoveToInboxIcon/>
+                    title: 'Overview',
+                    onClick: action('Overview'),
+                    icon: <Apps/>
                 },
                 {
-                    title: 'License Agreement',
-                    onClick: action('License Agreement'),
-                    icon: <SendIcon/>
+                    title: 'Timeline',
+                    onClick: action('Timeline'),
+                    icon: <FormatListBulleted/>
                 },
                 {
-                    title: 'Accessibility',
-                    onClick: action('Accessibility'),
-                    icon: <Accessibility/>
+                    title: 'Locations',
+                    onClick: action('Locations'),
+                    icon: <PinDrop/>
                 },
                 {
-                    title: 'Notifications',
-                    onClick: () => {
-                       action('Notifications')
-                    },
+                    title: 'Devices',
+                    onClick: action('Devices'),
                     icon: <NotificationsActive/>
                 }
             ]
-        }
+        },
+       {
+          bottom: true,
+          links: [
+             {
+                title: 'Settings',
+                onClick: action('Settings'),
+                icon: <Settings/>
+             },
+             {
+                title: 'Legal',
+                onClick: action('Legal'),
+                icon: <Gavel/>
+             },
+             {
+                title: 'Help',
+                onClick: action('Help'),
+                icon: <Help/>
+             },
+          ]
+       },
     ]}
 />
 
 
-stories.add('with drawer and content', () => {
+stories.add('basic usage', () => {
    const open = boolean('Open', true);
 
     return <DrawerLayout>
       <Drawer open={open}>
-          <DrawerHeader title={"DrawerLayout Demo"} />
+
+          <DrawerHeader
+            icon={<MenuIcon />}
+            content={
+               <div style={{'paddingLeft': '20px', 'paddingTop': '12px'}}>
+                  <Typography variant="subtitle2" style={{fontWeight: 100}}>PX Blue</Typography>
+                  <Typography variant="h6" style={{'marginTop': '-10px'}}>DrawerLayout</Typography>
+               </div>
+               }
+          />
           {defaultBody}
          <DrawerFooter>
                <div style={{'display': 'flex', 'justifyContent': 'center'}}>
@@ -63,6 +101,7 @@ stories.add('with drawer and content', () => {
                </div>
          </DrawerFooter>
        </Drawer>
+
        <div style={{
           backgroundColor: "gray",
           color: "white",
@@ -71,7 +110,6 @@ stories.add('with drawer and content', () => {
           boxSizing: 'border-box'}}>
           Body content goes here.
        </div>
-
     </DrawerLayout>
 });
 
