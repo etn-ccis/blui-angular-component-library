@@ -82,10 +82,10 @@ return  <DrawerBody>
 
 
 ## Drawer NavGroup 
-A `DrawerNavGroup` will render inside of the `DrawerBody` and is used to navigate between pages.  
+A `DrawerNavGroup` will render inside of the `DrawerBody` and is used to organize links.  
 Each group consists of a group title and a series of navigation items.
 
-### Drawer Nav Group API
+### Drawer NavGroup API
 | Prop Name       | Description                             | Type          | Required | Default |
 |-----------------|-----------------------------------------|---------------|----------|---------|
 | title           | Title of the group                      | `string`      | no       |         |  
@@ -98,13 +98,21 @@ Each group consists of a group title and a series of navigation items.
 | content         | Custom element, substitute for title    | `JSX Element` | no       |         |    
 
 
-
 ## Drawer Footer
-The `DrawerFooter` is an optional section that renders at the bottom of the `Drawer's` side navigation menu.
-It can be used to add optional images, bottom navigation options, or any custom content.
+The `DrawerFooter` is an optional section that renders at the bottom of the `Drawer`.
+It can be used to add any custom content.
 
 
 ### Drawer Footer API
 | Prop Name       | Description                             | Type          | Required | Default |
 |-----------------|-----------------------------------------|---------------|----------|---------|
 | backgroundColor | Background color                        | `string`      | no       |         |   
+
+### Usage
+```
+import DrawerFooter from '@pxblue/react-components/core/Drawer';
+
+return  <DrawerFooter>
+            <div>Custom Footer goes here</div>
+        </DrawerFooter>
+```
