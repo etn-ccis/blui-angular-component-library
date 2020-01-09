@@ -35,7 +35,7 @@ class SideNav extends React.Component {
     findChildByType(type) {
         const empty = <></>;
         return React.Children.map(this.props.children, child => {
-            if (child.type) {
+            if (child && child.type) {
                 const name = child.type.displayName;
                 if (name && name.includes(type)) {
                     return child;
