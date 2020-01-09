@@ -27,6 +27,9 @@ class InfoListItemClass extends React.Component {
         return (
             <ListItem style={this.wrapperStyle()} onClick={onClick ? () => onClick() : null} dense={dense}>
                 <div className={classes.statusStripe} style={{ backgroundColor: statusColor }}></div>
+                {this.props.divider &&
+                    <div className={classes.divider} style={{ zIndex: 0, left: divider === 'full' ? 0 : 72 }} />
+                }
                 {(this.props.icon || !this.props.hidePadding) && this.icon()}
                 {leftComponent}
                 <ListItemText
@@ -37,9 +40,7 @@ class InfoListItemClass extends React.Component {
                     secondaryTypographyProps={{ noWrap: true, variant: 'subtitle2', className: classes.subtitle }}
                 />
                 {this.rightComponent()}
-                {this.props.divider &&
-                    <div className={classes.divider} style={{ zIndex: 0, left: divider === 'full' ? 0 : 72 }} />
-                }
+                
             </ListItem>
         )
     }
@@ -70,7 +71,7 @@ class InfoListItemClass extends React.Component {
         }
     }
     rightComponent() {
-        const { onClick, rightComponent } = this.props;
+        const { chevron, rightComponent } = this.props;
         if (rightComponent) {
             return (
                 <div style={{ flex: '0 0 auto', marginLeft: 16 }}>
@@ -78,7 +79,7 @@ class InfoListItemClass extends React.Component {
                 </div>
             );
         }
-        else if (onClick) {
+        else if (chevron) {
             return (
                 <ListItemSecondaryAction>
                     <Chevron color={'inherit'} />
@@ -127,6 +128,7 @@ class InfoListItemClass extends React.Component {
 InfoListItemClass.propTypes = {
     avatar: PropTypes.bool,
     backgroundColor: PropTypes.string,
+    chevron: PropTypes.bool,
     dense: PropTypes.bool,
     divider: PropTypes.oneOf(['full', 'partial']),
     fontColor: PropTypes.string,
@@ -144,6 +146,7 @@ InfoListItemClass.propTypes = {
 };
 InfoListItemClass.defaultProps = {
     subtitleSeparator: '\u00B7',
+    chevron: false,
     hidePadding: false,
     dense: false,
     avatar: false

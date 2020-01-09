@@ -4,6 +4,7 @@ import * as serviceWorker from './serviceWorker';
 import { createMuiTheme, MuiThemeProvider, CssBaseline } from '@material-ui/core';
 import * as PXBThemes from '@pxblue/themes/react';
 import App from './App';
+import './index.css';
 require('typeface-open-sans');
 
 ReactDOM.render(

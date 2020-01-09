@@ -95,7 +95,7 @@ describe("InfoListItem", () => {
     });
     it('renders rightComponent', () => {
         let wrapper = shallow(
-            <InfoListItem title="Test" onClick={()=>{}} />
+            <InfoListItem title="Test" chevron />
         );
         expect(wrapper.find(Chevron).length).toEqual(1);
 
@@ -105,7 +105,7 @@ describe("InfoListItem", () => {
         expect(wrapper.find(Chevron).length).toEqual(0);
 
         wrapper = shallow(
-            <InfoListItem title="Test" rightComponent={<PersonIcon/>}/>
+            <InfoListItem title="Test" onClick={() => { }} rightComponent={<PersonIcon/>}/>
         );
         expect(wrapper.find(Chevron).length).toEqual(0);
         expect(wrapper.find(PersonIcon).length).toEqual(1);
