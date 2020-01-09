@@ -41,4 +41,4 @@ const styles = theme => {
     }
 };
 
-export default withStyles(styles, { withTheme: true })(DrawerLayout);
+export default withStyles(styles)(DrawerLayout);
