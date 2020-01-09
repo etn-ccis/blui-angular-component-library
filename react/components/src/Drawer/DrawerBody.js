@@ -54,10 +54,9 @@ DrawerBody.propTypes = {
     open: PropTypes.bool,
     onSelect: PropTypes.func,
 
-    navGroups: PropTypes.arrayOf(PropTypes.object),
+    fontColor: PropTypes.string,
     backgroundColor: PropTypes.string,
     selectedColor: PropTypes.string,
-    fontColor: PropTypes.string,
     iconColor: PropTypes.string,
     titleColor: PropTypes.string,
 };

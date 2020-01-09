@@ -146,9 +146,9 @@ DrawerNavGroup.propTypes = {
         active: PropTypes.bool,
         onClick: PropTypes.func
     })),
+    fontColor: PropTypes.string,
     backgroundColor: PropTypes.string,
     selectedColor: PropTypes.string,
-    fontColor: PropTypes.string,
     iconColor: PropTypes.string,
     titleColor: PropTypes.string,
 };

@@ -1,6 +1,6 @@
 # Drawer Component
 The PX Blue Drawer component is used to organize navigation links within an application.  
-It is fully customizable and consists of `header`, `subheader`, `body`, and `footer` child nodes.
+It is fully customizable and consists of `DrawerHeader`, `DrawerSubheader`, `DrawerBody`, and `DrawerFooter` child nodes.
 
 
 ## Drawer
@@ -8,7 +8,7 @@ The Drawer component is the parent container; it manages the state of the drawer
 
 ### Usage
 ```
-import Drawer from '@pxblue/react-components/core/Drawer';
+import { Drawer, DrawerHeader, DrawerSubheader, DrawerBody, DrawerFooter } from '@pxblue/react-components/core/Drawer';
 
 return  <Drawer open={true}>
             <DrawerHeader />
@@ -28,8 +28,7 @@ return  <Drawer open={true}>
 
 ## Drawer Header
 The `DrawerHeader` is the top-most part of the `Drawer`.
-It is used to toggle the `Drawer` open or closed, and has an API intended to make it fully customizable.
-The `DrawerHeader's` text content supports multi-line text inputs or can accept children nodes to render instead.    
+It can be used to toggle the `Drawer` open or closed and it supports multi-line text inputs or children nodes to render instead.    
     
 ### Drawer Header API
 | Prop Name       | Description                             | Type          | Required | Default            |
@@ -44,25 +43,60 @@ The `DrawerHeader's` text content supports multi-line text inputs or can accept 
 | onClick         | Function to run when icon is clicked    | `function`    | no       | `() => {}`         |
 
 ## Drawer Subheader
-The `DrawerSubheader` is an optional section that renders below the header and above the body of the side navigation menu.
-It can be used to support additional content, such as filtering options or to display more information.
+The `DrawerSubheader` is an optional section that renders below the header and above the body of the `Drawer`.
+It can be used to support custom content, such as filtering options or to display additional information.
 The subheader only accepts children nodes to render as input.
 
+### Usage
+```
+import DrawerSubheader from '@pxblue/react-components/core/Drawer';
+
+return  <DrawerSubheader>
+            <div>Custom Subheader Content</div>
+        </DrawerSubheader>
+```
 
 ## Drawer Body
-The `DrawerBody` accepts an array of `NavGroup` objects and renders them below the subheader.
-Each link inside a `NavGroup` consists of an optional icon and a link title.
+The `DrawerBody` accepts style properties and custom child nodes to render.
+child nodes accepted are, but not limited to, `DrawerNavGroup` objects or elements intended to add spacing between groups.
+The style properties that are accepted here will apply to the entire `DrawerBody`, but can be overriden within each `DrawerNavGroup`.
 
+### Usage
+```
+import DrawerBody from '@pxblue/react-components/core/Drawer';
+
+return  <DrawerBody>
+            <DrawerNavGroup title={'Nav Items'} items={...} />
+        </DrawerBody>
+```
 
 ### Drawer Body API
 | Prop Name       | Description                             | Type          | Required | Default |
 |-----------------|-----------------------------------------|---------------|----------|---------|
-| navGroups       | Links to be rendered, grouped together  | `NavGroup[]`  | yes      |         | 
 | fontColor       | Text color                              | `string`      | no       |         |   
 | backgroundColor | Background color                        | `string`      | no       |         |   
 | selectedColor   | Selected nav item color                 | `string`      | no       |         |   
 | iconColor       | Icon color                              | `string`      | no       |         |   
 | titleColor      | Navigation group title color            | `string`      | no       |         |   
+
+
+
+## Drawer NavGroup 
+A `DrawerNavGroup` will render inside of the `DrawerBody` and is used to navigate between pages.  
+Each group consists of a group title and a series of navigation items.
+
+### Drawer Nav Group API
+| Prop Name       | Description                             | Type          | Required | Default |
+|-----------------|-----------------------------------------|---------------|----------|---------|
+| title           | Title of the group                      | `string`      | no       |         |  
+| items           | List of navigation items to render      | `Object[]`    | no       |         |  
+| fontColor       | Text color                              | `string`      | no       |         |   
+| backgroundColor | Background color                        | `string`      | no       |         |   
+| selectedColor   | Selected nav item color                 | `string`      | no       |         |   
+| iconColor       | Icon color                              | `string`      | no       |         |   
+| titleColor      | Navigation group title color            | `string`      | no       |         |  
+| content         | Custom element, substitute for title    | `JSX Element` | no       |         |    
+
 
 
 ## Drawer Footer
@@ -73,7 +107,4 @@ It can be used to add optional images, bottom navigation options, or any custom 
 ### Drawer Footer API
 | Prop Name       | Description                             | Type          | Required | Default |
 |-----------------|-----------------------------------------|---------------|----------|---------|
-| content         | Custom content to be rendered           | `JSX Element` | yes      |         |   
-| navGroups       | Bottom links to be rendered             | `NavGroup[]`  | no       |         | 
 | backgroundColor | Background color                        | `string`      | no       |         |   
-| overrides       | Style prop overrides                    | `Object`      | no       |         |

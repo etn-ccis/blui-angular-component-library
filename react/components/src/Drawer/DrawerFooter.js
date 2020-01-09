@@ -30,7 +30,6 @@ class DrawerFooter extends React.Component {
 }
 
 DrawerFooter.propTypes = {
-    open: PropTypes.bool,
     backgroundColor: PropTypes.string,
 };
 
