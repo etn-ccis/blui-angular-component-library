@@ -122,7 +122,7 @@ stories.add('with standard inputs', () => {
     }
 
     const headerFontColor = color('fontColor', Colors.white[50], headerGroupId);
-    const headerBackgroundColor = color('backgroundColor', Colors.blue[500], headerGroupId);
+    const headerBackgroundColor = color('backgroundColor', Colors.blue[800], headerGroupId);
     const headerBackground = select('backgroundImage', ['None', 'Pattern'], 'Pattern', headerGroupId);
     let headerBackgroundImage;
     switch (headerBackground) {
