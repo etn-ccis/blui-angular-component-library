@@ -94,7 +94,7 @@ stories.add('basic usage', () => {
                }
           />
           {defaultBody}
-          {open && <DrawerFooter>
+          {<DrawerFooter>
                <div style={{'display': 'flex', 'justifyContent': 'center'}}>
                   <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
                </div>
