@@ -53,16 +53,14 @@ class DrawerHeader extends React.Component {
                          backgroundColor: this.props.backgroundColor || theme.palette.primary[500],
                      }}
                 >
-                {this.backgroundImage()}
-                {icon && <div className={classes.navigation}>
-                    <IconButton className={classes.icon} color={'inherit'}
-                                onClick={() => this.props.onClick()}>
-                        {icon}
-                    </IconButton>
-                </div>}
-
+                    {this.backgroundImage()}
+                    {icon && <div className={classes.navigation}>
+                        <IconButton className={classes.icon} color={'inherit'}
+                                    onClick={() => this.props.onClick()}>
+                            {icon}
+                        </IconButton>
+                    </div>}
                     {this.getHeaderContent()}
-
                 </Toolbar>
                 <Divider />
             </>

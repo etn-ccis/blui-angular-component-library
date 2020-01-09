@@ -28,8 +28,8 @@ import {storiesOf} from '@storybook/react';
 import React from 'react';
 // @ts-ignore
 import EatonLogo from "../assets/EatonLogo.svg";
-// const backgroundImage = require('../assets/topology_40.png');
-const backgroundImage = require('../assets/farm.jpg');
+const topologyBgImage = require('../assets/topology_40.png');
+const farmBgImage = require('../assets/farm.jpg');
 
 export const stories = storiesOf('Drawer', module);
 
@@ -42,7 +42,7 @@ let selected: string = 'Notifications';
 
 const defaultBody = <DrawerBody>
    <DrawerNavGroup
-      title={'Default Group'}
+      title={'Default Navigation Group'}
       items={
       [
          {
@@ -123,14 +123,14 @@ stories.add('with standard inputs', () => {
 
     const headerFontColor = color('fontColor', Colors.white[50], headerGroupId);
     const headerBackgroundColor = color('backgroundColor', Colors.blue[500], headerGroupId);
-    const headerBackground = select('backgroundImage', ['None', 'Pattern'], 'None', headerGroupId);
+    const headerBackground = select('backgroundImage', ['None', 'Pattern'], 'Pattern', headerGroupId);
     let headerBackgroundImage;
     switch (headerBackground) {
         case 'None':
             headerBackgroundImage = undefined;
             break;
         case 'Pattern':
-            headerBackgroundImage = backgroundImage;
+            headerBackgroundImage = topologyBgImage;
             break;
     }
 
@@ -263,9 +263,10 @@ stories.add('with custom header', () => {
    const open = boolean('Open', true);
    return <Drawer open={open}>
       <DrawerHeader
+         backgroundImage={farmBgImage}
          icon={<MenuIcon />}
          content={
-         <div style={{'paddingLeft': '20px', 'paddingTop': '12px'}}>
+         <div style={{zIndex: 1, 'paddingLeft': '20px', 'paddingTop': '15px'}}>
             <Typography variant="subtitle2">Customizable</Typography>
             <Typography variant="h6" style={{'marginTop': '-10px'}}>Header Content Goes Here</Typography>
          </div>} />
@@ -311,7 +312,7 @@ stories.add('with subheader', () => {
     return <Drawer open={open}>
        <DrawerHeader
           icon={<MenuIcon />}
-          title={"Subheader Demox"} />
+          title={"Subheader Demo"} />
        <DrawerSubheader>
           <div
              style={{
