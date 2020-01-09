@@ -104,7 +104,8 @@ const styles = theme => ({
         justifyContent: 'center',
         alignSelf: 'stretch',
         flexDirection: 'column',
-        width: '80%'
+        width: 'calc(90% - 56px)',
+        boxSizing: 'border-box'
     },
     navigation: {
         [theme.breakpoints.down('xs')]: {

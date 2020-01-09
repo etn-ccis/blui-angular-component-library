@@ -85,11 +85,8 @@ class SideNav extends React.Component {
             <Drawer
                 open={this.isDrawerOpen()}
                 classes={{ paper: classes.drawer }}>
-                <div className={this.isDrawerOpen() ? classes.drawerWidthFull : classes.drawerWidthCollapsed}
-                     style={{
-                         height: '100%',
-                         overflow: 'hidden'
-                     }}>
+                <div className={classes.smooth + ' ' + classes.content}
+                     style={{width: theme.spacing(45)}}>
                     {this.getDrawerContents()}
                 </div>
             </Drawer>
@@ -98,51 +95,48 @@ class SideNav extends React.Component {
 
     getDesktopNavigationMenu() {
         const { classes, theme } = this.props;
-        return <Drawer variant="permanent"
-                       open={this.isDrawerOpen()}
-                       classes={{paper: classes.paper}}
+        const containerWidth = this.isDrawerOpen() ? this.props.width || theme.spacing(45) : theme.spacing(7);
+        const contentWidth = this.props.width || theme.spacing(45);
+        return (
+            <>
+                <Drawer variant="permanent"
+                        open={this.isDrawerOpen()}
+                        classes={{paper: classes.paper}}
                         style={{minHeight: '100%'}}>
-            <div
-                className={
-                    this.state.hover
-                        ? classes.drawerWidthFull
-                        : this.isDrawerOpen()
-                            ? classes.drawerWidthFull
-                            : classes.drawerWidthCollapsed
-                }
-                style={{
-                    height: '100%',
-                    width: this.isDrawerOpen() ? this.props.width || theme.spacing(45) : undefined
-                }}
-            >
-                {this.getDrawerContents()}
-            </div>
-        </Drawer>
+
+                    <div className={classes.smooth}
+                         style={{ width: containerWidth }} >
+                        <div className={classes.content}
+                             style={{width: contentWidth}}>
+                            {this.getDrawerContents()}
+                        </div>
+                    </div>
+                </Drawer>
+            </>
+        )
     }
 
     getDrawerContents() {
-        const { classes } = this.props;
+        const { classes, theme } = this.props;
 
         return  (
-            <div className={classes.drawerWidthFull} style={{
-                flexDirection: 'column', display: 'flex', height: '100%'
-            }}>
-                {this.getHeader()}
-                <div
-                    style={{ flexDirection: 'column', flex: '1 1 0px', display: 'flex'}}
-                    onMouseEnter={() => {
-                        this.hoverDelay = setTimeout(() => this.setState({hover: true}), 500);
-                    }}
-                    onMouseLeave={() => {
-                        clearTimeout(this.hoverDelay);
-                        this.setState({hover: false});
-                    }}
-                >
-                    {this.getSubHeader()}
-                    {this.getBody()}
-                    {this.getFooter()}
-                </div>
+            <>
+            {this.getHeader()}
+            <div
+                style={{ flexDirection: 'column', flex: '1 1 0px', display: 'flex' }}
+                onMouseEnter={() => {
+                    this.hoverDelay = setTimeout(() => this.setState({hover: true}), 500);
+                }}
+                onMouseLeave={() => {
+                    clearTimeout(this.hoverDelay);
+                    this.setState({hover: false});
+                }}
+            >
+                {this.getSubHeader()}
+                {this.getBody()}
+                {this.getFooter()}
             </div>
+            </>
         )
     }
 
@@ -168,24 +162,18 @@ const styles = theme => {
         overflow: 'hidden',
         position: 'unset',
     },
-    toolbar: {
-        [theme.breakpoints.down('xs')]: {
-            paddingLeft: 0,
-        },
-        paddingLeft: theme.spacing(2),
-    },
-    drawerWidthFull: {
-        // width: theme.spacing(45),
-        transition: 'width 175ms cubic-bezier(.4, 0, .2, 1)',
-    },
-    drawerWidthCollapsed: {
-        width: theme.spacing(7),
-        overflow: 'hidden',
-        transition: 'width 175ms cubic-bezier(.4, 0, .2, 1)',
-    },
     drawer: {
         maxWidth: '85%',
         width: theme.spacing(45),
+    },
+    smooth: {
+        height: '100%',
+        transition: 'width 175ms cubic-bezier(.4, 0, .2, 1)',
+    },
+    content: {
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
     }
 }};
 
