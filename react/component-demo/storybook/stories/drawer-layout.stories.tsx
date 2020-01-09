@@ -9,15 +9,13 @@ import {
    PinDrop,
    Settings
 } from '@material-ui/icons';
-import MoveToInboxIcon from '@material-ui/icons/MoveToInbox';
 import MenuIcon from '@material-ui/icons/Menu';
-import SendIcon from '@material-ui/icons/Send';
 // @ts-ignore
-import {Drawer, DrawerBody, DrawerFooter, DrawerHeader} from '@pxblue/react-components/core/Drawer';
+import {Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerNavGroup} from '@pxblue/react-components/core/Drawer';
 //@ts-ignore
 import {DrawerLayout} from '@pxblue/react-components/core/DrawerLayout';
 import {action} from "@storybook/addon-actions";
-import {boolean, withKnobs} from '@storybook/addon-knobs';
+import {boolean, number, withKnobs} from '@storybook/addon-knobs';
 import {storiesOf} from '@storybook/react';
 import React from 'react';
 // @ts-ignore
@@ -29,62 +27,62 @@ stories.addParameters({
    notes: { markdown: require('./../../../docs/DrawerLayout.md')}
 });
 
-const defaultBody = <DrawerBody
-    navGroups={[
+const defaultBody = <DrawerBody>
+   <DrawerNavGroup items={[
         {
-            links: [
-                {
-                    title: 'Overview',
-                    onClick: action('Overview'),
-                    icon: <Apps/>
-                },
-                {
-                    title: 'Timeline',
-                    onClick: action('Timeline'),
-                    icon: <FormatListBulleted/>
-                },
-                {
-                    title: 'Locations',
-                    onClick: action('Locations'),
-                    icon: <PinDrop/>
-                },
-                {
-                    title: 'Devices',
-                    onClick: action('Devices'),
-                    icon: <NotificationsActive/>
-                }
-            ]
-        },
-       {
-          bottom: true,
-          title: 'put me on the bottom',
-          links: [
-             {
-                title: 'Settings',
-                onClick: action('Settings'),
-                icon: <Settings/>
-             },
-             {
-                title: 'Legal',
-                onClick: action('Legal'),
-                icon: <Gavel/>
-             },
-             {
-                title: 'Help',
-                onClick: action('Help'),
-                icon: <Help/>
-             },
-          ]
+        title: 'Overview',
+        onClick: action('Overview'),
+        icon: <Apps/>
        },
-    ]}
-/>
+       {
+        title: 'Timeline',
+        onClick: action('Timeline'),
+        icon: <FormatListBulleted/>
+       },
+       {
+        title: 'Locations',
+        onClick: action('Locations'),
+        icon: <PinDrop/>
+       },
+       {
+        title: 'Devices',
+        onClick: action('Devices'),
+        icon: <NotificationsActive/>
+      }]} />
+      <div style={{flex: '1 0 0px'}} />
+
+      <DrawerNavGroup items={[
+          {
+             title: 'Settings',
+             onClick: action('Settings'),
+             icon: <Settings/>
+          },
+          {
+             title: 'Legal',
+             onClick: action('Legal'),
+             icon: <Gavel/>
+          },
+          {
+             title: 'Help',
+             onClick: action('Help'),
+             icon: <Help/>
+          },
+       ]
+    } />
+</DrawerBody>;
 
 
 stories.add('basic usage', () => {
    const open = boolean('Open', true);
+   const width = number('Width', 350, {
+      range: true,
+      min: 200,
+      max: 700,
+      step: 50,
+   });
 
     return <DrawerLayout>
-      <Drawer open={open}>
+      <Drawer open={open} width={width}>
 
           <DrawerHeader
             icon={<MenuIcon />}
@@ -104,7 +102,8 @@ stories.add('basic usage', () => {
        </Drawer>
 
        <div style={{
-          backgroundColor: "gray",
+          backgroundColor: "#b7b7b7",
+          fontSize: '16pt',
           color: "white",
           height: '100%',
           padding: '30px',
