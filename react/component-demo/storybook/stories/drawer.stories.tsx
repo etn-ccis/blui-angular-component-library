@@ -121,8 +121,8 @@ stories.add('with standard inputs', () => {
           break;
     }
 
-    const headerFontColor = color('fontColor', '', headerGroupId);
-    const headerBackgroundColor = color('backgroundColor', '', headerGroupId);
+    const headerFontColor = color('fontColor', Colors.white[50], headerGroupId);
+    const headerBackgroundColor = color('backgroundColor', Colors.blue[500], headerGroupId);
     const headerBackground = select('backgroundImage', ['None', 'Pattern'], 'None', headerGroupId);
     let headerBackgroundImage;
     switch (headerBackground) {
@@ -137,10 +137,10 @@ stories.add('with standard inputs', () => {
     // Body
     const groupTitle1 = text('title1', 'NavGroup 1', bodyGroupId);
     const groupTitle2 = text('title2', 'NavGroup 2', bodyGroupId);
-    const bodyFontColor = color('fontColor', '', bodyGroupId);
-    const bodyIconColor = color('iconColor', '', bodyGroupId);
-    const bodyBackgroundColor = color('backgroundColor', '', bodyGroupId);
-    const bodySelectedColor = color('selectedColor', '', bodyGroupId);
+    const bodyFontColor = color('fontColor', Colors.black[500], bodyGroupId);
+    const bodyIconColor = color('iconColor', Colors.blue[500], bodyGroupId);
+    const bodyBackgroundColor = color('backgroundColor', Colors.white[50], bodyGroupId);
+    const bodySelectedColor = color('selectedColor', Colors.blue[50], bodyGroupId);
 
     const numberLinksGroup1 = number('links1', 4, {
         range: true,
@@ -250,7 +250,7 @@ stories.add('with standard inputs', () => {
 
        <DrawerFooter
           backgroundColor={footerBackgroundColor}>
-          {showFooter ?
+          {showFooter && open ?
           <div style={{'display': 'flex', 'justifyContent': 'center'}}>
           <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
        </div> : ''}

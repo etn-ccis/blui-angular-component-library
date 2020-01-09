@@ -84,23 +84,23 @@ stories.add('basic usage', () => {
    const open = boolean('Open', true);
 
     return <DrawerLayout>
-      <Drawer open={open} width={1000}>
+      <Drawer open={open}>
 
           <DrawerHeader
             icon={<MenuIcon />}
             content={
-               <div style={{'paddingLeft': '20px', 'paddingTop': '8px'}}>
+               <div style={{'paddingLeft': '20px', 'paddingTop': '15px'}}>
                   <Typography variant="subtitle2" style={{fontWeight: 100}}>PX Blue</Typography>
                   <Typography variant="h6" style={{'marginTop': '-10px'}}>DrawerLayout</Typography>
                </div>
                }
           />
           {defaultBody}
-         <DrawerFooter>
+          {open && <DrawerFooter>
                <div style={{'display': 'flex', 'justifyContent': 'center'}}>
                   <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
                </div>
-         </DrawerFooter>
+         </DrawerFooter>}
        </Drawer>
 
        <div style={{
