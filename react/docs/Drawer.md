@@ -20,15 +20,16 @@ return  <Drawer open={true}>
 ```
 
 ### Drawer API
-| Prop Name           | Description                             | Type        | Required | Default  |          
-|---------------------|-----------------------------------------|-------------|----------|----------|
-| open                | Manually set the drawer state           | `boolean`   | no       |          |
+| Prop Name           | Description                                      | Type        | Required | Default  |          
+|---------------------|--------------------------------------------------|-------------|----------|----------|
+| open                | Manually set the drawer state                    | `boolean`   | no       |          |
+| width               | Manually set the drawer width when open          | `number `   | no       |          |
 
 
 ## Drawer Header
-The `DrawerHeader` is the top part of the `Drawer`'s side navigation menu.
+The `DrawerHeader` is the top-most part of the `Drawer`.
 It is used to toggle the `Drawer` open or closed, and has an API intended to make it fully customizable.
-The `DrawerHeader` supports text inputs or can accept children nodes to render instead.    
+The `DrawerHeader's` text content supports multi-line text inputs or can accept children nodes to render instead.    
     
 ### Drawer Header API
 | Prop Name       | Description                             | Type          | Required | Default            |

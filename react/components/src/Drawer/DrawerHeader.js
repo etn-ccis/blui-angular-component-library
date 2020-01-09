@@ -71,8 +71,8 @@ class DrawerHeader extends React.Component {
 DrawerHeader.propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
-    backgroundColor: PropTypes.string,
     fontColor: PropTypes.string,
+    backgroundColor: PropTypes.string,
     backgroundImage: PropTypes.string,
     icon: PropTypes.element,
     content: PropTypes.element,
