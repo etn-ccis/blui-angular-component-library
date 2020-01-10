@@ -34,6 +34,7 @@ class DrawerBody extends React.Component {
                         selectedColor: child.props.selectedColor || this.props.selectedColor,
                         backgroundColor: child.props.backgroundColor || this.props.backgroundColor,
                         titleColor: child.props.titleColor || this.props.titleColor,
+                        chevron: (child.props.chevron === undefined ? this.props.chevron : child.props.chevron)
                     });
                 })}
             </div>
@@ -59,6 +60,7 @@ DrawerBody.propTypes = {
     selectedColor: PropTypes.string,
     iconColor: PropTypes.string,
     titleColor: PropTypes.string,
+    chevron: PropTypes.bool,
 };
 
 export default withStyles(styles)(DrawerBody);

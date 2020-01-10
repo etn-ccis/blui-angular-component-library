@@ -141,6 +141,7 @@ stories.add('with standard inputs', () => {
     const bodyIconColor = color('iconColor', Colors.blue[500], bodyGroupId);
     const bodyBackgroundColor = color('backgroundColor', Colors.white[50], bodyGroupId);
     const bodySelectedColor = color('selectedColor', Colors.blue[50], bodyGroupId);
+    const bodyChevron = boolean('chevron', false, bodyGroupId);
 
     const numberLinksGroup1 = number('links1', 4, {
         range: true,
@@ -238,7 +239,8 @@ stories.add('with standard inputs', () => {
           iconColor={bodyIconColor}
           fontColor={bodyFontColor}
           selectedColor={bodySelectedColor}
-          backgroundColor={bodyBackgroundColor} >
+          backgroundColor={bodyBackgroundColor} 
+          chevron={bodyChevron} >
           <DrawerNavGroup items={links1} title={groupTitle1} />
           <DrawerNavGroup items={links2} content={
              <div style={{'display': 'flex', 'justifyContent': 'space-between'}}>

@@ -66,7 +66,7 @@ class DrawerNavGroup extends React.Component {
             return <></>
         }
 
-        const { classes, theme, selectedColor, iconColor, fontColor } = this.props;
+        const { classes, theme, selectedColor, iconColor, fontColor, chevron } = this.props;
         const defaultSelectedBackgroundColor = theme.palette.secondary[50];
         const action = () => {
             this.props.onSelect();
@@ -85,6 +85,7 @@ class DrawerNavGroup extends React.Component {
                               fontColor={fontColor}
                               icon={icon}
                               iconColor={iconColor}
+                              chevron={chevron}
                               backgroundColor={'transparent'}
                               onClick={() => action()}
                 />
@@ -151,6 +152,7 @@ DrawerNavGroup.propTypes = {
     selectedColor: PropTypes.string,
     iconColor: PropTypes.string,
     titleColor: PropTypes.string,
+    chevron: PropTypes.bool
 };
 
 export default withStyles(styles, { withTheme: true })(DrawerNavGroup);
