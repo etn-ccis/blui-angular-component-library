@@ -40,7 +40,7 @@ It can be used to toggle the `Drawer` open or closed and it supports multi-line 
 | backgroundImage | Gradient or Image background            | `string`      | no       |                    |
 | icon            | Used to toggle drawer open or closed    | `JSX Element` | no       |                    | 
 | content         | Custom content for header               | `JSX Element` | no       |                    |
-| onClick         | Function to run when icon is clicked    | `function`    | no       | `() => {}`         |
+| onIconClick     | Function to run when icon is clicked    | `function`    | no       | `() => {}`         |
 
 ## Drawer Subheader
 The `DrawerSubheader` is an optional section that renders below the header and above the body of the `Drawer`.

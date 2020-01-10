@@ -56,7 +56,7 @@ class DrawerHeader extends React.Component {
                     {this.backgroundImage()}
                     {icon && <div className={classes.navigation}>
                         <IconButton className={classes.icon} color={'inherit'}
-                                    onClick={() => this.props.onClick()}>
+                                    onClick={() => this.props.onIconClick()}>
                             {icon}
                         </IconButton>
                     </div>}
@@ -76,11 +76,11 @@ DrawerHeader.propTypes = {
     backgroundImage: PropTypes.string,
     icon: PropTypes.element,
     content: PropTypes.element,
-    onClick: PropTypes.func
+    onIconClick: PropTypes.func
 };
 
 DrawerHeader.defaultProps = {
-    onClick: () => {}
+    onIconClick: () => {}
 };
 
 const styles = theme => ({
