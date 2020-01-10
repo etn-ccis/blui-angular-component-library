@@ -175,7 +175,7 @@ stories.add('with standard inputs', () => {
         {
             title: 'Devices',
             subtitle: '5 new warnings',
-            status: Colors.yellow[500],
+            statusColor: Colors.yellow[500],
             onClick: action('Devices'),
             icon: <Devices/>
         },

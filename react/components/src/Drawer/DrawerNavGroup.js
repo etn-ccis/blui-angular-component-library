@@ -49,7 +49,7 @@ class DrawerNavGroup extends React.Component {
                             title: item.title,
                             subtitle: item.subtitle,
                             icon: item.icon,
-                            status: item.status,
+                            statusColor: item.statusColor,
                             onClick: item.onClick,
                             active: item.active,
                         })}
@@ -61,7 +61,7 @@ class DrawerNavGroup extends React.Component {
         );
     }
 
-    NavigationListItem({ title, subtitle, icon, status, onClick, active }) {
+    NavigationListItem({ title, subtitle, icon, statusColor, onClick, active }) {
         if (!title && !icon) {
             return <></>
         }
@@ -81,7 +81,7 @@ class DrawerNavGroup extends React.Component {
                               title={title}
                               subtitle={subtitle}
                               divider={'full'}
-                              statusColor={status}
+                              statusColor={statusColor}
                               fontColor={fontColor}
                               icon={icon}
                               iconColor={iconColor}
@@ -143,7 +143,7 @@ DrawerNavGroup.propTypes = {
         title: PropTypes.string,
         subtitle: PropTypes.string,
         icon: PropTypes.element,
-        status: PropTypes.string,
+        statusColor: PropTypes.string,
         active: PropTypes.bool,
         onClick: PropTypes.func
     })),
