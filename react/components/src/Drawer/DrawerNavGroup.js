@@ -11,9 +11,6 @@ class DrawerNavGroup extends React.Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            selected: undefined
-        };
     }
 
     render() {
@@ -72,8 +69,9 @@ class DrawerNavGroup extends React.Component {
             this.props.onSelect();
             onClick();
         };
+
         return (
-            <div style={{position: 'relative'}} className={classes.listItem}>
+            <div style={{position: 'relative'}} className={classes.listItem + ' ' + (active && classes.listItemNoHover)}>
                 {active &&
                 <div className={classes.selected}
                      style={{backgroundColor: selectedColor || defaultSelectedBackgroundColor}} />}
@@ -116,6 +114,11 @@ const styles = theme => ({
             backgroundColor: 'rgba(0, 0, 0, 0.08)',
         }
     },
+    listItemNoHover: {
+        '&:hover': {
+            backgroundColor: 'unset',
+        }
+    },
     selected: {
         content: '""',
         zIndex: 0,
@@ -127,9 +130,6 @@ const styles = theme => ({
         backgroundColor: theme.palette.primary['50'],
         borderRadius: '0px 24px 24px 0px',
         opacity: .9,
-        '&hover': {
-            opacity: 1,
-        }
     }
 });
 
