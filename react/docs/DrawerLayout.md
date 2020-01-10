@@ -4,7 +4,7 @@ It accepts two child nodes to render, the first being a `Drawer` and the second 
 
 ### Usage
 ```
-import { DrawerLayout } from '@pxblue/react-components/core/Drawer';
+import { DrawerLayout } from '@pxblue/react-components/core/DrawerLayout';
 
 return  <DrawerLayout>
             <Drawer />
