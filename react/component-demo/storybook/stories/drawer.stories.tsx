@@ -1,4 +1,11 @@
-import {ExpansionPanel, ExpansionPanelDetails, ExpansionPanelSummary, TextField, Typography} from "@material-ui/core";
+import {
+   Divider,
+   ExpansionPanel,
+   ExpansionPanelDetails,
+   ExpansionPanelSummary,
+   TextField,
+   Typography
+} from "@material-ui/core";
 import {
    Accessibility,
    AddAPhoto,
@@ -253,9 +260,12 @@ stories.add('with standard inputs', () => {
        <DrawerFooter
           backgroundColor={footerBackgroundColor}>
           {showFooter && open ?
+          <>
+          <Divider/>
           <div style={{'display': 'flex', 'justifyContent': 'center'}}>
-          <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
-       </div> : ''}
+             <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
+          </div>
+          </>: ''}
        </DrawerFooter>
 
     </Drawer>

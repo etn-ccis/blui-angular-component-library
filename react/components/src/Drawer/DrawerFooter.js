@@ -15,7 +15,6 @@ class DrawerFooter extends React.Component {
         const { classes } = this.props;
         return (
             <>
-                <Divider/>
                 <div
                     className={classes.root}
                     style={{
