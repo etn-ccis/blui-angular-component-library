@@ -8,31 +8,20 @@ import './styles.scss';
 
 addParameters({
     options: {
-        /**
-         * show story component as full screen
-         * @type {Boolean}
-         */
         isFullscreen: false,
-        /**
-         * display panel that shows a list of stories
-         * @type {Boolean}
-         */
         showNav: true,
-        /**
-         * display panel that shows addon configurations
-         * @type {Boolean}
-         */
         showPanel: true,
-        /**
-         * where to show the addon panel
-         * @type {('bottom'|'right')}
-         */
         panelPosition: 'right',
         name: 'PX Blue React Component Library'
     }
 });
 
 // automatically import all files ending in *.stories.js
-configure(require.context('../stories', true, /\.stories\.(js|tsx)$/), module);
+configure(require.context('../stories', true, /drawer\.stories\.(js|tsx)$/), module);
 
-addDecorator(storyFn => <MuiThemeProvider theme={createMuiTheme(ReactThemes.blue)}><div className={'wrapper'} style={{ color: Colors.gray['800']}}>{storyFn()}</div></MuiThemeProvider>);
+addDecorator(storyFn =>
+    <MuiThemeProvider theme={createMuiTheme(ReactThemes.blue)}>
+        <div className={'wrapper'} style={{ color: Colors.gray['800']}}>
+            {storyFn()}
+        </div>
+</MuiThemeProvider>);
