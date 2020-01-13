@@ -26,7 +26,6 @@ import SendIcon from '@material-ui/icons/Send';
 import * as Colors from '@pxblue/colors';
 //@ts-ignore
 import { Drawer, DrawerHeader, DrawerSubheader, DrawerBody, DrawerFooter, DrawerNavGroup } from '@pxblue/react-components/core/Drawer';
-import {action} from "@storybook/addon-actions";
 // @ts-ignore
 
 import { State, Store } from "@sambego/storybook-state";
@@ -47,7 +46,6 @@ stories.addParameters({
 });
 
 const store = new Store({
-   open: true,
    selected: ''
 });
 
@@ -107,6 +105,7 @@ stories.add('with standard inputs', () => {
     const bodyGroupId = 'Body';
     const footerGroupId = 'Footer';
 
+   const open = boolean('Open', true, drawerGroupId);
    const width = number('Width', 350, {
       range: true,
       min: 200,
@@ -274,14 +273,11 @@ stories.add('with standard inputs', () => {
 
     return <State store={store}>
        {state => [
-          <Drawer open={state.open} width={width}>
+          <Drawer open={open} width={width}>
              <DrawerHeader
                 title={headerTitle}
                 subtitle={headerSubtitle}
                 icon={headerIcon}
-                onIconClick={() =>  {
-                   store.set({ open: !state.open })
-                }}
                 backgroundImage={headerBackgroundImage}
                 fontColor={headerFontColor}
                 backgroundColor={headerBackgroundColor}
@@ -323,15 +319,13 @@ stories.add('with standard inputs', () => {
 });
 
 stories.add('with custom header', () => {
+   const open = boolean('Open', true);
    return <State store={store}>
       {state => [
-          <Drawer open={state.open}>
+          <Drawer open={open}>
               <DrawerHeader
                   backgroundImage={farmBgImage}
                   icon={<MenuIcon />}
-                  onIconClick={() =>  {
-                     store.set({ open: !state.open })
-                  }}
                   content={
                      <div style={{zIndex: 1, 'paddingLeft': '20px', 'paddingTop': '15px'}}>
                         <Typography variant="subtitle2">Customizable</Typography>
@@ -344,6 +338,7 @@ stories.add('with custom header', () => {
 });
 
 stories.add('with subheader', () => {
+    const open = boolean('Open', true);
     const label = 'content';
     const valuesObj = {
         Filter: 'Filter',
@@ -379,17 +374,14 @@ stories.add('with subheader', () => {
 
     return <State store={store}>
        {state => [
-          <Drawer open={state.open}>
+          <Drawer open={open}>
              <DrawerHeader
                 icon={<MenuIcon />}
-                title={"Subheader Demo"}
-                onIconClick={() =>  {
-                   store.set({ open: !state.open })
-                }} />
+                title={"Subheader Demo"} />
              <DrawerSubheader>
                 <div
                    style={{
-                      visibility: (state.open ? 'inherit' : 'hidden'),
+                      visibility: (open ? 'inherit' : 'hidden'),
                       display: 'flex',
                       justifyContent: 'center',
                       padding: '20px'
