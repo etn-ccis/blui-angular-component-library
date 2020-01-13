@@ -86,16 +86,28 @@ A `DrawerNavGroup` will render inside of the `DrawerBody` and is used to organiz
 Each group consists of a group title and a series of navigation items.
 
 ### Drawer NavGroup API
-| Prop Name       | Description                             | Type          | Required | Default |
-|-----------------|-----------------------------------------|---------------|----------|---------|
-| backgroundColor | Background color                        | `string`      | no       |         |   
-| content         | Custom element, substitute for title    | `JSX Element` | no       |         |    
-| fontColor       | Text color                              | `string`      | no       |         |   
-| iconColor       | Icon color                              | `string`      | no       |         |   
-| items           | List of navigation items to render      | `Object[]`    | no       |         |  
-| title           | Title of the group                      | `string`      | no       |         |  
-| titleColor      | Navigation group title color            | `string`      | no       |         |  
-| selectedColor   | Selected nav item color                 | `string`      | no       |         |   
+| Prop Name       | Description                             | Type          | Required | Default                       |
+|-----------------|-----------------------------------------|---------------|----------|-------------------------------|
+| backgroundColor | Background color                        | `string`      | no       | Drawer Body Background Color  |   
+| content         | Custom element, substitute for title    | `JSX Element` | no       |                               |    
+| fontColor       | Text color                              | `string`      | no       | Drawer Body Font Color        |   
+| iconColor       | Icon color                              | `string`      | no       | Drawer Body Icon Color        |   
+| items           | List of navigation items to render      | `Item[]`      | no       |                               |  
+| title           | Title of the group                      | `string`      | no       |                               |  
+| titleColor      | Navigation group title color            | `string`      | no       |                               |  
+| selectedColor   | Selected nav item color                 | `string`      | no       | Drawer Body Selected Color     |   
+
+
+### Item Object
+| Attribute       | Description                             | Type          | Required | Default                      |
+|-----------------|-----------------------------------------|---------------|----------|------------------------------|
+| active          | Is item active                          | `boolean`     | no       | false                        |  
+| chevron         | Show chevron icon                       | `boolean`     | no       | false                        |  
+| icon            | Icon                                    | `JSX Element` | no       |                              |      
+| onClick         | Function to run when item is clicked    | `function`    | no       |                              |    
+| statusColor     | Side-bar color                          | `string`      | no       |                              |    
+| subtitle        | Secondary text                          | `string`      | no       |                              |    
+| title           | Primary text                            | `string`      | no       |                              |    
 
 
 ## Drawer Footer
