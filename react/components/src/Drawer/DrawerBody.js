@@ -1,13 +1,7 @@
 import React from 'react';
 import {withStyles} from '@material-ui/core/styles';
 import PropTypes from "prop-types";
-import MenuIcon from "@material-ui/core/SvgIcon/SvgIcon";
 import * as PXBColors from "@pxblue/colors";
-import List from "@material-ui/core/List";
-import ListSubheader from "@material-ui/core/ListSubheader";
-import {Typography} from "@material-ui/core";
-import Divider from "@material-ui/core/Divider";
-import {InfoListItem} from "../index";
 
 class DrawerBody extends React.Component {
 
