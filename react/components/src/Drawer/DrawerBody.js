@@ -25,17 +25,21 @@ class DrawerBody extends React.Component {
             >
 
                 {children.map((child, index) => {
-                    // TODO: Check type to make sure it's a DrawerNavGroup
-                    return React.cloneElement(child, {
-                        open: this.props.open,
-                        onSelect: this.props.onSelect,
-                        fontColor: child.props.fontColor || this.props.fontColor,
-                        iconColor: child.props.iconColor || this.props.iconColor,
-                        selectedColor: child.props.selectedColor || this.props.selectedColor,
-                        backgroundColor: child.props.backgroundColor || this.props.backgroundColor,
-                        titleColor: child.props.titleColor || this.props.titleColor,
-                        chevron: (child.props.chevron === undefined ? this.props.chevron : child.props.chevron)
-                    });
+                    if (child && child.type && child.type.Naked) {
+                        const type = child.type.Naked.name;
+                        if (type === 'DrawerNavGroup') {
+                            return React.cloneElement(child, {
+                                open: this.props.open,
+                                onSelect: this.props.onSelect,
+                                fontColor: child.props.fontColor || this.props.fontColor,
+                                iconColor: child.props.iconColor || this.props.iconColor,
+                                selectedColor: child.props.selectedColor || this.props.selectedColor,
+                                backgroundColor: child.props.backgroundColor || this.props.backgroundColor,
+                                titleColor: child.props.titleColor || this.props.titleColor,
+                                chevron: (child.props.chevron === undefined ? this.props.chevron : child.props.chevron)
+                            });
+                        }
+                    }
                 })}
             </div>
         );
