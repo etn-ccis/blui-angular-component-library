@@ -1,6 +1,6 @@
 {
   "name": "@pxblue/react-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reusable React components for PX Blue applications",
   "main": "./dist/index.js",
   "scripts": {
