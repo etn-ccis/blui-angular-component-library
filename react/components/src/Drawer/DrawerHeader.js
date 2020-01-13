@@ -4,8 +4,6 @@ import {withStyles} from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Divider from '@material-ui/core/Divider';
-// Material-UI Icons
-import MenuIcon from '@material-ui/icons/Menu';
 import PropTypes from "prop-types";
 import * as Colors from '@pxblue/colors';
 import {Typography} from "@material-ui/core";
@@ -18,7 +16,7 @@ class DrawerHeader extends React.Component {
 
     getHeaderContent() {
         const { classes } = this.props;
-        return this.props.content || (
+        return this.props.titleContent || (
             <div className={classes.content}>
 
                 <Typography noWrap variant={'h6'} className={classes.title}>
@@ -75,7 +73,7 @@ DrawerHeader.propTypes = {
     backgroundColor: PropTypes.string,
     backgroundImage: PropTypes.string,
     icon: PropTypes.element,
-    content: PropTypes.element,
+    titleContent: PropTypes.element,
     onIconClick: PropTypes.func
 };
 

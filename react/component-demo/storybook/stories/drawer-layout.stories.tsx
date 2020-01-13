@@ -86,7 +86,7 @@ stories.add('basic usage', () => {
 
           <DrawerHeader
             icon={<MenuIcon />}
-            content={
+            titleContent={
                <div style={{'paddingLeft': '20px', 'paddingTop': '15px'}}>
                   <Typography variant="subtitle2" style={{fontWeight: 100}}>PX Blue</Typography>
                   <Typography variant="h6" style={{'marginTop': '-10px'}}>DrawerLayout</Typography>

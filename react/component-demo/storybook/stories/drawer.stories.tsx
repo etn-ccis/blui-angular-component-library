@@ -326,7 +326,7 @@ stories.add('with custom header', () => {
               <DrawerHeader
                   backgroundImage={farmBgImage}
                   icon={<MenuIcon />}
-                  content={
+                  titleContent={
                      <div style={{zIndex: 1, 'paddingLeft': '20px', 'paddingTop': '15px'}}>
                         <Typography variant="subtitle2">Customizable</Typography>
                         <Typography variant="h6" style={{'marginTop': '-10px'}}>Header Content Goes Here</Typography>
