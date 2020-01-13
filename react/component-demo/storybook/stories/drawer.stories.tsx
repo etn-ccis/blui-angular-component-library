@@ -29,6 +29,7 @@ import { Drawer, DrawerHeader, DrawerSubheader, DrawerBody, DrawerFooter, Drawer
 import {action} from "@storybook/addon-actions";
 // @ts-ignore
 
+import { State, Store } from "@sambego/storybook-state";
 import {boolean, color, number, object, optionsKnob, select, text, withKnobs} from '@storybook/addon-knobs';
 import {OptionsKnobOptionsDisplay} from "@storybook/addon-knobs/dist/components/types/Options";
 import {storiesOf} from '@storybook/react';
@@ -47,47 +48,53 @@ stories.addParameters({
 
 let selected: string = 'Notifications';
 
-const defaultBody = <DrawerBody>
+const store = new Store({
+   open: true,
+   selected: ''
+});
+
+const userGuide = 'User Guide';
+const license = 'License';
+const accessibility = 'Accessibility';
+const notifications = 'Notifications';
+
+export const defaultDrawerBody = (state: any) => <DrawerBody>
    <DrawerNavGroup
       title={'Default Navigation Group'}
       items={
       [
          {
-            title: 'User Guide',
+            title: userGuide,
             onClick: () => {
-               selected = 'User Guide';
-               action('User Guide')
+               store.set({ selected: userGuide });
             },
             icon: <MoveToInboxIcon/>,
-            active: selected === 'User Guide'
+            active: state.selected === userGuide
 
          },
          {
-            title: 'License Agreement',
+            title: license,
             onClick: () => {
-               selected = 'License Agreement';
-               action('License Agreement')
+               store.set({ selected: license });
             },
             icon: <SendIcon/>,
-            active: selected === 'License Agreement'
+            active: state.selected === license
          },
          {
-            title: 'Accessibility',
+            title: accessibility,
             onClick: () => {
-               selected = 'Accessibility';
-               action('Accessibility')
+               store.set({ selected: accessibility });
             },
             icon: <Accessibility/>,
-            active: selected === 'Accessibility'
+            active: state.selected === accessibility
          },
          {
-            title: 'Notifications',
+            title: notifications,
             onClick: () => {
-               selected = 'Notifications',
-               action('Notifications')
+               store.set({ selected: notifications });
             },
             icon: <NotificationsActive/>,
-            active: selected === 'Notifications'
+            active: state.selected === notifications
          }
       ]
    }
@@ -115,7 +122,7 @@ stories.add('with standard inputs', () => {
     const headerSubtitle = text('subtitle', 'Organize your menu items here', headerGroupId);
 
     const headerIconOptions = select('icon', ['Menu', 'Fitness', 'None'], 'Menu', headerGroupId);
-    let headerIcon;
+    let headerIcon: JSX.Element;
     switch (headerIconOptions) {
        case 'Menu':
             headerIcon = <MenuIcon/>;
@@ -124,17 +131,17 @@ stories.add('with standard inputs', () => {
             headerIcon = <FitnessCenter/>;
             break;
        case 'None':
-          headerIcon = undefined;
+          headerIcon = <></>;
           break;
     }
 
     const headerFontColor = color('fontColor', Colors.white[50], headerGroupId);
     const headerBackgroundColor = color('backgroundColor', Colors.blue[800], headerGroupId);
     const headerBackground = select('backgroundImage', ['None', 'Pattern'], 'Pattern', headerGroupId);
-    let headerBackgroundImage;
+    let headerBackgroundImage: string;
     switch (headerBackground) {
         case 'None':
-            headerBackgroundImage = undefined;
+            headerBackgroundImage = '';
             break;
         case 'Pattern':
             headerBackgroundImage = topologyBgImage;
@@ -162,6 +169,7 @@ stories.add('with standard inputs', () => {
         max: 4,
         step: 1,
     }, bodyGroupId);
+
 
     const links1 = [
         {
@@ -226,68 +234,75 @@ stories.add('with standard inputs', () => {
     const showFooter = boolean('show footer', true, footerGroupId);
     const footerBackgroundColor = color('backgroundColor', Colors.white[50], footerGroupId);
 
-    return <Drawer open={open} width={width} >
+    return <State store={store}>
+       {state => [
+          <Drawer open={state.open} width={width}>
+             <DrawerHeader
+                title={headerTitle}
+                subtitle={headerSubtitle}
+                icon={headerIcon}
+                backgroundImage={headerBackgroundImage}
+                fontColor={headerFontColor}
+                backgroundColor={headerBackgroundColor}
+                overrides={{
+                   root: {
+                      backgroundSize: '400px'
+                   }
+                }}
+             />
 
-       <DrawerHeader
-          title={headerTitle}
-          subtitle={headerSubtitle}
-          icon={headerIcon}
-          backgroundImage={headerBackgroundImage}
-          fontColor={headerFontColor}
-          backgroundColor={headerBackgroundColor}
-          overrides={{
-             root: {
-                backgroundSize: '400px'
-             }
-          }}
-       />
+             <DrawerBody
+                iconColor={bodyIconColor}
+                fontColor={bodyFontColor}
+                selectedColor={bodySelectedColor}
+                backgroundColor={bodyBackgroundColor}
+                chevron={bodyChevron} >
+                <DrawerNavGroup items={links1} title={groupTitle1} />
+                <DrawerNavGroup items={links2} content={
+                   <div style={{'display': 'flex', 'justifyContent': 'space-between'}}>
+                      <div>{groupTitle2}</div>
+                      <div>Software Version v1.0.3</div>
+                   </div>
+                } />
+             </DrawerBody>
 
-       <DrawerBody
-          iconColor={bodyIconColor}
-          fontColor={bodyFontColor}
-          selectedColor={bodySelectedColor}
-          backgroundColor={bodyBackgroundColor} 
-          chevron={bodyChevron} >
-          <DrawerNavGroup items={links1} title={groupTitle1} />
-          <DrawerNavGroup items={links2} content={
-             <div style={{'display': 'flex', 'justifyContent': 'space-between'}}>
-                <div>{groupTitle2}</div>
-                <div>Software Version v1.0.3</div>
-             </div>
-          } />
-       </DrawerBody>
-
-       <DrawerFooter
-          backgroundColor={footerBackgroundColor}>
-          {showFooter && open ?
-          <>
-          <Divider/>
-          <div style={{'display': 'flex', 'justifyContent': 'center'}}>
-             <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
-          </div>
-          </>: ''}
-       </DrawerFooter>
-
-    </Drawer>
+             <DrawerFooter
+                backgroundColor={footerBackgroundColor}>
+                {showFooter && open ?
+                <>
+                <Divider/>
+                <div style={{'display': 'flex', 'justifyContent': 'center'}}>
+                   <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
+                </div>
+                </>: ''}
+             </DrawerFooter>
+         </Drawer>
+      ]}
+    </State>
 });
 
 stories.add('with custom header', () => {
-   const open = boolean('Open', true);
-   return <Drawer open={open}>
-      <DrawerHeader
-         backgroundImage={farmBgImage}
-         icon={<MenuIcon />}
-         content={
-         <div style={{zIndex: 1, 'paddingLeft': '20px', 'paddingTop': '15px'}}>
-            <Typography variant="subtitle2">Customizable</Typography>
-            <Typography variant="h6" style={{'marginTop': '-10px'}}>Header Content Goes Here</Typography>
-         </div>} />
-      {defaultBody}
-       </Drawer>
+   return <State store={store}>
+      {state => [
+          <Drawer open={state.open}>
+              <DrawerHeader
+                  backgroundImage={farmBgImage}
+                  icon={<MenuIcon />}
+                  onIconClick={() =>  {
+                     store.set({ open: !state.open })
+                  }}
+                  content={
+                     <div style={{zIndex: 1, 'paddingLeft': '20px', 'paddingTop': '15px'}}>
+                        <Typography variant="subtitle2">Customizable</Typography>
+                        <Typography variant="h6" style={{'marginTop': '-10px'}}>Header Content Goes Here</Typography>
+                     </div>} />
+             {defaultDrawerBody(state)}
+          </Drawer>
+      ]}
+   </State>
 });
 
 stories.add('with subheader', () => {
-   const open = boolean('Open', true);
     const label = 'content';
     const valuesObj = {
         Filter: 'Filter',
@@ -321,22 +336,29 @@ stories.add('with subheader', () => {
         </ExpansionPanelDetails>
     </ExpansionPanel>;
 
-    return <Drawer open={open}>
-       <DrawerHeader
-          icon={<MenuIcon />}
-          title={"Subheader Demo"} />
-       <DrawerSubheader>
-          <div
-             style={{
-                visibility: (open ? 'inherit' : 'hidden'),
-                display: 'flex',
-                justifyContent: 'center',
-                padding: '20px'
-             }}>
-             {value === 'Filter' ? filter : accordion}
-          </div>
-       </DrawerSubheader>
-       {defaultBody}
-    </Drawer>
+    return <State store={store}>
+       {state => [
+          <Drawer open={state.open}>
+             <DrawerHeader
+                icon={<MenuIcon />}
+                title={"Subheader Demo"}
+                onIconClick={() =>  {
+                   store.set({ open: !state.open })
+                }} />
+             <DrawerSubheader>
+                <div
+                   style={{
+                      visibility: (open ? 'inherit' : 'hidden'),
+                      display: 'flex',
+                      justifyContent: 'center',
+                      padding: '20px'
+                   }}>
+                   {value === 'Filter' ? filter : accordion}
+                </div>
+             </DrawerSubheader>
+             {defaultDrawerBody(state)}
+          </Drawer>
+       ]}
+    </State>
 });
 
