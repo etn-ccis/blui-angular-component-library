@@ -17,7 +17,7 @@ addParameters({
 });
 
 // automatically import all files ending in *.stories.js
-configure(require.context('../stories', true, /drawer\.stories\.(js|tsx)$/), module);
+configure(require.context('../stories', true, /\.stories\.(js|tsx)$/), module);
 
 addDecorator(storyFn =>
     <MuiThemeProvider theme={createMuiTheme(ReactThemes.blue)}>
