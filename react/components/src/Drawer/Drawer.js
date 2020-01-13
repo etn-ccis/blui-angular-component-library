@@ -80,7 +80,7 @@ class SideNav extends React.Component {
     getMobileNavigationMenu() {
         const { classes, theme } = this.props;
         return (
-            <Drawer
+            <Drawer {...this.props}
                 open={this.isDrawerOpen()}
                 classes={{ paper: classes.drawer }}>
                 <div className={classes.smooth + ' ' + classes.content}
@@ -97,10 +97,11 @@ class SideNav extends React.Component {
         const contentWidth = this.props.width || theme.spacing(45);
         return (
             <>
-                <Drawer variant="permanent"
-                        open={this.isDrawerOpen()}
-                        classes={{paper: classes.paper}}
-                        style={{minHeight: '100%'}}>
+            <Drawer {...this.props}
+                    variant="permanent"
+                    open={this.isDrawerOpen()}
+                    classes={{paper: classes.paper}}
+                    style={{minHeight: '100%'}}>
 
                     <div className={classes.smooth}
                          style={{ width: containerWidth }} >
