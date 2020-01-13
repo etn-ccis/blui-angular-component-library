@@ -43,6 +43,7 @@ class DrawerNavGroup extends React.Component {
                 {items.map((item, index) => (
                     <>
                         {this.NavigationListItem({
+                            key: (this.props.title + '_item_' + index),
                             title: item.title,
                             subtitle: item.subtitle,
                             icon: item.icon,
@@ -58,7 +59,7 @@ class DrawerNavGroup extends React.Component {
         );
     }
 
-    NavigationListItem({ title, subtitle, icon, statusColor, onClick, active }) {
+    NavigationListItem({ key, title, subtitle, icon, statusColor, onClick, active }) {
         if (!title && !icon) {
             return <></>
         }
@@ -71,7 +72,7 @@ class DrawerNavGroup extends React.Component {
         };
 
         return (
-            <div style={{position: 'relative'}} className={classes.listItem + ' ' + (active && classes.listItemNoHover)}>
+            <div style={{position: 'relative'}} className={classes.listItem + ' ' + (active && classes.listItemNoHover)} key={key}>
                 {active &&
                 <div className={classes.selected}
                      style={{backgroundColor: selectedColor || defaultSelectedBackgroundColor}} />}
