@@ -30,7 +30,7 @@ import {action} from "@storybook/addon-actions";
 // @ts-ignore
 
 import { State, Store } from "@sambego/storybook-state";
-import {boolean, color, number, object, optionsKnob, select, text, withKnobs} from '@storybook/addon-knobs';
+import {boolean, color, number, optionsKnob, select, text, withKnobs} from '@storybook/addon-knobs';
 import {OptionsKnobOptionsDisplay} from "@storybook/addon-knobs/dist/components/types/Options";
 import {storiesOf} from '@storybook/react';
 import React from 'react';
@@ -45,8 +45,6 @@ stories.addDecorator(withKnobs);
 stories.addParameters({
    notes: { markdown: require('./../../../docs/Drawer.md')}
 });
-
-let selected: string = 'Notifications';
 
 const store = new Store({
    open: true,
@@ -109,7 +107,6 @@ stories.add('with standard inputs', () => {
     const bodyGroupId = 'Body';
     const footerGroupId = 'Footer';
 
-   const open = boolean('Open', true, drawerGroupId);
    const width = number('Width', 350, {
       range: true,
       min: 200,
@@ -171,62 +168,103 @@ stories.add('with standard inputs', () => {
     }, bodyGroupId);
 
 
-    const links1 = [
+    const overview = 'Overview';
+    const timeline = 'Timeline';
+    const locations = 'Locations';
+    const devices = 'Devices';
+    const photos = 'Photos';
+    const schedule = 'Schedule';
+    const userGuide = 'User Guide';
+    const agreement = 'License Agreement';
+    const accessibility = 'Accessibility';
+    const notifications = 'Notifications';
+
+    const links1 = (state: any) => [
         {
-            title: 'Overview',
-            onClick: action('Overview'),
+            title: overview,
+           onClick: () => {
+              store.set({ selected: overview });
+           },
             icon: <Dashboard/>,
+           active: state.selected === overview
         },
         {
-            title: 'Timeline',
-            onClick: action('Timeline'),
-            icon: <Toc/>
+            title: timeline,
+           onClick: () => {
+              store.set({ selected: timeline });
+           },
+            icon: <Toc/>,
+           active: state.selected === timeline
         },
         {
-            title: 'Locations',
-            onClick: action('Locations'),
-            icon: <PinDrop/>
+            title: locations,
+            onClick: () => {
+              store.set({ selected: locations });
+            },
+            icon: <PinDrop/>,
+           active: state.selected === locations
         },
         {
-            title: 'Devices',
+            title: devices,
             subtitle: '5 new warnings',
             statusColor: Colors.yellow[500],
-            onClick: action('Devices'),
-            icon: <Devices/>
+           onClick: () => {
+              store.set({ selected: devices });
+           },
+            icon: <Devices/>,
+           active: state.selected === devices
         },
         {
-            title: 'Photos',
-            onClick: action('Photos'),
-            icon: <AddAPhoto/>
+            title: photos,
+           onClick: () => {
+              store.set({ selected: photos });
+           },
+            icon: <AddAPhoto/>,
+           active: state.selected === photos
         },
         {
-            title: 'Schedule',
-            onClick: action('Schedule'),
-            icon: <AirportShuttle/>
+            title: schedule,
+           onClick: () => {
+              store.set({ selected: schedule });
+           },
+            icon: <AirportShuttle/>,
+           active: state.selected === schedule
         },
     ].slice(0, numberLinksGroup1);
 
-    const links2 = [
+    const links2 = (state: any) => [
         {
-            title: 'User Guide',
-            onClick: action('User Guide'),
-            icon: <MoveToInboxIcon/>
+            title: userGuide,
+           onClick: () => {
+              store.set({ selected: userGuide });
+           },
+            icon: <MoveToInboxIcon/>,
+           active: state.selected === userGuide
         },
         {
-            title: 'License Agreement',
+            title: agreement,
             subtitle: 'For Eaton employees only',
-            onClick: action('License Agreement'),
-            icon: <SendIcon/>
+           onClick: () => {
+              store.set({ selected: agreement });
+           },
+            icon: <SendIcon/>,
+           active: state.selected === agreement
         },
         {
-            title: 'Accessibility',
-            onClick: action('Accessibility'),
-            icon: <Accessibility/>
+            title: accessibility,
+           onClick: () => {
+              store.set({ selected: accessibility });
+           },
+            icon: <Accessibility/>,
+           active: state.selected === accessibility
         },
         {
-            title: 'Notifications',
-            onClick: action('Notifications'),
-            icon: <NotificationsActive/>
+            title: notifications,
+           onClick: () => {
+              store.set({ selected: notifications });
+           },
+            icon: <NotificationsActive/>,
+           active: state.selected === notifications
         }
     ].slice(0, numberLinksGroup2);
 
@@ -241,6 +279,9 @@ stories.add('with standard inputs', () => {
                 title={headerTitle}
                 subtitle={headerSubtitle}
                 icon={headerIcon}
+                onIconClick={() =>  {
+                   store.set({ open: !state.open })
+                }}
                 backgroundImage={headerBackgroundImage}
                 fontColor={headerFontColor}
                 backgroundColor={headerBackgroundColor}
@@ -257,8 +298,8 @@ stories.add('with standard inputs', () => {
                 selectedColor={bodySelectedColor}
                 backgroundColor={bodyBackgroundColor}
                 chevron={bodyChevron} >
-                <DrawerNavGroup items={links1} title={groupTitle1} />
-                <DrawerNavGroup items={links2} content={
+                <DrawerNavGroup items={links1(state)} title={groupTitle1} />
+                <DrawerNavGroup items={links2(state)} content={
                    <div style={{'display': 'flex', 'justifyContent': 'space-between'}}>
                       <div>{groupTitle2}</div>
                       <div>Software Version v1.0.3</div>
@@ -348,7 +389,7 @@ stories.add('with subheader', () => {
              <DrawerSubheader>
                 <div
                    style={{
-                      visibility: (open ? 'inherit' : 'hidden'),
+                      visibility: (state.open ? 'inherit' : 'hidden'),
                       display: 'flex',
                       justifyContent: 'center',
                       padding: '20px'
