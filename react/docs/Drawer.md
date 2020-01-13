@@ -33,14 +33,14 @@ It can be used to toggle the `Drawer` open or closed and it supports multi-line 
 ### Drawer Header API
 | Prop Name       | Description                             | Type          | Required | Default            |
 |-----------------|-----------------------------------------|---------------|----------|--------------------|
-| title           |  Main text                              | `string`      | no      |                    |   
-| subtitle        | Secondary text                          | `string`      | no       |                    |
-| fontColor       | Text color                              | `string`      | no       | `Colors.white[50]` |
 | backgroundColor | Background color                        | `string`      | no       | `Colors.blue[500]` |
 | backgroundImage | Gradient or Image background            | `string`      | no       |                    |
-| icon            | Used to toggle drawer open or closed    | `JSX Element` | no       |                    | 
 | content         | Custom content for header               | `JSX Element` | no       |                    |
+| fontColor       | Text color                              | `string`      | no       | `Colors.white[50]` |
+| icon            | Used to toggle drawer open or closed    | `JSX Element` | no       |                    | 
 | onIconClick     | Function to run when icon is clicked    | `function`    | no       | `() => {}`         |
+| subtitle        | Secondary text                          | `string`      | no       |                    |
+| title           |  Main text                              | `string`      | no       |                    |   
 
 ## Drawer Subheader
 The `DrawerSubheader` is an optional section that renders below the header and above the body of the `Drawer`.
@@ -72,12 +72,12 @@ return  <DrawerBody>
 
 ### Drawer Body API
 | Prop Name       | Description                             | Type          | Required | Default |
-|-----------------|-----------------------------------------|---------------|----------|---------|
+|-----------------|-----------------------------------------|---------------|----------|---------| 
+| backgroundColor | Background color                        | `string`      | no       |         |  
 | fontColor       | Text color                              | `string`      | no       |         |   
-| backgroundColor | Background color                        | `string`      | no       |         |   
+| iconColor       | Icon color                              | `string`      | no       |         |    
+| titleColor      | Navigation group title color            | `string`      | no       |         |  
 | selectedColor   | Selected nav item color                 | `string`      | no       |         |   
-| iconColor       | Icon color                              | `string`      | no       |         |   
-| titleColor      | Navigation group title color            | `string`      | no       |         |   
 
 
 
@@ -88,14 +88,14 @@ Each group consists of a group title and a series of navigation items.
 ### Drawer NavGroup API
 | Prop Name       | Description                             | Type          | Required | Default |
 |-----------------|-----------------------------------------|---------------|----------|---------|
-| title           | Title of the group                      | `string`      | no       |         |  
-| items           | List of navigation items to render      | `Object[]`    | no       |         |  
-| fontColor       | Text color                              | `string`      | no       |         |   
 | backgroundColor | Background color                        | `string`      | no       |         |   
-| selectedColor   | Selected nav item color                 | `string`      | no       |         |   
-| iconColor       | Icon color                              | `string`      | no       |         |   
-| titleColor      | Navigation group title color            | `string`      | no       |         |  
 | content         | Custom element, substitute for title    | `JSX Element` | no       |         |    
+| fontColor       | Text color                              | `string`      | no       |         |   
+| iconColor       | Icon color                              | `string`      | no       |         |   
+| items           | List of navigation items to render      | `Object[]`    | no       |         |  
+| title           | Title of the group                      | `string`      | no       |         |  
+| titleColor      | Navigation group title color            | `string`      | no       |         |  
+| selectedColor   | Selected nav item color                 | `string`      | no       |         |   
 
 
 ## Drawer Footer
