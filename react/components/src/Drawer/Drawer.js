@@ -54,7 +54,7 @@ class SideNav extends React.Component {
     getSubHeader() {
         const subheader = this.findChildByType('DrawerSubheader')[0];
         return <>
-            {subheader && React.cloneElement(subheader)}
+            {subheader && React.cloneElement(subheader, { open: this.isDrawerOpen() })}
         </>;
     }
 
@@ -73,7 +73,7 @@ class SideNav extends React.Component {
     getFooter() {
         const footer = this.findChildByType('DrawerFooter')[0];
         return <>
-            {footer && React.cloneElement(footer)}
+            {footer && React.cloneElement(footer, { open: this.isDrawerOpen() })}
         </>;
     }
 

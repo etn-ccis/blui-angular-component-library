@@ -1,7 +1,6 @@
 import React from 'react';
 
 import {withStyles} from '@material-ui/core/styles';
-import Divider from "@material-ui/core/Divider";
 import PropTypes from "prop-types";
 
 
@@ -13,23 +12,24 @@ class DrawerFooter extends React.Component {
 
     render() {
         const { classes } = this.props;
+        console.log('footer!');
         return (
-            <>
-                <div
-                    className={classes.root}
-                    style={{
-                        backgroundColor: this.props.backgroundColor
-                    }}
-                >
-                    {this.props.children}
-                </div>
-            </>
+            <div
+                className={classes.root}
+                style={{
+                    visibility: (open ? 'inherit' : 'hidden'),
+                    backgroundColor: this.props.backgroundColor
+                }}
+            >
+                {this.props.children}
+            </div>
         );
     }
 }
 
 DrawerFooter.propTypes = {
     backgroundColor: PropTypes.string,
+    open: PropTypes.bool
 };
 
 const styles = theme => ({
