@@ -116,8 +116,6 @@ class SideNav extends React.Component {
     }
 
     getDrawerContents() {
-        const { classes, theme } = this.props;
-
         return  (
             <>
             {this.getHeader()}
