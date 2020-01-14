@@ -12,7 +12,6 @@ class DrawerFooter extends React.Component {
 
     render() {
         const { classes } = this.props;
-        console.log('footer!');
         return (
             <div
                 className={classes.root}
