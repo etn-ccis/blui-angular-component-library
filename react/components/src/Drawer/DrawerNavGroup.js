@@ -65,7 +65,7 @@ class DrawerNavGroup extends React.Component {
             return <></>
         }
 
-        const { classes, theme, selectedColor, iconColor, fontColor, chevron } = this.props;
+        const { classes, theme, iconColor, fontColor, chevron, activeFontColor, activeIconColor, activeBackgroundColor } = this.props;
         const defaultSelectedBackgroundColor = theme.palette.secondary[50];
         const action = () => {
             this.props.onSelect();
@@ -75,16 +75,16 @@ class DrawerNavGroup extends React.Component {
         return (
             <div style={{position: 'relative'}} className={classes.listItem + ' ' + (active && classes.listItemNoHover)}>
                 {active &&
-                <div className={classes.selected}
-                     style={{backgroundColor: selectedColor || defaultSelectedBackgroundColor}} />}
+                <div className={classes.active}
+                     style={{backgroundColor: activeBackgroundColor || defaultSelectedBackgroundColor}} />}
                 <InfoListItem dense
                               title={title}
                               subtitle={subtitle}
                               divider={'full'}
                               statusColor={statusColor}
-                              fontColor={fontColor}
+                              fontColor={active ? activeFontColor : fontColor}
                               icon={icon}
-                              iconColor={iconColor}
+                              iconColor={active ? activeIconColor : iconColor}
                               chevron={chevron}
                               backgroundColor={'transparent'}
                               onClick={() => action()}
@@ -121,7 +121,7 @@ const styles = theme => ({
             backgroundColor: 'unset',
         }
     },
-    selected: {
+    active: {
         content: '""',
         zIndex: 0,
         position: 'absolute',
@@ -151,7 +151,9 @@ DrawerNavGroup.propTypes = {
     })),
     fontColor: PropTypes.string,
     backgroundColor: PropTypes.string,
-    selectedColor: PropTypes.string,
+    activeFontColor: PropTypes.string,
+    activeBackgroundColor: PropTypes.string,
+    activeIconColor: PropTypes.string,
     iconColor: PropTypes.string,
     titleColor: PropTypes.string,
     chevron: PropTypes.bool

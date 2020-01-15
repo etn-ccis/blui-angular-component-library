@@ -29,7 +29,12 @@ class DrawerBody extends React.Component {
                             onSelect: this.props.onSelect,
                             fontColor: child.props.fontColor || this.props.fontColor,
                             iconColor: child.props.iconColor || this.props.iconColor,
-                            selectedColor: child.props.selectedColor || this.props.selectedColor,
+
+                            activeFontColor: child.props.activeFontColor || this.props.activeFontColor,
+                            activeBackgroundColor: child.props.activeBackgroundColor || this.props.activeBackgroundColor,
+                            activeIconColor: child.props.activeIconColor || this.props.activeIconColor,
+
+
                             backgroundColor: child.props.backgroundColor || this.props.backgroundColor,
                             titleColor: child.props.titleColor || this.props.titleColor,
                             chevron: (child.props.chevron === undefined ? this.props.chevron : child.props.chevron)
@@ -55,7 +60,11 @@ DrawerBody.propTypes = {
 
     fontColor: PropTypes.string,
     backgroundColor: PropTypes.string,
-    selectedColor: PropTypes.string,
+
+    activeFontColor: PropTypes.string,
+    activeBackgroundColor: PropTypes.string,
+    activeIconColor: PropTypes.string,
+
     iconColor: PropTypes.string,
     titleColor: PropTypes.string,
     chevron: PropTypes.bool,

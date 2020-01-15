@@ -150,7 +150,9 @@ stories.add('with standard inputs', () => {
     const bodyFontColor = color('fontColor', Colors.black[500], bodyGroupId);
     const bodyIconColor = color('iconColor', Colors.blue[500], bodyGroupId);
     const bodyBackgroundColor = color('backgroundColor', Colors.white[50], bodyGroupId);
-    const bodySelectedColor = color('selectedColor', Colors.blue[50], bodyGroupId);
+    const bodyActiveFontColor = color('activeFontColor', Colors.blue[500], bodyGroupId);
+    const bodyActiveIconColor = color('activeIconColor', Colors.blue[500], bodyGroupId);
+    const bodyActiveBackgroundColor = color('activeBackgroundColor', Colors.blue[50], bodyGroupId);
     const bodyChevron = boolean('chevron', false, bodyGroupId);
 
     const numberLinksGroup1 = number('links1', 4, {
@@ -291,8 +293,10 @@ stories.add('with standard inputs', () => {
              <DrawerBody
                 iconColor={bodyIconColor}
                 fontColor={bodyFontColor}
-                selectedColor={bodySelectedColor}
                 backgroundColor={bodyBackgroundColor}
+                activeFontColor={bodyActiveFontColor}
+                activeBackgroundColor={bodyActiveBackgroundColor}
+                activeIconColor={bodyActiveIconColor}
                 chevron={bodyChevron} >
                 <DrawerNavGroup items={links1(state)} title={groupTitle1} />
                 <DrawerNavGroup items={links2(state)} content={

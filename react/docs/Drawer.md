@@ -71,14 +71,15 @@ return  <DrawerBody>
 ```
 
 ### Drawer Body API
-| Prop Name       | Description                             | Type          | Required | Default |
-|-----------------|-----------------------------------------|---------------|----------|---------| 
-| backgroundColor | Background color                        | `string`      | no       |         |  
-| fontColor       | Text color                              | `string`      | no       |         |   
-| iconColor       | Icon color                              | `string`      | no       |         |    
-| titleColor      | Navigation group title color            | `string`      | no       |         |  
-| selectedColor   | Selected nav item color                 | `string`      | no       |         |   
-
+| Prop Name               | Description                             | Type          | Required | Default |
+|-------------------------|-----------------------------------------|---------------|----------|---------| 
+| activeBackgroundColor   | Active nav item background color        | `string`      | no       |         |   
+| activeFontColor         | Active nav item text color              | `string`      | no       |         |   
+| activeIconColor         | Active nav item icon color              | `string`      | no       |         |   
+| backgroundColor         | Background color                        | `string`      | no       |         |  
+| fontColor               | Text color                              | `string`      | no       |         |   
+| iconColor               | Icon color                              | `string`      | no       |         |    
+| titleColor              | Navigation group title color            | `string`      | no       |         |  
 
 
 ## Drawer NavGroup 
@@ -86,16 +87,17 @@ A `DrawerNavGroup` will render inside of the `DrawerBody` and is used to organiz
 Each group consists of a group title and a series of navigation items.
 
 ### Drawer NavGroup API
-| Prop Name       | Description                             | Type          | Required | Default                       |
-|-----------------|-----------------------------------------|---------------|----------|-------------------------------|
-| backgroundColor | Background color                        | `string`      | no       | Drawer Body Background Color  |   
-| content         | Custom element, substitute for title    | `JSX Element` | no       |                               |    
-| fontColor       | Text color                              | `string`      | no       | Drawer Body Font Color        |   
-| iconColor       | Icon color                              | `string`      | no       | Drawer Body Icon Color        |   
-| items           | List of navigation items to render      | `Item[]`      | no       |                               |  
-| title           | Title of the group                      | `string`      | no       |                               |  
-| titleColor      | Navigation group title color            | `string`      | no       |                               |  
-| selectedColor   | Selected nav item color                 | `string`      | no       | Drawer Body Selected Color     |   
+| Prop Name             | Description                             | Type          | Required | Default                             |
+|-----------------------|-----------------------------------------|---------------|----------|-------------------------------------|
+| activeBackgroundColor | Active nav item background color        | `string`      | no       | Drawer Body Active Background Color |   
+| activeFontColor       | Active nav item text color              | `string`      | no       | Drawer Body Active Font Color       |   
+| activeIconColor       | Active nav item icon color              | `string`      | no       | Drawer Body Active Icon Color       |   
+| backgroundColor       | Background color                        | `string`      | no       | Drawer Body Background Color        |   
+| content               | Custom element, substitute for title    | `JSX Element` | no       |                                     |    
+| fontColor             | Text color                              | `string`      | no       | Drawer Body Font Color              |   
+| iconColor             | Icon color                              | `string`      | no       | Drawer Body Icon Color              |   
+| items                 | List of navigation items to render      | `Item[]`      | no       |                                     |  
+| title                 | Title of the group                      | `string`      | no       |                                     |  
 
 
 ### Item Object
