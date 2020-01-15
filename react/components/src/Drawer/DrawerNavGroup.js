@@ -61,7 +61,9 @@ class DrawerNavGroup extends React.Component {
     }
 
     NavigationListItem({ title, subtitle, icon, statusColor, onClick, active }) {
-
+        if (!title && !icon) {
+            return <></>
+        }
 
         const { classes, theme, selectedColor, iconColor, fontColor, chevron } = this.props;
         const defaultSelectedBackgroundColor = theme.palette.secondary[50];
