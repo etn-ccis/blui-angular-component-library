@@ -48,27 +48,22 @@ const defaultBody = <DrawerBody>
         title: 'Devices',
         onClick: action('Devices'),
         icon: <NotificationsActive/>
+      },
+      {
+         title: 'Settings',
+         onClick: action('Settings'),
+         icon: <Settings/>
+      },
+      {
+         title: 'Legal',
+         onClick: action('Legal'),
+         icon: <Gavel/>
+      },
+      {
+         title: 'Help',
+         onClick: action('Help'),
+         icon: <Help/>
       }]} />
-      <div style={{flex: '1 0 0px'}} />
-
-      <DrawerNavGroup items={[
-          {
-             title: 'Settings',
-             onClick: action('Settings'),
-             icon: <Settings/>
-          },
-          {
-             title: 'Legal',
-             onClick: action('Legal'),
-             icon: <Gavel/>
-          },
-          {
-             title: 'Help',
-             onClick: action('Help'),
-             icon: <Help/>
-          },
-       ]
-    } />
 </DrawerBody>;
 
 
