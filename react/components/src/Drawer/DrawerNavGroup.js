@@ -39,11 +39,12 @@ class DrawerNavGroup extends React.Component {
                     </ListSubheader>
                 }
             >
-                {(this.props.title || this.props.content) && <Divider />}
+                <div key={this.props.title+'_title'}>
+                    {(this.props.title || this.props.content) && <Divider />}
+                </div>
                 {items.map((item, index) => (
-                    <>
+                    <div key={this.props.title + '_item_' + index}>
                         {this.NavigationListItem({
-                            key: (this.props.title + '_item_' + index),
                             title: item.title,
                             subtitle: item.subtitle,
                             icon: item.icon,
@@ -51,7 +52,7 @@ class DrawerNavGroup extends React.Component {
                             onClick: item.onClick,
                             active: item.active,
                         })}
-                    </>
+                    </div>
                 ))}
             </List>
             <Divider />
@@ -59,10 +60,8 @@ class DrawerNavGroup extends React.Component {
         );
     }
 
-    NavigationListItem({ key, title, subtitle, icon, statusColor, onClick, active }) {
-        if (!title && !icon) {
-            return <></>
-        }
+    NavigationListItem({ title, subtitle, icon, statusColor, onClick, active }) {
+
 
         const { classes, theme, selectedColor, iconColor, fontColor, chevron } = this.props;
         const defaultSelectedBackgroundColor = theme.palette.secondary[50];
@@ -72,7 +71,7 @@ class DrawerNavGroup extends React.Component {
         };
 
         return (
-            <div style={{position: 'relative'}} className={classes.listItem + ' ' + (active && classes.listItemNoHover)} key={key}>
+            <div style={{position: 'relative'}} className={classes.listItem + ' ' + (active && classes.listItemNoHover)}>
                 {active &&
                 <div className={classes.selected}
                      style={{backgroundColor: selectedColor || defaultSelectedBackgroundColor}} />}
