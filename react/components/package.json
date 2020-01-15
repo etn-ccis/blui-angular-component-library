@@ -2,11 +2,15 @@
   "name": "@pxblue/react-components",
   "version": "1.0.0",
   "description": "Reusable React components for PX Blue applications",
-  "main": "./dist/index.js",
+  "main": "index.ts",
   "scripts": {
     "test": "jest src/",
-    "build": "yarn && babel src --presets @babel/preset-react,@babel/preset-env --out-dir ../core"
+    "build": "tsc",
+    "lint": "eslint \"src/**/**.{tsx,ts}\"",
+    "lint:fix": "eslint \"src/**/**.{tsx,ts}\" --fix",
+    "prettier": "prettier \"src/**/**.{ts,tsx,js,jsx,json,css,scss,html}\" --write"
   },
+  "prettier": "@pxblue/prettier-config",
   "dependencies": {
     "color": "^3.1.2"
   },
@@ -17,17 +21,28 @@
     "@babel/preset-react": "^7.0.0",
     "@material-ui/core": "^4.0.0",
     "@material-ui/icons": "^3.0.2",
+    "@pxblue/eslint-config": "^1.1.2",
+    "@pxblue/prettier-config": "^1.0.1",
     "@pxblue/themes": "^1.0.26",
+    "@types/jest": "^24.9.0",
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
     "babel-jest": "^24.0.0",
     "babel-polyfill": "^6.26.0",
     "enzyme": "^3.5.0",
     "enzyme-adapter-react-16": "^1.8.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-react": "^7.17.0",
     "jest": "^24.0.0",
+    "prettier": "^1.19.1",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "typescript": "^3.7.4"
   },
   "peerDependencies": {
     "@material-ui/core": "^3.9.3",
+    "@pxblue/colors": "^2.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },

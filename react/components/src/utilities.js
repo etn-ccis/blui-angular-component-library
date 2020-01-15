@@ -9,15 +9,13 @@ export function interleave(array, separator) {
         output.push(element);
     });
     return output;
-};
+}
 export function separate(array, interpunct) {
     return interleave(array, () => interpunct());
 }
 export function withKeys(array) {
-    return array.map((element, index) => (
-        <React.Fragment key={index}>{element}</React.Fragment>
-    ))
+    return array.map((element, index) => <React.Fragment key={index}>{element}</React.Fragment>);
 }
-export const combine = (list) => {
+export const combine = list => {
     return list.join(' ');
-}
+};
