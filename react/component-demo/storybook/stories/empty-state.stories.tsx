@@ -12,6 +12,7 @@ import AlertIcon from '@material-ui/icons/NotificationImportant';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
 import {text, withKnobs} from '@storybook/addon-knobs';
 import {storiesOf} from '@storybook/react';
+const README = require('./../../../docs/EmptyState.md').default;
 
 export const stories = storiesOf('Empty State', module);
 stories.addDecorator(withKnobs);

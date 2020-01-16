@@ -1,6 +1,6 @@
 {
   "name": "@pxblue/react-components",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Reusable React components for PX Blue applications",
   "main": "index.ts",
   "scripts": {
@@ -41,8 +41,8 @@
     "typescript": "^3.7.4"
   },
   "peerDependencies": {
-    "@material-ui/core": "^3.9.3",
     "@pxblue/colors": "^2.0.0",
+    "@material-ui/core": "^4.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
