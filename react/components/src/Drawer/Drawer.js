@@ -1,35 +1,41 @@
 import React from 'react';
-import PropTypes from "prop-types";
 
 import {withStyles} from '@material-ui/core/styles';
-import {Drawer, Typography} from '@material-ui/core';
-import Divider from '@material-ui/core/Divider';
-
-import ListSubheader from '@material-ui/core/ListSubheader';
-import List from '@material-ui/core/List';
-import ListItem from '@material-ui/core/ListItem';
-import ListItemIcon from '@material-ui/core/ListItemIcon';
-import ListItemText from '@material-ui/core/ListItemText';
+import {Drawer} from '@material-ui/core';
 import DrawerHeader from "./DrawerHeader";
 import DrawerSubheader from "./DrawerSubheader";
 import DrawerBody from "./DrawerBody";
 import DrawerFooter from "./DrawerFooter";
 import Hidden from "@material-ui/core/Hidden";
 import Backdrop from "@material-ui/core/Backdrop";
-import {InfoListItem} from "../index";
-import * as PXBColors from "@pxblue/colors";
 
 class SideNav extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            hovered: false
+            hovered: false,
+            backdropClicked: false
         };
     }
 
+    componentDidUpdate(nextProps) {
+        const { open } = this.props;
+        if (nextProps.open !== open) {
+            this.setState({
+                backdropClicked: false
+            });
+        }
+    }
+
     isDrawerOpen() {
-        return this.state.hover || this.props.open;
+        return (this.state.hover || this.props.open) && !this.state.backdropClicked;
+    }
+
+    handleDrawerClose() {
+        this.setState({
+            backdropClicked: true
+        });
     }
 
     findChildByType(type) {
@@ -82,7 +88,8 @@ class SideNav extends React.Component {
         return (
             <Drawer {...this.props}
                 open={this.isDrawerOpen()}
-                classes={{ paper: classes.drawer }}>
+                classes={{ paper: classes.drawer }}
+                ModalProps={{ onBackdropClick: () => { this.handleDrawerClose() }} }>
                 <div className={classes.smooth + ' ' + classes.content}
                      style={{width: theme.spacing(45)}}>
                     {this.getDrawerContents()}
@@ -142,7 +149,9 @@ class SideNav extends React.Component {
             <>
             <Hidden smUp>
                 {this.getMobileNavigationMenu()}
-                <Backdrop open={this.isDrawerOpen()}/>
+                <Backdrop
+                    open={this.isDrawerOpen()}
+                />
             </Hidden>
 
             <Hidden xsDown>
