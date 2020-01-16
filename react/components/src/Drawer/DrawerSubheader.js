@@ -10,11 +10,14 @@ class DrawerSubheader extends React.Component {
     }
 
     render() {
+        const { children, open } = this.props;
         return  (
-            <div style={{visibility: (open ? 'inherit' : 'hidden')}}>
-                {this.props.children}
+            <>
+                <div style={{visibility: (open ? 'inherit' : 'hidden')}}>
+                    {children}
+                </div>
                 <Divider />
-            </div>
+            </>
         );
     }
 }

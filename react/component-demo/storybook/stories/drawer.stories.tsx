@@ -385,7 +385,6 @@ stories.add('with subheader', () => {
              <DrawerSubheader>
                 <div
                    style={{
-                      visibility: (open ? 'inherit' : 'hidden'),
                       display: 'flex',
                       justifyContent: 'center',
                       padding: '20px'
