@@ -1,3 +1,4 @@
+import {CSSProperties} from "@material-ui/styles";
 import React from 'react';
 import { Card, Typography, Divider, StyleRules, WithStyles, WithTheme, Theme } from '@material-ui/core';
 //@ts-ignore
@@ -16,7 +17,7 @@ type ScoreCordProps = {
     badgeOffset?: number;
     actionRow?: JSX.Element;
     actionLimit?: number;
-    style?: StyleRules;
+    style?: CSSProperties;
 } & WithStyles &
     WithTheme;
 
@@ -27,6 +28,7 @@ class ScoreCardClass extends React.Component<ScoreCordProps> {
 
     render(): JSX.Element {
         const { classes, style, headerColor } = this.props;
+        console.log(style);
         return (
             <Card className={classes.card} style={style}>
                 <div

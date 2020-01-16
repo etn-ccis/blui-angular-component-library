@@ -1,11 +1,9 @@
 import React from 'react';
 
-import {withStyles} from '@material-ui/core/styles';
-import PropTypes from "prop-types";
-
+import { withStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 class DrawerFooter extends React.Component {
-
     constructor(props) {
         super(props);
     }
@@ -16,8 +14,8 @@ class DrawerFooter extends React.Component {
             <div
                 className={classes.root}
                 style={{
-                    visibility: (open ? 'inherit' : 'hidden'),
-                    backgroundColor: this.props.backgroundColor
+                    visibility: open ? 'inherit' : 'hidden',
+                    backgroundColor: this.props.backgroundColor,
                 }}
             >
                 {this.props.children}
@@ -28,13 +26,13 @@ class DrawerFooter extends React.Component {
 
 DrawerFooter.propTypes = {
     backgroundColor: PropTypes.string,
-    open: PropTypes.bool
+    open: PropTypes.bool,
 };
 
 const styles = theme => ({
     root: {
         width: '100%',
-    }
+    },
 });
 
 export default withStyles(styles)(DrawerFooter);

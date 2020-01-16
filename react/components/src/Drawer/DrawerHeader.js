@@ -1,63 +1,67 @@
 import React from 'react';
 
-import {withStyles} from '@material-ui/core/styles';
+import { withStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Divider from '@material-ui/core/Divider';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import * as Colors from '@pxblue/colors';
-import {Typography} from "@material-ui/core";
+import { Typography } from '@material-ui/core';
 
 class DrawerHeader extends React.Component {
-
     constructor(props) {
         super(props);
     }
 
     getHeaderContent() {
         const { classes } = this.props;
-        return this.props.titleContent || (
-            <div className={classes.content}>
+        return (
+            this.props.titleContent || (
+                <div className={classes.content}>
+                    <Typography noWrap variant={'h6'} className={classes.title}>
+                        {this.props.title}
+                    </Typography>
 
-                <Typography noWrap variant={'h6'} className={classes.title}>
-                    {this.props.title}
-                </Typography>
-
-                {this.props.subtitle &&
-                    <Typography noWrap variant={'subtitle1'} className={classes.subtitle}>
-                        {this.props.subtitle}
-                    </Typography>}
-            </div>
+                    {this.props.subtitle && (
+                        <Typography noWrap variant={'subtitle1'} className={classes.subtitle}>
+                            {this.props.subtitle}
+                        </Typography>
+                    )}
+                </div>
+            )
         );
     }
 
     backgroundImage() {
         const { backgroundImage, classes } = this.props;
         if (backgroundImage) {
-            return (
-                <div className={classes.headerBackground} style={{ backgroundImage: `url(${backgroundImage})` }} />
-            );
+            return <div className={classes.headerBackground} style={{ backgroundImage: `url(${backgroundImage})` }} />;
         }
     }
 
     render() {
-        const { classes, icon, theme} = this.props;
+        const { classes, icon, theme } = this.props;
         return (
             <>
                 <Toolbar
-                     className={classes.root}
-                     style={{
-                         color: this.props.fontColor || Colors.white[50], // TODO: Dark theme
-                         backgroundColor: this.props.backgroundColor || theme.palette.primary[500],
-                     }}
+                    className={classes.root}
+                    style={{
+                        color: this.props.fontColor || Colors.white[50], // TODO: Dark theme
+                        backgroundColor: this.props.backgroundColor || theme.palette.primary[500],
+                    }}
                 >
                     {this.backgroundImage()}
-                    {icon && <div className={classes.navigation}>
-                        <IconButton className={classes.icon} color={'inherit'}
-                                    onClick={() => this.props.onIconClick()}>
-                            {icon}
-                        </IconButton>
-                    </div>}
+                    {icon && (
+                        <div className={classes.navigation}>
+                            <IconButton
+                                className={classes.icon}
+                                color={'inherit'}
+                                onClick={() => this.props.onIconClick()}
+                            >
+                                {icon}
+                            </IconButton>
+                        </div>
+                    )}
                     {this.getHeaderContent()}
                 </Toolbar>
                 <Divider />
@@ -74,11 +78,11 @@ DrawerHeader.propTypes = {
     backgroundImage: PropTypes.string,
     icon: PropTypes.element,
     titleContent: PropTypes.element,
-    onIconClick: PropTypes.func
+    onIconClick: PropTypes.func,
 };
 
 DrawerHeader.defaultProps = {
-    onIconClick: () => {}
+    onIconClick: () => {},
 };
 
 const styles = theme => ({
@@ -87,7 +91,7 @@ const styles = theme => ({
         paddingLeft: 0,
         width: '100%',
         alignItems: 'flex-start',
-        boxSizing: 'border-box'
+        boxSizing: 'border-box',
     },
     content: {
         [theme.breakpoints.down('xs')]: {
@@ -101,7 +105,7 @@ const styles = theme => ({
         alignSelf: 'stretch',
         flexDirection: 'column',
         width: 'calc(90% - 56px)',
-        boxSizing: 'border-box'
+        boxSizing: 'border-box',
     },
     navigation: {
         [theme.breakpoints.down('xs')]: {
@@ -112,8 +116,7 @@ const styles = theme => ({
         display: 'flex',
         alignItems: 'center',
     },
-    icon: {
-    },
+    icon: {},
     title: {
         fontWeight: 600,
         lineHeight: '1.25rem',
@@ -121,7 +124,7 @@ const styles = theme => ({
     subtitle: {
         fontWeight: 300,
         lineHeight: '1.2rem', // Anything lower than 1.2rem cuts off bottom text of 'g' or 'y'.
-        marginTop: '-2px'
+        marginTop: '-2px',
     },
     headerBackground: {
         position: 'absolute',
