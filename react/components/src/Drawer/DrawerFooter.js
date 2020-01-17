@@ -9,7 +9,7 @@ class DrawerFooter extends React.Component {
     }
 
     render() {
-        const { classes } = this.props;
+        const { classes, open } = this.props;
         return (
             <div
                 className={classes.root}
