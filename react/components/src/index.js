@@ -3,4 +3,6 @@ export { default as EmptyState } from './EmptyState';
 export { default as Hero } from './Hero';
 export { default as HeroBanner } from './HeroBanner';
 export { default as InfoListItem } from './InfoListItem';
+export { default as Drawer } from './Drawer';
+export { default as DrawerLayout } from './DrawerLayout';
 export { default as ScoreCard } from './ScoreCard';

@@ -7,12 +7,11 @@ import {boolean, number, text, withKnobs, color} from '@storybook/addon-knobs';
 import {storiesOf} from '@storybook/react';
 import React from 'react';
 
-
 export const stories = storiesOf('Channel Value', module);
+stories.addDecorator(withKnobs);
 stories.addParameters({
    notes: { markdown: require('./../../../docs/ChannelValue.md')}
 });
-stories.addDecorator(withKnobs);
 
 stories.add('with value', () => (
     <div style={{display: 'flex', justifyContent: 'center'}}>

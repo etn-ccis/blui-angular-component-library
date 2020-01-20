@@ -23,6 +23,7 @@ import * as Colors from '@pxblue/colors';
 |-------------------|-----------------------------------------|----------------------------------------------------|----------|---------------------|-----------------------------------------|
 | avatar            | Show colored background for icon        | `boolean`                                          | no       | false               |                                         |
 | backgroundColor   | The color used for the background       | `string`                                           | no       |                     | 'white', 'blue'                         |
+| chevron           | Add a chevron icon on the right         | `boolean`                                          | no       | false               |                                         |
 | dense             | Smaller height row with less padding    | `boolean`                                          | no       | false               |                                         |
 | divider           | Show a row separator below the row      | 'full' &vert; 'partial'                            | no       |                     |                                         |
 | fontColor         | Title text color                        | `string`                                           | no       |                     | '#ff3333', 'orange'                     |
