@@ -32,16 +32,6 @@ const newViewports = {
     },
 };
 
-addons.setConfig({
-    isFullscreen: false,
-    showNav: true,
-    showPanel: true,
-    panelPosition: 'bottom',
-    sidebarAnimations: true,
-    enableShortcuts: true,
-    isToolshown: true,
-});
-
 addParameters({
     viewport: {
         viewports: newViewports

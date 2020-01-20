@@ -9,7 +9,7 @@ export default create({
 
     // UI
     appBg: 'white',
-    appContentBg: colors.gray[50],
+    appContentBg: 'white',
     appBorderColor: colors.gray[200],
     appBorderRadius: 4,
 
