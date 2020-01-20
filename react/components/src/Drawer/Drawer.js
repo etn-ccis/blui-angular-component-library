@@ -2,14 +2,9 @@ import React from 'react';
 
 import {withStyles} from '@material-ui/core/styles';
 import {Drawer} from '@material-ui/core';
-import DrawerHeader from "./DrawerHeader";
-import DrawerSubheader from "./DrawerSubheader";
-import DrawerBody from "./DrawerBody";
-import DrawerFooter from "./DrawerFooter";
 import Hidden from "@material-ui/core/Hidden";
-import Backdrop from "@material-ui/core/Backdrop";
 
-class SideNav extends React.Component {
+class DrawerComponent extends React.Component {
 
     constructor(props) {
         super(props);
@@ -39,7 +34,6 @@ class SideNav extends React.Component {
     }
 
     findChildByType(type) {
-        const empty = <></>;
         return React.Children.map(this.props.children, child => {
             if (child && child.type) {
                 const name = child.type.displayName;
@@ -47,40 +41,32 @@ class SideNav extends React.Component {
                     return child;
                 }
             }
-        }) || [empty];
+        }) || [];
     }
 
     getHeader() {
-        const header = this.findChildByType('DrawerHeader')[0];
-        return <>
-            {header && React.cloneElement(header)}
-        </>;
+        return this.findChildByType('DrawerHeader').slice(0, 1).map(child => React.cloneElement(child));
     }
 
     getSubHeader() {
-        const subheader = this.findChildByType('DrawerSubheader')[0];
-        return <>
-            {subheader && React.cloneElement(subheader, { open: this.isDrawerOpen() })}
-        </>;
+        return this.findChildByType('DrawerSubheader').slice(0, 1)
+            .map(child => React.cloneElement(child, { open: this.isDrawerOpen() }));
     }
 
     getBody() {
-        const body = this.findChildByType('DrawerBody')[0];
-        return <>
-            {body && React.cloneElement(body, {
-                open: this.isDrawerOpen(),
-                onSelect: () => {
-                    this.setState({ hover: false });
+        return this.findChildByType('DrawerBody').slice(0, 1)
+            .map(child => React.cloneElement(child, {
+                    open: this.isDrawerOpen(),
+                    onSelect: () => {
+                        this.setState({hover: false});
+                    }
                 }
-            })}
-        </>;
+            ));
     }
 
     getFooter() {
-        const footer = this.findChildByType('DrawerFooter')[0];
-        return <>
-            {footer && React.cloneElement(footer, { open: this.isDrawerOpen() })}
-        </>;
+        return this.findChildByType('DrawerFooter').slice(0, 1)
+            .map(child => React.cloneElement(child, { open: this.isDrawerOpen() }));
     }
 
     getMobileNavigationMenu() {
@@ -88,10 +74,9 @@ class SideNav extends React.Component {
         return (
             <Drawer {...this.props}
                 open={this.isDrawerOpen()}
-                classes={{ paper: classes.drawer }}
-                ModalProps={{ onBackdropClick: () => { this.handleDrawerClose() }} }>
+                classes={{ paper: classes.drawer }}>
                 <div className={classes.smooth + ' ' + classes.content}
-                     style={{width: theme.spacing(45)}}>
+                     style={{width: '100%'}}>
                     {this.getDrawerContents()}
                 </div>
             </Drawer>
@@ -149,9 +134,6 @@ class SideNav extends React.Component {
             <>
             <Hidden smUp>
                 {this.getMobileNavigationMenu()}
-                <Backdrop
-                    open={this.isDrawerOpen()}
-                />
             </Hidden>
 
             <Hidden xsDown>
@@ -183,4 +165,4 @@ const styles = theme => {
     }
 }};
 
-export default withStyles(styles, { withTheme: true })(SideNav);
+export default withStyles(styles, { withTheme: true })(DrawerComponent);

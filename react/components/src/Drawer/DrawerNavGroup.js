@@ -62,7 +62,7 @@ class DrawerNavGroup extends React.Component {
 
     NavigationListItem({ title, subtitle, icon, statusColor, onClick, active }) {
         if (!title && !icon) {
-            return <></>
+            return null;
         }
 
         const { classes, theme, iconColor, fontColor, chevron, activeFontColor, activeIconColor, activeBackgroundColor } = this.props;
@@ -136,27 +136,26 @@ const styles = theme => ({
 });
 
 DrawerNavGroup.propTypes = {
-    open: PropTypes.bool,
-    onSelect: PropTypes.func,
-
-    content: PropTypes.element,
-    title: PropTypes.string,
-    items: PropTypes.arrayOf(PropTypes.shape({
-        title: PropTypes.string,
-        subtitle: PropTypes.string,
-        icon: PropTypes.element,
-        statusColor: PropTypes.string,
-        active: PropTypes.bool,
-        onClick: PropTypes.func
-    })),
-    fontColor: PropTypes.string,
-    backgroundColor: PropTypes.string,
-    activeFontColor: PropTypes.string,
     activeBackgroundColor: PropTypes.string,
+    activeFontColor: PropTypes.string,
     activeIconColor: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    chevron: PropTypes.bool,
+    content: PropTypes.element,
+    fontColor: PropTypes.string,
     iconColor: PropTypes.string,
+    items: PropTypes.arrayOf(PropTypes.shape({
+        active: PropTypes.bool,
+        icon: PropTypes.element,
+        onClick: PropTypes.func,
+        statusColor: PropTypes.string,
+        subtitle: PropTypes.string,
+        title: PropTypes.string,
+    })),
+    onSelect: PropTypes.func,
+    open: PropTypes.bool,
+    title: PropTypes.string,
     titleColor: PropTypes.string,
-    chevron: PropTypes.bool
 };
 
 export default withStyles(styles, { withTheme: true })(DrawerNavGroup);

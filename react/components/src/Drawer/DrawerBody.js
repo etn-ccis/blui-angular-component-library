@@ -20,7 +20,7 @@ class DrawerBody extends React.Component {
 
                 {children.map((child) => {
                     if (!child) {
-                        return <></>
+                        return null;
                     }
 
                     const isNavGroup = child.type && child.type.Naked && child.type.Naked.name === 'DrawerNavGroup';
@@ -55,19 +55,16 @@ const styles = theme => ({
 });
 
 DrawerBody.propTypes = {
-    open: PropTypes.bool,
-    onSelect: PropTypes.func,
-
-    fontColor: PropTypes.string,
-    backgroundColor: PropTypes.string,
-
-    activeFontColor: PropTypes.string,
     activeBackgroundColor: PropTypes.string,
+    activeFontColor: PropTypes.string,
     activeIconColor: PropTypes.string,
-
-    iconColor: PropTypes.string,
-    titleColor: PropTypes.string,
+    backgroundColor: PropTypes.string,
     chevron: PropTypes.bool,
+    fontColor: PropTypes.string,
+    iconColor: PropTypes.string,
+    onSelect: PropTypes.func,
+    open: PropTypes.bool,
+    titleColor: PropTypes.string,
 };
 
 export default withStyles(styles)(DrawerBody);
