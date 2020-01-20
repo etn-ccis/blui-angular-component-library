@@ -47,13 +47,13 @@ export default () => {
                     fontColor={Colors.white[50]}
                     backgroundImage={top}
                     icon={<Menu />}
-                    onClick={() => setOpen(!open)}
+                    onIconClick={() => setOpen(!open)}
                 />
                 <DrawerSubheader>
                     <Select
                         value={location}
                         onChange={(e) => setLocation(e.target.value)}
-                        style={{ height: 56, padding: 16, opacity: open ? 1 : 0 }}
+                        style={{ height: 56, padding: 16, width: '100%' }}
                     >
                         {locations.map((loc, ind) => (
                             <MenuItem key={`location${ind}`} value={ind}>{loc}</MenuItem>
