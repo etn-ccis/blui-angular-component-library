@@ -2,10 +2,12 @@ import {
    Divider,
    ExpansionPanel,
    ExpansionPanelDetails,
-   ExpansionPanelSummary,
+   ExpansionPanelSummary, IconButton,
    TextField,
    Typography
 } from "@material-ui/core";
+
+import InputAdornment from '@material-ui/core/InputAdornment';
 import {
    Accessibility,
    AddAPhoto,
@@ -356,10 +358,16 @@ stories.add('with subheader', () => {
     const value = optionsKnob(label, valuesObj, defaultValue, optionsObj);
 
 
-    const filter = <>
-        <TextField id="outlined-basic" label="filter" variant="outlined" />
-        <Search style={{position: 'relative', right: '40px', top: '15px'}}/>
-        </>
+    const filter = <TextField id="outlined-basic" label="filter" variant="outlined" fullWidth
+                              InputProps={{
+                                 endAdornment: (
+                                    <InputAdornment position="end">
+                                       <IconButton>
+                                          <Search />
+                                       </IconButton>
+                                    </InputAdornment>
+                                 )
+                              }} />
     const accordion = <ExpansionPanel>
         <ExpansionPanelSummary
             expandIcon={<ExpandMoreIcon />}
