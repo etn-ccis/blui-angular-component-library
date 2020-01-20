@@ -1,5 +1,15 @@
 # Change Log
 
+## v1.2.0 
+Adds new components for:
+- Drawer
+- DrawerHeader
+- DrawerSubheader
+- DrawerBody
+- DrawerNavGroup
+- DrawerFooter
+- DrawerLayout
+
 ## v1.1.0
 Adds a new component for EmptyState
 
