@@ -313,13 +313,14 @@ stories.add('with standard inputs', () => {
                 } />
              </DrawerBody>
 
+             { showFooter &&
              <DrawerFooter
                 backgroundColor={footerBackgroundColor}>
                 <Divider/>
                 <div style={{'display': 'flex', 'justifyContent': 'center'}}>
                    <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
                 </div>
-             </DrawerFooter>
+             </DrawerFooter>}
          </Drawer>
       ]}
     </State>);
