@@ -9,8 +9,8 @@ export default create({
 
     // UI
     appBg: 'white',
-    appContentBg: colors.gray[50],
-    appBorderColor: colors.gray[200],
+    appContentBg: 'white',
+    appBorderColor: colors.gray[100],
     appBorderRadius: 4,
 
     // Typography
@@ -28,7 +28,7 @@ export default create({
 
     // Form colors
     inputBg: colors.white[200],
-    inputBorder: colors.gray[200],
+    inputBorder: colors.gray[100],
     inputTextColor: colors.black[500],
     inputBorderRadius: 4,
 

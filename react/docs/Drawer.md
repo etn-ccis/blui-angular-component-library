@@ -1,132 +1,124 @@
 # Drawer Component
-The PX Blue Drawer component is used to organize navigation links within an application.  
-It is fully customizable and consists of `DrawerHeader`, `DrawerSubheader`, `DrawerBody`, and `DrawerFooter` child nodes.
-
+The Drawer component is wrapper around the Material UI Drawer that adds specific PX Blue functionality and styling. It is used to organize content (typically navigation links) in a collapsible side panel. The PX Blue Drawer includes helper components for `DrawerHeader`, `DrawerSubheader`, `DrawerBody`, and `DrawerFooter` to help organize the content.
 
 ## Drawer
-The Drawer component is the parent container; it manages the state of the drawer and renders the component.
+The Drawer component is the parent container, which manages the overall state of the drawer and renders the child components.
 
-### Usage
+### Drawer Usage
 ```
 import { Drawer, DrawerHeader, DrawerSubheader, DrawerBody, DrawerFooter } from '@pxblue/react-components/core/Drawer';
-
-return  <Drawer open={true}>
-            <DrawerHeader />
-            <DrawerSubheader />
-            <DrawerBody />
-            <DrawerFooter />
-        </Drawer>
-    />
+...
+<Drawer open={true}>
+    <DrawerHeader />
+    <DrawerSubheader />
+    <DrawerBody />
+    <DrawerFooter />
+</Drawer>
 ```
 
 ### Drawer API
 | Prop Name           | Description                                      | Type        | Required | Default  |          
 |---------------------|--------------------------------------------------|-------------|----------|----------|
-| open                | Manually set the drawer state                    | `boolean`   | no       |          |
-| width               | Manually set the drawer width when open          | `number `   | no       |          |
+| open                | Controls the open/closed state of the drawer     | `boolean`   | yes      |          |
+| width               | Sets the width of the drawer (in px) when open   | `number `   | no       |          |
 
 
-## Drawer Header
-The `DrawerHeader` is the top-most part of the `Drawer`.
-It can be used to toggle the `Drawer` open or closed and it supports multi-line text inputs or children nodes to render instead.    
+## DrawerHeader
+The `DrawerHeader` contains the content at the top of the `Drawer`. It can render multiple lines of text in the PX Blue style, or your own custom content. 
     
-### Drawer Header API
-| Prop Name       | Description                             | Type          | Required | Default            |
-|-----------------|-----------------------------------------|---------------|----------|--------------------|
-| backgroundColor | Background color                        | `string`      | no       | `Colors.blue[500]` |
-| backgroundImage | Gradient or Image background            | `string`      | no       |                    |
-| content         | Custom content for header               | `JSX Element` | no       |                    |
-| fontColor       | Text color                              | `string`      | no       | `Colors.white[50]` |
-| icon            | Used to toggle drawer open or closed    | `JSX Element` | no       |                    | 
-| onIconClick     | Function to run when icon is clicked    | `function`    | no       | `() => {}`         |
-| subtitle        | Secondary text                          | `string`      | no       |                    |
-| title           |  Main text                              | `string`      | no       |                    |   
+### DrawerHeader API
+| Prop Name       | Description                                    | Type              | Required | Default                      |
+|-----------------|------------------------------------------------|-------------------|----------|------------------------------|
+| backgroundColor | The color used for the background              | `string`          | no       | `theme.palette.primary[500]` |
+| backgroundImage | An image to display in the header              | `string`          | no       |                              |
+| content         | Custom content for header                      | `React.Component` | no       |                              |
+| fontColor       | The color of the text elements                 | `string`          | no       | `Colors.white[50]`           |
+| icon            | A component to render for the icon             | `React.Component` | no       |                              |
+| onIconClick     | A function to execute when the icon is clicked | `function`        | no       | `() => {}`                   |
+| subtitle        | The text to show on the second line            | `string`          | no       |                              |
+| title           | The text to show on the first line             | `string`          | no       |                              |
 
-## Drawer Subheader
-The `DrawerSubheader` is an optional section that renders below the header and above the body of the `Drawer`.
-It can be used to support custom content, such as filtering options or to display additional information.
-The subheader only accepts children nodes to render as input.
+## DrawerSubheader
+The `DrawerSubheader` is an optional section that renders below the header and above the body of the `Drawer`. It can be used to support custom content, such as filtering options or to display additional information.
 
-### Usage
+### DrawerSubheader Usage
 ```
 import DrawerSubheader from '@pxblue/react-components/core/Drawer';
-
-return  <DrawerSubheader>
-            <div>Custom Subheader Content</div>
-        </DrawerSubheader>
+...
+<DrawerSubheader>
+    <div>Custom Subheader Content</div>
+</DrawerSubheader>
 ```
 
-## Drawer Body
-The `DrawerBody` accepts style properties and custom child nodes to render.
-child nodes accepted are, but not limited to, `DrawerNavGroup` objects or elements intended to add spacing between groups.
-The style properties that are accepted here will apply to the entire `DrawerBody`, but can be overriden within each `DrawerNavGroup`.
+## DrawerBody
+The `DrawerBody` is a wrapper for the main content of the Drawer. The typical use case is to display `DrawerNavGroup` elements, but custom elements (e.g., for spacing) are accepted as well.
 
-### Usage
+### DrawerBody Usage
 ```
 import DrawerBody from '@pxblue/react-components/core/Drawer';
-
-return  <DrawerBody>
-            <DrawerNavGroup title={'Nav Items'} items={...} />
-        </DrawerBody>
+...
+<DrawerBody>
+    <DrawerNavGroup title={'Nav Items'} items={...} />
+</DrawerBody>
 ```
 
-### Drawer Body API
-| Prop Name               | Description                             | Type          | Required | Default |
-|-------------------------|-----------------------------------------|---------------|----------|---------| 
-| activeBackgroundColor   | Active nav item background color        | `string`      | no       |         |   
-| activeFontColor         | Active nav item text color              | `string`      | no       |         |   
-| activeIconColor         | Active nav item icon color              | `string`      | no       |         |   
-| backgroundColor         | Background color                        | `string`      | no       |         |  
-| fontColor               | Text color                              | `string`      | no       |         |   
-| iconColor               | Icon color                              | `string`      | no       |         |    
-| titleColor              | Navigation group title color            | `string`      | no       |         |  
+### DrawerBody API
+| Prop Name               | Description                                    | Type          | Required | Default |
+|-------------------------|------------------------------------------------|---------------|----------|---------|
+| activeBackgroundColor   | Background color for the 'active' item         | `string`      | no       |         |
+| activeFontColor         | Font color for the 'active' item               | `string`      | no       |         |
+| activeIconColor         | Icon color for the 'active' item               | `string`      | no       |         |
+| backgroundColor         | The color used for the background              | `string`      | no       |         |
+| fontColor               | The color used for the text                    | `string`      | no       |         |
+| iconColor               | The color used for icons                       | `string`      | no       |         |
+| titleColor              | The color used for `DrawerNavGroup` title text | `string`      | no       |         |
 
 
-## Drawer NavGroup 
-A `DrawerNavGroup` will render inside of the `DrawerBody` and is used to organize links.  
-Each group consists of a group title and a series of navigation items.
+## DrawerNavGroup 
+A `DrawerNavGroup` will render inside of the `DrawerBody` and is used to organize links. Each group consists of a group title and a series of navigation items. Most style props are inherited from the `DrawerBody` but can be overridden at the NavGroup level if desired.
 
-### Drawer NavGroup API
-| Prop Name             | Description                             | Type          | Required | Default                             |
-|-----------------------|-----------------------------------------|---------------|----------|-------------------------------------|
-| activeBackgroundColor | Active nav item background color        | `string`      | no       | Drawer Body Active Background Color |   
-| activeFontColor       | Active nav item text color              | `string`      | no       | Drawer Body Active Font Color       |   
-| activeIconColor       | Active nav item icon color              | `string`      | no       | Drawer Body Active Icon Color       |   
-| backgroundColor       | Background color                        | `string`      | no       | Drawer Body Background Color        |   
-| content               | Custom element, substitute for title    | `JSX Element` | no       |                                     |    
-| fontColor             | Text color                              | `string`      | no       | Drawer Body Font Color              |   
-| iconColor             | Icon color                              | `string`      | no       | Drawer Body Icon Color              |   
-| items                 | List of navigation items to render      | `Item[]`      | no       |                                     |  
-| title                 | Title of the group                      | `string`      | no       |                                     |  
+### DrawerNavGroup API
+| Prop Name             | Description                             | Type              | Required | Default |
+|-----------------------|-----------------------------------------|-------------------|----------|---------|
+| activeBackgroundColor | Background color for the 'active' item  | `string`          | no       |         |
+| activeFontColor       | Font color for the 'active' item        | `string`          | no       |         |
+| activeIconColor       | Icon color for the 'active' item        | `string`          | no       |         | 
+| backgroundColor       | The color used for the background       | `string`          | no       |         |   
+| content               | Custom element, substitute for title    | `React.Component` | no       |         |    
+| fontColor             | The color used for the text             | `string`          | no       |         |   
+| iconColor             | The color used for the icon             | `string`          | no       |         |   
+| items                 | List of navigation items to render      | `Item[]`          | no       |         |  
+| title                 | Text to display in the group header     | `string`          | no       |         |  
 
 
-### Item Object
-| Attribute       | Description                             | Type          | Required | Default                      |
-|-----------------|-----------------------------------------|---------------|----------|------------------------------|
-| active          | Is item active                          | `boolean`     | no       | false                        |  
-| chevron         | Show chevron icon                       | `boolean`     | no       | false                        |  
-| icon            | Icon                                    | `JSX Element` | no       |                              |      
-| onClick         | Function to run when item is clicked    | `function`    | no       |                              |    
-| statusColor     | Side-bar color                          | `string`      | no       |                              |    
-| subtitle        | Secondary text                          | `string`      | no       |                              |    
-| title           | Primary text                            | `string`      | no       |                              |    
+#### Item Object
+The `items` prop of the `DrawerNavGroup` takes a list of items with the following structure (most of these properties are inherited from `<InfoListItem/>`):
+
+| Attribute       | Description                             | Type               | Required | Default                      |
+|-----------------|-----------------------------------------|--------------------|----------|------------------------------|
+| active          | Is the item the current active item     | `boolean`          | no       | false                        |  
+| chevron         | Show chevron icon to the right          | `boolean`          | no       | false                        |  
+| icon            | A component to render for the icon      | `React.Component`  | no       |                              |      
+| onClick         | A function to execute when clicked      | `function`         | no       |                              |    
+| statusColor     | Status stripe and icon color            | `string`           | no       |                              |    
+| subtitle        | The text to show on the second line     | `string`           | no       |                              |    
+| title           | The text to show on the first line      | `string`           | no       |                              |    
 
 
 ## Drawer Footer
-The `DrawerFooter` is an optional section that renders at the bottom of the `Drawer`.
-It can be used to add any custom content.
+The `DrawerFooter` is an optional section that renders at the bottom of the `Drawer`. It can be used to add any custom content.
 
 
 ### Drawer Footer API
 | Prop Name       | Description                             | Type          | Required | Default |
 |-----------------|-----------------------------------------|---------------|----------|---------|
-| backgroundColor | Background color                        | `string`      | no       |         |   
+| backgroundColor | The color used for the background       | `string`      | no       |         |   
 
 ### Usage
 ```
 import DrawerFooter from '@pxblue/react-components/core/Drawer';
-
-return  <DrawerFooter>
-            <div>Custom Footer goes here</div>
-        </DrawerFooter>
+...
+<DrawerFooter>
+    <div>Custom Footer goes here</div>
+</DrawerFooter>
 ```
