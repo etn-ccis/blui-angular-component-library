@@ -7,9 +7,10 @@
         "esModuleInterop": true,
         "jsx": "react",
         "strict": true,
-        "declaration": true
+        "declaration": true,
+        "allowSyntheticDefaultImports": true
     },
     "include": [
-        "./src/*"
+        "src"
     ]
 }

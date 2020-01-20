@@ -1,13 +1,14 @@
+import {MountOptions} from "@material-ui/core/test-utils/createMount";
 import React from 'react';
 import ReactDOM from 'react-dom';
 import ChannelValue from './ChannelValue';
-import Enzyme from 'enzyme';
+import Enzyme, {ReactWrapper} from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Menu from '@material-ui/icons/Menu';
 import { createMount, createShallow, createRender, getClasses } from '@material-ui/core/test-utils';
 
 Enzyme.configure({ adapter: new Adapter() });
-let mount;
+let mount: ReactWrapper<ChannelValue>;
 let shallow;
 let render;
 let classes;
