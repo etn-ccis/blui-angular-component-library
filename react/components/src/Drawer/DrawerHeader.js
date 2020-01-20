@@ -32,10 +32,15 @@ class DrawerHeader extends React.Component {
     }
 
     backgroundImage() {
-        const { backgroundImage, classes } = this.props;
+        const { backgroundImage, backgroundOpacity, classes } = this.props;
+
         if (backgroundImage) {
             return (
-                <div className={classes.headerBackground} style={{ backgroundImage: `url(${backgroundImage})` }} />
+                <div className={classes.headerBackground}
+                style={{
+                    backgroundImage: `url(${backgroundImage})`,
+                    opacity: backgroundOpacity
+                }} />
             );
         }
     }
@@ -67,18 +72,20 @@ class DrawerHeader extends React.Component {
 }
 
 DrawerHeader.propTypes = {
-    title: PropTypes.string,
-    subtitle: PropTypes.string,
-    fontColor: PropTypes.string,
     backgroundColor: PropTypes.string,
     backgroundImage: PropTypes.string,
+    backgroundOpacity: PropTypes.number,
+    fontColor: PropTypes.string,
     icon: PropTypes.element,
+    onIconClick: PropTypes.func,
+    subtitle: PropTypes.string,
+    title: PropTypes.string,
     titleContent: PropTypes.element,
-    onIconClick: PropTypes.func
 };
 
 DrawerHeader.defaultProps = {
-    onIconClick: () => {}
+    onIconClick: () => {},
+    backgroundOpacity: 0.3
 };
 
 const styles = theme => ({
@@ -129,7 +136,6 @@ const styles = theme => ({
         width: '100%',
         backgroundSize: 'cover',
         height: '100%',
-        opacity: 0.3,
         backgroundPosition: 'center',
     },
 });
