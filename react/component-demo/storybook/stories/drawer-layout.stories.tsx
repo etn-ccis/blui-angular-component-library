@@ -27,6 +27,7 @@ stories.addParameters({
    notes: { markdown: require('./../../../docs/DrawerLayout.md')}
 });
 
+
 const defaultBody = <DrawerBody>
    <DrawerNavGroup items={[
         {
@@ -77,34 +78,33 @@ stories.add('basic usage', () => {
    });
 
     return <DrawerLayout>
-      <Drawer open={open} width={width}>
+         <Drawer open={open} width={width}>
+             <DrawerHeader
+               icon={<MenuIcon />}
+               titleContent={
+                  <div style={{'paddingLeft': '20px', 'paddingTop': '15px'}}>
+                     <Typography variant="subtitle2" style={{fontWeight: 100}}>PX Blue</Typography>
+                     <Typography variant="h6" style={{'marginTop': '-10px'}}>DrawerLayout</Typography>
+                  </div>
+                  }
+             />
+             {defaultBody}
+             {<DrawerFooter>
+                  <div style={{'display': 'flex', 'justifyContent': 'center'}}>
+                     <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
+                  </div>
+            </DrawerFooter>}
+          </Drawer>
 
-          <DrawerHeader
-            icon={<MenuIcon />}
-            titleContent={
-               <div style={{'paddingLeft': '20px', 'paddingTop': '15px'}}>
-                  <Typography variant="subtitle2" style={{fontWeight: 100}}>PX Blue</Typography>
-                  <Typography variant="h6" style={{'marginTop': '-10px'}}>DrawerLayout</Typography>
-               </div>
-               }
-          />
-          {defaultBody}
-          {<DrawerFooter>
-               <div style={{'display': 'flex', 'justifyContent': 'center'}}>
-                  <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
-               </div>
-         </DrawerFooter>}
-       </Drawer>
-
-       <div style={{
-          backgroundColor: "#b7b7b7",
-          fontSize: '16pt',
-          color: "white",
-          height: '100%',
-          padding: '30px',
-          boxSizing: 'border-box'}}>
-          Body content goes here.
-       </div>
-    </DrawerLayout>
+          <div style={{
+             backgroundColor: "#b7b7b7",
+             fontSize: '16pt',
+             color: "white",
+             height: '100%',
+             padding: '30px',
+             boxSizing: 'border-box'}}>
+             Body content goes here.
+          </div>
+       </DrawerLayout>
 });
 

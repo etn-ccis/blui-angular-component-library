@@ -27,16 +27,17 @@ import { Drawer, DrawerHeader, DrawerSubheader, DrawerBody, DrawerFooter } from 
 The `DrawerHeader` contains the content at the top of the `Drawer`. It can render multiple lines of text in the PX Blue style, or your own custom content. 
     
 ### DrawerHeader API
-| Prop Name       | Description                                    | Type              | Required | Default                      |
-|-----------------|------------------------------------------------|-------------------|----------|------------------------------|
-| backgroundColor | The color used for the background              | `string`          | no       | `theme.palette.primary[500]` |
-| backgroundImage | An image to display in the header              | `string`          | no       |                              |
-| content         | Custom content for header                      | `React.Component` | no       |                              |
-| fontColor       | The color of the text elements                 | `string`          | no       | `Colors.white[50]`           |
-| icon            | A component to render for the icon             | `React.Component` | no       |                              |
-| onIconClick     | A function to execute when the icon is clicked | `function`        | no       | `() => {}`                   |
-| subtitle        | The text to show on the second line            | `string`          | no       |                              |
-| title           | The text to show on the first line             | `string`          | no       |                              |
+| Prop Name         | Description                                    | Type              | Required | Default                      |
+|-------------------|------------------------------------------------|-------------------|----------|------------------------------|
+| backgroundColor   | The color used for the background              | `string`          | no       | `theme.palette.primary[500]` |
+| backgroundImage   | An image to display in the header              | `string`          | no       |                              |
+| backgroundOpacity | The opacity of the background image            | `number`          | no       | `0.3`                             |
+| content           | Custom content for header                      | `React.Component` | no       |                              |
+| fontColor         | The color of the text elements                 | `string`          | no       | `Colors.white[50]`           |
+| icon              | A component to render for the icon             | `React.Component` | no       |                              |
+| onIconClick       | A function to execute when the icon is clicked | `function`        | no       | `() => {}`                   |
+| subtitle          | The text to show on the second line            | `string`          | no       |                              |
+| title             | The text to show on the first line             | `string`          | no       |                              |
 
 ## DrawerSubheader
 The `DrawerSubheader` is an optional section that renders below the header and above the body of the `Drawer`. It can be used to support custom content, such as filtering options or to display additional information.

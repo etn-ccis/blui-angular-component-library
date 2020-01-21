@@ -2,10 +2,12 @@ import {
    Divider,
    ExpansionPanel,
    ExpansionPanelDetails,
-   ExpansionPanelSummary,
+   ExpansionPanelSummary, IconButton,
    TextField,
    Typography
 } from "@material-ui/core";
+
+import InputAdornment from '@material-ui/core/InputAdornment';
 import {
    Accessibility,
    AddAPhoto,
@@ -53,6 +55,14 @@ const userGuide = 'User Guide';
 const license = 'License';
 const accessibility = 'Accessibility';
 const notifications = 'Notifications';
+
+export const padDrawer = (drawer: JSX.Element): JSX.Element => {
+   return (
+      <div style={{padding: 20, display: 'flex', height: '100%'}}>
+         {drawer}
+      </div>
+   );
+};
 
 export const defaultDrawerBody = (state: any) => <DrawerBody>
    <DrawerNavGroup
@@ -273,7 +283,8 @@ stories.add('with standard inputs', () => {
     const showFooter = boolean('show footer', true, footerGroupId);
     const footerBackgroundColor = color('backgroundColor', Colors.white[50], footerGroupId);
 
-    return <State store={store}>
+    return padDrawer(
+       <State store={store}>
        {state => [
           <Drawer open={open} width={width}>
              <DrawerHeader
@@ -283,11 +294,6 @@ stories.add('with standard inputs', () => {
                 backgroundImage={headerBackgroundImage}
                 fontColor={headerFontColor}
                 backgroundColor={headerBackgroundColor}
-                overrides={{
-                   root: {
-                      backgroundSize: '400px'
-                   }
-                }}
              />
 
              <DrawerBody
@@ -307,38 +313,38 @@ stories.add('with standard inputs', () => {
                 } />
              </DrawerBody>
 
+             { showFooter &&
              <DrawerFooter
                 backgroundColor={footerBackgroundColor}>
-                {showFooter && open ?
-                <>
                 <Divider/>
                 <div style={{'display': 'flex', 'justifyContent': 'center'}}>
                    <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
                 </div>
-                </>: ''}
-             </DrawerFooter>
+             </DrawerFooter>}
          </Drawer>
       ]}
-    </State>
+    </State>);
 });
 
 stories.add('with custom header', () => {
    const open = boolean('Open', true);
-   return <State store={store}>
-      {state => [
-          <Drawer open={open}>
-              <DrawerHeader
-                  backgroundImage={farmBgImage}
-                  icon={<MenuIcon />}
-                  titleContent={
-                     <div style={{zIndex: 1, 'paddingLeft': '20px', 'paddingTop': '15px'}}>
-                        <Typography variant="subtitle2">Customizable</Typography>
-                        <Typography variant="h6" style={{'marginTop': '-10px'}}>Header Content Goes Here</Typography>
-                     </div>} />
-             {defaultDrawerBody(state)}
-          </Drawer>
-      ]}
-   </State>
+   return padDrawer(
+      <State store={store}>
+         {state => [
+             <Drawer open={open}>
+                 <DrawerHeader
+                     backgroundImage={farmBgImage}
+                     backgroundOpacity={0.5}
+                     icon={<MenuIcon />}
+                     titleContent={
+                        <div style={{zIndex: 1, 'paddingLeft': '20px', 'paddingTop': '15px'}}>
+                           <Typography variant="subtitle2">Customizable</Typography>
+                           <Typography variant="h6" style={{'marginTop': '-10px'}}>Header Content Goes Here</Typography>
+                        </div>} />
+                {defaultDrawerBody(state)}
+             </Drawer>
+         ]}
+      </State>);
 });
 
 stories.add('with subheader', () => {
@@ -356,10 +362,16 @@ stories.add('with subheader', () => {
     const value = optionsKnob(label, valuesObj, defaultValue, optionsObj);
 
 
-    const filter = <>
-        <TextField id="outlined-basic" label="filter" variant="outlined" />
-        <Search style={{position: 'relative', right: '40px', top: '15px'}}/>
-        </>
+    const filter = <TextField id="outlined-basic" label="filter" variant="outlined" fullWidth
+                     InputProps={{
+                        endAdornment: (
+                           <InputAdornment position="end">
+                              <IconButton>
+                                 <Search />
+                              </IconButton>
+                           </InputAdornment>
+                        )
+                     }} />;
     const accordion = <ExpansionPanel>
         <ExpansionPanelSummary
             expandIcon={<ExpandMoreIcon />}
@@ -376,25 +388,26 @@ stories.add('with subheader', () => {
         </ExpansionPanelDetails>
     </ExpansionPanel>;
 
-    return <State store={store}>
-       {state => [
-          <Drawer open={open}>
-             <DrawerHeader
-                icon={<MenuIcon />}
-                title={"Subheader Demo"} />
-             <DrawerSubheader>
-                <div
-                   style={{
-                      display: 'flex',
-                      justifyContent: 'center',
-                      padding: '20px'
-                   }}>
-                   {value === 'Filter' ? filter : accordion}
-                </div>
-             </DrawerSubheader>
-             {defaultDrawerBody(state)}
-          </Drawer>
-       ]}
-    </State>
+    return padDrawer(
+       <State store={store}>
+          {state => [
+             <Drawer open={open}>
+                <DrawerHeader
+                   icon={<MenuIcon />}
+                   title={"Subheader Demo"} />
+                <DrawerSubheader>
+                   <div
+                      style={{
+                         display: 'flex',
+                         justifyContent: 'center',
+                         padding: '20px'
+                      }}>
+                      {value === 'Filter' ? filter : accordion}
+                   </div>
+                </DrawerSubheader>
+                {defaultDrawerBody(state)}
+             </Drawer>
+          ]}
+    </State>);
 });
 
