@@ -1,4 +1,4 @@
-import {CSSProperties} from "@material-ui/styles";
+import { CSSProperties } from '@material-ui/styles';
 import React from 'react';
 import { Card, Typography, Divider, StyleRules, WithStyles, WithTheme, Theme } from '@material-ui/core';
 //@ts-ignore

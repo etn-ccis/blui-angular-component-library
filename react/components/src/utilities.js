@@ -16,6 +16,6 @@ export function separate(array, interpunct) {
 export function withKeys(array) {
     return array.map((element, index) => <React.Fragment key={index}>{element}</React.Fragment>);
 }
-export const combine = list => {
+export const combine = (list) => {
     return list.join(' ');
 };

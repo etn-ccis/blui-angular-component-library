@@ -1,4 +1,4 @@
-import {CSSProperties} from "@material-ui/core/styles/withStyles";
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React from 'react';
 
 import { StyleRules, Theme, WithStyles, withStyles, WithTheme } from '@material-ui/core/styles';

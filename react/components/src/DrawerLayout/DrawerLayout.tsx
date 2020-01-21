@@ -3,14 +3,14 @@ import React from 'react';
 import { StyleRules, WithStyles, withStyles } from '@material-ui/core/styles';
 
 type DrawerLayoutProps = {
-   children: React.ReactNode;
+    children: React.ReactNode;
 } & WithStyles;
 
 class DrawerLayout extends React.Component<DrawerLayoutProps> {
     private getChild(index: number): JSX.Element {
-       const { children } = this.props;
-       // @ts-ignore
-       return (children && children[index]) ? children[index] : <></>;
+        const { children } = this.props;
+        // @ts-ignore
+        return children && children[index] ? children[index] : <></>;
     }
 
     render(): JSX.Element {
@@ -26,20 +26,20 @@ class DrawerLayout extends React.Component<DrawerLayoutProps> {
 }
 
 const styles = (): StyleRules => ({
-        root: {
-            display: 'flex',
-            height: '100%',
-            width: '100%',
-        },
-        drawer: {
-            display: 'flex',
-            alignItems: 'stretch',
-        },
-        content: {
-            width: '100%',
-            height: '100%',
-           overflowY: 'scroll'
-        },
-    });
+    root: {
+        display: 'flex',
+        height: '100%',
+        width: '100%',
+    },
+    drawer: {
+        display: 'flex',
+        alignItems: 'stretch',
+    },
+    content: {
+        width: '100%',
+        height: '100%',
+        overflowY: 'scroll',
+    },
+});
 
 export default withStyles(styles)(DrawerLayout);
