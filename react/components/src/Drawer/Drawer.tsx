@@ -156,8 +156,7 @@ class DrawerComponent extends React.Component<DrawerComponentProps, DrawerCompon
     }
 }
 
-const styles = (theme: Theme): StyleRules => {
-    return {
+const styles = (theme: Theme): StyleRules => ({
         paper: {
             overflow: 'hidden',
             position: 'unset',
@@ -175,7 +174,6 @@ const styles = (theme: Theme): StyleRules => {
             flexDirection: 'column',
             height: '100%',
         },
-    };
-};
+});
 
 export default withStyles(styles, { withTheme: true })(DrawerComponent);

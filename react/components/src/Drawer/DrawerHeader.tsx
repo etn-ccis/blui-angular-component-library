@@ -1,4 +1,4 @@
-import React, { ReactNode, useEffect } from 'react';
+import React, { ReactNode } from 'react';
 
 import { StyleRules, Theme, WithStyles, withStyles, WithTheme } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -83,7 +83,7 @@ const DrawerHeaderContent: React.FC<DrawerHeaderProps> = (props) => {
                 {getBackgroundImage()}
                 {icon && (
                     <div className={classes.navigation}>
-                        <IconButton color={'inherit'} onClick={() => clickIcon()}>
+                        <IconButton color={'inherit'} onClick={(): void => clickIcon()}>
                             {icon}
                         </IconButton>
                     </div>
@@ -148,6 +148,5 @@ const styles = (theme: Theme): StyleRules => ({
 export const DrawerHeader = withStyles(styles, { withTheme: true })(DrawerHeaderContent);
 DrawerHeader.displayName = 'DrawerHeader';
 DrawerHeader.defaultProps = {
-    onIconClick: (): void => {},
     backgroundOpacity: 0.3,
 };

@@ -28,7 +28,6 @@ class ScoreCardClass extends React.Component<ScoreCordProps> {
 
     render(): JSX.Element {
         const { classes, style, headerColor } = this.props;
-        console.log(style);
         return (
             <Card className={classes.card} style={style}>
                 <div
