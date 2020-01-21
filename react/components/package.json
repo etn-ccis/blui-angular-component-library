@@ -4,14 +4,11 @@
   "description": "Reusable React components for PX Blue applications",
   "main": "index.ts",
   "scripts": {
-    "test": "jest src/ChannelValue",
+    "test": "jest src",
     "build": "tsc",
     "lint": "eslint \"src/**/**.{tsx,ts}\"",
     "lint:fix": "eslint \"src/**/**.{tsx,ts}\" --fix",
     "prettier": "prettier \"src/**/**.{ts,tsx,js,jsx,json,css,scss,html}\" --write"
-  },
-  "jest": {
-    "preset": "ts-jest"
   },
   "prettier": "@pxblue/prettier-config",
   "dependencies": {
