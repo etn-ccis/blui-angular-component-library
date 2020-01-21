@@ -15,13 +15,13 @@
     "color": "^3.1.2"
   },
   "devDependencies": {
-    "@pxblue/colors": "^2.0.0",
     "@babel/cli": "^7.0.0",
     "@babel/core": "^7.0.0",
     "@babel/preset-env": "^7.1.6",
     "@babel/preset-react": "^7.0.0",
     "@material-ui/core": "^4.0.0",
     "@material-ui/icons": "^3.0.2",
+    "@pxblue/colors": "^2.0.0",
     "@pxblue/eslint-config": "beta",
     "@pxblue/prettier-config": "beta",
     "@pxblue/themes": "^1.0.26",
