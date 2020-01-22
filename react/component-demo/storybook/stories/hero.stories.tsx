@@ -1,13 +1,10 @@
 import React from 'react';
 
-//@ts-ignore
 import * as Colors from '@pxblue/colors';
-//@ts-ignore
 import Hero from '@pxblue/react-components/core/Hero';
-//@ts-ignore
 import ChannelValue from '@pxblue/react-components/core/ChannelValue';
 //@ts-ignore
-import { GradeA, Leaf, CurrentCircled, VoltageCircled, Temp } from '@pxblue/icons-mui';
+import { GradeA, Leaf } from '@pxblue/icons-mui';
 
 import {text, number, withKnobs} from '@storybook/addon-knobs';
 import {storiesOf} from '@storybook/react';

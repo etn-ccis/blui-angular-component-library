@@ -24,12 +24,8 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MenuIcon from '@material-ui/icons/Menu';
 import MoveToInboxIcon from '@material-ui/icons/MoveToInbox';
 import SendIcon from '@material-ui/icons/Send';
-// @ts-ignore
 import * as Colors from '@pxblue/colors';
-//@ts-ignore
 import { Drawer, DrawerHeader, DrawerSubheader, DrawerBody, DrawerFooter, DrawerNavGroup } from '@pxblue/react-components/core/Drawer';
-// @ts-ignore
-
 import { State, Store } from "@sambego/storybook-state";
 import {boolean, color, number, optionsKnob, select, text, withKnobs} from '@storybook/addon-knobs';
 import {OptionsKnobOptionsDisplay} from "@storybook/addon-knobs/dist/components/types/Options";

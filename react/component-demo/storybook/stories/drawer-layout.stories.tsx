@@ -1,6 +1,5 @@
 import {Typography} from "@material-ui/core";
 import {
-   Accessibility,
    Apps,
    FormatListBulleted,
    Gavel,
@@ -10,9 +9,7 @@ import {
    Settings
 } from '@material-ui/icons';
 import MenuIcon from '@material-ui/icons/Menu';
-// @ts-ignore
 import {Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerNavGroup} from '@pxblue/react-components/core/Drawer';
-//@ts-ignore
 import {DrawerLayout} from '@pxblue/react-components/core/DrawerLayout';
 import {action} from "@storybook/addon-actions";
 import {boolean, number, withKnobs} from '@storybook/addon-knobs';
