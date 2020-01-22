@@ -16,7 +16,8 @@ type DrawerHeaderProps = {
     subtitle?: string;
     title?: string;
     titleContent?: ReactNode;
-} & WithStyles & WithTheme;
+} & WithStyles &
+    WithTheme;
 
 const DrawerHeaderContent: React.FC<DrawerHeaderProps> = (props) => {
     const {
@@ -73,10 +74,7 @@ const DrawerHeaderContent: React.FC<DrawerHeaderProps> = (props) => {
 
     return (
         <>
-            <Toolbar
-                className={classes.root}
-                style={{ color: fontColor, backgroundColor: toolbarBackgroundColor }}
-            >
+            <Toolbar className={classes.root} style={{ color: fontColor, backgroundColor: toolbarBackgroundColor }}>
                 {getBackgroundImage()}
                 {icon && (
                     <div className={classes.navigation}>
