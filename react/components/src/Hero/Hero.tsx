@@ -2,19 +2,15 @@ import React from 'react';
 import { StyleRules, WithStyles, withStyles } from '@material-ui/core/styles';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import Typography from '@material-ui/core/Typography';
-// @ts-ignore
 import * as Colors from '@pxblue/colors';
 import ChannelValue from '../ChannelValue/ChannelValue';
 
-const normalizeIconSize = (size: string): number => {
-    const adjusted = parseInt(size, 10);
-    return Math.max(10, Math.min(72, adjusted));
-};
-
+const normalizeIconSize = (size: number): number => Math.max(10, Math.min(72, size));
 const normalizeFontSize = (size: FontSize): string => (size === 'small' ? '1rem' : '1.25rem');
 
 type FontSize = 'normal' | 'small';
 type HeroProps = {
+    children?: React.ReactNode;
     fontSize?: FontSize;
     icon: string | JSX.Element;
     iconBackgroundColor?: string;
@@ -26,8 +22,7 @@ type HeroProps = {
     units?: string;
 } & WithStyles;
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const Hero = (props: HeroProps & any): JSX.Element => {
+export const Hero = (props: HeroProps): JSX.Element => {
     const {
         classes,
         fontSize = 'normal',
