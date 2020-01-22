@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { StyleRules, Theme, WithStyles, withStyles, WithTheme } from '@material-ui/core/styles';
 import { Drawer } from '@material-ui/core';
 import Hidden from '@material-ui/core/Hidden';

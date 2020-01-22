@@ -1,5 +1,4 @@
 import React, { ReactNode } from 'react';
-
 import { StyleRules, Theme, WithStyles, withStyles, WithTheme } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -17,8 +16,7 @@ type DrawerHeaderProps = {
     subtitle?: string;
     title?: string;
     titleContent?: ReactNode;
-} & WithStyles &
-    WithTheme;
+} & WithStyles & WithTheme;
 
 const DrawerHeaderContent: React.FC<DrawerHeaderProps> = (props) => {
     const {
@@ -35,8 +33,7 @@ const DrawerHeaderContent: React.FC<DrawerHeaderProps> = (props) => {
         backgroundOpacity,
     } = props;
 
-    const toolbarFontColor = fontColor || Colors.white[50]; // TODO: Dark Theme
-    // @ts-ignore // TODO: Pallete type definition?
+    // @ts-ignore // TODO: Palette type definition?
     const toolbarBackgroundColor = String(backgroundColor || theme.palette.primary[500]);
 
     const clickIcon = (): void => {
@@ -78,7 +75,7 @@ const DrawerHeaderContent: React.FC<DrawerHeaderProps> = (props) => {
         <>
             <Toolbar
                 className={classes.root}
-                style={{ color: toolbarFontColor, backgroundColor: toolbarBackgroundColor }}
+                style={{ color: fontColor, backgroundColor: toolbarBackgroundColor }}
             >
                 {getBackgroundImage()}
                 {icon && (
@@ -149,4 +146,5 @@ export const DrawerHeader = withStyles(styles, { withTheme: true })(DrawerHeader
 DrawerHeader.displayName = 'DrawerHeader';
 DrawerHeader.defaultProps = {
     backgroundOpacity: 0.3,
+    fontColor: Colors.white[50], // TODO: Dark Theme
 };

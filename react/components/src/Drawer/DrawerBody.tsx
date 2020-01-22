@@ -1,6 +1,6 @@
-import { StyleRules, WithStyles, withStyles } from '@material-ui/core/styles';
-import * as PXBColors from '@pxblue/colors';
 import React from 'react';
+import { StyleRules, WithStyles, withStyles } from '@material-ui/core/styles';
+import * as Colors from '@pxblue/colors';
 
 type DrawerBodyProps = {
     activeBackgroundColor?: string;
@@ -15,15 +15,14 @@ type DrawerBodyProps = {
     titleColor?: string;
 } & WithStyles;
 
+
 const DrawerBodyContent: React.FC<DrawerBodyProps> = (props) => {
-    const defaultBackgroundColor = PXBColors.white[50]; // TODO, dark theme compatible
+    const { backgroundColor } = props;
     const children = React.Children.toArray(props.children);
     return (
         <div
             className={props.classes.root}
-            style={{
-                backgroundColor: props.backgroundColor || defaultBackgroundColor,
-            }}
+            style={{ backgroundColor }}
         >
             {children.map((child: any) => {
                 if (!child) {
@@ -65,3 +64,6 @@ const styles = (): StyleRules => ({
 
 export const DrawerBody = withStyles(styles)(DrawerBodyContent);
 DrawerBody.displayName = 'DrawerBody';
+DrawerBody.defaultProps = {
+    backgroundColor: Colors.white[50]   // TODO, dark theme compatible
+};

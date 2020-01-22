@@ -3,8 +3,7 @@ import React from 'react';
 
 import { StyleRules, Theme, WithStyles, withStyles, WithTheme } from '@material-ui/core/styles';
 import Chevron from '@material-ui/icons/ChevronRight';
-//@ts-ignore
-import * as PXBColors from '@pxblue/colors';
+import * as Colors from '@pxblue/colors';
 //@ts-ignore
 import color from 'color';
 
@@ -149,8 +148,8 @@ class InfoListItemClass extends React.Component<InfoListItemProps> {
         if (avatar) {
             return statusColor
                 ? color(statusColor).isDark()
-                    ? PXBColors.white[50]
-                    : PXBColors.black[500]
+                    ? Colors.white[50]
+                    : Colors.black[500]
                 : theme.palette.primary.contrastText;
         }
         return statusColor ? statusColor : 'inherit';
@@ -175,7 +174,7 @@ const styles = (theme: Theme): StyleRules => ({
         bottom: 0,
         right: 0,
         height: 1,
-        backgroundColor: theme.palette.type === 'light' ? PXBColors.black[50] : PXBColors.black[700],
+        backgroundColor: theme.palette.type === 'light' ? Colors.black[50] : Colors.black[700],
     },
     statusStripe: {
         position: 'absolute',

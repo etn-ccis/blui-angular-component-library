@@ -1,7 +1,6 @@
 import { CSSProperties } from '@material-ui/styles';
 import React from 'react';
 import { Card, Typography, Divider, StyleRules, WithStyles, WithTheme, Theme } from '@material-ui/core';
-//@ts-ignore
 import * as Colors from '@pxblue/colors';
 import { withStyles } from '@material-ui/core/styles';
 

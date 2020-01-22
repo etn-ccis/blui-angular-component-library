@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { StyleRules, WithStyles, withStyles } from '@material-ui/core/styles';
 
 type DrawerFooterProps = {
