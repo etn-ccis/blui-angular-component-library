@@ -74,25 +74,25 @@ stories.add('basic usage', () => {
       step: 50,
    });
 
-    return <DrawerLayout>
-         <Drawer open={open} width={width}>
+    return <DrawerLayout drawer={
+          <Drawer open={open} width={width}>
              <DrawerHeader
-               icon={<MenuIcon />}
-               titleContent={
-                  <div style={{'paddingLeft': '20px', 'paddingTop': '15px'}}>
-                     <Typography variant="subtitle2" style={{fontWeight: 100}}>PX Blue</Typography>
-                     <Typography variant="h6" style={{'marginTop': '-10px'}}>DrawerLayout</Typography>
-                  </div>
-                  }
+                icon={<MenuIcon/>}
+                titleContent={
+                   <div style={{'paddingLeft': '20px', 'paddingTop': '15px'}}>
+                      <Typography variant="subtitle2" style={{fontWeight: 100}}>PX Blue</Typography>
+                      <Typography variant="h6" style={{'marginTop': '-10px'}}>DrawerLayout</Typography>
+                   </div>
+                }
              />
              {defaultBody}
              {<DrawerFooter>
-                  <div style={{'display': 'flex', 'justifyContent': 'center'}}>
-                     <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
-                  </div>
-            </DrawerFooter>}
+                <div style={{'display': 'flex', 'justifyContent': 'center'}}>
+                   <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
+                </div>
+             </DrawerFooter>}
           </Drawer>
-
+       }>
           <div style={{
              backgroundColor: "#b7b7b7",
              fontSize: '16pt',
