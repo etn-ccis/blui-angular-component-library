@@ -70,6 +70,7 @@ class ScoreCardClass extends React.Component<ScoreCordProps> {
                 <Typography
                     variant={'h6'}
                     noWrap
+                    className={classes.title}
                     style={headerFontColor ? { color: headerFontColor } : {}}
                 >
                     {headerTitle}

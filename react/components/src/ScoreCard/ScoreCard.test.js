@@ -63,7 +63,6 @@ describe('ScoreCard', () => {
         let wrapper = shallow(<ScoreCard headerTitle={'Test'} />);
         let title = wrapper.find(Typography);
         let div = wrapper.find(`.${classes.header}`);
-        expect(title.props().style.color).toEqual(Colors.white[50]);
         expect(div.props().style.color).toEqual(Colors.white[50]);
         wrapper = shallow(<ScoreCard headerTitle={'Test'} headerFontColor={'red'} />);
         title = wrapper.find(Typography);
