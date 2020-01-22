@@ -19,4 +19,3 @@ export function withKeys(array: any[]): any {
 export const combine = (list: any) => {
     return list.join(' ');
 };
-

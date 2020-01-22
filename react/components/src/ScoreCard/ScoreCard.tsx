@@ -82,7 +82,7 @@ class ScoreCardClass extends React.Component<ScoreCordProps> {
     }
     getHeaderSubtitle(): JSX.Element | undefined {
         const { headerSubtitle } = this.props;
-        if(!headerSubtitle) return;
+        if (!headerSubtitle) return;
         if (typeof headerSubtitle === 'string') {
             return (
                 <Typography noWrap variant={'body2'} style={{ color: this.fontColor(), lineHeight: 1.4 }}>
@@ -95,7 +95,7 @@ class ScoreCardClass extends React.Component<ScoreCordProps> {
     }
     getHeaderInfo(): JSX.Element | undefined {
         const { headerInfo } = this.props;
-        if(!headerInfo) return;
+        if (!headerInfo) return;
         if (typeof headerInfo === 'string') {
             return (
                 <Typography noWrap variant={'body2'} style={{ color: this.fontColor(), fontWeight: 300 }}>
