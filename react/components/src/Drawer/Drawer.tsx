@@ -1,13 +1,14 @@
 import React from 'react';
 import { StyleRules, Theme, WithStyles, withStyles, WithTheme } from '@material-ui/core/styles';
-import { Drawer } from '@material-ui/core';
+import {Drawer, DrawerProps} from '@material-ui/core';
 import Hidden from '@material-ui/core/Hidden';
 
 type DrawerComponentProps = {
     open: boolean;
     width?: number;
 } & WithStyles &
-    WithTheme;
+    WithTheme &
+    Omit<DrawerProps, "translate">;
 
 type DrawerComponentState = {
     backdropClicked: boolean;

@@ -1,6 +1,7 @@
 # Change Log
+## v2.0.0
+Library converted to TypeScript to provide strong typings for TS projects.
 
-## v1.2.0 
 Adds new components for:
 - Drawer
 - DrawerHeader
