@@ -2,8 +2,8 @@ import React, {ReactNode} from 'react';
 import { StyleRules, WithStyles, withStyles } from '@material-ui/core/styles';
 
 type DrawerLayoutProps = {
-    drawer: ReactNode;
     children: React.ReactNode;
+    drawer: ReactNode;
 } & WithStyles;
 
 const DrawerLayout: React.FC<DrawerLayoutProps> = (props) => {
