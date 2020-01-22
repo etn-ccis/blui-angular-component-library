@@ -20,6 +20,7 @@
     "@pxblue/themes": "^1.0.26",
     "babel-jest": "^24.0.0",
     "babel-polyfill": "^6.26.0",
+    "clsx": "^1.0.4",
     "enzyme": "^3.5.0",
     "enzyme-adapter-react-16": "^1.8.0",
     "jest": "^24.0.0",

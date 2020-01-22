@@ -36,16 +36,36 @@ class ScoreCardClass extends React.Component {
     }
 
     headerText() {
-        const { headerTitle, headerSubtitle, headerInfo, classes } = this.props;
-        return (<div className={classes.flexColumn} style={{ flex: '1 1 0px', overflow: 'hidden' }}>
-            <Typography variant={'h6'} noWrap style={{ color: this.fontColor(), fontWeight: 600, fontSize: '1.125rem' }}>{headerTitle}</Typography>
-            {headerSubtitle &&
-                <Typography noWrap variant={'body2'} style={{ color: this.fontColor(), lineHeight: 1.4 }}>{headerSubtitle}</Typography>
-            }
-            {headerInfo &&
-                <Typography noWrap variant={'body2'} style={{ color: this.fontColor(), fontWeight: 300 }}>{headerInfo}</Typography>
-            }
-        </div>);
+        const { headerTitle, classes } = this.props;
+        return (
+            <div className={classes.flexColumn} style={{ flex: '1 1 0px', overflow: 'hidden' }}>
+                <Typography variant={'h6'} noWrap className={classes.title} style={this.props.fontColor ? { color: this.props.fontColor } : {}}>{headerTitle}</Typography>
+                {this.getHeaderSubtitle()}
+                {this.getHeaderInfo()}
+            </div>
+        );
+    }
+    getHeaderSubtitle() {
+        const { headerSubtitle } = this.props;
+        if(headerSubtitle && typeof headerSubtitle === 'string'){
+            return <Typography noWrap variant={'body2'} style={{ color: this.fontColor(), lineHeight: 1.4 }}>{headerSubtitle}</Typography>;
+        }
+        else if(headerSubtitle){
+            return headerSubtitle;
+        }
+        return null;
+
+    }
+    getHeaderInfo() {
+        const { headerInfo } = this.props;
+        if(headerInfo && typeof headerInfo === 'string'){
+            return <Typography noWrap variant={'body2'} style={{ color: this.fontColor(), fontWeight: 300 }}>{headerInfo}</Typography>;
+        }
+        else if(headerInfo){
+            return headerInfo;
+        }
+        return null;
+
     }
     actionItems() {
         const { actionItems, classes, actionLimit } = this.props;
@@ -62,8 +82,8 @@ class ScoreCardClass extends React.Component {
         const { badge, classes, badgeOffset = 0 } = this.props;
         if (badge) {
             return (
-                <div className={classes.badgeWrapper} style={{ 
-                    alignSelf: badgeOffset !== 0 ? 'flex-start' : 'center', 
+                <div className={classes.badgeWrapper} style={{
+                    alignSelf: badgeOffset !== 0 ? 'flex-start' : 'center',
                     marginTop: badgeOffset
                 }}>
                     {badge}
@@ -90,19 +110,19 @@ class ScoreCardClass extends React.Component {
 }
 
 ScoreCardClass.propTypes = {
-    headerTitle: PropTypes.string.isRequired,
-    headerSubtitle: PropTypes.string,
-    headerInfo: PropTypes.string,
-    headerColor: PropTypes.string,
-    headerFontColor: PropTypes.string,
-    headerBackgroundImage: PropTypes.string,
     actionItems: PropTypes.arrayOf(PropTypes.element),
+    actionLimit: PropTypes.number,
+    actionRow: PropTypes.element,
     badge: PropTypes.element,
     badgeOffset: PropTypes.number,
-    actionRow: PropTypes.element,
-    actionLimit: PropTypes.number,
+    headerBackgroundImage: PropTypes.string,
+    headerColor: PropTypes.string,
+    headerFontColor: PropTypes.string,
+    headerInfo: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    headerSubtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    headerTitle: PropTypes.string.isRequired,
 };
-ScoreCardClass.defaultProps = { 
+ScoreCardClass.defaultProps = {
     actionLimit: 3,
 };
 
@@ -142,17 +162,22 @@ const styles = theme => ({
         alignItems: 'center',
         position: 'relative',
     },
-    bodyWrapper: { 
-        flex: '1 1 0px', 
+    bodyWrapper: {
+        flex: '1 1 0px',
     },
-    badgeWrapper:{
-        flex: '0 0 auto', 
-        marginRight: 16, 
+    badgeWrapper: {
+        flex: '0 0 auto',
+        marginRight: 16,
         marginLeft: 16,
     },
     actionItem: {
         marginLeft: theme.spacing(1.5),
         cursor: 'pointer',
     },
+    title:{
+        color: Colors.white[50],// this.fontColor(), 
+        fontWeight: 600, 
+        fontSize: '1.125rem'
+    }
 })
 export default withStyles(styles, { withTheme: true })(ScoreCardClass);
