@@ -1,5 +1,4 @@
 import Trend from '@material-ui/icons/TrendingUp';
-//@ts-ignore
 import * as Colors from '@pxblue/colors';
 import ChannelValue from '@pxblue/react-components/core/ChannelValue';
 import {boolean, number, text, withKnobs, color} from '@storybook/addon-knobs';

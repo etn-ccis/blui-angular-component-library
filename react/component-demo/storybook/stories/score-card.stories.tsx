@@ -1,8 +1,5 @@
-
 import React from 'react';
-//@ts-ignore
 import {action} from '@storybook/addon-actions';
-//@ts-ignore
 import * as Colors from "@pxblue/colors";
 //@ts-ignore
 import { GradeA, Temp, Moisture as Humidity } from '@pxblue/icons-mui';
