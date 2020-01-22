@@ -15,15 +15,11 @@ type DrawerBodyProps = {
     titleColor?: string;
 } & WithStyles;
 
-
 const DrawerBodyContent: React.FC<DrawerBodyProps> = (props) => {
     const { backgroundColor } = props;
     const children = React.Children.toArray(props.children);
     return (
-        <div
-            className={props.classes.root}
-            style={{ backgroundColor }}
-        >
+        <div className={props.classes.root} style={{ backgroundColor }}>
             {children.map((child: any) => {
                 if (!child) {
                     return null;
@@ -65,5 +61,5 @@ const styles = (): StyleRules => ({
 export const DrawerBody = withStyles(styles)(DrawerBodyContent);
 DrawerBody.displayName = 'DrawerBody';
 DrawerBody.defaultProps = {
-    backgroundColor: Colors.white[50]   // TODO, dark theme compatible
+    backgroundColor: Colors.white[50], // TODO, dark theme compatible
 };

@@ -156,23 +156,23 @@ class DrawerComponent extends React.Component<DrawerComponentProps, DrawerCompon
 }
 
 const styles = (theme: Theme): StyleRules => ({
-        paper: {
-            overflow: 'hidden',
-            position: 'unset',
-        },
-        drawer: {
-            maxWidth: '85%',
-            width: theme.spacing(45),
-        },
-        smooth: {
-            height: '100%',
-            transition: 'width 175ms cubic-bezier(.4, 0, .2, 1)',
-        },
-        content: {
-            display: 'flex',
-            flexDirection: 'column',
-            height: '100%',
-        },
+    paper: {
+        overflow: 'hidden',
+        position: 'unset',
+    },
+    drawer: {
+        maxWidth: '85%',
+        width: theme.spacing(45),
+    },
+    smooth: {
+        height: '100%',
+        transition: 'width 175ms cubic-bezier(.4, 0, .2, 1)',
+    },
+    content: {
+        display: 'flex',
+        flexDirection: 'column',
+        height: '100%',
+    },
 });
 
 export default withStyles(styles, { withTheme: true })(DrawerComponent);

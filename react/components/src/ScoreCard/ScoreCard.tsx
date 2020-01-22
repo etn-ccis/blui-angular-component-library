@@ -6,8 +6,8 @@ import { withStyles } from '@material-ui/core/styles';
 
 type ScoreCordProps = {
     headerTitle: string;
-    headerSubtitle?: string;
-    headerInfo?: string;
+    headerSubtitle?: string | JSX.Element;
+    headerInfo?: string | JSX.Element;
     headerColor?: string;
     headerFontColor?: string;
     headerBackgroundImage?: string;
@@ -64,30 +64,48 @@ class ScoreCardClass extends React.Component<ScoreCordProps> {
     }
 
     headerText(): JSX.Element {
-        const { headerTitle, headerSubtitle, headerInfo, classes } = this.props;
+        const { headerTitle, classes, headerFontColor } = this.props;
         return (
             <div className={classes.flexColumn} style={{ flex: '1 1 0px', overflow: 'hidden' }}>
                 <Typography
                     variant={'h6'}
                     noWrap
-                    style={{ color: this.fontColor(), fontWeight: 600, fontSize: '1.125rem' }}
+                    className={classes.title}
+                    style={headerFontColor ? { color: headerFontColor } : {}}
                 >
                     {headerTitle}
                 </Typography>
-                {headerSubtitle && (
-                    <Typography noWrap variant={'body2'} style={{ color: this.fontColor(), lineHeight: 1.4 }}>
-                        {headerSubtitle}
-                    </Typography>
-                )}
-                {headerInfo && (
-                    <Typography noWrap variant={'body2'} style={{ color: this.fontColor(), fontWeight: 300 }}>
-                        {headerInfo}
-                    </Typography>
-                )}
+                {this.getHeaderSubtitle()}
+                {this.getHeaderInfo()}
             </div>
         );
     }
-
+    getHeaderSubtitle(): JSX.Element | undefined {
+        const { headerSubtitle } = this.props;
+        if(!headerSubtitle) return;
+        if (typeof headerSubtitle === 'string') {
+            return (
+                <Typography noWrap variant={'body2'} style={{ color: this.fontColor(), lineHeight: 1.4 }}>
+                    {headerSubtitle}
+                </Typography>
+            );
+        } else {
+            return headerSubtitle;
+        }
+    }
+    getHeaderInfo(): JSX.Element | undefined {
+        const { headerInfo } = this.props;
+        if(!headerInfo) return;
+        if (typeof headerInfo === 'string') {
+            return (
+                <Typography noWrap variant={'body2'} style={{ color: this.fontColor(), fontWeight: 300 }}>
+                    {headerInfo}
+                </Typography>
+            );
+        } else {
+            return headerInfo;
+        }
+    }
     actionItems(): JSX.Element[] | undefined {
         const { actionItems, classes, actionLimit } = this.props;
 
@@ -185,6 +203,11 @@ const styles = (theme: Theme): StyleRules => ({
     actionItem: {
         marginLeft: theme.spacing(1.5),
         cursor: 'pointer',
+    },
+    title: {
+        color: Colors.white[50], // this.fontColor(),
+        fontWeight: 600,
+        fontSize: '1.125rem',
     },
 });
 export default withStyles(styles, { withTheme: true })(ScoreCardClass);
