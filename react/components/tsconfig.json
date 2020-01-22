@@ -3,7 +3,7 @@
         "outDir": "../core",
         "allowJs": true,
         "target": "es5",
-        "types": ["node", "jest", "enzyme"],
+        "types": ["node"],
         "esModuleInterop": true,
         "jsx": "react",
         "strict": true,
