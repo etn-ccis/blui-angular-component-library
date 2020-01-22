@@ -12,7 +12,8 @@
   },
   "prettier": "@pxblue/prettier-config",
   "dependencies": {
-    "color": "^3.1.2"
+    "color": "^3.1.2",
+    "@pxblue/colors": "^2.0.0"
   },
   "devDependencies": {
     "@babel/cli": "^7.0.0",
@@ -47,7 +48,6 @@
   },
   "peerDependencies": {
     "@material-ui/core": "^4.7.2",
-    "@pxblue/colors": "^2.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },
