@@ -1,19 +1,13 @@
-
 import React from 'react';
-//@ts-ignore
 import {action} from '@storybook/addon-actions';
+import * as Colors from "@pxblue/colors";
 //@ts-ignore
-import * as PXBColors from "@pxblue/colors";
-//@ts-ignore
-import { GradeA, Leaf, Temp, GradeA, Device, Moisture as Humidity } from '@pxblue/icons-mui';
+import { GradeA, Temp, Moisture as Humidity } from '@pxblue/icons-mui';
 import { MoreVert, Search, Mail, ChevronRight, Notifications, ListAlt, Cloud } from '@material-ui/icons';
-//@ts-ignore
-import { ChannelValue, InfoListItem, ScoreCard, Hero, HeroBanner } from '@pxblue/react-components/core';
+import { InfoListItem, ScoreCard, Hero, HeroBanner } from '@pxblue/react-components/core';
 import { List, ListItem, ListItemText, ListItemSecondaryAction } from '@material-ui/core';
 import { boolean, color, text, number, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
-//@ts-ignore
-import * as Colors from '@pxblue/colors';
 
 const backgroundImage = require('../assets/topology_40.png');
 
@@ -66,8 +60,8 @@ stories.add('background and actions', () => {
             headerTitle={text('Title', 'Substation 3')}
             headerSubtitle={text('Subtitle', 'High Humidity Alarm')}
             headerInfo={text('infotext', '4 Devices')}
-            headerColor={color('backgroundColor', PXBColors.red[500])}
-            headerFontColor={color('fontColor', PXBColors.white[50])}
+            headerColor={color('backgroundColor', Colors.red[500])}
+            headerFontColor={color('fontColor', Colors.white[50])}
             headerBackgroundImage={backgroundImage}
             actionLimit={number('Action Limit', 3, {range: true, min: 1, max: 6, step: 1})}
             actionItems={[
@@ -102,8 +96,8 @@ stories.add('with hero badges', () => {
             headerTitle={'Substation 3'}
             headerSubtitle={'High Humidity Alarm'}
             headerInfo={'4 Devices'}
-            headerColor={PXBColors.red[500]}
-            headerFontColor={PXBColors.white[50]}
+            headerColor={Colors.red[500]}
+            headerFontColor={Colors.white[50]}
             headerBackgroundImage={backgroundImage}
             actionItems={[
                 <MoreVert onClick={action('clicked more')} />,
@@ -138,7 +132,7 @@ stories.add('with score badge', () => {
             headerTitle={'Substation 3'}
             headerSubtitle={'Normal'}
             headerInfo={'4 Devices'}
-            headerFontColor={PXBColors.white[50]}
+            headerFontColor={Colors.white[50]}
             headerBackgroundImage={backgroundImage}
             actionItems={[
                 <MoreVert onClick={action('clicked more')} />,
@@ -192,8 +186,8 @@ stories.add('full configuration', () => {
             headerTitle={text('Title', 'Substation 3')}
             headerSubtitle={text('Subtitle', 'High Humidity Alarm')}
             headerInfo={text('infotext', '4 Devices')}
-            headerColor={color('backgroundColor', PXBColors.red[500])}
-            headerFontColor={color('fontColor', PXBColors.white[50])}
+            headerColor={color('backgroundColor', Colors.red[500])}
+            headerFontColor={color('fontColor', Colors.white[50])}
             headerBackgroundImage={boolean('useBackgroundImage', true) ? backgroundImage : undefined}
             actionLimit={number('Action Limit', 3, {range: true, min: 1, max: 6, step: 1})}
             actionItems={[

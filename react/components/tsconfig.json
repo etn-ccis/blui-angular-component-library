@@ -1,0 +1,16 @@
+{
+    "compilerOptions": {
+        "outDir": "../core",
+        "allowJs": true,
+        "target": "es5",
+        "types": ["node"],
+        "esModuleInterop": true,
+        "jsx": "react",
+        "strict": true,
+        "declaration": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "include": [
+        "src"
+    ]
+}

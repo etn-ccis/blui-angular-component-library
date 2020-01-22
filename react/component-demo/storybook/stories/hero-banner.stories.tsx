@@ -1,17 +1,12 @@
 import React from 'react';
 
-//@ts-ignore
 import * as Colors from '@pxblue/colors';
-//@ts-ignore
 import Hero from '@pxblue/react-components/core/Hero';
-//@ts-ignore
 import HeroBanner from '@pxblue/react-components/core/HeroBanner';
 //@ts-ignore
-import { GradeA, Leaf, CurrentCircled, VoltageCircled, Temp } from '@pxblue/icons-mui';
-
+import { GradeA, Leaf, CurrentCircled, Temp } from '@pxblue/icons-mui';
 import {number, withKnobs} from '@storybook/addon-knobs';
 import {storiesOf} from '@storybook/react';
-
 
 export const stories = storiesOf('Hero Banner', module);
 stories.addDecorator(withKnobs);
