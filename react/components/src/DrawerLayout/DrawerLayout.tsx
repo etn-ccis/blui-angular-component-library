@@ -1,4 +1,4 @@
-import React, {ReactNode} from 'react';
+import React, { ReactNode } from 'react';
 import { StyleRules, WithStyles, withStyles } from '@material-ui/core/styles';
 
 type DrawerLayoutProps = {
@@ -9,10 +9,10 @@ type DrawerLayoutProps = {
 const DrawerLayout: React.FC<DrawerLayoutProps> = (props) => {
     const { children, classes, drawer } = props;
     return (
-       <div className={classes.root}>
-           <div className={classes.drawer}>{drawer}</div>
-           <div className={classes.content}>{children}</div>
-       </div>
+        <div className={classes.root}>
+            <div className={classes.drawer}>{drawer}</div>
+            <div className={classes.content}>{children}</div>
+        </div>
     );
 };
 

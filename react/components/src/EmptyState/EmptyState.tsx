@@ -14,22 +14,22 @@ type EmptyStateProps = {
 const EmptyState: React.FC<EmptyStateProps> = (props) => {
     const { icon, title, description, actions, classes, iconStyles } = props;
     return (
-       <div className={classes.frame}>
-           {icon && (
-              <div style={Object.assign({ marginBottom: '15px', display: 'flex', fontSize: '100px' }, iconStyles)}>
-                  {icon}
-              </div>
-           )}
-           <Typography variant="h6" color="inherit">
-               {title}
-           </Typography>
-           {description && (
-              <Typography variant="subtitle2" color="primary">
-                  {description}
-              </Typography>
-           )}
-           {actions && <div style={{ marginTop: '10px' }}>{actions}</div>}
-       </div>
+        <div className={classes.frame}>
+            {icon && (
+                <div style={Object.assign({ marginBottom: '15px', display: 'flex', fontSize: '100px' }, iconStyles)}>
+                    {icon}
+                </div>
+            )}
+            <Typography variant="h6" color="inherit">
+                {title}
+            </Typography>
+            {description && (
+                <Typography variant="subtitle2" color="primary">
+                    {description}
+                </Typography>
+            )}
+            {actions && <div style={{ marginTop: '10px' }}>{actions}</div>}
+        </div>
     );
 };
 
