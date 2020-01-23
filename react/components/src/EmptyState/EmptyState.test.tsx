@@ -1,5 +1,7 @@
+import {StyleRules} from "@material-ui/core";
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {Mount, Shallow, Render} from "../types";
 import EmptyState from './EmptyState';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -11,16 +13,14 @@ import Typography from '@material-ui/core/Typography';
 import { createMount, createShallow, createRender, getClasses } from '@material-ui/core/test-utils';
 
 Enzyme.configure({ adapter: new Adapter() });
-let mount;
-let shallow;
-let render;
-let classes;
+let mount: Mount;
+let shallow: Shallow;
+let classes: StyleRules;
 
 describe('EmptyState', () => {
     beforeEach(() => {
         mount = createMount({ strict: true });
         shallow = createShallow({ dive: true });
-        render = createRender();
         classes = getClasses(
             <EmptyState
                 icon={<PersonIcon />}
@@ -51,7 +51,7 @@ describe('EmptyState', () => {
 
     it('renders with frame class', () => {
         const wrapper = shallow(<EmptyState icon={<PersonIcon />} title="Test" />);
-        expect(wrapper.hasClass(classes.frame)).toEqual(true);
+        expect(wrapper.hasClass(`${classes.frame}`)).toEqual(true);
     });
 
     it('renders with icon', () => {
