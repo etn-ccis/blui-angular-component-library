@@ -14,7 +14,7 @@ type ChannelValueProps = {
 } & WithStyles;
 
 const ChannelValue: React.FC<ChannelValueProps> = (props) => {
-    const { classes, icon, value, units, prefix, fontSize, color } = props;
+    const { classes, icon, value, units, prefix = false, fontSize = 'inherit', color = 'inherit' } = props;
 
     const getUnitElement = useCallback(
         (): JSX.Element => (
@@ -71,8 +71,3 @@ const styles = (): StyleRules => ({
 });
 
 export default withStyles(styles)(ChannelValue);
-ChannelValue.defaultProps = {
-    prefix: false,
-    fontSize: 'inherit',
-    color: 'inherit',
-};
