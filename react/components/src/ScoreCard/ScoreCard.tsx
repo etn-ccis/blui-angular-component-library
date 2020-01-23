@@ -26,7 +26,7 @@ const ScoreCard: React.FC<ScoreCordProps> = (props) => {
         actionItems,
         actionRow,
         badge,
-        badgeOffset,
+        badgeOffset = 0,
         headerBackgroundImage,
         children,
         classes,

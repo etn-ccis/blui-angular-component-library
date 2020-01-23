@@ -14,7 +14,7 @@ type ChannelValueProps = {
 } & WithStyles;
 
 const ChannelValue: React.FC<ChannelValueProps> = (props) => {
-    const { classes, icon, value, units, prefix = false, fontSize = 'inherit', color = 'inherit' } = props;
+    const { classes, color = 'inherit', fontSize = 'inherit', icon, prefix = false, value, units } = props;
 
     const getUnitElement = useCallback(
         (): JSX.Element => (
@@ -35,7 +35,7 @@ const ChannelValue: React.FC<ChannelValueProps> = (props) => {
         });
 
     return (
-        <span className={classes.wrapper} style={{ fontSize: fontSize, color: color }}>
+        <span className={classes.wrapper} style={{ fontSize, color }}>
             {icon && <span className={classes.icon}>{changeIconDisplay(icon)}</span>}
             {prefix && getUnitElement()}
             <Typography variant={'h6'} color={'inherit'} className={combine([classes.text, classes.value])}>

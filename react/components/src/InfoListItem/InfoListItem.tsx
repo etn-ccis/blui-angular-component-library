@@ -57,7 +57,7 @@ const InfoListItem: React.FC<InfoListItemProps> = (props) => {
         icon,
         iconColor,
         leftComponent,
-        onClick = (): void => { },
+        onClick = (): void => {},
         rightComponent,
         statusColor,
         style,
@@ -118,10 +118,10 @@ const InfoListItem: React.FC<InfoListItemProps> = (props) => {
     };
 
     const interpunct = (): JSX.Element => (
-            <Typography className={`${classes.withSmallMargins} ${classes.separator}`}>
-                {subtitleSeparator || '\u00B7'}
-            </Typography>
-        );
+        <Typography className={`${classes.withSmallMargins} ${classes.separator}`}>
+            {subtitleSeparator || '\u00B7'}
+        </Typography>
+    );
 
     const getSubtitle = (): string | null => {
         if (!subtitle) {
@@ -137,7 +137,8 @@ const InfoListItem: React.FC<InfoListItemProps> = (props) => {
         return withKeys(separate(renderableSubtitleParts, () => interpunct()));
     };
 
-    const getWrapperStyle = (): CSSProperties => Object.assign(
+    const getWrapperStyle = (): CSSProperties =>
+        Object.assign(
             {
                 backgroundColor: backgroundColor || 'transparent',
                 cursor: onClick ? 'pointer' : 'default',
