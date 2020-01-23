@@ -5,54 +5,42 @@ import * as Colors from '@pxblue/colors';
 import { withStyles } from '@material-ui/core/styles';
 
 type ScoreCordProps = {
-    headerTitle: string;
-    headerSubtitle?: string | JSX.Element;
-    headerInfo?: string | JSX.Element;
-    headerColor?: string;
-    headerFontColor?: string;
-    headerBackgroundImage?: string;
     actionItems?: JSX.Element[];
+    actionLimit?: number;
+    actionRow?: JSX.Element;
     badge?: JSX.Element;
     badgeOffset?: number;
-    actionRow?: JSX.Element;
-    actionLimit?: number;
+    headerBackgroundImage?: string;
+    headerColor?: string;
+    headerFontColor?: string;
+    headerInfo?: string | JSX.Element;
+    headerTitle: string;
+    headerSubtitle?: string | JSX.Element;
     style?: CSSProperties;
 } & WithStyles &
     WithTheme;
 
-class ScoreCardClass extends React.Component<ScoreCordProps> {
-    public static defaultProps = {
-        actionLimit: 3,
-    };
+const ScoreCard: React.FC<ScoreCordProps> = (props) => {
+    const {
+        actionLimit = 3,
+        actionItems,
+        actionRow,
+        badge,
+        badgeOffset,
+        headerBackgroundImage,
+        children,
+        classes,
+        headerColor,
+        headerFontColor,
+        headerInfo,
+        headerTitle,
+        headerSubtitle,
+        style,
+    } = props;
 
-    render(): JSX.Element {
-        const { classes, style, headerColor } = this.props;
-        return (
-            <Card className={classes.card} style={style}>
-                <div
-                    className={classes.header}
-                    style={Object.assign(
-                        { color: this.fontColor() },
-                        headerColor ? { backgroundColor: headerColor } : {}
-                    )}
-                >
-                    {this.backgroundImage()}
-                    <div className={classes.headerContent}>
-                        {this.headerText()}
-                        {this.actionItems()}
-                    </div>
-                </div>
-                <div className={classes.content}>
-                    <div className={classes.bodyWrapper}>{this.props.children}</div>
-                    {this.heroes()}
-                </div>
-                {this.footer()}
-            </Card>
-        );
-    }
+    const fontColor = (): string => headerFontColor || Colors.white[50];
 
-    backgroundImage(): JSX.Element | undefined {
-        const { headerBackgroundImage, classes } = this.props;
+    const getBackgroundImage = (): JSX.Element | undefined => {
         if (headerBackgroundImage) {
             return (
                 <div
@@ -61,54 +49,48 @@ class ScoreCardClass extends React.Component<ScoreCordProps> {
                 />
             );
         }
-    }
+    };
 
-    headerText(): JSX.Element {
-        const { headerTitle, classes, headerFontColor } = this.props;
-        return (
-            <div className={classes.flexColumn} style={{ flex: '1 1 0px', overflow: 'hidden' }}>
-                <Typography
-                    variant={'h6'}
-                    noWrap
-                    className={classes.title}
-                    style={headerFontColor ? { color: headerFontColor } : {}}
-                >
-                    {headerTitle}
-                </Typography>
-                {this.getHeaderSubtitle()}
-                {this.getHeaderInfo()}
-            </div>
-        );
-    }
-    getHeaderSubtitle(): JSX.Element | undefined {
-        const { headerSubtitle } = this.props;
-        if (!headerSubtitle) return;
-        if (typeof headerSubtitle === 'string') {
-            return (
-                <Typography noWrap variant={'body2'} style={{ color: this.fontColor(), lineHeight: 1.4 }}>
-                    {headerSubtitle}
-                </Typography>
-            );
-        } else {
-            return headerSubtitle;
-        }
-    }
-    getHeaderInfo(): JSX.Element | undefined {
-        const { headerInfo } = this.props;
+    const getHeaderInfo = (): JSX.Element | undefined => {
         if (!headerInfo) return;
         if (typeof headerInfo === 'string') {
             return (
-                <Typography noWrap variant={'body2'} style={{ color: this.fontColor(), fontWeight: 300 }}>
+                <Typography noWrap variant={'body2'} style={{ color: fontColor(), fontWeight: 300 }}>
                     {headerInfo}
                 </Typography>
             );
-        } else {
-            return headerInfo;
         }
-    }
-    actionItems(): JSX.Element[] | undefined {
-        const { actionItems, classes, actionLimit } = this.props;
+        return headerInfo;
+    };
 
+    const getHeaderSubtitle = (): JSX.Element | undefined => {
+        if (!headerSubtitle) return;
+        if (typeof headerSubtitle === 'string') {
+            return (
+                <Typography noWrap variant={'body2'} style={{ color: fontColor(), lineHeight: 1.4 }}>
+                    {headerSubtitle}
+                </Typography>
+            );
+        }
+        return headerSubtitle;
+    };
+
+    const getHeaderText = (): JSX.Element => (
+        <div className={classes.flexColumn} style={{ flex: '1 1 0px', overflow: 'hidden' }}>
+            <Typography
+                variant={'h6'}
+                noWrap
+                className={classes.title}
+                style={headerFontColor ? { color: headerFontColor } : {}}
+            >
+                {headerTitle}
+            </Typography>
+            {getHeaderSubtitle()}
+            {getHeaderInfo()}
+        </div>
+    );
+
+    const getActionItems = (): JSX.Element[] | undefined => {
         if (actionItems) {
             return actionItems.slice(0, actionLimit).map((actionItem, index) => (
                 <div key={`${index}`} className={classes.actionItem}>
@@ -116,10 +98,9 @@ class ScoreCardClass extends React.Component<ScoreCordProps> {
                 </div>
             ));
         }
-    }
+    };
 
-    heroes(): JSX.Element | undefined {
-        const { badge, classes, badgeOffset = 0 } = this.props;
+    const getHeroes = (): JSX.Element | undefined => {
         if (badge) {
             return (
                 <div
@@ -133,11 +114,9 @@ class ScoreCardClass extends React.Component<ScoreCordProps> {
                 </div>
             );
         }
-    }
+    };
 
-    footer(): JSX.Element | undefined {
-        const { actionRow } = this.props;
-
+    const getFooter = (): JSX.Element | undefined => {
         if (actionRow) {
             return (
                 <>
@@ -146,13 +125,28 @@ class ScoreCardClass extends React.Component<ScoreCordProps> {
                 </>
             );
         }
-    }
+    };
 
-    fontColor(): string {
-        const { headerFontColor } = this.props;
-        return headerFontColor || Colors.white[50];
-    }
-}
+    return (
+        <Card className={classes.card} style={style}>
+            <div
+                className={classes.header}
+                style={Object.assign({ color: fontColor() }, headerColor ? { backgroundColor: headerColor } : {})}
+            >
+                {getBackgroundImage()}
+                <div className={classes.headerContent}>
+                    {getHeaderText()}
+                    {getActionItems()}
+                </div>
+            </div>
+            <div className={classes.content}>
+                <div className={classes.bodyWrapper}>{children}</div>
+                {getHeroes()}
+            </div>
+            {getFooter()}
+        </Card>
+    );
+};
 
 const styles = (theme: Theme): StyleRules => ({
     card: {
@@ -210,4 +204,4 @@ const styles = (theme: Theme): StyleRules => ({
         fontSize: '1.125rem',
     },
 });
-export default withStyles(styles, { withTheme: true })(ScoreCardClass);
+export default withStyles(styles, { withTheme: true })(ScoreCard);

@@ -9,7 +9,7 @@ const normalizeIconSize = (size: number): number => Math.max(10, Math.min(72, si
 const normalizeFontSize = (size: FontSize): string => (size === 'small' ? '1rem' : '1.25rem');
 
 type FontSize = 'normal' | 'small';
-type HeroProps = {
+export type HeroProps = {
     children?: React.ReactNode;
     fontSize?: FontSize;
     icon: string | JSX.Element;
