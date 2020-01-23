@@ -1,17 +1,13 @@
-import {StyleRules} from "@material-ui/core";
+import { StyleRules } from '@material-ui/core';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Mount, Shallow} from "../types";
+import { Mount, Shallow } from '../types';
 import Hero from './Hero';
 import ChannelValue from '../ChannelValue/ChannelValue';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Menu from '@material-ui/icons/Menu';
-import {
-    createMount,
-    createShallow,
-    getClasses,
-} from '@material-ui/core/test-utils';
+import { createMount, createShallow, getClasses } from '@material-ui/core/test-utils';
 
 Enzyme.configure({ adapter: new Adapter() });
 let mount: Mount;

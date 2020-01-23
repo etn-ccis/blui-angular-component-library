@@ -1,7 +1,7 @@
-import {StyleRules} from "@material-ui/core";
+import { StyleRules } from '@material-ui/core';
 import React from 'react';
 import * as ReactDOM from 'react-dom';
-import {Mount, Shallow} from "../types";
+import { Mount, Shallow } from '../types';
 import ChannelValue from './ChannelValue';
 import * as Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';

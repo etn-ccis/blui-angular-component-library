@@ -1,8 +1,8 @@
-import {mount, render, shallow} from 'enzyme';
+import { mount, render, shallow } from 'enzyme';
 
 export type Mount = typeof mount & {
-   attachTo: HTMLElement;
-   cleanUp(): void;
+    attachTo: HTMLElement;
+    cleanUp(): void;
 };
 
 export type Shallow = typeof shallow;
