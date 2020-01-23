@@ -1,5 +1,7 @@
+import {StyleRules} from "@material-ui/core";
 import React from 'react';
 import * as ReactDOM from 'react-dom';
+import {Mount, Shallow} from "../types";
 import ChannelValue from './ChannelValue';
 import * as Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -7,9 +9,9 @@ import Menu from '@material-ui/icons/Menu';
 import { createMount, createShallow, getClasses } from '@material-ui/core/test-utils';
 
 Enzyme.configure({ adapter: new Adapter() });
-let mount;
-let shallow;
-let classes;
+let mount: Mount;
+let shallow: Shallow;
+let classes: StyleRules;
 
 describe('ChannelValue', () => {
     beforeEach(() => {
@@ -29,7 +31,7 @@ describe('ChannelValue', () => {
     });
     it('should render with the wrapper class', () => {
         const wrapper = shallow(<ChannelValue value={1} />);
-        expect(wrapper.hasClass(classes.wrapper)).toEqual(true);
+        expect(wrapper.hasClass(`${classes.wrapper}`)).toEqual(true);
     });
     it('should render value properly', () => {
         const wrapper = shallow(<ChannelValue value={1} />);
