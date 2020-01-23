@@ -4,7 +4,7 @@ module.exports = ({ config }) => {
         use: [
             {
                 loader: require.resolve('awesome-typescript-loader'),
-            }
+            },
         ],
     });
     config.resolve.extensions.push('.ts', '.tsx');
