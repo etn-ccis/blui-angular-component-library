@@ -7,8 +7,10 @@
     "test": "cd ./components && ng test --watch=false",
     "test:artifacts": "bash ./buildTest.sh",
     "build": "bash ./buildComponents.sh",
+    "install:dependencies": "cd component-demo/showcase && yarn && cd ../storybook && yarn && cd ../../components && yarn",
     "link:components": "bash ./linkComponents.sh",
-    "start": "cd component-demo && yarn && cd .. && yarn link:components && cd component-demo && yarn start --open"
+    "start:storybook": "yarn install:dependencies && yarn link:components && cd component-demo/storybook && yarn start",
+    "start:showcase": "yarn install:dependencies && yarn link:components && cd component-demo/showcase && yarn start"
   },
   "peerDependencies": {
     "@angular/material": ">=7.2.0",

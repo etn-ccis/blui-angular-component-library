@@ -13,23 +13,35 @@ echo -e "${BLUE}Building components...${NC}"
 yarn build
 
 echo -en "${BLUE}Creating new folder in node_modules...${NC}"
-rm -rf "./component-demo/node_modules/@pxblue/angular-components"
-mkdir "./component-demo/node_modules/@pxblue/angular-components"
+rm -rf "./component-demo/showcase/node_modules/@pxblue/angular-components"
+mkdir "./component-demo/showcase/node_modules/@pxblue/angular-components"
+rm -rf "./component-demo/storybook/node_modules/@pxblue/angular-components"
+mkdir "./component-demo/storybook/node_modules/@pxblue/angular-components"
 echo -e "${GREEN}Done${NC}"
 
 echo -en "${BLUE}Copying build output into node_modules...${NC}";
-cp -r ./package.json ./component-demo/node_modules/@pxblue/angular-components/package.json
-cp -r ./index.js ./component-demo/node_modules/@pxblue/angular-components/index.js
-cp -r ./core ./component-demo/node_modules/@pxblue/angular-components/core
+cp -r ./package.json ./component-demo/showcase/node_modules/@pxblue/angular-components/package.json
+cp -r ./index.js ./component-demo/showcase/node_modules/@pxblue/angular-components/index.js
+cp -r ./core ./component-demo/showcase/node_modules/@pxblue/angular-components/core
+cp -r ./package.json ./component-demo/storybook/node_modules/@pxblue/angular-components/package.json
+cp -r ./index.js ./component-demo/storybook/node_modules/@pxblue/angular-components/index.js
+cp -r ./core ./component-demo/storybook/node_modules/@pxblue/angular-components/core
 echo -e "${GREEN}Done${NC}"
 
 echo -en "\r\n${BRED}Linking Components: ${NC}"
-if [ ! -f ./component-demo/node_modules/@pxblue/angular-components/package.json ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
-if [ ! -f ./component-demo/node_modules/@pxblue/angular-components/index.js ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
-if [ ! -s ./component-demo/node_modules/@pxblue/angular-components/core ]; 
+if [ ! -f ./component-demo/showcase/node_modules/@pxblue/angular-components/package.json ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
+if [ ! -f ./component-demo/showcase/node_modules/@pxblue/angular-components/index.js ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
+if [ ! -s ./component-demo/showcase/node_modules/@pxblue/angular-components/core ];
     then 
-        if [ ! -f ./component-demo/node_modules/@pxblue/angular-components/core/channel-value/package.json ];
+        if [ ! -f ./component-demo/showcase/node_modules/@pxblue/angular-components/core/channel-value/package.json ];
         then echo -e "${BRED}Not Linked${NC}" && exit 1; 
+        fi;
+fiif [ ! -f ./component-demo/storybook/node_modules/@pxblue/angular-components/package.json ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
+if [ ! -f ./component-demo/storybook/node_modules/@pxblue/angular-components/index.js ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
+if [ ! -s ./component-demo/storybook/node_modules/@pxblue/angular-components/core ];
+    then
+        if [ ! -f ./component-demo/storybook/node_modules/@pxblue/angular-components/core/channel-value/package.json ];
+        then echo -e "${BRED}Not Linked${NC}" && exit 1;
         fi;
 fi
 echo -e "${GRAY}Complete${NC}\r\n"
