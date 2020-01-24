@@ -38,22 +38,25 @@ export default () => {
     const [route, setRoute] = useState(0);
 
     return (
-        <DrawerLayout>
-            <Drawer open={open} width={300}>
+        <DrawerLayout drawer={
+            <Drawer open={open} width={300}
+                    ModalProps={{
+                        onBackdropClick: () => setOpen(!open)
+                    }}>
                 <DrawerHeader
                     title={'Showcase App'}
                     subtitle={'Components in Context'}
                     backgroundColor={Colors.blue[500]}
                     fontColor={Colors.white[50]}
                     backgroundImage={top}
-                    icon={<Menu />}
+                    icon={<Menu/>}
                     onIconClick={() => setOpen(!open)}
                 />
                 <DrawerSubheader>
                     <Select
                         value={location}
                         onChange={(e) => setLocation(e.target.value)}
-                        style={{ height: 56, padding: 16, width: '100%' }}
+                        style={{height: 56, padding: 16, width: '100%'}}
                     >
                         {locations.map((loc, ind) => (
                             <MenuItem key={`location${ind}`} value={ind}>{loc}</MenuItem>
@@ -65,51 +68,51 @@ export default () => {
                         items={[
                             {
                                 title: 'Overview',
-                                icon: <ListIcon />,
+                                icon: <ListIcon/>,
                                 active: route === 0,
                                 onClick: () => setRoute(0)
                             },
                             {
                                 title: 'Timeline',
                                 subtitle: '2 Alarms',
-                                icon: <NotificationsActive />,
+                                icon: <NotificationsActive/>,
                                 status: Colors.red[500],
                                 active: route === 1,
                                 onClick: () => setRoute(1)
                             },
                             {
                                 title: 'Locations',
-                                icon: <Public />,
+                                icon: <Public/>,
                                 active: route === 2,
                                 onClick: () => setRoute(2)
                             },
                             {
                                 title: 'Devices',
-                                icon: <Device />,
+                                icon: <Device/>,
                                 active: route === 3,
                                 onClick: () => setRoute(3)
                             },
                         ]}
                     />
-                    <div style={{ flex: '1 1 0px' }} />
-                    <Divider />
+                    <div style={{flex: '1 1 0px'}}/>
+                    <Divider/>
                     <DrawerNavGroup
                         items={[
                             {
                                 title: 'Settings',
-                                icon: <Settings />,
+                                icon: <Settings/>,
                                 active: route === 4,
                                 onClick: () => setRoute(4)
                             },
                             {
                                 title: 'Legal',
-                                icon: <Gavel />,
+                                icon: <Gavel/>,
                                 active: route === 5,
                                 onClick: () => setRoute(5)
                             },
                             {
                                 title: 'Help',
-                                icon: <Help />,
+                                icon: <Help/>,
                                 active: route === 6,
                                 onClick: () => setRoute(6)
                             }
@@ -117,11 +120,12 @@ export default () => {
                     />
                 </DrawerBody>
                 <DrawerFooter>
-                    <div style={{ 'display': 'flex', 'justifyContent': 'center' }}>
-                        <img src={EatonLogo} style={{ 'margin': '10px' }} alt="Eaton Logo" height={50} width={'auto'} />
+                    <div style={{'display': 'flex', 'justifyContent': 'center'}}>
+                        <img src={EatonLogo} style={{'margin': '10px'}} alt="Eaton Logo" height={50} width={'auto'}/>
                     </div>
                 </DrawerFooter>
             </Drawer>
+        }>
             <div style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                 <AppBar position={'static'} color={'primary'}>
                     <Toolbar style={{ padding: '0 16px' }}>
