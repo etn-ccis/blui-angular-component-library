@@ -36,7 +36,9 @@ if [ ! -s ./component-demo/showcase/node_modules/@pxblue/angular-components/core
         if [ ! -f ./component-demo/showcase/node_modules/@pxblue/angular-components/core/channel-value/package.json ];
         then echo -e "${BRED}Not Linked${NC}" && exit 1; 
         fi;
-fiif [ ! -f ./component-demo/storybook/node_modules/@pxblue/angular-components/package.json ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
+fi
+
+if [ ! -f ./component-demo/storybook/node_modules/@pxblue/angular-components/package.json ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
 if [ ! -f ./component-demo/storybook/node_modules/@pxblue/angular-components/index.js ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
 if [ ! -s ./component-demo/storybook/node_modules/@pxblue/angular-components/core ];
     then
