@@ -16,20 +16,29 @@ stories.addParameters({
 
 const heroes = [
     <Hero
+        key={'hero1'}
         icon={<GradeA fontSize={'inherit'} htmlColor={Colors.green[500]} />}
         label={'Healthy'}
         value={96}
         units={'/100'}
     />,
     <Hero
+        key={'hero2'}
         icon={<CurrentCircled fontSize={'inherit'} htmlColor={Colors.yellow[500]} />}
         label={'Load'}
         value={'90'}
         units={'%'}
         fontSize={'normal'}
     />,
-    <Hero icon={<Temp fontSize={'inherit'} htmlColor={Colors.green[500]} />} label={'Temp'} value={55} units={'C'} />,
     <Hero
+        key={'hero3'}
+        icon={<Temp fontSize={'inherit'} htmlColor={Colors.green[500]} />}
+        label={'Temp'}
+        value={55}
+        units={'C'}
+    />,
+    <Hero
+        key={'hero4'}
         icon={<Leaf fontSize={'inherit'} htmlColor={Colors.green[500]} />}
         label={'Battery'}
         value={96}
