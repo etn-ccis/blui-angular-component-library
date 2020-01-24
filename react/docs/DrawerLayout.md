@@ -3,10 +3,10 @@ The `DrawerLayout` component is used to provide the appropriate resizing behavio
 
 ### Usage
 ```
+import { Drawer } from '@pxblue/react-components/core/Drawer';
 import { DrawerLayout } from '@pxblue/react-components/core/DrawerLayout';
 ...
-<DrawerLayout>
-    <Drawer />
+<DrawerLayout drawer={<Drawer ... />} >
     <>
         /* Page content goes here */
     </>
