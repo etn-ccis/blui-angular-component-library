@@ -1,14 +1,14 @@
-import {Divider, List, StyleRules, Typography} from '@material-ui/core';
+import { Divider, List, StyleRules, Typography } from '@material-ui/core';
 
-import {createMount, createShallow, getClasses,} from '@material-ui/core/test-utils';
-import {MoreVert} from '@material-ui/icons';
+import { createMount, createShallow, getClasses } from '@material-ui/core/test-utils';
+import { MoreVert } from '@material-ui/icons';
 import * as Colors from '@pxblue/colors';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import HeroBanner from '../HeroBanner/HeroBanner';
-import {Mount, Shallow} from "../types";
+import { Mount, Shallow } from '../types';
 import ScoreCard from './ScoreCard';
 
 Enzyme.configure({ adapter: new Adapter() });
@@ -47,7 +47,11 @@ describe('ScoreCard', () => {
         expect(wrapper.find(`.${classes.actionItem}`).length).toEqual(1);
         expect(wrapper.find(MoreVert).length).toEqual(1);
         wrapper = shallow(
-            <ScoreCard actionLimit={2} headerTitle={'Test'} actionItems={[<MoreVert key={'icon1'} />, <MoreVert key={'icon2'}/>, <MoreVert key={'icon3'}/>]} />
+            <ScoreCard
+                actionLimit={2}
+                headerTitle={'Test'}
+                actionItems={[<MoreVert key={'icon1'} />, <MoreVert key={'icon2'} />, <MoreVert key={'icon3'} />]}
+            />
         );
         expect(wrapper.find(`.${classes.actionItem}`).length).toEqual(2);
         expect(wrapper.find(MoreVert).length).toEqual(2);
