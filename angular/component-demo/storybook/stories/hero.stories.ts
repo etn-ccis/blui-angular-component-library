@@ -1,7 +1,7 @@
 import {CommonModule} from "@angular/common";
 import {FormsModule} from "@angular/forms";
 import {MatIconModule} from "@angular/material/icon";
-import {HeroModule, ChannelValueModule} from '@pxblue/angular-components/core';
+import {HeroModule, ChannelValueModule} from '@pxblue/angular-components';
 import {text, withKnobs} from "@storybook/addon-knobs";
 import {moduleMetadata, storiesOf} from "@storybook/angular";
 
