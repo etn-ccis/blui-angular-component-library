@@ -8,4 +8,4 @@ ng build
 cd ..
 
 # copy index
-cp -r index.js ./core/index.js
+# cp -r index.js ./core/index.js

@@ -1,1 +1,2 @@
-export * from './esm5';
+
+export * from './core/esm5';
