@@ -26,9 +26,8 @@
     "node_modules"
   ],
   "include": [
-    "src/stories"
+    "stories"
   ],
   "files": [
-    "./.storybook/typings.d.ts"
   ]
 }

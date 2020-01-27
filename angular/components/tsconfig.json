@@ -17,21 +17,6 @@
     "lib": [
       "es2018",
       "dom"
-    ],
-    "paths": {
-      "hero": [
-        "core/hero"
-      ],
-      "hero/*": [
-        "core/hero/*"
-      ],
-      "channel-value": [
-        "core/channel-value"
-      ],
-      "channel-value/*": [
-        "core/channel-value/*"
-      ],
-      "@pxblue/angular-components/core/*": ["./core/*"]
-    }
+    ]
   }
 }
