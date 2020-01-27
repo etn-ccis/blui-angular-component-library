@@ -3,7 +3,7 @@ import { EmptyStateModule } from '@pxblue/angular-components';
 import {text, withKnobs} from "@storybook/addon-knobs";
 import {moduleMetadata, storiesOf} from "@storybook/angular";
 
-storiesOf('Empty State', module)
+storiesOf('Components|Empty State', module)
    .addDecorator(
       moduleMetadata({
          imports: [EmptyStateModule, MatIconModule],
