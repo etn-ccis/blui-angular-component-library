@@ -36,6 +36,8 @@
     "LICENSE",
     "README.md",
     "CHANGELOG.md",
+    "index.js",
+    "index.d.ts",
     "core/"
   ]
 }

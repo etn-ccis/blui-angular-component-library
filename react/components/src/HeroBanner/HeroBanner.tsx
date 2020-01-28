@@ -7,7 +7,7 @@ type HeroBannerProps = {
     limit?: number;
 } & WithStyles;
 
-export const HeroBanner = (props: HeroBannerProps & any): JSX.Element => {
+export const HeroBannerContent = (props: HeroBannerProps & any): JSX.Element => {
     const { classes, divider = false, limit = 4 } = props;
 
     const isArray = Array.isArray(props.children);
@@ -31,4 +31,4 @@ const styles = (): StyleRules => ({
     },
 });
 
-export default withStyles(styles)(HeroBanner);
+export const HeroBanner = withStyles(styles)(HeroBannerContent);

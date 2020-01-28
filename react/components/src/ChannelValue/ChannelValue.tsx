@@ -13,7 +13,7 @@ type ChannelValueProps = {
     color?: string;
 } & WithStyles;
 
-const ChannelValue: React.FC<ChannelValueProps> = (props) => {
+const ChannelValueContent: React.FC<ChannelValueProps> = (props) => {
     const { classes, color = 'inherit', fontSize = 'inherit', icon, prefix = false, value, units } = props;
 
     const getUnitElement = useCallback(
@@ -70,4 +70,4 @@ const styles = (): StyleRules => ({
     },
 });
 
-export default withStyles(styles)(ChannelValue);
+export const ChannelValue = withStyles(styles)(ChannelValueContent);

@@ -2,7 +2,7 @@ import { Typography } from '@material-ui/core';
 import { Apps, FormatListBulleted, Gavel, Help, NotificationsActive, PinDrop, Settings } from '@material-ui/icons';
 import MenuIcon from '@material-ui/icons/Menu';
 import { Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerNavGroup } from '@pxblue/react-components/core/Drawer';
-import { DrawerLayout } from '@pxblue/react-components/core/DrawerLayout';
+import { DrawerLayout } from '@pxblue/react-components';
 import { action } from '@storybook/addon-actions';
 import { boolean, number, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';

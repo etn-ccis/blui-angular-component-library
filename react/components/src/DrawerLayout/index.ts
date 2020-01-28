@@ -1,1 +1,1 @@
-export { default as DrawerLayout } from './DrawerLayout';
+export { DrawerLayout } from './DrawerLayout';

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HeroBanner from './HeroBanner';
-import Hero from '../Hero';
+import { HeroBanner } from './HeroBanner';
+import { Hero } from '../Hero';
 import Enzyme, { mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import EmptyState from '@pxblue/react-components/core/EmptyState';
+import { EmptyState } from '@pxblue/react-components';
 
 import DevicesIcon from '@material-ui/icons/Devices';
 import AddIcon from '@material-ui/icons/AddCircleOutlined';

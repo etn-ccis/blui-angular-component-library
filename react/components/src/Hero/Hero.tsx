@@ -3,7 +3,7 @@ import { StyleRules, WithStyles, withStyles } from '@material-ui/core/styles';
 import { Theme } from '@material-ui/core/styles/createMuiTheme';
 import Typography from '@material-ui/core/Typography';
 import * as Colors from '@pxblue/colors';
-import ChannelValue from '../ChannelValue/ChannelValue';
+import { ChannelValue } from '../ChannelValue';
 
 const normalizeIconSize = (size: number): number => Math.max(10, Math.min(72, size));
 const normalizeFontSize = (size: FontSize): string => (size === 'small' ? '1rem' : '1.25rem');
@@ -22,7 +22,7 @@ export type HeroProps = {
     units?: string;
 } & WithStyles;
 
-export const Hero = (props: HeroProps): JSX.Element => {
+export const HeroContent = (props: HeroProps): JSX.Element => {
     const {
         classes,
         fontSize = 'normal',
@@ -109,4 +109,4 @@ const styles = (theme: Theme): StyleRules => ({
     },
 });
 
-export default withStyles(styles)(Hero);
+export const Hero = withStyles(styles)(HeroContent);

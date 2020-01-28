@@ -20,7 +20,7 @@ type ScoreCordProps = {
 } & WithStyles &
     WithTheme;
 
-const ScoreCard: React.FC<ScoreCordProps> = (props) => {
+const ScoreCardContent: React.FC<ScoreCordProps> = (props) => {
     const {
         actionLimit = 3,
         actionItems,
@@ -204,4 +204,4 @@ const styles = (theme: Theme): StyleRules => ({
         fontSize: '1.125rem',
     },
 });
-export default withStyles(styles, { withTheme: true })(ScoreCard);
+export const ScoreCard = withStyles(styles, { withTheme: true })(ScoreCardContent);

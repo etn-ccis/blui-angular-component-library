@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Mount, Shallow } from '../types';
-import InfoListItem from './InfoListItem';
+import { InfoListItem } from './InfoListItem';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 

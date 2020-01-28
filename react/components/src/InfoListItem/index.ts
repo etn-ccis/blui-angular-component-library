@@ -1,1 +1,1 @@
-export { default } from './InfoListItem';
+export { InfoListItem } from './InfoListItem';

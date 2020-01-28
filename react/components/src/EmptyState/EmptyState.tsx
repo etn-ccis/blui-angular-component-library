@@ -11,7 +11,7 @@ type EmptyStateProps = {
     iconStyles?: StyleRules;
 } & WithStyles;
 
-const EmptyState: React.FC<EmptyStateProps> = (props) => {
+const EmptyStateContent: React.FC<EmptyStateProps> = (props) => {
     const { icon, title, description, actions, classes, iconStyles } = props;
     return (
         <div className={classes.frame}>
@@ -46,4 +46,4 @@ const styles = (): StyleRules => ({
     },
 });
 
-export default withStyles(styles)(EmptyState);
+export const EmptyState = withStyles(styles)(EmptyStateContent);

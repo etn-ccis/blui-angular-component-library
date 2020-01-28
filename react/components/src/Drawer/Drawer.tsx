@@ -10,7 +10,7 @@ type DrawerComponentProps = {
     WithTheme &
     Omit<DrawerProps, 'translate'>;
 
-const DrawerComponent: React.FC<DrawerComponentProps> = (props) => {
+const DrawerContent: React.FC<DrawerComponentProps> = (props) => {
     let hoverDelay: any;
     const [hover, setHover] = useState(false);
 
@@ -135,4 +135,4 @@ const styles = (theme: Theme): StyleRules => ({
     },
 });
 
-export default withStyles(styles, { withTheme: true })(DrawerComponent);
+export const DrawerComponent = withStyles(styles, { withTheme: true })(DrawerContent);

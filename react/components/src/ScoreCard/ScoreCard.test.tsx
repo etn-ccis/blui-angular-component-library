@@ -7,9 +7,9 @@ import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import HeroBanner from '../HeroBanner/HeroBanner';
+import { HeroBanner } from '../HeroBanner';
 import { Mount, Shallow } from '../types';
-import ScoreCard from './ScoreCard';
+import { ScoreCard } from './ScoreCard';
 
 Enzyme.configure({ adapter: new Adapter() });
 let mount: Mount;

@@ -44,7 +44,7 @@ type InfoListItemProps = {
 } & WithStyles &
     WithTheme;
 
-const InfoListItem: React.FC<InfoListItemProps> = (props) => {
+const InfoListItemContent: React.FC<InfoListItemProps> = (props) => {
     const {
         avatar = false,
         backgroundColor,
@@ -205,4 +205,4 @@ const styles = (theme: Theme): StyleRules => ({
     },
 });
 
-export default withStyles(styles, { withTheme: true })(InfoListItem);
+export const InfoListItem = withStyles(styles, { withTheme: true })(InfoListItemContent);

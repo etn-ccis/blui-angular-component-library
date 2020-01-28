@@ -1,6 +1,6 @@
 import Trend from '@material-ui/icons/TrendingUp';
 import * as Colors from '@pxblue/colors';
-import ChannelValue from '@pxblue/react-components/core/ChannelValue';
+import { ChannelValue } from '@pxblue/react-components';
 import { boolean, number, text, withKnobs, color } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';

@@ -1,8 +1,7 @@
 import React from 'react';
 
 import * as Colors from '@pxblue/colors';
-import Hero from '@pxblue/react-components/core/Hero';
-import ChannelValue from '@pxblue/react-components/core/ChannelValue';
+import { Hero, ChannelValue } from '@pxblue/react-components';
 //@ts-ignore
 import { GradeA, Leaf } from '@pxblue/icons-mui';
 

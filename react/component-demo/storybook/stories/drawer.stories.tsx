@@ -34,7 +34,7 @@ import {
     DrawerFooter,
     DrawerNavGroup,
     NavItem,
-} from '@pxblue/react-components/core/Drawer';
+} from '@pxblue/react-components';
 import { State, Store } from '@sambego/storybook-state';
 import { boolean, color, number, optionsKnob, select, text, withKnobs } from '@storybook/addon-knobs';
 import { OptionsKnobOptionsDisplay } from '@storybook/addon-knobs/dist/components/types/Options';

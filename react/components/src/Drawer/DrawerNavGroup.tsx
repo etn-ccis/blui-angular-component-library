@@ -4,7 +4,7 @@ import List from '@material-ui/core/List';
 import ListSubheader from '@material-ui/core/ListSubheader';
 import { Typography } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
-import { InfoListItem } from '../index';
+import { InfoListItem } from '../InfoListItem';
 
 export type NavItem = {
     active?: boolean;

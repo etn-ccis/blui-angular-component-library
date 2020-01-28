@@ -11,7 +11,7 @@ The value section of the Hero utilizes a [ChannelValue](./ChannelValue.md) compo
 
 ### Usage
 ```
-import Hero from '@pxblue/react-components/core/Hero';
+import { Hero } from '@pxblue/react-components';
 
 // Simple usage passing props
 <Hero

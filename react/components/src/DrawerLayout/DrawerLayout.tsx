@@ -6,7 +6,7 @@ type DrawerLayoutProps = {
     drawer: ReactNode;
 } & WithStyles;
 
-const DrawerLayout: React.FC<DrawerLayoutProps> = (props) => {
+const DrawerLayoutContent: React.FC<DrawerLayoutProps> = (props) => {
     const { children, classes, drawer } = props;
     return (
         <div className={classes.root}>
@@ -33,4 +33,4 @@ const styles = (): StyleRules => ({
     },
 });
 
-export default withStyles(styles)(DrawerLayout);
+export const DrawerLayout = withStyles(styles)(DrawerLayoutContent);
