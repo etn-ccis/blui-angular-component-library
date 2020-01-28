@@ -13,7 +13,8 @@
   },
   "private": true,
   "devDependencies": {
-    "@angular-devkit/build-ng-packagr": "~0.12.0",
+    "@angular-devkit/build-angular": "^0.803.23",
+    "@angular-devkit/build-ng-packagr": "~0.803.23",
     "@angular/animations": "~8.2.2",
     "@angular/cdk": "^8.2.2",
     "@angular/cli": "~8.2.2",
@@ -50,6 +51,5 @@
     "zone.js": "~0.8.26"
   },
   "dependencies": {
-    "@angular-devkit/build-angular": "^0.803.23"
   }
 }
