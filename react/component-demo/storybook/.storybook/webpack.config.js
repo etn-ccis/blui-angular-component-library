@@ -1,3 +1,5 @@
+const webpack = require("webpack");
+
 module.exports = ({ config }) => {
     config.module.rules.push({
         test: /\.(ts|tsx)$/,
@@ -7,6 +9,7 @@ module.exports = ({ config }) => {
             },
         ],
     });
+    config.watchOptions = { ignored: [ /node_modules([\\]+|\/)+(?!@pxblue)/ ] };
     config.resolve.extensions.push('.ts', '.tsx');
     return config;
 };
