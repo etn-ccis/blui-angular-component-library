@@ -72,5 +72,13 @@
   "homepage": "https://github.com/pxblue/component-library#readme",
   "directories": {
     "doc": "docs"
-  }
+  },
+  "files": [
+    "package.json",
+    "LICENSE",
+    "README.md",
+    "CHANGELOG.md",
+    "index.js",
+    "core/"
+  ]
 }
