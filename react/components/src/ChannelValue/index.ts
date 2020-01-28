@@ -1,1 +1,1 @@
-export { ChannelValue } from './ChannelValue';
+export { ChannelValue, ChannelValueProps } from './ChannelValue';

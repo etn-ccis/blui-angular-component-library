@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-type DrawerComponentProps = {
+export type DrawerComponentProps = {
     open: boolean;
     width?: number;
 } & Omit<DrawerProps, 'translate'>;

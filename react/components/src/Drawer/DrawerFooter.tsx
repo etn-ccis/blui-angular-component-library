@@ -7,7 +7,7 @@ const useStyles = makeStyles({
     },
 });
 
-type DrawerFooterProps = {
+export type DrawerFooterProps = {
     backgroundColor?: string;
     open?: boolean;
 };

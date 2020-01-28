@@ -59,8 +59,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
 const MAX_SUBTITLE_ELEMENTS = 6;
 
-type DividerType = 'full' | 'partial';
-type InfoListItemProps = {
+export type DividerType = 'full' | 'partial';
+export type InfoListItemProps = {
     avatar?: boolean;
     backgroundColor?: string;
     chevron?: boolean;

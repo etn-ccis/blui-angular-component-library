@@ -58,7 +58,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-type DrawerHeaderProps = {
+export type DrawerHeaderProps = {
     backgroundColor?: string;
     backgroundImage?: string;
     backgroundOpacity?: number;

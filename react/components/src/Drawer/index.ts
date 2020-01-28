@@ -1,6 +1,6 @@
-export { DrawerComponent as Drawer } from './Drawer';
-export { DrawerHeader } from './DrawerHeader';
-export { DrawerSubheader } from './DrawerSubheader';
-export { DrawerBody } from './DrawerBody';
-export { DrawerFooter } from './DrawerFooter';
-export { DrawerNavGroup, NavItem } from './DrawerNavGroup';
+export { DrawerComponent as Drawer, DrawerComponentProps } from './Drawer';
+export { DrawerHeader, DrawerHeaderProps } from './DrawerHeader';
+export { DrawerSubheader, DrawerSubheaderProps } from './DrawerSubheader';
+export { DrawerBody, DrawerBodyProps } from './DrawerBody';
+export { DrawerFooter, DrawerFooterProps } from './DrawerFooter';
+export { DrawerNavGroup, NavItem, DrawerNavGroupProps } from './DrawerNavGroup';

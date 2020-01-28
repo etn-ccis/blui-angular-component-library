@@ -27,7 +27,7 @@ const styles = makeStyles({
     },
 });
 
-type ChannelValueProps = {
+export type ChannelValueProps = {
     value: number | string;
     icon?: JSX.Element;
     units?: string;

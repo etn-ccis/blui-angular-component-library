@@ -11,7 +11,7 @@ const useStyles = makeStyles({
     },
 });
 
-type DrawerBodyProps = {
+export type DrawerBodyProps = {
     activeBackgroundColor?: string;
     activeFontColor?: string;
     activeIconColor?: string;

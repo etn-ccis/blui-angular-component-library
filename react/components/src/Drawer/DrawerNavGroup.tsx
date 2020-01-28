@@ -60,7 +60,7 @@ export type NavItem = {
     title: string;
 };
 
-type DrawerNavGroupProps = {
+export type DrawerNavGroupProps = {
     activeBackgroundColor?: string;
     activeFontColor?: string;
     activeIconColor?: string;

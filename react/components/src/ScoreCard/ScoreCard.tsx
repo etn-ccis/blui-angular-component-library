@@ -62,7 +62,7 @@ const useStyles = makeStyles((theme: Theme) =>
     })
 );
 
-type ScoreCordProps = {
+export type ScoreCordProps = {
     actionItems?: JSX.Element[];
     actionLimit?: number;
     actionRow?: JSX.Element;

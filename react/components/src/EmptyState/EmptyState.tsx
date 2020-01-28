@@ -3,7 +3,7 @@ import { makeStyles, StyleRules } from '@material-ui/core/styles';
 import * as Colors from '@pxblue/colors';
 import Typography from '@material-ui/core/Typography';
 
-type EmptyStateProps = {
+export type EmptyStateProps = {
     title?: string;
     description?: string;
     icon?: JSX.Element;

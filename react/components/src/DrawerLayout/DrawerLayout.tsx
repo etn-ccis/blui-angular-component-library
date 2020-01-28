@@ -1,7 +1,7 @@
 import React, { ReactNode } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 
-type DrawerLayoutProps = {
+export type DrawerLayoutProps = {
     children: React.ReactNode;
     drawer: ReactNode;
 };

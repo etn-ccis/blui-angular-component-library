@@ -1,1 +1,1 @@
-export { InfoListItem } from './InfoListItem';
+export { InfoListItem, InfoListItemProps, DividerType } from './InfoListItem';
