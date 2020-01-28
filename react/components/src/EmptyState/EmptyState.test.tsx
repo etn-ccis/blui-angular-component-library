@@ -1,6 +1,6 @@
-import { StyleRules } from '@material-ui/core';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import { findByTestId } from '../test-utils';
 import { Mount, Shallow } from '../types';
 import { EmptyState } from './EmptyState';
 import Enzyme from 'enzyme';
@@ -10,25 +10,16 @@ import Button from '@material-ui/core/Button';
 import PersonIcon from '@material-ui/icons/Person';
 import Typography from '@material-ui/core/Typography';
 
-import { createMount, createShallow, getClasses } from '@material-ui/core/test-utils';
+import { createMount, createShallow } from '@material-ui/core/test-utils';
 
 Enzyme.configure({ adapter: new Adapter() });
 let mount: Mount;
 let shallow: Shallow;
-let classes: StyleRules;
 
 describe('EmptyState', () => {
     beforeEach(() => {
         mount = createMount({ strict: true });
-        shallow = createShallow({ dive: true });
-        classes = getClasses(
-            <EmptyState
-                icon={<PersonIcon />}
-                title="Test"
-                description="Test Description"
-                actions={<Button> Test </Button>}
-            />
-        );
+        shallow = createShallow({});
     });
 
     afterEach(() => {
@@ -51,7 +42,7 @@ describe('EmptyState', () => {
 
     it('renders with frame class', () => {
         const wrapper = shallow(<EmptyState icon={<PersonIcon />} title="Test" />);
-        expect(wrapper.hasClass(`${classes.frame}`)).toEqual(true);
+        expect(findByTestId('frame', wrapper)).toBeTruthy();
     });
 
     it('renders with icon', () => {

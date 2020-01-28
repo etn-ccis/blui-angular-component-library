@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleRules, WithStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles, StyleRules } from '@material-ui/core/styles';
 import * as Colors from '@pxblue/colors';
 import Typography from '@material-ui/core/Typography';
 
@@ -9,12 +9,26 @@ type EmptyStateProps = {
     icon?: JSX.Element;
     actions?: JSX.Element;
     iconStyles?: StyleRules;
-} & WithStyles;
+};
 
-const EmptyStateContent: React.FC<EmptyStateProps> = (props) => {
-    const { icon, title, description, actions, classes, iconStyles } = props;
+const useStyles = makeStyles({
+    frame: {
+        height: '100%',
+        color: Colors.gray[500],
+        minHeight: '100%',
+        display: 'flex',
+        justifyContent: 'center',
+        flexDirection: 'column',
+        textAlign: 'center',
+        alignItems: 'center',
+    },
+});
+
+export const EmptyState: React.FC<EmptyStateProps> = (props) => {
+    const { icon, title, description, actions, iconStyles } = props;
+    const classes = useStyles(props);
     return (
-        <div className={classes.frame}>
+        <div className={classes.frame} data-test={'frame'}>
             {icon && (
                 <div style={Object.assign({ marginBottom: '15px', display: 'flex', fontSize: '100px' }, iconStyles)}>
                     {icon}
@@ -32,18 +46,3 @@ const EmptyStateContent: React.FC<EmptyStateProps> = (props) => {
         </div>
     );
 };
-
-const styles = (): StyleRules => ({
-    frame: {
-        height: '100%',
-        color: Colors.gray[500],
-        minHeight: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-        flexDirection: 'column',
-        textAlign: 'center',
-        alignItems: 'center',
-    },
-});
-
-export const EmptyState = withStyles(styles)(EmptyStateContent);

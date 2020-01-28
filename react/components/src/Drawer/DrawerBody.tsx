@@ -1,6 +1,15 @@
 import React from 'react';
-import { StyleRules, WithStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import * as Colors from '@pxblue/colors';
+
+const useStyles = makeStyles({
+    root: {
+        display: 'flex',
+        flex: '1 1 0px',
+        flexDirection: 'column',
+        overflowY: 'auto',
+    },
+});
 
 type DrawerBodyProps = {
     activeBackgroundColor?: string;
@@ -13,13 +22,14 @@ type DrawerBodyProps = {
     onSelect?: Function;
     open?: boolean;
     titleColor?: string;
-} & WithStyles;
+};
 
-const DrawerBodyContent: React.FC<DrawerBodyProps> = (props) => {
+export const DrawerBody: React.FC<DrawerBodyProps> = (props) => {
+    const classes = useStyles(props);
     const { backgroundColor } = props;
     const children = React.Children.toArray(props.children);
     return (
-        <div className={props.classes.root} style={{ backgroundColor }}>
+        <div className={classes.root} style={{ backgroundColor }}>
             {children.map((child: any) => {
                 if (!child) {
                     return null;
@@ -49,16 +59,6 @@ const DrawerBodyContent: React.FC<DrawerBodyProps> = (props) => {
     );
 };
 
-const styles = (): StyleRules => ({
-    root: {
-        display: 'flex',
-        flex: '1 1 0px',
-        flexDirection: 'column',
-        overflowY: 'auto',
-    },
-});
-
-export const DrawerBody = withStyles(styles)(DrawerBodyContent);
 DrawerBody.displayName = 'DrawerBody';
 DrawerBody.defaultProps = {
     backgroundColor: Colors.white[50], // TODO, dark theme compatible

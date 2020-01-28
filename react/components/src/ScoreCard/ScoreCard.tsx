@@ -1,8 +1,66 @@
 import { CSSProperties } from '@material-ui/styles';
 import React from 'react';
-import { Card, Typography, Divider, StyleRules, WithStyles, WithTheme, Theme } from '@material-ui/core';
+import { Card, Typography, Divider, Theme, makeStyles, createStyles } from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
-import { withStyles } from '@material-ui/core/styles';
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        card: {
+            flex: '1 1 0px',
+        },
+        flexColumn: {
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'stretch',
+        },
+        header: {
+            height: 100,
+            overflow: 'hidden',
+            // TODO: FIX ME!
+            //@ts-ignore
+            backgroundColor: theme.palette.primary[500],
+            position: 'relative',
+        },
+        headerContent: {
+            display: 'flex',
+            position: 'relative',
+            zIndex: 1,
+            alignItems: 'flex-start',
+            padding: theme.spacing(2),
+        },
+        headerBackground: {
+            position: 'absolute',
+            zIndex: 0,
+            width: '100%',
+            backgroundSize: 'cover',
+            height: '100%',
+            opacity: 0.3,
+            backgroundPosition: 'center',
+        },
+        content: {
+            display: 'flex',
+            alignItems: 'center',
+            position: 'relative',
+        },
+        bodyWrapper: {
+            flex: '1 1 0px',
+        },
+        badgeWrapper: {
+            flex: '0 0 auto',
+            marginRight: 16,
+            marginLeft: 16,
+        },
+        actionItem: {
+            marginLeft: theme.spacing(1.5),
+            cursor: 'pointer',
+        },
+        title: {
+            color: Colors.white[50], // this.fontColor(),
+            fontWeight: 600,
+            fontSize: '1.125rem',
+        },
+    })
+);
 
 type ScoreCordProps = {
     actionItems?: JSX.Element[];
@@ -17,10 +75,10 @@ type ScoreCordProps = {
     headerTitle: string;
     headerSubtitle?: string | JSX.Element;
     style?: CSSProperties;
-} & WithStyles &
-    WithTheme;
+};
 
-const ScoreCardContent: React.FC<ScoreCordProps> = (props) => {
+export const ScoreCard: React.FC<ScoreCordProps> = (props) => {
+    const classes = useStyles(props);
     const {
         actionLimit = 3,
         actionItems,
@@ -29,7 +87,6 @@ const ScoreCardContent: React.FC<ScoreCordProps> = (props) => {
         badgeOffset = 0,
         headerBackgroundImage,
         children,
-        classes,
         headerColor,
         headerFontColor,
         headerInfo,
@@ -93,7 +150,7 @@ const ScoreCardContent: React.FC<ScoreCordProps> = (props) => {
     const getActionItems = (): JSX.Element[] | undefined => {
         if (actionItems) {
             return actionItems.slice(0, actionLimit).map((actionItem, index) => (
-                <div key={`${index}`} className={classes.actionItem}>
+                <div key={`${index}`} className={classes.actionItem} data-test={'action-item'}>
                     {actionItem}
                 </div>
             ));
@@ -109,6 +166,7 @@ const ScoreCardContent: React.FC<ScoreCordProps> = (props) => {
                         alignSelf: badgeOffset !== 0 ? 'flex-start' : 'center',
                         marginTop: badgeOffset,
                     }}
+                    data-test={'badge-wrapper'}
                 >
                     {badge}
                 </div>
@@ -128,8 +186,9 @@ const ScoreCardContent: React.FC<ScoreCordProps> = (props) => {
     };
 
     return (
-        <Card className={classes.card} style={style}>
+        <Card className={classes.card} style={style} data-test={'card'}>
             <div
+                data-test={'header'}
                 className={classes.header}
                 style={Object.assign({ color: fontColor() }, headerColor ? { backgroundColor: headerColor } : {})}
             >
@@ -139,69 +198,13 @@ const ScoreCardContent: React.FC<ScoreCordProps> = (props) => {
                     {getActionItems()}
                 </div>
             </div>
-            <div className={classes.content}>
-                <div className={classes.bodyWrapper}>{children}</div>
+            <div className={classes.content} data-test={'content'}>
+                <div className={classes.bodyWrapper} data-test={'body-wrapper'}>
+                    {children}
+                </div>
                 {getHeroes()}
             </div>
             {getFooter()}
         </Card>
     );
 };
-
-const styles = (theme: Theme): StyleRules => ({
-    card: {
-        flex: '1 1 0px',
-    },
-    flexColumn: {
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'stretch',
-    },
-    header: {
-        height: 100,
-        overflow: 'hidden',
-        // TODO: FIX ME!
-        //@ts-ignore
-        backgroundColor: theme.palette.primary[500],
-        position: 'relative',
-    },
-    headerContent: {
-        display: 'flex',
-        position: 'relative',
-        zIndex: 1,
-        alignItems: 'flex-start',
-        padding: theme.spacing(2),
-    },
-    headerBackground: {
-        position: 'absolute',
-        zIndex: 0,
-        width: '100%',
-        backgroundSize: 'cover',
-        height: '100%',
-        opacity: 0.3,
-        backgroundPosition: 'center',
-    },
-    content: {
-        display: 'flex',
-        alignItems: 'center',
-        position: 'relative',
-    },
-    bodyWrapper: {
-        flex: '1 1 0px',
-    },
-    badgeWrapper: {
-        flex: '0 0 auto',
-        marginRight: 16,
-        marginLeft: 16,
-    },
-    actionItem: {
-        marginLeft: theme.spacing(1.5),
-        cursor: 'pointer',
-    },
-    title: {
-        color: Colors.white[50], // this.fontColor(),
-        fontWeight: 600,
-        fontSize: '1.125rem',
-    },
-});
-export const ScoreCard = withStyles(styles, { withTheme: true })(ScoreCardContent);

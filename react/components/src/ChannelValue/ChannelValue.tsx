@@ -1,52 +1,9 @@
 import React, { useCallback } from 'react';
-import { StyleRules } from '@material-ui/styles';
 import Typography from '@material-ui/core/Typography';
 import { combine } from '../utilities';
-import { withStyles, WithStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
-type ChannelValueProps = {
-    value: number | string;
-    icon?: JSX.Element;
-    units?: string;
-    prefix?: boolean;
-    fontSize?: number | string;
-    color?: string;
-} & WithStyles;
-
-const ChannelValueContent: React.FC<ChannelValueProps> = (props) => {
-    const { classes, color = 'inherit', fontSize = 'inherit', icon, prefix = false, value, units } = props;
-
-    const getUnitElement = useCallback(
-        (): JSX.Element => (
-            <>
-                {units && (
-                    <Typography variant={'h6'} color={'inherit'} className={combine([classes.text, classes.unit])}>
-                        {units}
-                    </Typography>
-                )}
-            </>
-        ),
-        [units, classes, combine]
-    );
-
-    const changeIconDisplay = (newIcon: JSX.Element): JSX.Element =>
-        React.cloneElement(newIcon, {
-            style: Object.assign({}, newIcon.props.style, { display: 'block', fontSize: 'inherit' }),
-        });
-
-    return (
-        <span className={classes.wrapper} style={{ fontSize, color }}>
-            {icon && <span className={classes.icon}>{changeIconDisplay(icon)}</span>}
-            {prefix && getUnitElement()}
-            <Typography variant={'h6'} color={'inherit'} className={combine([classes.text, classes.value])}>
-                {value}
-            </Typography>
-            {!prefix && getUnitElement()}
-        </span>
-    );
-};
-
-const styles = (): StyleRules => ({
+const styles = makeStyles({
     wrapper: {
         display: 'inline-flex',
         alignItems: 'center',
@@ -70,4 +27,59 @@ const styles = (): StyleRules => ({
     },
 });
 
-export const ChannelValue = withStyles(styles)(ChannelValueContent);
+type ChannelValueProps = {
+    value: number | string;
+    icon?: JSX.Element;
+    units?: string;
+    prefix?: boolean;
+    fontSize?: number | string;
+    color?: string;
+};
+
+export const ChannelValue: React.FC<ChannelValueProps> = (props) => {
+    const { color = 'inherit', fontSize = 'inherit', icon, prefix = false, value, units } = props;
+    const classes = styles(props);
+
+    const getUnitElement = useCallback(
+        (): JSX.Element => (
+            <>
+                {units && (
+                    <Typography
+                        variant={'h6'}
+                        color={'inherit'}
+                        className={combine([classes.text, classes.unit])}
+                        data-test={'unit'}
+                    >
+                        {units}
+                    </Typography>
+                )}
+            </>
+        ),
+        [units, classes, combine]
+    );
+
+    const changeIconDisplay = (newIcon: JSX.Element): JSX.Element =>
+        React.cloneElement(newIcon, {
+            style: Object.assign({}, newIcon.props.style, { display: 'block', fontSize: 'inherit' }),
+        });
+
+    return (
+        <span className={classes.wrapper} style={{ fontSize, color }} data-test={'wrapper'}>
+            {icon && (
+                <span className={classes.icon} data-test={'icon'}>
+                    {changeIconDisplay(icon)}
+                </span>
+            )}
+            {prefix && getUnitElement()}
+            <Typography
+                variant={'h6'}
+                color={'inherit'}
+                className={combine([classes.text, classes.value])}
+                data-test={'value'}
+            >
+                {value}
+            </Typography>
+            {!prefix && getUnitElement()}
+        </span>
+    );
+};

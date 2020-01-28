@@ -1,14 +1,23 @@
 import React from 'react';
-import { StyleRules, WithStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
+
+const useStyles = makeStyles({
+    banner: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
 
 type HeroBannerProps = {
     divider?: boolean;
     limit?: number;
-} & WithStyles;
+};
 
-export const HeroBannerContent = (props: HeroBannerProps & any): JSX.Element => {
-    const { classes, divider = false, limit = 4 } = props;
+export const HeroBanner = (props: HeroBannerProps & any): JSX.Element => {
+    const { divider = false, limit = 4 } = props;
+    const classes = useStyles(props);
 
     const isArray = Array.isArray(props.children);
 
@@ -22,13 +31,3 @@ export const HeroBannerContent = (props: HeroBannerProps & any): JSX.Element => 
         </React.Fragment>
     );
 };
-
-const styles = (): StyleRules => ({
-    banner: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
-
-export const HeroBanner = withStyles(styles)(HeroBannerContent);

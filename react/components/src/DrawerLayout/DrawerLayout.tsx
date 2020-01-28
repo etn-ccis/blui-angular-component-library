@@ -1,22 +1,12 @@
 import React, { ReactNode } from 'react';
-import { StyleRules, WithStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
 type DrawerLayoutProps = {
     children: React.ReactNode;
     drawer: ReactNode;
-} & WithStyles;
-
-const DrawerLayoutContent: React.FC<DrawerLayoutProps> = (props) => {
-    const { children, classes, drawer } = props;
-    return (
-        <div className={classes.root}>
-            <div className={classes.drawer}>{drawer}</div>
-            <div className={classes.content}>{children}</div>
-        </div>
-    );
 };
 
-const styles = (): StyleRules => ({
+const useStyles = makeStyles({
     root: {
         display: 'flex',
         height: '100%',
@@ -33,4 +23,13 @@ const styles = (): StyleRules => ({
     },
 });
 
-export const DrawerLayout = withStyles(styles)(DrawerLayoutContent);
+export const DrawerLayout: React.FC<DrawerLayoutProps> = (props) => {
+    const { children, drawer } = props;
+    const classes = useStyles(props);
+    return (
+        <div className={classes.root}>
+            <div className={classes.drawer}>{drawer}</div>
+            <div className={classes.content}>{children}</div>
+        </div>
+    );
+};

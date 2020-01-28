@@ -1,17 +1,39 @@
 import React, { useState } from 'react';
-import { StyleRules, Theme, WithStyles, withStyles, WithTheme } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 import { Drawer, DrawerProps } from '@material-ui/core';
 import Hidden from '@material-ui/core/Hidden';
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        paper: {
+            overflow: 'hidden',
+            position: 'unset',
+        },
+        drawer: {
+            maxWidth: '85%',
+            width: theme.spacing(45),
+        },
+        smooth: {
+            height: '100%',
+            transition: 'width 175ms cubic-bezier(.4, 0, .2, 1)',
+        },
+        content: {
+            display: 'flex',
+            flexDirection: 'column',
+            height: '100%',
+        },
+    })
+);
 
 type DrawerComponentProps = {
     open: boolean;
     width?: number;
-} & WithStyles &
-    WithTheme &
-    Omit<DrawerProps, 'translate'>;
+} & Omit<DrawerProps, 'translate'>;
 
-const DrawerContent: React.FC<DrawerComponentProps> = (props) => {
+export const DrawerComponent: React.FC<DrawerComponentProps> = (props) => {
     let hoverDelay: any;
+    const classes = useStyles(props);
+    const theme = useTheme();
     const [hover, setHover] = useState(false);
 
     const isDrawerOpen = (): boolean => hover || props.open;
@@ -73,19 +95,15 @@ const DrawerContent: React.FC<DrawerComponentProps> = (props) => {
         </>
     );
 
-    const getMobileNavigationMenu = (): JSX.Element => {
-        const { classes } = props;
-        return (
-            <Drawer {...props} open={isDrawerOpen()} classes={{ paper: classes.drawer }}>
-                <div className={`${classes.smooth} ${classes.content}`} style={{ width: '100%' }}>
-                    {getDrawerContents()}
-                </div>
-            </Drawer>
-        );
-    };
+    const getMobileNavigationMenu = (): JSX.Element => (
+        <Drawer {...props} open={isDrawerOpen()} classes={{ paper: classes.drawer }}>
+            <div className={`${classes.smooth} ${classes.content}`} style={{ width: '100%' }}>
+                {getDrawerContents()}
+            </div>
+        </Drawer>
+    );
 
     const getDesktopNavigationMenu = (): JSX.Element => {
-        const { classes, theme } = props;
         const containerWidth = isDrawerOpen() ? props.width || theme.spacing(45) : theme.spacing(7);
         const contentWidth = props.width || theme.spacing(45);
         return (
@@ -114,25 +132,3 @@ const DrawerContent: React.FC<DrawerComponentProps> = (props) => {
         </>
     );
 };
-
-const styles = (theme: Theme): StyleRules => ({
-    paper: {
-        overflow: 'hidden',
-        position: 'unset',
-    },
-    drawer: {
-        maxWidth: '85%',
-        width: theme.spacing(45),
-    },
-    smooth: {
-        height: '100%',
-        transition: 'width 175ms cubic-bezier(.4, 0, .2, 1)',
-    },
-    content: {
-        display: 'flex',
-        flexDirection: 'column',
-        height: '100%',
-    },
-});
-
-export const DrawerComponent = withStyles(styles, { withTheme: true })(DrawerContent);

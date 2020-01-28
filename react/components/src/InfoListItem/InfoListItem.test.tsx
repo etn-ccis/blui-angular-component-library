@@ -10,7 +10,7 @@ import { ListItemIcon, ListItemAvatar, Avatar } from '@material-ui/core';
 import Chevron from '@material-ui/icons/ChevronRight';
 import PersonIcon from '@material-ui/icons/Person';
 
-import * as PXBColors from '@pxblue/colors';
+import * as Colors from '@pxblue/colors';
 
 import { createMount, createShallow } from '@material-ui/core/test-utils';
 
@@ -53,7 +53,7 @@ describe('InfoListItem', () => {
         expect(wrapper.find(ListItemIcon).props().style.color).toEqual('green');
 
         wrapper = shallow(<InfoListItem title="Test" icon={<PersonIcon />} statusColor={'red'} avatar />);
-        expect(wrapper.find(Avatar).props().style.color).toEqual(PXBColors.white['50']);
+        expect(wrapper.find(Avatar).props().style.color).toEqual(Colors.white['50']);
 
         wrapper = shallow(
             <InfoListItem title="Test" icon={<PersonIcon />} statusColor={'red'} iconColor={'blue'} avatar />

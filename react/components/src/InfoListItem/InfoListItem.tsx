@@ -1,7 +1,7 @@
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React from 'react';
 
-import { StyleRules, Theme, WithStyles, withStyles, WithTheme } from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 import Chevron from '@material-ui/icons/ChevronRight';
 import * as Colors from '@pxblue/colors';
 //@ts-ignore
@@ -19,6 +19,43 @@ import {
     ListItemText,
     Typography,
 } from '@material-ui/core';
+
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        divider: {
+            position: 'absolute',
+            bottom: 0,
+            right: 0,
+            height: 1,
+            backgroundColor: theme.palette.type === 'light' ? Colors.black[50] : Colors.black[700],
+        },
+        statusStripe: {
+            position: 'absolute',
+            top: 0,
+            bottom: 0,
+            left: 0,
+            width: 6,
+            zIndex: 100,
+        },
+        withSmallMargins: {
+            margin: `0 4px`,
+        },
+        title: {
+            fontWeight: 600,
+            lineHeight: 1.2,
+            display: 'block',
+        },
+        subtitle: {
+            fontWeight: 400,
+            lineHeight: 1.3,
+        },
+        separator: {
+            display: 'inline-block',
+            lineHeight: 1.3,
+            color: 'inherit',
+        },
+    })
+);
 
 const MAX_SUBTITLE_ELEMENTS = 6;
 
@@ -41,15 +78,15 @@ type InfoListItemProps = {
     subtitle?: string | Array<string | JSX.Element>;
     subtitleSeparator?: string;
     title: string;
-} & WithStyles &
-    WithTheme;
+};
 
-const InfoListItemContent: React.FC<InfoListItemProps> = (props) => {
+export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
+    const theme = useTheme();
+    const classes = useStyles(theme);
     const {
         avatar = false,
         backgroundColor,
         chevron = false,
-        classes,
         dense = false,
         divider,
         fontColor,
@@ -63,7 +100,6 @@ const InfoListItemContent: React.FC<InfoListItemProps> = (props) => {
         style,
         subtitle,
         subtitleSeparator = '\u00B7',
-        theme,
         title,
     } = props;
 
@@ -169,40 +205,3 @@ const InfoListItemContent: React.FC<InfoListItemProps> = (props) => {
         </ListItem>
     );
 };
-
-const styles = (theme: Theme): StyleRules => ({
-    divider: {
-        position: 'absolute',
-        bottom: 0,
-        right: 0,
-        height: 1,
-        backgroundColor: theme.palette.type === 'light' ? Colors.black[50] : Colors.black[700],
-    },
-    statusStripe: {
-        position: 'absolute',
-        top: 0,
-        bottom: 0,
-        left: 0,
-        width: 6,
-        zIndex: 100,
-    },
-    withSmallMargins: {
-        margin: `0 4px`,
-    },
-    title: {
-        fontWeight: 600,
-        lineHeight: 1.2,
-        display: 'block',
-    },
-    subtitle: {
-        fontWeight: 400,
-        lineHeight: 1.3,
-    },
-    separator: {
-        display: 'inline-block',
-        lineHeight: 1.3,
-        color: 'inherit',
-    },
-});
-
-export const InfoListItem = withStyles(styles, { withTheme: true })(InfoListItemContent);
