@@ -2,6 +2,7 @@ import {CommonModule} from "@angular/common";
 import {HeroBannerModule, ChannelValueModule} from '@pxblue/angular-components';
 import {number, text, withKnobs} from "@storybook/addon-knobs";
 import {moduleMetadata, storiesOf} from "@storybook/angular";
+import {wrap} from "./utils";
 
 storiesOf('Components|Hero Banner', module)
    .addDecorator(
@@ -14,6 +15,7 @@ storiesOf('Components|Hero Banner', module)
       })
    )
    .addDecorator(withKnobs)
+   .addDecorator(wrap())
    .add('text only', () => ({
       template: `
           <pxb-hero-banner [divider]="false">
