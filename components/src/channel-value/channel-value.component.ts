@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
     selector: 'pxb-channel-value',
     template: `
-        <span class="value-wrapper" [style.color]="color" [style.font-size]="fontSize">
+        <span class="value-wrapper" [style.color]="color" [style.fontSize.px]="fontSize">
             <span class="icon">
                 <ng-content></ng-content>
             </span>
