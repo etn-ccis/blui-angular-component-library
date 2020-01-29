@@ -13,6 +13,14 @@
           "options": {
             "tsConfig": "tsconfig.lib.json",
             "project": "ng-package.json"
+          },
+          "configurations": {
+            "storybook": {
+              "project": "ng-package-storybook.json"
+            },
+            "showcase": {
+              "project": "ng-package-showcase.json"
+            }
           }
         },
         "test": {
