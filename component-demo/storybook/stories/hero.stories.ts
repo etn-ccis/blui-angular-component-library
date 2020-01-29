@@ -4,6 +4,7 @@ import {MatIconModule} from "@angular/material/icon";
 import {HeroModule, ChannelValueModule} from '@pxblue/angular-components';
 import {text, withKnobs} from "@storybook/addon-knobs";
 import {moduleMetadata, storiesOf} from "@storybook/angular";
+import {wrap} from "./utils";
 
 storiesOf('Components|Hero', module)
    .addDecorator(
@@ -18,6 +19,7 @@ storiesOf('Components|Hero', module)
       })
    )
    .addDecorator(withKnobs)
+   .addDecorator(wrap())
    .add('text only', () => ({
       template: `
           <pxb-hero [label]="title" [value]="value" [units]="units">
