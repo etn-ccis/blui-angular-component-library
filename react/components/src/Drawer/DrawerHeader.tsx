@@ -26,7 +26,7 @@ const useStyles = makeStyles((theme: Theme) =>
             justifyContent: 'center',
             alignSelf: 'stretch',
             flexDirection: 'column',
-            width: 'calc(90% - 56px)',
+            width: 'calc(100% - 56px)',
             boxSizing: 'border-box',
         },
         navigation: {
