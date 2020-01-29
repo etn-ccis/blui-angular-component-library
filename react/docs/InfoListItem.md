@@ -5,7 +5,7 @@ The Info List Item is intended to be used in List views. It positions a title as
 
 ## Usage
 ```
-import InfoListItem from '@pxblue/react-components/core/InfoListItem';
+import { InfoListItem } from '@pxblue/react-components';
 import { GradeA, Leaf, CurrentCircled, VoltageCircled, Temp } from '@pxblue/icons-mui';
 import * as Colors from '@pxblue/colors';
 ...

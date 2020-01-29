@@ -1,15 +1,23 @@
 import React from 'react';
-import { StyleRules, WithStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
 
-type HeroBannerProps = {
+const useStyles = makeStyles({
+    banner: {
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
+});
+
+export type HeroBannerProps = {
     divider?: boolean;
     limit?: number;
-} & WithStyles;
+};
 
 export const HeroBanner = (props: HeroBannerProps & any): JSX.Element => {
-    const { classes, divider = false, limit = 4 } = props;
-
+    const { divider = false, limit = 4 } = props;
+    const classes = useStyles(props);
     const isArray = Array.isArray(props.children);
 
     return (
@@ -22,13 +30,3 @@ export const HeroBanner = (props: HeroBannerProps & any): JSX.Element => {
         </React.Fragment>
     );
 };
-
-const styles = (): StyleRules => ({
-    banner: {
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});
-
-export default withStyles(styles)(HeroBanner);

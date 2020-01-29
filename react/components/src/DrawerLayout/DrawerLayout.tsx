@@ -1,31 +1,12 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
 
-import { StyleRules, WithStyles, withStyles } from '@material-ui/core/styles';
-
-type DrawerLayoutProps = {
+export type DrawerLayoutProps = {
     children: React.ReactNode;
-} & WithStyles;
+    drawer: ReactNode;
+};
 
-class DrawerLayout extends React.Component<DrawerLayoutProps> {
-    private getChild(index: number): JSX.Element {
-        const { children } = this.props;
-        // @ts-ignore
-        return children && children[index] ? children[index] : <></>;
-    }
-
-    render(): JSX.Element {
-        const { classes } = this.props;
-
-        return (
-            <div className={classes.root}>
-                <div className={classes.drawer}>{this.getChild(0)}</div>
-                <div className={classes.content}>{this.getChild(1)}</div>
-            </div>
-        );
-    }
-}
-
-const styles = (): StyleRules => ({
+const useStyles = makeStyles({
     root: {
         display: 'flex',
         height: '100%',
@@ -42,4 +23,13 @@ const styles = (): StyleRules => ({
     },
 });
 
-export default withStyles(styles)(DrawerLayout);
+export const DrawerLayout: React.FC<DrawerLayoutProps> = (props) => {
+    const { children, drawer } = props;
+    const classes = useStyles(props);
+    return (
+        <div className={classes.root}>
+            <div className={classes.drawer}>{drawer}</div>
+            <div className={classes.content}>{children}</div>
+        </div>
+    );
+};

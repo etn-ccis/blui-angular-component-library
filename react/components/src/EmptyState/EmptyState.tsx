@@ -1,45 +1,17 @@
 import React from 'react';
-
-import { StyleRules, WithStyles, withStyles } from '@material-ui/core/styles';
-// @ts-ignore
+import { makeStyles, StyleRules } from '@material-ui/core/styles';
 import * as Colors from '@pxblue/colors';
 import Typography from '@material-ui/core/Typography';
 
-type EmptyStateProps = {
+export type EmptyStateProps = {
     title?: string;
     description?: string;
     icon?: JSX.Element;
     actions?: JSX.Element;
     iconStyles?: StyleRules;
-} & WithStyles;
+};
 
-class EmptyState extends React.Component<EmptyStateProps> {
-    render(): JSX.Element {
-        const { icon, title, description, actions, classes, iconStyles } = this.props;
-        return (
-            <div className={classes.frame}>
-                {icon && (
-                    <div
-                        style={Object.assign({ marginBottom: '15px', display: 'flex', fontSize: '100px' }, iconStyles)}
-                    >
-                        {icon}
-                    </div>
-                )}
-                <Typography variant="h6" color="inherit">
-                    {title}
-                </Typography>
-                {description && (
-                    <Typography variant="subtitle2" color="primary">
-                        {description}
-                    </Typography>
-                )}
-                {actions && <div style={{ marginTop: '10px' }}>{actions}</div>}
-            </div>
-        );
-    }
-}
-
-const styles = (): StyleRules => ({
+const useStyles = makeStyles({
     frame: {
         height: '100%',
         color: Colors.gray[500],
@@ -52,4 +24,25 @@ const styles = (): StyleRules => ({
     },
 });
 
-export default withStyles(styles)(EmptyState);
+export const EmptyState: React.FC<EmptyStateProps> = (props) => {
+    const { icon, title, description, actions, iconStyles } = props;
+    const classes = useStyles(props);
+    return (
+        <div className={classes.frame} data-test={'frame'}>
+            {icon && (
+                <div style={Object.assign({ marginBottom: '15px', display: 'flex', fontSize: '100px' }, iconStyles)}>
+                    {icon}
+                </div>
+            )}
+            <Typography variant="h6" color="inherit">
+                {title}
+            </Typography>
+            {description && (
+                <Typography variant="subtitle2" color="primary">
+                    {description}
+                </Typography>
+            )}
+            {actions && <div style={{ marginTop: '10px' }}>{actions}</div>}
+        </div>
+    );
+};

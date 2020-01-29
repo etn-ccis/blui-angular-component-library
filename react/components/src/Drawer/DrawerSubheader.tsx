@@ -1,7 +1,7 @@
 import React from 'react';
 import { Divider } from '@material-ui/core';
 
-type DrawerSubheaderProps = {
+export type DrawerSubheaderProps = {
     open?: boolean;
 };
 

@@ -5,7 +5,7 @@ The Empty State component is an element that can be used as a placeholder when n
 
 ## Usage
 ```
-import EmptyState from '@pxblue/react-components/core/EmptyState';
+import { EmptyState } from '@pxblue/react-components';
 ```
 ```
 <EmptyState

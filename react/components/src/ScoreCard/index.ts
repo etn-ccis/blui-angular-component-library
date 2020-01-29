@@ -1,1 +1,1 @@
-export { default } from './ScoreCard';
+export { ScoreCard, ScoreCordProps } from './ScoreCard';

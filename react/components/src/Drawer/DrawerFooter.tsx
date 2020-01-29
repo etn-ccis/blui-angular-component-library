@@ -1,13 +1,20 @@
 import React from 'react';
-import { StyleRules, WithStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 
-type DrawerFooterProps = {
+const useStyles = makeStyles({
+    root: {
+        width: '100%',
+    },
+});
+
+export type DrawerFooterProps = {
     backgroundColor?: string;
     open?: boolean;
-} & WithStyles;
+};
 
-const DrawerFooterContent: React.FC<DrawerFooterProps> = (props) => {
-    const { classes, children, backgroundColor, open } = props;
+export const DrawerFooter: React.FC<DrawerFooterProps> = (props) => {
+    const classes = useStyles(props);
+    const { children, backgroundColor, open } = props;
     return (
         <div
             className={classes.root}
@@ -21,11 +28,4 @@ const DrawerFooterContent: React.FC<DrawerFooterProps> = (props) => {
     );
 };
 
-const styles = (): StyleRules => ({
-    root: {
-        width: '100%',
-    },
-});
-
-export const DrawerFooter = withStyles(styles)(DrawerFooterContent);
 DrawerFooter.displayName = 'DrawerFooter';
