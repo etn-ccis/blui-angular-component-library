@@ -1,1 +1,1 @@
-export { default } from './Hero';
+export { Hero, HeroProps } from './Hero';

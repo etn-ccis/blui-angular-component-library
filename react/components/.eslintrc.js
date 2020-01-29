@@ -8,4 +8,8 @@ module.exports =  {
         browser: true,
         jest: true
     },
+    rules: {
+        "@typescript-eslint/no-empty-function": "off",
+        "no-empty-function": "off"
+    }
 };

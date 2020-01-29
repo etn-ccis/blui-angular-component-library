@@ -34,14 +34,20 @@ const newViewports = {
 
 addParameters({
     viewport: {
-        viewports: newViewports
+        viewports: newViewports,
     },
     options: {
         theme: pxblue,
     },
 });
 
-addDecorator(storyFn => <MuiThemeProvider theme={createMuiTheme(ReactThemes.blue)}><div className={'wrapper'} style={{ color: Colors.gray['800']}}>{storyFn()}</div></MuiThemeProvider>);
+addDecorator((storyFn) => (
+    <MuiThemeProvider theme={createMuiTheme(ReactThemes.blue)}>
+        <div className={'wrapper'} style={{ color: Colors.gray['800'] }}>
+            {storyFn()}
+        </div>
+    </MuiThemeProvider>
+));
 
 // automatically import all files ending in *.stories.js
 configure(require.context('../stories', true, /\.stories\.(js|tsx)$/), module);

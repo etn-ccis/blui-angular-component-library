@@ -1,33 +1,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ScoreCard from './ScoreCard';
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
 
-import {
-    createMount,
-    createShallow,
-    createRender,
-    // describeConformance,
-    getClasses,
-} from '@material-ui/core/test-utils';
-import { Typography, List, Divider } from '@material-ui/core';
-import HeroBanner from '../HeroBanner/HeroBanner';
+import { Divider, List, Typography } from '@material-ui/core';
+
+import { createMount, createShallow } from '@material-ui/core/test-utils';
 import { MoreVert } from '@material-ui/icons';
 import * as Colors from '@pxblue/colors';
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import { HeroBanner } from '../HeroBanner';
+import { findByTestId } from '../test-utils';
+import { Mount, Shallow } from '../types';
+import { ScoreCard } from './ScoreCard';
 
 Enzyme.configure({ adapter: new Adapter() });
-let mount;
-let shallow;
-let render;
-let classes;
+let mount: Mount;
+let shallow: Shallow;
 
 describe('ScoreCard', () => {
     beforeEach(() => {
         mount = createMount({ strict: true });
         shallow = createShallow({ dive: true });
-        render = createRender();
-        classes = getClasses(<ScoreCard headerTitle={'Test'} />);
     });
 
     afterEach(() => {
@@ -50,30 +43,35 @@ describe('ScoreCard', () => {
     it('renders with header actions', () => {
         let wrapper = shallow(<ScoreCard headerTitle={'Test'} />);
         expect(wrapper.find(MoreVert).length).toEqual(0);
-        wrapper = shallow(<ScoreCard headerTitle={'Test'} actionItems={[<MoreVert />]} />);
-        expect(wrapper.find(`.${classes.actionItem}`).length).toEqual(1);
+        wrapper = shallow(<ScoreCard headerTitle={'Test'} actionItems={[<MoreVert key={'icon1'} />]} />);
+        expect(findByTestId('action-item', wrapper).length).toEqual(1);
         expect(wrapper.find(MoreVert).length).toEqual(1);
         wrapper = shallow(
-            <ScoreCard actionLimit={2} headerTitle={'Test'} actionItems={[<MoreVert />, <MoreVert />, <MoreVert />]} />
+            <ScoreCard
+                actionLimit={2}
+                headerTitle={'Test'}
+                actionItems={[<MoreVert key={'icon1'} />, <MoreVert key={'icon2'} />, <MoreVert key={'icon3'} />]}
+            />
         );
-        expect(wrapper.find(`.${classes.actionItem}`).length).toEqual(2);
+        expect(findByTestId('action-item', wrapper).length).toEqual(2);
         expect(wrapper.find(MoreVert).length).toEqual(2);
     });
     it('renders correct header text color', () => {
         let wrapper = shallow(<ScoreCard headerTitle={'Test'} />);
         let title = wrapper.find(Typography);
-        let div = wrapper.find(`.${classes.header}`);
+
+        let div = findByTestId('header', wrapper);
         expect(div.props().style.color).toEqual(Colors.white[50]);
         wrapper = shallow(<ScoreCard headerTitle={'Test'} headerFontColor={'red'} />);
         title = wrapper.find(Typography);
-        div = wrapper.find(`.${classes.header}`);
+        div = findByTestId('header', wrapper);
         expect(title.props().style.color).toEqual('red');
         expect(div.props().style.color).toEqual('red');
     });
     it('renders body content', () => {
         let wrapper = shallow(<ScoreCard headerTitle={'Test'} />);
-        let content = wrapper.find(`.${classes.content}`);
-        let body = wrapper.find(`.${classes.bodyWrapper}`);
+        let content = findByTestId('content', wrapper);
+        let body = findByTestId('body-wrapper', wrapper);
         expect(content.children().length).toEqual(1); // body wrapper
         expect(body.children().length).toEqual(0);
 
@@ -82,24 +80,24 @@ describe('ScoreCard', () => {
                 <List />
             </ScoreCard>
         );
-        content = wrapper.find(`.${classes.content}`);
-        body = wrapper.find(`.${classes.bodyWrapper}`);
+        content = findByTestId('content', wrapper);
+        body = findByTestId('body-wrapper', wrapper);
         expect(content.children().length).toEqual(1);
         expect(body.children(List).length).toEqual(1);
         expect(wrapper.find(List).length).toEqual(1);
     });
     it('renders an action row', () => {
-        let wrapper = shallow(<ScoreCard headerTitle={'Test'} actionRow={<List />} />);
-        let card = wrapper.find(`.${classes.card}`);
+        const wrapper = shallow(<ScoreCard headerTitle={'Test'} actionRow={<List />} />);
+        const card = findByTestId('card', wrapper);
         expect(card.children().length).toEqual(4); // header, content, footer (Divider + content)
         expect(wrapper.find(List).length).toEqual(1);
         expect(wrapper.find(Divider).length).toEqual(1);
     });
     it('renders badge content', () => {
         let wrapper = shallow(<ScoreCard headerTitle={'Test'} badge={<HeroBanner />} />);
-        let content = wrapper.find(`.${classes.content}`);
-        let body = wrapper.find(`.${classes.bodyWrapper}`);
-        let badge = wrapper.find(`.${classes.badgeWrapper}`);
+        const content = findByTestId('content', wrapper);
+        const body = findByTestId('body-wrapper', wrapper);
+        let badge = findByTestId('badge-wrapper', wrapper);
         expect(content.children().length).toEqual(2); // body wrapper + badge
         expect(body.children().length).toEqual(0); // no body
         expect(badge.children(HeroBanner).length).toEqual(1);
@@ -107,7 +105,7 @@ describe('ScoreCard', () => {
         expect(badge.props().style.alignSelf).toEqual('center');
 
         wrapper = shallow(<ScoreCard headerTitle={'Test'} badge={<HeroBanner />} badgeOffset={1} />);
-        badge = wrapper.find(`.${classes.badgeWrapper}`);
+        badge = findByTestId('badge-wrapper', wrapper);
         expect(badge.children(HeroBanner).length).toEqual(1);
         expect(badge.props().style.marginTop).toEqual(1);
         expect(badge.props().style.alignSelf).toEqual('flex-start');

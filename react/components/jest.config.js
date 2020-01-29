@@ -1,3 +1,3 @@
 module.exports = {
-  preset: 'ts-jest/presets/js-with-ts',
+  preset: 'ts-jest'
 };

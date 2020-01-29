@@ -6,7 +6,7 @@ The ChannelValue component is used to display...a channel value (and units). Thi
 
 ## Usage
 ```
-import ChannelValue from '@pxblue/react-components/core/ChannelValue';
+import { ChannelValue } from '@pxblue/react-components';
 ...
 <ChannelValue value={100} units={'%'} icon={<Icon/>} />
 ```

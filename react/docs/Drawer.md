@@ -6,7 +6,7 @@ The Drawer component is the parent container, which manages the overall state of
 
 ### Drawer Usage
 ```
-import { Drawer, DrawerHeader, DrawerSubheader, DrawerBody, DrawerFooter } from '@pxblue/react-components/core/Drawer';
+import { Drawer, DrawerHeader, DrawerSubheader, DrawerBody, DrawerFooter } from '@pxblue/react-components';
 ...
 <Drawer open={true}>
     <DrawerHeader />

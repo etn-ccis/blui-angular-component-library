@@ -1,21 +1,21 @@
 import React from 'react';
 import * as ReactDOM from 'react-dom';
-import ChannelValue from './ChannelValue';
+import { findByTestId } from '../test-utils';
+import { Mount, Shallow } from '../types';
+import { ChannelValue } from './ChannelValue';
 import * as Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import Menu from '@material-ui/icons/Menu';
-import { createMount, createShallow, getClasses } from '@material-ui/core/test-utils';
+import { createMount, createShallow } from '@material-ui/core/test-utils';
 
 Enzyme.configure({ adapter: new Adapter() });
-let mount;
-let shallow;
-let classes;
+let mount: Mount;
+let shallow: Shallow;
 
 describe('ChannelValue', () => {
     beforeEach(() => {
         mount = createMount({ strict: true });
-        shallow = createShallow({ dive: true });
-        classes = getClasses(<ChannelValue value={0} units={'test'} icon={<Menu />} prefix />);
+        shallow = createShallow({});
     });
 
     afterEach(() => {
@@ -29,22 +29,22 @@ describe('ChannelValue', () => {
     });
     it('should render with the wrapper class', () => {
         const wrapper = shallow(<ChannelValue value={1} />);
-        expect(wrapper.hasClass(classes.wrapper)).toEqual(true);
+        expect(findByTestId('wrapper', wrapper)).toBeTruthy();
     });
     it('should render value properly', () => {
         const wrapper = shallow(<ChannelValue value={1} />);
-        expect(wrapper.find(`.${classes.value}`).length).toEqual(1);
+        expect(findByTestId('value', wrapper).length).toEqual(1);
     });
     it('should render icon properly', () => {
         let wrapper = shallow(<ChannelValue icon={<Menu />} value={1} />);
-        expect(wrapper.find(`.${classes.icon}`).length).toEqual(1);
+        expect(findByTestId('icon', wrapper).length).toEqual(1);
         wrapper = shallow(<ChannelValue value={1} />);
-        expect(wrapper.find(`.${classes.icon}`).length).toEqual(0);
+        expect(findByTestId('icon', wrapper).length).toEqual(0);
     });
     it('should render units properly', () => {
         let wrapper = shallow(<ChannelValue value={1} units={'X'} />);
-        expect(wrapper.find(`.${classes.unit}`).length).toEqual(1);
+        expect(findByTestId('unit', wrapper).length).toEqual(1);
         wrapper = shallow(<ChannelValue value={1} />);
-        expect(wrapper.find(`.${classes.unit}`).length).toEqual(0);
+        expect(findByTestId('unit', wrapper).length).toEqual(0);
     });
 });

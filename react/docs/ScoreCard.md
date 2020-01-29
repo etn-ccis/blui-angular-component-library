@@ -6,7 +6,7 @@ Card component that calls attention to particular values.
 
 ### Usage
 ```
-import { Hero, HeroBanner, ScoreCard } from '@pxblue/react-native-components';
+import { Hero, HeroBanner, ScoreCard } from '@pxblue/react-components';
 import { List, Card, ListItem, ListItemText, ListItemSecondaryAction } from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
 import { MoreVert } from '@material-ui/icons';

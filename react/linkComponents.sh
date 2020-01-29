@@ -26,6 +26,8 @@ cp -r ./components/package.json ./component-demo/showcase/node_modules/@pxblue/r
 cp -r ./core ./component-demo/showcase/node_modules/@pxblue/react-components/core
 cp -r ./components/package.json ./component-demo/storybook/node_modules/@pxblue/react-components/package.json
 cp -r ./core ./component-demo/storybook/node_modules/@pxblue/react-components/core
+cp -r index.js ./component-demo/storybook/node_modules/@pxblue/react-components
+cp -r index.d.ts ./component-demo/storybook/node_modules/@pxblue/react-components
 echo -e "${GREEN}Done${NC}"
 
 echo -en "\r\n${BRED}Linking Components: ${NC}"
