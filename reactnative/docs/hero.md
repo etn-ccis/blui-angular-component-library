@@ -18,7 +18,7 @@ const Battery = wrapIcon({ IconClass: _Battery });
 ...
 <Hero 
     label={'Charge'}
-    icon={Battery}
+    IconClass={Battery}
     value={100}
     units={'%'}
 />
