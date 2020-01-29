@@ -2,7 +2,6 @@
   "name": "@pxblue/react-components",
   "version": "1.0.1",
   "description": "Reusable React components for PX Blue applications",
-  "main": "index.ts",
   "scripts": {
     "test": "jest src",
     "build": "tsc",

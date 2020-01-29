@@ -1,6 +1,6 @@
 {
     "compilerOptions": {
-        "outDir": "../core",
+        "outDir": "../dist",
         "allowJs": true,
         "target": "es5",
         "types": ["node", "jest", "enzyme"],
@@ -12,6 +12,6 @@
         "strictNullChecks": false,
     },
     "include": [
-        "src"
+        "src/index.ts"
     ]
 }
