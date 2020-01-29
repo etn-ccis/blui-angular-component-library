@@ -16,10 +16,12 @@
           },
           "configurations": {
             "storybook": {
-              "project": "ng-package-storybook.json"
+              "project": "ng-package-storybook.json",
+              "watch": true
             },
             "showcase": {
-              "project": "ng-package-showcase.json"
+              "project": "ng-package-showcase.json",
+              "watch": true
             }
           }
         },
