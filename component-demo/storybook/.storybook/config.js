@@ -1,6 +1,5 @@
 import {addParameters, configure} from '@storybook/angular';
 import pxblue from './pxblue-theme';
-import './styles.css';
 
 const newViewports = {
     iPhone5: {
