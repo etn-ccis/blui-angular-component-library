@@ -11,7 +11,7 @@
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "tsconfig.lib.json",
+            "tsConfig": "config/tsconfig.lib.json",
             "project": "ng-package.json"
           },
           "configurations": {
@@ -28,9 +28,9 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "test.ts",
-            "tsConfig": "tsconfig.spec.json",
-            "karmaConfig": "karma.conf.js"
+            "main": "config/test.ts",
+            "tsConfig": "config/tsconfig.spec.json",
+            "karmaConfig": "config/karma.conf.js"
           }
         }
       }
