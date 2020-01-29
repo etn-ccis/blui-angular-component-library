@@ -3,9 +3,7 @@ import { Component, DebugElement } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { EmptyStateComponent } from './empty-state.component';
 
-
 describe('Empty State Component', () => {
-
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [],
@@ -79,7 +77,6 @@ describe('Empty State Component', () => {
         actionElement = fixture.debugElement.query(By.css('.empty [empty-icon]'));
         expect(actionElement).toBeNull();
     });
-
 });
 
 /** Test component that contains an MatButton. */
@@ -94,6 +91,6 @@ describe('Empty State Component', () => {
         <pxb-empty-state class="withActions">
             <span actions></span>
         </pxb-empty-state>
-    `
+    `,
 })
-class TestEmpty { }
+class TestEmpty {}
