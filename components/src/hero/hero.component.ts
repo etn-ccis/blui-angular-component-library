@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation, Output, EventEmitter, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
     selector: 'pxb-hero',
@@ -25,15 +25,16 @@ import { Component, Input, ViewEncapsulation, Output, EventEmitter, OnInit } fro
     styleUrls: ['./hero.component.scss'],
     inputs: ['color', 'label', 'value', 'units', 'fontSize', 'iconSize'],
 })
-export class HeroComponent {
-    color: string;
-    label: string;
-    value: string;
-    units: string;
-    iconSize: string = 'normal';
-    iSize: number = 36;
-    fontSize: string = 'normal';
-    ngOnInit() {
+export class HeroComponent implements OnInit {
+    @Input() color: string;
+    @Input() label: string;
+    @Input() value: string;
+    @Input() units: string;
+    @Input() iconSize = 'normal';
+    @Input() iSize = 36;
+    @Input() fontSize = 'normal';
+
+    ngOnInit(): void {
         // We can't support dynamic iconSize w/ px-blue icons until https://github.com/angular/components/issues/5188 is fixed
         this.iSize =
             this.iconSize === 'large'

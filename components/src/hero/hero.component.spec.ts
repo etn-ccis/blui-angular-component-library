@@ -19,6 +19,7 @@ describe('HeroComponent', () => {
         const wrapperDiv: HTMLElement = heroComponent.query(By.css('div')).nativeElement;
         expect(wrapperDiv.getAttribute('class')).toEqual('wrapper');
     });
+
     it(`H5 element should have class as 'label'`, () => {
         const fixture = TestBed.createComponent(HeroComponent);
         const heroComponent = fixture.debugElement;

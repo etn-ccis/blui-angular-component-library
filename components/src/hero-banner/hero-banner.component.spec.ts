@@ -2,9 +2,9 @@ import { TestBed, async } from '@angular/core/testing';
 import { BrowserModule, By } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { HeroBannerComponent } from './hero-banner.component';
-//pxblue modules
 import { MatDividerModule } from '@angular/material/divider';
 import { MatIconModule } from '@angular/material/icon';
+
 describe('HeroBannerComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
