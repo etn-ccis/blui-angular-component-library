@@ -1,7 +1,23 @@
 import { async, TestBed } from '@angular/core/testing';
-import { Component, DebugElement } from '@angular/core';
+import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { EmptyStateComponent } from './empty-state.component';
+
+/** Test component that contains an MatButton. */
+@Component({
+    selector: 'test-app',
+    template: `
+        <pxb-empty-state class="withIcon">
+            <span empty-icon></span>
+        </pxb-empty-state>
+        <pxb-empty-state class="empty"></pxb-empty-state>
+
+        <pxb-empty-state class="withActions">
+            <span actions></span>
+        </pxb-empty-state>
+    `,
+})
+class TestEmpty {}
 
 describe('Empty State Component', () => {
     beforeEach(async(() => {
@@ -15,10 +31,10 @@ describe('Empty State Component', () => {
 
     // Title Check
     it('should show title when supplied', () => {
-        let fixture = TestBed.createComponent(EmptyStateComponent);
+        const fixture = TestBed.createComponent(EmptyStateComponent);
 
-        let testComponent = fixture.debugElement.componentInstance;
-        let titleElement = fixture.debugElement.query(By.css('h2'));
+        const testComponent = fixture.debugElement.componentInstance;
+        const titleElement = fixture.debugElement.query(By.css('h2'));
 
         testComponent.title = 'TEST';
         fixture.detectChanges();
@@ -36,9 +52,9 @@ describe('Empty State Component', () => {
 
     // Description Check
     it('should show description when supplied', () => {
-        let fixture = TestBed.createComponent(EmptyStateComponent);
+        const fixture = TestBed.createComponent(EmptyStateComponent);
 
-        let testComponent = fixture.debugElement.componentInstance;
+        const testComponent = fixture.debugElement.componentInstance;
         let descriptionElement = fixture.debugElement.query(By.css('h4'));
 
         testComponent.title = 'TEST';
@@ -58,7 +74,7 @@ describe('Empty State Component', () => {
 
     // Action Check
     it('should show actions when supplied', () => {
-        let fixture = TestBed.createComponent(TestEmpty);
+        const fixture = TestBed.createComponent(TestEmpty);
 
         let actionElement = fixture.debugElement.query(By.css('.withActions [actions]'));
         expect(actionElement).not.toBeNull();
@@ -69,7 +85,7 @@ describe('Empty State Component', () => {
 
     // Icon Check
     it('should show icon when supplied', () => {
-        let fixture = TestBed.createComponent(TestEmpty);
+        const fixture = TestBed.createComponent(TestEmpty);
 
         let actionElement = fixture.debugElement.query(By.css('.withIcon [empty-icon]'));
         expect(actionElement).not.toBeNull();
@@ -78,19 +94,3 @@ describe('Empty State Component', () => {
         expect(actionElement).toBeNull();
     });
 });
-
-/** Test component that contains an MatButton. */
-@Component({
-    selector: 'test-app',
-    template: `
-        <pxb-empty-state class="withIcon">
-            <span empty-icon></span>
-        </pxb-empty-state>
-        <pxb-empty-state class="empty"></pxb-empty-state>
-
-        <pxb-empty-state class="withActions">
-            <span actions></span>
-        </pxb-empty-state>
-    `,
-})
-class TestEmpty {}

@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
     selector: 'pxb-channel-value',
@@ -13,16 +13,11 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
         </span>
     `,
     styleUrls: ['./channel-value.component.scss'],
-    inputs: ['fontSize', 'color', 'value', 'units', 'prefix'],
 })
-export class ChannelValueComponent implements OnInit {
-    constructor() {}
-
-    ngOnInit() {}
-
-    value: string;
-    units: string;
-    fontSize: string = 'inherit';
-    prefix: boolean = false;
-    color: string = 'inherit';
+export class ChannelValueComponent {
+    @Input() value: string;
+    @Input() units: string;
+    @Input() fontSize = 'inherit';
+    @Input() prefix = false;
+    @Input() color = 'inherit';
 }
