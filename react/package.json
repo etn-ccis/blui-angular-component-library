@@ -4,13 +4,13 @@
   "description": "React components for PX Blue applications",
   "scripts": {
     "test": "cd components && yarn test",
-    "test:artifacts": "bash ./scripts/buildTest.sh",
+    "test:artifacts": "cd scripts && bash ./buildTest.sh && cd ..",
     "build": "cd components && yarn && yarn build",
-    "build:package": "cd components && yarn && yarn build && cd && bash ./scripts/prepublish.sh && yarn test:artifacts",
-    "link:components": "bash ./scripts/linkComponents.sh",
+    "build:package": "yarn build && cd scripts && bash ./prepublish.sh && cd .. && yarn test:artifacts",
+    "link:components": "cd scripts && bash ./linkComponents.sh && cd ..",
     "install:dependencies": "cd demos/showcase && yarn && cd ../storybook && yarn && cd ../../components && yarn",
     "start:showcase": "yarn install:dependencies && yarn link:components && cd demos/showcase && yarn start",
-    "start:storybook": "yarn install:dependencies && yarn link:components && cd demos/storybook  && yarn start",
+    "start:storybook": "yarn install:dependencies && yarn link:components && cd demos/storybook && yarn start",
     "start": "yarn start:showcase"
   },
   "repository": {

@@ -10,7 +10,7 @@ GRAY='\033[1;30m'
 NC='\033[0m' # No Color
 
 echo -e "${BLUE}Building components...${NC}"
-cd ./components
+cd ../components
 yarn build
 cd ..
 
