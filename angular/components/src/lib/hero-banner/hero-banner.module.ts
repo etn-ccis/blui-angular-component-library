@@ -11,6 +11,6 @@ import {HeroBannerComponent} from "./hero-banner.component";
      MatDividerModule,
      CommonModule,
   ],
-  exports: [HeroBannerComponent]
+  exports: [HeroBannerComponent, HeroModule]
 })
 export class HeroBannerModule { }

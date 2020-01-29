@@ -4,7 +4,7 @@
   "main": "./dist",
   "scripts": {
     "ng": "ng",
-    "watch:storybook": "ng build --outputPath=../component-demo/storybook/node_modules/@pxblue/angular-components/core  --watch ",
+    "watch:storybook": "ng build -c storybook --watch",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
