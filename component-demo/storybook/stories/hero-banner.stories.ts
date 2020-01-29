@@ -1,23 +1,22 @@
-import {MatIconModule} from "@angular/material/icon";
-import {ChannelValueModule, HeroBannerModule} from '@pxblue/angular-components';
-import {number, withKnobs} from "@storybook/addon-knobs";
-import {moduleMetadata, storiesOf} from "@storybook/angular";
-import {wrap} from "./utils";
+import { MatIconModule } from "@angular/material/icon";
+import {
+  ChannelValueModule,
+  HeroBannerModule
+} from "@pxblue/angular-components";
+import { number, withKnobs } from "@storybook/addon-knobs";
+import { moduleMetadata, storiesOf } from "@storybook/angular";
+import { wrap } from "./utils";
 
-storiesOf('Hero Banner', module)
-   .addDecorator(
-      moduleMetadata({
-         imports: [
-            HeroBannerModule,
-            ChannelValueModule,
-            MatIconModule
-         ],
-      })
-   )
-   .addDecorator(withKnobs)
-   .addDecorator(wrap())
-   .add('with heroes', () => ({
-      template: `
+storiesOf("Hero Banner", module)
+  .addDecorator(
+    moduleMetadata({
+      imports: [HeroBannerModule, ChannelValueModule, MatIconModule]
+    })
+  )
+  .addDecorator(withKnobs)
+  .addDecorator(wrap())
+  .add("with heroes", () => ({
+    template: `
           <pxb-hero-banner [divider]="false">
              <pxb-hero *ngIf="count > 0" [label]="'Health'" [value]="96" [units]="'/100'">
                 <mat-icon primary [style.color]="green">fitness_center</mat-icon>
@@ -33,10 +32,9 @@ storiesOf('Hero Banner', module)
             </pxb-hero>
           </pxb-hero-banner>
       `,
-      props: {
-         count: number('count', 4, { range: true, min: 0, max: 4, step: 1 }),
-         green: '#39b620',
-         yellow: '#f0cb2f'
-      }
-   })
-);
+    props: {
+      count: number("count", 4, { range: true, min: 0, max: 4, step: 1 }),
+      green: "#39b620",
+      yellow: "#f0cb2f"
+    }
+  }));
