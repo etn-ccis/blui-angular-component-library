@@ -6,7 +6,6 @@
 reactnative/component-demo/ios/Pods
 
 # production
-**/**/core
 **/**/dist
 
 # builds
