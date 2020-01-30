@@ -31,19 +31,11 @@ echo -e "${GREEN}Done${NC}"
 echo -en "\r\n${BRED}Linking Components: ${NC}"
 if [ ! -f ./component-demo/showcase/node_modules/@pxblue/angular-components/package.json ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
 if [ ! -f ./component-demo/showcase/node_modules/@pxblue/angular-components/index.js ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
-if [ ! -s ./component-demo/showcase/node_modules/@pxblue/angular-components ];
-    then 
-        if [ ! -f ./component-demo/showcase/node_modules/@pxblue/angular-components/esm5/components/channel-value/package.json ];
-        then echo -e "${BRED}Not Linked${NC}" && exit 1; 
-        fi;
-fi
+if [ ! -f ./component-demo/showcase/node_modules/@pxblue/angular-components/core/esm5/index.js ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
+
 
 if [ ! -f ./component-demo/storybook/node_modules/@pxblue/angular-components/package.json ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
 if [ ! -f ./component-demo/storybook/node_modules/@pxblue/angular-components/index.js ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
-if [ ! -s ./component-demo/storybook/node_modules/@pxblue/angular-components ];
-    then
-        if [ ! -f ./component-demo/storybook/node_modules/@pxblue/angular-components/esm5/components/channel-value/package.json ];
-        then echo -e "${BRED}Not Linked${NC}" && exit 1;
-        fi;
-fi
+if [ ! -f ./component-demo/storybook/node_modules/@pxblue/angular-components/core/esm5/index.js ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
+
 echo -e "${GRAY}Complete${NC}\r\n"
