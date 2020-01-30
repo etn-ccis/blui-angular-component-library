@@ -1216,6 +1216,11 @@
   optionalDependencies:
     eslint-plugin-react "^7.16.0"
 
+"@pxblue/icons@^1.0.25":
+  version "1.0.25"
+  resolved "https://registry.npmjs.org/@pxblue/icons/-/icons-1.0.25.tgz#52d22a987f168840ae7bdafb065f52c3ad5396da"
+  integrity sha512-Q1+wgCjRpX5TeOY8JPpea1yF4uZOCsISQuguRcRIgqthAWH//Jcq4zCKMeOYLHjmXUU7RbWKv4PaA91//xPekQ==
+
 "@pxblue/themes@^3.0.2":
   version "3.0.2"
   resolved "https://registry.npmjs.org/@pxblue/themes/-/themes-3.0.2.tgz#d5b83b414a83e2f96a8e0f28b034b8470ae48f69"
