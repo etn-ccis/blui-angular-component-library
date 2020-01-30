@@ -1,6 +1,6 @@
 {
   "name": "@pxblue/react-components",
-  "version": "1.0.1",
+  "version": "0.0.0",
   "description": "Reusable React components for PX Blue applications",
   "scripts": {
     "test": "jest src",
@@ -56,6 +56,13 @@
     "components",
     "pxblue"
   ],
+  "bugs": {
+    "url": "https://github.com/pxblue/component-library/issues"
+  },
+  "homepage": "https://github.com/pxblue/component-library#readme",
+  "directories": {
+    "doc": "docs"
+  },
   "author": "pxblue <pxblue@eaton.com>",
   "license": "BSD-3-Clause"
 }
