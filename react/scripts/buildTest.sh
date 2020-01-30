@@ -17,6 +17,7 @@ if [ ! -f ./package.json ]; then echo -e "${RED}Not Found${NC}" && exit 1; else 
 echo -ne "  changelog: "
 if [ ! -f ./CHANGELOG.md ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
+cd core
 echo "Checking Channel Value..."
 echo -ne "  ChannelValue.js: "
 if [ ! -f ./ChannelValue/ChannelValue.js  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
