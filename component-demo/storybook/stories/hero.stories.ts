@@ -14,7 +14,7 @@ storiesOf("Hero", module)
   .addDecorator(wrap())
   .add("with basic properties", () => ({
     template: `
-          <pxb-hero [label]="title" [value]="value" [units]="units">
+          <pxb-hero [label]="label" [value]="value" [units]="units">
             <mat-icon primary [style.color]="blue">fitness_center</mat-icon>
           </pxb-hero>
       `,
