@@ -27,18 +27,16 @@ storiesOf("Hero", module)
   }))
   .add("with ChannelValue children", () => ({
     template: `
-       <pxb-hero [label]="label" [value]="value" [units]="units">
-             <i primary [style.color]="blue" class="pxb-leaf"></i>
-           <pxb-channel-value [fontSize]="'large'" [value]="hours" [units]="'h'"></pxb-channel-value>
-           <pxb-channel-value [fontSize]="'large'" [value]="minutes" [units]="minutesUnit"></pxb-channel-value>
-       </pxb-hero>
+      <pxb-hero [label]="Estimated">
+        <i primary [style.color]="blue" class="pxb-leaf"></i>
+        <pxb-channel-value [value]="hours" units="h"></pxb-channel-value>
+        <pxb-channel-value [value]="minutes" units="m"></pxb-channel-value>
+      </pxb-hero>
    `,
     props: {
       label: text("label", "Duration"),
-      value: text("hours", "1"),
-      units: text("minutes", "27"),
-      hoursUnit: "h",
-      minutesUnit: "m",
+      hours: text("hours", "1"),
+      minutes: text("minutes", "27"),
       blue: Colors.blue[500]
     }
   }));
