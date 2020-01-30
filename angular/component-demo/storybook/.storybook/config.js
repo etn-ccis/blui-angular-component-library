@@ -1,4 +1,5 @@
 import {addParameters, configure} from '@storybook/angular';
+require('@pxblue/icons/iconfont/PXBlueIcons.css');
 import pxblue from './pxblue-theme';
 
 const newViewports = {
