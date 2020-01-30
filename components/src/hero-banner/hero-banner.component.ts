@@ -9,7 +9,6 @@ import { Component, Input } from '@angular/core';
         <mat-divider class="divider" *ngIf="divider"></mat-divider>
     `,
     styleUrls: ['./hero-banner.component.scss'],
-    inputs: ['divider'],
 })
 export class HeroBannerComponent {
     @Input() divider = true;
