@@ -23,13 +23,14 @@ storiesOf("Empty State", module)
             <mat-icon empty-icon>devices</mat-icon>
             <button actions mat-raised-button color="primary" (click)="click()">
                 <mat-icon>add_circle</mat-icon>
-                ADD DEVICE
+                {{actionText}}
              </button>
           </pxb-empty-state>
       `,
     props: {
       title: text("title", "No Devices"),
-      click: action("button clicked")
+      click: action("button clicked"),
+      actionText: text("action text", "ADD DEVICE")
     }
   }))
   .add("as text only", () => ({
