@@ -1,7 +1,4 @@
-import {
-  ChannelValueModule,
-  HeroModule,
-} from "@pxblue/angular-components";
+import { ChannelValueModule, HeroModule } from "@pxblue/angular-components";
 import { number, withKnobs } from "@storybook/addon-knobs";
 import { moduleMetadata, storiesOf } from "@storybook/angular";
 import { wrap } from "./utils";
@@ -14,9 +11,9 @@ storiesOf("Hero Banner", module)
     })
   )
   .addDecorator(withKnobs)
-   .addParameters({
-     notes: { markdown: require('./../../../docs/Hero.md') },
-   })
+  .addParameters({
+    notes: { markdown: require("./../../../docs/Hero.md") }
+  })
   .addDecorator(wrap())
   .add("with heroes", () => ({
     template: `

@@ -17,9 +17,9 @@ storiesOf("Channel Value", module)
     })
   )
   .addDecorator(withKnobs)
-   .addParameters({
-     notes: { markdown: require('./../../../docs/ChannelValue.md') },
-   })
+  .addParameters({
+    notes: { markdown: require("./../../../docs/ChannelValue.md") }
+  })
   .addDecorator(wrap())
   .add("with value", () => ({
     template: `
