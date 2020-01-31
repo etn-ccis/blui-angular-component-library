@@ -5,6 +5,6 @@ export const wrap = () => (storyFn): any => {
   const story = storyFn();
   return {
     ...story,
-    template: `<div class="pxb-blue">${story.template}</div>`
+    template: `<div class="pxb-blue mat-typography">${story.template}</div>`
   };
 };
