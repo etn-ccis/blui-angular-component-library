@@ -56,5 +56,20 @@
     "zone.js": "~0.10.2"
   },
   "dependencies": {},
-  "prettier": "@pxblue/prettier-config"
+  "prettier": "@pxblue/prettier-config",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pxblue/component-library.git"
+  },
+  "keywords": [
+    "angular",
+    "components",
+    "pxblue"
+  ],
+  "author": "pxblue <pxblue@eaton.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/pxblue/component-library/issues"
+  },
+  "homepage": "https://github.com/pxblue/component-library#readme"
 }
