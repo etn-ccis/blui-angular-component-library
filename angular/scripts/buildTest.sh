@@ -21,7 +21,7 @@ if [ ! -f ./core/hero/hero.component.d.ts ]; then echo -e "${RED}Not Found${NC}"
 
 echo "Checking HeroBanner..."
 echo -ne "  hero-banner.component: "
-if [ ! -f ./core/hero-banner/hero-banner.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+if [ ! -f ./core/hero/hero-banner.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
 echo "Checking ChannelValue..."
 echo -ne "  channel-value.component: "
