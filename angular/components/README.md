@@ -5,6 +5,7 @@ Currently, we have components available for:
 * ChannelValue
 * Hero
 * HeroBanner
+* EmptyState
 
 ## Installation
 To install the PX Blue angular components from NPM as a dependency for your project, you can run the following command in your project root:
