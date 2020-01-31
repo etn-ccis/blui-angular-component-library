@@ -1,6 +1,6 @@
 import {
   ChannelValueModule,
-  HeroBannerModule
+  HeroModule,
 } from "@pxblue/angular-components";
 import { number, withKnobs } from "@storybook/addon-knobs";
 import { moduleMetadata, storiesOf } from "@storybook/angular";
@@ -10,7 +10,7 @@ import * as Colors from "@pxblue/colors";
 storiesOf("Hero Banner", module)
   .addDecorator(
     moduleMetadata({
-      imports: [HeroBannerModule, ChannelValueModule]
+      imports: [HeroModule, ChannelValueModule]
     })
   )
   .addDecorator(withKnobs)
