@@ -1,5 +1,5 @@
 {
-  "dest": "../component-demo/storybook/node_modules/@pxblue/angular-components/core",
+  "dest": "../component-demo/storybook/node_modules/@pxblue/angular-components",
   "lib": {
     "entryFile": "src/index.ts"
   }
