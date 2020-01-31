@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import Hero from '@pxblue/react-components/core/Hero';
-import HeroBanner from '@pxblue/react-components/core/HeroBanner';
-import ChannelValue from '@pxblue/react-components/core/ChannelValue';
-import EmptyState from '@pxblue/react-components/core/EmptyState';
-import InfoListItem from '@pxblue/react-components/core/InfoListItem';
-import ScoreCard from '@pxblue/react-components/core/ScoreCard';
-import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, DrawerSubheader } from '@pxblue/react-components/core/Drawer';
-import { DrawerLayout } from '@pxblue/react-components/core/DrawerLayout';
+import { Hero } from '@pxblue/react-components';
+import { HeroBanner } from '@pxblue/react-components';
+import { ChannelValue } from '@pxblue/react-components';
+import { EmptyState } from '@pxblue/react-components';
+import { InfoListItem } from '@pxblue/react-components';
+import { ScoreCard } from '@pxblue/react-components';
+import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, DrawerSubheader } from '@pxblue/react-components';
+import { DrawerLayout } from '@pxblue/react-components';
 
 
 import DevicesIcon from '@material-ui/icons/Devices'
