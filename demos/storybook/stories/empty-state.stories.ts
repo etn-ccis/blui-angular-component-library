@@ -13,9 +13,9 @@ storiesOf("Empty State", module)
     })
   )
   .addDecorator(withKnobs)
-   .addParameters({
-     notes: { markdown: require('./../../../docs/EmptyState.md') },
-   })
+  .addParameters({
+    notes: { markdown: require("./../../../docs/EmptyState.md") }
+  })
   .addDecorator(wrap())
   .add("with action", () => ({
     template: `
