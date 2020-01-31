@@ -16,7 +16,7 @@ stories.addParameters({
     notes: { markdown: require('./../../../docs/EmptyState.md') },
 });
 
-stories.add('Actions', () => {
+stories.add('with actions', () => {
     const title = text('Title', 'No Devices');
     const actionText = text('Action Text', 'Add Device');
     return (
@@ -38,7 +38,7 @@ stories.add('Actions', () => {
     );
 });
 
-stories.add('Placeholder', () => {
+stories.add('as a placeholder', () => {
     const title = text('Title', 'Predictions Page Coming Soon');
     const description = text('Description', 'A fully redesigned predictions page is coming in our next release!');
     const actionText = text('Action Text', 'Learn More');
@@ -62,7 +62,7 @@ stories.add('Placeholder', () => {
     );
 });
 
-stories.add('Text Only', () => {
+stories.add('as text only', () => {
     const title = text('Title', 'No Alarms Found');
     return <EmptyState icon={<AlertIcon fontSize={'inherit'} />} title={title} />;
 });
