@@ -27,7 +27,7 @@ storiesOf("Hero", module)
   }))
   .add("with ChannelValue children", () => ({
     template: `
-      <pxb-hero [label]="Estimated">
+      <pxb-hero [label]="label">
         <i primary [style.color]="blue" class="pxb-leaf"></i>
         <pxb-channel-value [value]="hours" units="h"></pxb-channel-value>
         <pxb-channel-value [value]="minutes" units="m"></pxb-channel-value>
