@@ -11,6 +11,9 @@ storiesOf("Hero", module)
     })
   )
   .addDecorator(withKnobs)
+   .addParameters({
+      notes: { markdown: require('./../../../docs/Hero.md') },
+   })
   .addDecorator(wrap())
   .add("with basic properties", () => ({
     template: `
