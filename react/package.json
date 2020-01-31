@@ -5,7 +5,7 @@
   "scripts": {
     "test": "cd components && yarn test",
     "test:artifacts": "cd scripts && bash ./buildTest.sh && cd ..",
-    "build": "cd components && yarn && yarn build && cd ../scripts && bash ./prepublish.sh",
+    "build": "bash ./scripts/buildComponents.sh",
     "link:components": "cd scripts && bash ./linkComponents.sh && cd ..",
     "install:dependencies": "cd demos/showcase && yarn && cd ../storybook && yarn && cd ../../components && yarn",
     "start:showcase": "yarn install:dependencies && yarn link:components && cd demos/showcase && yarn start",
