@@ -5,12 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "cd ./components && ng test --watch=false",
-    "test:artifacts": "bash ./buildTest.sh",
-    "build": "bash ./buildComponents.sh",
-    "install:dependencies": "cd component-demo/showcase && yarn && cd ../storybook && yarn && cd ../../components && yarn",
-    "link:components": "bash ./linkComponents.sh",
-    "start:storybook": "yarn install:dependencies && yarn link:components && cd component-demo/storybook && yarn start",
-    "start:showcase": "yarn install:dependencies && yarn link:components && cd component-demo/showcase && yarn start"
+    "test:artifacts": "bash scripts/buildTest.sh",
+    "build": "bash scripts/buildComponents.sh",
+    "install:dependencies": "cd demos/showcase && yarn && cd ../storybook && yarn && cd ../../components && yarn",
+    "link:components": "bash scripts/linkComponents.sh",
+    "start:storybook": "yarn install:dependencies && yarn link:components && cd demos/storybook && yarn start",
+    "start:showcase": "yarn install:dependencies && yarn link:components && cd demos/showcase && yarn start"
   },
   "peerDependencies": {
     "@angular/material": ">=7.2.0",
