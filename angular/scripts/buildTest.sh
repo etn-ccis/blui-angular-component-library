@@ -6,6 +6,7 @@ NC='\033[0m' # No Color
 
 echo "Checking Angular Components"
 echo "Checking Root Package..."
+cd dist
 echo "Checking for required files..."
 echo -ne "  readme: "
 if [ ! -f ./README.md ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
@@ -16,19 +17,19 @@ if [ ! -f ./package.json ]; then echo -e "${RED}Not Found${NC}" && exit 1; else 
 
 echo "Checking Hero..."
 echo -ne "  hero.component: "
-if [ ! -f ./core/hero/lib/hero/hero.component.d.ts ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+if [ ! -f ./core/hero/hero.component.d.ts ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
 echo "Checking HeroBanner..."
 echo -ne "  hero-banner.component: "
-if [ ! -f ./core/hero/lib/hero-banner/hero-banner.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+if [ ! -f ./core/hero-banner/hero-banner.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
 echo "Checking ChannelValue..."
 echo -ne "  channel-value.component: "
-if [ ! -f ./core/channel-value/lib/channel-value.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+if [ ! -f ./core/channel-value/channel-value.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
 echo "Checking EmptyState..."
 echo -ne "  empty-state.component: "
-if [ ! -f ./core/empty-state/lib/empty-state.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+if [ ! -f ./core/empty-state/empty-state.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
 echo -e "\r\n${GREEN}-----------------------------------"
 echo -e "@pxblue/angular-components package successfully created"
