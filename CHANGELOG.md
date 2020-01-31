@@ -1,6 +1,6 @@
 # Change Log
 
-## v1.3.1
+## v1.3.0
 - Create a storybook demo application
 - Fix bug in ChannelValueComponent where font size input was not being used
 
