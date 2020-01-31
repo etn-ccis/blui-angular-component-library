@@ -6,7 +6,6 @@ import * as Colors from '@pxblue/colors';
 import 'typeface-open-sans';
 import './styles.css';
 import pxblue from './pxblue-theme';
-import { addons } from '@storybook/addons';
 
 const newViewports = {
     iPhone5: {

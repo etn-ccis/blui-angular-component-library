@@ -4,40 +4,66 @@
   "description": "React components for PX Blue applications",
   "scripts": {
     "test": "cd components && yarn test",
-    "test:artifacts": "bash ./buildTest.sh",
-    "build": "cd components && yarn && yarn build",
-    "link:components": "bash ./linkComponents.sh",
-    "install:dependencies": "cd component-demo/showcase && yarn && cd ../storybook && yarn && cd ../../components && yarn",
-    "start:showcase": "yarn install:dependencies && yarn link:components && cd component-demo/showcase && yarn start",
-    "start:storybook": "yarn install:dependencies && yarn link:components && cd component-demo/storybook && yarn start",
+    "test:artifacts": "cd scripts && bash ./buildTest.sh && cd ..",
+    "build": "cd components && yarn && yarn build && cd ../scripts && bash ./prepublish.sh",
+    "link:components": "cd scripts && bash ./linkComponents.sh && cd ..",
+    "install:dependencies": "cd demos/showcase && yarn && cd ../storybook && yarn && cd ../../components && yarn",
+    "start:showcase": "yarn install:dependencies && yarn link:components && cd demos/showcase && yarn start",
+    "start:storybook": "yarn install:dependencies && yarn link:components && cd demos/storybook && yarn start",
     "start": "yarn start:showcase"
+  },
+  "dependencies": {
+    "color": "^3.1.2",
+    "@pxblue/colors": "^2.0.0"
+  },
+  "devDependencies": {
+    "@material-ui/core": "^4.0.0",
+    "@material-ui/icons": "^3.0.2",
+    "@pxblue/colors": "^2.0.0",
+    "@pxblue/eslint-config": "1.1.3",
+    "@pxblue/prettier-config": "1.0.2",
+    "@pxblue/themes": "^1.0.26",
+    "@types/enzyme": "^3.10.4",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/jest": "^24.9.0",
+    "@types/react-dom": "^16.9.4",
+    "@typescript-eslint/eslint-plugin": "^2.16.0",
+    "@typescript-eslint/parser": "^2.16.0",
+    "clsx": "^1.0.4",
+    "enzyme": "^3.5.0",
+    "enzyme-adapter-react-16": "^1.8.0",
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.9.0",
+    "eslint-plugin-react": "^7.17.0",
+    "jest": "^24.0.0",
+    "prettier": "^1.19.1",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "ts-jest": "^24.3.0",
+    "typescript": "^3.7.4"
+  },
+  "peerDependencies": {
+    "@pxblue/colors": "^2.0.0",
+    "@material-ui/core": "^4.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/pxblue/component-library.git"
+    "url": "https://github.com/pxblue/react-components"
   },
   "keywords": [
     "react",
     "components",
     "pxblue"
   ],
-  "author": "pxblue <pxblue@eaton.com>",
-  "license": "BSD-3-Clause",
   "bugs": {
     "url": "https://github.com/pxblue/component-library/issues"
   },
   "homepage": "https://github.com/pxblue/component-library#readme",
-  "main": "index.js",
   "directories": {
     "doc": "docs"
   },
-  "files": [
-    "package.json",
-    "LICENSE",
-    "README.md",
-    "CHANGELOG.md",
-    "index.js",
-    "index.d.ts",
-    "core/"
-  ]
+  "author": "pxblue <pxblue@eaton.com>",
+  "license": "BSD-3-Clause"
 }
