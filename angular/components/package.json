@@ -1,6 +1,7 @@
 {
-  "name": "components",
+  "name": "@pxblue/angular-components",
   "version": "1.3.0",
+  "description": "Angular components for PX Blue applications",
   "scripts": {
     "ng": "ng",
     "watch:storybook": "ng build -c storybook",
