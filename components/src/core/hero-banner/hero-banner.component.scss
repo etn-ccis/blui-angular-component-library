@@ -1,0 +1,12 @@
+@import '../../../../node_modules/@pxblue/colors/palette';
+.banner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+:host ::ng-deep pxb-hero:nth-child(n + 5) {
+    display: none;
+}
+.divider {
+    color: map-get($pxb-gray, 200);
+}
