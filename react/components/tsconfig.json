@@ -12,6 +12,7 @@
         "strictNullChecks": false,
     },
     "include": [
-        "src/index.ts"
+        "src/**/*test.tsx",
+        "src/**/*.tsx"
     ]
 }
