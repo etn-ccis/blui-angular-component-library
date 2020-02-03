@@ -205,7 +205,7 @@
   dependencies:
     tslib "^1.9.0"
 
-"@angular/material@8.2.3":
+"@angular/material@^8.2.3":
   version "8.2.3"
   resolved "https://registry.npmjs.org/@angular/material/-/material-8.2.3.tgz#16543e4e06a3fde2651a25cfe126e88e714ae105"
   integrity sha512-SOczkIaqes+r+9XF/UUiokidfFKBpHkOPIaFK857sFD0FBNPvPEpOr5oHKCG3feERRwAFqHS7Wo2ohVEWypb5A==
@@ -938,14 +938,6 @@
   version "1.0.2"
   resolved "https://registry.npmjs.org/@pxblue/prettier-config/-/prettier-config-1.0.2.tgz#fb00503df6557b66c3d91d43c9101e614c35d2ec"
   integrity sha512-/3cLBoTjZs3kV1ATPA/Sp0tsL7XmlV/b8HW/qt0jqR/uP5+cdXL2YIhMXQngLRa7PhpSkEiRIYK5sl0rKsXTUg==
-
-"@pxblue/themes@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/@pxblue/themes/-/themes-3.0.1.tgz#f364742cbb6b2f9a82697ad688fb66cdaad5950a"
-  integrity sha512-3ALlKg6IMTgb+xSD5KQyN1C35HrcsY9j3Ss/35+q48YeDF5hHHtKG2WEEz+//cMpNXzJ3ZtFoJzN09EevzFLkQ==
-  dependencies:
-    "@pxblue/colors" "^2.0.0"
-    typeface-open-sans "^0.0.54"
 
 "@schematics/angular@8.3.23":
   version "8.3.23"
@@ -8072,11 +8064,6 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
-
-typeface-open-sans@^0.0.54:
-  version "0.0.54"
-  resolved "https://registry.npmjs.org/typeface-open-sans/-/typeface-open-sans-0.0.54.tgz#20f5b5ea5c7f95d89dc1f8b2d2b1457680129cee"
-  integrity sha512-w6wOd6EicZdZKf0jSU/K3EzEi3zFgvWQSN7NOpRIQI5KeMWmC5Pg/lqtBVJHB0pRChYRmLdhf4h8ROur0A3JZQ==
 
 typescript@3.5.2:
   version "3.5.2"
