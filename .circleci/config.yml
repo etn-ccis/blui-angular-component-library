@@ -16,7 +16,7 @@ jobs:
           command: |
             cd react/components
             yarn install
-            cd ../../angular
+            cd ../../angular/components
             yarn install
             cd ..
       - save_cache:
