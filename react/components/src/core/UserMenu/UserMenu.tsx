@@ -1,43 +1,85 @@
-import {Typography} from "@material-ui/core";
-import React from 'react';
+import {Avatar, AvatarProps, Menu, Typography} from "@material-ui/core";
+import React, {useState} from 'react';
 import {createStyles, makeStyles, Theme, useTheme} from '@material-ui/core/styles';
 import * as Colors from '@pxblue/colors';
+import {NavItem} from "../Drawer";
+
 const styles = makeStyles((theme: Theme) => createStyles({
-    wrapper: {
-        display: 'flex',
-        borderRadius: '50%',
-        width: theme.spacing(6),
-        height: theme.spacing(6),
-        padding: theme.spacing(2)
-    },
-    initials: {
+    label: {
         width: '100%',
         textAlign: 'center'
     }
 }));
 
+const muiAvatarStyles = makeStyles((theme: Theme) => ({
+    root: (props: UserMenuProps) => ({
+        backgroundColor: props.backgroundColor || Colors.blue[50],
+        color: props.fontColor || Colors.blue[500],
+        height: theme.spacing(6),
+        width: theme.spacing(6)
+    }),
+    colorDefault: {
+
+    },
+    circle: {
+
+    },
+    rounded: {
+
+    },
+    square: {
+
+    },
+    img: {
+
+    },
+    fallback: {
+
+    },
+}));
+
 export type UserMenuProps = {
+    AvatarProps?: AvatarProps,
     backgroundColor?: string;
     backgroundImage?: string;
     fontColor?: string;
     fontSize?: string;
-    open: boolean;
     value?: string;
-    onClick: Function;
+    content?: NavItem[]
 };
 
 export const UserMenu: React.FC<UserMenuProps> = (props) => {
     const classes = styles(props);
-    const theme = useTheme();
+    const avatarClasses = muiAvatarStyles(props);
     const {
-        backgroundColor = Colors.blue[50],
-        backgroundImage,
-        fontColor = Colors.blue[500],
+        AvatarProps = {},
         value,
+       children
     } = props;
+
+    const [anchorEl, setAnchorEl] = useState(null);
+
+    const handleClick: any = (event: React.MouseEvent<HTMLButtonElement>) => {
+        setAnchorEl(event.currentTarget);
+    };
+
+    const handleClose = () => {
+        setAnchorEl(null);
+    };
+
     return (
-       <div style={{ backgroundColor, color: fontColor, backgroundImage }} className={classes.wrapper}>
-           <Typography className={classes.initials} variant={'h4'} color={'inherit'}>{value}</Typography>
-       </div>
+       <>
+           <Avatar {...AvatarProps}
+                   classes={AvatarProps.classes || avatarClasses}
+                   onClick={handleClick}
+                   id={'avatar'}
+           >
+               {value &&
+               <Typography className={classes.label} variant={'h4'} color={'inherit'}>{value}</Typography>}
+           </Avatar>
+           <Menu open={Boolean(anchorEl)} anchorEl={anchorEl} keepMounted>
+               {children}
+           </Menu>
+       </>
     );
 };
