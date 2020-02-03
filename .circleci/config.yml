@@ -118,18 +118,6 @@ workflows:
   react-and-angular:
     jobs:
       - build
-  react-native:
-    jobs:
-      - react-native-build
-      - react-native-unit-tests:
-          requires:
-            - react-native-build
-      - react-native-validate-types:
-          requires:
-            - react-native-build
-      - react-native-lint:
-          requires:
-            - react-native-build
   reactnative:
     jobs:
       - reactnative-build
