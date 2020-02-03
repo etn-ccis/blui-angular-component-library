@@ -7,6 +7,7 @@ import { ChannelValue } from '../ChannelValue';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         wrapper: {
+            fontSize: '1rem',
             display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
@@ -81,6 +82,7 @@ export const Hero = (props: HeroProps): JSX.Element => {
         valueIcon,
         units,
     } = props;
+
 
     return (
         <div

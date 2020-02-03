@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10.13-browsers
+      - image: circleci/node:12.9.1-browsers
     steps:
       - checkout
       - restore_cache:
@@ -16,7 +16,7 @@ jobs:
           command: |
             cd react/components
             yarn install
-            cd ../../angular
+            cd ../../angular/components
             yarn install
             cd ..
       - save_cache:
@@ -49,7 +49,7 @@ jobs:
             cd react
             yarn test:artifacts
             cd ../angular
-            yarn test
+            yarn test:artifacts
   react-native-build:
     docker: 
       - image: circleci/node:10.13.0-browsers
