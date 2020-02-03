@@ -15,7 +15,7 @@ rm -rf ./dist
 yarn
 cd ./components
 yarn
-ng build
+yarn build
 cd ..
 
 echo -e "${BLUE}Copying Package Resources${NC}"

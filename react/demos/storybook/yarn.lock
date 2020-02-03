@@ -1522,10 +1522,13 @@
   resolved "https://registry.npmjs.org/@pxblue/prettier-config/-/prettier-config-1.0.2.tgz#fb00503df6557b66c3d91d43c9101e614c35d2ec"
   integrity sha512-/3cLBoTjZs3kV1ATPA/Sp0tsL7XmlV/b8HW/qt0jqR/uP5+cdXL2YIhMXQngLRa7PhpSkEiRIYK5sl0rKsXTUg==
 
-"@pxblue/react-components@^1.1.0":
-  version "1.1.1"
-  resolved "https://registry.yarnpkg.com/@pxblue/react-components/-/react-components-1.1.1.tgz#d5136c57d012a7ef85b2cde5f4e98d666b70377d"
-  integrity sha512-5Kth1ETp9OrZLxy3Z+UJYobTEFVHc15lOdtfI5rNGYDAhe205jtTmuONfCOLU2LN8l9iZ5nOZuD76Id67kZ4+g==
+"@pxblue/react-components@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/@pxblue/react-components/-/react-components-2.0.0.tgz#a0469cc068964d1a51a5f11cb6c63cfb46f59dee"
+  integrity sha512-h7KHjUNsbRRoc2i9dBPwcTH++g2Bqrz6pdVsrU6HjOc3z7IPh2dixsm5ijXVabfDXBtkpMx9uJF7vwmI5QKkTQ==
+  dependencies:
+    "@pxblue/colors" "^2.0.0"
+    color "^3.1.2"
 
 "@pxblue/themes@^2.0.0":
   version "2.2.4"
@@ -4307,9 +4310,9 @@ color-string@^1.5.2:
     color-name "^1.0.0"
     simple-swizzle "^0.2.2"
 
-color@^3.0.0:
+color@^3.0.0, color@^3.1.2:
   version "3.1.2"
-  resolved "https://registry.yarnpkg.com/color/-/color-3.1.2.tgz#68148e7f85d41ad7649c5fa8c8106f098d229e10"
+  resolved "https://registry.npmjs.org/color/-/color-3.1.2.tgz#68148e7f85d41ad7649c5fa8c8106f098d229e10"
   integrity sha512-vXTJhHebByxZn3lDvDJYw4lR5+uB3vuoHsuYA5AKuxRVn5wzzIfQKGLBmgdVRHKTJYeK5rvJcHnrd0Li49CFpg==
   dependencies:
     color-convert "^1.9.1"
