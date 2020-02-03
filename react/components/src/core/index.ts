@@ -6,3 +6,4 @@ export * from './InfoListItem';
 export * from './Drawer';
 export * from './DrawerLayout';
 export * from './ScoreCard';
+export * from './UserMenu';
