@@ -4,7 +4,7 @@
   "description": "Angular components for PX Blue applications",
   "main": "index.js",
   "scripts": {
-    "test": "cd ./components && ng test --watch=false",
+    "test": "cd ./components && yarn test:ci",
     "test:artifacts": "bash scripts/buildTest.sh",
     "build": "bash scripts/buildComponents.sh",
     "install:dependencies": "cd demos/showcase && yarn && cd ../storybook && yarn && cd ../../components && yarn",

@@ -8,6 +8,7 @@
     "watch:showcase": "ng build -c showcase",
     "build": "ng build",
     "test": "ng test",
+    "test:ci": "ng test --watch false",
     "prettier": "prettier \"src/**/**.{ts,json,css,scss,html}\" --write",
     "lint": "eslint \"src/**/**.ts\"",
     "lint:fix": "eslint \"src/**/**.ts\" --fix"
