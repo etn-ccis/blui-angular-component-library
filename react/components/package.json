@@ -28,7 +28,6 @@
     "@types/react-dom": "^16.9.4",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "@typescript-eslint/parser": "^2.16.0",
-    "clsx": "^1.0.4",
     "enzyme": "^3.5.0",
     "enzyme-adapter-react-16": "^1.8.0",
     "eslint": "^6.8.0",

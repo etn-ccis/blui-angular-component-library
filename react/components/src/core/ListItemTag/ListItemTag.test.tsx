@@ -9,7 +9,6 @@ import Adapter from 'enzyme-adapter-react-16';
 import * as Colors from '@pxblue/colors';
 
 import { createMount, createShallow } from '@material-ui/core/test-utils';
-import { Typography } from '@material-ui/core';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -33,70 +32,43 @@ describe('ListItemTag', () => {
         ReactDOM.unmountComponentAtNode(div);
     });
     it('should render with the tag-container class', () => {
-        let wrapper = shallow(<ListItemTag label={'test'} />);
-        expect(findByTestId('tag-root', wrapper)).toBeTruthy();
+        const wrapper = shallow(<ListItemTag label={'test'} />);
+        expect(findByTestId('list-item-tag', wrapper)).toBeTruthy();
     });
 
     it('renders the correct label text', () => {
-        let wrapper = shallow(<ListItemTag label={'test'} />);
+        const wrapper = shallow(<ListItemTag label={'test'} />);
         expect(wrapper.text()).toEqual('test');
     });
 
-    xit('renders with correct colors', () => {
-
+    it('renders with correct colors', () => {
         // default color
         let wrapper = shallow(<ListItemTag label={'test'} />);
-        expect(findByTestId('tag-label', wrapper).props().style.color).toEqual(Colors.white['50']);
+        expect(wrapper.props().style.color).toEqual(Colors.white['50']);
+        expect(wrapper.props().style.backgroundColor).toEqual(Colors.blue['500']);
 
-    //     // // customized color
-    //     // wrapper = shallow(<ListItemTag label={'test'} textColor={Colors.gold['200']} />);
-    //     // expect(wrapper.find(Typography).props().style.color).toEqual(Colors.gold['200']);
+        // customized color
+        wrapper = shallow(
+            <ListItemTag label={'test'} fontColor={Colors.gold['200']} backgroundColor={Colors.green['900']} />
+        );
+        expect(wrapper.props().style.color).toEqual(Colors.gold['200']);
+        expect(wrapper.props().style.backgroundColor).toEqual(Colors.green['900']);
     });
 
-    // it('renders with icon', () => {
-    //     let wrapper = shallow(<InfoListItem hidePadding icon={<PersonIcon />} title="Test" />);
-    //     expect(wrapper.find(PersonIcon).length).toEqual(1);
-    //     wrapper = shallow(<InfoListItem hidePadding title="Test" />);
-    //     expect(wrapper.find(PersonIcon).length).toEqual(0);
-    // });
+    it('calls the handler function when the user clicks on the tag', () => {
+        const clickFunction = jest.fn();
 
-    // it('renders correct icon Color', () => {
-    //     let wrapper = shallow(<InfoListItem icon={<PersonIcon />} title="Test" />);
-    //     expect(wrapper.find(ListItemIcon).props().style.color).toEqual('inherit');
+        // without onClick
+        let wrapper = shallow(<ListItemTag label={'test'} />);
+        wrapper.simulate('click');
+        expect(clickFunction).not.toHaveBeenCalled();
 
-    //     wrapper = shallow(<InfoListItem title="Test" icon={<PersonIcon />} statusColor={'red'} />);
-    //     expect(wrapper.find(ListItemIcon).props().style.color).toEqual('red');
+        // with onClick
+        wrapper = shallow(<ListItemTag label={'test'} onClick={clickFunction} />);
+        wrapper.simulate('click');
+        expect(clickFunction).toHaveBeenCalled();
 
-    //     wrapper = shallow(<InfoListItem title="Test" icon={<PersonIcon />} statusColor={'red'} iconColor={'green'} />);
-    //     expect(wrapper.find(ListItemIcon).props().style.color).toEqual('green');
 
-    //     wrapper = shallow(<InfoListItem title="Test" icon={<PersonIcon />} statusColor={'red'} avatar />);
-    //     expect(wrapper.find(Avatar).props().style.color).toEqual(Colors.white['50']);
+    });
 
-    //     wrapper = shallow(
-    //         <InfoListItem title="Test" icon={<PersonIcon />} statusColor={'red'} iconColor={'blue'} avatar />
-    //     );
-    //     expect(wrapper.find(Avatar).props().style.color).toEqual('blue');
-    // });
-    // it('renders with avatar', () => {
-    //     let wrapper = shallow(<InfoListItem avatar icon={<PersonIcon />} title="Test" />);
-    //     expect(wrapper.find(ListItemAvatar).length).toEqual(1);
-    //     wrapper = shallow(<InfoListItem title="Test" icon={<PersonIcon />} />);
-    //     expect(wrapper.find(ListItemAvatar).length).toEqual(0);
-    // });
-    // it('renders rightComponent', () => {
-    //     let wrapper = shallow(<InfoListItem title="Test" chevron />);
-    //     expect(wrapper.find(Chevron).length).toEqual(1);
-
-    //     wrapper = shallow(<InfoListItem title="Test" />);
-    //     expect(wrapper.find(Chevron).length).toEqual(0);
-
-    //     wrapper = shallow(<InfoListItem title="Test" onClick={() => {}} rightComponent={<PersonIcon />} />);
-    //     expect(wrapper.find(Chevron).length).toEqual(0);
-    //     expect(wrapper.find(PersonIcon).length).toEqual(1);
-    // });
-    // it('renders leftComponent', () => {
-    //     const wrapper = shallow(<InfoListItem title="Test" leftComponent={<PersonIcon />} />);
-    //     expect(wrapper.find(PersonIcon).length).toEqual(1);
-    // });
 });
