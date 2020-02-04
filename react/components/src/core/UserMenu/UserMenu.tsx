@@ -17,8 +17,8 @@ const muiAvatarStyles = makeStyles((theme: Theme) => ({
     root: (props: UserMenuProps) => ({
         backgroundColor: props.backgroundColor || Colors.blue[50],
         color: props.fontColor || Colors.blue[500],
-        height: theme.spacing(6),
-        width: theme.spacing(6),
+        height: theme.spacing(7),
+        width: theme.spacing(7),
     }),
     colorDefault: {},
     circle: {},
@@ -76,31 +76,32 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
     );
 
     const printHeader = (): JSX.Element => {
-        console.log(menuTitle);
         if (menuTitle) {
-            return <DrawerHeader icon={avatar} title={menuTitle} subtitle={menuSubtitle} />;
+            return <DrawerHeader
+               icon={avatar}
+               title={menuTitle}
+               subtitle={menuSubtitle}
+               fontColor={Colors.black[50]}
+               backgroundColor={Colors.white[50]} />;
         }
     };
 
-    /* Displays either custom child nodes, or Menu Items supplied by menuGroups prop. */
-    const printMenuItems = (): ReactNode[] => {
-        return (
-            children ||
-            menuGroups.map((group: UserMenuGroup) => {
-                return <DrawerNavGroup open={true} title={group.title} items={group.items} />;
-            })
-        );
-    };
+    /* Displays either custom child nodes, or DrawerNavGroups supplied by menuGroups prop. */
+    const printMenuItems = (): ReactNode[] =>
+        children
+            ? [children]
+            : menuGroups.map((group: UserMenuGroup) => {
+                  return <DrawerNavGroup open={true} title={group.title} items={group.items} />;
+              });
 
     return (
         <ClickAwayListener onClickAway={handleClose}>
             <div>
                 {avatar}
-                {/* Accepts either children MenuItems or menuItems array props. */}
                 {renderMenu() && (
                     <Menu
                         anchorOrigin={{
-                            vertical: 'bottom',
+                            vertical: 'top',
                             horizontal: 'center',
                         }}
                         transformOrigin={{
