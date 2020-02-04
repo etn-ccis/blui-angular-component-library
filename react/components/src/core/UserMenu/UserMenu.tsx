@@ -61,7 +61,7 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
         setAnchorEl(null);
     };
 
-    const renderMenu = (): boolean => {
+    const hasMenu = (): boolean => {
         return Boolean(children || menuGroups.length > 0);
     };
 
@@ -98,7 +98,7 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
         <ClickAwayListener onClickAway={handleClose}>
             <div>
                 {avatar}
-                {renderMenu() && (
+                {hasMenu() && (
                     <Menu
                         anchorOrigin={{
                             vertical: 'top',
