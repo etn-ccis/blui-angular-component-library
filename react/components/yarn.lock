@@ -374,11 +374,6 @@
     prop-types "^15.7.2"
     react-is "^16.8.0"
 
-"@pxblue/colors@^1.0.1":
-  version "1.0.13"
-  resolved "https://registry.npmjs.org/@pxblue/colors/-/colors-1.0.13.tgz#1ed76734267f77dd4b390836f61d01439fc35132"
-  integrity sha512-tneNNYclHmNNIbo6J7XXEumoJZLBXqeO2LFufWxRvIs5yeVVfaJN3zWREl1oo5KP67aDixYgEKB7LH0oeTL+lQ==
-
 "@pxblue/colors@^2.0.0":
   version "2.0.0"
   resolved "https://registry.npmjs.org/@pxblue/colors/-/colors-2.0.0.tgz#fa7d2abde80485537f26521df4c3f6e56dd93361"
@@ -399,12 +394,12 @@
   resolved "https://registry.npmjs.org/@pxblue/prettier-config/-/prettier-config-1.0.2.tgz#fb00503df6557b66c3d91d43c9101e614c35d2ec"
   integrity sha512-/3cLBoTjZs3kV1ATPA/Sp0tsL7XmlV/b8HW/qt0jqR/uP5+cdXL2YIhMXQngLRa7PhpSkEiRIYK5sl0rKsXTUg==
 
-"@pxblue/themes@^1.0.26":
-  version "1.0.26"
-  resolved "https://registry.npmjs.org/@pxblue/themes/-/themes-1.0.26.tgz#1aae9895b9a5abc82a3cb6b633c9a67fbbc3a473"
-  integrity sha512-q2GBCE2ILzNqGFCWjwDmgUxHSbG9+6spkoC6QMsl5ziJzmQ3P5IGkpGBnn7z/rNKRlktU99lybhmv9moV0sLwQ==
+"@pxblue/themes@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@pxblue/themes/-/themes-3.0.2.tgz#d5b83b414a83e2f96a8e0f28b034b8470ae48f69"
+  integrity sha512-csaANyUWvKBphw+2p2GbdECZLmjs6Vp0FtghprwQhLyztK5BHnhm4vJaXkYNlfGnJazNxMZwU+JQtrTEL0LSZg==
   dependencies:
-    "@pxblue/colors" "^1.0.1"
+    "@pxblue/colors" "^2.0.0"
     typeface-open-sans "^0.0.54"
 
 "@types/babel__core@^7.1.0":

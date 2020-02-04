@@ -7,7 +7,7 @@ import { InfoListItem } from '@pxblue/react-components';
 import { ScoreCard } from '@pxblue/react-components';
 import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, DrawerSubheader } from '@pxblue/react-components';
 import { DrawerLayout } from '@pxblue/react-components';
-
+import { ListItemTag } from '@pxblue/react-components';
 
 import DevicesIcon from '@material-ui/icons/Devices'
 import { Add, Menu, NotificationsActive, List as ListIcon, Public, Settings, Gavel, Help } from '@material-ui/icons'
@@ -300,7 +300,7 @@ export default () => {
                                 avatar
                                 subtitle={['Phase A', 'Phase B', 'Phase C']}
                                 icon={<VoltageCircled />}
-                                rightComponent={<span><ChannelValue fontSize={16} value={478} units={'V'} />, <ChannelValue fontSize={16} value={479} units={'V'} />, <ChannelValue fontSize={16} value={473} units={'V'} /></span>}
+                                rightComponent={<span><span style={{marginRight: 8}}><ListItemTag backgroundColor={Colors.green['500']} label={'active'} /></span><ChannelValue fontSize={16} value={478} units={'V'} />, <ChannelValue fontSize={16} value={479} units={'V'} />, <ChannelValue fontSize={16} value={473} units={'V'} /></span>}
                             />
                             <InfoListItem
                                 title={'Output Voltage'}
@@ -310,7 +310,8 @@ export default () => {
                                 fontColor={Colors.red[500]}
                                 subtitle={['Phase A', 'Phase B', 'Phase C']}
                                 icon={<VoltageCircled color={'inherit'} />}
-                                rightComponent={<span style={{ color: Colors.red[500] }}><ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} /></span>}
+                                rightComponent={
+                                <span style={{ color: Colors.red[500] }}><span style={{marginRight: 8}}><ListItemTag label={'IN PROGRESS'} /></span><ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} /></span>}
                             />
                             <InfoListItem dense
                                 title={'Output Current'}
@@ -323,6 +324,22 @@ export default () => {
                                 divider={'full'}
                                 icon={<Temp />}
                                 rightComponent={<ChannelValue fontSize={16} icon={<Trend htmlColor={Colors.red[500]} />} value={68} units={'°F'} />}
+                            />
+                            <InfoListItem dense
+                                title={'Temperature'}
+                                divider={'full'}
+                                icon={<Temp />}
+                                rightComponent={
+                                <>
+                                    <span style={{marginRight: 8}}>
+                                        <ListItemTag 
+                                        label={'OVERHEAT'} 
+                                        backgroundColor={Colors.red['500']} 
+                                        onClick={()=>{alert('You clicked me.')}}
+                                        />
+                                    </span>
+                                    <ChannelValue fontSize={16} icon={<Trend htmlColor={Colors.red[500]} />} value={68} units={'°F'} />
+                                </>}
                             />
                         </List>
                     </Card>
