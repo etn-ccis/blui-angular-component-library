@@ -37,16 +37,16 @@ describe('ListItemTag', () => {
         expect(findByTestId('tag-root', wrapper)).toBeTruthy();
     });
 
-    xit('renders the correct label text', () => {
+    it('renders the correct label text', () => {
         let wrapper = shallow(<ListItemTag label={'test'} />);
-        expect(findByTestId('tag-root', wrapper)).toBeTruthy();
+        expect(wrapper.text()).toEqual('test');
     });
 
     xit('renders with correct colors', () => {
 
         // default color
         let wrapper = shallow(<ListItemTag label={'test'} />);
-        expect(wrapper.find('Typography').props().style.color).toEqual(Colors.white['50']);
+        expect(findByTestId('tag-label', wrapper).props().style.color).toEqual(Colors.white['50']);
 
     //     // // customized color
     //     // wrapper = shallow(<ListItemTag label={'test'} textColor={Colors.gold['200']} />);

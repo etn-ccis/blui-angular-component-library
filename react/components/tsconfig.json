@@ -1,7 +1,6 @@
 {
     "compilerOptions": {
         "outDir": "../dist",
-        "allowJs": true,
         "target": "es5",
         "types": ["node", "jest", "enzyme"],
         "esModuleInterop": true,
@@ -12,6 +11,7 @@
         "strictNullChecks": false,
     },
     "include": [
-        "src/index.ts"
+        "src/index.ts",
+        "src"
     ]
 }
