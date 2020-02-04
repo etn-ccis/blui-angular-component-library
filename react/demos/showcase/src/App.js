@@ -344,6 +344,13 @@ export default () => {
                         </List>
                     </Card>
                     <Card style={{ marginTop: '10px', padding: '10px' }}>
+                        <ListItemTag 
+                            label={'OVERHEAT'} 
+                            backgroundColor={Colors.red['500']} 
+                            onClick={()=>{alert('You clicked me.')}}
+                            />
+                    </Card>
+                    <Card style={{ marginTop: '10px', padding: '10px' }}>
                         <EmptyState
                             icon={
                                 <DevicesIcon fontSize={'inherit'} />

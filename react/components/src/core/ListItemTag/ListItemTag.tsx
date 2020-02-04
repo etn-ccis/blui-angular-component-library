@@ -9,13 +9,13 @@ export type ListItemTagProps = {
     /* Color of the label. Default is white['50']. */
     fontColor?: string;
 
-    /* Color of the label background. Default is theme primary main color*/
+    /* Color of the label background. Default is blue['500'] */
     backgroundColor?: string;
 
     /* event handler to be called when the user clicks on the tag.  */
     onClick?: () => void;
 
-    /* Custom classes to be passed to the tag container. Overwrite the default classes. */
+    /* Custom classes to be passed to the tag container. */
     classes?: {
         label?: string;
         root?: string;
@@ -36,6 +36,7 @@ export const ListItemTag: React.FC<ListItemTagProps> = (props: ListItemTagProps)
                 letterSpacing: 1,
                 borderRadius: 2,
                 padding: '0 4px',
+                lineHeight: 'inherit',
             }}
             variant={'overline'}
             noWrap
