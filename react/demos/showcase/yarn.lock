@@ -1351,10 +1351,23 @@
   resolved "https://registry.yarnpkg.com/@pxblue/colors/-/colors-2.0.0.tgz#fa7d2abde80485537f26521df4c3f6e56dd93361"
   integrity sha512-1JoCVC17nHmC6bbqg2nCAHJgJLHAWNIAmS/UZ3h8u0TnvU5C6qI+CpCrn/sP6bNSQ3LLhEkdVpjKna1kxCXdhg==
 
+"@pxblue/colors@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/@pxblue/colors/-/colors-2.0.0.tgz#fa7d2abde80485537f26521df4c3f6e56dd93361"
+  integrity sha512-1JoCVC17nHmC6bbqg2nCAHJgJLHAWNIAmS/UZ3h8u0TnvU5C6qI+CpCrn/sP6bNSQ3LLhEkdVpjKna1kxCXdhg==
+
 "@pxblue/icons-mui@^1.0.15":
   version "1.0.18"
   resolved "https://registry.npmjs.org/@pxblue/icons-mui/-/icons-mui-1.0.18.tgz#dc9d23637fc104dbcc25efd926a8f36259c98489"
   integrity sha512-/NI7GDYCz+dn/qI7W10pZt7x5gGY7IngqwFI2zyLBDMgeawD+ryzvzZ6LOvxjdeht0R8cZFa6ZPZuJjtIcLrjw==
+
+"@pxblue/react-components@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.npmjs.org/@pxblue/react-components/-/react-components-2.0.0.tgz#a0469cc068964d1a51a5f11cb6c63cfb46f59dee"
+  integrity sha512-h7KHjUNsbRRoc2i9dBPwcTH++g2Bqrz6pdVsrU6HjOc3z7IPh2dixsm5ijXVabfDXBtkpMx9uJF7vwmI5QKkTQ==
+  dependencies:
+    "@pxblue/colors" "^2.0.0"
+    color "^3.1.2"
 
 "@pxblue/react-progress-icons@^1.0.6":
   version "1.0.7"
@@ -2812,7 +2825,7 @@ color-string@^1.5.2:
     color-name "^1.0.0"
     simple-swizzle "^0.2.2"
 
-color@^3.0.0:
+color@^3.0.0, color@^3.1.2:
   version "3.1.2"
   resolved "https://registry.npmjs.org/color/-/color-3.1.2.tgz#68148e7f85d41ad7649c5fa8c8106f098d229e10"
   integrity sha512-vXTJhHebByxZn3lDvDJYw4lR5+uB3vuoHsuYA5AKuxRVn5wzzIfQKGLBmgdVRHKTJYeK5rvJcHnrd0Li49CFpg==

@@ -2,7 +2,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:10.13-browsers
+      - image: circleci/node:12.9.1-browsers
     steps:
       - checkout
       - restore_cache:
@@ -16,7 +16,7 @@ jobs:
           command: |
             cd react/components
             yarn install
-            cd ../../angular
+            cd ../../angular/components
             yarn install
             cd ..
       - save_cache:
@@ -49,70 +49,7 @@ jobs:
             cd react
             yarn test:artifacts
             cd ../angular
-            yarn test
-  react-native-build:
-    docker: 
-      - image: circleci/node:10.13.0-browsers
-    steps:
-      - checkout
-      - restore_cache:
-          keys:
-          - v1-dependencies-react-native-{{ checksum "react-native/components/package.json" }}
-          - v1-dependencies-react-native-
-      - run: 
-          name: Install Dependencies
-          command: |
-            cd react-native/components
-            yarn install
-            cd ../..
-      - save_cache:
-          name: Save Cache
-          paths:
-            - node_modules
-          key: v1-dependencies-react-native-{{ checksum "react-native/components/package.json" }}
-      - persist_to_workspace:
-          root: react-native/components/
-          paths:
-            - node_modules
-  react-native-unit-tests:
-    docker: 
-      - image: circleci/node:10.13.0-browsers
-    steps:
-      - checkout
-      - attach_workspace:
-          at: react-native/components
-      - run:
-          name: Unit Test
-          command: |
-            cd react-native/components
-            yarn test
-            cd ../..
-  react-native-validate-types:
-    docker: 
-      - image: circleci/node:10.13.0-browsers
-    steps:
-      - checkout
-      - attach_workspace:
-          at: react-native/components
-      - run:
-          name: Tsc --noEmit
-          command: |
-            cd react-native/components
-            yarn verify-build
-            cd ../..
-  react-native-lint:
-    docker: 
-      - image: circleci/node:10.13.0-browsers
-    steps:
-      - checkout
-      - attach_workspace:
-          at: react-native/components
-      - run:
-          name: Lint
-          command: |
-            cd react-native/components
-            yarn lint
-            cd ../..
+            yarn test:artifacts
   reactnative-build:
     docker: 
       - image: circleci/node:10.13.0-browsers
@@ -181,18 +118,6 @@ workflows:
   react-and-angular:
     jobs:
       - build
-  react-native:
-    jobs:
-      - react-native-build
-      - react-native-unit-tests:
-          requires:
-            - react-native-build
-      - react-native-validate-types:
-          requires:
-            - react-native-build
-      - react-native-lint:
-          requires:
-            - react-native-build
   reactnative:
     jobs:
       - reactnative-build
