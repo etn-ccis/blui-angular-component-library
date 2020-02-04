@@ -67,8 +67,5 @@ describe('ListItemTag', () => {
         wrapper = shallow(<ListItemTag label={'test'} onClick={clickFunction} />);
         wrapper.simulate('click');
         expect(clickFunction).toHaveBeenCalled();
-
-
     });
-
 });
