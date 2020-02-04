@@ -1,12 +1,12 @@
-import {action} from "@storybook/addon-actions";
-import React from 'react';
+import {MenuItem} from "@material-ui/core";
 import * as Colors from '@pxblue/colors';
-import {boolean, color, text, withKnobs} from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
-import {DrawerNavGroup, UserMenu, Drawer, DrawerBody } from "@pxblue/react-components";
-import MoveToInboxIcon from '@material-ui/icons/MoveToInbox';
-import {Avatar, MenuItem} from "@material-ui/core";
-const EatonLogo = require('../assets/EatonLogo.svg');
+import SendIcon from '@material-ui/icons/Send';
+import {UserMenu, UserMenuItems} from "@pxblue/react-components";
+import {color, text, withKnobs} from '@storybook/addon-knobs';
+import {storiesOf} from '@storybook/react';
+import React from 'react';
+
+const tRex = require('../assets/trex.jpeg');
 
 export const stories = storiesOf('User Menu', module);
 stories.addDecorator(withKnobs);
@@ -14,33 +14,43 @@ stories.addParameters({
     notes: { markdown: require('./../../../docs/Hero.md') },
 });
 
+const defaultMenuItems: UserMenuItems[] = [
+   {
+      title: 'Email',
+      icon: <SendIcon />
+   }
+];
+
 stories.add('with default values', () => {
     const value = text('value', 'aa');
-    return <UserMenu value={value}/>
+    return <UserMenu value={value} menuItems={defaultMenuItems} />
 });
+
 
 stories.add('with custom colors', () => {
     const value = text('value', 'aa');
     const backgroundColor = color('backgroundColor', Colors.blue[800]);
     const fontColor = color('fontColor', Colors.blue[50]);
-    const handleClose = () => {};
-    const AvatarProps = {
-    };
     return <UserMenu
        value={value}
        fontColor={fontColor}
-       backgroundColor={backgroundColor}
-       AvatarProps={AvatarProps}>
-
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
-
+       backgroundColor={backgroundColor}>
     </UserMenu>
 });
 
 stories.add('with background image', () => {
-    return <Avatar src={EatonLogo}>dd</Avatar>
+    return <UserMenu
+       AvatarProps={{src: tRex}}>
+    </UserMenu>
+});
+
+stories.add('with custom menu child', () => {
+   return <UserMenu
+      AvatarProps={{src: tRex}}>
+      <MenuItem key={'profile'}>Profile</MenuItem>
+      <MenuItem key={'account'}>My account</MenuItem>
+      <MenuItem key={'logout'}>Logout</MenuItem>
+   </UserMenu>
 });
 
 
