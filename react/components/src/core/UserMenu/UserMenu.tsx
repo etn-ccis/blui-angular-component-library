@@ -1,16 +1,8 @@
-import {
-    Avatar,
-    AvatarProps,
-    ClickAwayListener, ListItemIcon, ListItemText,
-    Menu,
-    MenuItem,
-    MenuProps,
-    Typography,
-    withStyles
-} from '@material-ui/core';
-import React, { useState } from 'react';
+import { Avatar, AvatarProps, ClickAwayListener, Menu, MenuProps, StyleRules, Typography } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import * as Colors from '@pxblue/colors';
+import React, { ReactNode, useState } from 'react';
+import { DrawerHeader, DrawerNavGroup, NavItem } from '../Drawer';
 
 const styles = makeStyles((theme: Theme) =>
     createStyles({
@@ -36,92 +28,94 @@ const muiAvatarStyles = makeStyles((theme: Theme) => ({
     fallback: {},
 }));
 
-export type UserMenuItems = {
-    title: string;
-    icon: JSX.Element;
-}
+export type UserMenuItem = NavItem;
+export type UserMenuGroup = {
+    title?: string;
+    items: UserMenuItem[];
+};
 
 export type UserMenuProps = {
     AvatarProps?: AvatarProps;
     backgroundColor?: string;
     backgroundImage?: string;
-    menuItems?: UserMenuItems[];
+    menuTitle?: string;
+    menuSubtitle?: string;
+    menuGroups?: UserMenuGroup[];
     fontColor?: string;
-    fontSize?: string;
     MenuProps?: MenuProps;
     value?: string;
+    classes?: StyleRules;
 };
 
 export const UserMenu: React.FC<UserMenuProps> = (props) => {
     const classes = styles(props);
     const avatarClasses = muiAvatarStyles(props);
-    const { AvatarProps = {}, children,
-        menuItems = [], MenuProps = {}, value } = props;
+    const { AvatarProps = {}, children, menuTitle, menuSubtitle, menuGroups = [], MenuProps = {}, value } = props;
 
     const [anchorEl, setAnchorEl] = useState(null);
     const handleClick: any = (event: MouseEvent) => {
         setAnchorEl(event.currentTarget);
     };
 
-    const StyledMenuItem = withStyles(theme => ({
-        root: {
-            '&:focus': {
-                backgroundColor: theme.palette.primary.main,
-                '& .MuiListItemIcon-root, & .MuiListItemText-primary': {
-                    color: theme.palette.common.white,
-                },
-            },
-        },
-    }))(MenuItem);
-
     const handleClose = () => {
         setAnchorEl(null);
     };
 
     const renderMenu = (): boolean => {
-        return Boolean(children || menuItems.length > 0);
+        return Boolean(children || menuGroups.length > 0);
+    };
+
+    const avatar = (
+        <Avatar {...AvatarProps} classes={AvatarProps.classes || avatarClasses} onClick={handleClick} id={'avatar'}>
+            {value && (
+                <Typography className={classes.label} variant={'h4'} color={'inherit'}>
+                    {value}
+                </Typography>
+            )}
+        </Avatar>
+    );
+
+    const printHeader = (): JSX.Element => {
+        console.log(menuTitle);
+        if (menuTitle) {
+            return <DrawerHeader icon={avatar} title={menuTitle} subtitle={menuSubtitle} />;
+        }
+    };
+
+    /* Displays either custom child nodes, or Menu Items supplied by menuGroups prop. */
+    const printMenuItems = (): ReactNode[] => {
+        return (
+            children ||
+            menuGroups.map((group: UserMenuGroup) => {
+                return <DrawerNavGroup open={true} title={group.title} items={group.items} />;
+            })
+        );
     };
 
     return (
         <ClickAwayListener onClickAway={handleClose}>
             <div>
-                <Avatar
-                    {...AvatarProps}
-                    classes={AvatarProps.classes || avatarClasses}
-                    onClick={handleClick}
-                    id={'avatar'}
-                >
-                    {value && (
-                        <Typography className={classes.label} variant={'h4'} color={'inherit'}>
-                            {value}
-                        </Typography>
-                    )}
-                </Avatar>
+                {avatar}
                 {/* Accepts either children MenuItems or menuItems array props. */}
-                {renderMenu() && <Menu
-                    anchorOrigin={{
-                        vertical: 'bottom',
-                        horizontal: 'center',
-                    }}
-                    transformOrigin={{
-                        vertical: 'top',
-                        horizontal: 'center',
-                    }}
-                    open={Boolean(anchorEl)}
-                    anchorEl={anchorEl}
-                    keepMounted
-                    {...MenuProps}
-                >
-                    {children}
-                    {menuItems.forEach((item, index) => (
-                       <StyledMenuItem>
-                           <ListItemIcon>
-                               {item.icon}
-                           </ListItemIcon>
-                           <ListItemText primary="{item.text}" />
-                       </StyledMenuItem>
-                   ))}
-                </Menu>}
+                {renderMenu() && (
+                    <Menu
+                        anchorOrigin={{
+                            vertical: 'bottom',
+                            horizontal: 'center',
+                        }}
+                        transformOrigin={{
+                            vertical: 'top',
+                            horizontal: 'center',
+                        }}
+                        open={Boolean(anchorEl)}
+                        anchorEl={anchorEl}
+                        keepMounted
+                        {...MenuProps}
+                    >
+                        {printHeader()}
+                        {printMenuItems()}
+                    </Menu>
+                )}
             </div>
         </ClickAwayListener>
     );

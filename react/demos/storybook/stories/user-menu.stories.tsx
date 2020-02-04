@@ -1,7 +1,8 @@
 import {MenuItem} from "@material-ui/core";
-import * as Colors from '@pxblue/colors';
+import {Email, Settings} from "@material-ui/icons";
 import SendIcon from '@material-ui/icons/Send';
-import {UserMenu, UserMenuItems} from "@pxblue/react-components";
+import * as Colors from '@pxblue/colors';
+import {UserMenu, UserMenuGroup} from "@pxblue/react-components";
 import {color, text, withKnobs} from '@storybook/addon-knobs';
 import {storiesOf} from '@storybook/react';
 import React from 'react';
@@ -11,19 +12,31 @@ const tRex = require('../assets/trex.jpeg');
 export const stories = storiesOf('User Menu', module);
 stories.addDecorator(withKnobs);
 stories.addParameters({
-    notes: { markdown: require('./../../../docs/Hero.md') },
+    notes: { markdown: require('./../../../docs/UserMenu.md') },
 });
 
-const defaultMenuItems: UserMenuItems[] = [
+const defaultMenuItems: UserMenuGroup[] = [
    {
-      title: 'Email',
-      icon: <SendIcon />
+      items: [
+         {
+            title: 'Log Out',
+            icon: <SendIcon/>
+         },
+         {
+            title: 'Account Settings',
+            icon: <Settings/>,
+         },
+         {
+            title: 'Contact Us',
+            icon: <Email/>,
+         },
+      ]
    }
 ];
 
-stories.add('with default values', () => {
+stories.add('with default colors', () => {
     const value = text('value', 'aa');
-    return <UserMenu value={value} menuItems={defaultMenuItems} />
+    return <UserMenu value={value} menuGroups={defaultMenuItems} />
 });
 
 
@@ -34,7 +47,8 @@ stories.add('with custom colors', () => {
     return <UserMenu
        value={value}
        fontColor={fontColor}
-       backgroundColor={backgroundColor}>
+       backgroundColor={backgroundColor}
+       menuGroups={defaultMenuItems}>
     </UserMenu>
 });
 
@@ -44,7 +58,18 @@ stories.add('with background image', () => {
     </UserMenu>
 });
 
-stories.add('with custom menu child', () => {
+
+stories.add('with menu header', () => {
+   const menuTitle = text('menuTitle', 'Menu Title');
+   const menuSubtitle = text('menuSubtitle', 'Menu Subtitle');
+   return <UserMenu
+      menuGroups={defaultMenuItems}
+      menuTitle={menuTitle}
+      menuSubtitle={menuSubtitle}
+      value={'EM'} />;
+});
+
+stories.add('with custom menu body', () => {
    return <UserMenu
       AvatarProps={{src: tRex}}>
       <MenuItem key={'profile'}>Profile</MenuItem>
