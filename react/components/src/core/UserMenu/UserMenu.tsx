@@ -15,10 +15,11 @@ const styles = makeStyles((theme: Theme) =>
 
 const muiAvatarStyles = makeStyles((theme: Theme) => ({
     root: (props: UserMenuProps) => ({
+        cursor: 'pointer',
         backgroundColor: props.backgroundColor || Colors.blue[50],
         color: props.fontColor || Colors.blue[500],
-        height: theme.spacing(7),
-        width: theme.spacing(7),
+        height: theme.spacing(5),
+        width: theme.spacing(5),
     }),
     colorDefault: {},
     circle: {},
@@ -26,6 +27,15 @@ const muiAvatarStyles = makeStyles((theme: Theme) => ({
     square: {},
     img: {},
     fallback: {},
+}));
+
+const muiMenuStyles = makeStyles((theme: Theme) => ({
+    paper: (props: UserMenuProps) => ({
+        width: props.width,
+    }),
+    list: {
+
+    }
 }));
 
 export type UserMenuItem = NavItem;
@@ -37,19 +47,20 @@ export type UserMenuGroup = {
 export type UserMenuProps = {
     AvatarProps?: AvatarProps;
     backgroundColor?: string;
-    backgroundImage?: string;
+    classes?: StyleRules;
     menuTitle?: string;
     menuSubtitle?: string;
     menuGroups?: UserMenuGroup[];
     fontColor?: string;
     MenuProps?: MenuProps;
     value?: string;
-    classes?: StyleRules;
+    width?: number;
 };
 
 export const UserMenu: React.FC<UserMenuProps> = (props) => {
     const classes = styles(props);
     const avatarClasses = muiAvatarStyles(props);
+    const menuClasses = muiMenuStyles(props);
     const { AvatarProps = {}, children, menuTitle, menuSubtitle, menuGroups = [], MenuProps = {}, value } = props;
 
     const [anchorEl, setAnchorEl] = useState(null);
@@ -66,9 +77,10 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
     };
 
     const avatar = (
-        <Avatar {...AvatarProps} classes={AvatarProps.classes || avatarClasses} onClick={handleClick} id={'avatar'}>
-            {value && (
-                <Typography className={classes.label} variant={'h4'} color={'inherit'}>
+        <Avatar classes={AvatarProps.classes || avatarClasses} onClick={handleClick} id={'avatar'} {...AvatarProps}>
+            {AvatarProps.children ||
+            value && (
+                <Typography className={classes.label} variant={'h5'} color={'inherit'}>
                     {value}
                 </Typography>
             )}
@@ -81,7 +93,7 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
                icon={avatar}
                title={menuTitle}
                subtitle={menuSubtitle}
-               fontColor={Colors.black[50]}
+               fontColor={Colors.black[500]}
                backgroundColor={Colors.white[50]} />;
         }
     };
@@ -100,14 +112,7 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
                 {avatar}
                 {hasMenu() && (
                     <Menu
-                        anchorOrigin={{
-                            vertical: 'top',
-                            horizontal: 'center',
-                        }}
-                        transformOrigin={{
-                            vertical: 'top',
-                            horizontal: 'center',
-                        }}
+                        classes={(MenuProps as MenuProps).classes || menuClasses}
                         open={Boolean(anchorEl)}
                         anchorEl={anchorEl}
                         keepMounted
