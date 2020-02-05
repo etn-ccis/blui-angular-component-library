@@ -26,7 +26,7 @@ const muiAvatarStyles = makeStyles((theme: Theme) =>
             color: props.fontColor || theme.palette.primary[500],
             height: theme.spacing(5),
             width: theme.spacing(5),
-        })
+        }),
     })
 );
 
@@ -34,7 +34,7 @@ const muiMenuStyles = makeStyles((theme: Theme) =>
     createStyles({
         paper: (props: UserMenuProps) => ({
             width: props.width,
-        })
+        }),
     })
 );
 
@@ -94,16 +94,22 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
 
     const avatar = (
         <Avatar
-            classes={AvatarProps.classes || {
-                root: avatarClasses.root
-            }}
+            classes={
+                AvatarProps.classes || {
+                    root: avatarClasses.root,
+                }
+            }
             onClick={handleClick}
             data-test={'pxb-user-menu-avatar'}
             {...AvatarProps}
         >
             {AvatarProps.children ||
                 (value && (
-                    <Typography className={clsx(pxbClasses.pxbLabel, classes.pxbLabel)} variant={'h5'} color={'inherit'}>
+                    <Typography
+                        className={clsx(pxbClasses.pxbLabel, classes.pxbLabel)}
+                        variant={'h5'}
+                        color={'inherit'}
+                    >
                         {value}
                     </Typography>
                 ))}
@@ -129,16 +135,18 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
             return <DrawerNavGroup divider={false} open={true} title={group.title} items={group.items} />;
         });
 
-    console.log(pxbClasses);
-    console.log(menuClasses);
-    console.log(avatarClasses);
-
     return (
         <ClickAwayListener onClickAway={handleClose}>
             <div className={clsx(pxbClasses.pxbRoot, classes.pxbRoot)}>
                 {avatar}
                 {hasMenu() && (
-                    <Menu open={Boolean(anchorEl)} anchorEl={anchorEl} keepMounted {...MenuProps} classes={{paper: menuClasses.paper}}>
+                    <Menu
+                        open={Boolean(anchorEl)}
+                        anchorEl={anchorEl}
+                        keepMounted
+                        {...MenuProps}
+                        classes={{ paper: menuClasses.paper }}
+                    >
                         {children}
                         {!children && (
                             <>

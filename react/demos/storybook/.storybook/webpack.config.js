@@ -1,5 +1,5 @@
-const webpack = require("webpack");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const webpack = require('webpack');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = ({ config }) => {
     config.module.rules.push({
@@ -21,8 +21,8 @@ module.exports = ({ config }) => {
             'sass-loader',
         ],
     });
-    config.plugins.push(new MiniCssExtractPlugin({ filename: '[name].css' }))
-    config.watchOptions = { ignored: [ /node_modules([\\]+|\/)+(?!@pxblue)/ ] };
+    config.plugins.push(new MiniCssExtractPlugin({ filename: '[name].css' }));
+    config.watchOptions = { ignored: [/node_modules([\\]+|\/)+(?!@pxblue)/] };
     config.resolve.extensions.push('.ts', '.tsx');
     return config;
 };

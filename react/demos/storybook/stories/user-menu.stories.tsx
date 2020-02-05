@@ -1,10 +1,10 @@
-import {MenuItem} from '@material-ui/core';
-import {Email, Settings} from '@material-ui/icons';
+import { MenuItem } from '@material-ui/core';
+import { Email, Settings } from '@material-ui/icons';
 import SendIcon from '@material-ui/icons/Send';
 import * as Colors from '@pxblue/colors';
-import {UserMenu, UserMenuGroup} from '@pxblue/react-components';
-import {color, number, text, withKnobs} from '@storybook/addon-knobs';
-import {storiesOf} from '@storybook/react';
+import { UserMenu, UserMenuGroup } from '@pxblue/react-components';
+import { color, number, text, withKnobs } from '@storybook/addon-knobs';
+import { storiesOf } from '@storybook/react';
 import React from 'react';
 
 const tRex = require('../assets/trex.jpeg');
@@ -57,10 +57,12 @@ stories.add('with custom colors', () => {
 });
 
 stories.add('with non-text avatar', () => {
-    return <div style={{display: 'flex', width: '100px', justifyContent: 'space-between'}}>
-        <UserMenu AvatarProps={{ src: tRex }} />
-        <UserMenu AvatarProps={{ children: <SendIcon />}} />
-    </div>
+    return (
+        <div style={{ display: 'flex', width: '100px', justifyContent: 'space-between' }}>
+            <UserMenu AvatarProps={{ src: tRex }} />
+            <UserMenu AvatarProps={{ children: <SendIcon /> }} />
+        </div>
+    );
 });
 
 stories.add('with menu header', () => {
