@@ -1,47 +1,44 @@
-import {Avatar, AvatarProps, ClickAwayListener, Menu, MenuProps, Typography} from '@material-ui/core';
-import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
+import { Avatar, AvatarProps, ClickAwayListener, Menu, MenuProps, Typography } from '@material-ui/core';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import { ClassNameMap } from '@material-ui/core/styles/withStyles';
 import * as Colors from '@pxblue/colors';
 import clsx from 'clsx';
-import React, {ReactNode, useState} from 'react';
-import {DrawerHeader, DrawerNavGroup, NavItem} from '../Drawer';
+import React, { ReactNode, useState } from 'react';
+import { DrawerHeader, DrawerNavGroup, NavItem } from '../Drawer';
 
 const styles = makeStyles((theme: Theme) =>
     createStyles({
-        root: {
-            backgroundColor: 'blue',
-        },
-        label: {
+        pxbRoot: {},
+        pxbLabel: {
             width: '100%',
             textAlign: 'center',
         },
     })
 );
 
-const muiAvatarStyles = makeStyles((theme: Theme) => ({
-    root: (props: UserMenuProps) => ({
-        cursor: 'pointer',
-        //@ts-ignore
-        backgroundColor: props.backgroundColor || theme.palette.primary[50],
-        //@ts-ignore
-        color: props.fontColor || theme.palette.primary[500],
-        height: theme.spacing(5),
-        width: theme.spacing(5),
-    }),
-    colorDefault: {},
-    circle: {},
-    rounded: {},
-    square: {},
-    img: {},
-    fallback: {},
-}));
+const muiAvatarStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        root: (props: UserMenuProps) => ({
+            cursor: 'pointer',
+            //@ts-ignore
+            backgroundColor: props.backgroundColor || theme.palette.primary[50],
+            //@ts-ignore
+            color: props.fontColor || theme.palette.primary[500],
+            height: theme.spacing(5),
+            width: theme.spacing(5),
+        })
+    })
+);
 
-const muiMenuStyles = makeStyles((theme: Theme) => ({
-    paper: (props: UserMenuProps) => ({
-        width: props.width,
-    }),
-    list: {},
-}));
+const muiMenuStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        paper: (props: UserMenuProps) => ({
+            width: props.width,
+        })
+    })
+);
 
+type UserMenuClasses = ClassNameMap<'pxbRoot' | 'pxbLabel'>;
 export type UserMenuItem = NavItem;
 export type UserMenuGroup = {
     title?: string;
@@ -51,7 +48,7 @@ export type UserMenuGroup = {
 export type UserMenuProps = {
     AvatarProps?: AvatarProps;
     backgroundColor?: string;
-    classes?: any;
+    classes?: UserMenuClasses;
     menuTitle?: string;
     menuSubtitle?: string;
     menuGroups?: UserMenuGroup[];
@@ -64,13 +61,13 @@ export type UserMenuProps = {
 };
 
 export const UserMenu: React.FC<UserMenuProps> = (props) => {
-    const pxbClasses = styles(props);
     const avatarClasses = muiAvatarStyles(props);
     const menuClasses = muiMenuStyles(props);
+    const pxbClasses = styles(props);
     const {
         AvatarProps = {},
         children,
-        classes = {},
+        classes = {} as UserMenuClasses,
         menuTitle,
         menuSubtitle,
         menuGroups = [],
@@ -97,14 +94,16 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
 
     const avatar = (
         <Avatar
-            classes={AvatarProps.classes || avatarClasses}
+            classes={AvatarProps.classes || {
+                root: avatarClasses.root
+            }}
             onClick={handleClick}
             data-test={'pxb-user-menu-avatar'}
             {...AvatarProps}
         >
             {AvatarProps.children ||
                 (value && (
-                    <Typography className={clsx(pxbClasses.label, classes.label)} variant={'h5'} color={'inherit'}>
+                    <Typography className={clsx(pxbClasses.pxbLabel, classes.pxbLabel)} variant={'h5'} color={'inherit'}>
                         {value}
                     </Typography>
                 ))}
@@ -130,13 +129,16 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
             return <DrawerNavGroup divider={false} open={true} title={group.title} items={group.items} />;
         });
 
+    console.log(pxbClasses);
+    console.log(menuClasses);
+    console.log(avatarClasses);
+
     return (
         <ClickAwayListener onClickAway={handleClose}>
-            <div className={clsx(pxbClasses.root, classes.root)}>
+            <div className={clsx(pxbClasses.pxbRoot, classes.pxbRoot)}>
                 {avatar}
                 {hasMenu() && (
-                    <Menu open={Boolean(anchorEl)} anchorEl={anchorEl} keepMounted {...MenuProps} classes={menuClasses}>
-                        [<>
+                    <Menu open={Boolean(anchorEl)} anchorEl={anchorEl} keepMounted {...MenuProps} classes={{paper: menuClasses.paper}}>
                         {children}
                         {!children && (
                             <>
@@ -144,7 +146,6 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
                                 {printMenuItems()}
                             </>
                         )}
-                        </>]
                     </Menu>
                 )}
             </div>
