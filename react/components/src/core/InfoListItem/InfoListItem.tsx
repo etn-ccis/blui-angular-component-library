@@ -1,5 +1,6 @@
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React from 'react';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import PropTypes from 'prop-types';
 
 import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 import Chevron from '@material-ui/icons/ChevronRight';
@@ -27,7 +28,7 @@ const useStyles = makeStyles((theme: Theme) =>
             bottom: 0,
             right: 0,
             height: 1,
-            backgroundColor: theme.palette.type === 'light' ? Colors.black[50] : Colors.black[700],
+            backgroundColor: theme.palette.type === 'light' ? Colors.black[100] : Colors.black[700],
         },
         statusStripe: {
             position: 'absolute',
@@ -110,7 +111,7 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
                 ? color(statusColor).isDark()
                     ? Colors.white[50]
                     : Colors.black[500]
-                : theme.palette.primary.contrastText;
+                : Colors.white[50]; // default avatar is dark gray -> white text
         }
         return statusColor ? statusColor : 'inherit';
     };
@@ -122,7 +123,7 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
                     <Avatar
                         style={{
                             // @ts-ignore TODO: Fix me
-                            backgroundColor: statusColor || theme.palette.primary[500],
+                            backgroundColor: statusColor || Colors.black[500],
                             color: getIconColor(),
                         }}
                     >
@@ -205,3 +206,32 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
         </ListItem>
     );
 };
+InfoListItem.propTypes = {
+    avatar: PropTypes.bool,
+    backgroundColor: PropTypes.string,
+    chevron: PropTypes.bool,
+    dense: PropTypes.bool,
+    divider: PropTypes.oneOf(['full', 'partial']),
+    fontColor: PropTypes.string,
+    hidePadding: PropTypes.bool,
+    icon: PropTypes.element,
+    iconColor: PropTypes.string,
+    leftComponent: PropTypes.element,
+    onClick: PropTypes.func,
+    rightComponent: PropTypes.element,
+    statusColor: PropTypes.string,
+    style: PropTypes.objectOf(PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.number,
+    ])),
+    subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.element]))]),
+    subtitleSeparator: PropTypes.string,
+    title: PropTypes.string.isRequired,
+}
+InfoListItem.defaultProps = {
+    avatar: false,
+    chevron: false,
+    dense: false,
+    hidePadding: false,
+    subtitleSeparator: '\u00B7',
+}
