@@ -1,12 +1,22 @@
-import {createMount, createShallow} from '@material-ui/core/test-utils';
-import SendIcon from '@material-ui/icons/Send';
-import Enzyme from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Menu from "@material-ui/core/SvgIcon/SvgIcon";
 import React from 'react';
 import ReactDOM from 'react-dom';
+import {ChannelValue} from "../ChannelValue";
 import {findByTestId} from "../test-utils";
-import {Mount, Shallow} from '../types';
-import {UserMenu} from './UserMenu';
+import { Mount, Shallow } from '../types';
+import { UserMenu } from './UserMenu';
+import Enzyme from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+import SendIcon from '@material-ui/icons/Send';
+
+import { ListItemIcon, ListItemAvatar, Avatar } from '@material-ui/core';
+
+import Chevron from '@material-ui/icons/ChevronRight';
+import PersonIcon from '@material-ui/icons/Person';
+
+import * as Colors from '@pxblue/colors';
+
+import { createMount, createShallow } from '@material-ui/core/test-utils';
 
 Enzyme.configure({ adapter: new Adapter() });
 
@@ -33,4 +43,29 @@ describe('User Menu', () => {
         let wrapper = shallow(<UserMenu AvatarProps={{children: <SendIcon data-test={'send-icon'}/>}}/>);
         expect(findByTestId('send-icon', wrapper).length).toEqual(1);
     });
+
+    it('runs onOpen function when avatar is clicked', () => {
+        const onOpen = jest.fn();
+        let wrapper = shallow(<UserMenu onOpen={onOpen} AvatarProps={{children: <SendIcon/>}}/>);
+        const avatar = findByTestId('pxb-user-menu-avatar', wrapper);
+        expect(onOpen).not.toHaveBeenCalled();
+        avatar.simulate('click', {currentTarget: 'test'});
+        expect(onOpen).toHaveBeenCalled();
+    });
+
+    /*
+    it('renders menu when opened', () => {
+        let wrapper = shallow(<UserMenu AvatarProps={{children: <SendIcon/>}}/>);
+        const avatar = findByTestId('pxb-user-menu-avatar', wrapper);
+        expect(findByTestId('pxb-user-menu-menu', wrapper).length).toEqual(0);
+        avatar.simulate('click', {currentTarget: document});
+        const menu = findByTestId('pxb-user-menu-menu', wrapper);
+        expect(findByTestId('pxb-user-menu-menu', wrapper).length).toEqual(1);
+    });
+
+    /*
+    it('renders with a menu list items', () => {
+        let wrapper = shallow(<UserMenu value={'DH'} menuTitle={'Menu Title'} />);
+        expect(findByTestId('drawer-header', wrapper).length).toEqual(1);
+    }); */
 });
