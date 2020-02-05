@@ -33,9 +33,7 @@ const muiMenuStyles = makeStyles((theme: Theme) => ({
     paper: (props: UserMenuProps) => ({
         width: props.width,
     }),
-    list: {
-
-    }
+    list: {},
 }));
 
 export type UserMenuItem = NavItem;
@@ -53,6 +51,8 @@ export type UserMenuProps = {
     menuGroups?: UserMenuGroup[];
     fontColor?: string;
     MenuProps?: MenuProps;
+    onClose?: Function;
+    onOpen?: Function;
     value?: string;
     width?: number;
 };
@@ -61,14 +61,26 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
     const classes = styles(props);
     const avatarClasses = muiAvatarStyles(props);
     const menuClasses = muiMenuStyles(props);
-    const { AvatarProps = {}, children, menuTitle, menuSubtitle, menuGroups = [], MenuProps = {}, value } = props;
+    const {
+        AvatarProps = {},
+        children,
+        menuTitle,
+        menuSubtitle,
+        menuGroups = [],
+        MenuProps = {},
+        onClose = () => {},
+        onOpen = () => {},
+        value,
+    } = props;
 
     const [anchorEl, setAnchorEl] = useState(null);
     const handleClick: any = (event: MouseEvent) => {
+        onOpen();
         setAnchorEl(event.currentTarget);
     };
 
     const handleClose = () => {
+        onClose();
         setAnchorEl(null);
     };
 
@@ -77,24 +89,33 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
     };
 
     const avatar = (
-        <Avatar classes={AvatarProps.classes || avatarClasses} onClick={handleClick} id={'avatar'} {...AvatarProps}>
+        <Avatar
+            classes={AvatarProps.classes || avatarClasses}
+            onClick={handleClick}
+            data-test={'pxb-user-menu-avatar'}
+            {...AvatarProps}
+        >
             {AvatarProps.children ||
-            value && (
-                <Typography className={classes.label} variant={'h5'} color={'inherit'}>
-                    {value}
-                </Typography>
-            )}
+                (value && (
+                    <Typography className={classes.label} variant={'h5'} color={'inherit'}>
+                        {value}
+                    </Typography>
+                ))}
         </Avatar>
     );
 
     const printHeader = (): JSX.Element => {
         if (menuTitle) {
-            return <DrawerHeader
-               icon={avatar}
-               title={menuTitle}
-               subtitle={menuSubtitle}
-               fontColor={Colors.black[500]}
-               backgroundColor={Colors.white[50]} />;
+            return (
+                <DrawerHeader
+                    data-test={'pxb-user-menu-header'}
+                    icon={avatar}
+                    title={menuTitle}
+                    subtitle={menuSubtitle}
+                    fontColor={Colors.black[500]}
+                    backgroundColor={Colors.white[50]}
+                />
+            );
         }
     };
 
@@ -112,6 +133,7 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
                 {avatar}
                 {hasMenu() && (
                     <Menu
+                        data-test={'pxb-user-menu-menu'}
                         classes={(MenuProps as MenuProps).classes || menuClasses}
                         open={Boolean(anchorEl)}
                         anchorEl={anchorEl}
