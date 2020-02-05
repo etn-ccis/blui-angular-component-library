@@ -1,10 +1,10 @@
-# Info List Item
+# InfoListItem
 The Info List Item is intended to be used in List views. It positions a title as well as optional subtitle(s), icon, and status stripe.
 
 <img width="100%" alt="Info List Items in a variety of styles" src="./images/infoListItem.png">
 
 ## Usage
-```
+```typescript
 import { InfoListItem } from '@pxblue/react-components';
 import { GradeA, Leaf, CurrentCircled, VoltageCircled, Temp } from '@pxblue/icons-mui';
 import * as Colors from '@pxblue/colors';

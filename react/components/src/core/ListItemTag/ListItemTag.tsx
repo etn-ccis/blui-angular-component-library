@@ -1,6 +1,7 @@
-import * as Colors from '@pxblue/colors';
-import { Typography } from '@material-ui/core';
+import { Typography, TypographyProps } from '@material-ui/core';
+import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 import React from 'react';
+import clsx from 'clsx';
 
 export type ListItemTagProps = {
     /* The string label of the tag. */
@@ -11,43 +12,44 @@ export type ListItemTagProps = {
 
     /* Color of the label background. Default is blue['500'] */
     backgroundColor?: string;
+} & TypographyProps;
 
-    /* event handler to be called when the user clicks on the tag.  */
-    onClick?: () => void;
-
-    /* Custom classes to be passed to the tag container. */
-    classes?: {
-        label?: string;
-        root?: string;
-    };
-};
+const useStyles = makeStyles((theme: Theme) =>
+    createStyles({
+        root: {
+            backgroundColor: theme.palette.primary.main,
+            fontWeight: 'bold',
+            letterSpacing: 1,
+            borderRadius: 2,
+            padding: 0,
+            paddingLeft: theme.spacing(0.5),
+            paddingRight: theme.spacing(0.5),
+            lineHeight: 'inherit',
+            color: theme.palette.primary.contrastText,
+        },
+    })
+);
 
 export const ListItemTag: React.FC<ListItemTagProps> = (props: ListItemTagProps): JSX.Element => {
-    const { classes, label, fontColor, backgroundColor, onClick } = props;
-
+    const { classes: userClasses = {}, label, fontColor, backgroundColor, style, onClick, ...other } = props;
+    const theme = useTheme();
+    const defaultClasses = useStyles(theme);
     return (
         <Typography
-            classes={classes}
-            style={{
-                color: fontColor || Colors.white['50'],
-                backgroundColor: backgroundColor || Colors.blue['500'],
-                cursor: onClick ? 'pointer' : 'default',
-                fontWeight: 'bold',
-                letterSpacing: 1,
-                borderRadius: 2,
-                padding: '0 4px',
-                lineHeight: 'inherit',
-            }}
+            classes={{ root: clsx(defaultClasses.root, userClasses?.root), overline: userClasses?.overline }}
+            style={Object.assign(
+                {
+                    color: fontColor,
+                    backgroundColor: backgroundColor,
+                    cursor: onClick ? 'pointer' : 'default',
+                },
+                style
+            )}
             variant={'overline'}
             noWrap
             display={'inline'}
             data-test={'list-item-tag'}
-            onClick={(): void => {
-                if (onClick) {
-                    onClick();
-                }
-                return;
-            }}
+            {...other}
         >
             {label}
         </Typography>

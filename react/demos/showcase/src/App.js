@@ -300,7 +300,7 @@ export default () => {
                                 avatar
                                 subtitle={['Phase A', 'Phase B', 'Phase C']}
                                 icon={<VoltageCircled />}
-                                rightComponent={<span><span style={{marginRight: 8}}><ListItemTag backgroundColor={Colors.green['500']} label={'active'} /></span><ChannelValue fontSize={16} value={478} units={'V'} />, <ChannelValue fontSize={16} value={479} units={'V'} />, <ChannelValue fontSize={16} value={473} units={'V'} /></span>}
+                                rightComponent={<span><ChannelValue fontSize={16} value={478} units={'V'} />, <ChannelValue fontSize={16} value={479} units={'V'} />, <ChannelValue fontSize={16} value={473} units={'V'} /></span>}
                             />
                             <InfoListItem
                                 title={'Output Voltage'}
@@ -311,7 +311,7 @@ export default () => {
                                 subtitle={['Phase A', 'Phase B', 'Phase C']}
                                 icon={<VoltageCircled color={'inherit'} />}
                                 rightComponent={
-                                <span style={{ color: Colors.red[500] }}><span style={{marginRight: 8}}><ListItemTag label={'IN PROGRESS'} /></span><ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} /></span>}
+                                <span style={{ color: Colors.red[500] }}><span style={{marginRight: 8}}><ListItemTag label={'active'} /></span><ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} /></span>}
                             />
                             <InfoListItem dense
                                 title={'Output Current'}
@@ -323,21 +323,15 @@ export default () => {
                                 title={'Temperature'}
                                 divider={'full'}
                                 icon={<Temp />}
-                                rightComponent={<ChannelValue fontSize={16} icon={<Trend htmlColor={Colors.red[500]} />} value={68} units={'°F'} />}
-                            />
-                            <InfoListItem dense
-                                title={'Temperature'}
-                                divider={'full'}
-                                icon={<Temp />}
                                 rightComponent={
                                 <>
-                                    <span style={{marginRight: 8}}>
-                                        <ListItemTag 
-                                        label={'OVERHEAT'} 
-                                        backgroundColor={Colors.red['500']} 
-                                        onClick={()=>{alert('You clicked me.')}}
-                                        />
-                                    </span>
+                                    <ListItemTag style={{marginRight: 8}} backgroundColor={Colors.green['500']} label={'active'} />
+                                    <ListItemTag 
+                                    label={'OVERHEAT'} 
+                                    backgroundColor={Colors.red['500']} 
+                                    onClick={()=>{alert('You clicked me.')}}
+                                    style={{marginRight: 8}}
+                                    />
                                     <ChannelValue fontSize={16} icon={<Trend htmlColor={Colors.red[500]} />} value={68} units={'°F'} />
                                 </>}
                             />

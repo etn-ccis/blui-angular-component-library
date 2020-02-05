@@ -1,4 +1,4 @@
-# Hero Components
+# Hero
 The PX Blue Hero components are used to call attention to particular values that are of the most importance to the user. These are typically displayed in a banner.
 
 <img width="100%" alt="Hero Banner" src="./images/heroes.png">
@@ -10,7 +10,7 @@ The Hero component displays a particular icon, value/units, and a label. The ico
 The value section of the Hero utilizes a [ChannelValue](./ChannelValue.md) component. To display a single simple value, the information can be passed as props (```value```, ```units```, ```valueIcon```). For more complex values (such as a duration that displays hours and minutes), you can pass in ```<ChannelValue>``` components as children and they will be displayed inline.
 
 ### Usage
-```
+```typescript
 import { Hero } from '@pxblue/react-components';
 
 // Simple usage passing props
@@ -48,7 +48,7 @@ import { Hero } from '@pxblue/react-components';
 The HeroBanner component is a simple wrapper component that is used to contain ```<Hero/>```s. It creates the flex container and sets up the spacing rules to display them. It accepts up to four ```<Hero/>``` components as its children.
 
 ### Hero Banner Usage
-```
+```typescript
 import HeroBanner from '@pxblue/react-components/core/HeroBanner';
 import Hero from '@pxblue/react-components/core/Hero';
 ...
