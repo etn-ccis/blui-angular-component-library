@@ -36,7 +36,7 @@ import SendIcon from '@material-ui/icons/Send';
 ## API
 | Prop Name         | Description                             | Type                     | Required | Default             | Examples                                |
 |-------------------|-----------------------------------------|--------------------------|----------|---------------------|-----------------------------------------|
-| AvatarProps       | Property overrides for the MUI Avatar   | `AvatarProps`            | no       |                     |                                         |
+| avatarProps       | Property overrides for the MUI Avatar   | `AvatarProps`            | no       |                     |                                         |
 | backgroundColor   | The color used for the background       | `string`                 | no       | Colors.blue[50]     |                                         |
 | backgroundImage   | An alternative to displaying text       | `string`                 | no       |                     |                                         |
 | classes           | Style overrides                         | `StyleRules`             | no       |                     |                                         |
@@ -46,7 +46,7 @@ import SendIcon from '@material-ui/icons/Send';
 | menuTitle         | Title shown when menu is open           | `string`                 | no       |                     |                                         |
 | menuSubtitle      | Subtitle show when menu is open         | `string`                 | no       |                     |                                         |
 | menuGroups        | Groups of menu items that display       | `UserMenuGroups`         | no       |                     |                                         |
-| MenuProps         | Property overrides for the MUI Menu     | `MenuProps`              | no       |                     |                                         |
+| menuProps         | Property overrides for the MUI Menu     | `MenuProps`              | no       |                     |                                         |
 | value             | Text to display in the Avatar           | `string`                 | no       |                     |                                         |
 | width             | Menu width                              | `number`                 | no       |                     |                                         |
 

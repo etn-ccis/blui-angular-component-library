@@ -135,7 +135,7 @@ export default () => {
                         </Hidden>
                         <div style={{justifyContent: 'space-between', alignItems: 'center', display: 'flex', width: '100%'}}>
                             <Typography variant={'h6'}>Showcase</Typography>
-                            <UserMenu AvatarProps={{ src: tRex }} menuGroups={[
+                            <UserMenu avatarProps={{ src: tRex }} menuGroups={[
                                 { items: [
                                     {
                                         title: 'Log Out',

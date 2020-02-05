@@ -6,6 +6,7 @@ import { UserMenu, UserMenuGroup } from '@pxblue/react-components';
 import { color, number, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
+import {action} from "@storybook/addon-actions";
 
 const tRex = require('../assets/trex.jpeg');
 
@@ -29,14 +30,17 @@ const defaultMenuItems: UserMenuGroup[] = [
             {
                 title: 'Log Out',
                 icon: <SendIcon />,
+                onClick: action('Log Out Selected')
             },
             {
                 title: 'Account Settings',
                 icon: <Settings />,
+                onClick: action('Account Settings Selected')
             },
             {
                 title: 'Contact Us',
                 icon: <Email />,
+                onClick: action('Contact Us Selected')
             },
         ],
     },
@@ -56,11 +60,11 @@ stories.add('with custom colors', () => {
     );
 });
 
-stories.add('with non-text avatar', () => {
+stories.add('with a non-text avatar', () => {
     return (
         <div style={{ display: 'flex', width: '100px', justifyContent: 'space-between' }}>
-            <UserMenu AvatarProps={{ src: tRex }} />
-            <UserMenu AvatarProps={{ children: <SendIcon /> }} />
+            <UserMenu avatarProps={{ src: tRex }} />
+            <UserMenu avatarProps={{ children: <SendIcon /> }} />
         </div>
     );
 });
@@ -82,7 +86,7 @@ stories.add('with menu header', () => {
 
 stories.add('with custom menu body', () => {
     return (
-        <UserMenu AvatarProps={{ src: tRex }}>
+        <UserMenu avatarProps={{ src: tRex }}>
             <MenuItem key={'profile'}>Profile</MenuItem>
             <MenuItem key={'account'}>My account</MenuItem>
             <MenuItem key={'logout'}>Logout</MenuItem>

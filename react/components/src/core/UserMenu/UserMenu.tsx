@@ -38,8 +38,8 @@ const muiMenuStyles = makeStyles(() =>
 );
 
 type UserMenuClasses = {
-    pxbRoot?: string,
-    pxbLabel?: string
+    pxbRoot?: string;
+    pxbLabel?: string;
 };
 
 export type UserMenuItem = NavItem;
@@ -49,14 +49,14 @@ export type UserMenuGroup = {
 };
 
 export type UserMenuProps = {
-    AvatarProps?: AvatarProps;
+    avatarProps?: AvatarProps;
     backgroundColor?: string;
     classes?: UserMenuClasses;
     menuTitle?: string;
     menuSubtitle?: string;
     menuGroups?: UserMenuGroup[];
     fontColor?: string;
-    MenuProps?: MenuProps;
+    menuProps?: MenuProps;
     onClose?: Function;
     onOpen?: Function;
     value?: string;
@@ -68,13 +68,13 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
     const menuClasses = muiMenuStyles(props);
     const pxbClasses = styles(props);
     const {
-        AvatarProps = {} as AvatarProps,
+        avatarProps = {} as AvatarProps,
         children,
         classes = {} as UserMenuClasses,
         menuTitle,
         menuSubtitle,
         menuGroups = [],
-        MenuProps = {} as MenuProps,
+        menuProps = {} as MenuProps,
         onClose = (): void => {},
         onOpen = (): void => {},
         value,
@@ -96,11 +96,11 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
     const avatar = (
         <Avatar
             data-test={'pxb-user-menu-avatar'}
-            {...AvatarProps}
+            {...avatarProps}
             onClick={handleClick}
-            classes={Object.assign({ root: avatarClasses.root }, AvatarProps.classes)}
+            classes={Object.assign({ root: avatarClasses.root }, avatarProps.classes)}
         >
-            {AvatarProps.children ||
+            {avatarProps.children ||
                 (value && (
                     <Typography
                         className={clsx(pxbClasses.pxbLabel, classes.pxbLabel)}
@@ -143,8 +143,8 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
                         open={Boolean(anchorEl)}
                         anchorEl={anchorEl}
                         keepMounted
-                        {...MenuProps}
-                        classes={Object.assign({ paper: menuClasses.paper }, MenuProps.classes)}
+                        {...menuProps}
+                        classes={Object.assign({ paper: menuClasses.paper }, menuProps.classes)}
                     >
                         {children}
                         {!children && printMenu()}

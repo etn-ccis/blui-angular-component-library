@@ -30,13 +30,13 @@ describe('User Menu', () => {
     });
 
     it('renders with icon', () => {
-        const wrapper = shallow(<UserMenu AvatarProps={{ children: <SendIcon data-test={'send-icon'} /> }} />);
+        const wrapper = shallow(<UserMenu avatarProps={{ children: <SendIcon data-test={'send-icon'} /> }} />);
         expect(findByTestId('send-icon', wrapper).length).toEqual(1);
     });
 
     it('runs onOpen function when avatar is clicked', () => {
         const onOpen = jest.fn();
-        const wrapper = shallow(<UserMenu onOpen={onOpen} AvatarProps={{ children: <SendIcon /> }} />);
+        const wrapper = shallow(<UserMenu onOpen={onOpen} avatarProps={{ children: <SendIcon /> }} />);
         const avatar = findByTestId('pxb-user-menu-avatar', wrapper);
         expect(onOpen).not.toHaveBeenCalled();
         avatar.simulate('click', { currentTarget: 'test' });
