@@ -18,9 +18,7 @@ const styles = makeStyles((theme: Theme) =>
 );
 
 const muiAvatarStyles = makeStyles((theme: Theme) => ({
-    root: (props: UserMenuProps) => {
-        console.log(props);
-       return {
+    root: (props: UserMenuProps) => ({
         cursor: 'pointer',
         //@ts-ignore
         backgroundColor: props.backgroundColor || theme.palette.primary[50],
@@ -28,7 +26,7 @@ const muiAvatarStyles = makeStyles((theme: Theme) => ({
         color: props.fontColor || theme.palette.primary[500],
         height: theme.spacing(5),
         width: theme.spacing(5),
-    }},
+    }),
     colorDefault: {},
     circle: {},
     rounded: {},
