@@ -12,6 +12,6 @@
         "strictNullChecks": false,
     },
     "include": [
-        "src/index.ts"
+        "src/"
     ]
 }
