@@ -23,7 +23,7 @@ export const Spacer: React.FC<SpacerProps> = (props) => {
     } = props;
 
     return (
-        <div data-test={'spacer-root'} className={classes?.root} style={Object.assign({
+        <div data-test={'spacer-root'} className={classes.root} style={Object.assign({
             flex: `${flex} ${flex} ${flex === 0 ? 'auto' : '0px'}`,
             height: height || 'auto',
             width: width || 'auto'
