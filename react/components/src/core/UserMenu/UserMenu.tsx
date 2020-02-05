@@ -3,10 +3,10 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import { ClassNameMap } from '@material-ui/core/styles/withStyles';
 import * as Colors from '@pxblue/colors';
 import clsx from 'clsx';
-import React, { ReactNode, useState } from 'react';
+import React, { useState } from 'react';
 import { DrawerHeader, DrawerNavGroup, NavItem } from '../Drawer';
 
-const styles = makeStyles((theme: Theme) =>
+const styles = makeStyles(() =>
     createStyles({
         pxbRoot: {},
         pxbLabel: {
@@ -30,7 +30,7 @@ const muiAvatarStyles = makeStyles((theme: Theme) =>
     })
 );
 
-const muiMenuStyles = makeStyles((theme: Theme) =>
+const muiMenuStyles = makeStyles(() =>
     createStyles({
         paper: (props: UserMenuProps) => ({
             width: props.width,
@@ -65,15 +65,15 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
     const menuClasses = muiMenuStyles(props);
     const pxbClasses = styles(props);
     const {
-        AvatarProps = {},
+        AvatarProps = {} as AvatarProps,
         children,
         classes = {} as UserMenuClasses,
         menuTitle,
         menuSubtitle,
         menuGroups = [],
-        MenuProps = {},
-        onClose = () => {},
-        onOpen = () => {},
+        MenuProps = {} as MenuProps,
+        onClose = (): void => {},
+        onOpen = (): void => {},
         value,
     } = props;
 
@@ -83,25 +83,19 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
         setAnchorEl(event.currentTarget);
     };
 
-    const handleClose = () => {
+    const handleClose = (): void => {
         onClose();
         setAnchorEl(null);
     };
 
-    const hasMenu = (): boolean => {
-        return Boolean(children || menuGroups.length > 0);
-    };
+    const hasMenu = (): boolean => Boolean(children || menuGroups.length > 0);
 
     const avatar = (
         <Avatar
-            classes={
-                AvatarProps.classes || {
-                    root: avatarClasses.root,
-                }
-            }
-            onClick={handleClick}
             data-test={'pxb-user-menu-avatar'}
             {...AvatarProps}
+            onClick={handleClick}
+            classes={Object.assign({ root: avatarClasses.root }, AvatarProps.classes)}
         >
             {AvatarProps.children ||
                 (value && (
@@ -118,9 +112,10 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
 
     const printHeader = (): JSX.Element => {
         if (menuTitle) {
+            const nonClickableAvatar = React.cloneElement(avatar, { onClick: undefined });
             return (
                 <DrawerHeader
-                    icon={avatar}
+                    icon={nonClickableAvatar}
                     title={menuTitle}
                     subtitle={menuSubtitle}
                     fontColor={Colors.black[500]}
@@ -130,10 +125,11 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
         }
     };
 
-    const printMenuItems = (): ReactNode[] =>
-        menuGroups.map((group: UserMenuGroup) => {
-            return <DrawerNavGroup divider={false} open={true} title={group.title} items={group.items} />;
-        });
+    const printMenuItems = (): JSX.Element[] =>
+        menuGroups.map((group: UserMenuGroup, index: number) =>
+           <DrawerNavGroup divider={false} open={true} title={group.title} items={group.items} key={index} />);
+
+    const printMenu = (): JSX.Element[] => [printHeader()].concat(printMenuItems());
 
     return (
         <ClickAwayListener onClickAway={handleClose}>
@@ -145,15 +141,10 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
                         anchorEl={anchorEl}
                         keepMounted
                         {...MenuProps}
-                        classes={{ paper: menuClasses.paper }}
+                        classes={Object.assign({ paper: menuClasses.paper }, MenuProps.classes)}
                     >
                         {children}
-                        {!children && (
-                            <>
-                                {printHeader()}
-                                {printMenuItems()}
-                            </>
-                        )}
+                        {!children && printMenu()}
                     </Menu>
                 )}
             </div>
