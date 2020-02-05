@@ -1,5 +1,6 @@
 import { CSSProperties } from '@material-ui/styles';
 import React from 'react';
+import clsx from 'clsx';
 
 export type SpacerProps = {
     flex?: number;
@@ -18,16 +19,19 @@ export const Spacer: React.FC<SpacerProps> = (props) => {
         width,
         height,
         children,
-        classes,
+        classes={},
         style,
     } = props;
 
     return (
-        <div data-test={'spacer-root'} className={classes.root} style={Object.assign({
-            flex: `${flex} ${flex} ${flex === 0 ? 'auto' : '0px'}`,
-            height: height || 'auto',
-            width: width || 'auto'
-        }, {...style})}>
+        <div data-test={'spacer-root'}
+            className={clsx(classes.root)}
+            style={Object.assign({
+                flex: `${flex} ${flex} ${flex === 0 ? 'auto' : '0px'}`,
+                height: height || 'auto',
+                width: width || 'auto'
+            }, { ...style })}
+        >
             {children}
         </div>
     );
