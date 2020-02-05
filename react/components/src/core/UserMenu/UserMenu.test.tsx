@@ -43,4 +43,15 @@ describe('User Menu', () => {
         let wrapper = shallow(<UserMenu AvatarProps={{children: <SendIcon data-test={'send-icon'}/>}}/>);
         expect(findByTestId('send-icon', wrapper).length).toEqual(1);
     });
+
+    fit('displays a menu when clicked', () => {
+        let wrapper = shallow(<UserMenu AvatarProps={{children: <SendIcon data-test={'send-icon'}/>}}/>);
+        expect(findByTestId('drawer-header', wrapper).length).toEqual(1);
+    });
+
+    /*
+    it('renders with a menu list items', () => {
+        let wrapper = shallow(<UserMenu value={'DH'} menuTitle={'Menu Title'} />);
+        expect(findByTestId('drawer-header', wrapper).length).toEqual(1);
+    }); */
 });
