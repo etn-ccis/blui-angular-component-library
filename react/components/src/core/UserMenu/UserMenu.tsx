@@ -1,7 +1,7 @@
 import {Avatar, AvatarProps, ClickAwayListener, Menu, MenuProps, Typography} from '@material-ui/core';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import * as Colors from '@pxblue/colors';
-import clsx, {ClassValue} from "clsx";
+import clsx from 'clsx';
 import React, {ReactNode, useState} from 'react';
 import {DrawerHeader, DrawerNavGroup, NavItem} from '../Drawer';
 
@@ -18,7 +18,9 @@ const styles = makeStyles((theme: Theme) =>
 );
 
 const muiAvatarStyles = makeStyles((theme: Theme) => ({
-    root: (props: UserMenuProps) => ({
+    root: (props: UserMenuProps) => {
+        console.log(props);
+       return {
         cursor: 'pointer',
         //@ts-ignore
         backgroundColor: props.backgroundColor || theme.palette.primary[50],
@@ -26,7 +28,7 @@ const muiAvatarStyles = makeStyles((theme: Theme) => ({
         color: props.fontColor || theme.palette.primary[500],
         height: theme.spacing(5),
         width: theme.spacing(5),
-    }),
+    }},
     colorDefault: {},
     circle: {},
     rounded: {},
@@ -104,7 +106,7 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
         >
             {AvatarProps.children ||
                 (value && (
-                    <Typography className={pxbClasses.label} variant={'h5'} color={'inherit'}>
+                    <Typography className={clsx(pxbClasses.label, classes.label)} variant={'h5'} color={'inherit'}>
                         {value}
                     </Typography>
                 ))}
@@ -125,27 +127,26 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
         }
     };
 
-    /* Displays either custom child nodes, or DrawerNavGroups supplied by menuGroups prop. */
     const printMenuItems = (): ReactNode[] =>
-        children
-            ? [children]
-            : menuGroups.map((group: UserMenuGroup) => {
-                  return <DrawerNavGroup open={true} title={group.title} items={group.items} />;
-              });
+        menuGroups.map((group: UserMenuGroup) => {
+            return <DrawerNavGroup divider={false} open={true} title={group.title} items={group.items} />;
+        });
 
     return (
         <ClickAwayListener onClickAway={handleClose}>
             <div className={clsx(pxbClasses.root, classes.root)}>
                 {avatar}
                 {hasMenu() && (
-                    <Menu
-                        open={Boolean(anchorEl)}
-                        anchorEl={anchorEl}
-                        keepMounted
-                        {...MenuProps}
-                    >
-                        {printHeader()}
-                        {printMenuItems()}
+                    <Menu open={Boolean(anchorEl)} anchorEl={anchorEl} keepMounted {...MenuProps} classes={menuClasses}>
+                        [<>
+                        {children}
+                        {!children && (
+                            <>
+                                {printHeader()}
+                                {printMenuItems()}
+                            </>
+                        )}
+                        </>]
                     </Menu>
                 )}
             </div>
