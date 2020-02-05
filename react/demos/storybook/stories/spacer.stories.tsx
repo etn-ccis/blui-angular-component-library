@@ -15,9 +15,6 @@ stories.add('flex layout', () => {
     const flex1 = number('Item 1 Flex', 1, { range: true, min: 1, max: 5, step: 1 });
     const flex2 = number('Item 2 Flex', 1, { range: true, min: 1, max: 5, step: 1 });
     const flex3 = number('Item 3 Flex', 1, { range: true, min: 1, max: 5, step: 1 });
-    const size1 = number('Item 1 Size', 50, { range: true, min: 50, max: 300, step: 50 });
-    const size2 = number('Item 2 Size', 50, { range: true, min: 50, max: 300, step: 50 });
-    const size3 = number('Item 3 Size', 50, { range: true, min: 50, max: 300, step: 50 });
     
     return (
         <>
