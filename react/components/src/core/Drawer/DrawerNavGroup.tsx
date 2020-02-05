@@ -58,6 +58,7 @@ export type NavItem = {
     statusColor?: string;
     subtitle?: string;
     title: string;
+    divider?: boolean;
 };
 
 export type DrawerNavGroupProps = {
@@ -74,10 +75,12 @@ export type DrawerNavGroupProps = {
     open?: boolean;
     title?: string;
     titleColor?: string;
+    divider?: boolean;
 };
 
 function NavigationListItem(item: NavItem, props: DrawerNavGroupProps): ReactNode {
     const { title, subtitle, icon, statusColor, onClick, active } = item;
+    const { divider = true } = props;
     if (!title && !icon) {
         return null;
     }
@@ -109,7 +112,7 @@ function NavigationListItem(item: NavItem, props: DrawerNavGroupProps): ReactNod
                 dense
                 title={title}
                 subtitle={subtitle}
-                divider={'full'}
+                divider={item.divider === undefined ? (divider ? 'full' : undefined) : (item.divider ? 'full' : undefined)}
                 statusColor={statusColor}
                 fontColor={active ? activeFontColor : fontColor}
                 icon={icon}
@@ -151,7 +154,6 @@ export const DrawerNavGroup: React.FC<DrawerNavGroupProps> = (props) => {
                     <div key={`${title}_item_${index}`}>{NavigationListItem(item, props)}</div>
                 ))}
             </List>
-            <Divider />
         </>
     );
 };
