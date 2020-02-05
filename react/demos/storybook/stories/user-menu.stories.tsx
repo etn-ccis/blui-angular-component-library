@@ -1,4 +1,4 @@
-import { MenuItem } from '@material-ui/core';
+import {makeStyles, MenuItem, StyleRules, Theme} from '@material-ui/core';
 import { Email, Settings } from '@material-ui/icons';
 import SendIcon from '@material-ui/icons/Send';
 import * as Colors from '@pxblue/colors';
@@ -13,6 +13,12 @@ export const stories = storiesOf('User Menu', module);
 stories.addDecorator(withKnobs);
 stories.addParameters({
     notes: { markdown: require('./../../../docs/UserMenu.md') },
+});
+
+const useStyles = makeStyles({
+    root: {
+        backgroundColor: 'green',
+    },
 });
 
 const defaultMenuItems: UserMenuGroup[] = [
@@ -56,11 +62,15 @@ stories.add('with non-text avatar', () => {
 });
 
 stories.add('with menu header', () => {
+    const classes = useStyles();
     const width = number('width', 300, { range: true, step: 10, min: 100, max: 500 });
     const menuTitle = text('menuTitle', 'Menu Title');
     const menuSubtitle = text('menuSubtitle', 'Menu Subtitle');
     return (
         <UserMenu
+            classes={{
+                root: classes.root
+            }}
             width={width}
             menuGroups={defaultMenuItems}
             menuTitle={menuTitle}

@@ -2,7 +2,7 @@
 The User Menu is an Avatar that opens a Menu when clicked.  
 The User Menu typically appears in a corner of an application and indicates who is logged in.
 
-The Avatar that appears in the User Menu can appear as a text `value`, an Icon, or Image.
+The Avatar that appears in the User Menu can appear as text, icon, or image.
 
 The Menu that opens when the Avatar is clicked can be populated by passing in the `menuGroups` prop, or by providing a child node.
 If a child node is passed to the User Menu, the content will render inside a Menu.
@@ -29,9 +29,11 @@ import SendIcon from '@material-ui/icons/Send';
          },
       ]
 } />
+
 ```
 
-### API
+
+## API
 | Prop Name         | Description                             | Type                     | Required | Default             | Examples                                |
 |-------------------|-----------------------------------------|--------------------------|----------|---------------------|-----------------------------------------|
 | AvatarProps       | Property overrides for the MUI Avatar   | `AvatarProps`            | no       |                     |                                         |

@@ -1,11 +1,15 @@
-import { Avatar, AvatarProps, ClickAwayListener, Menu, MenuProps, StyleRules, Typography } from '@material-ui/core';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
+import {Avatar, AvatarProps, ClickAwayListener, Menu, MenuProps, Typography} from '@material-ui/core';
+import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import * as Colors from '@pxblue/colors';
-import React, { ReactNode, useState } from 'react';
-import { DrawerHeader, DrawerNavGroup, NavItem } from '../Drawer';
+import clsx, {ClassValue} from "clsx";
+import React, {ReactNode, useState} from 'react';
+import {DrawerHeader, DrawerNavGroup, NavItem} from '../Drawer';
 
 const styles = makeStyles((theme: Theme) =>
     createStyles({
+        root: {
+            backgroundColor: 'blue',
+        },
         label: {
             width: '100%',
             textAlign: 'center',
@@ -16,8 +20,10 @@ const styles = makeStyles((theme: Theme) =>
 const muiAvatarStyles = makeStyles((theme: Theme) => ({
     root: (props: UserMenuProps) => ({
         cursor: 'pointer',
-        backgroundColor: props.backgroundColor || Colors.blue[50],
-        color: props.fontColor || Colors.blue[500],
+        //@ts-ignore
+        backgroundColor: props.backgroundColor || theme.palette.primary[50],
+        //@ts-ignore
+        color: props.fontColor || theme.palette.primary[500],
         height: theme.spacing(5),
         width: theme.spacing(5),
     }),
@@ -45,7 +51,7 @@ export type UserMenuGroup = {
 export type UserMenuProps = {
     AvatarProps?: AvatarProps;
     backgroundColor?: string;
-    classes?: StyleRules;
+    classes?: any;
     menuTitle?: string;
     menuSubtitle?: string;
     menuGroups?: UserMenuGroup[];
@@ -58,12 +64,13 @@ export type UserMenuProps = {
 };
 
 export const UserMenu: React.FC<UserMenuProps> = (props) => {
-    const classes = styles(props);
+    const pxbClasses = styles(props);
     const avatarClasses = muiAvatarStyles(props);
     const menuClasses = muiMenuStyles(props);
     const {
         AvatarProps = {},
         children,
+        classes = {},
         menuTitle,
         menuSubtitle,
         menuGroups = [],
@@ -97,7 +104,7 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
         >
             {AvatarProps.children ||
                 (value && (
-                    <Typography className={classes.label} variant={'h5'} color={'inherit'}>
+                    <Typography className={pxbClasses.label} variant={'h5'} color={'inherit'}>
                         {value}
                     </Typography>
                 ))}
@@ -108,7 +115,6 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
         if (menuTitle) {
             return (
                 <DrawerHeader
-                    data-test={'pxb-user-menu-header'}
                     icon={avatar}
                     title={menuTitle}
                     subtitle={menuSubtitle}
@@ -129,12 +135,10 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
 
     return (
         <ClickAwayListener onClickAway={handleClose}>
-            <div>
+            <div className={clsx(pxbClasses.root, classes.root)}>
                 {avatar}
                 {hasMenu() && (
                     <Menu
-                        data-test={'pxb-user-menu-menu'}
-                        classes={(MenuProps as MenuProps).classes || menuClasses}
                         open={Boolean(anchorEl)}
                         anchorEl={anchorEl}
                         keepMounted
