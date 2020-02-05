@@ -1,8 +1,8 @@
-import Menu from "@material-ui/core/SvgIcon/SvgIcon";
+import Menu from '@material-ui/core/SvgIcon/SvgIcon';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {ChannelValue} from "../ChannelValue";
-import {findByTestId} from "../test-utils";
+import { ChannelValue } from '../ChannelValue';
+import { findByTestId } from '../test-utils';
 import { Mount, Shallow } from '../types';
 import { UserMenu } from './UserMenu';
 import Enzyme from 'enzyme';
@@ -40,16 +40,16 @@ describe('User Menu', () => {
     });
 
     it('renders with icon', () => {
-        let wrapper = shallow(<UserMenu AvatarProps={{children: <SendIcon data-test={'send-icon'}/>}}/>);
+        let wrapper = shallow(<UserMenu AvatarProps={{ children: <SendIcon data-test={'send-icon'} /> }} />);
         expect(findByTestId('send-icon', wrapper).length).toEqual(1);
     });
 
     it('runs onOpen function when avatar is clicked', () => {
         const onOpen = jest.fn();
-        let wrapper = shallow(<UserMenu onOpen={onOpen} AvatarProps={{children: <SendIcon/>}}/>);
+        let wrapper = shallow(<UserMenu onOpen={onOpen} AvatarProps={{ children: <SendIcon /> }} />);
         const avatar = findByTestId('pxb-user-menu-avatar', wrapper);
         expect(onOpen).not.toHaveBeenCalled();
-        avatar.simulate('click', {currentTarget: 'test'});
+        avatar.simulate('click', { currentTarget: 'test' });
         expect(onOpen).toHaveBeenCalled();
     });
 
