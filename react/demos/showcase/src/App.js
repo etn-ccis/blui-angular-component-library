@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Hero } from '@pxblue/react-components';
+import {Hero, UserMenu} from '@pxblue/react-components';
 import { HeroBanner } from '@pxblue/react-components';
 import { ChannelValue } from '@pxblue/react-components';
 import { EmptyState } from '@pxblue/react-components';
@@ -7,10 +7,10 @@ import { InfoListItem } from '@pxblue/react-components';
 import { ScoreCard } from '@pxblue/react-components';
 import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, DrawerSubheader } from '@pxblue/react-components';
 import { DrawerLayout } from '@pxblue/react-components';
-
+import SendIcon from '@material-ui/icons/Send';
 
 import DevicesIcon from '@material-ui/icons/Devices'
-import { Add, Menu, NotificationsActive, List as ListIcon, Public, Settings, Gavel, Help } from '@material-ui/icons'
+import { Add, Menu, NotificationsActive, List as ListIcon, Public, Email, Settings, Gavel, Help } from '@material-ui/icons'
 
 import Trend from '@material-ui/icons/TrendingUp';
 import Timer from '@material-ui/icons/Timer';
@@ -22,6 +22,7 @@ import { Pie, Battery } from '@pxblue/react-progress-icons';
 import { GradeA, Leaf, CurrentCircled, VoltageCircled, Temp, Moisture as Humidity, Device } from '@pxblue/icons-mui';
 import Button from "@material-ui/core/Button";
 
+import tRex from './trex.jpeg';
 import top from './topology_40.png';
 // import farm from './farm.jpg';
 import EatonLogo from './EatonLogo.svg';
@@ -132,7 +133,26 @@ export default () => {
                         <Hidden smUp>
                             <Menu style={{ marginRight: 32 }} onClick={() => setOpen(!open)} />
                         </Hidden>
-                        <Typography variant={'h6'}>Showcase</Typography>
+                        <div style={{justifyContent: 'space-between', alignItems: 'center', display: 'flex', width: '100%'}}>
+                            <Typography variant={'h6'}>Showcase</Typography>
+                            <UserMenu AvatarProps={{ src: tRex }} menuGroups={[
+                                { items: [
+                                    {
+                                        title: 'Log Out',
+                                        icon: <SendIcon />,
+                                    },
+                                    {
+                                        title: 'Account Settings',
+                                        icon: <Settings />,
+                                    },
+                                    {
+                                        title: 'Contact Us',
+                                        icon: <Email />,
+                                    },
+                                ]
+                            }]
+                            }/>
+                        </div>
                     </Toolbar>
                 </AppBar>
                 <div style={{ padding: 10, flex: 1, overflow: 'auto' }}>
