@@ -1,10 +1,9 @@
-import { Avatar, AvatarProps, ClickAwayListener, Menu, MenuProps, Typography } from '@material-ui/core';
-import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
-import { ClassNameMap } from '@material-ui/core/styles/withStyles';
+import {Avatar, AvatarProps, ClickAwayListener, Menu, MenuProps, Typography} from '@material-ui/core';
+import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import * as Colors from '@pxblue/colors';
 import clsx from 'clsx';
-import React, { useState } from 'react';
-import { DrawerHeader, DrawerNavGroup, NavItem } from '../Drawer';
+import React, {useState} from 'react';
+import {DrawerHeader, DrawerNavGroup, NavItem} from '../Drawer';
 
 const styles = makeStyles(() =>
     createStyles({
@@ -38,7 +37,11 @@ const muiMenuStyles = makeStyles(() =>
     })
 );
 
-type UserMenuClasses = ClassNameMap<'pxbRoot' | 'pxbLabel'>;
+type UserMenuClasses = {
+    pxbRoot?: string,
+    pxbLabel?: string
+};
+
 export type UserMenuItem = NavItem;
 export type UserMenuGroup = {
     title?: string;
