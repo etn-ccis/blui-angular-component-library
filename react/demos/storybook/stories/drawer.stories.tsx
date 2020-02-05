@@ -164,6 +164,7 @@ stories.add(
         const bodyActiveIconColor = color('activeIconColor', Colors.blue[500], bodyGroupId);
         const bodyActiveBackgroundColor = color('activeBackgroundColor', Colors.blue[50], bodyGroupId);
         const bodyChevron = boolean('chevron', false, bodyGroupId);
+        const bodyDividers = boolean('showDividers', true, bodyGroupId);
 
         const numberLinksGroup1 = number(
             'links1',
@@ -313,8 +314,9 @@ stories.add(
                             activeIconColor={bodyActiveIconColor}
                             chevron={bodyChevron}
                         >
-                            <DrawerNavGroup items={links1(state)} title={groupTitle1} />
+                            <DrawerNavGroup divider={bodyDividers} items={links1(state)} title={groupTitle1} />
                             <DrawerNavGroup
+                                divider={bodyDividers}
                                 items={links2(state)}
                                 content={
                                     <div style={{ display: 'flex', justifyContent: 'space-between' }}>

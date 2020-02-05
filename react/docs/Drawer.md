@@ -86,6 +86,7 @@ A `DrawerNavGroup` will render inside of the `DrawerBody` and is used to organiz
 | activeIconColor       | Icon color for the 'active' item        | `string`          | no       |         | 
 | backgroundColor       | The color used for the background       | `string`          | no       |         |   
 | content               | Custom element, substitute for title    | `React.Component` | no       |         |    
+| divider               | Whether to show a line between items    | `boolean`         | no       | true    |    
 | fontColor             | The color used for the text             | `string`          | no       |         |   
 | iconColor             | The color used for the icon             | `string`          | no       |         |   
 | items                 | List of navigation items to render      | `Item[]`          | no       |         |  
@@ -99,6 +100,7 @@ The `items` prop of the `DrawerNavGroup` takes a list of items with the followin
 |-----------------|-----------------------------------------|--------------------|----------|------------------------------|
 | active          | Is the item the current active item     | `boolean`          | no       | false                        |  
 | chevron         | Show chevron icon to the right          | `boolean`          | no       | false                        |  
+| divider         | Show a divider line below the item      | `boolean`          | no       | true                         |  
 | icon            | A component to render for the icon      | `React.Component`  | no       |                              |      
 | onClick         | A function to execute when clicked      | `function`         | no       |                              |    
 | statusColor     | Status stripe and icon color            | `string`           | no       |                              |    
