@@ -1,5 +1,11 @@
 # User Menu
-The User Menu is an avatar that typically appears in a top toolbar and opens a menu when clicked.
+The User Menu is an Avatar that opens a Menu when clicked.  
+The User Menu typically appears in a corner of an application and indicates who is logged in.
+
+The Avatar that appears in the User Menu can appear as a text `value`, an Icon, or Image.
+
+The Menu that opens when the Avatar is clicked can be populated by passing in the `menuGroups` prop, or by providing a child node.
+If a child node is passed to the User Menu, the content will render inside a Menu.
 
 ## Usage
 ```
