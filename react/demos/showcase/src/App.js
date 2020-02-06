@@ -329,7 +329,7 @@ export default () => {
                                     <ListItemTag 
                                     label={'OVERHEAT'} 
                                     backgroundColor={Colors.red['500']} 
-                                    onClick={()=>{alert('You clicked me.')}}
+                                    onClick={(_)=>{alert('You clicked me.')}}
                                     style={{marginRight: 8}}
                                     />
                                     <ChannelValue fontSize={16} icon={<Trend htmlColor={Colors.red[500]} />} value={68} units={'°F'} />

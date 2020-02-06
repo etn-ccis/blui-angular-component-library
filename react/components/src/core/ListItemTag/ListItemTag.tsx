@@ -49,6 +49,12 @@ export const ListItemTag: React.FC<ListItemTagProps> = (props: ListItemTagProps)
             noWrap
             display={'inline'}
             data-test={'list-item-tag'}
+            onClick={(e): void => {
+                if (onClick) {
+                    onClick(e);
+                }
+                return;
+            }}
             {...other}
         >
             {label}
