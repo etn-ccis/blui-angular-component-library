@@ -91,17 +91,18 @@ stories.add('with menu header', () => {
 stories.add('with custom menu body', () => {
     return (
         <UserMenu avatarProps={{ src: tRex }}>
-            <div style={{ position: 'relative', padding: 10, textAlign: 'center' }}>
-                <Typography variant={'h5'}>Welcome, Trex</Typography>
+            <div style={{ position: 'relative', padding: 10}}>
+                <Typography variant={'h6'}>Welcome, </Typography>
+                <Typography  style={{fontWeight: 600}} variant={'h3'}>T-Rex</Typography>
                 <div
                     style={{
                         position: 'absolute',
-                        left: 0,
+                        right: 0,
                         top: 0,
-                        height: 50,
+                        height: '100%',
                         width: '100%',
-                        opacity: 0.1,
-                        backgroundSize: 'contain',
+                        opacity: 0.2,
+                        backgroundSize: 'cover',
                         backgroundImage: `url(${tRex})`,
                     }}
                 >
@@ -109,11 +110,10 @@ stories.add('with custom menu body', () => {
                 </div>
             </div>
             <Divider />
-            <MenuItem key={'profile'}>Profile</MenuItem>
-            <MenuItem key={'account'}>My account</MenuItem>
+            <MenuItem key={'account'}>My Account</MenuItem>
             <MenuItem key={'logout'}>Logout</MenuItem>
             <Divider />
-            <img style={{ textAlign: 'center', padding: 20, paddingBottom: 0 }} src={EatonLogo} />
+            <img style={{ textAlign: 'center', padding: '12px 16px 0 16px', height: 40 }} src={EatonLogo} />
         </UserMenu>
     );
 });
