@@ -171,13 +171,15 @@ class ScoreCardClass extends Component<WithTheme<ScoreCardProps>> {
     const { actionItems } = this.props;
 
     if (actionItems) {
-      return actionItems.slice(0, 2).map((actionItem, index) => (
-        <View key={`${index}`}>
-          <TouchableOpacity testID={`action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
-            {this.icon(actionItem.icon)}
-          </TouchableOpacity>
+      return (
+        <View style={{ flexDirection: 'row', margin: -8 }}>
+          {actionItems.slice(0, 2).map((actionItem, index) => (
+            <TouchableOpacity key={`${index}`} testID={`action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
+              {this.icon(actionItem.icon)}
+            </TouchableOpacity>
+          ))}
         </View>
-      ))
+      )
     }
   }
 
@@ -213,7 +215,9 @@ const styles = StyleSheet.create({
     flex: 1
   },
   actionItem: {
-    marginLeft: 12
+    height: 40,
+    width: 40,
+    padding: 8,
   },
   header: {
     height: 100,
