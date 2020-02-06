@@ -1,7 +1,7 @@
 import { ListItemTag } from '@pxblue/react-components';
 
 import * as Colors from '@pxblue/colors';
-import { text, withKnobs, color, select, boolean, number } from '@storybook/addon-knobs';
+import { text, withKnobs, color, select, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
@@ -51,7 +51,7 @@ stories.add('with additional Typography props', () => (
                 ],
                 'overline'
             )}
-            style={{padding: text('style.padding', '0 4px'), width: text('style.width', 'initial')}}
+            style={{ padding: text('style.padding', '0 4px'), width: text('style.width', 'initial') }}
             paragraph={boolean('paragraph', false)}
             noWrap={boolean('noWrap', true)}
         />
