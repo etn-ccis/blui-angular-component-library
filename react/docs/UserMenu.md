@@ -13,22 +13,24 @@ import { UserMenu } from '@pxblue/react-components';
 import {Email, Settings} from "@material-ui/icons";
 import SendIcon from '@material-ui/icons/Send';
 
-<UserMenu value={'AA'} menuGroups={
-    [
-         {
-            title: 'Log Out',
-            icon: <SendIcon/>
-         },
-         {
-            title: 'Account Settings',
-            icon: <Settings/>,
-         },
-         {
-            title: 'Contact Us',
-            icon: <Email/>,
-         },
-      ]
-} />
+<UserMenu value={'AA'} menuGroups={[
+    {
+       items: [
+           {
+               title: 'Log Out',
+               icon: <SendIcon />,
+           },
+           {
+               title: 'Account Settings',
+               icon: <Settings />,
+           },
+           {
+               title: 'Contact Us',
+               icon: <Email />,
+           },
+       ],
+    },
+]} />
 
 ```
 
