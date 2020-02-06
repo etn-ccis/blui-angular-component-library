@@ -1,8 +1,8 @@
-import {ClickAwayListener, Menu, MenuProps} from '@material-ui/core';
-import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
+import { ClickAwayListener, Menu, MenuProps } from '@material-ui/core';
+import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import React, {useState} from 'react';
-import {DrawerHeader, DrawerNavGroup, NavItem} from '../Drawer';
+import React, { useState } from 'react';
+import { DrawerHeader, DrawerNavGroup, NavItem } from '../Drawer';
 
 const styles = makeStyles((theme: Theme) =>
     createStyles({
@@ -79,7 +79,7 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
 
     const hasMenu = (): boolean => Boolean(children || menuGroups.length > 0);
 
-    const formatAvatar = (preserveOnClick: boolean ): JSX.Element => {
+    const formatAvatar = (preserveOnClick: boolean): JSX.Element => {
         /* If user passed in onClick function as a prop to Avatar, keep it. */
         const onClickFn = (event: MouseEvent): void => {
             handleOpen(event);
@@ -88,10 +88,16 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
             }
         };
 
+        const props = avatar.props;
+        const root = clsx(
+            pxbClasses.root,
+            props && props.classes && props.classes.root ? props.classes.root : undefined
+        );
+
         return React.cloneElement(avatar, {
             onClick: preserveOnClick ? onClickFn : undefined,
-            classes: { root: pxbClasses.root },
-           ...avatar.props
+            ...props,
+            classes: { root },
         });
     };
 
@@ -111,8 +117,9 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
     };
 
     const printMenuItems = (): JSX.Element[] =>
-        menuGroups.map((group: UserMenuGroup, index: number) =>
-           <DrawerNavGroup divider={false} open={true} title={group.title} items={group.items} key={index} />);
+        menuGroups.map((group: UserMenuGroup, index: number) => (
+            <DrawerNavGroup divider={false} open={true} title={group.title} items={group.items} key={index} />
+        ));
 
     const printMenu = (): JSX.Element[] => [printHeader()].concat(printMenuItems());
 
@@ -125,8 +132,13 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
                         open={Boolean(anchorEl)}
                         anchorEl={anchorEl}
                         keepMounted
-                        classes={{ paper: pxbClasses.paper}}
                         {...menuProps}
+                        classes={{
+                            paper: clsx(
+                                pxbClasses.paper,
+                                menuProps.classes && menuProps.classes.paper ? menuProps.classes.paper : undefined
+                            ),
+                        }}
                     >
                         {children}
                         {!children && printMenu()}
