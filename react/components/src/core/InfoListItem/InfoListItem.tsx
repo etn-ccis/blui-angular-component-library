@@ -13,6 +13,7 @@ import { separate, withKeys } from '../utilities';
 //Material-UI Components
 import {
     Avatar,
+    Divider,
     ListItem,
     ListItemAvatar,
     ListItemIcon,
@@ -27,8 +28,6 @@ const useStyles = makeStyles((theme: Theme) =>
             position: 'absolute',
             bottom: 0,
             right: 0,
-            height: 1,
-            backgroundColor: theme.palette.type === 'light' ? Colors.black[100] : Colors.black[700],
         },
         statusStripe: {
             position: 'absolute',
@@ -187,7 +186,7 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
     return (
         <ListItem style={getWrapperStyle()} onClick={(): void => onClick()} dense={dense}>
             <div className={classes.statusStripe} style={{ backgroundColor: statusColor }} />
-            {divider && <div className={classes.divider} style={{ zIndex: 0, left: divider === 'full' ? 0 : 72 }} />}
+            {divider && <Divider className={classes.divider} style={{ zIndex: 0, left: divider === 'full' ? 0 : 72 }} />}
             {(icon || !hidePadding) && getIcon()}
             {leftComponent}
             <ListItemText
