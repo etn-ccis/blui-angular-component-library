@@ -66,7 +66,8 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
     } = props;
 
     const [anchorEl, setAnchorEl] = useState(null);
-    const handleClick: any = (event: MouseEvent) => {
+
+    const handleOpen: any = (event: MouseEvent) => {
         onOpen();
         setAnchorEl(event.currentTarget);
     };
@@ -81,7 +82,7 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
     const formatAvatar = (preserveOnClick: boolean ): JSX.Element => {
         /* If user passed in onClick function as a prop to Avatar, keep it. */
         const onClickFn = (event: MouseEvent): void => {
-            handleClick(event);
+            handleOpen(event);
             if (avatar.props && avatar.props.onClick) {
                 avatar.props.onClick(event);
             }

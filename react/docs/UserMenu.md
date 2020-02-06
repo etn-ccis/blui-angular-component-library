@@ -36,21 +36,20 @@ import SendIcon from '@material-ui/icons/Send';
 
 
 ## API
-| Prop Name         | Description                             | Type                     | Required | Default             | Examples                                |
-|-------------------|-----------------------------------------|--------------------------|----------|---------------------|-----------------------------------------|
-| avatarProps       | Property overrides for the MUI Avatar   | `AvatarProps`            | no       |                     |                                         |
-| backgroundColor   | The color used for the background       | `string`                 | no       | Colors.blue[50]     |                                         |
-| backgroundImage   | An alternative to displaying text       | `string`                 | no       |                     |                                         |
-| classes           | Style overrides                         | `StyleRules`             | no       |                     |                                         |
-| fontColor         | Text color of the Avatar                | `string`                 | no       | Colors.blue[500]    |                                         |
-| onClose           | Function called when the menu is closed | `Function`               | no       |                     |                                         |
-| onOpen            | Function called when the menu is opened | `Function`               | no       |                     |                                         |
-| menuTitle         | Title shown when menu is open           | `string`                 | no       |                     |                                         |
-| menuSubtitle      | Subtitle shown when menu is open        | `string`                 | no       |                     |                                         |
-| menuGroups        | Groups of menu items that display       | `UserMenuGroups`         | no       |                     |                                         |
-| menuProps         | Property overrides for the MUI Menu     | `MenuProps`              | no       |                     |                                         |
-| value             | Text to display in the Avatar           | `string`                 | no       |                     |                                         |
-| width             | Menu width                              | `number`                 | no       |                     |                                         |
+| Prop Name         | Description                             | Type                     | Required | Default                    | Examples                                |
+|-------------------|-----------------------------------------|--------------------------|----------|----------------------------|-----------------------------------------|
+| avatar            | MUI Avatar that displays                | `Avatar`                 | no       |                            |                                         |
+| backgroundColor   | The color used for the background       | `string`                 | no       | theme.palette.primary[50]  |                                         |
+| backgroundImage   | An alternative to displaying text       | `string`                 | no       |                            |                                         |
+| classes           | Style overrides                         | `StyleRules`             | no       |                            |                                         |
+| fontColor         | Text color of the Avatar                | `string`                 | no       | theme.palette.primary[500] |                                         |
+| onClose           | Function called when the menu is closed | `Function`               | no       |                            |                                         |
+| onOpen            | Function called when the menu is opened | `Function`               | no       |                            |                                         |
+| menuTitle         | Title shown when menu is open           | `string`                 | no       |                            |                                         |
+| menuSubtitle      | Subtitle shown when menu is open        | `string`                 | no       |                            |                                         |
+| menuGroups        | Groups of menu items that display       | `UserMenuGroups`         | no       |                            |                                         |
+| menuProps         | Property overrides for the MUI Menu     | `MenuProps`              | no       |                            |                                         |
+| width             | Menu width                              | `number`                 | no       |                            |                                         |
 
 #### UserMenuGroups Object
 The `menuGroups` prop of the `UserMenu` includes many properties from the `DrawerNavGroup` array found within a `DrawerBody`.
