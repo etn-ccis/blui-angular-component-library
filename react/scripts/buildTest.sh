@@ -66,6 +66,12 @@ if [ ! -f ./DrawerLayout/DrawerLayout.js ]; then echo -e "${RED}Not Found${NC}" 
 echo -ne " index.js:  "
 if [ ! -f ./DrawerLayout/DrawerLayout.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
+echo "Checking ListItemTag..."
+echo -ne " ListItemTag.js:  "
+if [ ! -f ./ListItemTag/ListItemTag.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+echo -ne " index.js:  "
+if [ ! -f ./ListItemTag/index.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+
 
 echo -e "\r\n${GREEN}-----------------------------------"
 echo -e "@pxblue/react-components package successfully created"
