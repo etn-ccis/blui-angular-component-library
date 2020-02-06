@@ -121,8 +121,7 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
                 <ListItemAvatar>
                     <Avatar
                         style={{
-                            // @ts-ignore TODO: Fix me
-                            backgroundColor: statusColor || theme.palette.primary[500],
+                            backgroundColor: statusColor || theme.palette.primary.main,
                             color: getIconColor(),
                         }}
                     >
@@ -143,7 +142,11 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
 
     const getRightComponent = (): JSX.Element | undefined => {
         if (rightComponent) {
-            return <div style={{ flex: '0 0 auto', marginLeft: 16 }}>{rightComponent}</div>;
+            return (
+                <div style={{ flex: '0 0 auto', marginLeft: 16, display: 'flex', alignItems: 'center' }}>
+                    {rightComponent}
+                </div>
+            );
         } else if (chevron) {
             return (
                 <ListItemSecondaryAction>

@@ -311,7 +311,7 @@ export default () => {
                                 subtitle={['Phase A', 'Phase B', 'Phase C']}
                                 icon={<VoltageCircled color={'inherit'} />}
                                 rightComponent={
-                                <span style={{ color: Colors.red[500] }}><span style={{marginRight: 8}}><ListItemTag label={'active'} /></span><ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} /></span>}
+                                <span style={{ color: Colors.red[500] }}><ListItemTag label={'monitored'} style={{marginRight: 8}} /><ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} /></span>}
                             />
                             <InfoListItem dense
                                 title={'Output Current'}
@@ -325,7 +325,7 @@ export default () => {
                                 icon={<Temp />}
                                 rightComponent={
                                 <>
-                                    <ListItemTag style={{marginRight: 8}} backgroundColor={Colors.green['500']} label={'active'} />
+                                    <ListItemTag style={{marginRight: 8}} backgroundColor={Colors.white['300']} label={'active'} fontColor={Colors.green['500']} />
                                     <ListItemTag 
                                     label={'OVERHEAT'} 
                                     backgroundColor={Colors.red['500']} 
