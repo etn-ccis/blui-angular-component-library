@@ -1,12 +1,12 @@
-import { MenuItem } from '@material-ui/core';
-import { Email, Settings } from '@material-ui/icons';
+import {MenuItem} from '@material-ui/core';
+import {Email, Settings} from '@material-ui/icons';
 import SendIcon from '@material-ui/icons/Send';
 import * as Colors from '@pxblue/colors';
-import { UserMenu, UserMenuGroup } from '@pxblue/react-components';
-import { color, number, text, withKnobs } from '@storybook/addon-knobs';
-import { storiesOf } from '@storybook/react';
-import React from 'react';
+import {UserMenu, UserMenuGroup} from '@pxblue/react-components';
 import {action} from "@storybook/addon-actions";
+import {color, number, text, withKnobs} from '@storybook/addon-knobs';
+import {storiesOf} from '@storybook/react';
+import React from 'react';
 
 const tRex = require('../assets/trex.jpeg');
 
@@ -16,11 +16,15 @@ stories.addParameters({
     notes: { markdown: require('./../../../docs/UserMenu.md') },
 });
 
+
 /*
 const useStyles = makeStyles((theme: Theme) =>
    createStyles({
        pxbRoot: {},
        pxbLabel: {},
+       paper: {
+           backgroundColor: 'red'
+       }
    })
 ); */
 
@@ -75,7 +79,7 @@ stories.add('with menu header', () => {
     const menuSubtitle = text('menuSubtitle', 'Menu Subtitle');
     return (
         <UserMenu
-            width={width}
+           width={width}
             menuGroups={defaultMenuItems}
             menuTitle={menuTitle}
             menuSubtitle={menuSubtitle}

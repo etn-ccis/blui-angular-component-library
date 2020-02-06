@@ -1,6 +1,5 @@
 import {Avatar, AvatarProps, ClickAwayListener, Menu, MenuProps, Typography} from '@material-ui/core';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
-import * as Colors from '@pxblue/colors';
 import clsx from 'clsx';
 import React, {useState} from 'react';
 import {DrawerHeader, DrawerNavGroup, NavItem} from '../Drawer';
@@ -56,7 +55,7 @@ export type UserMenuProps = {
     menuSubtitle?: string;
     menuGroups?: UserMenuGroup[];
     fontColor?: string;
-    menuProps?: MenuProps;
+    menuProps?: Omit<MenuProps, 'open'>;
     onClose?: Function;
     onOpen?: Function;
     value?: string;
@@ -74,7 +73,7 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
         menuTitle,
         menuSubtitle,
         menuGroups = [],
-        menuProps = {} as MenuProps,
+        menuProps = {} as Omit<MenuProps, 'open'>,
         onClose = (): void => {},
         onOpen = (): void => {},
         value,
@@ -121,8 +120,8 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
                     icon={nonClickableAvatar}
                     title={menuTitle}
                     subtitle={menuSubtitle}
-                    fontColor={Colors.black[500]}
-                    backgroundColor={Colors.white[50]}
+                    fontColor={'inherit'}
+                    backgroundColor={'inherit'}
                 />
             );
         }
