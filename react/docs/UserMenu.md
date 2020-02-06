@@ -1,6 +1,6 @@
 # UserMenu
-The UserMenu is an Avatar that opens a Menu when clicked.  
-The UserMenu typically appears in a corner of an application and indicates who is logged in.
+The `UserMenu` is an Avatar that opens a Menu when clicked.  
+The `UserMenu` typically appears in a corner of an application and indicates who is logged in.
 
 The Avatar that appears in the UserMenu can appear as text, icon, or image.
 
@@ -50,3 +50,16 @@ import SendIcon from '@material-ui/icons/Send';
 | value             | Text to display in the Avatar           | `string`                 | no       |                     |                                         |
 | width             | Menu width                              | `number`                 | no       |                     |                                         |
 
+#### UserMenuGroups Object
+The `menuGroups` prop of the `UserMenu` extends from the `NavItem` array found within a `DrawerBody` and takes a list of items with the following structure (most of these properties are inherited from `<InfoListItem/>`):
+
+| Attribute       | Description                             | Type               | Required | Default                      |
+|-----------------|-----------------------------------------|--------------------|----------|------------------------------|
+| active          | Is the item the current active item     | `boolean`          | no       | false                        |  
+| chevron         | Show chevron icon to the right          | `boolean`          | no       | false                        |  
+| divider         | Show a divider line below the item      | `boolean`          | no       | true                         |  
+| icon            | A component to render for the icon      | `React.Component`  | no       |                              |      
+| onClick         | A function to execute when clicked      | `function`         | no       |                              |    
+| statusColor     | Status stripe and icon color            | `string`           | no       |                              |    
+| subtitle        | The text to show on the second line     | `string`           | no       |                              |    
+| title           | The text to show on the first line      | `string`           | no       |                              |    
