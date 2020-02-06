@@ -1,3 +1,4 @@
+import {Avatar} from "@material-ui/core";
 import { createMount, createShallow } from '@material-ui/core/test-utils';
 import SendIcon from '@material-ui/icons/Send';
 import Enzyme from 'enzyme';
@@ -25,21 +26,28 @@ describe('User Menu', () => {
 
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<UserMenu />, div);
+        const avatar = <Avatar />;
+        ReactDOM.render(<UserMenu avatar={avatar}/>, div);
         ReactDOM.unmountComponentAtNode(div);
     });
 
     it('renders with icon', () => {
-        const wrapper = shallow(<UserMenu avatarProps={{ children: <SendIcon data-test={'send-icon'} /> }} />);
+        const avatar = <Avatar data-test={'avatar'}>
+            <SendIcon data-test={'send-icon'} />
+        </Avatar>;
+        const wrapper = shallow(<UserMenu avatar={avatar} />);
         expect(findByTestId('send-icon', wrapper).length).toEqual(1);
     });
 
     it('runs onOpen function when avatar is clicked', () => {
         const onOpen = jest.fn();
-        const wrapper = shallow(<UserMenu onOpen={onOpen} avatarProps={{ children: <SendIcon /> }} />);
-        const avatar = findByTestId('pxb-user-menu-avatar', wrapper);
+        const avatar = <Avatar data-test={'avatar'}>
+            <SendIcon />
+        </Avatar>;
+        const wrapper = shallow(<UserMenu onOpen={onOpen} avatar={avatar} />);
+        const renderedAvatar = findByTestId('avatar', wrapper);
         expect(onOpen).not.toHaveBeenCalled();
-        avatar.simulate('click', { currentTarget: 'test' });
+        renderedAvatar.simulate('click', { currentTarget: 'test' });
         expect(onOpen).toHaveBeenCalled();
     });
 });

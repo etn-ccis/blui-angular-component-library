@@ -1,21 +1,16 @@
-import {Avatar, AvatarProps, ClickAwayListener, Menu, MenuProps, Typography} from '@material-ui/core';
+import {ClickAwayListener, Menu, MenuProps} from '@material-ui/core';
 import {createStyles, makeStyles, Theme} from '@material-ui/core/styles';
 import clsx from 'clsx';
 import React, {useState} from 'react';
 import {DrawerHeader, DrawerNavGroup, NavItem} from '../Drawer';
 
-const styles = makeStyles(() =>
+const styles = makeStyles((theme: Theme) =>
     createStyles({
         pxbRoot: {},
         pxbLabel: {
             width: '100%',
             textAlign: 'center',
         },
-    })
-);
-
-const muiAvatarStyles = makeStyles((theme: Theme) =>
-    createStyles({
         root: (props: UserMenuProps) => ({
             cursor: 'pointer',
             //@ts-ignore
@@ -25,11 +20,6 @@ const muiAvatarStyles = makeStyles((theme: Theme) =>
             height: theme.spacing(5),
             width: theme.spacing(5),
         }),
-    })
-);
-
-const muiMenuStyles = makeStyles(() =>
-    createStyles({
         paper: (props: UserMenuProps) => ({
             width: props.width,
         }),
@@ -48,7 +38,7 @@ export type UserMenuGroup = {
 };
 
 export type UserMenuProps = {
-    avatarProps?: AvatarProps;
+    avatar: JSX.Element;
     backgroundColor?: string;
     classes?: UserMenuClasses;
     menuTitle?: string;
@@ -58,16 +48,13 @@ export type UserMenuProps = {
     menuProps?: Omit<MenuProps, 'open'>;
     onClose?: Function;
     onOpen?: Function;
-    value?: string;
     width?: number;
 };
 
 export const UserMenu: React.FC<UserMenuProps> = (props) => {
-    const avatarClasses = muiAvatarStyles(props);
-    const menuClasses = muiMenuStyles(props);
     const pxbClasses = styles(props);
     const {
-        avatarProps = {} as AvatarProps,
+        avatar,
         children,
         classes = {} as UserMenuClasses,
         menuTitle,
@@ -76,7 +63,6 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
         menuProps = {} as Omit<MenuProps, 'open'>,
         onClose = (): void => {},
         onOpen = (): void => {},
-        value,
     } = props;
 
     const [anchorEl, setAnchorEl] = useState(null);
@@ -92,29 +78,25 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
 
     const hasMenu = (): boolean => Boolean(children || menuGroups.length > 0);
 
-    const avatar = (
-        <Avatar
-            data-test={'pxb-user-menu-avatar'}
-            {...avatarProps}
-            onClick={handleClick}
-            classes={Object.assign({ root: avatarClasses.root }, avatarProps.classes)}
-        >
-            {avatarProps.children ||
-                (value && (
-                    <Typography
-                        className={clsx(pxbClasses.pxbLabel, classes.pxbLabel)}
-                        variant={'h5'}
-                        color={'inherit'}
-                    >
-                        {value}
-                    </Typography>
-                ))}
-        </Avatar>
-    );
+    const formatAvatar = (preserveOnClick: boolean ): JSX.Element => {
+        /* If user passed in onClick function as a prop to Avatar, keep it. */
+        const onClickFn = (event: MouseEvent): void => {
+            handleClick(event);
+            if (avatar.props && avatar.props.onClick) {
+                avatar.props.onClick(event);
+            }
+        };
+
+        return React.cloneElement(avatar, {
+            onClick: preserveOnClick ? onClickFn : undefined,
+            classes: { root: pxbClasses.root },
+           ...avatar.props
+        });
+    };
 
     const printHeader = (): JSX.Element => {
         if (menuTitle) {
-            const nonClickableAvatar = React.cloneElement(avatar, { onClick: undefined });
+            const nonClickableAvatar = formatAvatar(false);
             return (
                 <DrawerHeader
                     icon={nonClickableAvatar}
@@ -136,14 +118,14 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
     return (
         <ClickAwayListener onClickAway={handleClose}>
             <div className={clsx(pxbClasses.pxbRoot, classes.pxbRoot)}>
-                {avatar}
+                {formatAvatar(true)}
                 {hasMenu() && (
                     <Menu
                         open={Boolean(anchorEl)}
                         anchorEl={anchorEl}
                         keepMounted
                         {...menuProps}
-                        classes={Object.assign({ paper: menuClasses.paper }, menuProps.classes)}
+                        classes={Object.assign({ paper: pxbClasses.paper }, menuProps.classes)}
                     >
                         {children}
                         {!children && printMenu()}
