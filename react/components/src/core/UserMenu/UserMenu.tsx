@@ -125,8 +125,8 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
                         open={Boolean(anchorEl)}
                         anchorEl={anchorEl}
                         keepMounted
+                        classes={{ paper: pxbClasses.paper}}
                         {...menuProps}
-                        classes={Object.assign({ paper: pxbClasses.paper }, menuProps.classes)}
                     >
                         {children}
                         {!children && printMenu()}
