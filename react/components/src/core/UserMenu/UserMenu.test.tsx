@@ -42,20 +42,4 @@ describe('User Menu', () => {
         avatar.simulate('click', { currentTarget: 'test' });
         expect(onOpen).toHaveBeenCalled();
     });
-
-    /*
-    it('renders menu when opened', () => {
-        let wrapper = shallow(<UserMenu AvatarProps={{children: <SendIcon/>}}/>);
-        const avatar = findByTestId('pxb-user-menu-avatar', wrapper);
-        expect(findByTestId('pxb-user-menu-menu', wrapper).length).toEqual(0);
-        avatar.simulate('click', {currentTarget: document});
-        const menu = findByTestId('pxb-user-menu-menu', wrapper);
-        expect(findByTestId('pxb-user-menu-menu', wrapper).length).toEqual(1);
-    });
-
-    /*
-    it('renders with a menu list items', () => {
-        let wrapper = shallow(<UserMenu value={'DH'} menuTitle={'Menu Title'} />);
-        expect(findByTestId('drawer-header', wrapper).length).toEqual(1);
-    }); */
 });
