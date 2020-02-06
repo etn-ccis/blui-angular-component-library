@@ -17,17 +17,6 @@ stories.addParameters({
     notes: { markdown: require('./../../../docs/UserMenu.md') },
 });
 
-/*
-const useStyles = makeStyles((theme: Theme) =>
-   createStyles({
-       pxbRoot: {},
-       pxbLabel: {},
-       paper: {
-           backgroundColor: 'red'
-       }
-   })
-); */
-
 const defaultMenuItems: UserMenuGroup[] = [
     {
         items: [
