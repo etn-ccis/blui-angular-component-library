@@ -1,0 +1,81 @@
+{
+  "name": "@pxblue/react-native-components",
+  "version": "2.0.2",
+  "author": "pxblue <pxblue@eaton.com>",
+  "description": "Reusable React Native components for PX Blue applications",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pxblue/component-library"
+  },
+  "keywords": [
+    "react native",
+    "components",
+    "pxblue"
+  ],
+  "bugs": {
+    "url": "https://github.com/pxblue/component-library/issues"
+  },
+  "homepage": "https://github.com/pxblue/component-library#readme",
+  "license": "BSD-3-Clause",
+  "main": "core/index.js",
+  "types": "core/index.d.ts",
+  "scripts": {
+    "build": "cd components && yarn build",
+    "install:dependencies:ios": "cd component-demo && yarn && cd ios && pod install && cd ../.. && yarn link:components",
+    "install:dependencies:android": "cd component-demo && yarn && cd .. && yarn link:components",
+    "link:components": "bash ./linkComponents.sh",
+    "start": "yarn install:dependencies:ios && cd component-demo && yarn ios",
+    "start:android": "yarn install:dependencies:android && cd component-demo && yarn android",
+    "test": "cd components && yarn test",
+    "test:artifacts": "echo \"TODO: TEST ARTIFACTS\"",
+    "prepublish": "cd components && yarn build"
+  },
+  "dependencies": {
+    "@callstack/react-theme-provider": "^3.0.3",
+    "@pxblue/colors": "^1.0.13",
+    "@types/react-native": "^0.60.2",
+    "color": "^3.1.2",
+    "react-native-collapsible": "^1.5.0",
+    "react-native-keyboard-aware-scroll-view": "^0.8.0",
+    "react-native-status-bar-height": "^2.3.1"
+  },
+  "peerDependencies": {
+    "react": "^16.8.6",
+    "react-native": "^0.60.4",
+    "react-native-vector-icons": "^6.6.0"
+  },
+  "devDependencies": {
+    "react": "^16.8.6",
+    "react-native": "^0.59.8",
+    "react-native-vector-icons": "^6.6.0",
+    "@pxblue/icons-svg": "^1.0.15",
+    "@react-native-community/eslint-config": "^0.0.5",
+    "@types/color": "^3.0.0",
+    "@types/faker": "^4.1.5",
+    "@types/jest": "^24.0.15",
+    "@types/react": "^16.8.23",
+    "@types/react-native": "^0.60.2",
+    "@types/react-native-collapsible": "^0.11.0",
+    "@types/react-native-vector-icons": "^6.4.1",
+    "@types/react-test-renderer": "^16.8.3",
+    "@typescript-eslint/eslint-plugin": "^1.13.0",
+    "@typescript-eslint/parser": "^1.13.0",
+    "eslint": "^6.1.0",
+    "faker": "^4.1.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^24.8.0",
+    "react-native-svg": "^9.6.1",
+    "react-test-renderer": "^16.8.6",
+    "ts-jest": "^24.0.2",
+    "typescript": "^3.5.3"
+  },
+  "files": [
+    "package.json",
+    "LICENSE",
+    "README.md",
+    "core/"
+  ],
+  "directories": {
+    "doc": "docs"
+  }
+}

@@ -1,4 +1,4 @@
-# ChannelValue Component
+# Channel Value
 The ChannelValue component is used to display...a channel value (and units). This component abstracts the styles used to display the channel and units as well as an optional inline icon. These are used as part of the [Hero](./Hero.md) component, but can also be used inline (e.g., in a list).
 
 <img width="100%" alt="Channel Value in Hero" src="./images/heroes.png">
@@ -6,15 +6,18 @@ The ChannelValue component is used to display...a channel value (and units). Thi
 
 ## Usage
 ```
-import ChannelValue from '@pxblue/react-components/core/ChannelValue';
+import { ChannelValue } from '@pxblue/react-components';
 ...
 <ChannelValue value={100} units={'%'} icon={<Icon/>} />
 ```
 
-## Available properties
-* ```value``` (Number, String)[**required**]: the value (bold text) to display.
-* ```units``` (String): the text to display for the units (light text).
-* ```icon``` (Element): the inline icon to display.
-* ```prefix``` (Boolean): whether to show the units before the value. **Default**: false.
-* ```fontSize``` (Number, String): CSS font size value. **Default**: 'inherit'.
-* ```color``` (String): CSS font color value. **Default**: 'inherit'.
+
+### API
+| Prop Name   | Description                                    | Type                     | Required | Default   | Examples           |
+|-------------|------------------------------------------------|--------------------------|----------|-----------|--------------------|
+| value       | The the value (bold text) to display           | `string` &vert; `Number` | yes      |           | '125'              |
+| units       | The text to display for the units (light text) | `string`                 | no       |           | 'Hz'               |
+| icon        | The inline icon to display                     | `React.Component`        | no       |           | 'Hz'               |
+| prefix      | Show units before the value                    | `boolean`                | no       | false     |                    |
+| fontSize    | The size of the font                           | `string` &vert; `Number` | no       | 'inherit' | '12rem'            |
+| color       | The color of the font                          | `string`                 | no       | 'inherit' | 'rgba(0,0,0,0.25)' |

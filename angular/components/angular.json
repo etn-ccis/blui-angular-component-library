@@ -1,78 +1,40 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
-  "newProjectRoot": "projects",
   "projects": {
-    "hero": {
-      "root": "projects/hero",
-      "sourceRoot": "projects/hero/src",
+    "components": {
+      "root": ".",
+      "sourceRoot": "components",
       "projectType": "library",
       "prefix": "pxb",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/hero/tsconfig.lib.json",
-            "project": "projects/hero/ng-package.json"
+            "tsConfig": "tsconfig.lib.json",
+            "project": "ng-package.json"
+          },
+          "configurations": {
+            "storybook": {
+              "project": "ng-package-storybook.json",
+              "watch": true
+            },
+            "showcase": {
+              "project": "ng-package-showcase.json",
+              "watch": true
+            }
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/hero/src/test.ts",
-            "tsConfig": "projects/hero/tsconfig.spec.json",
-            "karmaConfig": "projects/hero/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/hero/tsconfig.lib.json",
-              "projects/hero/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "channel-value": {
-      "root": "projects/channel-value",
-      "sourceRoot": "projects/channel-value/src",
-      "projectType": "library",
-      "prefix": "pxb",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/channel-value/tsconfig.lib.json",
-            "project": "projects/channel-value/ng-package.json"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/channel-value/src/test.ts",
-            "tsConfig": "projects/channel-value/tsconfig.spec.json",
-            "karmaConfig": "projects/channel-value/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/channel-value/tsconfig.lib.json",
-              "projects/channel-value/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
+            "main": "test.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js"
           }
         }
       }
     }
   },
-  "defaultProject": "hero"
+  "defaultProject": "components"
 }

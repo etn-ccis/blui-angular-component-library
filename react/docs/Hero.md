@@ -3,24 +3,6 @@ The PX Blue Hero components are used to call attention to particular values that
 
 <img width="100%" alt="Hero Banner" src="./images/heroes.png">
 
-## HeroBanner
-The HeroBanner component is a simple wrapper component that is used to contain ```<Hero/>```s. It creates the flex container and sets up the spacing rules to display them. It accepts up to four ```<Hero/>``` components as its children.
-
-### Usage
-```
-import HeroBanner from '@pxblue/react-components/core/HeroBanner';
-import Hero from '@pxblue/react-components/core/Hero';
-...
-<HeroBanner divider>
-    <Hero/>
-    <Hero/>
-    <Hero/>
-    <Hero/>
-</HeroBanner>
-```
-
-### Available properties
-* ```divider``` (Boolean): whether or not to show the dividing line below the banner. **Default**: false.
 
 ## Hero
 The Hero component displays a particular icon, value/units, and a label. The icon property will accept any valid component - this will typically be a Material icon, PX Blue icon, or Progress Icon. It will also accept Text/Emoji values.
@@ -29,7 +11,7 @@ The value section of the Hero utilizes a [ChannelValue](./ChannelValue.md) compo
 
 ### Usage
 ```
-import Hero from '@pxblue/react-components/core/Hero';
+import { Hero } from '@pxblue/react-components';
 
 // Simple usage passing props
 <Hero
@@ -48,11 +30,38 @@ import Hero from '@pxblue/react-components/core/Hero';
 </Hero>
 ```
 
-### Available properties
-* ```icon``` (Element, String)[**required**]: a React Component (e.g., Material Icon) or string value to display.
-* ```label``` (String)[**required**]: text to display below the value. 
-* ```iconSize``` (Number): the size of the icon in pixels. **Default**: 36. **Max**: 72. **Min**: 10
-* ```fontSize``` ("normal", "small"): the font size to use for the ```ChannelValue```. **Default**: "normal".
-* ```value``` (Number, String): when displaying a single ```ChannelValue```, the value.
-* ```units``` (String): when displaying a single ```ChannelValue```, the units.
-* ```valueIcon``` (Element): when displaying a single ```ChannelValue```, the inline icon to display.
+### Hero API
+| Prop Name           | Description                             | Type                                                               | Required | Default                | Examples                       |
+|---------------------|-----------------------------------------|--------------------------------------------------------------------|----------|------------------------|--------------------------------|
+| icon                | The primary icon                        | `React.Component` &vert; `string`                                  | yes      |                        | `<Icon/>`                      |
+| label               | The text shown below the `ChannelValue` | `string`                                                           | yes      |                        | 'Status'                       |
+| iconSize            | The size of the primary icon (10-72)    | `number`                                                           | no       | 36                     | 24                             |
+| iconBackgroundColor | The color used behind the primary icon  | `string`                                                           | no       | 'transparent'          | 'red'                          |
+| fontSize            | The text size for the value line        | 'normal' &vert; 'small'                                            | no       | 'normal'               |                                |
+| value               | The value for the channel               | `string` &vert; `number`                                           | no       |                        | 240, 'Off'                     |
+| units               | Text to show after the value            | `string`                                                           | no       |                        | 'Hz', '$'                      |
+| valueIcon           | The inline icon with the value          | `React.Component`                                                  | no       |                        | `<Icon/>`                      |
+
+
+
+## Hero Banner
+The HeroBanner component is a simple wrapper component that is used to contain ```<Hero/>```s. It creates the flex container and sets up the spacing rules to display them. It accepts up to four ```<Hero/>``` components as its children.
+
+### Hero Banner Usage
+```
+import HeroBanner from '@pxblue/react-components/core/HeroBanner';
+import Hero from '@pxblue/react-components/core/Hero';
+...
+<HeroBanner divider>
+    <Hero/>
+    <Hero/>
+    <Hero/>
+    <Hero/>
+</HeroBanner>
+```
+
+### Hero Banner API
+| Prop Name | Description                             | Type      | Required | Default | Examples |
+|-----------|-----------------------------------------|-----------|----------|---------|----------|
+| divider   | Whether to show the line separator      | `boolean` | no       | false   |          |
+| limit   | Max number of children to display       | `number`  | no       | 4       |          |
