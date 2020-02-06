@@ -44,7 +44,7 @@ import SendIcon from '@material-ui/icons/Send';
 | onClose           | Function called when the menu is closed | `Function`               | no       |                     |                                         |
 | onOpen            | Function called when the menu is opened | `Function`               | no       |                     |                                         |
 | menuTitle         | Title shown when menu is open           | `string`                 | no       |                     |                                         |
-| menuSubtitle      | Subtitle show when menu is open         | `string`                 | no       |                     |                                         |
+| menuSubtitle      | Subtitle shown when menu is open        | `string`                 | no       |                     |                                         |
 | menuGroups        | Groups of menu items that display       | `UserMenuGroups`         | no       |                     |                                         |
 | menuProps         | Property overrides for the MUI Menu     | `MenuProps`              | no       |                     |                                         |
 | value             | Text to display in the Avatar           | `string`                 | no       |                     |                                         |
