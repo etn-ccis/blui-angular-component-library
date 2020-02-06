@@ -51,7 +51,14 @@ import SendIcon from '@material-ui/icons/Send';
 | width             | Menu width                              | `number`                 | no       |                     |                                         |
 
 #### UserMenuGroups Object
-The `menuGroups` prop of the `UserMenu` extends from the `NavItem` array found within a `DrawerBody` and takes a list of items with the following structure (most of these properties are inherited from `<InfoListItem/>`):
+The `menuGroups` prop of the `UserMenu` includes many properties from the `DrawerNavGroup` array found within a `DrawerBody`.
+
+| Prop Name             | Description                             | Type              | Required | Default |
+|-----------------------|-----------------------------------------|-------------------|----------|---------|
+| items                 | List of navigation items to render      | `UserMenuItem[]`  | no       |         |  
+| title                 | Text to display in the group header     | `string`          | no       |         |  
+
+#### UserMenuItem Object
 
 | Attribute       | Description                             | Type               | Required | Default                      |
 |-----------------|-----------------------------------------|--------------------|----------|------------------------------|
@@ -63,3 +70,4 @@ The `menuGroups` prop of the `UserMenu` extends from the `NavItem` array found w
 | statusColor     | Status stripe and icon color            | `string`           | no       |                              |    
 | subtitle        | The text to show on the second line     | `string`           | no       |                              |    
 | title           | The text to show on the first line      | `string`           | no       |                              |    
+
