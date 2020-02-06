@@ -48,7 +48,7 @@ import SendIcon from '@material-ui/icons/Send';
 | menuTitle         | Title shown when menu is open           | `string`                 | no       |                            |                                         |
 | menuSubtitle      | Subtitle shown when menu is open        | `string`                 | no       |                            |                                         |
 | menuGroups        | Groups of menu items that display       | `UserMenuGroups`         | no       |                            |                                         |
-| menuProps         | Property overrides for the MUI Menu     | `MenuProps`              | no       |                            |                                         |
+| MenuProps         | Property overrides for the MUI Menu     | `MenuProps`              | no       |                            |                                         |
 | width             | Menu width                              | `number`                 | no       |                            |                                         |
 
 #### UserMenuGroups Object

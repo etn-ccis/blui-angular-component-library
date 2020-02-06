@@ -1,4 +1,4 @@
-import { ClickAwayListener, Menu, MenuProps } from '@material-ui/core';
+import { ClickAwayListener, Menu, MenuProps as standardMenuProps } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import React, { useState } from 'react';
@@ -45,7 +45,7 @@ export type UserMenuProps = {
     menuSubtitle?: string;
     menuGroups?: UserMenuGroup[];
     fontColor?: string;
-    menuProps?: Omit<MenuProps, 'open'>;
+    MenuProps?: Omit<standardMenuProps, 'open'>;
     onClose?: Function;
     onOpen?: Function;
     width?: number;
@@ -60,7 +60,7 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
         menuTitle,
         menuSubtitle,
         menuGroups = [],
-        menuProps = {} as Omit<MenuProps, 'open'>,
+        MenuProps = {} as Omit<standardMenuProps, 'open'>,
         onClose = (): void => {},
         onOpen = (): void => {},
     } = props;
@@ -88,10 +88,10 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
             }
         };
 
-        const props = avatar.props;
+        const aProps = avatar.props;
         const root = clsx(
             pxbClasses.root,
-            props && props.classes && props.classes.root ? props.classes.root : undefined
+           aProps && aProps.classes && aProps.classes.root ? aProps.classes.root : undefined
         );
 
         return React.cloneElement(avatar, {
@@ -132,11 +132,11 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
                         open={Boolean(anchorEl)}
                         anchorEl={anchorEl}
                         keepMounted
-                        {...menuProps}
+                        {...MenuProps}
                         classes={{
                             paper: clsx(
                                 pxbClasses.paper,
-                                menuProps.classes && menuProps.classes.paper ? menuProps.classes.paper : undefined
+                                MenuProps.classes && MenuProps.classes.paper ? MenuProps.classes.paper : undefined
                             ),
                         }}
                     >
