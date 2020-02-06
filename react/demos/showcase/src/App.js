@@ -22,10 +22,10 @@ import { Pie, Battery } from '@pxblue/react-progress-icons';
 import { GradeA, Leaf, CurrentCircled, VoltageCircled, Temp, Moisture as Humidity, Device } from '@pxblue/icons-mui';
 import Button from "@material-ui/core/Button";
 
-import tRex from './trex.jpeg';
 import top from './topology_40.png';
 // import farm from './farm.jpg';
 import EatonLogo from './EatonLogo.svg';
+import Avatar from "@material-ui/core/Avatar";
 
 const locations = [
     "All Locations",
@@ -135,7 +135,7 @@ export default () => {
                         </Hidden>
                         <div style={{justifyContent: 'space-between', alignItems: 'center', display: 'flex', width: '100%'}}>
                             <Typography variant={'h6'}>Showcase</Typography>
-                            <UserMenu avatarProps={{ src: tRex }} menuGroups={[
+                            <UserMenu avatar={<Avatar/>} menuGroups={[
                                 { items: [
                                     {
                                         title: 'Log Out',
