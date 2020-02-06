@@ -60,8 +60,8 @@ stories.add('with a non-text avatar', () => {
    const iconAvatar = <Avatar children={<SendIcon />} />;
     return (
         <div style={{ display: 'flex', width: '100px', justifyContent: 'space-between' }}>
-            <UserMenu avatar={tRexAvatar} />
-            <UserMenu avatar={iconAvatar} />
+            <UserMenu avatar={tRexAvatar} menuGroups={defaultMenuItems} />
+            <UserMenu avatar={iconAvatar} menuGroups={defaultMenuItems} />
         </div>
     );
 });
