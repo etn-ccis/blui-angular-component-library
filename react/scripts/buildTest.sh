@@ -58,13 +58,19 @@ echo "Checking Drawer..."
 echo -ne " Drawer.js:  "
 if [ ! -f ./Drawer/Drawer.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 echo -ne " index.js:  "
-if [ ! -f ./Drawer/Drawer.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+if [ ! -f ./Drawer/index.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
 echo "Checking DrawerLayout..."
 echo -ne " DrawerLayout.js:  "
 if [ ! -f ./DrawerLayout/DrawerLayout.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 echo -ne " index.js:  "
-if [ ! -f ./DrawerLayout/DrawerLayout.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+if [ ! -f ./DrawerLayout/index.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+
+echo "Checking Utilities..."
+echo -ne " Spacer.js:  "
+if [ ! -f ./Utility/Spacer.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+echo -ne " index.js:  "
+if [ ! -f ./Utility/index.js ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
 
 echo -e "\r\n${GREEN}-----------------------------------"
