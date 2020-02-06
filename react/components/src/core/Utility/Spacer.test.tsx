@@ -10,7 +10,7 @@ Enzyme.configure({ adapter: new Adapter() });
 let mount: Mount;
 let shallow: Shallow;
 
-describe('ScoreCard', () => {
+describe('Spacer', () => {
     beforeEach(() => {
         mount = createMount({ strict: true });
         shallow = createShallow({ dive: false });
