@@ -19,9 +19,8 @@ import { ListItemTag } from '@pxblue/react-components';
 
 Besides what's listed below, as an extension of [Material UI's Typography API](https://material-ui.com/api/typography/), the component will pass in all extra props.
 
-| Prop Name         | Description                                                 | Type                               | Required | Default   | Examples                                     |
-| ----------------- | ----------------------------------------------------------- | ---------------------------------- | -------- | --------- | -------------------------------------------- |
-| label           | The label text                                              | `string`                           | yes      |           | `'Foo'`                                      |
-| fontColor       | Color of the label                                          | `string`                           | no       | `#ffffff` | `'white'`                                    |
-| backgroundColor | Color of the label background                               | `string`                           | no       | `#007bc1` | `'green'`                                    |                  |
-
+| Prop Name       | Description                   | Type     | Required | Default   | Example   |
+| --------------- | ----------------------------- | -------- | -------- | --------- | --------- |
+| label           | The label text                | `string` | yes      |           | `'Foo'`   |
+| fontColor       | Color of the label            | `string` | no       | `#ffffff` | `'white'` |
+| backgroundColor | Color of the label background | `string` | no       | `#007bc1` | `'green'` ||

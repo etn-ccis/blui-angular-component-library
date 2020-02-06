@@ -121,7 +121,8 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
                 <ListItemAvatar>
                     <Avatar
                         style={{
-                            backgroundColor: statusColor || theme.palette.primary.main,
+                            // @ts-ignore TODO: Fix me
+                            backgroundColor: statusColor || theme.palette.primary[500],
                             color: getIconColor(),
                         }}
                     >

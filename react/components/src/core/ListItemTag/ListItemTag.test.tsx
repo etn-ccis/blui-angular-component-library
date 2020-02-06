@@ -24,7 +24,7 @@ describe('ListItemTag', () => {
         ReactDOM.render(<ListItemTag label={'test'} />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
-    it('should render with the tag-container class', () => {
+    it('should render with the list-item-tag class', () => {
         const wrapper = shallow(<ListItemTag label={'test'} />);
         expect(findByTestId('list-item-tag', wrapper)).toBeTruthy();
     });

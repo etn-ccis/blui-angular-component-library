@@ -64,4 +64,4 @@ import Hero from '@pxblue/react-components/core/Hero';
 | Prop Name | Description                             | Type      | Required | Default | Examples |
 |-----------|-----------------------------------------|-----------|----------|---------|----------|
 | divider   | Whether to show the line separator      | `boolean` | no       | false   |          |
-| limit   | Max number of children to display       | `number`  | no       | 4       |          |
+| limit     | Max number of children to display       | `number`  | no       | 4       |          |

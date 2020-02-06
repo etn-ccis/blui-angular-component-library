@@ -31,12 +31,24 @@ const useStyles = makeStyles((theme: Theme) =>
 );
 
 export const ListItemTag: React.FC<ListItemTagProps> = (props: ListItemTagProps): JSX.Element => {
-    const { classes: userClasses = {}, label, fontColor, backgroundColor, style, onClick, ...other } = props;
+    const {
+        classes: userClasses = {},
+        label,
+        fontColor,
+        backgroundColor,
+        variant,
+        style,
+        onClick,
+        noWrap,
+        display,
+        ...other
+    } = props;
     const theme = useTheme();
     const defaultClasses = useStyles(theme);
+    const { root: rootUserClass, ...otherUserClasses } = userClasses;
     return (
         <Typography
-            classes={{ root: clsx(defaultClasses.root, userClasses?.root), overline: userClasses?.overline }}
+            classes={{ root: clsx(defaultClasses.root, rootUserClass), ...otherUserClasses }}
             style={Object.assign(
                 {
                     color: fontColor,
@@ -45,9 +57,9 @@ export const ListItemTag: React.FC<ListItemTagProps> = (props: ListItemTagProps)
                 },
                 style
             )}
-            variant={'overline'}
-            noWrap
-            display={'inline'}
+            variant={variant || 'overline'}
+            noWrap={noWrap ? noWrap : true}
+            display={display || 'inline'}
             data-test={'list-item-tag'}
             onClick={(e): void => {
                 if (onClick) {
