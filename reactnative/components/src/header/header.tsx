@@ -14,7 +14,7 @@ import { getStatusBarHeight } from 'react-native-status-bar-height';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import color from 'color';
 import createAnimatedComponent = Animated.createAnimatedComponent;
-import { withTheme, Theme, WithTheme, ThemeProvider } from '../theme';
+import { withTheme, Theme, WithTheme } from '../theme';
 import { wrapIcon } from '../icon-wrapper/icon-wrapper';
 import { $DeepPartial } from '@callstack/react-theme-provider';
 
@@ -357,7 +357,7 @@ class HeaderClass extends Component<WithTheme<HeaderProps>, HeaderState> {
         <View style={styles.actionPanel}>
           {items.slice(0, 3).map((actionItem, index) => (
             <View key={`action_${index}`}>
-              <TouchableOpacity testID={`header-action-item${index}`} onPress={actionItem.onPress} style={index !== 0 ? styles.actionItem : {}}>
+              <TouchableOpacity testID={`header-action-item${index}`} onPress={actionItem.onPress} style={styles.actionItem}>
                 {this.icon(actionItem.icon)}
               </TouchableOpacity>
             </View>
@@ -533,7 +533,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
   },
   navigation: {
-    marginRight: 32
+    marginRight: 24,
+    height:40,
+    width: 40,
+    margin: -8, 
+    padding: 8, 
   },
   titleContainer: {
     flex: 1,
@@ -544,10 +548,12 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     position: 'absolute',
-    right: 16,
+    right: 8,
     height: 56
   },
   actionItem: {
-    marginLeft: 16
+    height: 40,
+    width: 40,
+    padding: 8
   }
 });
