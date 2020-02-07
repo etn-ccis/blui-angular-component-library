@@ -53,10 +53,10 @@ imports: [
 > **Note**: When using the ```iconSize``` attribute, you may specify either normal (36px) or large (72px). When using ```<mat-icon>``` icons (not PX Blue supplemental icon), you may also specify a numeric value from 10 to 72.
 
 
-## Hero Banner
+## HeroBanner
 The HeroBanner component is a simple wrapper component that is used to contain ```<pxb-hero> </pxb-hero>```s. It creates the flex container and sets up the spacing rules to display them. It accepts up to four ```<pxb-hero> </pxb-hero>``` components as its children.
 
-### Hero Banner Usage
+### HeroBanner Usage
 
 ```
 // app.module.ts
@@ -71,7 +71,7 @@ imports: [
  <pxb-hero-banner [divider]="true"></pxb-hero-banner>
 ```
 
-### Hero Banner API
+### HeroBanner API
 | Prop Name | Description                             | Type      | Required | Default | Examples |
 |-----------|-----------------------------------------|-----------|----------|---------|----------|
 | divider   | Whether to show the line separator      | `boolean` | no       | false   |          |

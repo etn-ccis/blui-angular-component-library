@@ -83,7 +83,6 @@ export const Hero = (props: HeroProps): JSX.Element => {
         units,
     } = props;
 
-
     return (
         <div
             style={{ cursor: onClick ? 'pointer' : 'default' }}

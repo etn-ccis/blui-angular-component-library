@@ -13,8 +13,8 @@
     "start": "yarn start:showcase"
   },
   "dependencies": {
-    "color": "^3.1.2",
-    "@pxblue/colors": "^2.0.0"
+    "@pxblue/colors": "^2.0.0",
+    "color": "^3.1.2"
   },
   "devDependencies": {
     "@material-ui/core": "^4.0.0",
@@ -29,7 +29,7 @@
     "@types/react-dom": "^16.9.4",
     "@typescript-eslint/eslint-plugin": "^2.16.0",
     "@typescript-eslint/parser": "^2.16.0",
-    "clsx": "^1.0.4",
+    "clsx": "^1.1.0",
     "enzyme": "^3.5.0",
     "enzyme-adapter-react-16": "^1.8.0",
     "eslint": "^6.8.0",
@@ -43,8 +43,8 @@
     "typescript": "^3.7.4"
   },
   "peerDependencies": {
-    "@pxblue/colors": "^2.0.0",
     "@material-ui/core": "^4.7.2",
+    "@pxblue/colors": "^2.0.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6"
   },

@@ -22,7 +22,7 @@ describe('Spacer', () => {
 
     it('renders without crashing', () => {
         const div = document.createElement('div');
-        ReactDOM.render(<Spacer/>, div);
+        ReactDOM.render(<Spacer />, div);
         ReactDOM.unmountComponentAtNode(div);
     });
     it('renders default properties', () => {
@@ -51,7 +51,9 @@ describe('Spacer', () => {
         expect(style.width).toEqual(250);
     });
     it('accepts style overrides', () => {
-        const wrapper = shallow(<Spacer style={{flex: '3 4 100%', display: 'inline', height:'30%', width: '1rem'}} />);
+        const wrapper = shallow(
+            <Spacer style={{ flex: '3 4 100%', display: 'inline', height: '30%', width: '1rem' }} />
+        );
         const style = wrapper.props().style;
         expect(style.flex).toEqual('3 4 100%');
         expect(style.display).toEqual('inline');
