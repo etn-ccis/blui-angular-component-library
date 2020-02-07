@@ -1,10 +1,9 @@
 import { ClickAwayListener, Menu, MenuProps as standardMenuProps } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import clsx from 'clsx';
-import PropTypes from "prop-types";
+import PropTypes from 'prop-types';
 import React, { useState } from 'react';
 import { DrawerHeader, DrawerNavGroup, NavItem } from '../Drawer';
-import {Spacer} from "../Utility";
 
 const styles = makeStyles((theme: Theme) =>
     createStyles({
@@ -93,7 +92,7 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
         const aProps = avatar.props;
         const root = clsx(
             pxbClasses.root,
-           aProps && aProps.classes && aProps.classes.root ? aProps.classes.root : undefined
+            aProps && aProps.classes && aProps.classes.root ? aProps.classes.root : undefined
         );
 
         return React.cloneElement(avatar, {
@@ -160,21 +159,21 @@ UserMenu.propTypes = {
     }),
     menuTitle: PropTypes.string,
     menuSubtitle: PropTypes.string,
-   // @ts-ignore
+    // @ts-ignore
     menuGroups: PropTypes.arrayOf(
-       PropTypes.shape({
+        PropTypes.shape({
             title: PropTypes.string,
             items: PropTypes.arrayOf(
-               PropTypes.shape({
+                PropTypes.shape({
                     active: PropTypes.bool,
                     icon: PropTypes.element,
                     onClick: PropTypes.func,
                     statusColor: PropTypes.string,
                     subtitle: PropTypes.string,
                     title: PropTypes.string,
-                    divider: PropTypes.bool
-               })
-            )
+                    divider: PropTypes.bool,
+                })
+            ),
         })
     ),
     fontColor: PropTypes.string,

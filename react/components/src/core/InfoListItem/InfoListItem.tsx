@@ -22,7 +22,7 @@ import {
     Typography,
 } from '@material-ui/core';
 
-const useStyles = makeStyles((theme: Theme) =>
+const useStyles = makeStyles(() =>
     createStyles({
         divider: {
             position: 'absolute',
@@ -186,7 +186,9 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
     return (
         <ListItem style={getWrapperStyle()} onClick={(): void => onClick()} dense={dense}>
             <div className={classes.statusStripe} style={{ backgroundColor: statusColor }} />
-            {divider && <Divider className={classes.divider} style={{ zIndex: 0, left: divider === 'full' ? 0 : 72 }} />}
+            {divider && (
+                <Divider className={classes.divider} style={{ zIndex: 0, left: divider === 'full' ? 0 : 72 }} />
+            )}
             {(icon || !hidePadding) && getIcon()}
             {leftComponent}
             <ListItemText
@@ -219,18 +221,18 @@ InfoListItem.propTypes = {
     onClick: PropTypes.func,
     rightComponent: PropTypes.element,
     statusColor: PropTypes.string,
-    style: PropTypes.objectOf(PropTypes.oneOfType([
+    style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+    subtitle: PropTypes.oneOfType([
         PropTypes.string,
-        PropTypes.number,
-    ])),
-    subtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.element]))]),
+        PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.element])),
+    ]),
     subtitleSeparator: PropTypes.string,
     title: PropTypes.string.isRequired,
-}
+};
 InfoListItem.defaultProps = {
     avatar: false,
     chevron: false,
     dense: false,
     hidePadding: false,
     subtitleSeparator: '\u00B7',
-}
+};
