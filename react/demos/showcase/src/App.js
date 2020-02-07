@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Hero, HeroBanner, ChannelValue,
 EmptyState, InfoListItem, ScoreCard, Spacer,
-Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, DrawerSubheader,
+Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, DrawerSubheader, UserMenu,
 DrawerLayout } from '@pxblue/react-components';
 
 
 import DevicesIcon from '@material-ui/icons/Devices'
+import SendIcon from '@material-ui/icons/Send';
 import { Add, Menu, NotificationsActive, List as ListIcon, Public, Email, Settings, Gavel, Help } from '@material-ui/icons'
 
 import Trend from '@material-ui/icons/TrendingUp';
@@ -129,26 +130,25 @@ export default () => {
                         <Hidden smUp>
                             <Menu style={{ marginRight: 32 }} onClick={() => setOpen(!open)} />
                         </Hidden>
-                        <div style={{justifyContent: 'space-between', alignItems: 'center', display: 'flex', width: '100%'}}>
-                            <Typography variant={'h6'}>Showcase</Typography>
-                            <UserMenu avatar={<Avatar/>} menuGroups={[
-                                { items: [
-                                    {
-                                        title: 'Log Out',
-                                        icon: <SendIcon />,
-                                    },
-                                    {
-                                        title: 'Account Settings',
-                                        icon: <Settings />,
-                                    },
-                                    {
-                                        title: 'Contact Us',
-                                        icon: <Email />,
-                                    },
-                                ]
-                            }]
-                            }/>
-                        </div>
+                        <Typography variant={'h6'}>Showcase</Typography>
+                        <Spacer flex={1} />
+                        <UserMenu avatar={<Avatar/>} menuGroups={[
+                            { items: [
+                                {
+                                    title: 'Log Out',
+                                    icon: <SendIcon />,
+                                },
+                                {
+                                    title: 'Account Settings',
+                                    icon: <Settings />,
+                                },
+                                {
+                                    title: 'Contact Us',
+                                    icon: <Email />,
+                                },
+                            ]
+                        }]
+                        }/>
                     </Toolbar>
                 </AppBar>
                 <div style={{ padding: 10, flex: 1, overflow: 'auto' }}>
