@@ -26,6 +26,7 @@ storiesOf('InfoListItem', module)
   .add('with icon', () => (
     <InfoListItem
       title={text('title', 'Test')}
+      avatar={boolean('avatar', false)}
       IconClass={LeafIcon}
       iconColor={color('iconColor', '#ff3333')}
       subtitle={text('subtitle', 'A simpler view')}
@@ -35,6 +36,7 @@ storiesOf('InfoListItem', module)
     <InfoListItem
       title={text('title', 'Test')}
       IconClass={LeafIcon}
+      avatar={boolean('avatar', false)}
       subtitle={text('subtitle', 'A simpler view')}
       statusColor={color('statusColor', '#ff3333')}
       fontColor={color('fontColor', '#ff3333')}

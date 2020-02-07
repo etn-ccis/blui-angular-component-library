@@ -49,7 +49,8 @@ const createInfoListItemProps = (): InfoListItemProps => {
     subtitle,
     color,
     IconClass,
-    onPress
+    onPress,
+    divider: 'partial'
   }
 }
 
@@ -63,6 +64,5 @@ storiesOf('InfoListItem', module)
         <InfoListItem {...item} />
       }
       keyExtractor={(_, index) => `${index}`}
-      ItemSeparatorComponent={Separator}
     />
   ));

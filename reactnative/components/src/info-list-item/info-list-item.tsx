@@ -6,6 +6,8 @@ import { Theme, withTheme, WithTheme } from '../theme';
 import { Body, Subtitle } from '../typography';
 import { $DeepPartial } from '@callstack/react-theme-provider';
 import * as Colors from '@pxblue/colors';
+//@ts-ignore
+import color from 'color';
 
 export interface InfoListItemProps {
   /** Title to show */
@@ -38,6 +40,9 @@ export interface InfoListItemProps {
   /* Hide left padding when icon is not present */
   hidePadding?: boolean;
 
+  /* If present, a Chevron will be displayed on the right. This can be overridden by rightComponent. */
+  chevron?: boolean;
+
   /* Reduce overall height of listItem */
   dense?: boolean;
 
@@ -47,7 +52,7 @@ export interface InfoListItemProps {
   /* Component to render on the right */
   rightComponent?: JSX.Element;
 
-  /** Callback to be called on press. If provided, will add chevron on the right side of the item */
+  /** Callback to be called on press. */
   onPress?: () => void;
 
   /**
@@ -74,7 +79,7 @@ class InfoListItemClass extends Component<WithTheme<InfoListItemProps>> {
     };
 
     return (
-      <View style={[fixedHeight,style]}>
+      <View style={[fixedHeight, style]}>
         <TouchableOpacity onPress={onPress} style={[fullHeight, row, withRightPadding]} disabled={!onPress} activeOpacity={0.7}>
           <View style={[fullHeight, tab, { backgroundColor: statusColor }]} />
           {this.props.IconClass || !this.props.hidePadding ?
@@ -113,23 +118,25 @@ class InfoListItemClass extends Component<WithTheme<InfoListItemProps>> {
     const { avatar, statusColor, iconColor, theme } = this.props;
     if (iconColor) return iconColor;
     if (avatar) {
-      return statusColor ? theme.colors.onPrimary : theme.colors.text;
+      return statusColor ? 
+        (color(statusColor).isDark() ? Colors.white[50] : Colors.black[500])
+        : Colors.white[50]; // default avatar is dark gray -> white text
     }
     return statusColor ? statusColor : theme.colors.text;
   }
   private avatarStyle() {
-    const { theme, statusColor } = this.props;
+    const { statusColor } = this.props;
     const avatarStyle = { ...styles.avatar };
-    avatarStyle.backgroundColor = statusColor || theme.colors.primary;
+    avatarStyle.backgroundColor = statusColor || Colors.black[500];
     return avatarStyle;
   }
 
   private rightComponent() {
-    const { onPress, theme, rightComponent } = this.props;
-    if (rightComponent){
+    const { chevron, theme, rightComponent } = this.props;
+    if (rightComponent) {
       return rightComponent;
     }
-    else if (onPress) {
+    else if (chevron) {
       return (
         <Icon name="chevron-right" size={24} color={theme.colors.text} />
       );
@@ -237,7 +244,7 @@ const styles = StyleSheet.create({
   divider: {
     height: 1,
     borderBottomWidth: 1,
-    borderColor: Colors.black['50']
+    borderColor: Colors.black['100']
   },
   tab: {
     width: 6
