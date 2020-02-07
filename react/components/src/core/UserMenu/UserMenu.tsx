@@ -1,8 +1,10 @@
 import { ClickAwayListener, Menu, MenuProps as standardMenuProps } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import clsx from 'clsx';
+import PropTypes from "prop-types";
 import React, { useState } from 'react';
 import { DrawerHeader, DrawerNavGroup, NavItem } from '../Drawer';
+import {Spacer} from "../Utility";
 
 const styles = makeStyles((theme: Theme) =>
     createStyles({
@@ -147,4 +149,37 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
             </div>
         </ClickAwayListener>
     );
+};
+
+UserMenu.propTypes = {
+    avatar: PropTypes.element,
+    backgroundColor: PropTypes.string,
+    classes: PropTypes.shape({
+        pxbRoot: PropTypes.string,
+        pxbLabel: PropTypes.string,
+    }),
+    menuTitle: PropTypes.string,
+    menuSubtitle: PropTypes.string,
+   // @ts-ignore
+    menuGroups: PropTypes.arrayOf(
+       PropTypes.shape({
+            title: PropTypes.string,
+            items: PropTypes.arrayOf(
+               PropTypes.shape({
+                    active: PropTypes.bool,
+                    icon: PropTypes.element,
+                    onClick: PropTypes.func,
+                    statusColor: PropTypes.string,
+                    subtitle: PropTypes.string,
+                    title: PropTypes.string,
+                    divider: PropTypes.bool
+               })
+            )
+        })
+    ),
+    fontColor: PropTypes.string,
+    MenuProps: PropTypes.object,
+    onClose: PropTypes.func,
+    onOpen: PropTypes.func,
+    width: PropTypes.number,
 };
