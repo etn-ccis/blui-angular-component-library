@@ -2,7 +2,7 @@ import React from 'react';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import PropTypes from 'prop-types';
 
-import { createStyles, makeStyles, useTheme } from '@material-ui/core/styles';
+import {createStyles, makeStyles, Theme, useTheme} from '@material-ui/core/styles';
 import Chevron from '@material-ui/icons/ChevronRight';
 import * as Colors from '@pxblue/colors';
 //@ts-ignore
@@ -22,7 +22,7 @@ import {
     Typography,
 } from '@material-ui/core';
 
-const useStyles = makeStyles(() =>
+const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         divider: {
             position: 'absolute',

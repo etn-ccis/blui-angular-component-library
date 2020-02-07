@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Hero, HeroBanner, ChannelValue,
 EmptyState, InfoListItem, ScoreCard, Spacer,
-Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, DrawerSubheader,
+Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, DrawerSubheader, UserMenu,
 DrawerLayout, ListItemTag } from '@pxblue/react-components';
 
 import DevicesIcon from '@material-ui/icons/Devices'
