@@ -16,6 +16,7 @@ import * as Colors from '@pxblue/colors';
 import { Pie, Battery } from '@pxblue/react-progress-icons';
 import { GradeA, Leaf, CurrentCircled, VoltageCircled, Temp, Moisture as Humidity, Device } from '@pxblue/icons-mui';
 import Button from "@material-ui/core/Button";
+import { useTheme } from '@material-ui/core/styles';
 
 import top from './topology_40.png';
 // import farm from './farm.jpg';
@@ -31,6 +32,7 @@ export default () => {
     const [open, setOpen] = useState(false);
     const [location, setLocation] = useState(0);
     const [route, setRoute] = useState(0);
+    const theme = useTheme();
 
     return (
         <DrawerLayout drawer={
@@ -207,7 +209,7 @@ export default () => {
                                 <HeroBanner>
                                     <Hero
                                         icon={<GradeA fontSize={'inherit'} htmlColor={Colors.green[500]} />}
-                                        iconBackgroundColor={Colors.white[50]}
+                                        iconBackgroundColor={ theme.palette.background.paper }
                                         label={'Health'}
                                         iconSize={72}
                                         value={98}
