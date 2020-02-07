@@ -38,7 +38,7 @@ const useStyles = makeStyles(() =>
             zIndex: 100,
         },
         withSmallMargins: {
-            margin: `0 4px`,
+            margin: `0 ${theme.spacing(0.5)}`
         },
         title: {
             fontWeight: 600,
@@ -143,7 +143,11 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
 
     const getRightComponent = (): JSX.Element | undefined => {
         if (rightComponent) {
-            return <div style={{ flex: '0 0 auto', marginLeft: 16 }}>{rightComponent}</div>;
+            return (
+                <div style={{ flex: '0 0 auto', marginLeft: 16, display: 'flex', alignItems: 'center' }}>
+                    {rightComponent}
+                </div>
+            );
         } else if (chevron) {
             return (
                 <ListItemSecondaryAction>

@@ -28,7 +28,7 @@ cp -r ./components/package.json ./demos/storybook/node_modules/@pxblue/react-com
 cp -r ./dist/. ./demos/storybook/node_modules/@pxblue/react-components
 echo -e "${GREEN}Done${NC}"
 
-echo -en "\r\n${BRED}Linking Components: ${NC}"
+echo -en "\r\n${BLUE}Linking Components: ${NC}"
 if [ ! -f ./demos/showcase/node_modules/@pxblue/react-components/package.json ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
 if [ ! -f ./demos/storybook/node_modules/@pxblue/react-components/package.json ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
 if [ ! -s ./demos/showcase/node_modules/@pxblue/react-components ];

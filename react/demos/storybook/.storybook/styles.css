@@ -12,3 +12,6 @@ body,
     justify-content: center;
     background: #efefef;
 }
+*{
+    box-sizing: border-box;
+}
