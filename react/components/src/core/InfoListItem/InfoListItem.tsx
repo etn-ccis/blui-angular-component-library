@@ -38,9 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
             zIndex: 100,
         },
         withSmallMargins: {
-            margin: 0,
-            marginLeft: theme.spacing(0.5),
-            marginRight: theme.spacing(0.5),
+            margin: `0 ${theme.spacing(0.5)}`
         },
         title: {
             fontWeight: 600,
