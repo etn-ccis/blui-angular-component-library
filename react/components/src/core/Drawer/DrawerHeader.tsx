@@ -3,7 +3,6 @@ import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/sty
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Divider from '@material-ui/core/Divider';
-import * as Colors from '@pxblue/colors';
 import { Typography } from '@material-ui/core';
 
 const useStyles = makeStyles((theme: Theme) =>
@@ -76,7 +75,7 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> = (props) => {
     const {
         icon,
         backgroundColor,
-        fontColor,
+        fontColor = theme.palette.text.primary,
         onIconClick,
         titleContent,
         title,
@@ -144,5 +143,4 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> = (props) => {
 DrawerHeader.displayName = 'DrawerHeader';
 DrawerHeader.defaultProps = {
     backgroundOpacity: 0.3,
-    fontColor: Colors.white[50], // TODO: Dark Theme
 };

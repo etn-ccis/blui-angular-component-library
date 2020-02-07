@@ -1,6 +1,5 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import * as Colors from '@pxblue/colors';
 
 const useStyles = makeStyles({
     root: {
@@ -60,6 +59,4 @@ export const DrawerBody: React.FC<DrawerBodyProps> = (props) => {
 };
 
 DrawerBody.displayName = 'DrawerBody';
-DrawerBody.defaultProps = {
-    backgroundColor: Colors.white[50], // TODO, dark theme compatible
-};
+DrawerBody.defaultProps = {};

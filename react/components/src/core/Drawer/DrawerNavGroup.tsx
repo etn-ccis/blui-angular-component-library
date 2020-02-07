@@ -42,9 +42,8 @@ const useStyles = makeStyles((theme: Theme) =>
             width: 'calc(100% - 8px)',
             left: 0,
             top: 0,
-            // TODO: Add Palette Type
             //@ts-ignore
-            backgroundColor: theme.palette.primary['50'],
+            backgroundColor: theme.palette.type === 'light' ? theme.palette.secondary[50] : theme.palette.secondary.light,
             borderRadius: '0px 24px 24px 0px',
             opacity: 0.9,
         },
@@ -87,10 +86,16 @@ function NavigationListItem(item: NavItem, props: DrawerNavGroupProps): ReactNod
 
     const classes = useStyles(props);
     const theme = useTheme();
-    const { activeBackgroundColor, activeFontColor, activeIconColor, fontColor, chevron, iconColor, onSelect } = props;
+    const { 
+        activeBackgroundColor, 
+        activeFontColor = theme.palette.type === 'light' ? theme.palette.primary.main : theme.palette.secondary.contrastText, 
+        activeIconColor = theme.palette.type === 'light' ? theme.palette.primary.main : theme.palette.secondary.contrastText, 
+        fontColor, 
+        chevron, 
+        iconColor, 
+        onSelect 
+    } = props;
 
-    // @ts-ignore // TODO: FIX ME
-    const defaultSelectedBackgroundColor = theme.palette.secondary[50];
     const action = (): void => {
         if (onSelect) {
             onSelect();
@@ -105,7 +110,7 @@ function NavigationListItem(item: NavItem, props: DrawerNavGroupProps): ReactNod
             {active && (
                 <div
                     className={classes.active}
-                    style={{ backgroundColor: activeBackgroundColor || defaultSelectedBackgroundColor }}
+                    style={{ backgroundColor: activeBackgroundColor }}
                 />
             )}
             <InfoListItem

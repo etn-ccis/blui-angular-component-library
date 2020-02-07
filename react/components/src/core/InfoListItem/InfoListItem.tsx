@@ -205,7 +205,12 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
                     className: classes.title,
                     style: { color: fontColor || 'inherit' },
                 }}
-                secondaryTypographyProps={{ noWrap: true, variant: 'subtitle2', className: classes.subtitle }}
+                secondaryTypographyProps={{ 
+                    noWrap: true, 
+                    variant: 'subtitle2', 
+                    className: classes.subtitle ,
+                    style: { color: fontColor || 'inherit' }
+                }}
             />
             {getRightComponent()}
         </ListItem>
