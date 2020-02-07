@@ -2,6 +2,7 @@ import { Typography, TypographyProps } from '@material-ui/core';
 import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 import React from 'react';
 import clsx from 'clsx';
+import PropTypes from 'prop-types';
 
 export type ListItemTagProps = {
     /* The string label of the tag. */
@@ -38,7 +39,6 @@ export const ListItemTag: React.FC<ListItemTagProps> = (props: ListItemTagProps)
         backgroundColor,
         variant,
         style,
-        onClick,
         noWrap,
         display,
         ...other
@@ -53,23 +53,23 @@ export const ListItemTag: React.FC<ListItemTagProps> = (props: ListItemTagProps)
                 {
                     color: fontColor,
                     backgroundColor: backgroundColor,
-                    cursor: onClick ? 'pointer' : 'default',
+                    cursor: props.onClick ? 'pointer' : 'default',
                 },
                 style
             )}
             variant={variant || 'overline'}
-            noWrap={noWrap ? noWrap : true}
+            noWrap={noWrap === undefined ? true : noWrap}
             display={display || 'inline'}
             data-test={'list-item-tag'}
-            onClick={(e): void => {
-                if (onClick) {
-                    onClick(e);
-                }
-                return;
-            }}
             {...other}
         >
             {label}
         </Typography>
     );
+};
+
+ListItemTag.propTypes = {
+    label: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    fontColor: PropTypes.string,
 };

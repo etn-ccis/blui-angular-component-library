@@ -8,10 +8,6 @@ ListItemTag is a text item with a colored background and rounded corners that is
 ```typescript
 import { ListItemTag } from '@pxblue/react-components';
 
-// Simple usage passing props
-<ListItemTag label={"Foo Bar"} />
-
-// More variations
 <ListItemTag label={"Foo Bar"} backgroundColor={'gold'} fontColor={'black'} />
 ```
 

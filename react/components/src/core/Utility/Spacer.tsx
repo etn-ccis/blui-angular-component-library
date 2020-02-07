@@ -12,26 +12,23 @@ export type SpacerProps = {
 };
 export type SpacerClasses = {
     root?: string;
-}
+};
 
 export const Spacer: React.FC<SpacerProps> = (props) => {
-    const {
-        flex = 1,
-        width,
-        height,
-        children,
-        classes = {},
-        style,
-    } = props;
+    const { flex = 1, width, height, children, classes = {}, style } = props;
 
     return (
-        <div data-test={'spacer-root'}
+        <div
+            data-test={'spacer-root'}
             className={clsx(classes.root)}
-            style={Object.assign({
-                flex: `${flex} ${flex} ${flex === 0 ? 'auto' : '0px'}`,
-                height: height || 'auto',
-                width: width || 'auto'
-            }, { ...style })}
+            style={Object.assign(
+                {
+                    flex: `${flex} ${flex} ${flex === 0 ? 'auto' : '0px'}`,
+                    height: height || 'auto',
+                    width: width || 'auto',
+                },
+                { ...style }
+            )}
         >
             {children}
         </div>
@@ -42,10 +39,10 @@ Spacer.propTypes = {
     width: PropTypes.number,
     height: PropTypes.number,
     classes: PropTypes.shape({
-        root: PropTypes.string
-    })
+        root: PropTypes.string,
+    }),
 };
 Spacer.defaultProps = {
     flex: 1,
-    classes: {}
-}
+    classes: {},
+};

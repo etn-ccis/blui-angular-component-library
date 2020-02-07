@@ -43,11 +43,10 @@ import { Hero } from '@pxblue/react-components';
 | valueIcon           | The inline icon with the value          | `React.Component`                                                  | no       |                        | `<Icon/>`                      |
 
 
-
-## Hero Banner
+## HeroBanner
 The HeroBanner component is a simple wrapper component that is used to contain ```<Hero/>```s. It creates the flex container and sets up the spacing rules to display them. It accepts up to four ```<Hero/>``` components as its children.
 
-### Hero Banner Usage
+### HeroBanner Usage
 ```typescript
 import HeroBanner from '@pxblue/react-components/core/HeroBanner';
 import Hero from '@pxblue/react-components/core/Hero';

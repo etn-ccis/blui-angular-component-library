@@ -112,7 +112,9 @@ function NavigationListItem(item: NavItem, props: DrawerNavGroupProps): ReactNod
                 dense
                 title={title}
                 subtitle={subtitle}
-                divider={item.divider === undefined ? (divider ? 'full' : undefined) : (item.divider ? 'full' : undefined)}
+                divider={
+                    item.divider === undefined ? (divider ? 'full' : undefined) : item.divider ? 'full' : undefined
+                }
                 statusColor={statusColor}
                 fontColor={active ? activeFontColor : fontColor}
                 icon={icon}
