@@ -4,8 +4,8 @@
   "description": "Reusable React components for PX Blue applications",
   "scripts": {
     "test": "jest src",
-    "build": "tsc",
-    "watch:storybook": "tsc --watch --allowjs false --outdir ../demos/storybook/node_modules/@pxblue/react-components",
+    "build": "tsc --p tsconfig.lib.json",
+    "watch:storybook": "tsc --p tsconfig.lib.json --watch --outdir ../demos/storybook/node_modules/@pxblue/react-components",
     "lint": "eslint \"src/**/**.{tsx,ts}\"",
     "lint:fix": "eslint \"src/**/**.{tsx,ts}\" --fix",
     "prettier": "prettier \"src/**/**.{ts,tsx,js,jsx,json,css,scss,html}\" --write"
