@@ -1,13 +1,8 @@
 import React, { useState } from 'react';
-import { Hero } from '@pxblue/react-components';
-import { HeroBanner } from '@pxblue/react-components';
-import { ChannelValue } from '@pxblue/react-components';
-import { EmptyState } from '@pxblue/react-components';
-import { InfoListItem } from '@pxblue/react-components';
-import { ScoreCard } from '@pxblue/react-components';
-import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, DrawerSubheader } from '@pxblue/react-components';
-import { DrawerLayout } from '@pxblue/react-components';
-import { ListItemTag } from '@pxblue/react-components';
+import { Hero, HeroBanner, ChannelValue,
+EmptyState, InfoListItem, ScoreCard, Spacer,
+Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, DrawerSubheader,
+DrawerLayout, ListItemTag } from '@pxblue/react-components';
 
 import DevicesIcon from '@material-ui/icons/Devices'
 import { Add, Menu, NotificationsActive, List as ListIcon, Public, Settings, Gavel, Help } from '@material-ui/icons'
@@ -94,7 +89,7 @@ export default () => {
                             },
                         ]}
                     />
-                    <div style={{flex: '1 1 0px'}}/>
+                    <Spacer/>
                     <Divider/>
                     <DrawerNavGroup
                         items={[

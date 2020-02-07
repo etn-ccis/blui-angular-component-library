@@ -87,30 +87,32 @@ describe('InfoListItem', () => {
     });
   });
 
-  describe('onPress', () => {
+  describe('chevron', () => {
     let instance: TestRenderer.ReactTestInstance;
-    let onPress: ReturnType<typeof jest.fn>;
 
     describe('when provided', () => {
-      beforeEach(() => {
-        onPress = jest.fn();
+      
+      it('appears when there is no rightComponent', () => {
         instance = TestRenderer.create(
-          <InfoListItem title={'some title'} onPress={onPress} />
+          <InfoListItem title={'some title'} chevron />
         ).root;
-      });
-
-      it('shows its chevron icon', () => {
         expect(instance.findAllByType(Icon)).toHaveLength(1);
+      });
+      
+      it('does not appear when there is a rightComponent', () => {
+        instance = TestRenderer.create(
+          <InfoListItem title={'some title'} chevron rightComponent={<View/>} />
+        ).root;
+        expect(instance.findAllByType(Icon)).toHaveLength(0);
       });
     });
 
-    describe('when provided', () => {
+    describe('when not provided', () => {
       beforeEach(() => {
         instance = TestRenderer.create(
-          <InfoListItem title={'some title'} />
+          <InfoListItem title={'some title'} onPress={() => {}} />
         ).root;
       });
-
       it('does not show its chevron', () => {
         expect(instance.findAllByType(Icon)).toHaveLength(0);
       });
