@@ -59,7 +59,7 @@ import Hero from '@pxblue/react-components/core/Hero';
 </HeroBanner>
 ```
 
-### Hero Banner API
+### HeroBanner API
 | Prop Name | Description                             | Type      | Required | Default | Examples |
 |-----------|-----------------------------------------|-----------|----------|---------|----------|
 | divider   | Whether to show the line separator      | `boolean` | no       | false   |          |

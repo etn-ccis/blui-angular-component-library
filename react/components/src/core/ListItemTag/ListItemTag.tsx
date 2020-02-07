@@ -21,12 +21,13 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundColor: theme.palette.primary.main,
             fontWeight: 'bold',
             letterSpacing: 1,
-            borderRadius: 2,
+            borderRadius: theme.spacing(0.25),
             padding: 0,
             paddingLeft: theme.spacing(0.5),
             paddingRight: theme.spacing(0.5),
             lineHeight: 'inherit',
             color: theme.palette.primary.contrastText,
+            overflow: 'hidden'
         },
     })
 );
@@ -38,8 +39,8 @@ export const ListItemTag: React.FC<ListItemTagProps> = (props: ListItemTagProps)
         fontColor,
         backgroundColor,
         variant,
-        style,
         noWrap,
+        style,
         display,
         ...other
     } = props;
@@ -57,9 +58,9 @@ export const ListItemTag: React.FC<ListItemTagProps> = (props: ListItemTagProps)
                 },
                 style
             )}
-            variant={variant || 'overline'}
-            noWrap={noWrap === undefined ? true : noWrap}
-            display={display || 'inline'}
+            noWrap={noWrap}
+            variant={variant}
+            display={display}
             data-test={'list-item-tag'}
             {...other}
         >
@@ -69,7 +70,12 @@ export const ListItemTag: React.FC<ListItemTagProps> = (props: ListItemTagProps)
 };
 
 ListItemTag.propTypes = {
-    label: PropTypes.string,
+    label: PropTypes.string.isRequired,
     backgroundColor: PropTypes.string,
     fontColor: PropTypes.string,
 };
+ListItemTag.defaultProps = {
+    noWrap: true,
+    variant: 'overline',
+    display: 'inline',
+}
