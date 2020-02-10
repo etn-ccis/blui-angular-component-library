@@ -71,3 +71,10 @@ The `menuGroups` prop of the `UserMenu` includes many properties from the `Drawe
 | subtitle        | The text to show on the second line     | `string`           | no       |                              |    
 | title           | The text to show on the first line      | `string`           | no       |                              |    
 
+
+### Classes
+You can override the classes used by PX Blue by passing a `classes` prop. It supports the following keys:
+
+| Name             | Description                                 |
+|------------------|---------------------------------------------|
+| root             | Styles applied to the root element          |

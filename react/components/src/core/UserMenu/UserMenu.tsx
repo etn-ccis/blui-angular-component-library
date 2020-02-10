@@ -80,6 +80,7 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
 
     const hasMenu = (): boolean => Boolean(children || menuGroups.length > 0);
 
+    /* Clones Avatar that user passes to UserMenu, appends a click event so it opens the menu. */
     const formatAvatar = (preserveOnClick: boolean): JSX.Element => {
         /* If user passed in onClick function as a prop to Avatar, keep it. */
         const onClickFn = (event: MouseEvent): void => {
