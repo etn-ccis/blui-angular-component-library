@@ -1,11 +1,11 @@
-# Channel Value
+# ChannelValue
 The ChannelValue component is used to display...a channel value (and units). This component abstracts the styles used to display the channel and units as well as an optional inline icon. These are used as part of the [Hero](./Hero.md) component, but can also be used inline (e.g., in a list).
 
 <img width="100%" alt="Channel Value in Hero" src="./images/heroes.png">
 <img width="100%" alt="Channel Value in a list item" src="./images/channelValue.png">
 
 ## Usage
-```
+```typescript
 import { ChannelValue } from '@pxblue/react-components';
 ...
 <ChannelValue value={100} units={'%'} icon={<Icon/>} />

@@ -12,7 +12,6 @@ body,
     justify-content: center;
     background: #efefef;
 }
-
-.test {
-    color: red;
+*{
+    box-sizing: border-box;
 }

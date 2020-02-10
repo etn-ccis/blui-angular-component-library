@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { Hero, HeroBanner, ChannelValue,
 EmptyState, InfoListItem, ScoreCard, Spacer,
 Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, DrawerSubheader, UserMenu,
-DrawerLayout } from '@pxblue/react-components';
-
+DrawerLayout, ListItemTag } from '@pxblue/react-components';
 
 import DevicesIcon from '@material-ui/icons/Devices'
 import SendIcon from '@material-ui/icons/Send';
@@ -326,7 +325,8 @@ export default () => {
                                 fontColor={Colors.red[500]}
                                 subtitle={['Phase A', 'Phase B', 'Phase C']}
                                 icon={<VoltageCircled color={'inherit'} />}
-                                rightComponent={<span style={{ color: Colors.red[500] }}><ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} /></span>}
+                                rightComponent={
+                                <span style={{ color: Colors.red[500] }}><ListItemTag label={'monitored'} style={{marginRight: 8}} /><ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} /></span>}
                             />
                             <InfoListItem dense
                                 title={'Output Current'}
@@ -338,7 +338,17 @@ export default () => {
                                 title={'Temperature'}
                                 divider={'full'}
                                 icon={<Temp />}
-                                rightComponent={<ChannelValue fontSize={16} icon={<Trend htmlColor={Colors.red[500]} />} value={68} units={'°F'} />}
+                                rightComponent={
+                                <>
+                                    <ListItemTag style={{marginRight: 8}} backgroundColor={Colors.white['300']} label={'active'} fontColor={Colors.green['500']} />
+                                    <ListItemTag
+                                    label={'OVERHEAT'}
+                                    backgroundColor={Colors.red['500']}
+                                    onClick={(_)=>{alert('You clicked me.')}}
+                                    style={{marginRight: 8}}
+                                    />
+                                    <ChannelValue fontSize={16} icon={<Trend htmlColor={Colors.red[500]} />} value={68} units={'°F'} />
+                                </>}
                             />
                         </List>
                     </Card>

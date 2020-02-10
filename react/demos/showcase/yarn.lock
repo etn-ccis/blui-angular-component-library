@@ -1346,10 +1346,10 @@
   resolved "https://registry.npmjs.org/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@pxblue/colors@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.npmjs.org/@pxblue/colors/-/colors-1.0.13.tgz#1ed76734267f77dd4b390836f61d01439fc35132"
-  integrity sha512-tneNNYclHmNNIbo6J7XXEumoJZLBXqeO2LFufWxRvIs5yeVVfaJN3zWREl1oo5KP67aDixYgEKB7LH0oeTL+lQ==
+"@pxblue/colors@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@pxblue/colors/-/colors-2.0.0.tgz#fa7d2abde80485537f26521df4c3f6e56dd93361"
+  integrity sha512-1JoCVC17nHmC6bbqg2nCAHJgJLHAWNIAmS/UZ3h8u0TnvU5C6qI+CpCrn/sP6bNSQ3LLhEkdVpjKna1kxCXdhg==
 
 "@pxblue/colors@^2.0.0":
   version "2.0.0"
@@ -1376,12 +1376,12 @@
   dependencies:
     prop-types "^15.7.2"
 
-"@pxblue/themes@^2.1.0":
-  version "2.2.4"
-  resolved "https://registry.npmjs.org/@pxblue/themes/-/themes-2.2.4.tgz#ef663d4625c35dc1a2dd813bb65963143b839db0"
-  integrity sha512-ji9tMpFsF4ZgKk3pkoepjymtBmgnlLjCycDd0W6pkps95SvznQFNXAFYhlAfr25m+IvSQTEQFlj7MrEluYBfLA==
+"@pxblue/themes@^3.0.2":
+  version "3.0.2"
+  resolved "https://registry.yarnpkg.com/@pxblue/themes/-/themes-3.0.2.tgz#d5b83b414a83e2f96a8e0f28b034b8470ae48f69"
+  integrity sha512-csaANyUWvKBphw+2p2GbdECZLmjs6Vp0FtghprwQhLyztK5BHnhm4vJaXkYNlfGnJazNxMZwU+JQtrTEL0LSZg==
   dependencies:
-    "@pxblue/colors" "^1.0.13"
+    "@pxblue/colors" "^2.0.0"
     typeface-open-sans "^0.0.54"
 
 "@svgr/babel-plugin-add-jsx-attribute@^4.2.0":

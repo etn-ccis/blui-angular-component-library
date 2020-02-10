@@ -41,10 +41,10 @@ const Battery = wrapIcon({ IconClass: _Battery });
 | theme               | Theme partial for default styling       | `DeepPartial<Theme>`                                               | no       |                        | { colors: { text: 'green' } }  |
 
 
-## Hero Banner
+## HeroBanner
 The HeroBanner component is a simple wrapper component that is used to contain `<Hero/>`s. It creates the flex container and sets up the spacing rules to display them. It accepts up to four `<Hero/>` components by default as children. Any children after the ```limit``` will not be rendered.
 
-### Hero Banner Usage
+### HeroBanner Usage
 ```
 import { Hero, HeroBanner, wrapIcon } from '@pxblue/react-native-components';
 import _Battery from '@pxblue/icons-svg/battery.svg';
@@ -59,7 +59,7 @@ const Battery = wrapIcon({ IconClass: _Battery });
 </HeroBanner>
 ```
 
-### Hero Banner API
+### HeroBanner API
 | Prop Name | Description                             | Type      | Required | Default | Examples |
 |-----------|-----------------------------------------|-----------|----------|---------|----------|
 | divider   | Whether to show the line separator      | `boolean` | no       | false   |          |

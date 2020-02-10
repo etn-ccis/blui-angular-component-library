@@ -1,11 +1,11 @@
-# Drawer Component
+# Drawer
 The Drawer component is wrapper around the Material UI Drawer that adds specific PX Blue functionality and styling. It is used to organize content (typically navigation links) in a collapsible side panel. The PX Blue Drawer includes helper components for `DrawerHeader`, `DrawerSubheader`, `DrawerBody`, and `DrawerFooter` to help organize the content.
 
 ## Drawer
 The Drawer component is the parent container, which manages the overall state of the drawer and renders the child components.
 
 ### Drawer Usage
-```
+```typescript
 import { Drawer, DrawerHeader, DrawerSubheader, DrawerBody, DrawerFooter } from '@pxblue/react-components';
 ...
 <Drawer open={true}>
@@ -43,7 +43,7 @@ The `DrawerHeader` contains the content at the top of the `Drawer`. It can rende
 The `DrawerSubheader` is an optional section that renders below the header and above the body of the `Drawer`. It can be used to support custom content, such as filtering options or to display additional information.
 
 ### DrawerSubheader Usage
-```
+```typescript
 import DrawerSubheader from '@pxblue/react-components/core/Drawer';
 ...
 <DrawerSubheader>
@@ -55,7 +55,7 @@ import DrawerSubheader from '@pxblue/react-components/core/Drawer';
 The `DrawerBody` is a wrapper for the main content of the Drawer. The typical use case is to display `DrawerNavGroup` elements, but custom elements (e.g., for spacing) are accepted as well.
 
 ### DrawerBody Usage
-```
+```typescript
 import DrawerBody from '@pxblue/react-components/core/Drawer';
 ...
 <DrawerBody>
@@ -118,7 +118,7 @@ The `DrawerFooter` is an optional section that renders at the bottom of the `Dra
 | backgroundColor | The color used for the background       | `string`      | no       |         |   
 
 ### Usage
-```
+```typescript
 import DrawerFooter from '@pxblue/react-components/core/Drawer';
 ...
 <DrawerFooter>
