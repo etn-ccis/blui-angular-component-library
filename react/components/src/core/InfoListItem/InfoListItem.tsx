@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
             zIndex: 100,
         },
         withSmallMargins: {
-            margin: `0 ${theme.spacing(0.5)}`
+            margin: `0 ${theme.spacing(0.5)}`,
         },
         title: {
             fontWeight: 600,
@@ -211,6 +211,8 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
         </ListItem>
     );
 };
+
+InfoListItem.displayName = 'InfoListItem';
 InfoListItem.propTypes = {
     avatar: PropTypes.bool,
     backgroundColor: PropTypes.string,

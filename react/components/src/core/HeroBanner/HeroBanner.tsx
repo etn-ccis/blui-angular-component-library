@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Divider from '@material-ui/core/Divider';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles({
     banner: {
@@ -29,4 +30,10 @@ export const HeroBanner = (props: HeroBannerProps & any): JSX.Element => {
             {divider && <Divider />}
         </React.Fragment>
     );
+};
+
+HeroBanner.displayName = 'HeroBanner';
+HeroBanner.propType = {
+    divider: PropTypes.bool,
+    limit: PropTypes.number,
 };

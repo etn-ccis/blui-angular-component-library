@@ -27,7 +27,7 @@ const useStyles = makeStyles((theme: Theme) =>
             paddingRight: theme.spacing(0.5),
             lineHeight: 'inherit',
             color: theme.palette.primary.contrastText,
-            overflow: 'hidden'
+            overflow: 'hidden',
         },
     })
 );
@@ -78,4 +78,4 @@ ListItemTag.defaultProps = {
     noWrap: true,
     variant: 'overline',
     display: 'inline',
-}
+};

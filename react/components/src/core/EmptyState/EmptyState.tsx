@@ -1,14 +1,16 @@
 import React from 'react';
-import { makeStyles, StyleRules } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import * as Colors from '@pxblue/colors';
 import Typography from '@material-ui/core/Typography';
+import PropTypes from 'prop-types';
 
 export type EmptyStateProps = {
     title?: string;
     description?: string;
     icon?: JSX.Element;
     actions?: JSX.Element;
-    iconStyles?: StyleRules;
+    iconStyles?: CSSProperties;
 };
 
 const useStyles = makeStyles({
@@ -45,4 +47,13 @@ export const EmptyState: React.FC<EmptyStateProps> = (props) => {
             {actions && <div style={{ marginTop: '10px' }}>{actions}</div>}
         </div>
     );
+};
+
+EmptyState.displayName = 'EmptyState';
+EmptyState.propTypes = {
+    title: PropTypes.string,
+    description: PropTypes.string,
+    icon: PropTypes.element,
+    actions: PropTypes.element,
+    iconStyles: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
 };

@@ -3,6 +3,7 @@ import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import Typography from '@material-ui/core/Typography';
 import * as Colors from '@pxblue/colors';
 import { ChannelValue } from '../ChannelValue';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -111,4 +112,18 @@ export const Hero = (props: HeroProps): JSX.Element => {
             </Typography>
         </div>
     );
+};
+
+Hero.displayName = 'Hero';
+Hero.propType = {
+    children: PropTypes.element,
+    fontSize: PropTypes.oneOf(['normal', 'small']),
+    icon: PropTypes.oneOfType([PropTypes.string, PropTypes.element]).isRequired,
+    iconBackgroundColor: PropTypes.string,
+    iconSize: PropTypes.number,
+    label: PropTypes.string.isRequired,
+    onClick: PropTypes.func,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    valueIcon: PropTypes.element,
+    units: PropTypes.string,
 };

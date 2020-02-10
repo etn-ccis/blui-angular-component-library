@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import Typography from '@material-ui/core/Typography';
 import { combine } from '../utilities';
 import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 const styles = makeStyles({
     wrapper: {
@@ -82,4 +83,14 @@ export const ChannelValue: React.FC<ChannelValueProps> = (props) => {
             {!prefix && getUnitElement()}
         </span>
     );
+};
+
+ChannelValue.displayName = 'ChannelValue';
+ChannelValue.propTypes = {
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    icon: PropTypes.element,
+    units: PropTypes.string,
+    prefix: PropTypes.bool,
+    fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    color: PropTypes.string,
 };

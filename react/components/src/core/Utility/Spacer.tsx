@@ -34,6 +34,8 @@ export const Spacer: React.FC<SpacerProps> = (props) => {
         </div>
     );
 };
+
+Spacer.displayName = 'Spacer';
 Spacer.propTypes = {
     flex: PropTypes.number,
     width: PropTypes.number,

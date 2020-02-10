@@ -2,6 +2,7 @@ import { CSSProperties } from '@material-ui/styles';
 import React from 'react';
 import { Card, Typography, Divider, Theme, makeStyles, createStyles } from '@material-ui/core';
 import * as Colors from '@pxblue/colors';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -16,9 +17,7 @@ const useStyles = makeStyles((theme: Theme) =>
         header: {
             height: 100,
             overflow: 'hidden',
-            // TODO: FIX ME!
-            //@ts-ignore
-            backgroundColor: theme.palette.primary[500],
+            backgroundColor: theme.palette.primary.main,
             position: 'relative',
         },
         headerContent: {
@@ -207,4 +206,20 @@ export const ScoreCard: React.FC<ScoreCordProps> = (props) => {
             {getFooter()}
         </Card>
     );
+};
+
+ScoreCard.displayName = 'ScoreCard';
+ScoreCard.propTypes = {
+    actionItems: PropTypes.arrayOf(PropTypes.element),
+    actionLimit: PropTypes.number,
+    actionRow: PropTypes.element,
+    badge: PropTypes.element,
+    badgeOffset: PropTypes.number,
+    headerBackgroundImage: PropTypes.string,
+    headerColor: PropTypes.string,
+    headerFontColor: PropTypes.string,
+    headerInfo: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    headerTitle: PropTypes.string.isRequired,
+    headerSubtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
+    style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
 };
