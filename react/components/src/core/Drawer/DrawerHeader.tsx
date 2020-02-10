@@ -55,6 +55,11 @@ const useStyles = makeStyles((theme: Theme) =>
             height: '100%',
             backgroundPosition: 'center',
         },
+        nonClickableIcon: {
+            display: 'flex',
+            paddingLeft: theme.spacing(1.5),
+            paddingRight: theme.spacing(1.5),
+        },
     })
 );
 
@@ -133,7 +138,7 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> = (props) => {
                                 {icon}
                             </IconButton>
                         )}
-                        {!onIconClick && <div style={{ display: 'flex', paddingLeft: theme.spacing(1.5) }}>{icon}</div>}
+                        {!onIconClick && <div className={classes.nonClickableIcon}>{icon}</div>}
                     </div>
                 )}
                 {getHeaderContent()}

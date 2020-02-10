@@ -8,6 +8,11 @@ import { DrawerHeader, DrawerNavGroup, NavItem } from '../Drawer';
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {},
+        navGroups: {
+            '&:active, &:focus': {
+                outline: 'none',
+            },
+        },
         avatarRoot: {
             cursor: 'pointer',
             //@ts-ignore
@@ -101,35 +106,45 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
         [avatar, onOpen]
     );
 
+    /* DrawerHeader needs wrapped with key div to avoid ref warning on FC. */
     const printHeader = useCallback((): JSX.Element => {
         if (menuTitle) {
             const nonClickableAvatar = formatAvatar(false);
             return (
-                <DrawerHeader
-                    icon={nonClickableAvatar}
-                    title={menuTitle}
-                    subtitle={menuSubtitle}
-                    fontColor={'inherit'}
-                    backgroundColor={'inherit'}
-                />
+                <div key={'header'}>
+                    <DrawerHeader
+                        icon={
+                            /* TODO: Replace these inline styles with class overrides when the Drawer component supports it. */
+                            <div style={{ marginLeft: -theme.spacing(1), marginRight: -theme.spacing(1) }}>
+                                {nonClickableAvatar}
+                            </div>
+                        }
+                        title={menuTitle}
+                        subtitle={menuSubtitle}
+                        fontColor={'inherit'}
+                        backgroundColor={'inherit'}
+                    />
+                </div>
             );
         }
     }, [menuTitle, menuSubtitle, avatar]);
 
+    /* DrawerNavGroup needs wrapped with key div to avoid ref warning on FC. */
     const printMenuItems = useCallback(
         (): JSX.Element[] =>
             menuGroups.map((group: UserMenuGroup, index: number) => (
-                <DrawerNavGroup
-                    divider={false}
-                    open={true}
-                    iconColor={group.iconColor}
-                    fontColor={group.fontColor}
-                    title={group.title}
-                    items={group.items}
-                    key={index}
-                />
+                <div className={defaultClasses.navGroups} key={index}>
+                    <DrawerNavGroup
+                        divider={false}
+                        open={true}
+                        iconColor={group.iconColor}
+                        fontColor={group.fontColor}
+                        title={group.title}
+                        items={group.items}
+                    />
+                </div>
             )),
-        [menuGroups]
+        [menuGroups, defaultClasses]
     );
 
     const printMenu = (): JSX.Element[] => [printHeader()].concat(printMenuItems());

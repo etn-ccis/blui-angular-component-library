@@ -2,7 +2,7 @@ import React from 'react';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import PropTypes from 'prop-types';
 
-import {createStyles, makeStyles, Theme, useTheme} from '@material-ui/core/styles';
+import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 import Chevron from '@material-ui/icons/ChevronRight';
 import * as Colors from '@pxblue/colors';
 //@ts-ignore
@@ -38,7 +38,7 @@ const useStyles = makeStyles((theme: Theme) =>
             zIndex: 100,
         },
         withSmallMargins: {
-            margin: `0 ${theme.spacing(0.5)}`
+            margin: `0 ${theme.spacing(0.5)}`,
         },
         title: {
             fontWeight: 600,
