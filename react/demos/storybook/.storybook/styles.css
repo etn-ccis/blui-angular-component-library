@@ -12,3 +12,7 @@ body,
     justify-content: center;
     background: #efefef;
 }
+
+.test {
+    color: red;
+}

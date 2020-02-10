@@ -56,6 +56,8 @@ The `menuGroups` prop of the `UserMenu` includes many properties from the `Drawe
 
 | Prop Name             | Description                             | Type              | Required | Default |
 |-----------------------|-----------------------------------------|-------------------|----------|---------|
+| fontColor             | The color used for the text             | `string`          | no       |         |
+| iconColor             | The color used for icons                | `string`          | no       |         |
 | items                 | List of navigation items to render      | `UserMenuItem[]`  | no       |         |  
 | title                 | Text to display in the group header     | `string`          | no       |         |  
 

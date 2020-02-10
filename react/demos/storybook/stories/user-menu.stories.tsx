@@ -1,10 +1,10 @@
-import {Avatar, Divider, MenuItem, Typography} from '@material-ui/core';
+import { Avatar, Divider, makeStyles, MenuItem, Typography } from '@material-ui/core';
 import { Email, Settings } from '@material-ui/icons';
 import SendIcon from '@material-ui/icons/Send';
 import * as Colors from '@pxblue/colors';
 import { UserMenu, UserMenuGroup } from '@pxblue/react-components';
 import { action } from '@storybook/addon-actions';
-import { color, number, text, withKnobs } from '@storybook/addon-knobs';
+import { color, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 const EatonLogo = require('../assets/EatonLogo.svg');
@@ -19,6 +19,7 @@ stories.addParameters({
 
 const defaultMenuItems: UserMenuGroup[] = [
     {
+        fontColor: '',
         items: [
             {
                 title: 'Log Out',
@@ -46,18 +47,25 @@ stories.add('with default colors', () => {
 });
 
 stories.add('with custom colors', () => {
-    const value = text('value', 'CD');
-    const avatar = <Avatar>{value}</Avatar>;
-    const backgroundColor = color('backgroundColor', Colors.blue[800]);
-    const fontColor = color('fontColor', Colors.blue[50]);
-    return (
-        <UserMenu avatar={avatar} fontColor={fontColor} backgroundColor={backgroundColor} menuGroups={defaultMenuItems} />
-    );
+    const useStyles = makeStyles({
+        root: {
+            color: color('fontColor', Colors.white[50], 'Avatar'),
+            backgroundColor: color('backgroundColor', Colors.blue[800], 'Avatar'),
+        },
+        paper: {
+            backgroundColor: color('backgroundColor', Colors.blue[50], 'Menu'),
+        },
+    });
+    const classes = useStyles();
+    const avatar = <Avatar classes={{ root: classes.root }}>CD</Avatar>;
+    defaultMenuItems[0].fontColor = color('fontColor', Colors.gray[500], 'Menu');
+    defaultMenuItems[0].iconColor = color('iconColor', Colors.blue[800], 'Menu');
+    return <UserMenu avatar={avatar} menuGroups={defaultMenuItems} MenuProps={{ classes: { paper: classes.paper } }} />;
 });
 
 stories.add('with a non-text avatar', () => {
-   const tRexAvatar = <Avatar src={tRex} />;
-   const iconAvatar = <Avatar children={<SendIcon />} />;
+    const tRexAvatar = <Avatar src={tRex} />;
+    const iconAvatar = <Avatar children={<SendIcon />} />;
     return (
         <div style={{ display: 'flex', width: '100px', justifyContent: 'space-between' }}>
             <UserMenu avatar={tRexAvatar} menuGroups={defaultMenuItems} />
@@ -68,27 +76,20 @@ stories.add('with a non-text avatar', () => {
 
 stories.add('with menu header', () => {
     const avatar = <Avatar>EM</Avatar>;
-    const width = number('width', 250, { range: true, step: 10, min: 100, max: 500 });
     const menuTitle = text('menuTitle', 'Menu Title');
     const menuSubtitle = text('menuSubtitle', 'Menu Subtitle');
-    return (
-        <UserMenu
-            avatar={avatar}
-            width={width}
-            menuGroups={defaultMenuItems}
-            menuTitle={menuTitle}
-            menuSubtitle={menuSubtitle}
-        />
-    );
+    return <UserMenu avatar={avatar} menuGroups={defaultMenuItems} menuTitle={menuTitle} menuSubtitle={menuSubtitle} />;
 });
 
 stories.add('with custom menu body', () => {
     const avatar = <Avatar src={tRex} />;
     return (
         <UserMenu avatar={avatar}>
-            <div style={{ position: 'relative', padding: 10}}>
+            <div style={{ position: 'relative', padding: 10 }}>
                 <Typography variant={'h6'}>Welcome, </Typography>
-                <Typography  style={{fontWeight: 600, marginTop: '-10px'}} variant={'h3'}>T-Rex</Typography>
+                <Typography style={{ fontWeight: 600, marginTop: '-10px' }} variant={'h3'}>
+                    T-Rex
+                </Typography>
                 <div
                     style={{
                         position: 'absolute',
@@ -108,7 +109,11 @@ stories.add('with custom menu body', () => {
             <MenuItem key={'account'}>My Account</MenuItem>
             <MenuItem key={'logout'}>Logout</MenuItem>
             <Divider />
-            <img alt={'tRex'} style={{ textAlign: 'center', padding: '12px 16px 0 16px', height: 40 }} src={EatonLogo} />
+            <img
+                alt={'tRex'}
+                style={{ textAlign: 'center', padding: '12px 16px 0 16px', height: 40 }}
+                src={EatonLogo}
+            />
         </UserMenu>
     );
 });

@@ -88,12 +88,6 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> = (props) => {
     // @ts-ignore // TODO: Palette type definition?
     const toolbarBackgroundColor = String(backgroundColor || theme.palette.primary[500]);
 
-    const clickIcon = (): void => {
-        if (onIconClick) {
-            onIconClick();
-        }
-    };
-
     const getHeaderContent = (): ReactNode =>
         titleContent || (
             <div className={classes.content}>
@@ -129,9 +123,17 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> = (props) => {
                 {getBackgroundImage()}
                 {icon && (
                     <div className={classes.navigation}>
-                        <IconButton color={'inherit'} onClick={(): void => clickIcon()}>
-                            {icon}
-                        </IconButton>
+                        {onIconClick && (
+                            <IconButton
+                                color={'inherit'}
+                                onClick={(): void => {
+                                    onIconClick();
+                                }}
+                            >
+                                {icon}
+                            </IconButton>
+                        )}
+                        {!onIconClick && <div style={{ display: 'flex', paddingLeft: theme.spacing(1.5) }}>{icon}</div>}
                     </div>
                 )}
                 {getHeaderContent()}
