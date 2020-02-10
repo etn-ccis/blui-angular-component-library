@@ -32,7 +32,7 @@ type UserMenuClasses = {
     pxbLabel?: string;
 };
 
-export type UserMenuItem = NavItem;
+export type UserMenuItem = Omit<NavItem, 'active'>;
 export type UserMenuGroup = {
     title?: string;
     items: UserMenuItem[];
@@ -165,7 +165,6 @@ UserMenu.propTypes = {
             title: PropTypes.string,
             items: PropTypes.arrayOf(
                 PropTypes.shape({
-                    active: PropTypes.bool,
                     icon: PropTypes.element,
                     onClick: PropTypes.func,
                     statusColor: PropTypes.string,

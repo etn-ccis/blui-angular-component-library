@@ -63,7 +63,6 @@ The `menuGroups` prop of the `UserMenu` includes many properties from the `Drawe
 
 | Attribute       | Description                             | Type               | Required | Default                      |
 |-----------------|-----------------------------------------|--------------------|----------|------------------------------|
-| active          | Is the item the current active item     | `boolean`          | no       | false                        |  
 | chevron         | Show chevron icon to the right          | `boolean`          | no       | false                        |  
 | divider         | Show a divider line below the item      | `boolean`          | no       | true                         |  
 | icon            | A component to render for the icon      | `React.Component`  | no       |                              |      
