@@ -17,7 +17,7 @@ export type HeroBannerProps = {
 };
 
 export const HeroBanner = (props: HeroBannerProps & any): JSX.Element => {
-    const { divider = false, limit = 4 } = props;
+    const { divider, limit } = props;
     const classes = useStyles(props);
     const isArray = Array.isArray(props.children);
 
@@ -36,4 +36,8 @@ HeroBanner.displayName = 'HeroBanner';
 HeroBanner.propType = {
     divider: PropTypes.bool,
     limit: PropTypes.number,
+};
+HeroBanner.defaultProps = {
+    divider: false,
+    limit: 4,
 };

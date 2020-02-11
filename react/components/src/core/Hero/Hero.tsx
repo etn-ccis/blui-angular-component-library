@@ -72,17 +72,7 @@ export type HeroProps = {
 
 export const Hero = (props: HeroProps): JSX.Element => {
     const classes = useStyles(props);
-    const {
-        fontSize = 'normal',
-        icon,
-        iconBackgroundColor = 'transparent',
-        iconSize = 36,
-        label,
-        onClick,
-        value,
-        valueIcon,
-        units,
-    } = props;
+    const { fontSize, icon, iconBackgroundColor, iconSize, label, onClick, value, valueIcon, units } = props;
 
     return (
         <div
@@ -126,4 +116,9 @@ Hero.propType = {
     value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     valueIcon: PropTypes.element,
     units: PropTypes.string,
+};
+Hero.defaultProps = {
+    fontSize: 'normal',
+    iconBackgroundColor: 'transparent',
+    iconSize: 36,
 };

@@ -38,7 +38,7 @@ export type ChannelValueProps = {
 };
 
 export const ChannelValue: React.FC<ChannelValueProps> = (props) => {
-    const { color = 'inherit', fontSize = 'inherit', icon, prefix = false, value, units } = props;
+    const { color, fontSize, icon, prefix, value, units } = props;
     const classes = styles(props);
 
     const getUnitElement = useCallback(
@@ -93,4 +93,9 @@ ChannelValue.propTypes = {
     prefix: PropTypes.bool,
     fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
     color: PropTypes.string,
+};
+ChannelValue.defaultProps = {
+    color: 'inherit',
+    fontSize: 'inherit',
+    prefix: false,
 };

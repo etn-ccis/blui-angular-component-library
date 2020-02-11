@@ -79,11 +79,11 @@ export type ScoreCordProps = {
 export const ScoreCard: React.FC<ScoreCordProps> = (props) => {
     const classes = useStyles(props);
     const {
-        actionLimit = 3,
+        actionLimit,
         actionItems,
         actionRow,
         badge,
-        badgeOffset = 0,
+        badgeOffset,
         headerBackgroundImage,
         children,
         headerColor,
@@ -222,4 +222,8 @@ ScoreCard.propTypes = {
     headerTitle: PropTypes.string.isRequired,
     headerSubtitle: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
     style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+};
+ScoreCard.defaultProps = {
+    actionLimit: 3,
+    badgeOffset: 0,
 };
