@@ -87,7 +87,7 @@ export const ChannelValue: React.FC<ChannelValueProps> = (props) => {
 
 ChannelValue.displayName = 'ChannelValue';
 ChannelValue.propTypes = {
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
     icon: PropTypes.element,
     units: PropTypes.string,
     prefix: PropTypes.bool,
