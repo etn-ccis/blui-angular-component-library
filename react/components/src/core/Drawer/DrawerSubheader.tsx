@@ -1,5 +1,6 @@
 import React from 'react';
 import { Divider } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 export type DrawerSubheaderProps = {
     open?: boolean;
@@ -13,3 +14,7 @@ export const DrawerSubheader: React.FC<DrawerSubheaderProps> = (props) => (
 );
 
 DrawerSubheader.displayName = 'DrawerSubheader';
+
+DrawerSubheader.propTypes = {
+    open: PropTypes.bool,
+};

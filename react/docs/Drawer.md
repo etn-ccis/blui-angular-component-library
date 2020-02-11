@@ -89,7 +89,7 @@ A `DrawerNavGroup` will render inside of the `DrawerBody` and is used to organiz
 | divider               | Whether to show a line between items    | `boolean`         | no       | true    |    
 | fontColor             | The color used for the text             | `string`          | no       |         |   
 | iconColor             | The color used for the icon             | `string`          | no       |         |   
-| items                 | List of navigation items to render      | `Item[]`          | no       |         |  
+| items                 | List of navigation items to render      | `NavItem[]`       | no       |         |  
 | title                 | Text to display in the group header     | `string`          | no       |         |  
 
 

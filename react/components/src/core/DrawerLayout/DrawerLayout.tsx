@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 export type DrawerLayoutProps = {
     children: React.ReactNode;
@@ -32,4 +33,10 @@ export const DrawerLayout: React.FC<DrawerLayoutProps> = (props) => {
             <div className={classes.content}>{children}</div>
         </div>
     );
+};
+
+DrawerLayout.displayName = 'DrawerLayout';
+DrawerLayout.propTypes = {
+    children: PropTypes.element.isRequired,
+    drawer: PropTypes.element.isRequired,
 };

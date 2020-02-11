@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import { Hero, HeroBanner, ChannelValue,
 EmptyState, InfoListItem, ScoreCard, Spacer,
-Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, DrawerSubheader,
+Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, DrawerSubheader, UserMenu,
 DrawerLayout, ListItemTag } from '@pxblue/react-components';
 
 import DevicesIcon from '@material-ui/icons/Devices'
-import { Add, Menu, NotificationsActive, List as ListIcon, Public, Settings, Gavel, Help } from '@material-ui/icons'
+import SendIcon from '@material-ui/icons/Send';
+import { Add, Menu, NotificationsActive, List as ListIcon, Public, Email, Settings, Gavel, Help } from '@material-ui/icons'
 
 import Trend from '@material-ui/icons/TrendingUp';
 import Timer from '@material-ui/icons/Timer';
@@ -21,6 +22,7 @@ import { useTheme } from '@material-ui/core/styles';
 import top from './topology_40.png';
 // import farm from './farm.jpg';
 import EatonLogo from './EatonLogo.svg';
+import Avatar from "@material-ui/core/Avatar";
 
 const locations = [
     "All Locations",
@@ -130,6 +132,40 @@ export default () => {
                             <Menu style={{ marginRight: 32 }} onClick={() => setOpen(!open)} />
                         </Hidden>
                         <Typography variant={'h6'}>Showcase</Typography>
+                        <Spacer flex={1} />
+                        <UserMenu
+                            avatar={<Avatar>MS</Avatar>}
+                            menuTitle={'Marshall Sutter'}
+                            menuSubtitle={'msutter@acmesteel.com'}
+                            menuGroups={[
+                                {
+                                    items: [
+                                        {
+                                            title: 'Log Out',
+                                            icon: <SendIcon />
+                                        },
+                                        {
+                                            title: 'Account Settings',
+                                            icon: <Settings />,
+                                            divider: true
+                                        },
+                                    ]
+                                },
+                                {
+                                    title: 'Contact Us',
+                                    items: [
+                                        {
+                                            title: 'eatonhelp@eaton.com',
+                                            icon: <SendIcon />,
+                                        },
+                                        {
+                                            title: '1-866-905-9988',
+                                            icon: <Email />,
+                                        },
+                                    ]
+                                }]
+                            }
+                        />
                     </Toolbar>
                 </AppBar>
                 <div style={{ padding: 10, flex: 1, overflow: 'auto' }}>
@@ -170,7 +206,7 @@ export default () => {
                                 <List style={{ padding: 0 }}>
                                     <ListItem>
                                         <ListItemText primary="View Location" />
-                                        <ListItemSecondaryAction> <ChevronRight /> </ListItemSecondaryAction>
+                                        <ListItemSecondaryAction style={{display: 'flex'}}> <ChevronRight /> </ListItemSecondaryAction>
                                     </ListItem>
                                 </List>
                             }
@@ -223,7 +259,7 @@ export default () => {
                                 <List style={{ padding: 0 }}>
                                     <ListItem>
                                         <ListItemText primary="View Location" />
-                                        <ListItemSecondaryAction> <ChevronRight /> </ListItemSecondaryAction>
+                                        <ListItemSecondaryAction style={{display: 'flex'}}> <ChevronRight /> </ListItemSecondaryAction>
                                     </ListItem>
                                 </List>
                             }
@@ -323,9 +359,9 @@ export default () => {
                                 rightComponent={
                                 <>
                                     <ListItemTag style={{marginRight: 8}} backgroundColor={Colors.white['300']} label={'active'} fontColor={Colors.green['500']} />
-                                    <ListItemTag 
-                                    label={'OVERHEAT'} 
-                                    backgroundColor={Colors.red['500']} 
+                                    <ListItemTag
+                                    label={'OVERHEAT'}
+                                    backgroundColor={Colors.red['500']}
                                     onClick={(_)=>{alert('You clicked me.')}}
                                     style={{marginRight: 8}}
                                     />

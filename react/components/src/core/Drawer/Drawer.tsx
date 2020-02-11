@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 import { Drawer, DrawerProps } from '@material-ui/core';
 import Hidden from '@material-ui/core/Hidden';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -131,4 +132,10 @@ export const DrawerComponent: React.FC<DrawerComponentProps> = (props) => {
             <Hidden xsDown>{getDesktopNavigationMenu()}</Hidden>
         </>
     );
+};
+
+DrawerComponent.displayName = 'PXBlueDrawer';
+DrawerComponent.propTypes = {
+    open: PropTypes.bool.isRequired,
+    width: PropTypes.number,
 };

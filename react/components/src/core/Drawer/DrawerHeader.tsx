@@ -4,6 +4,7 @@ import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Divider from '@material-ui/core/Divider';
 import { Typography } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -39,7 +40,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         title: {
             fontWeight: 600,
-            lineHeight: '1.25rem',
+            lineHeight: '1.5rem',
         },
         subtitle: {
             fontWeight: 300,
@@ -53,6 +54,11 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundSize: 'cover',
             height: '100%',
             backgroundPosition: 'center',
+        },
+        nonClickableIcon: {
+            display: 'flex',
+            paddingLeft: theme.spacing(1.5),
+            paddingRight: theme.spacing(1.5),
         },
     })
 );
@@ -86,12 +92,6 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> = (props) => {
 
     // @ts-ignore // TODO: Palette type definition?
     const toolbarBackgroundColor = String(backgroundColor || theme.palette.primary[500]);
-
-    const clickIcon = (): void => {
-        if (onIconClick) {
-            onIconClick();
-        }
-    };
 
     const getHeaderContent = (): ReactNode =>
         titleContent || (
@@ -128,9 +128,17 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> = (props) => {
                 {getBackgroundImage()}
                 {icon && (
                     <div className={classes.navigation}>
-                        <IconButton color={'inherit'} onClick={(): void => clickIcon()}>
-                            {icon}
-                        </IconButton>
+                        {onIconClick && (
+                            <IconButton
+                                color={'inherit'}
+                                onClick={(): void => {
+                                    onIconClick();
+                                }}
+                            >
+                                {icon}
+                            </IconButton>
+                        )}
+                        {!onIconClick && <div className={classes.nonClickableIcon}>{icon}</div>}
                     </div>
                 )}
                 {getHeaderContent()}
@@ -143,4 +151,15 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> = (props) => {
 DrawerHeader.displayName = 'DrawerHeader';
 DrawerHeader.defaultProps = {
     backgroundOpacity: 0.3,
+};
+DrawerHeader.propTypes = {
+    backgroundColor: PropTypes.string,
+    backgroundImage: PropTypes.string,
+    backgroundOpacity: PropTypes.number,
+    fontColor: PropTypes.string,
+    icon: PropTypes.element,
+    onIconClick: PropTypes.func,
+    subtitle: PropTypes.string,
+    title: PropTypes.string,
+    titleContent: PropTypes.element,
 };
