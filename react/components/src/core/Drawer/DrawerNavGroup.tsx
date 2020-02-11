@@ -69,6 +69,7 @@ export type DrawerNavGroupProps = {
     backgroundColor?: string;
     chevron?: boolean;
     content?: ReactNode;
+    divider?: boolean;
     fontColor?: string;
     iconColor?: string;
     items: NavItem[];
@@ -76,7 +77,6 @@ export type DrawerNavGroupProps = {
     open?: boolean;
     title?: string;
     titleColor?: string;
-    divider?: boolean;
 };
 
 function NavigationListItem(item: NavItem, props: DrawerNavGroupProps): ReactNode {

@@ -1,16 +1,14 @@
 {
     "compilerOptions": {
-        "outDir": "../dist",
         "target": "es5",
         "types": ["node", "jest", "enzyme"],
         "esModuleInterop": true,
         "jsx": "react",
         "strict": true,
-        "declaration": true,
         "allowSyntheticDefaultImports": true,
-        "strictNullChecks": false,
+        "strictNullChecks": false
     },
     "include": [
-        "src/"
+        "src"
     ]
 }

@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         title: {
             fontWeight: 600,
-            lineHeight: '1.25rem',
+            lineHeight: '1.5rem',
         },
         subtitle: {
             fontWeight: 300,
@@ -55,6 +55,11 @@ const useStyles = makeStyles((theme: Theme) =>
             backgroundSize: 'cover',
             height: '100%',
             backgroundPosition: 'center',
+        },
+        nonClickableIcon: {
+            display: 'flex',
+            paddingLeft: theme.spacing(1.5),
+            paddingRight: theme.spacing(1.5),
         },
     })
 );
@@ -88,12 +93,6 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> = (props) => {
 
     // @ts-ignore // TODO: Palette type definition?
     const toolbarBackgroundColor = String(backgroundColor || theme.palette.primary[500]);
-
-    const clickIcon = (): void => {
-        if (onIconClick) {
-            onIconClick();
-        }
-    };
 
     const getHeaderContent = (): ReactNode =>
         titleContent || (
@@ -130,9 +129,17 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> = (props) => {
                 {getBackgroundImage()}
                 {icon && (
                     <div className={classes.navigation}>
-                        <IconButton color={'inherit'} onClick={(): void => clickIcon()}>
-                            {icon}
-                        </IconButton>
+                        {onIconClick && (
+                            <IconButton
+                                color={'inherit'}
+                                onClick={(): void => {
+                                    onIconClick();
+                                }}
+                            >
+                                {icon}
+                            </IconButton>
+                        )}
+                        {!onIconClick && <div className={classes.nonClickableIcon}>{icon}</div>}
                     </div>
                 )}
                 {getHeaderContent()}
