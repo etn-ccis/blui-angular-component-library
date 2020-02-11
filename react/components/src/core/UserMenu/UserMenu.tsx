@@ -29,7 +29,7 @@ type UserMenuClasses = {
     root?: string;
 };
 
-export type UserMenuItem = Omit<NavItem, 'active' | 'active'>;
+export type UserMenuItem = Omit<NavItem, 'active'>;
 export type UserMenuGroup = {
     title?: string;
     fontColor?: string;
