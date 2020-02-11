@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, StyleRules } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import * as Colors from '@pxblue/colors';
 import Typography from '@material-ui/core/Typography';
