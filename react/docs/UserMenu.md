@@ -10,10 +10,12 @@ If a child node is passed to the UserMenu, the content will render inside a Menu
 ## Usage
 ```
 import { UserMenu } from '@pxblue/react-components';
+import { Avatar } from '@material-ui/core';
 import {Email, Settings} from "@material-ui/icons";
 import SendIcon from '@material-ui/icons/Send';
 
-<UserMenu value={'AA'} menuGroups={[
+const avatar = <Avatar><SendIcon/></Avatar>;
+<UserMenu avatar={avatar} menuGroups={[
     {
        items: [
            {
@@ -38,18 +40,14 @@ import SendIcon from '@material-ui/icons/Send';
 ## API
 | Prop Name         | Description                             | Type                     | Required | Default                    | Examples                                |
 |-------------------|-----------------------------------------|--------------------------|----------|----------------------------|-----------------------------------------|
-| avatar            | MUI Avatar that displays                | `Avatar`                 | no       |                            |                                         |
-| backgroundColor   | The color used for the background       | `string`                 | no       | theme.palette.primary[50]  |                                         |
-| backgroundImage   | An alternative to displaying text       | `string`                 | no       |                            |                                         |
+| avatar            | MUI Avatar that displays                | `Avatar`                 | no       |                            |                                        |
 | classes           | Style overrides                         | `StyleRules`             | no       |                            |                                         |
-| fontColor         | Text color of the Avatar                | `string`                 | no       | theme.palette.primary[500] |                                         |
 | onClose           | Function called when the menu is closed | `Function`               | no       |                            |                                         |
 | onOpen            | Function called when the menu is opened | `Function`               | no       |                            |                                         |
 | menuTitle         | Title shown when menu is open           | `string`                 | no       |                            |                                         |
 | menuSubtitle      | Subtitle shown when menu is open        | `string`                 | no       |                            |                                         |
 | menuGroups        | Groups of menu items that display       | `UserMenuGroups`         | no       |                            |                                         |
 | MenuProps         | Property overrides for the MUI Menu     | `MenuProps`              | no       |                            |                                         |
-| width             | Menu width                              | `number`                 | no       |                            |                                         |
 
 #### UserMenuGroups Object
 The `menuGroups` prop of the `UserMenu` includes many properties from the `DrawerNavGroup` array found within a `DrawerBody`.
