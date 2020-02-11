@@ -204,7 +204,7 @@ export default () => {
                                 <List style={{ padding: 0 }}>
                                     <ListItem>
                                         <ListItemText primary="View Location" />
-                                        <ListItemSecondaryAction> <ChevronRight /> </ListItemSecondaryAction>
+                                        <ListItemSecondaryAction style={{display: 'flex'}}> <ChevronRight /> </ListItemSecondaryAction>
                                     </ListItem>
                                 </List>
                             }
@@ -257,7 +257,7 @@ export default () => {
                                 <List style={{ padding: 0 }}>
                                     <ListItem>
                                         <ListItemText primary="View Location" />
-                                        <ListItemSecondaryAction> <ChevronRight /> </ListItemSecondaryAction>
+                                        <ListItemSecondaryAction style={{display: 'flex'}}> <ChevronRight /> </ListItemSecondaryAction>
                                     </ListItem>
                                 </List>
                             }

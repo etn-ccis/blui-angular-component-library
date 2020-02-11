@@ -1,5 +1,6 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles({
     root: {
@@ -29,3 +30,8 @@ export const DrawerFooter: React.FC<DrawerFooterProps> = (props) => {
 };
 
 DrawerFooter.displayName = 'DrawerFooter';
+
+DrawerFooter.propTypes = {
+    backgroundColor: PropTypes.string,
+    open: PropTypes.bool,
+};

@@ -84,22 +84,22 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
     const theme = useTheme();
     const classes = useStyles(theme);
     const {
-        avatar = false,
+        avatar,
         backgroundColor,
-        chevron = false,
-        dense = false,
+        chevron,
+        dense,
         divider,
         fontColor,
-        hidePadding = false,
+        hidePadding,
         icon,
         iconColor,
         leftComponent,
-        onClick = (): void => {},
+        onClick,
         rightComponent,
         statusColor,
         style,
         subtitle,
-        subtitleSeparator = '\u00B7',
+        subtitleSeparator,
         title,
     } = props;
 
@@ -203,7 +203,7 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
                     noWrap: true,
                     variant: 'body1',
                     className: classes.title,
-                    style: { color: fontColor || 'inherit' },
+                    style: { color: fontColor },
                 }}
                 secondaryTypographyProps={{ noWrap: true, variant: 'subtitle2', className: classes.subtitle }}
             />
@@ -211,6 +211,8 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
         </ListItem>
     );
 };
+
+InfoListItem.displayName = 'InfoListItem';
 InfoListItem.propTypes = {
     avatar: PropTypes.bool,
     backgroundColor: PropTypes.string,
@@ -238,5 +240,7 @@ InfoListItem.defaultProps = {
     chevron: false,
     dense: false,
     hidePadding: false,
+    onClick: (): void => {},
     subtitleSeparator: '\u00B7',
+    fontColor: 'inherit',
 };
