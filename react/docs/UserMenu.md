@@ -38,16 +38,17 @@ const avatar = <Avatar><SendIcon/></Avatar>;
 
 
 ## API
-| Prop Name         | Description                             | Type                     | Required | Default                    | Examples                                |
-|-------------------|-----------------------------------------|--------------------------|----------|----------------------------|-----------------------------------------|
-| avatar            | MUI Avatar that displays                | `Avatar`                 | no       |                            |                                        |
-| classes           | Style overrides                         | `StyleRules`             | no       |                            |                                         |
-| onClose           | Function called when the menu is closed | `Function`               | no       |                            |                                         |
-| onOpen            | Function called when the menu is opened | `Function`               | no       |                            |                                         |
-| menuTitle         | Title shown when menu is open           | `string`                 | no       |                            |                                         |
-| menuSubtitle      | Subtitle shown when menu is open        | `string`                 | no       |                            |                                         |
-| menuGroups        | Groups of menu items that display       | `UserMenuGroups`         | no       |                            |                                         |
-| MenuProps         | Property overrides for the MUI Menu     | `MenuProps`              | no       |                            |                                         |
+| Prop Name         | Description                                      | Type                     | Required | Default     |
+|-------------------|--------------------------------------------------|--------------------------|----------|-------------|
+| avatar            | MUI Avatar that displays                         | `Avatar`                 | no       |             |  
+| classes           | Style overrides                                  | `StyleRules`             | no       |             |           
+| onClose           | Function called when the menu is closed          | `Function`               | no       |             |                                         
+| onOpen            | Function called when the menu is opened          | `Function`               | no       |             |                                         
+| menu              | Custom MUI Menu displayed when Avatar is clicked | `string`                 | no       |             |                                         
+| menuTitle         | Title shown when menu is open                    | `string`                 | no       |             |                                         
+| menuSubtitle      | Subtitle shown when menu is open                 | `string`                 | no       |             |                                         
+| menuGroups        | Groups of menu items that display                | `UserMenuGroups`         | no       |             |                                         
+| MenuProps         | Property overrides for the MUI Menu              | `MenuProps`              | no       |             |                                         
 
 #### UserMenuGroups Object
 The `menuGroups` prop of the `UserMenu` includes many properties from the `DrawerNavGroup` array found within a `DrawerBody`.

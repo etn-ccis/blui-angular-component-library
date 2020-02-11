@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme: Theme) =>
             height: theme.spacing(5),
             width: theme.spacing(5),
         },
+        noCursor: {
+            cursor: 'unset',
+        },
     })
 );
 
@@ -45,6 +48,7 @@ export type UserMenuGroup = {
 export type UserMenuProps = {
     avatar: JSX.Element;
     classes?: UserMenuClasses;
+    menu?: JSX.Element;
     menuTitle?: string;
     menuSubtitle?: string;
     menuGroups?: UserMenuGroup[];
@@ -54,23 +58,18 @@ export type UserMenuProps = {
 };
 
 export const UserMenu: React.FC<UserMenuProps> = (props) => {
-    const {
-        avatar,
-        children,
-        classes = {} as UserMenuClasses,
-        menuTitle,
-        menuSubtitle,
-        menuGroups = [],
-        MenuProps = {} as Omit<standardMenuProps, 'open'>,
-        onClose = (): void => {},
-        onOpen = (): void => {},
-    } = props;
-
+    const { avatar, menu, classes, menuTitle, menuSubtitle, menuGroups, MenuProps, onClose, onOpen } = props;
     const theme = useTheme();
     const defaultClasses = useStyles(theme);
     const [anchorEl, setAnchorEl] = useState(null);
 
-    const handleOpen = useCallback(
+    const canDisplayMenu = useCallback(() => Boolean((menu || menuGroups.length > 0) && anchorEl), [
+        menu,
+        menuGroups,
+        anchorEl,
+    ]);
+
+    const openMenu = useCallback(
         (event: MouseEvent) => {
             onOpen();
             setAnchorEl(event.currentTarget);
@@ -78,19 +77,17 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
         [onOpen]
     );
 
-    const handleClose = useCallback(() => {
+    const closeMenu = useCallback(() => {
         onClose();
         setAnchorEl(null);
     }, [onClose]);
 
-    const hasMenu = useCallback(() => Boolean(children || menuGroups.length > 0), [children, menuGroups]);
-
-    /* Clones Avatar that user passes to UserMenu, appends a click event so it opens the menu. */
+    /* Clones Avatar that user provides UserMenu & appends a click event so it opens the menu. */
     const formatAvatar = useCallback(
         (preserveOnClick: boolean): JSX.Element => {
             /* If user passed in onClick function as a prop to Avatar, keep it. */
             const onClickFn = (event: MouseEvent): void => {
-                handleOpen(event);
+                openMenu(event);
                 if (avatar.props && avatar.props.onClick) {
                     avatar.props.onClick(event);
                 }
@@ -103,7 +100,7 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
                 ...aProps,
                 classes: {
                     ...aProps.classes,
-                    root: clsx(defaultClasses.avatarRoot, aProps?.classes?.root),
+                    root: clsx(defaultClasses.avatarRoot,  (preserveOnClick ? '' : defaultClasses.noCursor), aProps?.classes?.root)
                 },
             });
         },
@@ -145,7 +142,7 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
                         fontColor={group.fontColor}
                         title={group.title}
                         items={group.items}
-                        onSelect={handleClose}
+                        onSelect={closeMenu}
                     />
                 </div>
             )),
@@ -154,15 +151,28 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
 
     const printMenu = (): JSX.Element[] => [printHeader()].concat(printMenuItems());
 
+    const formatMenu = useCallback((): JSX.Element => {
+        /* If the user provides a menu, provide default props. */
+        if (menu) {
+            return React.cloneElement(menu, {
+                anchorEl: anchorEl,
+                open: Boolean(anchorEl),
+                onClose: closeMenu,
+                ...menu.props,
+            });
+        } else {
+            return (
+                <Menu open={Boolean(anchorEl)} anchorEl={anchorEl} onClose={closeMenu} {...MenuProps}>
+                    {printMenu()}
+                </Menu>
+            );
+        }
+    }, [menu, anchorEl, closeMenu, MenuProps, printMenu]);
+
     return (
         <div className={clsx(defaultClasses.root, classes.root)}>
             {formatAvatar(true)}
-            {hasMenu() && (
-                <Menu open={Boolean(anchorEl)} anchorEl={anchorEl} keepMounted onClose={handleClose} {...MenuProps}>
-                    {children}
-                    {!children && printMenu()}
-                </Menu>
-            )}
+            {canDisplayMenu() && formatMenu()}
         </div>
     );
 };
@@ -172,6 +182,7 @@ UserMenu.propTypes = {
     classes: PropTypes.shape({
         root: PropTypes.string,
     }),
+    menu: PropTypes.element,
     menuTitle: PropTypes.string,
     menuSubtitle: PropTypes.string,
     // @ts-ignore
@@ -195,4 +206,12 @@ UserMenu.propTypes = {
     MenuProps: PropTypes.object,
     onClose: PropTypes.func,
     onOpen: PropTypes.func,
+};
+
+UserMenu.defaultProps = {
+    classes: {},
+    menuGroups: [],
+    MenuProps: {},
+    onClose: (): void => {},
+    onOpen: (): void => {},
 };

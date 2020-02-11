@@ -1,8 +1,9 @@
-import { Avatar, Divider, makeStyles, MenuItem, Typography } from '@material-ui/core';
+import { Avatar, Divider, makeStyles, Menu, MenuItem, Typography } from '@material-ui/core';
 import { Email, Settings } from '@material-ui/icons';
 import SendIcon from '@material-ui/icons/Send';
 import * as Colors from '@pxblue/colors';
 import { UserMenu, UserMenuGroup } from '@pxblue/react-components';
+import { State, Store } from '@sambego/storybook-state';
 import { action } from '@storybook/addon-actions';
 import { color, text, withKnobs } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
@@ -81,11 +82,23 @@ stories.add('with menu header', () => {
     return <UserMenu avatar={avatar} menuGroups={defaultMenuItems} menuTitle={menuTitle} menuSubtitle={menuSubtitle} />;
 });
 
-stories.add('with custom menu body', () => {
+type UserMenuState = {
+    open: boolean;
+};
+const store = new Store<UserMenuState>({
+    open: false,
+});
+stories.add('with custom menu', () => {
+    const open = (): void => {
+        store.set({ open: true });
+    };
+    const close = (): void => {
+        store.set({ open: false });
+    };
     const avatar = <Avatar src={tRex} />;
-    return (
-        <UserMenu avatar={avatar}>
-            <div style={{ position: 'relative', padding: 10 }}>
+    const menu = (state: any): JSX.Element => (
+        <Menu open={state.open} onClose={close}>
+            <div key={'header'} style={{ position: 'relative', padding: 10 }}>
                 <Typography variant={'h6'}>Welcome, </Typography>
                 <Typography style={{ fontWeight: 600, marginTop: '-10px' }} variant={'h3'}>
                     T-Rex
@@ -101,19 +114,28 @@ stories.add('with custom menu body', () => {
                         backgroundSize: 'cover',
                         backgroundImage: `url(${tRex})`,
                     }}
-                >
-                    &nbsp;
-                </div>
+                />
             </div>
-            <Divider />
-            <MenuItem key={'account'}>My Account</MenuItem>
-            <MenuItem key={'logout'}>Logout</MenuItem>
-            <Divider />
+            <Divider key={'divider-1'} />
+            <MenuItem onClick={close} key={'account'}>
+                My Account
+            </MenuItem>
+            <MenuItem onClick={close} key={'logout'}>
+                Logout
+            </MenuItem>
+            <Divider key={'divider-2'} />
             <img
+                key={'footer'}
                 alt={'tRex'}
                 style={{ textAlign: 'center', padding: '12px 16px 0 16px', height: 40 }}
                 src={EatonLogo}
             />
-        </UserMenu>
+        </Menu>
+    );
+
+    return (
+        <State store={store}>
+            {(state): JSX.Element => <UserMenu avatar={avatar} onOpen={open} menu={menu(state)} />}
+        </State>
     );
 });
