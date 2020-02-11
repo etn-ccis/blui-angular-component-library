@@ -39,7 +39,6 @@ export type UserMenuGroup = {
 
 export type UserMenuProps = {
     avatar: JSX.Element;
-    backgroundColor?: string;
     classes?: UserMenuClasses;
     menuTitle?: string;
     menuSubtitle?: string;
