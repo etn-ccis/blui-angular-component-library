@@ -3,7 +3,6 @@ import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/sty
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Divider from '@material-ui/core/Divider';
-import * as Colors from '@pxblue/colors';
 import { Typography } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
@@ -82,7 +81,7 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> = (props) => {
     const {
         icon,
         backgroundColor,
-        fontColor,
+        fontColor = theme.palette.getContrastText(backgroundColor || theme.palette.primary.main),
         onIconClick,
         titleContent,
         title,
@@ -91,8 +90,7 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> = (props) => {
         backgroundOpacity,
     } = props;
 
-    // @ts-ignore // TODO: Palette type definition?
-    const toolbarBackgroundColor = String(backgroundColor || theme.palette.primary[500]);
+    const toolbarBackgroundColor = String(backgroundColor || theme.palette.primary.main);
 
     const getHeaderContent = (): ReactNode =>
         titleContent || (
@@ -152,7 +150,6 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> = (props) => {
 DrawerHeader.displayName = 'DrawerHeader';
 DrawerHeader.defaultProps = {
     backgroundOpacity: 0.3,
-    fontColor: Colors.white[50], // TODO: Dark Theme
 };
 DrawerHeader.propTypes = {
     backgroundColor: PropTypes.string,

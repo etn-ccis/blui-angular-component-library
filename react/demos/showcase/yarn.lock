@@ -1348,11 +1348,6 @@
 
 "@pxblue/colors@^2.0.0":
   version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/colors/-/colors-2.0.0.tgz#fa7d2abde80485537f26521df4c3f6e56dd93361"
-  integrity sha512-1JoCVC17nHmC6bbqg2nCAHJgJLHAWNIAmS/UZ3h8u0TnvU5C6qI+CpCrn/sP6bNSQ3LLhEkdVpjKna1kxCXdhg==
-
-"@pxblue/colors@^2.0.0":
-  version "2.0.0"
   resolved "https://registry.npmjs.org/@pxblue/colors/-/colors-2.0.0.tgz#fa7d2abde80485537f26521df4c3f6e56dd93361"
   integrity sha512-1JoCVC17nHmC6bbqg2nCAHJgJLHAWNIAmS/UZ3h8u0TnvU5C6qI+CpCrn/sP6bNSQ3LLhEkdVpjKna1kxCXdhg==
 
@@ -1369,12 +1364,10 @@
     "@pxblue/colors" "^2.0.0"
     color "^3.1.2"
 
-"@pxblue/react-progress-icons@^1.0.6":
-  version "1.0.7"
-  resolved "https://registry.npmjs.org/@pxblue/react-progress-icons/-/react-progress-icons-1.0.7.tgz#2eeeef507926b25782338d71ded201837598a2e7"
-  integrity sha512-G796y3tsQd78QuMi65PnKGTAnK+J3uR50SovhsmKcJNX/2ySEY1488tSpgM6IrGOzdz47GsGuB6mcUpkHZLu0w==
-  dependencies:
-    prop-types "^15.7.2"
+"@pxblue/react-progress-icons@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@pxblue/react-progress-icons/-/react-progress-icons-2.0.0.tgz#b1e1aa21ae871b60a3cdadd926569737e581a7e2"
+  integrity sha512-S1upGm3FReTL/mwzjxAAvHubtCfgwbqKzJbOA47pRkE9tKpebi/eMoitA1RwATTYdwxjcvVF7373UZctcLa0+A==
 
 "@pxblue/themes@^3.0.2":
   version "3.0.2"

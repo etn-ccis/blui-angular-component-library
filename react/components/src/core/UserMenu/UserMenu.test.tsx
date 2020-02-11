@@ -16,12 +16,7 @@ let shallow: Shallow;
 
 describe('User Menu', () => {
     beforeEach(() => {
-        mount = createMount({ strict: true });
-        shallow = createShallow({ dive: false});
-    });
-
-    afterEach(() => {
-        mount.cleanUp();
+        shallow = createShallow({ dive: false });
     });
 
     it('renders without crashing', () => {
