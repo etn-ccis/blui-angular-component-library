@@ -63,10 +63,9 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
     const defaultClasses = useStyles(theme);
     const [anchorEl, setAnchorEl] = useState(null);
 
-    const canDisplayMenu = useCallback(() => Boolean((menu || menuGroups.length > 0) && anchorEl), [
+    const canDisplayMenu = useCallback(() => Boolean((menu || menuGroups.length > 0)), [
         menu,
-        menuGroups,
-        anchorEl,
+        menuGroups
     ]);
 
     const openMenu = useCallback(
