@@ -1,4 +1,4 @@
-import { ClickAwayListener, Menu, MenuProps as standardMenuProps, useTheme } from '@material-ui/core';
+import { Menu, MenuProps as standardMenuProps, useTheme } from '@material-ui/core';
 import { createStyles, makeStyles, Theme } from '@material-ui/core/styles';
 import clsx from 'clsx';
 import PropTypes from 'prop-types';
@@ -9,6 +9,11 @@ const useStyles = makeStyles((theme: Theme) =>
     createStyles({
         root: {},
         navGroups: {
+            '&:active, &:focus': {
+                outline: 'none',
+            },
+        },
+        header: {
             '&:active, &:focus': {
                 outline: 'none',
             },
@@ -110,7 +115,7 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
         if (menuTitle) {
             const nonClickableAvatar = formatAvatar(false);
             return (
-                <div key={'header'}>
+                <div className={defaultClasses.header} key={'header'}>
                     <DrawerHeader
                         icon={
                             /* TODO: Replace these inline styles with class overrides when the Drawer component supports it. */
@@ -140,6 +145,7 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
                         fontColor={group.fontColor}
                         title={group.title}
                         items={group.items}
+                        onSelect={handleClose}
                     />
                 </div>
             )),
@@ -149,17 +155,15 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
     const printMenu = (): JSX.Element[] => [printHeader()].concat(printMenuItems());
 
     return (
-        <ClickAwayListener onClickAway={handleClose}>
-            <div className={clsx(defaultClasses.root, classes.root)}>
-                {formatAvatar(true)}
-                {hasMenu() && (
-                    <Menu open={Boolean(anchorEl)} anchorEl={anchorEl} keepMounted {...MenuProps}>
-                        {children}
-                        {!children && printMenu()}
-                    </Menu>
-                )}
-            </div>
-        </ClickAwayListener>
+        <div className={clsx(defaultClasses.root, classes.root)}>
+            {formatAvatar(true)}
+            {hasMenu() && (
+                <Menu open={Boolean(anchorEl)} anchorEl={anchorEl} keepMounted onClose={handleClose} {...MenuProps}>
+                    {children}
+                    {!children && printMenu()}
+                </Menu>
+            )}
+        </div>
     );
 };
 
