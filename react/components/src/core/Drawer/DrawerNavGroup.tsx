@@ -89,8 +89,8 @@ function NavigationListItem(item: NavItem, props: DrawerNavGroupProps): ReactNod
     const theme = useTheme();
     const { 
         activeBackgroundColor, 
-        activeFontColor = theme.palette.type === 'light' ? theme.palette.primary.main : theme.palette.secondary.contrastText, 
-        activeIconColor = theme.palette.type === 'light' ? theme.palette.primary.main : theme.palette.secondary.contrastText, 
+        activeFontColor = theme.palette.type === 'light' ? theme.palette.primary.main : theme.palette.primary.contrastText, 
+        activeIconColor = theme.palette.type === 'light' ? theme.palette.primary.main : theme.palette.primary.contrastText, 
         fontColor, 
         chevron, 
         iconColor, 
