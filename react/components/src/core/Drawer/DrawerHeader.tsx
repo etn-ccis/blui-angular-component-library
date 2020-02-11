@@ -41,7 +41,7 @@ const useStyles = makeStyles((theme: Theme) =>
         },
         title: {
             fontWeight: 600,
-            lineHeight: '1.25rem',
+            lineHeight: '1.5rem',
         },
         subtitle: {
             fontWeight: 300,

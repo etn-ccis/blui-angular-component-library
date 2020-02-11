@@ -162,7 +162,7 @@ export const UserMenu: React.FC<UserMenuProps> = (props) => {
             });
         } else {
             return (
-                <Menu open={Boolean(anchorEl)} anchorEl={anchorEl} onClose={closeMenu} {...MenuProps}>
+                <Menu open={Boolean(anchorEl)} anchorEl={anchorEl} onClose={closeMenu} {...MenuProps} MenuListProps={{style: {padding:0}}}>
                     {printMenu()}
                 </Menu>
             );
