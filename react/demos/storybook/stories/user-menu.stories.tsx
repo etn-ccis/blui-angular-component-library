@@ -66,7 +66,11 @@ stories.add('with custom colors', () => {
 
 stories.add('with a non-text avatar', () => {
     const tRexAvatar = <Avatar src={tRex} />;
-    const iconAvatar = <Avatar children={<SendIcon />} />;
+    const iconAvatar = (
+        <Avatar>
+            <SendIcon />
+        </Avatar>
+    );
     return (
         <div style={{ display: 'flex', width: '100px', justifyContent: 'space-between' }}>
             <UserMenu avatar={tRexAvatar} menuGroups={defaultMenuItems} />
@@ -96,7 +100,7 @@ stories.add('with custom menu', () => {
         store.set({ open: false });
     };
     const avatar = <Avatar src={tRex} />;
-    store.set({open: false});
+    store.set({ open: false });
     const menu = (state: any): JSX.Element => (
         <Menu open={state.open} onClose={close}>
             <div key={'header'} style={{ position: 'relative', padding: 10 }}>

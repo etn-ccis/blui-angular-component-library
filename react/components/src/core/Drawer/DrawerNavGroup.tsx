@@ -43,8 +43,9 @@ const useStyles = makeStyles((theme: Theme) =>
             width: 'calc(100% - 8px)',
             left: 0,
             top: 0,
-            //@ts-ignore
-            backgroundColor: theme.palette.type === 'light' ? theme.palette.secondary[50] : theme.palette.secondary.light,
+            backgroundColor:
+                //@ts-ignore
+                theme.palette.type === 'light' ? theme.palette.secondary[50] : theme.palette.secondary.light,
             borderRadius: '0px 24px 24px 0px',
             opacity: 0.9,
         },
@@ -87,14 +88,19 @@ function NavigationListItem(item: NavItem, props: DrawerNavGroupProps): ReactNod
 
     const classes = useStyles(props);
     const theme = useTheme();
-    const { 
-        activeBackgroundColor, 
-        activeFontColor = theme.palette.type === 'light' ? theme.palette.primary.main : theme.palette.primary.contrastText, 
-        activeIconColor = theme.palette.type === 'light' ? theme.palette.primary.main : theme.palette.primary.contrastText, 
-        fontColor, 
-        chevron, 
-        iconColor, 
-        onSelect 
+    const {
+        // @ts-ignore
+        activeBackgroundColor = theme.palette.type === 'light' ? theme.palette.primary[50] : theme.palette.primary.main,
+        activeFontColor = theme.palette.type === 'light'
+            ? theme.palette.primary.main
+            : theme.palette.primary.contrastText,
+        activeIconColor = theme.palette.type === 'light'
+            ? theme.palette.primary.main
+            : theme.palette.primary.contrastText,
+        fontColor,
+        chevron,
+        iconColor,
+        onSelect,
     } = props;
 
     const action = (): void => {
@@ -108,12 +114,7 @@ function NavigationListItem(item: NavItem, props: DrawerNavGroupProps): ReactNod
 
     return (
         <div style={{ position: 'relative' }} className={`${classes.listItem} ${active && classes.listItemNoHover}`}>
-            {active && (
-                <div
-                    className={classes.active}
-                    style={{ backgroundColor: activeBackgroundColor }}
-                />
-            )}
+            {active && <div className={classes.active} style={{ backgroundColor: activeBackgroundColor }} />}
             <InfoListItem
                 dense
                 title={title}

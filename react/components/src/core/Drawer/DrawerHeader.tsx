@@ -81,7 +81,7 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> = (props) => {
     const {
         icon,
         backgroundColor,
-        fontColor = theme.palette.text.primary,
+        fontColor = theme.palette.getContrastText(backgroundColor || theme.palette.primary.main),
         onIconClick,
         titleContent,
         title,
@@ -90,8 +90,7 @@ export const DrawerHeader: React.FC<DrawerHeaderProps> = (props) => {
         backgroundOpacity,
     } = props;
 
-    // @ts-ignore // TODO: Palette type definition?
-    const toolbarBackgroundColor = String(backgroundColor || theme.palette.primary[500]);
+    const toolbarBackgroundColor = String(backgroundColor || theme.palette.primary.main);
 
     const getHeaderContent = (): ReactNode =>
         titleContent || (

@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 import Chevron from '@material-ui/icons/ChevronRight';
 import * as Colors from '@pxblue/colors';
-//@ts-ignore
 import color from 'color';
 
 import { separate, withKeys } from '../utilities';
@@ -121,7 +120,6 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
                 <ListItemAvatar>
                     <Avatar
                         style={{
-                            // @ts-ignore TODO: Fix me
                             backgroundColor: statusColor || Colors.black[500],
                             color: getIconColor(),
                         }}
@@ -205,11 +203,11 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
                     className: classes.title,
                     style: { color: fontColor },
                 }}
-                secondaryTypographyProps={{ 
-                    noWrap: true, 
-                    variant: 'subtitle2', 
-                    className: classes.subtitle ,
-                    style: { color: fontColor || 'inherit' }
+                secondaryTypographyProps={{
+                    noWrap: true,
+                    variant: 'subtitle2',
+                    className: classes.subtitle,
+                    style: { color: fontColor || 'inherit' },
                 }}
             />
             {getRightComponent()}
