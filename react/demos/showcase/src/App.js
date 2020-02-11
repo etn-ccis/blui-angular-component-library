@@ -131,23 +131,39 @@ export default () => {
                         </Hidden>
                         <Typography variant={'h6'}>Showcase</Typography>
                         <Spacer flex={1} />
-                        <UserMenu avatar={<Avatar/>} menuGroups={[
-                            { items: [
+                        <UserMenu
+                            avatar={<Avatar>MS</Avatar>}
+                            menuTitle={'Marshall Sutter'}
+                            menuSubtitle={'msutter@acmesteel.com'}
+                            menuGroups={[
                                 {
-                                    title: 'Log Out',
-                                    icon: <SendIcon />,
-                                },
-                                {
-                                    title: 'Account Settings',
-                                    icon: <Settings />,
+                                    items: [
+                                        {
+                                            title: 'Log Out',
+                                            icon: <SendIcon />
+                                        },
+                                        {
+                                            title: 'Account Settings',
+                                            icon: <Settings />,
+                                            divider: true
+                                        },
+                                    ]
                                 },
                                 {
                                     title: 'Contact Us',
-                                    icon: <Email />,
-                                },
-                            ]
-                        }]
-                        }/>
+                                    items: [
+                                        {
+                                            title: 'eatonhelp@eaton.com',
+                                            icon: <SendIcon />,
+                                        },
+                                        {
+                                            title: '1-866-905-9988',
+                                            icon: <Email />,
+                                        },
+                                    ]
+                                }]
+                            }
+                        />
                     </Toolbar>
                 </AppBar>
                 <div style={{ padding: 10, flex: 1, overflow: 'auto' }}>
