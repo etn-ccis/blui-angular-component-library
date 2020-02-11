@@ -15,7 +15,7 @@ export type SpacerClasses = {
 };
 
 export const Spacer: React.FC<SpacerProps> = (props) => {
-    const { flex = 1, width, height, children, classes = {}, style } = props;
+    const { flex, width, height, children, classes, style } = props;
 
     return (
         <div
@@ -34,6 +34,8 @@ export const Spacer: React.FC<SpacerProps> = (props) => {
         </div>
     );
 };
+
+Spacer.displayName = 'Spacer';
 Spacer.propTypes = {
     flex: PropTypes.number,
     width: PropTypes.number,

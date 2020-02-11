@@ -74,7 +74,7 @@ stories.add('background and actions', () => (
             <List style={{ margin: 0 }}>
                 <ListItem>
                     <ListItemText primary="View Location" />
-                    <ListItemSecondaryAction>
+                    <ListItemSecondaryAction style={{ display: 'flex' }}>
                         {' '}
                         <ChevronRight />{' '}
                     </ListItemSecondaryAction>
@@ -103,7 +103,7 @@ stories.add('with hero badges', () => (
             <List style={{ margin: 0 }}>
                 <ListItem>
                     <ListItemText primary="View Location" />
-                    <ListItemSecondaryAction>
+                    <ListItemSecondaryAction style={{ display: 'flex' }}>
                         {' '}
                         <ChevronRight />{' '}
                     </ListItemSecondaryAction>
@@ -137,7 +137,7 @@ stories.add('with score badge', () => (
             <List style={{ margin: 0 }}>
                 <ListItem>
                     <ListItemText primary="View Location" />
-                    <ListItemSecondaryAction>
+                    <ListItemSecondaryAction style={{ display: 'flex' }}>
                         {' '}
                         <ChevronRight />{' '}
                     </ListItemSecondaryAction>
@@ -195,7 +195,7 @@ stories.add('full configuration', () => (
             <List style={{ margin: 0 }}>
                 <ListItem>
                     <ListItemText primary="View Location" />
-                    <ListItemSecondaryAction>
+                    <ListItemSecondaryAction style={{ display: 'flex' }}>
                         {' '}
                         <ChevronRight />{' '}
                     </ListItemSecondaryAction>

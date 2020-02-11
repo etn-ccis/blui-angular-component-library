@@ -5,6 +5,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Divider from '@material-ui/core/Divider';
 import * as Colors from '@pxblue/colors';
 import { Typography } from '@material-ui/core';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -145,4 +146,15 @@ DrawerHeader.displayName = 'DrawerHeader';
 DrawerHeader.defaultProps = {
     backgroundOpacity: 0.3,
     fontColor: Colors.white[50], // TODO: Dark Theme
+};
+DrawerHeader.propTypes = {
+    backgroundColor: PropTypes.string,
+    backgroundImage: PropTypes.string,
+    backgroundOpacity: PropTypes.number,
+    fontColor: PropTypes.string,
+    icon: PropTypes.element,
+    onIconClick: PropTypes.func,
+    subtitle: PropTypes.string,
+    title: PropTypes.string,
+    titleContent: PropTypes.element,
 };
