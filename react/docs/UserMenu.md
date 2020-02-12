@@ -1,20 +1,18 @@
 # UserMenu
-The `UserMenu` is an Avatar that opens a Menu when clicked.  
-The `UserMenu` typically appears in a corner of an application and indicates who is logged in.
+The `UserMenu` is an Avatar that opens a Menu when clicked. It is typically used in the top-right corner of an application and indicates who is logged in.
 
-The Avatar that appears in the UserMenu can appear as text, icon, or image.
+The Menu can be populated via the `menuGroups` prop, or can be entirely customized by supplying your own `Menu`.
 
-The Menu that opens when the Avatar is clicked can be populated by passing in the `menuGroups` prop, or by providing a child node.
-If a child node is passed to the UserMenu, the content will render inside a Menu.
-
-## Usage
+## Usage 
 ```
 import { UserMenu } from '@pxblue/react-components';
-import { Avatar } from '@material-ui/core';
+import { Avatar, Menu } from '@material-ui/core';
 import {Email, Settings} from "@material-ui/icons";
 import SendIcon from '@material-ui/icons/Send';
 
 const avatar = <Avatar><SendIcon/></Avatar>;
+...
+/* Using menuGroups prop */
 <UserMenu avatar={avatar} menuGroups={[
     {
        items: [
@@ -34,6 +32,9 @@ const avatar = <Avatar><SendIcon/></Avatar>;
     },
 ]} />
 
+/* Using menu prop */
+<UserMenu avatar={avatar} menu={<Menu/>} />
+
 ```
 
 
@@ -44,7 +45,7 @@ const avatar = <Avatar><SendIcon/></Avatar>;
 | classes           | Style overrides                                  | `StyleRules`             | no       |             |           
 | onClose           | Function called when the menu is closed          | `Function`               | no       |             |                                         
 | onOpen            | Function called when the menu is opened          | `Function`               | no       |             |                                         
-| menu              | Custom MUI Menu displayed when Avatar is clicked | `string`                 | no       |             |                                         
+| menu              | Custom MUI Menu displayed when Avatar is clicked | Material-UI `Menu`       | no       |             |                                         
 | menuTitle         | Title shown when menu is open                    | `string`                 | no       |             |                                         
 | menuSubtitle      | Subtitle shown when menu is open                 | `string`                 | no       |             |                                         
 | menuGroups        | Groups of menu items that display                | `UserMenuGroups`         | no       |             |                                         
@@ -79,3 +80,4 @@ You can override the classes used by PX Blue by passing a `classes` prop. It sup
 | Name             | Description                                 |
 |------------------|---------------------------------------------|
 | root             | Styles applied to the root element          |
+
