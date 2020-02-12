@@ -5,7 +5,7 @@ import * as Colors from '@pxblue/colors';
 import { UserMenu, UserMenuGroup } from '@pxblue/react-components';
 import { State, Store } from '@sambego/storybook-state';
 import { action } from '@storybook/addon-actions';
-import { color, text, withKnobs } from '@storybook/addon-knobs';
+import { color, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 const EatonLogo = require('../assets/EatonLogo.svg');
@@ -13,7 +13,6 @@ const EatonLogo = require('../assets/EatonLogo.svg');
 const tRex = require('../assets/trex.jpeg');
 
 export const stories = storiesOf('User Menu', module);
-stories.addDecorator(withKnobs);
 stories.addParameters({
     notes: { markdown: require('./../../../docs/UserMenu.md') },
 });

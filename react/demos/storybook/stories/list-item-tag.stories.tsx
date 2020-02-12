@@ -1,14 +1,13 @@
 import { ListItemTag } from '@pxblue/react-components';
 
 import * as Colors from '@pxblue/colors';
-import { text, withKnobs, color, select, boolean } from '@storybook/addon-knobs';
+import { text, color, select, boolean } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
 export const stories = storiesOf('List Item Tag', module);
 
-stories.addDecorator(withKnobs);
 stories.addParameters({
     notes: { markdown: require('./../../../docs/ListItemTag.md') },
 });

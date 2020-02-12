@@ -2,11 +2,10 @@ import React from 'react';
 import * as Colors from '@pxblue/colors';
 import { Spacer } from '@pxblue/react-components';
 import { Typography } from '@material-ui/core';
-import { number, withKnobs } from '@storybook/addon-knobs';
+import { number } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 
 export const stories = storiesOf('Spacer', module);
-stories.addDecorator(withKnobs);
 stories.addParameters({
     notes: { markdown: require('./../../../docs/Spacer.md') },
 });

@@ -4,11 +4,10 @@ import * as Colors from '@pxblue/colors';
 import { GradeA, Leaf, Temp, Device } from '@pxblue/icons-mui';
 import { ChannelValue, InfoListItem } from '@pxblue/react-components';
 import { List } from '@material-ui/core';
-import { boolean, color, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, color, text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 
 export const stories = storiesOf('Info List Item', module);
-stories.addDecorator(withKnobs);
 stories.addParameters({
     notes: { markdown: require('./../../../docs/InfoListItem.md') },
 });

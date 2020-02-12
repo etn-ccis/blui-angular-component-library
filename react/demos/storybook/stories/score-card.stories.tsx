@@ -6,12 +6,11 @@ import { GradeA, Temp, Moisture as Humidity } from '@pxblue/icons-mui';
 import { MoreVert, Search, Mail, ChevronRight, Notifications, ListAlt, Cloud } from '@material-ui/icons';
 import { InfoListItem, ScoreCard, Hero, HeroBanner } from '@pxblue/react-components';
 import { List, ListItem, ListItemText, ListItemSecondaryAction } from '@material-ui/core';
-import { boolean, color, text, number, withKnobs } from '@storybook/addon-knobs';
+import { boolean, color, text, number } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 const backgroundImage = require('../assets/topology_40.png');
 
 export const stories = storiesOf('Score Card', module);
-stories.addDecorator(withKnobs);
 stories.addParameters({
     notes: { markdown: require('./../../../docs/ScoreCard.md') },
 });
