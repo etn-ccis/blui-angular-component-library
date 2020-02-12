@@ -16,8 +16,14 @@
     - DrawerNavGroup
     - DrawerFooter
     - DrawerLayout
-- Updated index file for simpler import
-    - `import {ComponentName} from '@pxblue/react-components';`
+- **Breaking Change:** Simpler import syntax - _default_ imports will no longer work.
+    ```
+    /* Old import syntax */
+    import ComponentName from '@pxblue/react-components/core/ComponentName';
+
+    /* New import syntax */
+    import { ComponentName } from '@pxblue/react-components';
+    ```
 
 ## v1.1.0
 Adds a new component for EmptyState
