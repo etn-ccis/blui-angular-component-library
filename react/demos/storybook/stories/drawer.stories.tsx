@@ -36,7 +36,7 @@ import {
     NavItem,
 } from '@pxblue/react-components';
 import { State, Store } from '@sambego/storybook-state';
-import { boolean, color, number, optionsKnob, select, text, withKnobs } from '@storybook/addon-knobs';
+import { boolean, color, number, optionsKnob, select, text } from '@storybook/addon-knobs';
 import { OptionsKnobOptionsDisplay } from '@storybook/addon-knobs/dist/components/types/Options';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
@@ -47,7 +47,6 @@ const farmBgImage = require('../assets/farm.jpg');
 
 export const stories = storiesOf('Drawer', module);
 
-stories.addDecorator(withKnobs);
 stories.addParameters({
     notes: { markdown: require('./../../../docs/Drawer.md') },
 });

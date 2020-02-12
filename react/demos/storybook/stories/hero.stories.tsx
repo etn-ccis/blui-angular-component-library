@@ -5,11 +5,10 @@ import { Hero, ChannelValue } from '@pxblue/react-components';
 //@ts-ignore
 import { GradeA, Leaf } from '@pxblue/icons-mui';
 
-import { text, number, withKnobs } from '@storybook/addon-knobs';
+import { text, number } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 
 export const stories = storiesOf('Hero', module);
-stories.addDecorator(withKnobs);
 stories.addParameters({
     notes: { markdown: require('./../../../docs/Hero.md') },
 });

@@ -1,5 +1,6 @@
 import React from 'react';
 import { configure, addDecorator, addParameters } from '@storybook/react';
+import { withKnobs } from '@storybook/addon-knobs';
 import { MuiThemeProvider, createMuiTheme } from '@material-ui/core/styles';
 import { ReactThemes } from '@pxblue/themes';
 import * as Colors from '@pxblue/colors';
@@ -47,6 +48,8 @@ addDecorator((storyFn) => (
         </div>
     </MuiThemeProvider>
 ));
+
+addDecorator(withKnobs({escapeHTML: false}));
 
 // automatically import all files ending in *.stories.js
 configure(require.context('../stories', true, /\.stories\.(js|tsx)$/), module);

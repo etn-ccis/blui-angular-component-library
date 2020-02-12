@@ -4,11 +4,10 @@ import * as Colors from '@pxblue/colors';
 import { Hero, HeroBanner } from '@pxblue/react-components';
 //@ts-ignore
 import { GradeA, Leaf, CurrentCircled, Temp } from '@pxblue/icons-mui';
-import { number, withKnobs } from '@storybook/addon-knobs';
+import { number } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 
 export const stories = storiesOf('Hero Banner', module);
-stories.addDecorator(withKnobs);
 stories.addParameters({
     notes: { markdown: require('./../../../docs/Hero.md') },
 });
