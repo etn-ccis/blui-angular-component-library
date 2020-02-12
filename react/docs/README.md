@@ -10,3 +10,4 @@ We currently have the following components available for React applications:
 - [ListItemTag](https://github.com/pxblue/component-library/blob/dev/react/docs/ListItemTag.md)
 - [ScoreCard](https://github.com/pxblue/component-library/blob/dev/react/docs/ScoreCard.md)
 - [Spacer](https://github.com/pxblue/component-library/blob/dev/react/docs/Spacer.md)
+- [UserMenu](https://github.com/pxblue/component-library/blob/dev/react/docs/UserMenu.md)
