@@ -1,4 +1,11 @@
 # Change Log
+## v2.1.0
+- Adds InfoListTag Component
+    - Displays additional information inside an InfoListItem.
+- Adds UserMenu Component
+    - Avatar which opens a Menu when clicked.
+- Misc bug fixes
+
 ## v2.0.0
 - Library converted to TypeScript to provide strong typings for TS projects.
 - Adds new components for:
@@ -9,8 +16,14 @@
     - DrawerNavGroup
     - DrawerFooter
     - DrawerLayout
-- Updated index file for simpler import
-    - `import {ComponentName} from '@pxblue/react-components';`
+- **Breaking Change:** Simpler import syntax - _default_ imports will no longer work.
+    ```
+    /* Old import syntax */
+    import ComponentName from '@pxblue/react-components/core/ComponentName';
+
+    /* New import syntax */
+    import { ComponentName } from '@pxblue/react-components';
+    ```
 
 ## v1.1.0
 Adds a new component for EmptyState

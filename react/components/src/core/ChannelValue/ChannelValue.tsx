@@ -2,6 +2,7 @@ import React, { useCallback } from 'react';
 import Typography from '@material-ui/core/Typography';
 import { combine } from '../utilities';
 import { makeStyles } from '@material-ui/core/styles';
+import PropTypes from 'prop-types';
 
 const styles = makeStyles({
     wrapper: {
@@ -37,7 +38,7 @@ export type ChannelValueProps = {
 };
 
 export const ChannelValue: React.FC<ChannelValueProps> = (props) => {
-    const { color = 'inherit', fontSize = 'inherit', icon, prefix = false, value, units } = props;
+    const { color, fontSize, icon, prefix, value, units } = props;
     const classes = styles(props);
 
     const getUnitElement = useCallback(
@@ -82,4 +83,19 @@ export const ChannelValue: React.FC<ChannelValueProps> = (props) => {
             {!prefix && getUnitElement()}
         </span>
     );
+};
+
+ChannelValue.displayName = 'ChannelValue';
+ChannelValue.propTypes = {
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
+    icon: PropTypes.element,
+    units: PropTypes.string,
+    prefix: PropTypes.bool,
+    fontSize: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    color: PropTypes.string,
+};
+ChannelValue.defaultProps = {
+    color: 'inherit',
+    fontSize: 'inherit',
+    prefix: false,
 };

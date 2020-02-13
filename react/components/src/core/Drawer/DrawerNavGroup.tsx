@@ -5,6 +5,7 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import { Typography } from '@material-ui/core';
 import Divider from '@material-ui/core/Divider';
 import { InfoListItem } from '../InfoListItem';
+import PropTypes from 'prop-types';
 
 const useStyles = makeStyles((theme: Theme) =>
     createStyles({
@@ -42,9 +43,9 @@ const useStyles = makeStyles((theme: Theme) =>
             width: 'calc(100% - 8px)',
             left: 0,
             top: 0,
-            // TODO: Add Palette Type
-            //@ts-ignore
-            backgroundColor: theme.palette.primary['50'],
+            backgroundColor:
+                //@ts-ignore
+                theme.palette.type === 'light' ? theme.palette.secondary[50] : theme.palette.secondary.light,
             borderRadius: '0px 24px 24px 0px',
             opacity: 0.9,
         },
@@ -68,6 +69,7 @@ export type DrawerNavGroupProps = {
     backgroundColor?: string;
     chevron?: boolean;
     content?: ReactNode;
+    divider?: boolean;
     fontColor?: string;
     iconColor?: string;
     items: NavItem[];
@@ -75,7 +77,6 @@ export type DrawerNavGroupProps = {
     open?: boolean;
     title?: string;
     titleColor?: string;
-    divider?: boolean;
 };
 
 function NavigationListItem(item: NavItem, props: DrawerNavGroupProps): ReactNode {
@@ -87,10 +88,21 @@ function NavigationListItem(item: NavItem, props: DrawerNavGroupProps): ReactNod
 
     const classes = useStyles(props);
     const theme = useTheme();
-    const { activeBackgroundColor, activeFontColor, activeIconColor, fontColor, chevron, iconColor, onSelect } = props;
+    const {
+        // @ts-ignore
+        activeBackgroundColor = theme.palette.type === 'light' ? theme.palette.primary[50] : theme.palette.primary.main,
+        activeFontColor = theme.palette.type === 'light'
+            ? theme.palette.primary.main
+            : theme.palette.primary.contrastText,
+        activeIconColor = theme.palette.type === 'light'
+            ? theme.palette.primary.main
+            : theme.palette.primary.contrastText,
+        fontColor,
+        chevron,
+        iconColor,
+        onSelect,
+    } = props;
 
-    // @ts-ignore // TODO: FIX ME
-    const defaultSelectedBackgroundColor = theme.palette.secondary[50];
     const action = (): void => {
         if (onSelect) {
             onSelect();
@@ -102,17 +114,14 @@ function NavigationListItem(item: NavItem, props: DrawerNavGroupProps): ReactNod
 
     return (
         <div style={{ position: 'relative' }} className={`${classes.listItem} ${active && classes.listItemNoHover}`}>
-            {active && (
-                <div
-                    className={classes.active}
-                    style={{ backgroundColor: activeBackgroundColor || defaultSelectedBackgroundColor }}
-                />
-            )}
+            {active && <div className={classes.active} style={{ backgroundColor: activeBackgroundColor }} />}
             <InfoListItem
                 dense
                 title={title}
                 subtitle={subtitle}
-                divider={item.divider === undefined ? (divider ? 'full' : undefined) : (item.divider ? 'full' : undefined)}
+                divider={
+                    item.divider === undefined ? (divider ? 'full' : undefined) : item.divider ? 'full' : undefined
+                }
                 statusColor={statusColor}
                 fontColor={active ? activeFontColor : fontColor}
                 icon={icon}
@@ -159,3 +168,31 @@ export const DrawerNavGroup: React.FC<DrawerNavGroupProps> = (props) => {
 };
 
 DrawerNavGroup.displayName = 'DrawerNavGroup';
+
+DrawerNavGroup.propTypes = {
+    activeBackgroundColor: PropTypes.string,
+    activeFontColor: PropTypes.string,
+    activeIconColor: PropTypes.string,
+    backgroundColor: PropTypes.string,
+    chevron: PropTypes.bool,
+    content: PropTypes.element,
+    fontColor: PropTypes.string,
+    iconColor: PropTypes.string,
+    // @ts-ignore
+    items: PropTypes.arrayOf(
+        PropTypes.shape({
+            active: PropTypes.bool,
+            icon: PropTypes.element,
+            onClick: PropTypes.func,
+            statusColor: PropTypes.string,
+            subtitle: PropTypes.string,
+            title: PropTypes.string.isRequired,
+            divider: PropTypes.bool,
+        })
+    ).isRequired,
+    onSelect: PropTypes.func,
+    open: PropTypes.bool,
+    title: PropTypes.string,
+    titleColor: PropTypes.string,
+    divider: PropTypes.bool,
+};

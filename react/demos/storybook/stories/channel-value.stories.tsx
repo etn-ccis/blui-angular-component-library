@@ -1,12 +1,11 @@
 import Trend from '@material-ui/icons/TrendingUp';
 import * as Colors from '@pxblue/colors';
 import { ChannelValue } from '@pxblue/react-components';
-import { boolean, number, text, withKnobs, color } from '@storybook/addon-knobs';
+import { boolean, number, text, color } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 
 export const stories = storiesOf('Channel Value', module);
-stories.addDecorator(withKnobs);
 stories.addParameters({
     notes: { markdown: require('./../../../docs/ChannelValue.md') },
 });

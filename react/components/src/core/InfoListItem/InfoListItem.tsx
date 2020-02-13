@@ -1,10 +1,10 @@
-import { CSSProperties } from '@material-ui/core/styles/withStyles';
 import React from 'react';
+import { CSSProperties } from '@material-ui/core/styles/withStyles';
+import PropTypes from 'prop-types';
 
 import { createStyles, makeStyles, Theme, useTheme } from '@material-ui/core/styles';
 import Chevron from '@material-ui/icons/ChevronRight';
 import * as Colors from '@pxblue/colors';
-//@ts-ignore
 import color from 'color';
 
 import { separate, withKeys } from '../utilities';
@@ -12,6 +12,7 @@ import { separate, withKeys } from '../utilities';
 //Material-UI Components
 import {
     Avatar,
+    Divider,
     ListItem,
     ListItemAvatar,
     ListItemIcon,
@@ -26,8 +27,6 @@ const useStyles = makeStyles((theme: Theme) =>
             position: 'absolute',
             bottom: 0,
             right: 0,
-            height: 1,
-            backgroundColor: theme.palette.type === 'light' ? Colors.black[50] : Colors.black[700],
         },
         statusStripe: {
             position: 'absolute',
@@ -38,7 +37,7 @@ const useStyles = makeStyles((theme: Theme) =>
             zIndex: 100,
         },
         withSmallMargins: {
-            margin: `0 4px`,
+            margin: `0 ${theme.spacing(0.5)}`,
         },
         title: {
             fontWeight: 600,
@@ -84,22 +83,22 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
     const theme = useTheme();
     const classes = useStyles(theme);
     const {
-        avatar = false,
+        avatar,
         backgroundColor,
-        chevron = false,
-        dense = false,
+        chevron,
+        dense,
         divider,
         fontColor,
-        hidePadding = false,
+        hidePadding,
         icon,
         iconColor,
         leftComponent,
-        onClick = (): void => {},
+        onClick,
         rightComponent,
         statusColor,
         style,
         subtitle,
-        subtitleSeparator = '\u00B7',
+        subtitleSeparator,
         title,
     } = props;
 
@@ -110,7 +109,7 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
                 ? color(statusColor).isDark()
                     ? Colors.white[50]
                     : Colors.black[500]
-                : theme.palette.primary.contrastText;
+                : Colors.white[50]; // default avatar is dark gray -> white text
         }
         return statusColor ? statusColor : 'inherit';
     };
@@ -121,8 +120,7 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
                 <ListItemAvatar>
                     <Avatar
                         style={{
-                            // @ts-ignore TODO: Fix me
-                            backgroundColor: statusColor || theme.palette.primary[500],
+                            backgroundColor: statusColor || Colors.black[500],
                             color: getIconColor(),
                         }}
                     >
@@ -143,7 +141,11 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
 
     const getRightComponent = (): JSX.Element | undefined => {
         if (rightComponent) {
-            return <div style={{ flex: '0 0 auto', marginLeft: 16 }}>{rightComponent}</div>;
+            return (
+                <div style={{ flex: '0 0 auto', marginLeft: 16, display: 'flex', alignItems: 'center' }}>
+                    {rightComponent}
+                </div>
+            );
         } else if (chevron) {
             return (
                 <ListItemSecondaryAction>
@@ -186,7 +188,9 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
     return (
         <ListItem style={getWrapperStyle()} onClick={(): void => onClick()} dense={dense}>
             <div className={classes.statusStripe} style={{ backgroundColor: statusColor }} />
-            {divider && <div className={classes.divider} style={{ zIndex: 0, left: divider === 'full' ? 0 : 72 }} />}
+            {divider && (
+                <Divider className={classes.divider} style={{ zIndex: 0, left: divider === 'full' ? 0 : 72 }} />
+            )}
             {(icon || !hidePadding) && getIcon()}
             {leftComponent}
             <ListItemText
@@ -197,11 +201,49 @@ export const InfoListItem: React.FC<InfoListItemProps> = (props) => {
                     noWrap: true,
                     variant: 'body1',
                     className: classes.title,
+                    style: { color: fontColor },
+                }}
+                secondaryTypographyProps={{
+                    noWrap: true,
+                    variant: 'subtitle2',
+                    className: classes.subtitle,
                     style: { color: fontColor || 'inherit' },
                 }}
-                secondaryTypographyProps={{ noWrap: true, variant: 'subtitle2', className: classes.subtitle }}
             />
             {getRightComponent()}
         </ListItem>
     );
+};
+
+InfoListItem.displayName = 'InfoListItem';
+InfoListItem.propTypes = {
+    avatar: PropTypes.bool,
+    backgroundColor: PropTypes.string,
+    chevron: PropTypes.bool,
+    dense: PropTypes.bool,
+    divider: PropTypes.oneOf(['full', 'partial']),
+    fontColor: PropTypes.string,
+    hidePadding: PropTypes.bool,
+    icon: PropTypes.element,
+    iconColor: PropTypes.string,
+    leftComponent: PropTypes.element,
+    onClick: PropTypes.func,
+    rightComponent: PropTypes.element,
+    statusColor: PropTypes.string,
+    style: PropTypes.objectOf(PropTypes.oneOfType([PropTypes.string, PropTypes.number])),
+    subtitle: PropTypes.oneOfType([
+        PropTypes.string,
+        PropTypes.arrayOf(PropTypes.oneOfType([PropTypes.string, PropTypes.element])),
+    ]),
+    subtitleSeparator: PropTypes.string,
+    title: PropTypes.string.isRequired,
+};
+InfoListItem.defaultProps = {
+    avatar: false,
+    chevron: false,
+    dense: false,
+    hidePadding: false,
+    onClick: (): void => {},
+    subtitleSeparator: '\u00B7',
+    fontColor: 'inherit',
 };

@@ -1,11 +1,11 @@
-# Score Card
+# ScoreCard
 Card component that calls attention to particular values.
 
 <img width="40%" alt="Score Card with multiple highlighted values" src="./images/scoreCard.png"><br/>
 <img width="40%" alt="Score Card with single badge-style value" src="./images/scoreCard_alt.png"><br/>
 
 ### Usage
-```
+```typescript
 import { Hero, HeroBanner, ScoreCard } from '@pxblue/react-components';
 import { List, Card, ListItem, ListItemText, ListItemSecondaryAction } from '@material-ui/core';
 import * as Colors from '@pxblue/colors';

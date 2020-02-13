@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
-import { Hero } from '@pxblue/react-components';
-import { HeroBanner } from '@pxblue/react-components';
-import { ChannelValue } from '@pxblue/react-components';
-import { EmptyState } from '@pxblue/react-components';
-import { InfoListItem } from '@pxblue/react-components';
-import { ScoreCard } from '@pxblue/react-components';
-import { Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, DrawerSubheader } from '@pxblue/react-components';
-import { DrawerLayout } from '@pxblue/react-components';
-
+import { Hero, HeroBanner, ChannelValue,
+EmptyState, InfoListItem, ScoreCard, Spacer,
+Drawer, DrawerBody, DrawerNavGroup, DrawerFooter, DrawerHeader, DrawerSubheader, UserMenu,
+DrawerLayout, ListItemTag } from '@pxblue/react-components';
 
 import DevicesIcon from '@material-ui/icons/Devices'
-import { Add, Menu, NotificationsActive, List as ListIcon, Public, Settings, Gavel, Help } from '@material-ui/icons'
+import SendIcon from '@material-ui/icons/Send';
+import { Add, Menu, NotificationsActive, List as ListIcon, Public, Email, Settings, Gavel, Help } from '@material-ui/icons'
 
 import Trend from '@material-ui/icons/TrendingUp';
 import Timer from '@material-ui/icons/Timer';
@@ -21,10 +17,12 @@ import * as Colors from '@pxblue/colors';
 import { Pie, Battery } from '@pxblue/react-progress-icons';
 import { GradeA, Leaf, CurrentCircled, VoltageCircled, Temp, Moisture as Humidity, Device } from '@pxblue/icons-mui';
 import Button from "@material-ui/core/Button";
+import { useTheme } from '@material-ui/core/styles';
 
 import top from './topology_40.png';
 // import farm from './farm.jpg';
 import EatonLogo from './EatonLogo.svg';
+import Avatar from "@material-ui/core/Avatar";
 
 const locations = [
     "All Locations",
@@ -36,6 +34,7 @@ export default () => {
     const [open, setOpen] = useState(false);
     const [location, setLocation] = useState(0);
     const [route, setRoute] = useState(0);
+    const theme = useTheme();
 
     return (
         <DrawerLayout drawer={
@@ -94,7 +93,7 @@ export default () => {
                             },
                         ]}
                     />
-                    <div style={{flex: '1 1 0px'}}/>
+                    <Spacer/>
                     <Divider/>
                     <DrawerNavGroup
                         items={[
@@ -133,6 +132,40 @@ export default () => {
                             <Menu style={{ marginRight: 32 }} onClick={() => setOpen(!open)} />
                         </Hidden>
                         <Typography variant={'h6'}>Showcase</Typography>
+                        <Spacer flex={1} />
+                        <UserMenu
+                            avatar={<Avatar>MS</Avatar>}
+                            menuTitle={'Marshall Sutter'}
+                            menuSubtitle={'msutter@acmesteel.com'}
+                            menuGroups={[
+                                {
+                                    items: [
+                                        {
+                                            title: 'Log Out',
+                                            icon: <SendIcon />
+                                        },
+                                        {
+                                            title: 'Account Settings',
+                                            icon: <Settings />,
+                                            divider: true
+                                        },
+                                    ]
+                                },
+                                {
+                                    title: 'Contact Us',
+                                    items: [
+                                        {
+                                            title: 'eatonhelp@eaton.com',
+                                            icon: <SendIcon />,
+                                        },
+                                        {
+                                            title: '1-866-905-9988',
+                                            icon: <Email />,
+                                        },
+                                    ]
+                                }]
+                            }
+                        />
                     </Toolbar>
                 </AppBar>
                 <div style={{ padding: 10, flex: 1, overflow: 'auto' }}>
@@ -173,7 +206,7 @@ export default () => {
                                 <List style={{ padding: 0 }}>
                                     <ListItem>
                                         <ListItemText primary="View Location" />
-                                        <ListItemSecondaryAction> <ChevronRight /> </ListItemSecondaryAction>
+                                        <ListItemSecondaryAction style={{display: 'flex'}}> <ChevronRight /> </ListItemSecondaryAction>
                                     </ListItem>
                                 </List>
                             }
@@ -212,7 +245,7 @@ export default () => {
                                 <HeroBanner>
                                     <Hero
                                         icon={<GradeA fontSize={'inherit'} htmlColor={Colors.green[500]} />}
-                                        iconBackgroundColor={Colors.white[50]}
+                                        iconBackgroundColor={ theme.palette.background.paper }
                                         label={'Health'}
                                         iconSize={72}
                                         value={98}
@@ -226,7 +259,7 @@ export default () => {
                                 <List style={{ padding: 0 }}>
                                     <ListItem>
                                         <ListItemText primary="View Location" />
-                                        <ListItemSecondaryAction> <ChevronRight /> </ListItemSecondaryAction>
+                                        <ListItemSecondaryAction style={{display: 'flex'}}> <ChevronRight /> </ListItemSecondaryAction>
                                     </ListItem>
                                 </List>
                             }
@@ -310,7 +343,8 @@ export default () => {
                                 fontColor={Colors.red[500]}
                                 subtitle={['Phase A', 'Phase B', 'Phase C']}
                                 icon={<VoltageCircled color={'inherit'} />}
-                                rightComponent={<span style={{ color: Colors.red[500] }}><ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} /></span>}
+                                rightComponent={
+                                <span style={{ color: Colors.red[500] }}><ListItemTag label={'monitored'} style={{marginRight: 8}} /><ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} />, <ChannelValue fontSize={16} value={480} units={'V'} /></span>}
                             />
                             <InfoListItem dense
                                 title={'Output Current'}
@@ -322,7 +356,17 @@ export default () => {
                                 title={'Temperature'}
                                 divider={'full'}
                                 icon={<Temp />}
-                                rightComponent={<ChannelValue fontSize={16} icon={<Trend htmlColor={Colors.red[500]} />} value={68} units={'°F'} />}
+                                rightComponent={
+                                <>
+                                    <ListItemTag style={{marginRight: 8}} backgroundColor={Colors.white['300']} label={'active'} fontColor={Colors.green['500']} />
+                                    <ListItemTag
+                                    label={'OVERHEAT'}
+                                    backgroundColor={Colors.red['500']}
+                                    onClick={(_)=>{alert('You clicked me.')}}
+                                    style={{marginRight: 8}}
+                                    />
+                                    <ChannelValue fontSize={16} icon={<Trend htmlColor={Colors.red[500]} />} value={68} units={'°F'} />
+                                </>}
                             />
                         </List>
                     </Card>

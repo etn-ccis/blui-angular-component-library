@@ -7,11 +7,10 @@ import AddIcon from '@material-ui/icons/AddCircleOutlined';
 import Button from '@material-ui/core/Button';
 import AlertIcon from '@material-ui/icons/NotificationImportant';
 import TrendingUpIcon from '@material-ui/icons/TrendingUp';
-import { text, withKnobs } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 
 export const stories = storiesOf('Empty State', module);
-stories.addDecorator(withKnobs);
 stories.addParameters({
     notes: { markdown: require('./../../../docs/EmptyState.md') },
 });

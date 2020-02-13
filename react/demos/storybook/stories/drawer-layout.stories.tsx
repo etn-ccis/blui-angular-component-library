@@ -4,14 +4,13 @@ import MenuIcon from '@material-ui/icons/Menu';
 import { Drawer, DrawerBody, DrawerFooter, DrawerHeader, DrawerNavGroup } from '@pxblue/react-components/core/Drawer';
 import { DrawerLayout } from '@pxblue/react-components';
 import { action } from '@storybook/addon-actions';
-import { boolean, number, withKnobs } from '@storybook/addon-knobs';
+import { boolean, number } from '@storybook/addon-knobs';
 import { storiesOf } from '@storybook/react';
 import React from 'react';
 // @ts-ignore
 import EatonLogo from '../assets/EatonLogo.svg';
 
 export const stories = storiesOf('Drawer Layout', module);
-stories.addDecorator(withKnobs);
 stories.addParameters({
     notes: { markdown: require('./../../../docs/DrawerLayout.md') },
 });

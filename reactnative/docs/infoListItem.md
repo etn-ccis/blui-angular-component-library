@@ -1,5 +1,5 @@
-# Info List Item
-The Info List Item is intended to be used in List views. It positions a title as well as optional subtitle(s), icon, and status stripe. The [IconClass](./iconWrapper.md) property will accept any valid icon from @pxblue/icons-svg or react-native-vector-icons.
+# InfoListItem
+The InfoListItem is intended to be used in List views. It positions a title as well as optional subtitle(s), icon, and status stripe. The [IconClass](./iconWrapper.md) property will accept any valid icon from @pxblue/icons-svg or react-native-vector-icons.
 
 <img width="400" alt="Info List Item component" src="./images/infoListItem.png">
 
@@ -38,6 +38,7 @@ You can also supply an array of items that will be displayed as a character-sepa
 | iconColor         | The color of the primary icon           | `string`                                           | no       |                     | 'red'                                   |
 | hidePadding       | Remove left padding if no icon is used  | `boolean`                                          | no       | false               |                                         |
 | avatar            | Show colored background for icon        | `boolean`                                          | no       | false               |                                         |
+| chevron           | Add a chevron icon on the right         | `boolean`                                          | no       | false               |                                         |
 | dense             | Smaller height row with less padding    | `boolean`                                          | no       | false               |                                         |
 | divider           | Show a row separator below the row      | 'full' &vert; 'partial'                            | no       |                     |                                         |
 | rightComponent    | Component to render on the right side   | `JSX.Element`                                      | no       |                     | `<ChannelValue/>`                       |
