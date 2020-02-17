@@ -1,4 +1,4 @@
-# PX Blue Custom Angular Components
+# PX Blue Angular Components
 [![](https://img.shields.io/circleci/project/github/pxblue/angular-component-library/master.svg?style=flat)](https://circleci.com/gh/pxblue/angular-component-library/tree/master)
 ![npm](https://img.shields.io/npm/v/@pxblue/angular-components?label=%40pxblue%2Fangular-components)
 
