@@ -309,13 +309,6 @@
     tree-kill "1.2.0"
     webpack-sources "1.2.0"
 
-"@pxblue/angular-components@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.npmjs.org/@pxblue/angular-components/-/angular-components-1.3.0.tgz#e87b690e4d151842dc2798b4b212f501bf3ab9ff"
-  integrity sha512-JiwPoWp74foVDjQf4NqJIiu1TtB9+/0HtwFi5+hdNIxCA0Npx3lR3AInFiBxxgYb3KIvwQDhqtN8dLtTiJtuVg==
-  dependencies:
-    tslib "^1.9.0"
-
 "@pxblue/colors@^1.0.13":
   version "1.0.13"
   resolved "https://registry.yarnpkg.com/@pxblue/colors/-/colors-1.0.13.tgz#1ed76734267f77dd4b390836f61d01439fc35132"

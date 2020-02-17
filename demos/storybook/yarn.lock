@@ -1201,13 +1201,6 @@
   resolved "https://registry.npmjs.org/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@pxblue/angular-components@^1.3.0":
-  version "1.3.0"
-  resolved "https://registry.npmjs.org/@pxblue/angular-components/-/angular-components-1.3.0.tgz#e87b690e4d151842dc2798b4b212f501bf3ab9ff"
-  integrity sha512-JiwPoWp74foVDjQf4NqJIiu1TtB9+/0HtwFi5+hdNIxCA0Npx3lR3AInFiBxxgYb3KIvwQDhqtN8dLtTiJtuVg==
-  dependencies:
-    tslib "^1.9.0"
-
 "@pxblue/colors@^2.0.0":
   version "2.0.0"
   resolved "https://registry.npmjs.org/@pxblue/colors/-/colors-2.0.0.tgz#fa7d2abde80485537f26521df4c3f6e56dd93361"
