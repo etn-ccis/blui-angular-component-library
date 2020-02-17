@@ -1,0 +1,172 @@
+version: 2
+jobs:
+  build_library:
+    docker:
+      - image: circleci/node:12.9.1-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v2-dependencies-angular-{{ checksum "components/yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: |
+            cd components
+            yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Cache
+          paths:
+            - components/node_modules
+          key: v2-dependencies-angular-{{ checksum "components/yarn.lock" }}
+      - run:
+          name: Build Library
+          command: |
+            yarn build
+      - run:
+          name: Test Artifacts
+          command: |
+            yarn test:artifacts
+      - run:
+          name: Lint
+          command: |
+            cd components && yarn lint
+      - run:
+          name: Test
+          command: |
+            yarn test
+      # Save the dist folder for use in future jobs.
+      - persist_to_workspace:
+          root: .
+          paths:
+            - dist
+
+  # Builds the Storybook app using @pxblue/angular-components persisted in /dist folder.
+  build_storybook:
+    docker:
+      - image: circleci/node:12.9.1-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v2-dependencies-angular-{{ checksum "demos/storybook/yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: |
+            cd demos/storybook
+            yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Cache
+          paths:
+            - demos/storybook/node_modules
+          key: v2-dependencies-angular-{{ checksum "demos/storybook/yarn.lock" }}
+      - attach_workspace:
+          at: .
+      - run:
+          name: Build Storybook
+          command: |
+            cp -r ./dist/. ./demos/storybook/node_modules/@pxblue/angular-components
+            cd demos/storybook
+            yarn build-storybook
+      - run:
+          name: Lint
+          command: |
+            echo "LINT HERE"
+      - persist_to_workspace:
+          root: .
+          paths:
+            - demos/storybook/storybook-static
+
+  # Builds the Showcase app using @pxblue/angular-components persisted in /dist folder.
+  build_showcase:
+    docker:
+      - image: circleci/node:12.9.1-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          keys:
+            - v2-dependencies-angular-{{ checksum "demos/showcase/yarn.lock" }}
+      - run:
+          name: Install Dependencies
+          command: |
+            cd demos/showcase
+            yarn install --frozen-lockfile
+      - save_cache:
+          name: Save Cache
+          paths:
+            - demos/showcase/node_modules
+          key: v2-dependencies-angular-{{ checksum "demos/showcase/yarn.lock" }}
+      - attach_workspace:
+          at: .
+      - run:
+          name: Build Showcase
+          command: |
+            cp -r ./dist/. ./demos/showcase/node_modules/@pxblue/angular-components
+            cd demos/showcase
+            yarn build
+      - run:
+          name: Lint
+          command: |
+            echo "LINT HERE"
+
+  deploy_storybook:
+    docker:
+      - image: circleci/node:12.9.1-browsers
+    environment:
+      - MASTER_BRANCH: master
+      - DEV_BRANCH: dev
+      - DEV_TARGET: https://github.com/pxblue-components/angular
+      - MASTER_TARGET: https://github.com/pxblue-components/angular
+      - GH_EMAIL: pxblue@eaton.com
+      - GH_NAME: PX Blue Agent
+    steps:
+      - checkout
+      - attach_workspace:
+          at: .
+      - run:
+          name: Deploy Storybook
+          command: |
+            git config --global user.email "$GH_EMAIL"
+            git config --global user.name "$GH_NAME"
+
+            cd demos/storybook
+
+            if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
+              git clone $MASTER_TARGET out
+            else
+              git clone $DEV_TARGET out
+            fi
+
+            cd out
+            git rm -rf .
+            # Add the CNAME record for pxblue.eaton.com
+            # if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
+            #   echo "pxblue-components.eaton.com/angular" > CNAME
+            # fi
+            cd ..
+
+            cp -a storybook-static/. out/.
+            cd out
+
+            git add -A
+            git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
+            git push
+
+workflows:
+  version: 2
+  angular_library:
+    jobs:
+      - build_library
+      - build_showcase:
+          requires:
+            - build_library
+      - build_storybook:
+          requires:
+            - build_library
+      - deploy_storybook:
+          requires:
+            - build_storybook
+          filters:
+            branches:
+              only:
+                - master
+                - dev
