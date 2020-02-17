@@ -40,12 +40,20 @@ You can also build, link, and start the demo application in a single step by cal
 This repository comes with two demo projects found within the `/demos` folder. 
 The first is a [Storybook](https://storybook.js.org/) application that allows you to see the components in isolation and interact with their properties. The second is a Showcase project that shows a combination of components in the context of a realistic interface.
 
-You can automatically build the component library and link them to the node modules of the demo projects by running:
-```
-yarn link:components
-```
 
-You can also build, link, and start the demo applications in a single step by calling either ```yarn start:showcase``` or ```yarn start:storybook``` from the root directory.
+You can build, link, and start the demo applications in a single step by calling either 
+
+```
+yarn start:showcase
+``` 
+
+or 
+
+```
+yarn start:storybook
+``` 
+
+from the root directory.
 
 
 ## Using the Components
