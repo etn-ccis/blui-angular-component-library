@@ -23,7 +23,7 @@ git clone https://github.com/pxblue/angular-component-library
 cd angular-component-library
 ```
 
-The library can be built by running the following command. The resulting output will be in the /core folder.
+The library can be built by running the following command. The resulting output will be in the /dist folder.
 ```
 yarn build
 ```
@@ -32,8 +32,6 @@ There is also a demo project (/component-demo) in this repository that shows the
 ```
 yarn link:components
 ```
-
-You can also build, link, and start the demo application in a single step by calling ```yarn start``` from the /angular directory.
 
 
 ## Running the demo projects
