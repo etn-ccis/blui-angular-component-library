@@ -6,7 +6,8 @@ The EmptyState component is an element that can be used as a placeholder when no
  The EmptyState component can also display additional action elements below the text. These components are passed as a child element with the ```actions``` attribute - these will typically be a button or group of buttons.
 
 ## Usage
-```
+
+```typescript
 // app.module.ts
 import { EmptyStateModule } from '@pxblue/angular-components';
 ...
@@ -14,7 +15,8 @@ imports: [
     EmptyStateModule
   ],
 ```
-```
+
+```typescript
 // your-component.html
 <pxb-empty-state title="No Devices Found">
   <mat-icon empty-icon>notifications_none</mat-icon>

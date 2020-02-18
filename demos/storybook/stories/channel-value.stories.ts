@@ -8,12 +8,12 @@ import {
   withKnobs
 } from "@storybook/addon-knobs";
 import { moduleMetadata, storiesOf } from "@storybook/angular";
-import { wrap } from "./utils";
+import {UtilModule, wrap} from "./utils";
 
-storiesOf("Channel Value", module)
+storiesOf("Components|Channel Value", module)
   .addDecorator(
     moduleMetadata({
-      imports: [ChannelValueModule, MatIconModule]
+      imports: [ChannelValueModule, MatIconModule, UtilModule]
     })
   )
   .addDecorator(withKnobs)
@@ -21,6 +21,9 @@ storiesOf("Channel Value", module)
     notes: { markdown: require("./../../../docs/ChannelValue.md") }
   })
   .addDecorator(wrap())
+   .add("Documentation", () => ({
+     template: `<documentation></documentation>`,
+   }))
   .add("with value", () => ({
     template: `
           <pxb-channel-value [value]="value"></pxb-channel-value>

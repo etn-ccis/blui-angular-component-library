@@ -4,12 +4,12 @@ import { EmptyStateModule } from "@pxblue/angular-components";
 import { action } from "@storybook/addon-actions";
 import { text, withKnobs } from "@storybook/addon-knobs";
 import { moduleMetadata, storiesOf } from "@storybook/angular";
-import { wrap } from "./utils";
+import {UtilModule, wrap} from "./utils";
 
-storiesOf("Empty State", module)
+storiesOf("Components|Empty State", module)
   .addDecorator(
     moduleMetadata({
-      imports: [EmptyStateModule, MatButtonModule, MatIconModule]
+      imports: [EmptyStateModule, MatButtonModule, MatIconModule, UtilModule]
     })
   )
   .addDecorator(withKnobs)
@@ -17,6 +17,9 @@ storiesOf("Empty State", module)
     notes: { markdown: require("./../../../docs/EmptyState.md") }
   })
   .addDecorator(wrap())
+   .add("Documentation", () => ({
+     template: `<documentation></documentation>`,
+   }))
   .add("with action", () => ({
     template: `
           <pxb-empty-state [title]="title">

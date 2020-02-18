@@ -1,13 +1,13 @@
 import { ChannelValueModule, HeroModule } from "@pxblue/angular-components";
 import { text, withKnobs } from "@storybook/addon-knobs";
 import { moduleMetadata, storiesOf } from "@storybook/angular";
-import { wrap } from "./utils";
+import {UtilModule, wrap} from "./utils";
 import * as Colors from "@pxblue/colors";
 
-storiesOf("Hero", module)
+storiesOf("Components|Hero", module)
   .addDecorator(
     moduleMetadata({
-      imports: [HeroModule, ChannelValueModule]
+      imports: [HeroModule, ChannelValueModule, UtilModule]
     })
   )
   .addDecorator(withKnobs)
@@ -15,6 +15,9 @@ storiesOf("Hero", module)
     notes: { markdown: require("./../../../docs/Hero.md") }
   })
   .addDecorator(wrap())
+   .add("Documentation", () => ({
+      template: `<documentation></documentation>`,
+   }))
   .add("with basic properties", () => ({
     template: `
           <pxb-hero [label]="label" [value]="value" [units]="units">
