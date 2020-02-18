@@ -114,7 +114,7 @@ jobs:
     environment:
       - MASTER_BRANCH: master
       - DEV_BRANCH: dev
-      - DEV_TARGET: https://github.com/pxblue-components/angular
+      - DEV_TARGET: https://github.com/pxblue-components/angular-dev
       - MASTER_TARGET: https://github.com/pxblue-components/angular
       - GH_EMAIL: pxblue@eaton.com
       - GH_NAME: PX Blue Agent
