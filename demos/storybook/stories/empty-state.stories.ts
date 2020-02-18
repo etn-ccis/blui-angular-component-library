@@ -7,7 +7,7 @@ import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { UtilModule, wrap } from './utils';
 const markdown = require('./../../../docs/EmptyState.md');
 
-storiesOf('Components|Empty State', module)
+storiesOf('components/Empty State', module)
     .addDecorator(
         moduleMetadata({
             imports: [EmptyStateModule, MatButtonModule, MatIconModule, UtilModule],

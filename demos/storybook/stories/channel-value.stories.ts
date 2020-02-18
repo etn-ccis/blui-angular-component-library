@@ -5,7 +5,7 @@ import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { UtilModule, wrap } from './utils';
 const markdown = require('./../../../docs/ChannelValue.md');
 
-storiesOf('Components|Channel Value', module)
+storiesOf('components/Channel Value', module)
     .addDecorator(
         moduleMetadata({
             imports: [ChannelValueModule, MatIconModule, UtilModule],

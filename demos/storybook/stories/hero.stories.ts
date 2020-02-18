@@ -5,7 +5,7 @@ import { UtilModule, wrap } from './utils';
 import * as Colors from '@pxblue/colors';
 const markdown = require('./../../../docs/Hero.md');
 
-storiesOf('Components|Hero', module)
+storiesOf('components/Hero', module)
     .addDecorator(
         moduleMetadata({
             imports: [HeroModule, ChannelValueModule, UtilModule],

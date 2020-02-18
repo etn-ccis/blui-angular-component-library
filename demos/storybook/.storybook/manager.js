@@ -1,7 +1,6 @@
-import {addParameters, configure} from '@storybook/angular';
+import {addParameters} from '@storybook/angular';
 require('@pxblue/icons/iconfont/PXBlueIcons.css');
 import pxblue from './pxblue-theme';
-import * as Colors from '@pxblue/colors';
 
 const newViewports = {
     iPhone5: {
@@ -34,8 +33,6 @@ addParameters({
     options: {
         theme: pxblue,
         panelPosition: 'bottom',
+        showRoots: 'true'
     },
 });
-
-// automatically import all files ending in *.stories.ts
-configure(require.context('../stories', true, /\.stories.ts$/), module);
