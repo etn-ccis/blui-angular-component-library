@@ -2,10 +2,9 @@ import { MatIconModule } from '@angular/material/icon';
 import { ChannelValueModule } from '@pxblue/angular-components';
 import { boolean, color, number, text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
-import { UtilModule, wrap } from '../utils';
-const markdown = require('../../../../docs/ChannelValue.md');
+import { UtilModule, wrap } from '../../utils';
 
-storiesOf('components/Channel Value', module)
+storiesOf('playground/Channel Value', module)
     .addDecorator(
         moduleMetadata({
             imports: [ChannelValueModule, MatIconModule, UtilModule],
@@ -13,12 +12,6 @@ storiesOf('components/Channel Value', module)
     )
     .addDecorator(withKnobs)
     .addDecorator(wrap())
-    .addParameters({
-        notes: { markdown },
-    })
-    .add('Documentation', () => ({
-        template: `<documentation></documentation>`,
-    }))
     .add('with value', () => ({
         template: `
           <pxb-channel-value [value]="value"></pxb-channel-value>

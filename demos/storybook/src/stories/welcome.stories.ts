@@ -12,5 +12,5 @@ storiesOf('Intro/Welcome', module)
    .addDecorator(withKnobs)
    .addDecorator(wrap())
     .add('to px blue', () => ({
-        template: `hi`,
+        template: `hi, welcome to px blue component library`,
     }));
