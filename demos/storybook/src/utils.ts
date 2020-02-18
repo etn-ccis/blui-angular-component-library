@@ -35,8 +35,6 @@ export class StoryComponent {
         if (!window.top.location.href.toLocaleLowerCase().includes('--doc')) {
             const banner = window.top.document.getElementsByClassName('simplebar-content')[1];
             banner.setAttribute('style', 'display: unset');
-            const sections = banner.children[0].children[0].children[0];
-            sections.setAttribute('style', 'display: none');
             if (window.top.location.href.includes('/info/')) {
                 // @ts-ignore
                 window.top.document.getElementsByClassName('css-mtwlrt')[0].click();

@@ -4,8 +4,8 @@ import { EmptyStateModule } from '@pxblue/angular-components';
 import { action } from '@storybook/addon-actions';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
-import { UtilModule, wrap } from './utils';
-const markdown = require('./../../../docs/EmptyState.md');
+import { UtilModule, wrap } from '../utils';
+const markdown = require('../../../../docs/EmptyState.md');
 
 storiesOf('components/Empty State', module)
     .addDecorator(

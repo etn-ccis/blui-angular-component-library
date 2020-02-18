@@ -2,8 +2,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ChannelValueModule } from '@pxblue/angular-components';
 import { boolean, color, number, text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
-import { UtilModule, wrap } from './utils';
-const markdown = require('./../../../docs/ChannelValue.md');
+import { UtilModule, wrap } from '../utils';
+const markdown = require('../../../../docs/ChannelValue.md');
 
 storiesOf('components/Channel Value', module)
     .addDecorator(

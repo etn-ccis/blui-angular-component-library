@@ -1,9 +1,9 @@
 import { ChannelValueModule, HeroModule } from '@pxblue/angular-components';
 import { number, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
-import { UtilModule, wrap } from './utils';
+import { UtilModule, wrap } from '../utils';
 import * as Colors from '@pxblue/colors';
-const markdown = require('./../../../docs/Hero.md');
+const markdown = require('../../../../docs/Hero.md');
 
 storiesOf('components/Hero Banner', module)
     .addDecorator(
