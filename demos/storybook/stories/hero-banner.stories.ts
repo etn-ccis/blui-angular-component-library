@@ -1,25 +1,26 @@
-import { ChannelValueModule, HeroModule } from "@pxblue/angular-components";
-import { number, withKnobs } from "@storybook/addon-knobs";
-import { moduleMetadata, storiesOf } from "@storybook/angular";
-import {UtilModule, wrap} from "./utils";
-import * as Colors from "@pxblue/colors";
+import { ChannelValueModule, HeroModule } from '@pxblue/angular-components';
+import { number, withKnobs } from '@storybook/addon-knobs';
+import { moduleMetadata, storiesOf } from '@storybook/angular';
+import { UtilModule, wrap } from './utils';
+import * as Colors from '@pxblue/colors';
+const markdown = require('./../../../docs/Hero.md');
 
-storiesOf("Components|Hero Banner", module)
-  .addDecorator(
-    moduleMetadata({
-      imports: [HeroModule, ChannelValueModule, UtilModule]
+storiesOf('Components|Hero Banner', module)
+    .addDecorator(
+        moduleMetadata({
+            imports: [HeroModule, ChannelValueModule, UtilModule],
+        })
+    )
+    .addDecorator(withKnobs)
+    .addDecorator(wrap())
+    .addParameters({
+        notes: { markdown },
     })
-  )
-  .addDecorator(withKnobs)
-  .addParameters({
-    notes: { markdown: require("./../../../docs/Hero.md") }
-  })
-  .addDecorator(wrap())
-   .add("Documentation", () => ({
-     template: `<documentation></documentation>`,
-   }))
-  .add("with heroes", () => ({
-    template: `
+    .add('Documentation', () => ({
+        template: `<documentation></documentation>`,
+    }))
+    .add('with heroes', () => ({
+        template: `
           <pxb-hero-banner [divider]="false">
              <pxb-hero *ngIf="count > 0" [label]="'Health'" [value]="96" [units]="'/100'">
                 <i primary [style.color]="green" class="pxb-grade_a"></i>
@@ -35,9 +36,9 @@ storiesOf("Components|Hero Banner", module)
             </pxb-hero>
           </pxb-hero-banner>
       `,
-    props: {
-      count: number("count", 4, { range: true, min: 0, max: 4, step: 1 }),
-      green: Colors.green[500],
-      yellow: Colors.yellow[500]
-    }
-  }));
+        props: {
+            count: number('count', 4, { range: true, min: 0, max: 4, step: 1 }),
+            green: Colors.green[500],
+            yellow: Colors.yellow[500],
+        },
+    }));

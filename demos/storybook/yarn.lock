@@ -1645,6 +1645,11 @@
   resolved "https://registry.npmjs.org/@pxblue/icons/-/icons-1.0.25.tgz#52d22a987f168840ae7bdafb065f52c3ad5396da"
   integrity sha512-Q1+wgCjRpX5TeOY8JPpea1yF4uZOCsISQuguRcRIgqthAWH//Jcq4zCKMeOYLHjmXUU7RbWKv4PaA91//xPekQ==
 
+"@pxblue/prettier-config@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/@pxblue/prettier-config/-/prettier-config-1.0.2.tgz#fb00503df6557b66c3d91d43c9101e614c35d2ec"
+  integrity sha512-/3cLBoTjZs3kV1ATPA/Sp0tsL7XmlV/b8HW/qt0jqR/uP5+cdXL2YIhMXQngLRa7PhpSkEiRIYK5sl0rKsXTUg==
+
 "@pxblue/themes@^3.0.2":
   version "3.0.2"
   resolved "https://registry.npmjs.org/@pxblue/themes/-/themes-3.0.2.tgz#d5b83b414a83e2f96a8e0f28b034b8470ae48f69"
@@ -1803,6 +1808,25 @@
     markdown-to-jsx "^6.10.3"
     memoizerific "^1.11.3"
     prop-types "^15.7.2"
+    util-deprecate "^1.0.2"
+
+"@storybook/addon-storysource@^5.3.13":
+  version "5.3.13"
+  resolved "https://registry.npmjs.org/@storybook/addon-storysource/-/addon-storysource-5.3.13.tgz#44d14e0615e715ff41255f07e1210f82db295d8a"
+  integrity sha512-j5NV2ZPRkdOI11E/RbrzrQhdD8BZ5SOKNfQlQjyuty0ylT3P0rrAwDTuzclQJ2UCjlifubCsz+HyW1ShIuQ6ww==
+  dependencies:
+    "@storybook/addons" "5.3.13"
+    "@storybook/components" "5.3.13"
+    "@storybook/router" "5.3.13"
+    "@storybook/source-loader" "5.3.13"
+    "@storybook/theming" "5.3.13"
+    core-js "^3.0.1"
+    estraverse "^4.2.0"
+    loader-utils "^1.2.3"
+    prettier "^1.16.4"
+    prop-types "^15.7.2"
+    react-syntax-highlighter "^11.0.2"
+    regenerator-runtime "^0.13.3"
     util-deprecate "^1.0.2"
 
 "@storybook/addon-viewport@^5.2.8":

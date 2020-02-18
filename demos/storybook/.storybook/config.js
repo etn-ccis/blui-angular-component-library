@@ -34,7 +34,6 @@ addParameters({
     options: {
         theme: pxblue,
         panelPosition: 'bottom',
-        selectedPanel: 'notes'
     },
 });
 

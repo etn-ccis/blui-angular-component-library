@@ -1,7 +1,7 @@
 # Hero Components
 The PX Blue Hero components are used to call attention to particular values that are of the most importance to the user. These are typically displayed in a banner.
 <div style="text-align:center">
-<img width="100%" style="max-width:800px" alt="Hero Banner" src="./images/heroes.png">
+<img width="100%" style="max-width:600px" alt="Hero Banner" src="./images/heroes.png">
 </div>
 
 ## Hero
