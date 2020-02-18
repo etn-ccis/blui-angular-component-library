@@ -4,7 +4,7 @@ import { EmptyStateModule } from '@pxblue/angular-components';
 import { action } from '@storybook/addon-actions';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
-import { UtilModule, wrap } from '../../utils';
+import { UtilModule, wrap } from '../src/utils';
 
 storiesOf('playground/Empty State', module)
     .addDecorator(
@@ -53,3 +53,17 @@ storiesOf('playground/Empty State', module)
             click: action('button clicked'),
         },
     }));
+const markdown = require('../../../docs/EmptyState.md');
+
+storiesOf('api/Documentation', module)
+   .addDecorator(
+      moduleMetadata({
+         imports: [UtilModule],
+      })
+   )
+   .addParameters({
+      notes: { markdown },
+   })
+   .add('Empty State', () => ({
+      template: `<documentation></documentation>`,
+   }));

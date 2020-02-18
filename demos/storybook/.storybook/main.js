@@ -1,5 +1,7 @@
+var path = require('path');
+
 module.exports = {
-    stories: ['../src/stories/welcome.stories.ts', '../src/stories/**/*.stories.ts'],
+    stories: ['../stories/welcome.stories.ts', '../stories/**/*.stories.ts'],
     addons: [
         '@storybook/addon-actions',
         '@storybook/addon-knobs',
@@ -8,8 +10,12 @@ module.exports = {
         {
             name: '@storybook/addon-storysource',
             options: {
+                rule: {
+                    // test: [/\.stories\.jsx?$/], This is default
+                    include: [path.resolve(__dirname, '../stories')], // You can specify directories
+                },
                 loaderOptions: {
-                    prettierConfig: require('@pxblue/prettier-config')
+                    prettierConfig: '@pxblue/prettier-config'
                 },
             },
         },

@@ -1,4 +1,4 @@
-import {addParameters} from '@storybook/angular';
+import {addParameters, configure} from '@storybook/angular';
 require('@pxblue/icons/iconfont/PXBlueIcons.css');
 import pxblue from './pxblue-theme';
 
@@ -32,7 +32,6 @@ addParameters({
     },
     options: {
         theme: pxblue,
-        panelPosition: 'bottom',
-        showRoots: 'true'
+        showRoots: true,
     },
 });
