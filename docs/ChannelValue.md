@@ -8,6 +8,7 @@ Icons are passed in as a child element of the ChannelValue component.
 <hr/>
 <img width="100%" style="max-width: 600px" alt="Channel Value in a list item" src="./images/channelValue.png">
 </div>
+
 ## Usage
 
 ```typescript
