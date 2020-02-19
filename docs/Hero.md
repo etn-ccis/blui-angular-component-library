@@ -1,14 +1,17 @@
 # Hero Components
 The PX Blue Hero components are used to call attention to particular values that are of the most importance to the user. These are typically displayed in a banner.
+<div style="text-align:center">
+<img width="100%" style="max-width:600px" alt="Hero Banner" src="./images/heroes.png">
+</div>
 
-<img width="100%" alt="Hero Banner" src="./images/heroes.png">
 ## Hero
 The Hero component displays a particular icon, value/units, and a label. Icon components are passed as a child element with the ```primary``` attribute - these will typically be a Material icon, PX Blue icon, or Progress Icon. It will also accept Text/Emoji values inside of a ```<span>``` element.
 
 The value section of the Hero utilizes a [ChannelValue](./ChannelValue.md) component. To display a single simple value, the information can be passed as attributes (```value```, ```units```). An icon can be passed as a child of the ```pxb-hero``` component with the ```secondary``` attribute. For more complex values (such as a duration that displays hours and minutes), you can pass in multiple ```<pxb-channel-value>``` components as children and they will be displayed inline.
 
 ### Hero Usage
-```
+
+```typescript
 // app.module.ts
 import { HeroModule } from '@pxblue/angular-components';
 
@@ -17,7 +20,8 @@ imports: [
     HeroModule
   ],
 ```
-```
+
+```typescript
 // Simple usage via Hero attributes
 <pxb-hero label="Healthy" value="96" units="/100">
   <mat-icon primary>timer</mat-icon>
@@ -58,7 +62,7 @@ The HeroBanner component is a simple wrapper component that is used to contain `
 
 ### HeroBanner Usage
 
-```
+```typescript
 // app.module.ts
 import { HeroModule } from '@pxblue/angular-components/core/hero';
 ...
@@ -66,7 +70,9 @@ imports: [
     HeroModule
 ],
 ```
-```
+
+
+```typescript
 // your-component.html
  <pxb-hero-banner [divider]="true"></pxb-hero-banner>
 ```

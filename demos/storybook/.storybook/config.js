@@ -32,8 +32,6 @@ addParameters({
     },
     options: {
         theme: pxblue,
+        showRoots: true,
     },
 });
-
-// automatically import all files ending in *.stories.ts
-configure(require.context('../stories', true, /\.stories\.ts$/), module);
