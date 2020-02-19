@@ -1,18 +1,14 @@
-import { ChannelValueModule, HeroModule } from '@pxblue/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
-import { UtilModule, wrap } from '../src//utils';
+import {WelcomeModule} from "../src/welcome";
 
 storiesOf('Intro/Welcome', module)
     .addDecorator(
         moduleMetadata({
-            imports: [HeroModule, ChannelValueModule, UtilModule],
+            imports: [WelcomeModule],
         })
     )
     .addDecorator(withKnobs)
-    .addDecorator(wrap())
     .add('to px blue', () => ({
-        template: `
-            hi, welcome to px blue component library
-      `,
+        template: `<welcome></welcome>`,
     }));
