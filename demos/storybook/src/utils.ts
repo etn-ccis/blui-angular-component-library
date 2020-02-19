@@ -40,6 +40,7 @@ export class StoryComponent {
         const banner = window.top.document.getElementsByClassName('simplebar-content')[1];
         banner.setAttribute('style', 'display: unset');
         if (window.top.location.href.includes('/info/')) {
+            window.top.history.replaceState(null, null, window.top.location.href.replace('/info/', '/story/'));
             // @ts-ignore
             window.top.document.getElementsByClassName('css-mtwlrt')[0].click();
         }
