@@ -40,17 +40,3 @@ storiesOf('playground/Hero', module)
             blue: Colors.blue[500],
         },
     }));
-const markdown = require('../../../docs/Hero.md');
-
-storiesOf('api/Documentation', module)
-   .addDecorator(
-      moduleMetadata({
-         imports: [UtilModule],
-      })
-   )
-   .addParameters({
-      notes: { markdown },
-   })
-   .add('Hero', () => ({
-      template: `<documentation></documentation>`,
-   }));

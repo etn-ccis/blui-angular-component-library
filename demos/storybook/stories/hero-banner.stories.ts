@@ -2,7 +2,7 @@ import { ChannelValueModule, HeroModule } from '@pxblue/angular-components';
 import { number, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import * as Colors from '@pxblue/colors';
-import {UtilModule, wrap} from "../src/utils";
+import { UtilModule, wrap } from '../src/utils';
 
 storiesOf('playground/Hero Banner', module)
     .addDecorator(
@@ -35,18 +35,3 @@ storiesOf('playground/Hero Banner', module)
             yellow: Colors.yellow[500],
         },
     }));
-
-const markdown = require('../../../docs/Hero.md');
-
-storiesOf('api/Documentation', module)
-   .addDecorator(
-      moduleMetadata({
-         imports: [UtilModule],
-      })
-   )
-   .addParameters({
-      notes: { markdown },
-   })
-   .add('Hero Banner', () => ({
-      template: `<documentation></documentation>`,
-   }));

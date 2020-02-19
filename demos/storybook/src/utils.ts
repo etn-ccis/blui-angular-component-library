@@ -16,6 +16,7 @@ export const wrap = () => (storyFn): any => {
 })
 export class DocumentationComponent {
     ngOnInit(): void {
+        // Hide all content from within the top bar when a documentation component is rendered.
         window.top.document.getElementsByClassName('simplebar-content')[1].setAttribute('style', 'display: none');
         if (window.top.location.href.includes('/story/')) {
             // @ts-ignore
@@ -32,13 +33,12 @@ export class DocumentationComponent {
 })
 export class StoryComponent {
     ngOnInit(): void {
-        if (!window.top.location.href.toLocaleLowerCase().includes('--doc')) {
-            const banner = window.top.document.getElementsByClassName('simplebar-content')[1];
-            banner.setAttribute('style', 'display: unset');
-            if (window.top.location.href.includes('/info/')) {
-                // @ts-ignore
-                window.top.document.getElementsByClassName('css-mtwlrt')[0].click();
-            }
+        // Reset style found within the topbar when a StoryComponent is rendered.
+        const banner = window.top.document.getElementsByClassName('simplebar-content')[1];
+        banner.setAttribute('style', 'display: unset');
+        if (window.top.location.href.includes('/info/')) {
+            // @ts-ignore
+            window.top.document.getElementsByClassName('css-mtwlrt')[0].click();
         }
     }
 }

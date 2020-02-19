@@ -53,17 +53,3 @@ storiesOf('playground/Empty State', module)
             click: action('button clicked'),
         },
     }));
-const markdown = require('../../../docs/EmptyState.md');
-
-storiesOf('api/Documentation', module)
-   .addDecorator(
-      moduleMetadata({
-         imports: [UtilModule],
-      })
-   )
-   .addParameters({
-      notes: { markdown },
-   })
-   .add('Empty State', () => ({
-      template: `<documentation></documentation>`,
-   }));
