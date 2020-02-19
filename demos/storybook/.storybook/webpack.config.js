@@ -6,6 +6,14 @@ module.exports = ({ config }) => {
             {
                 loader: require.resolve('awesome-typescript-loader'),
             },
+        ],
+    });
+    config.module.rules.push({
+        test: /\.stories\.(ts)$/,
+        use: [
+            {
+                loader: require.resolve('awesome-typescript-loader'),
+            },
             {
                 loader: require.resolve('@storybook/source-loader'),
                 options: { parser: 'typescript' },
