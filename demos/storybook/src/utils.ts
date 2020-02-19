@@ -17,9 +17,12 @@ export const wrap = () => (storyFn): any => {
 export class DocumentationComponent {
     ngOnInit(): void {
         // Hide all content from within the top bar when a documentation component is rendered.
+        // History needs to be modified to avoid infinite looping when hitting back button.
+        // This entire hack should be removed when it becomes possible to conditionally render or reorder Notes tab, hopefully available in Storybook v6.
         window.top.document.getElementsByClassName('simplebar-content')[1].setAttribute('style', 'display: none');
         if (window.top.location.href.includes('/story/')) {
-            // @ts-ignore
+            window.top.history.replaceState(null, null, window.top.location.href.replace('/story/', '/info/'));
+            //@ts-ignore
             window.top.document.getElementsByClassName('css-mtwlrt')[0].click();
         }
     }
