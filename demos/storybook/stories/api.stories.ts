@@ -1,7 +1,7 @@
 import { storiesOf } from '@storybook/angular';
 
 // Auto-navigates to the Notes tab when selected.
-const docFn = () => (storyFn): any => {
+const docFn = () => (story): any => {
     const banner = window.top.document.getElementsByClassName('simplebar-content')[1];
     banner.setAttribute('style', 'display: none');
     // If we are currently on the 'Canvas' tab.
@@ -10,10 +10,9 @@ const docFn = () => (storyFn): any => {
         //@ts-ignore
         banner.children[0].children[0].children[0].children[1].click(); // click the Notes tab.
     }
-    const story = storyFn();
     return {
         ...story,
-        template: ``,
+        template: `<div></div>`,
     };
 };
 
