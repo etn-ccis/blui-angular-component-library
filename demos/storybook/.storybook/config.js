@@ -1,4 +1,4 @@
-import {addParameters, configure} from '@storybook/angular';
+import {addParameters} from '@storybook/angular';
 require('@pxblue/icons/iconfont/PXBlueIcons.css');
 import { pxblueTheme } from '@pxblue/storybook-theme';
 
