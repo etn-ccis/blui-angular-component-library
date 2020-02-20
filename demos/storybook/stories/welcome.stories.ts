@@ -13,4 +13,7 @@ storiesOf('Intro/Welcome', module)
     .addDecorator(wrap())
     .add('to px blue', () => ({
         template: `<welcome></welcome>`,
+        options: {
+           showPanel: false
+        }
     }));

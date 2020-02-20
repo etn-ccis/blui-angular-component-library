@@ -13,7 +13,7 @@ export const wrap = () => (storyFn): any => {
 @Component({
     selector: 'story',
     template: `
-        <div class="pxb-blue mat-typography"><ng-content></ng-content></div>
+        <div class="pxb-blue mat-typography" style="height: 100%; width: 100%"><ng-content></ng-content></div>
     `,
 })
 export class StoryComponent {
