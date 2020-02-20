@@ -1,6 +1,6 @@
 import {addParameters} from '@storybook/angular';
 require('@pxblue/icons/iconfont/PXBlueIcons.css');
-import { pxblueTheme } from '@pxblue/storybook-theme';
+import { pxblueTheme } from '@pxblue/storybook-themes';
 
 const newViewports = {
     iPhone5: {
