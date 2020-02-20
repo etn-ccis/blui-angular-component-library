@@ -1,6 +1,7 @@
 import '@pxblue/themes/angular/theme.scss';
 import { Component, NgModule } from '@angular/core';
 import 'typeface-open-sans';
+import {UtilModule} from "./utils";
 
 @Component({
     selector: 'welcome',
@@ -17,7 +18,8 @@ export class WelcomeComponent {
 }
 
 @NgModule({
+    imports: [UtilModule],
     declarations: [WelcomeComponent],
-    exports: [WelcomeComponent],
+    exports: [WelcomeComponent, UtilModule],
 })
 export class WelcomeModule {}
