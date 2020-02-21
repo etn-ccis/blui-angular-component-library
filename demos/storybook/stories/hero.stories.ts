@@ -12,6 +12,11 @@ storiesOf('playground/Hero', module)
     )
     .addDecorator(withKnobs)
     .addDecorator(wrap())
+   .addParameters({
+      options: {
+         showPanel: true,
+      },
+   })
     .add('with basic properties', () => ({
         template: `
           <pxb-hero [label]="label" [value]="value" [units]="units">

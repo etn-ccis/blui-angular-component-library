@@ -1,0 +1,61 @@
+.root {
+    height:100%;
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.img-container {
+    text-align: center;
+}
+
+.cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+.cards * {
+    max-width: 170px;
+}
+
+.card {
+    width: 170px;
+    height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.buttons {
+    display: flex;
+    display: none;
+    justify-content: space-around
+}
+
+.buttons button {
+    min-width: 100px;
+    color: rgb(0, 123, 193)!important;
+    font-weight: 600;
+    margin-top: 40px;
+}
+
+.rotateMe {
+    height: 50px;
+    width: 50px;
+    animation-duration: 2500ms;
+    animation-timing-function: linear;
+    animation-delay: 0s;
+    animation-iteration-count: infinite;
+    animation-direction: normal;
+    animation-fill-mode: none;
+    animation-play-state: running;
+    animation-name: spin;
+    text-align:center;
+}
