@@ -8,6 +8,7 @@ import {UtilModule} from "../utils";
 import * as Colors from '@pxblue/colors';
 const bg = require('../../assets/circles-bg.svg');
 const icon = require('../../assets/pxb-icon.svg');
+const storybook = require('../../assets/storybook.png');
 
 @Component({
     selector: 'welcome',
@@ -20,16 +21,18 @@ const icon = require('../../assets/pxb-icon.svg');
             
             <div class="container">
                 <div class="img-container">
-                    <img [src]="icon" alt="pxb-icon" class="rotateMe" />
+                    <img [src]="icon" alt="pxb-icon" class="rotate" />
                 </div>
                 <section class="mat-typography">
                     <div class="mat-display-3">Power Xpert <strong>Blue</strong></div>
-                    <div class="mat-display-1" style="margin-top: -20px">Angular components</div>
+                    <div class="mat-h1" style="margin-top: -20px">Angular Component Library</div>
+                    
+                    
                     <div class="cards">
                         <mat-card>
                             <div class="card">
                                 <div class="mat-h4">
-                                    Storybook isolates components and allows you to interact with them via knobs.
+                                    Storybook is a demo app that isolates components and allows you to interact with them via knobs.
                                </div>
                                 <button mat-stroked-button color="primary">Get Started</button>
                             </div>
@@ -43,10 +46,34 @@ const icon = require('../../assets/pxb-icon.svg');
                             </div>
                         </mat-card>
                     </div>
+
+
+                    <div class="media-cards">
+                        <mat-card>
+                            <div class="media-card">
+                                <img style="width: 100%" [src]="storybook" />
+                                <br/>
+                                <div class="mat-h4">
+                                    Storybook is a demo app that isolates components and allows you to interact with them via knobs.
+                                </div>
+                                <button mat-stroked-button color="primary">Get Started</button>
+                            </div>
+                        </mat-card>
+                        <mat-card>
+                            <div class="media-card">
+                                <div class="mat-h4">
+                                    PX Blue is an open-source design system.  View our code here:
+                                </div>
+                                <button mat-stroked-button color="primary">Github</button>
+                            </div>
+                        </mat-card>
+                    </div>
+                    
+                    
+                    
                     <div [style.color]="pxbColors.white[500]" class="buttons">
-                        <button mat-flat-button>Home</button>
+                        <button mat-flat-button>Get Started</button>
                         <button mat-flat-button>Github</button>
-                        <button mat-flat-button>NPM</button>
                     </div>
                 </section>
             </div>
@@ -57,6 +84,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
     pxbColors = Colors;
     background = `url(${bg})`;
     icon = icon;
+    storybook = storybook;
 
     ngOnInit(): void {
         const root = document.getElementById('root');

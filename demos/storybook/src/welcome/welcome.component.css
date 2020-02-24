@@ -10,6 +10,7 @@
     display:flex;
     flex-direction: column;
     justify-content: center;
+    text-align:center;
 }
 
 .img-container {
@@ -17,12 +18,29 @@
 }
 
 .cards {
-    display: flex;
+    display: none;
     justify-content: space-around;
     margin-top: 50px;
 }
 .cards * {
     max-width: 170px;
+}
+
+.media-cards {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+}
+.media-cards * {
+    max-width: 170px;
+}
+
+.media-card {
+    width: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    text-align:left;
 }
 
 .card {
@@ -31,10 +49,10 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    text-align:left;
 }
 
 .buttons {
-    display: flex;
     display: none;
     justify-content: space-around
 }
@@ -45,17 +63,15 @@
     font-weight: 600;
     margin-top: 40px;
 }
+.rotate {
+    animation: rotation 2s infinite linear;
+}
 
-.rotateMe {
-    height: 50px;
-    width: 50px;
-    animation-duration: 2500ms;
-    animation-timing-function: linear;
-    animation-delay: 0s;
-    animation-iteration-count: infinite;
-    animation-direction: normal;
-    animation-fill-mode: none;
-    animation-play-state: running;
-    animation-name: spin;
-    text-align:center;
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
 }
