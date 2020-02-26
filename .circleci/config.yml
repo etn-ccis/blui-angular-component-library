@@ -70,6 +70,7 @@ jobs:
       - run:
           name: Lint
           command: |
+            cd demos/storybook
             yarn lint
       - persist_to_workspace:
           root: .
@@ -106,6 +107,7 @@ jobs:
       - run:
           name: Lint
           command: |
+            cd demos/showcase
             yarn lint
 
   deploy_storybook:
