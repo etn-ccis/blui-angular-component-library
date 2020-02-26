@@ -6,9 +6,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 //pxblue modules
 import { NgProgressIconsModule } from '@pxblue/ng-progress-icons';
-import { HeroModule } from '@pxblue/angular-components';
-import { ChannelValueModule } from '@pxblue/angular-components';
-import { EmptyStateModule } from '@pxblue/angular-components';
+import { HeroModule, ChannelValueModule, EmptyStateModule } from '@pxblue/angular-components';
 
 //material modules
 import {MatDividerModule} from '@angular/material/divider';

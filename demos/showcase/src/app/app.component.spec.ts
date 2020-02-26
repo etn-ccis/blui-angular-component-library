@@ -1,21 +1,19 @@
 import { TestBed, async } from '@angular/core/testing';
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import {HttpClientModule} from '@angular/common/http';
 
 import { AppComponent } from './app.component';
-import { HeroModule } from '@pxblue/angular-components/core/hero';
-import { ChannelValueModule } from '@pxblue/angular-components/core/channel-value';
+import { HeroModule, ChannelValueModule } from '@pxblue/angular-components';
 
 //pxblue modules
 import { NgProgressIconsModule } from '@pxblue/ng-progress-icons';
 
 
-import {MatDividerModule} from '@angular/material/divider'; 
-import {MatIconModule} from '@angular/material/icon'; 
+import {MatDividerModule} from '@angular/material/divider';
+import {MatIconModule} from '@angular/material/icon';
 import { FormsModule } from '@angular/forms';
-import {MatListModule} from '@angular/material/list'; 
-import {MatCardModule} from '@angular/material/card'; 
+import {MatListModule} from '@angular/material/list';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -37,7 +35,7 @@ describe('AppComponent', () => {
         HttpClientModule,
         //pxblue
         NgProgressIconsModule,
-      
+
       ],
     }).compileComponents();
   }));

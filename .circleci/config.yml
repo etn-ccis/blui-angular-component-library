@@ -70,7 +70,7 @@ jobs:
       - run:
           name: Lint
           command: |
-            echo "LINT HERE"
+            yarn lint
       - persist_to_workspace:
           root: .
           paths:
@@ -106,7 +106,7 @@ jobs:
       - run:
           name: Lint
           command: |
-            echo "LINT HERE"
+            yarn lint
 
   deploy_storybook:
     docker:
