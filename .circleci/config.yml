@@ -67,6 +67,8 @@ jobs:
             cp -r ./dist/. ./demos/storybook/node_modules/@pxblue/angular-components
             cd demos/storybook
             yarn build-storybook
+            cd storybook-static
+            touch .nojekyll
       - run:
           name: Lint
           command: |
