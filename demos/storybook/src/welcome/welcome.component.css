@@ -17,51 +17,27 @@
     text-align: center;
 }
 
-.cards {
-    display: none;
-    justify-content: space-around;
-    margin-top: 50px;
-}
-.cards * {
-    max-width: 170px;
-}
-
-.media-cards {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 50px;
-}
-.media-cards * {
-    max-width: 170px;
-}
-
-.media-card {
-    width: 250px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align:left;
-}
-
-.card {
-    width: 170px;
-    height: 150px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    text-align:left;
+.github {
+    margin-right: 8px;
+    height: 24px;
+    width: 24px;
 }
 
 .buttons {
-    display: none;
+    display: flex;
     justify-content: space-around
+}
+
+.description {
+    max-width: 900px;
+    padding: 20px;
+    padding-bottom: 0;
 }
 
 .buttons button {
     min-width: 100px;
-    color: rgb(0, 123, 193)!important;
     font-weight: 600;
-    margin-top: 40px;
+    margin-top: 35px;
 }
 .rotate {
     animation: rotation 2s infinite linear;
