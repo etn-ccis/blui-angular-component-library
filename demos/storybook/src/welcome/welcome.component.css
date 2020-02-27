@@ -25,7 +25,13 @@
 
 .buttons {
     display: flex;
-    justify-content: space-around
+    justify-content: space-around;
+    margin-top: 36px;
+}
+
+.buttons .link {
+    min-width: 100px;
+    font-weight: 600;
 }
 
 .description {
@@ -34,11 +40,6 @@
     padding-bottom: 0;
 }
 
-.buttons button {
-    min-width: 100px;
-    font-weight: 600;
-    margin-top: 35px;
-}
 .rotate {
     animation: rotation 2s infinite linear;
 }
