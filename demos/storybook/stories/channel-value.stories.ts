@@ -12,6 +12,11 @@ storiesOf('playground/Channel Value', module)
     )
     .addDecorator(withKnobs)
     .addDecorator(wrap())
+    .addParameters({
+        options: {
+            showPanel: true,
+        },
+    })
     .add('with value', () => ({
         template: `
           <pxb-channel-value [value]="value"></pxb-channel-value>

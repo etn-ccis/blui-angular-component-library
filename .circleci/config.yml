@@ -44,6 +44,8 @@ jobs:
   build_storybook:
     docker:
       - image: circleci/node:12.9.1-browsers
+    environment:
+      - MASTER_BRANCH: master
     steps:
       - checkout
       - restore_cache:
@@ -66,6 +68,12 @@ jobs:
           command: |
             cp -r ./dist/. ./demos/storybook/node_modules/@pxblue/angular-components
             cd demos/storybook
+
+            # If we are building the master branch, use the published component library.
+            if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
+              yarn add @pxblue/angular-components
+            fi
+
             yarn build-storybook
       - run:
           name: Lint
@@ -81,6 +89,8 @@ jobs:
   build_showcase:
     docker:
       - image: circleci/node:12.9.1-browsers
+    environment:
+      - MASTER_BRANCH: master
     steps:
       - checkout
       - restore_cache:
@@ -103,6 +113,12 @@ jobs:
           command: |
             cp -r ./dist/. ./demos/showcase/node_modules/@pxblue/angular-components
             cd demos/showcase
+
+            # If we are building the master branch, use the published component library.
+            if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
+              yarn add @pxblue/angular-components
+            fi
+
             yarn build
       - run:
           name: Lint
