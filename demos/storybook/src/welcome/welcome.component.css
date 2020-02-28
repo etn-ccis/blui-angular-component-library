@@ -1,0 +1,54 @@
+.root {
+    height:100%;
+    width: 100%;
+    display: flex;
+    align-content: center;
+    justify-content: center;
+}
+
+.container {
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align:center;
+}
+
+.img-container {
+    text-align: center;
+}
+
+.github {
+    margin-right: 8px;
+    height: 24px;
+    width: 24px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 36px;
+}
+
+.buttons .link {
+    min-width: 100px;
+    font-weight: 600;
+}
+
+.description {
+    max-width: 900px;
+    padding: 20px;
+    padding-bottom: 0;
+}
+
+.rotate {
+    animation: rotation 2s infinite linear;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}

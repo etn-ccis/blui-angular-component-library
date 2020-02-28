@@ -3,11 +3,15 @@ The ChannelValue component is used to display a channel value (and units). This 
 
 Icons are passed in as a child element of the ChannelValue component.
 
-<img width="100%" alt="Channel Value in Hero" src="./images/heroes.png">
-<img width="100%" alt="Channel Value in a list item" src="./images/channelValue.png">
+<div style="text-align:center; margin-bottom:20px">
+<img width="100%" style="max-width: 600px" alt="Channel Value in Hero" src="./images/heroes.png">
+<hr/>
+<img width="100%" style="max-width: 600px" alt="Channel Value in a list item" src="./images/channelValue.png">
+</div>
 
 ## Usage
-```
+
+```typescript
 // app.module.ts
 import { ChannelValueModule } from '@pxblue/angular-components';
 ...
@@ -15,7 +19,8 @@ imports: [
     ChannelValueModule
   ],
 ```
-```
+
+```typescript
 // your-component.html
 <pxb-channel-value class="content" value="65" units="%" [prefix]="true" fontSize="10px" >
   <mat-icon >trending_up</mat-icon>

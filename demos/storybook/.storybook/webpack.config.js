@@ -9,6 +9,19 @@ module.exports = ({ config }) => {
         ],
     });
     config.module.rules.push({
+        test: /\.stories\.(ts)$/,
+        use: [
+            {
+                loader: require.resolve('awesome-typescript-loader'),
+            },
+            {
+                loader: require.resolve('@storybook/source-loader'),
+                options: { parser: 'typescript' },
+            },
+        ],
+        enforce: 'pre',
+    });
+    config.module.rules.push({
         test: /\.s[ac]ss$/i,
         use: [
             // Creates `style` nodes from JS strings

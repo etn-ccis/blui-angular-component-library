@@ -1,6 +1,6 @@
-import {addParameters, configure} from '@storybook/angular';
+import {addParameters} from '@storybook/angular';
 require('@pxblue/icons/iconfont/PXBlueIcons.css');
-import pxblue from './pxblue-theme';
+import { pxblueTheme } from '@pxblue/storybook-themes';
 
 const newViewports = {
     iPhone5: {
@@ -26,14 +26,20 @@ const newViewports = {
     },
 };
 
+pxblueTheme.brandTitle = 'PX Blue Angular Component Library';
+pxblueTheme.brandImage = 'https://pxblue.github.io/static/media/pxblue.d5fa6462.svg';
+pxblueTheme.brandUrl = 'https://pxblue.github.io';
+
 addParameters({
+    /* Users will see this while the component is loading. */
+    notes: {
+        markdown: '<div> </div>',
+    },
     viewport: {
-        viewports: newViewports
+        viewports: newViewports,
     },
     options: {
-        theme: pxblue,
+        theme: pxblueTheme,
+        showRoots: true,
     },
 });
-
-// automatically import all files ending in *.stories.ts
-configure(require.context('../stories', true, /\.stories\.ts$/), module);
