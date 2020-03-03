@@ -10,6 +10,22 @@ export const wrap = () => (storyFn): any => {
     };
 };
 
+export const updateTitle = (): void => {
+    setTimeout(() => {
+        window.top.document.title = 'PX Blue | Angular Components';
+    }, 10);
+    (function() {
+        var link = window.top.document.querySelector("link[rel*='icon']") || document.createElement('link');
+        // @ts-ignore
+        link.type = 'image/x-icon';
+        // @ts-ignore
+        link.rel = 'shortcut icon';
+        // @ts-ignore
+        link.href = './pxblue.png';
+        window.top.document.getElementsByTagName('head')[0].appendChild(link);
+    })();
+};
+
 @Component({
     selector: 'story',
     template: `
@@ -27,6 +43,8 @@ export class StoryComponent {
             //@ts-ignore
             banner.children[0].children[0].children[0].children[0].click(); // Click the 'Canvas' button
         }
+
+        updateTitle();
     }
 }
 

@@ -14,11 +14,11 @@ storiesOf('playground/Empty State', module)
     )
     .addDecorator(withKnobs)
     .addDecorator(wrap())
-   .addParameters({
-      options: {
-         showPanel: true,
-      },
-   })
+    .addParameters({
+        options: {
+            showPanel: true,
+        },
+    })
     .add('with action', () => ({
         template: `
           <pxb-empty-state [title]="title">

@@ -1,4 +1,5 @@
 import { storiesOf } from '@storybook/angular';
+import { updateTitle } from '../src/utils';
 
 // Auto-navigates to the Notes tab when selected.
 const docFn = () => (story): any => {
@@ -9,6 +10,7 @@ const docFn = () => (story): any => {
         window.top.history.replaceState(null, '', window.top.location.href.replace('/story/', '/info/'));
         //@ts-ignore
         banner.children[0].children[0].children[0].children[1].click(); // click the Notes tab.
+        updateTitle();
     }
     return {
         ...story,
