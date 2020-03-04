@@ -10,8 +10,8 @@ const docFn = () => (story): any => {
         window.top.history.replaceState(null, '', window.top.location.href.replace('/story/', '/info/'));
         //@ts-ignore
         banner.children[0].children[0].children[0].children[1].click(); // click the Notes tab.
-        updateTitle();
     }
+    updateTitle();
     return {
         ...story,
         template: `<div></div>`,
