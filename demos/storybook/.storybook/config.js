@@ -27,7 +27,7 @@ const newViewports = {
 };
 
 pxblueTheme.brandTitle = 'PX Blue Angular Component Library';
-pxblueTheme.brandImage = 'https://pxblue.github.io/static/media/pxblue.d5fa6462.svg';
+pxblueTheme.brandImage = require('../assets/pxblue angular.svg');
 pxblueTheme.brandUrl = 'https://pxblue.github.io';
 
 addParameters({

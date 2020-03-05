@@ -12,11 +12,11 @@ storiesOf('playground/Hero Banner', module)
     )
     .addDecorator(withKnobs)
     .addDecorator(wrap())
-   .addParameters({
-      options: {
-         showPanel: true,
-      },
-   })
+    .addParameters({
+        options: {
+            showPanel: true,
+        },
+    })
     .add('with heroes', () => ({
         template: `
           <pxb-hero-banner [divider]="false">
