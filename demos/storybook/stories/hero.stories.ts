@@ -1,7 +1,8 @@
 import { ChannelValueModule, HeroModule } from '@pxblue/angular-components';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
-import { UtilModule, wrap } from '../src/utils';
+import { STORY_PARAMS } from '../src/constants';
+import { getReadMe, UtilModule, storyWrapper } from '../src/utils';
 import * as Colors from '@pxblue/colors';
 
 storiesOf('playground/Hero', module)
@@ -11,12 +12,8 @@ storiesOf('playground/Hero', module)
         })
     )
     .addDecorator(withKnobs)
-    .addDecorator(wrap())
-    .addParameters({
-        options: {
-            showPanel: true,
-        },
-    })
+    .addDecorator(storyWrapper())
+    .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('Hero.md') } })
     .add('with basic properties', () => ({
         template: `
           <pxb-hero [label]="label" [value]="value" [units]="units">

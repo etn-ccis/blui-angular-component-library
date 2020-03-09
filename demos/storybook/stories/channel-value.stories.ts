@@ -2,7 +2,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ChannelValueModule } from '@pxblue/angular-components';
 import { boolean, color, number, text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
-import { UtilModule, wrap } from '../src/utils';
+import { getReadMe, storyWrapper, UtilModule } from '../src/utils';
+import { STORY_PARAMS } from '../src/constants';
 
 storiesOf('playground/Channel Value', module)
     .addDecorator(
@@ -11,12 +12,8 @@ storiesOf('playground/Channel Value', module)
         })
     )
     .addDecorator(withKnobs)
-    .addDecorator(wrap())
-    .addParameters({
-        options: {
-            showPanel: true,
-        },
-    })
+    .addDecorator(storyWrapper())
+    .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('ChannelValue.md') } })
     .add('with value', () => ({
         template: `
           <pxb-channel-value [value]="value"></pxb-channel-value>

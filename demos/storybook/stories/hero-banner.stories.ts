@@ -2,7 +2,8 @@ import { ChannelValueModule, HeroModule } from '@pxblue/angular-components';
 import { number, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import * as Colors from '@pxblue/colors';
-import { UtilModule, wrap } from '../src/utils';
+import { STORY_PARAMS } from '../src/constants';
+import { getReadMe, storyWrapper, UtilModule } from '../src/utils';
 
 storiesOf('playground/Hero Banner', module)
     .addDecorator(
@@ -11,12 +12,8 @@ storiesOf('playground/Hero Banner', module)
         })
     )
     .addDecorator(withKnobs)
-    .addDecorator(wrap())
-    .addParameters({
-        options: {
-            showPanel: true,
-        },
-    })
+    .addDecorator(storyWrapper())
+    .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('Hero.md') } })
     .add('with heroes', () => ({
         template: `
           <pxb-hero-banner [divider]="false">
