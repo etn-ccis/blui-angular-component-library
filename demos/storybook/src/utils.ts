@@ -70,6 +70,6 @@ export class StoryComponent {
 @NgModule({
     imports: [CommonModule, BrowserModule],
     declarations: [StoryComponent],
-    exports: [StoryComponent, CommonModule],
+    exports: [StoryComponent],
 })
 export class UtilModule {}
