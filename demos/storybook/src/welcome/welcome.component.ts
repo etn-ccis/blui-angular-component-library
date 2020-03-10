@@ -26,7 +26,7 @@ const icon = require('../../assets/pxb-icon.svg');
                     <div class="mat-display-3">Power Xpert <strong>Blue</strong></div>
                     <div class="mat-display-1" style="margin-top: -16px">Angular Component Library</div>
                     <div class="mat-h3 description">
-                        Learn about our PX Blue components in the API section or interact with them in the Playground.
+                        Learn about and interact with our PX Blue components using Storybook.
                     </div>
                     <div class="buttons">
                         <a target="_blank" href="https://github.com/pxblue/angular-component-library" mat-stroked-button 
