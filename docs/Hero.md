@@ -46,6 +46,9 @@ imports: [
 
 
 ### Hero API
+
+<div style="overflow: auto;">
+
 | Prop Name           | Description                             | Type                                                               | Required | Default                | Examples                       |
 |---------------------|-----------------------------------------|--------------------------------------------------------------------|----------|------------------------|--------------------------------|
 | label               | The text shown below the `ChannelValue` | `string`                                                           | yes      |                        | 'Status'                       |
@@ -54,6 +57,7 @@ imports: [
 | value               | The value for the channel               | `string` &vert; `number`                                           | no       |                        | 240, 'Off'                     |
 | units               | Text to show after the value            | `string`                                                           | no       |                        | 'Hz', '$'                      |
 
+</div>
 
 > **Note**: When using the ```iconSize``` attribute, you may specify either normal (36px) or large (72px). When using ```<mat-icon>``` icons (not PX Blue supplemental icon), you may also specify a numeric value from 10 to 72.
 
@@ -79,8 +83,11 @@ imports: [
 ```
 
 ### HeroBanner API
+
+<div style="overflow: auto;">
+
 | Prop Name | Description                             | Type      | Required | Default | Examples |
 |-----------|-----------------------------------------|-----------|----------|---------|----------|
 | divider   | Whether to show the line separator      | `boolean` | no       | false   |          |
 
-
+</div>

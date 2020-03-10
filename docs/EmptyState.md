@@ -33,8 +33,12 @@ imports: [
 ```
  
 ## API
+
+<div style="overflow: auto;">
+
 | Prop Name   | Description                             | Type              | Required | Default | Examples                              |
 |-------------|-----------------------------------------|-------------------|----------|---------|---------------------------------------|
 | title       | The main text to display                | `string`          | yes      |         | 'No Data Found'                       |
 | description | The secondary text to display           | `string`          | no       |         | 'Come back to this page later'        |
 
+</div>
