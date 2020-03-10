@@ -1,11 +1,11 @@
 import { ChannelValueModule, HeroModule } from '@pxblue/angular-components';
 import { number, text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
-import { STORY_PARAMS } from '../src/constants';
-import { getReadMe, UtilModule, storyWrapper } from '../src/utils';
+import {COMPONENT_SECTION_NAME, README_STORY_NAME, STORY_PARAMS} from '../src/constants';
+import {getReadMe, UtilModule, storyWrapper, getReadMeStory} from '../src/utils';
 import * as Colors from '@pxblue/colors';
 
-storiesOf('playground/Hero', module)
+storiesOf(`${COMPONENT_SECTION_NAME}/Hero`, module)
     .addDecorator(
         moduleMetadata({
             imports: [HeroModule, ChannelValueModule, UtilModule],
@@ -14,6 +14,7 @@ storiesOf('playground/Hero', module)
     .addDecorator(withKnobs)
     .addDecorator(storyWrapper())
     .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('Hero.md') } })
+   .add(README_STORY_NAME, getReadMeStory)
     .add('with basic properties', () => ({
         template: `
           <pxb-hero [label]="label" [value]="value" [units]="units">
