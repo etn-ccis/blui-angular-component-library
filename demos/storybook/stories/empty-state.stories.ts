@@ -4,21 +4,19 @@ import { EmptyStateModule } from '@pxblue/angular-components';
 import { action } from '@storybook/addon-actions';
 import { text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
-import { UtilModule, wrap } from '../src/utils';
+import {COMPONENT_SECTION_NAME, README_STORY_NAME, STORY_PARAMS} from '../src/constants';
+import {getReadMe, getReadMeStory, storyWrapper, UtilModule} from '../src/utils';
 
-storiesOf('playground/Empty State', module)
+storiesOf(`${COMPONENT_SECTION_NAME}/Empty State`, module)
     .addDecorator(
         moduleMetadata({
             imports: [EmptyStateModule, MatButtonModule, MatIconModule, UtilModule],
         })
     )
     .addDecorator(withKnobs)
-    .addDecorator(wrap())
-    .addParameters({
-        options: {
-            showPanel: true,
-        },
-    })
+    .addDecorator(storyWrapper())
+    .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('EmptyState.md') } })
+   .add(README_STORY_NAME, getReadMeStory)
     .add('with action', () => ({
         template: `
           <pxb-empty-state [title]="title">

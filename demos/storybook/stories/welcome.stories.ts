@@ -1,5 +1,5 @@
 import { moduleMetadata, storiesOf } from '@storybook/angular';
-import { wrap } from '../src/utils';
+import { storyWrapper } from '../src/utils';
 import { WelcomeModule } from '../src/welcome/welcome.component';
 
 storiesOf('Intro/Welcome', module)
@@ -13,7 +13,7 @@ storiesOf('Intro/Welcome', module)
             showPanel: false,
         },
     })
-    .addDecorator(wrap())
+    .addDecorator(storyWrapper())
     .add('to px blue', () => ({
         template: `<welcome></welcome>`,
     }));

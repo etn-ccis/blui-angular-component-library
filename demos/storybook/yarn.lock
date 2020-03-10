@@ -1503,10 +1503,10 @@
   resolved "https://registry.npmjs.org/@pxblue/prettier-config/-/prettier-config-1.0.2.tgz#fb00503df6557b66c3d91d43c9101e614c35d2ec"
   integrity sha512-/3cLBoTjZs3kV1ATPA/Sp0tsL7XmlV/b8HW/qt0jqR/uP5+cdXL2YIhMXQngLRa7PhpSkEiRIYK5sl0rKsXTUg==
 
-"@pxblue/storybook-themes@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@pxblue/storybook-themes/-/storybook-themes-1.0.1.tgz#a66be26afbd9e6880ca668084ceb9aa4fec1c2e1"
-  integrity sha512-XktRBQ0bDwUQk6dPHsC2+/XCUP3Lct+Do4lkpPvfBCgQGLtINXfdY1D+mW2LkXRqnHCrQGJO9pIqHzRbKUrHZg==
+"@pxblue/storybook-themes@^1.0.2":
+  version "1.0.2"
+  resolved "https://registry.npmjs.org/@pxblue/storybook-themes/-/storybook-themes-1.0.2.tgz#ba3787811c34a995293482f3a6f60ead836daf30"
+  integrity sha512-syh1dFdcKi9lfS9Kzwavn5S9njjqGVDKAyoh0x/su7+OQ25cuOWll9Ot5NqOU3K8iPA7xDpLZsmBQpUfmV6iiw==
 
 "@pxblue/themes@^3.0.2":
   version "3.0.2"
