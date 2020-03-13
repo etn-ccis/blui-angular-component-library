@@ -33,7 +33,7 @@ const selectNotesTab = (): void => {
 
 export const updateTitle = (): void => {
     setTimeout(() => {
-        window.top.document.title = 'PX Blue | React Components';
+        window.top.document.title = 'PX Blue | Angular Components';
     }, 10);
 
     const link: any = window.top.document.querySelector("link[rel*='icon']") || document.createElement('link');
