@@ -4,7 +4,7 @@ import 'typeface-open-sans';
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {MatDividerModule} from "@angular/material/divider";
-import {UtilModule} from "../utils";
+import {hideTopBanner, showTopBanner, UtilModule} from "../utils";
 import * as Colors from '@pxblue/colors';
 const bg = require('../../assets/circles-bg.svg');
 const icon = require('../../assets/pxb-icon.svg');
@@ -53,12 +53,14 @@ export class WelcomeComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         const root = document.getElementById('root');
+        hideTopBanner();
         root.style.height = '100%';
         root.style.width = '100%';
     }
 
     ngOnDestroy(): void {
         const root = document.getElementById('root');
+        showTopBanner();
         root.style.height = 'unset';
         root.style.width = 'unset';
     }
