@@ -3,7 +3,8 @@ import { ChannelValueModule } from '@pxblue/angular-components';
 import { boolean, color, number, text, withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import {getReadMe, getReadMeStory, storyWrapper, UtilModule} from '../src/utils';
-import {COMPONENT_SECTION_NAME, README_STORY_NAME, STORY_PARAMS} from '../src/constants';
+import * as Colors from '@pxblue/colors';
+import {COMPONENT_SECTION_NAME, README_STORY_NAME, STORY_PARAMS, WITH_MIN_PROPS_STORY_NAME} from '../src/constants';
 
 storiesOf(`${COMPONENT_SECTION_NAME}/Channel Value`, module)
     .addDecorator(
@@ -15,7 +16,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Channel Value`, module)
     .addDecorator(storyWrapper())
     .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('ChannelValue.md') } })
    .add(README_STORY_NAME, getReadMeStory)
-    .add('with value', () => ({
+    .add(WITH_MIN_PROPS_STORY_NAME, () => ({
         template: `
           <pxb-channel-value [value]="value"></pxb-channel-value>
       `,
@@ -25,34 +26,29 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Channel Value`, module)
     }))
     .add('with units', () => ({
         template: `
-          <pxb-channel-value [value]="value" [units]="units"></pxb-channel-value>
+          <pxb-channel-value [value]="'123'" [units]="units"></pxb-channel-value>
       `,
         props: {
-            value: text('value', '123', '_'),
-            units: text('units', 'hz', '_'),
+            units: text('units', 'hz'),
         },
     }))
     .add('with icon', () => ({
         template: `
-          <pxb-channel-value [value]="value" [units]="units">
-            <mat-icon [style.color]="iconColor">trending_up</mat-icon>
+          <pxb-channel-value [value]="'123'" [units]="'hz'">
+            <mat-icon [style.color]="htmlColor">trending_up</mat-icon>
           </pxb-channel-value>
       `,
         props: {
-            value: text('value', '123'),
-            units: text('units', 'hz'),
-            iconColor: '#CA3C3D',
+            htmlColor: color('icon.htmlColor', Colors.red[500]),
         },
     }))
     .add('with extra large font size', () => ({
         template: `
-          <pxb-channel-value [value]="value" [units]="units" [fontSize]="fontSize">
+          <pxb-channel-value [value]="'123'" [units]="'hz'" [fontSize]="fontSize">
             <mat-icon [style.color]="iconColor">trending_up</mat-icon>
           </pxb-channel-value>
       `,
         props: {
-            value: text('value', '123'),
-            units: text('units', 'hz'),
             fontSize: number('fontSize', 30),
             iconColor: '#CA3C3D',
         },
@@ -60,13 +56,14 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Channel Value`, module)
     .add('with all props', () => ({
         template: `
           <pxb-channel-value [value]="value" [units]="units" [fontSize]="fontSize" [color]="color" [prefix]="prefix">
-            <mat-icon [style.color]="iconColor">trending_up</mat-icon>
+            <mat-icon *ngIf="showIcon" [style.color]="htmlColor">trending_up</mat-icon>
           </pxb-channel-value>
       `,
         props: {
             value: text('value', '123'),
             units: text('units', 'hz'),
-            iconColor: '#CA3C3D',
+            htmlColor: color('icon.htmlColor', Colors.red[500]),
+            showIcon: boolean('Show Icon', true),
             color: color('color', 'blue'),
             fontSize: number('fontSize', 30),
             prefix: boolean('prefix', false),
