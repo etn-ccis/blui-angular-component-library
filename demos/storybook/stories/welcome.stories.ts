@@ -2,7 +2,7 @@ import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { storyWrapper } from '../src/utils';
 import { WelcomeModule } from '../src/welcome/welcome.component';
 
-storiesOf('Intro/Welcome', module)
+storiesOf('Intro/Overview', module)
     .addDecorator(
         moduleMetadata({
             imports: [WelcomeModule],
@@ -14,6 +14,6 @@ storiesOf('Intro/Welcome', module)
         },
     })
     .addDecorator(storyWrapper())
-    .add('to px blue', () => ({
+    .add('PX Blue Angular Components', () => ({
         template: `<welcome></welcome>`,
     }));
