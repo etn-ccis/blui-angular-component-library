@@ -4,7 +4,13 @@ import { boolean, color, number, text, withKnobs } from '@storybook/addon-knobs'
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import {getReadMe, getReadMeStory, storyWrapper, UtilModule} from '../src/utils';
 import * as Colors from '@pxblue/colors';
-import {COMPONENT_SECTION_NAME, README_STORY_NAME, STORY_PARAMS, WITH_MIN_PROPS_STORY_NAME} from '../src/constants';
+import {
+   COMPONENT_SECTION_NAME,
+   README_STORY_NAME,
+   STORY_PARAMS,
+   WITH_FULL_CONFIG_STORY_NAME,
+   WITH_MIN_PROPS_STORY_NAME
+} from '../src/constants';
 
 storiesOf(`${COMPONENT_SECTION_NAME}/Channel Value`, module)
     .addDecorator(
@@ -53,7 +59,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Channel Value`, module)
             iconColor: '#CA3C3D',
         },
     }))
-    .add('with all props', () => ({
+    .add(WITH_FULL_CONFIG_STORY_NAME, () => ({
         template: `
           <pxb-channel-value [value]="value" [units]="units" [fontSize]="fontSize" [color]="color" [prefix]="prefix">
             <mat-icon *ngIf="showIcon" [style.color]="htmlColor">trending_up</mat-icon>
