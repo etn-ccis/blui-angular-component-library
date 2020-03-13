@@ -82,7 +82,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Hero`, module)
             iconColor: color('primary.style.color', Colors.blue[500]),
         },
     }))
-    .add('in a HeroBanner', () => ({
+    .add('within a HeroBanner', () => ({
         template: `
           <pxb-hero-banner [divider]="false">
              <pxb-hero *ngIf="count > 0" [label]="'Health'" [value]="96" [units]="'/100'">
