@@ -4,6 +4,8 @@
     display: flex;
     align-content: center;
     justify-content: center;
+    background-position: center;
+    background-size: 200%;
 }
 
 .container {
@@ -11,6 +13,7 @@
     flex-direction: column;
     justify-content: center;
     text-align:center;
+    padding: 0 8px;
 }
 
 .img-container {

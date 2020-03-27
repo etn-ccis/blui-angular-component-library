@@ -46,14 +46,18 @@ imports: [
 
 
 ### Hero API
-| Prop Name           | Description                             | Type                                                               | Required | Default                | Examples                       |
-|---------------------|-----------------------------------------|--------------------------------------------------------------------|----------|------------------------|--------------------------------|
-| label               | The text shown below the `ChannelValue` | `string`                                                           | yes      |                        | 'Status'                       |
-| iconSize            | The size of the primary icon (10-48)    | `string`                                                           | no       | 'normal' (36)          | 'large'                        |
-| fontSize            | The text size for the value line        | 'normal' &vert; 'small'                                            | no       | 'normal'               |                                |
-| value               | The value for the channel               | `string` &vert; `number`                                           | no       |                        | 240, 'Off'                     |
-| units               | Text to show after the value            | `string`                                                           | no       |                        | 'Hz', '$'                      |
 
+<div style="overflow: auto;">
+
+| Prop Name           | Description                             | Type                                                               | Required |
+|---------------------|-----------------------------------------|--------------------------------------------------------------------|----------|
+| label               | The text shown below the `ChannelValue` | `string`                                                           | yes      |
+| iconSize            | The size of the primary icon (10-48)    | `string`                                                           | no       |
+| fontSize            | The text size for the value line        | 'normal' &vert; 'small'                                            | no       |
+| value               | The value for the channel               | `string` &vert; `number`                                           | no       |
+| units               | Text to show after the value            | `string`                                                           | no       |
+
+</div>
 
 > **Note**: When using the ```iconSize``` attribute, you may specify either normal (36px) or large (72px). When using ```<mat-icon>``` icons (not PX Blue supplemental icon), you may also specify a numeric value from 10 to 72.
 
@@ -79,8 +83,11 @@ imports: [
 ```
 
 ### HeroBanner API
+
+<div style="overflow: auto;">
+
 | Prop Name | Description                             | Type      | Required | Default | Examples |
 |-----------|-----------------------------------------|-----------|----------|---------|----------|
 | divider   | Whether to show the line separator      | `boolean` | no       | false   |          |
 
-
+</div>

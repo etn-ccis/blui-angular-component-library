@@ -4,7 +4,7 @@ import 'typeface-open-sans';
 import {MatButtonModule} from "@angular/material/button";
 import {MatCardModule} from "@angular/material/card";
 import {MatDividerModule} from "@angular/material/divider";
-import {UtilModule} from "../utils";
+import {hideTopBanner, showTopBanner, UtilModule} from "../utils";
 import * as Colors from '@pxblue/colors';
 const bg = require('../../assets/circles-bg.svg');
 const icon = require('../../assets/pxb-icon.svg');
@@ -26,7 +26,7 @@ const icon = require('../../assets/pxb-icon.svg');
                     <div class="mat-display-3">Power Xpert <strong>Blue</strong></div>
                     <div class="mat-display-1" style="margin-top: -16px">Angular Component Library</div>
                     <div class="mat-h3 description">
-                        Learn about our PX Blue components in the API section or interact with them in the Playground.
+                        Learn about and interact with our PX Blue components using Storybook.
                     </div>
                     <div class="buttons">
                         <a target="_blank" href="https://github.com/pxblue/angular-component-library" mat-stroked-button 
@@ -53,12 +53,14 @@ export class WelcomeComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         const root = document.getElementById('root');
+        hideTopBanner();
         root.style.height = '100%';
         root.style.width = '100%';
     }
 
     ngOnDestroy(): void {
         const root = document.getElementById('root');
+        showTopBanner();
         root.style.height = 'unset';
         root.style.width = 'unset';
     }
