@@ -5,9 +5,12 @@ import { Component, Input } from '@angular/core';
     template: `
         <mat-card class="pxb-scorecard">
             <div class="pxb-scorecard-header" [style.backgroundColor]="headerColor" [style.color]="headerFontColor">
-                <mat-card-title class="title">{{headerTitle}}</mat-card-title>
-                <mat-card-subtitle class="subtitle">{{headerSubtitle}}</mat-card-subtitle>
-                <mat-card-subtitle class="info">{{headerInfo}}</mat-card-subtitle>
+                <div class="pxb-scorecard-header-overlay"></div>
+                <div class="header-content">
+                    <mat-card-title class="title">{{headerTitle}}</mat-card-title>
+                    <mat-card-subtitle class="subtitle">{{headerSubtitle}}</mat-card-subtitle>
+                    <mat-card-subtitle class="info">{{headerInfo}}</mat-card-subtitle>
+                </div>
             </div> 
             <mat-card-content class="pxb-scorecard-content">
                 <ng-content></ng-content>
@@ -22,4 +25,5 @@ export class ScoreCardComponent {
     @Input() headerInfo: string;
     @Input() headerColor: string;
     @Input() headerFontColor: string;
+    @Input() actionLimit: number;
 }

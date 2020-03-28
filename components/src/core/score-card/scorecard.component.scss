@@ -8,10 +8,21 @@
 .pxb-scorecard-header {
   border-radius: 4px;
   height: 100px;
-  padding: 16px;
   box-sizing: border-box;
   background-color: map-get($pxb-blue-primary, 500);
   color: map-get($pxb-white, 50);
+  position: relative;
+  .pxb-scorecard-header-overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0.3;
+    background-position: center;
+    background-size: cover;
+  }
+  .header-content {
+    padding: 16px;
+  }
   * {
     color: inherit;
   }
