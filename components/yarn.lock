@@ -969,6 +969,14 @@
     tree-kill "1.2.2"
     webpack-sources "1.4.3"
 
+"@pxblue/angular-themes@^4.0.0":
+  version "4.0.0"
+  resolved "https://registry.yarnpkg.com/@pxblue/angular-themes/-/angular-themes-4.0.0.tgz#8959f160520b347453953b6c306cdffa5ac72306"
+  integrity sha512-LwfxTVvHo+m2hOJTRJ+2HgV8F9fTWTdtLDaNF0MV8hBik1157kdPbvSBcIQ3je2RNj3VFb4l4RGILMgN6MaV4A==
+  dependencies:
+    "@pxblue/colors" "^2.0.0"
+    typeface-open-sans "^0.0.75"
+
 "@pxblue/colors@^2.0.0":
   version "2.0.0"
   resolved "https://registry.npmjs.org/@pxblue/colors/-/colors-2.0.0.tgz#fa7d2abde80485537f26521df4c3f6e56dd93361"
@@ -8155,9 +8163,14 @@ typedarray@^0.0.6:
   resolved "https://registry.npmjs.org/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
+typeface-open-sans@^0.0.75:
+  version "0.0.75"
+  resolved "https://registry.yarnpkg.com/typeface-open-sans/-/typeface-open-sans-0.0.75.tgz#20d0c330f14c0c40463c334adbedd6005389abe4"
+  integrity sha512-0lLmB7pfj113OP4T78SbpSmC4OCdFQ0vUxdSXQccsSb6qF76F92iEuC/DghFgmPswTyidk8+Hwf+PS/htiJoRQ==
+
 typescript@3.5.2:
   version "3.5.2"
-  resolved "https://registry.npmjs.org/typescript/-/typescript-3.5.2.tgz#a09e1dc69bc9551cadf17dba10ee42cf55e5d56c"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-3.5.2.tgz#a09e1dc69bc9551cadf17dba10ee42cf55e5d56c"
   integrity sha512-7KxJovlYhTX5RaRbUdkAXN1KUZ8PwWlTzQdHV6xNqvuFOs7+WBo10TQUqT19Q/Jz2hk5v9TQDIhyLhhJY4p5AA==
 
 typescript@3.5.3:

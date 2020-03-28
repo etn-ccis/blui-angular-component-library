@@ -1,0 +1,34 @@
+@import '~@pxblue/angular-themes/theme.scss';
+@import '~@pxblue/colors/palette.scss';
+
+.pxb-scorecard {
+  padding: 0;
+}
+
+.pxb-scorecard-header {
+  border-radius: 4px;
+  height: 100px;
+  padding: 16px;
+  box-sizing: border-box;
+  background-color: map-get($pxb-blue-primary, 500);
+  color: map-get($pxb-white, 50);
+  * {
+    color: inherit;
+  }
+  .title {
+    font-weight: 600;
+    line-height: 1.6;
+    font-size: 1.125rem;
+    margin-bottom: 0;
+  }
+  .subtitle {
+    font-weight: 400;
+    margin: 0;
+  }
+  .info {
+    font-weight: 200;
+  }
+  .subtitle, .info {
+    line-height: 1.4;
+  }
+}
