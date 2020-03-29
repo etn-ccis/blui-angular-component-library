@@ -16,6 +16,7 @@ import { withActions } from './with-actions.stories';
 import {MatButtonModule} from "@angular/material/button";
 import {CommonModule} from "@angular/common";
 import {withHeroes} from "./with-heroes.stories";
+import {withScoreBadge} from "./with-score-badge.stories";
 
 export const scorecardContainer = () => (storyFn): any => {
     const story = storyFn();
@@ -39,4 +40,5 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Scorecard`, module)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
     .add('with custom header', withCustomHeader)
     .add('with actions', withActions)
-    .add('with heroes', withHeroes);
+    .add('with heroes', withHeroes)
+    .add('with score badge', withScoreBadge);

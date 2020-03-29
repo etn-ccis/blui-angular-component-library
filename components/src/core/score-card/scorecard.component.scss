@@ -19,6 +19,9 @@
   position: relative;
   * {
     color: inherit;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
   .header-overlay {
     position: absolute;
@@ -57,6 +60,7 @@
   justify-content: space-between;
   align-items: center;
   .badge-wrapper {
+    z-index: 1;
     margin-left: 16px;
     margin-right: 16px;
   }

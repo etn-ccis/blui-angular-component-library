@@ -20,7 +20,7 @@ import { Component, Input } from '@angular/core';
             <mat-card-content>
                 <div class="content">
                     <ng-content select="[content]"></ng-content>
-                    <div class="badge-wrapper">
+                    <div class="badge-wrapper" [style.marginTop.px]="badgeOffset">
                         <ng-content select="[badges]"></ng-content>
                     </div>
                 </div>
@@ -38,4 +38,5 @@ export class ScoreCardComponent {
     @Input() headerColor: string;
     @Input() headerFontColor: string;
     @Input() actionLimit: number;
+    @Input() badgeOffset: number = 0;
 }
