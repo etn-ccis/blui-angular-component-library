@@ -1,5 +1,5 @@
 import { MatIconModule } from '@angular/material/icon';
-import { ScoreCardModule } from '@pxblue/angular-components';
+import { ScoreCardModule, HeroModule } from '@pxblue/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import {
@@ -15,6 +15,7 @@ import { withCustomHeader } from './with-custom-header.stories';
 import { withActions } from './with-actions.stories';
 import {MatButtonModule} from "@angular/material/button";
 import {CommonModule} from "@angular/common";
+import {withHeroes} from "./with-heroes.stories";
 
 export const scorecardContainer = () => (storyFn): any => {
     const story = storyFn();
@@ -27,7 +28,7 @@ export const scorecardContainer = () => (storyFn): any => {
 storiesOf(`${COMPONENT_SECTION_NAME}/Scorecard`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [ScoreCardModule, UtilModule, MatIconModule, MatListModule, MatButtonModule, CommonModule],
+            imports: [ScoreCardModule, HeroModule, UtilModule, MatIconModule, MatListModule, MatButtonModule, CommonModule],
         })
     )
     .addDecorator(withKnobs)
@@ -37,4 +38,5 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Scorecard`, module)
     .add(README_STORY_NAME, getReadMeStory)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
     .add('with custom header', withCustomHeader)
-    .add('with actions', withActions);
+    .add('with actions', withActions)
+    .add('with heroes', withHeroes);

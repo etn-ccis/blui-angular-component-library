@@ -28,7 +28,7 @@
     background-position: center;
     background-size: cover;
   }
-  .header-content {
+  .header-wrapper {
     padding: 16px;
     padding-bottom: 0;
     display: flex;
@@ -49,5 +49,15 @@
   }
   .subtitle, .info {
     line-height: 1.4;
+  }
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .badge-wrapper {
+    margin-left: 16px;
+    margin-right: 16px;
   }
 }

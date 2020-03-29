@@ -6,7 +6,7 @@ import { Component, Input } from '@angular/core';
         <mat-card class="pxb-scorecard">
             <div class="header" [style.backgroundColor]="headerColor" [style.color]="headerFontColor">
                 <div class="header-overlay"></div>
-                <div class="header-content">
+                <div class="header-wrapper">
                     <div class="header-text">
                         <mat-card-title class="title">{{headerTitle}}</mat-card-title>
                         <mat-card-subtitle class="subtitle">{{headerSubtitle}}</mat-card-subtitle>
@@ -18,7 +18,12 @@ import { Component, Input } from '@angular/core';
                 </div>
             </div> 
             <mat-card-content>
-                <ng-content select="[content]"></ng-content>
+                <div class="content">
+                    <ng-content select="[content]"></ng-content>
+                    <div class="badge-wrapper">
+                        <ng-content select="[badges]"></ng-content>
+                    </div>
+                </div>
                 <mat-divider></mat-divider>
                 <ng-content select="[action-row]"></ng-content>
             </mat-card-content>
