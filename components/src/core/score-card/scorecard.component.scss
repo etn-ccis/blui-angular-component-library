@@ -5,14 +5,22 @@
   padding: 0;
 }
 
-.pxb-scorecard-header {
+// Styles applied to supplied action items.
+:host ::ng-deep .header-action-items * {
+  margin-left: 12px;
+}
+
+.header {
   border-radius: 4px;
   height: 100px;
   box-sizing: border-box;
   background-color: map-get($pxb-blue-primary, 500);
   color: map-get($pxb-white, 50);
   position: relative;
-  .pxb-scorecard-header-overlay {
+  * {
+    color: inherit;
+  }
+  .header-overlay {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -22,9 +30,9 @@
   }
   .header-content {
     padding: 16px;
-  }
-  * {
-    color: inherit;
+    padding-bottom: 0;
+    display: flex;
+    justify-content: space-between;
   }
   .title {
     font-weight: 600;

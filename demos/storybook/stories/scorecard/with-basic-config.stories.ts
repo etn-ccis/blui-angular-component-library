@@ -3,7 +3,7 @@ import { text } from '@storybook/addon-knobs';
 export const withBasicConfig = (): any => ({
     template: `
       <pxb-scorecard [headerTitle]="headerTitle">
-        <mat-list>
+        <mat-list content>
             <mat-list-item>Body Content</mat-list-item>
         </mat-list>
       </pxb-scorecard>

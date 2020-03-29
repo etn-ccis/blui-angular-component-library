@@ -2,13 +2,17 @@ import { color, text } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
 const backgroundImage = require('../../assets/topology_40.png');
 
+export const demoStyles = [`
+    /deep/ .pxb-scorecard .header-overlay { 
+        background-image: url(${backgroundImage});
+    } 
+    /deep/ .mat-list-text {
+        padding-left: 0px!important;
+    }
+`];
+
 export const withCustomHeader = (): any => ({
-    styles: [
-        `
-        /deep/ .pxb-scorecard-header-overlay { 
-            background-image: url(${backgroundImage});
-     }`,
-    ],
+    styles: demoStyles,
     template: `
           <pxb-scorecard 
               [headerTitle]="headerTitle"
@@ -17,7 +21,7 @@ export const withCustomHeader = (): any => ({
               [headerColor]="headerColor"
               [headerFontColor]="headerFontColor"
           >
-          <mat-list>
+          <mat-list content>
                 <mat-list-item>Body Content</mat-list-item>
             </mat-list>
         </pxb-scorecard>

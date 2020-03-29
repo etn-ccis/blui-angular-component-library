@@ -13,6 +13,8 @@ import { MatListModule } from '@angular/material/list';
 import { withBasicConfig } from './with-basic-config.stories';
 import { withCustomHeader } from './with-custom-header.stories';
 import { withActions } from './with-actions.stories';
+import {MatButtonModule} from "@angular/material/button";
+import {CommonModule} from "@angular/common";
 
 export const scorecardContainer = () => (storyFn): any => {
     const story = storyFn();
@@ -25,7 +27,7 @@ export const scorecardContainer = () => (storyFn): any => {
 storiesOf(`${COMPONENT_SECTION_NAME}/Scorecard`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [ScoreCardModule, UtilModule, MatIconModule, MatListModule],
+            imports: [ScoreCardModule, UtilModule, MatIconModule, MatListModule, MatButtonModule, CommonModule],
         })
     )
     .addDecorator(withKnobs)

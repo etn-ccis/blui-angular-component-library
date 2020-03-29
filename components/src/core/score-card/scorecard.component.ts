@@ -4,16 +4,23 @@ import { Component, Input } from '@angular/core';
     selector: 'pxb-scorecard',
     template: `
         <mat-card class="pxb-scorecard">
-            <div class="pxb-scorecard-header" [style.backgroundColor]="headerColor" [style.color]="headerFontColor">
-                <div class="pxb-scorecard-header-overlay"></div>
+            <div class="header" [style.backgroundColor]="headerColor" [style.color]="headerFontColor">
+                <div class="header-overlay"></div>
                 <div class="header-content">
-                    <mat-card-title class="title">{{headerTitle}}</mat-card-title>
-                    <mat-card-subtitle class="subtitle">{{headerSubtitle}}</mat-card-subtitle>
-                    <mat-card-subtitle class="info">{{headerInfo}}</mat-card-subtitle>
+                    <div class="header-text">
+                        <mat-card-title class="title">{{headerTitle}}</mat-card-title>
+                        <mat-card-subtitle class="subtitle">{{headerSubtitle}}</mat-card-subtitle>
+                        <mat-card-subtitle class="info">{{headerInfo}}</mat-card-subtitle>
+                    </div>
+                    <div class="header-action-items">
+                        <ng-content select="[action-items]"></ng-content>
+                    </div>
                 </div>
             </div> 
-            <mat-card-content class="pxb-scorecard-content">
-                <ng-content></ng-content>
+            <mat-card-content>
+                <ng-content select="[content]"></ng-content>
+                <mat-divider></mat-divider>
+                <ng-content select="[action-row]"></ng-content>
             </mat-card-content>
         </mat-card>
     `,
