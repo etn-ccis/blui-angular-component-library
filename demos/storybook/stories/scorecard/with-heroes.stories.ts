@@ -1,11 +1,10 @@
 import { number } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
 import {action} from "@storybook/addon-actions";
-import {demoStyles} from "./with-custom-header.stories";
-import {demoActions} from "./with-actions.stories";
+import {withCustomHeaderStyles} from "./with-custom-header.stories";
 
 export const withHeroes = (): any => ({
-    styles: demoStyles,
+    styles: [withCustomHeaderStyles],
     template: `
           <pxb-scorecard 
               [actionLimit]="actionLimit"
@@ -15,17 +14,17 @@ export const withHeroes = (): any => ({
               [headerColor]="headerColor"
               [headerFontColor]="headerFontColor"
           >
-            <mat-icon action-items>more_vert</mat-icon>
+            <mat-icon action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
             <mat-list content>
                 <mat-list-item>
                     <p mat-line>Body Content</p>
                 </mat-list-item>
             </mat-list>
-            <pxb-hero-banner badges [divider]="false">
-                <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'" [units]="'°F'">
+            <pxb-hero-banner badge [divider]="false">
+                <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'" [units]="'°F'" [iconSize]="48">
                     <i primary class="pxb-temp"></i>
                 </pxb-hero>
-                <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'" [units]="'%'">
+                <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="48">
                     <i primary [style.color]="bluePrimary" class="pxb-moisture"></i>
                 </pxb-hero>
             </pxb-hero-banner>
@@ -42,7 +41,7 @@ export const withHeroes = (): any => ({
         headerFontColor: Colors.white[50],
         heroLimit: number('Number of Heroes', 1, { range: true, min: 0, max: 2, step: 1 }),
         actionRowClick: action('View Location clicked'),
-        actions: demoActions[0],
-        bluePrimary: Colors.blue[500]
+        bluePrimary: Colors.blue[500],
+        actionClick: (iconName): any => action(`${iconName} clicked`)()
     },
 });

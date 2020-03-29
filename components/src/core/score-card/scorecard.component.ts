@@ -18,14 +18,16 @@ import { Component, Input } from '@angular/core';
                 </div>
             </div> 
             <mat-card-content>
-                <div class="content">
+                <div class="body">
                     <ng-content select="[content]"></ng-content>
-                    <div class="badge-wrapper" [style.marginTop.px]="badgeOffset">
-                        <ng-content select="[badges]"></ng-content>
+                    <div class="badge-wrapper" [style.marginTop.px]="badgeOffset || 'inherit'">
+                        <ng-content select="[badge]"></ng-content>
                     </div>
                 </div>
                 <mat-divider></mat-divider>
-                <ng-content select="[action-row]"></ng-content>
+                <div class="action-row">
+                    <ng-content select="[action-row]"></ng-content>
+                </div>
             </mat-card-content>
         </mat-card>
     `,

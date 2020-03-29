@@ -8,6 +8,7 @@
 // Styles applied to supplied action items.
 :host ::ng-deep .header-action-items * {
   margin-left: 12px;
+  cursor: pointer;
 }
 
 .header {
@@ -30,6 +31,7 @@
     opacity: 0.3;
     background-position: center;
     background-size: cover;
+    pointer-events: none;
   }
   .header-wrapper {
     padding: 16px;
@@ -55,7 +57,7 @@
   }
 }
 
-.content {
+.body {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -64,4 +66,8 @@
     margin-left: 16px;
     margin-right: 16px;
   }
+}
+
+.action-row {
+  cursor: pointer;
 }

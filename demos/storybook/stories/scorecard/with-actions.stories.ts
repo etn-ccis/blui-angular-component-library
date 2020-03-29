@@ -1,12 +1,12 @@
 import { number } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
 import {action} from "@storybook/addon-actions";
-import {demoStyles} from "./with-custom-header.stories";
+import {withCustomHeaderStyles} from "./with-custom-header.stories";
 
 export const demoActions = ['more_vert', 'search', 'mail', 'notifications', 'list_alt', 'cloud'];
 
 export const withActions = (): any => ({
-    styles: demoStyles,
+    styles: [withCustomHeaderStyles],
     template: `
           <pxb-scorecard 
               [actionLimit]="actionLimit"
@@ -18,7 +18,9 @@ export const withActions = (): any => ({
           >
             <ng-container action-items>
                 <ng-container *ngFor="let action of actions; index as i;">
-                    <mat-icon *ngIf="i < actionLimit">{{actions[i]}}</mat-icon>
+                    <mat-icon *ngIf="i < actionLimit" (click)="actionClick(actions[i])">
+                        {{actions[i]}}
+                    </mat-icon>
                 </ng-container>
             </ng-container>
             <mat-list content>
@@ -40,5 +42,6 @@ export const withActions = (): any => ({
         actions: demoActions,
         headerColor: Colors.red[500],
         headerFontColor: Colors.white[50],
+        actionClick: (iconName): any => action(`${iconName} clicked`)()
     },
 });

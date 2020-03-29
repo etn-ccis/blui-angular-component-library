@@ -5,7 +5,7 @@ import { moduleMetadata, storiesOf } from '@storybook/angular';
 import {
     COMPONENT_SECTION_NAME,
     README_STORY_NAME,
-    STORY_PARAMS,
+    STORY_PARAMS, WITH_FULL_CONFIG_STORY_NAME,
     WITH_MIN_PROPS_STORY_NAME,
 } from '../../src/constants';
 import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/utils';
@@ -17,6 +17,7 @@ import {MatButtonModule} from "@angular/material/button";
 import {CommonModule} from "@angular/common";
 import {withHeroes} from "./with-heroes.stories";
 import {withScoreBadge} from "./with-score-badge.stories";
+import {withFullConfig} from "./with-full-config.stories";
 
 export const scorecardContainer = () => (storyFn): any => {
     const story = storyFn();
@@ -41,4 +42,5 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Scorecard`, module)
     .add('with custom header', withCustomHeader)
     .add('with actions', withActions)
     .add('with heroes', withHeroes)
-    .add('with score badge', withScoreBadge);
+    .add('with score badge', withScoreBadge)
+    .add(WITH_FULL_CONFIG_STORY_NAME, withFullConfig);

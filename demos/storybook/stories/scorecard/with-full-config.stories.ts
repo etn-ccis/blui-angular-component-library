@@ -1,10 +1,10 @@
-import { number } from '@storybook/addon-knobs';
+import {color, number, text} from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
 import {action} from "@storybook/addon-actions";
 import { withCustomHeaderStyles} from "./with-custom-header.stories";
 import {demoActions} from "./with-actions.stories";
 
-export const withScoreBadge = (): any => ({
+export const withFullConfig = (): any => ({
     styles: [`
         ${withCustomHeaderStyles}
         .sb-scorecard-content mat-list-item {
@@ -17,14 +17,20 @@ export const withScoreBadge = (): any => ({
     template: `
           <pxb-scorecard 
               [actionLimit]="actionLimit"
-              [headerTitle]="'Substation 3'"
-              [headerSubtitle]="'Normal'"
-              [headerInfo]="'4 Devices'"
+              [headerTitle]="headerTitle"
+              [headerSubtitle]="headerSubtitle"
+              [headerInfo]="headerInfo"
               [headerColor]="headerColor"
               [headerFontColor]="headerFontColor"
               [badgeOffset]="badgeOffset"
           >
-            <mat-icon action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
+            <ng-container action-items>
+                <ng-container *ngFor="let action of actions; index as i;">
+                    <mat-icon *ngIf="i < actionLimit" (click)="actionClick(actions[i])">
+                        {{actions[i]}}
+                    </mat-icon>
+                </ng-container>
+            </ng-container>
             <mat-list content class="sb-scorecard-content">
                 <mat-list-item>
                     <p mat-line>0 Alarms</p>
@@ -39,9 +45,14 @@ export const withScoreBadge = (): any => ({
                     <mat-icon mat-list-icon>cloud</mat-icon>
                 </mat-list-item>
             </mat-list>
-            <pxb-hero badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="72">
-                <i primary [style.color]="gradeColor" class="pxb-grade_a"></i>
-            </pxb-hero>
+            <pxb-hero-banner badge [divider]="false">
+                <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'" [units]="'°F'" [iconSize]="48">
+                    <i primary class="pxb-temp"></i>
+                </pxb-hero>
+                <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="48">
+                    <i primary [style.color]="bluePrimary" class="pxb-moisture"></i>
+                </pxb-hero>
+            </pxb-hero-banner>
             <mat-list action-row>
                 <mat-list-item (click)="actionRowClick()">
                     <p mat-line>View Location</p>
@@ -51,13 +62,16 @@ export const withScoreBadge = (): any => ({
         </pxb-scorecard>
       `,
     props: {
+        actionClick: (iconName): any => action(`${iconName} clicked`)(),
         actionRowClick: action('View Location clicked'),
         actions: demoActions,
         badgeOffset: number('badgeOffset', -90),
-        headerColor: Colors.blue[500],
-        headerFontColor: Colors.white[50],
-        gradeColor: Colors.green[500],
+        headerTitle: text('headerTitle', 'Substation 3'),
+        headerSubtitle: text('headerSubtitle', 'High Humidity Alarm'),
+        headerInfo: text('headerInfo', '4 Devices'),
+        headerColor: color('headerColor', Colors.red[500]),
+        headerFontColor: color('headerFontColor', Colors.white[50]),
         actionLimit: number('Number of Actions', 3, { range: true, min: 1, max: 6, step: 1 }),
-        actionClick: (iconName): any => action(`${iconName} clicked`)()
+        heroLimit: number('Number of Heroes', 1, { range: true, min: 0, max: 2, step: 1 }),
     },
 });
