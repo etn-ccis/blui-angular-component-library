@@ -18,6 +18,6 @@ export const withBasicConfig = (): any => ({
       </pxb-scorecard>
       `,
     props: {
-      headerTitle: text('headerTitle', 'Card Title'),
+        headerTitle: text('headerTitle', 'Card Title'),
     },
 });

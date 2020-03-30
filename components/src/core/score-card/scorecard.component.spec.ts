@@ -1,27 +1,33 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {ScoreCardComponent} from "./scorecard.component";
-import {ScoreCardModule} from "./scorecard.module";
-import {Component} from "@angular/core";
-import {MatIconModule} from "@angular/material/icon";
+import { ScoreCardComponent } from './scorecard.component';
+import { ScoreCardModule } from './scorecard.module';
+import { Component } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-    template: `<pxb-scorecard>
-        <ng-container action-items>
-            <mat-icon>mail</mat-icon>
-            <mat-icon>cloud</mat-icon>
-            <mat-icon>search</mat-icon>
-        </ng-container>
-    </pxb-scorecard>`
+    template: `
+        <pxb-scorecard>
+            <ng-container action-items>
+                <mat-icon>mail</mat-icon>
+                <mat-icon>cloud</mat-icon>
+                <mat-icon>search</mat-icon>
+            </ng-container>
+        </pxb-scorecard>
+    `,
 })
 class TestScoreCardActions {}
 
 @Component({
-    template: `<pxb-scorecard><div content id="test-content">Content Goes Here</div></pxb-scorecard>`
+    template: `
+        <pxb-scorecard><div content id="test-content">Content Goes Here</div></pxb-scorecard>
+    `,
 })
 class TestScoreCardContent {}
 
 @Component({
-    template: `<pxb-scorecard><div action-row id="test-action-row">Show Details</div></pxb-scorecard>`
+    template: `
+        <pxb-scorecard><div action-row id="test-action-row">Show Details</div></pxb-scorecard>
+    `,
 })
 class TestScoreCardActionRow {}
 
@@ -29,14 +35,14 @@ describe('ScoreCardComponent', () => {
     let component: ScoreCardComponent;
     let fixture: ComponentFixture<ScoreCardComponent>;
 
-    beforeEach((() => {
+    beforeEach(() => {
         TestBed.configureTestingModule({
             declarations: [TestScoreCardActions, TestScoreCardContent, TestScoreCardActionRow],
             imports: [ScoreCardModule, MatIconModule],
         }).compileComponents();
         fixture = TestBed.createComponent(ScoreCardComponent);
         component = fixture.componentInstance;
-    }));
+    });
 
     it('should create', () => {
         fixture.detectChanges();
@@ -77,7 +83,7 @@ describe('ScoreCardComponent', () => {
         const content: HTMLElement = customFixture.nativeElement.querySelector('#test-content');
         expect(content.innerHTML).toBe('Content Goes Here');
     });
-    
+
     it('should project the supplied action row', () => {
         const customFixture = TestBed.createComponent(TestScoreCardActionRow);
         customFixture.detectChanges();

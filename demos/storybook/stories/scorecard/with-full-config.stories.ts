@@ -1,11 +1,12 @@
-import {color, number, text} from '@storybook/addon-knobs';
+import { color, number, text } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
-import {action} from "@storybook/addon-actions";
-import { withCustomHeaderStyles} from "./with-custom-header.stories";
-import {demoActions} from "./with-actions.stories";
+import { action } from '@storybook/addon-actions';
+import { withCustomHeaderStyles } from './with-custom-header.stories';
+import { demoActions } from './with-actions.stories';
 
 export const withFullConfig = (): any => ({
-    styles: [`
+    styles: [
+        `
         ${withCustomHeaderStyles}
         .sb-scorecard-content mat-list-item {
             height: 36px!important;
@@ -13,7 +14,8 @@ export const withFullConfig = (): any => ({
         .sb-scorecard-content mat-icon {
             margin-right: 32px;
         }
-    `],
+    `,
+    ],
     template: `
           <pxb-scorecard 
               [actionLimit]="actionLimit"

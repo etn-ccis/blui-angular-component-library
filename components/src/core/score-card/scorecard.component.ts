@@ -8,15 +8,15 @@ import { Component, Input } from '@angular/core';
                 <div class="header-overlay"></div>
                 <div class="header-wrapper">
                     <div class="header-text">
-                        <mat-card-title class="title">{{headerTitle}}</mat-card-title>
-                        <mat-card-subtitle class="subtitle">{{headerSubtitle}}</mat-card-subtitle>
-                        <mat-card-subtitle class="info">{{headerInfo}}</mat-card-subtitle>
+                        <mat-card-title class="title">{{ headerTitle }}</mat-card-title>
+                        <mat-card-subtitle class="subtitle">{{ headerSubtitle }}</mat-card-subtitle>
+                        <mat-card-subtitle class="info">{{ headerInfo }}</mat-card-subtitle>
                     </div>
                     <div class="header-action-items">
                         <ng-content select="[action-items]"></ng-content>
                     </div>
                 </div>
-            </div> 
+            </div>
             <mat-card-content>
                 <div class="body">
                     <ng-content select="[content]"></ng-content>
@@ -40,5 +40,5 @@ export class ScoreCardComponent {
     @Input() headerColor: string;
     @Input() headerFontColor: string;
     @Input() actionLimit: number;
-    @Input() badgeOffset: number = 0;
+    @Input() badgeOffset = 0;
 }

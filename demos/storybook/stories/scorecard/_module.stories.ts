@@ -5,7 +5,8 @@ import { moduleMetadata, storiesOf } from '@storybook/angular';
 import {
     COMPONENT_SECTION_NAME,
     README_STORY_NAME,
-    STORY_PARAMS, WITH_FULL_CONFIG_STORY_NAME,
+    STORY_PARAMS,
+    WITH_FULL_CONFIG_STORY_NAME,
     WITH_MIN_PROPS_STORY_NAME,
 } from '../../src/constants';
 import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/utils';
@@ -13,11 +14,11 @@ import { MatListModule } from '@angular/material/list';
 import { withBasicConfig } from './with-basic-config.stories';
 import { withCustomHeader } from './with-custom-header.stories';
 import { withActions } from './with-actions.stories';
-import {MatButtonModule} from "@angular/material/button";
-import {CommonModule} from "@angular/common";
-import {withHeroes} from "./with-heroes.stories";
-import {withScoreBadge} from "./with-score-badge.stories";
-import {withFullConfig} from "./with-full-config.stories";
+import { MatButtonModule } from '@angular/material/button';
+import { CommonModule } from '@angular/common';
+import { withHeroes } from './with-heroes.stories';
+import { withScoreBadge } from './with-score-badge.stories';
+import { withFullConfig } from './with-full-config.stories';
 
 export const scorecardContainer = () => (storyFn): any => {
     const story = storyFn();
@@ -30,7 +31,15 @@ export const scorecardContainer = () => (storyFn): any => {
 storiesOf(`${COMPONENT_SECTION_NAME}/Scorecard`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [ScoreCardModule, HeroModule, UtilModule, MatIconModule, MatListModule, MatButtonModule, CommonModule],
+            imports: [
+                ScoreCardModule,
+                HeroModule,
+                UtilModule,
+                MatIconModule,
+                MatListModule,
+                MatButtonModule,
+                CommonModule,
+            ],
         })
     )
     .addDecorator(withKnobs)

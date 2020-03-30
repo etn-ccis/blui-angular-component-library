@@ -1,7 +1,7 @@
 import { number } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
-import {action} from "@storybook/addon-actions";
-import {withCustomHeaderStyles} from "./with-custom-header.stories";
+import { action } from '@storybook/addon-actions';
+import { withCustomHeaderStyles } from './with-custom-header.stories';
 
 export const withHeroes = (): any => ({
     styles: [withCustomHeaderStyles],
@@ -42,6 +42,6 @@ export const withHeroes = (): any => ({
         heroLimit: number('Number of Heroes', 1, { range: true, min: 0, max: 2, step: 1 }),
         actionRowClick: action('View Location clicked'),
         bluePrimary: Colors.blue[500],
-        actionClick: (iconName): any => action(`${iconName} clicked`)()
+        actionClick: (iconName): any => action(`${iconName} clicked`)(),
     },
 });

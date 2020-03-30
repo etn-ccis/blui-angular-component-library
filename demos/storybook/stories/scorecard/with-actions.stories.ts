@@ -1,7 +1,7 @@
 import { number } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
-import {action} from "@storybook/addon-actions";
-import {withCustomHeaderStyles} from "./with-custom-header.stories";
+import { action } from '@storybook/addon-actions';
+import { withCustomHeaderStyles } from './with-custom-header.stories';
 
 export const demoActions = ['more_vert', 'search', 'mail', 'notifications', 'list_alt', 'cloud'];
 
@@ -42,6 +42,6 @@ export const withActions = (): any => ({
         actions: demoActions,
         headerColor: Colors.red[500],
         headerFontColor: Colors.white[50],
-        actionClick: (iconName): any => action(`${iconName} clicked`)()
+        actionClick: (iconName): any => action(`${iconName} clicked`)(),
     },
 });
