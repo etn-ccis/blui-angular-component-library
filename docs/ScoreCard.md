@@ -23,13 +23,11 @@ imports: [
 ```
 
 ```typescript
-
-```typescript
-
-<pxb-scorecard headerTitle="'Title"></pxb-scorecard>
-
-})
-class TestScoreCardActions {}
+<pxb-scorecard headerTitle="'Title'">
+    <mat-list body>
+        <mat-list-item>Body Content</mat-list-item>
+    </mat-list>
+</pxb-scorecard>
 ```
 
 ## API
