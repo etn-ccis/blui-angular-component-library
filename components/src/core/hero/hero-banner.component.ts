@@ -11,5 +11,5 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['./hero-banner.component.scss'],
 })
 export class HeroBannerComponent {
-    @Input() divider = true;
+    @Input() divider = false;
 }
