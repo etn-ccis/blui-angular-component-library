@@ -40,7 +40,7 @@ imports: [
 | actionRow             | Content to render for the footer            | `ng-content`          | no       |                              |
 | badge                 | Content to render in the callout area       | `ng-content`          | no       |                              |
 | badgeOffset           | Vertical offset for the badge content       | `number`              | no       |                              |
-| body                  | Content to render in the body               | `number`              | no       |                              |
+| body                  | Content to render in the body               | `ng-content`          | no       |                              |
 | headerColor           | The color of the header                     | `string`              | no       | `theme.palette.primary.main` |
 | headerFontColor       | The color for text and icons in header      | `string`              | no       | `white`                      | 
 | headerInfo            | Tertiary text                               | `string`              | no       |                              |
