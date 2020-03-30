@@ -3,7 +3,7 @@ import * as Colors from '@pxblue/colors';
 
 export const withinBanner = (): any => ({
     template: `
-          <pxb-hero-banner [divider]="false">
+          <pxb-hero-banner>
              <pxb-hero *ngIf="count > 0" [label]="'Health'" [value]="96" [units]="'/100'">
                 <i primary [style.color]="green" class="pxb-grade_a"></i>
              </pxb-hero>
