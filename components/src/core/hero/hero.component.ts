@@ -3,16 +3,17 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
     selector: 'pxb-hero',
     template: `
-        <div class="wrapper">
-            <span
-                class="icon"
+        <div class="pxb-hero">
+            <div
+                class="pxb-hero-primary-icon"
+                [style.backgroundColor]="iconBackgroundColor"
                 [class.large]="iconSize === 'large'"
                 [style.height.px]="iSize"
                 [style.width.px]="iSize"
                 [style.font-size.px]="iSize"
             >
                 <ng-content select="[primary]"></ng-content>
-            </span>
+            </div>
             <span class="channel-value" [style.font-size.rem]="fontSize == 'small' ? '1' : '1.25'">
                 <ng-content *ngIf="value === undefined" select="pxb-channel-value"></ng-content>
                 <pxb-channel-value *ngIf="value !== undefined" [value]="value" [units]="units">
@@ -33,6 +34,7 @@ export class HeroComponent implements OnInit {
     @Input() iconSize = 'normal';
     @Input() iSize = 36;
     @Input() fontSize = 'normal';
+    @Input() iconBackgroundColor: string;
 
     ngOnInit(): void {
         // We can't support dynamic iconSize w/ px-blue icons until https://github.com/angular/components/issues/5188 is fixed

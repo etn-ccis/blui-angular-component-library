@@ -2,7 +2,7 @@
 :host {
     flex: 1 1 0px;
 }
-.wrapper {
+.pxb-hero {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,49 +11,54 @@
     overflow: hidden;
     color: map-get($pxb-gray, 500);
     padding: 16px 8px;
+
+    // Icon Styles
+    .pxb-hero-primary-icon {
+        color: map-get($pxb-gray, 800);
+        border-radius: 50%;
+        margin-bottom: 5px;
+    }
+
+    // Channel Value Styles
+    .channel-value {
+        display: flex;
+        color: map-get($pxb-gray, 800);
+    }
+
+    // Label Styles
+    .label {
+        font-size: inherit;
+        line-height: 1.2;
+        letter-spacing: 0;
+        font-weight: 600;
+        width: 100%;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin: 0;
+    }
 }
 
-// Icon Styles
-.icon {
-    margin-bottom: 8px;
-    text-align: center;
-    color: map-get($pxb-gray, 800);
-}
-:host ::ng-deep .icon mat-icon {
-    display: block;
+
+:host ::ng-deep .pxb-hero-primary-icon * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     height: 100%;
     font-size: 100%;
-    line-height: 1.2;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    margin-top: -1.5px;
+}
+
+:host ::ng-deep .pxb-hero-primary-icon mat-icon {
+    margin-top: 0;
+    line-height: 1.1;
     svg {
         transform: scale(1.5);
         transform-origin: top left;
     }
 }
-:host ::ng-deep .icon.large mat-icon svg {
+:host ::ng-deep .pxb-hero-primary-icon.large mat-icon svg {
     transform: scale(3);
-}
-
-// Channel Value Styles
-.channel-value {
-    display: flex;
-    color: map-get($pxb-gray, 800);
-}
-
-// Label Styles
-.label {
-    font-size: inherit;
-    line-height: 1.2;
-    letter-spacing: 0;
-    font-weight: 600;
-    width: 100%;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin: 0;
 }

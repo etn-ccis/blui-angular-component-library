@@ -41,7 +41,7 @@ export const withScoreBadge = (): any => ({
                     <mat-icon mat-list-icon>cloud</mat-icon>
                 </mat-list-item>
             </mat-list>
-            <pxb-hero badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="72">
+            <pxb-hero badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="72" [iconBackgroundColor]="gradeBackgroundColor">
                 <i primary [style.color]="gradeColor" class="pxb-grade_a"></i>
             </pxb-hero>
             <mat-list action-row>
@@ -55,9 +55,10 @@ export const withScoreBadge = (): any => ({
     props: {
         actionRowClick: action('View Location clicked'),
         actions: demoActions,
-        badgeOffset: number('badgeOffset', -90),
+        badgeOffset: number('badgeOffset', -74),
         headerColor: Colors.blue[500],
         headerFontColor: Colors.white[50],
+        gradeBackgroundColor: Colors.white[50],
         gradeColor: Colors.green[500],
         actionLimit: number('Number of Actions', 3, { range: true, min: 1, max: 6, step: 1 }),
         actionClick: (iconName): any => action(`${iconName} clicked`)(),
