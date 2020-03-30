@@ -12,7 +12,7 @@ import { Component, Input } from '@angular/core';
                         <mat-card-subtitle class="subtitle">{{ headerSubtitle }}</mat-card-subtitle>
                         <mat-card-subtitle class="info">{{ headerInfo }}</mat-card-subtitle>
                     </div>
-                    <div class="header-action-items">
+                    <div class="action-items">
                         <ng-content select="[action-items]"></ng-content>
                     </div>
                 </div>

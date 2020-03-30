@@ -6,7 +6,7 @@
 }
 
 // Styles applied to supplied action items.
-:host ::ng-deep .header-action-items * {
+:host ::ng-deep .action-items * {
     margin-left: 12px;
     cursor: pointer;
 }
@@ -39,6 +39,10 @@
         padding-bottom: 0;
         display: flex;
         justify-content: space-between;
+    }
+    .action-items {
+        text-overflow: unset;
+        overflow: unset;
     }
     .title {
         font-weight: 600;
