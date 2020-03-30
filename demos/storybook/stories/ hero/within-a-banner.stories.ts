@@ -1,5 +1,5 @@
-import {number} from "@storybook/addon-knobs";
-import * as Colors from "@pxblue/colors";
+import { number } from '@storybook/addon-knobs';
+import * as Colors from '@pxblue/colors';
 
 export const withinBanner = (): any => ({
     template: `

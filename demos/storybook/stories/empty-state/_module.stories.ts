@@ -1,7 +1,7 @@
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { EmptyStateModule } from '@pxblue/angular-components';
-import {withKnobs } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import {
     COMPONENT_SECTION_NAME,
@@ -11,10 +11,10 @@ import {
     WITH_MIN_PROPS_STORY_NAME,
 } from '../../src/constants';
 import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/utils';
-import {withDescription} from "./with-description.stories";
-import {withBasicConfig} from "./basic-config.stories";
-import {withActions} from "./with-actions.stories";
-import {withFullConfig} from "./with-full-config.stories";
+import { withDescription } from './with-description.stories';
+import { withBasicConfig } from './basic-config.stories';
+import { withActions } from './with-actions.stories';
+import { withFullConfig } from './with-full-config.stories';
 
 storiesOf(`${COMPONENT_SECTION_NAME}/Empty State`, module)
     .addDecorator(

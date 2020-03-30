@@ -1,4 +1,4 @@
-import {text} from "@storybook/addon-knobs";
+import { text } from '@storybook/addon-knobs';
 
 export const withBasicConfig = (): any => ({
     template: `

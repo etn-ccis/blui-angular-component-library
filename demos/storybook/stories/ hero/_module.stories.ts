@@ -1,7 +1,6 @@
 import { MatIconModule } from '@angular/material/icon';
 import { ChannelValueModule, HeroModule } from '@pxblue/angular-components';
-import * as Colors from '@pxblue/colors';
-import { boolean, color, number, text, withKnobs } from '@storybook/addon-knobs';
+import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import {
     COMPONENT_SECTION_NAME,
@@ -11,12 +10,12 @@ import {
     WITH_MIN_PROPS_STORY_NAME,
 } from '../../src/constants';
 import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/utils';
-import {withinBanner} from "./within-a-banner.stories";
-import {withFullConfig} from "./with-full-config.stories";
-import {withIconColor} from "./with-icon-color.stories";
-import {withChannelValueChildren} from "./with-channelValue-children.stories";
-import {withValueUnits} from "./with-value-and-units.stories";
-import {withBasicConfig} from "./with-basic-config.stories";
+import { withinBanner } from './within-a-banner.stories';
+import { withFullConfig } from './with-full-config.stories';
+import { withIconColor } from './with-icon-color.stories';
+import { withChannelValueChildren } from './with-channelValue-children.stories';
+import { withValueUnits } from './with-value-and-units.stories';
+import { withBasicConfig } from './with-basic-config.stories';
 
 storiesOf(`${COMPONENT_SECTION_NAME}/Hero`, module)
     .addDecorator(

@@ -1,6 +1,6 @@
-import {text} from "@storybook/addon-knobs";
+import { text } from '@storybook/addon-knobs';
 
-export const withDescription = () => ({
+export const withDescription = (): any => ({
     template: `
           <pxb-empty-state [title]="title" [description]="description">
             <mat-icon empty-icon>location_off</mat-icon>

@@ -10,11 +10,11 @@ import {
     WITH_FULL_CONFIG_STORY_NAME,
     WITH_MIN_PROPS_STORY_NAME,
 } from '../../src/constants';
-import {withBasicConfig} from "./basic-config.stories";
-import {withIcon} from "./with-icon.stories";
-import {withExtraLargeFont} from "./with-font-size.stories";
-import {withFullConfig} from "./with-full-config.stories";
-import {withUnits} from "./with-units.stories";
+import { withBasicConfig } from './basic-config.stories';
+import { withIcon } from './with-icon.stories';
+import { withExtraLargeFont } from './with-font-size.stories';
+import { withFullConfig } from './with-full-config.stories';
+import { withUnits } from './with-units.stories';
 
 storiesOf(`${COMPONENT_SECTION_NAME}/Channel Value`, module)
     .addDecorator(

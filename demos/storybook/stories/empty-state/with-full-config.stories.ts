@@ -1,6 +1,6 @@
-import {color, number, text} from "@storybook/addon-knobs";
-import {action} from "@storybook/addon-actions";
-import * as Colors from "@pxblue/colors";
+import { color, number, text } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
+import * as Colors from '@pxblue/colors';
 
 export const withFullConfig = (): any => ({
     template: `

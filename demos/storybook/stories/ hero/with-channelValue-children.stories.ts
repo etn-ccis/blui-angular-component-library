@@ -1,6 +1,6 @@
-import {text} from "@storybook/addon-knobs";
+import { text } from '@storybook/addon-knobs';
 
-export const withChannelValueChildren = () => ({
+export const withChannelValueChildren = (): any => ({
     template: `
       <pxb-hero [label]="'Duration'">
       <mat-icon primary>schedule</mat-icon>
@@ -12,4 +12,4 @@ export const withChannelValueChildren = () => ({
         hours: text('ChannelValue.hours', '1'),
         minutes: text('ChannelValue.minutes', '27'),
     },
-})
+});

@@ -1,5 +1,5 @@
-import {text} from "@storybook/addon-knobs";
-import {action} from "@storybook/addon-actions";
+import { text } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 
 export const withActions = (): any => ({
     template: `

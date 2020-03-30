@@ -1,4 +1,4 @@
-import {number} from "@storybook/addon-knobs";
+import { number } from '@storybook/addon-knobs';
 
 export const withExtraLargeFont = (): any => ({
     template: `

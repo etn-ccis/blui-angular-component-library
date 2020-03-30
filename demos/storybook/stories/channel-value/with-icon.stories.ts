@@ -1,5 +1,5 @@
-import {color} from "@storybook/addon-knobs";
-import * as Colors from "@pxblue/colors";
+import { color } from '@storybook/addon-knobs';
+import * as Colors from '@pxblue/colors';
 
 export const withIcon = (): any => ({
     template: `
