@@ -12,7 +12,7 @@ export const withBasicConfig = (): any => ({
     styles: [matListStyles],
     template: `
       <pxb-scorecard [headerTitle]="headerTitle">
-        <mat-list content>
+        <mat-list body>
             <mat-list-item>Body Content</mat-list-item>
         </mat-list>
       </pxb-scorecard>

@@ -14,6 +14,9 @@ export const withFullConfig = (): any => ({
         .sb-scorecard-content mat-icon {
             margin-right: 32px;
         }
+        .sb-scorecard-content .mat-line {
+            font-weight: 600!important;
+        }
     `,
     ],
     template: `
@@ -33,12 +36,12 @@ export const withFullConfig = (): any => ({
                     </mat-icon>
                 </ng-container>
             </ng-container>
-            <mat-list content class="sb-scorecard-content">
+            <mat-list body class="sb-scorecard-content">
                 <mat-list-item>
                     <p mat-line>0 Alarms</p>
                     <mat-icon mat-list-icon>notifications</mat-icon>
                 </mat-list-item>
-                <mat-list-item>
+                <mat-list-item [style.color]="colors.blue[500]">
                     <p mat-line>1 Event</p>
                     <mat-icon mat-list-icon>list_alt</mat-icon>
                 </mat-list-item>
@@ -48,11 +51,13 @@ export const withFullConfig = (): any => ({
                 </mat-list-item>
             </mat-list>
             <pxb-hero-banner badge [divider]="false">
-                <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'" [units]="'°F'" [iconSize]="48">
+                <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'" 
+                    [units]="'°F'" [iconSize]="48" [iconBackgroundColor]="colors.white[50]">
                     <i primary class="pxb-temp"></i>
                 </pxb-hero>
-                <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="48">
-                    <i primary [style.color]="bluePrimary" class="pxb-moisture"></i>
+                <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'" 
+                    [units]="'%'" [iconSize]="48" [iconBackgroundColor]="colors.white[50]">
+                    <i primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
                 </pxb-hero>
             </pxb-hero-banner>
             <mat-list action-row>
@@ -67,7 +72,8 @@ export const withFullConfig = (): any => ({
         actionClick: (iconName): any => action(`${iconName} clicked`)(),
         actionRowClick: action('View Location clicked'),
         actions: demoActions,
-        badgeOffset: number('badgeOffset', -90),
+        colors: Colors,
+        badgeOffset: number('badgeOffset', -74),
         headerTitle: text('headerTitle', 'Substation 3'),
         headerSubtitle: text('headerSubtitle', 'High Humidity Alarm'),
         headerInfo: text('headerInfo', '4 Devices'),
@@ -75,5 +81,6 @@ export const withFullConfig = (): any => ({
         headerFontColor: color('headerFontColor', Colors.white[50]),
         actionLimit: number('Number of Actions', 3, { range: true, min: 1, max: 6, step: 1 }),
         heroLimit: number('Number of Heroes', 1, { range: true, min: 0, max: 2, step: 1 }),
+
     },
 });

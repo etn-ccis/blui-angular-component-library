@@ -19,7 +19,7 @@ class TestScoreCardActions {}
 
 @Component({
     template: `
-        <pxb-scorecard><div content id="test-content">Content Goes Here</div></pxb-scorecard>
+        <pxb-scorecard><div body id="test-content">Content Goes Here</div></pxb-scorecard>
     `,
 })
 class TestScoreCardContent {}

@@ -19,7 +19,7 @@ import { Component, Input } from '@angular/core';
             </div>
             <mat-card-content>
                 <div class="body">
-                    <ng-content select="[content]"></ng-content>
+                    <ng-content select="[body]"></ng-content>
                     <div class="badge-wrapper" [style.marginTop.px]="badgeOffset || 'inherit'">
                         <ng-content select="[badge]"></ng-content>
                     </div>

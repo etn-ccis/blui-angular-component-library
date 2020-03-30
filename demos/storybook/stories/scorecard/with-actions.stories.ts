@@ -23,7 +23,7 @@ export const withActions = (): any => ({
                     </mat-icon>
                 </ng-container>
             </ng-container>
-            <mat-list content>
+            <mat-list body>
                 <mat-list-item>
                     <p mat-line>Body Content</p>
                 </mat-list-item>

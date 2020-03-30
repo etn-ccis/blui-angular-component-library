@@ -19,7 +19,7 @@ export const withCustomHeader = (): any => ({
               [headerColor]="headerColor"
               [headerFontColor]="headerFontColor"
           >
-          <mat-list content>
+          <mat-list body>
                 <mat-list-item>Body Content</mat-list-item>
             </mat-list>
         </pxb-scorecard>

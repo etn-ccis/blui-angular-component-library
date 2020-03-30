@@ -15,7 +15,7 @@ export const withHeroes = (): any => ({
               [headerFontColor]="headerFontColor"
           >
             <mat-icon action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
-            <mat-list content>
+            <mat-list body>
                 <mat-list-item>
                     <p mat-line>Body Content</p>
                 </mat-list-item>

@@ -14,6 +14,9 @@ export const withScoreBadge = (): any => ({
         .sb-scorecard-content mat-icon {
             margin-right: 32px;
         }
+        .sb-scorecard-content .mat-line {
+            font-weight: 600!important;
+        }
     `,
     ],
     template: `
@@ -27,12 +30,12 @@ export const withScoreBadge = (): any => ({
               [badgeOffset]="badgeOffset"
           >
             <mat-icon action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
-            <mat-list content class="sb-scorecard-content">
+            <mat-list body class="sb-scorecard-content">
                 <mat-list-item>
                     <p mat-line>0 Alarms</p>
                     <mat-icon mat-list-icon>notifications</mat-icon>
                 </mat-list-item>
-                <mat-list-item>
+                <mat-list-item [style.color]="colors.blue[500]">
                     <p mat-line>1 Event</p>
                     <mat-icon mat-list-icon>list_alt</mat-icon>
                 </mat-list-item>
@@ -56,6 +59,7 @@ export const withScoreBadge = (): any => ({
         actionRowClick: action('View Location clicked'),
         actions: demoActions,
         badgeOffset: number('badgeOffset', -74),
+        colors: Colors,
         headerColor: Colors.blue[500],
         headerFontColor: Colors.white[50],
         gradeBackgroundColor: Colors.white[50],
