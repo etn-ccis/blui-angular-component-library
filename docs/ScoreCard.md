@@ -23,10 +23,15 @@ imports: [
 ```
 
 ```typescript
-<pxb-scorecard headerTitle="'Title'">
+// Example with basic body content and header action items
+<pxb-scorecard [headerTitle]="'Title'" >
     <mat-list body>
         <mat-list-item>Body Content</mat-list-item>
     </mat-list>
+    <ng-container action-items>
+        <mat-icon>search</mat-icon>
+        <mat-icon>more_vert</mat-icon>
+    </ng-container>
 </pxb-scorecard>
 ```
 
@@ -41,8 +46,8 @@ imports: [
 | badge                 | Content to render in the callout area       | `ng-content`          | no       |                              |
 | badgeOffset           | Vertical offset for the badge content       | `number`              | no       |                              |
 | body                  | Content to render in the body               | `ng-content`          | no       |                              |
-| headerColor           | The color of the header                     | `string`              | no       | `theme.palette.primary.main` |
-| headerFontColor       | The color for text and icons in header      | `string`              | no       | `white`                      | 
+| headerColor           | The color of the header                     | `string`              | no       |                              |
+| headerFontColor       | The color for text and icons in header      | `string`              | no       |                              | 
 | headerInfo            | Tertiary text                               | `string`              | no       |                              |
 | headerTitle           | The primary text                            | `string`              | no       |                              |
 | headerSubtitle        | The secondary text                          | `string`              | no       |                              | 
