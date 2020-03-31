@@ -1,10 +1,10 @@
 import { text } from '@storybook/addon-knobs';
 
 export const matListStyles = `
-    /deep/ .mat-list-text {
+    ::ng-deep .mat-list-text {
         padding-left: 0px!important;
     }
-    /deep/ .mat-list-base {
+    ::ng-deep .mat-list-base {
         padding: 8px 0px!important;
     }`;
 
