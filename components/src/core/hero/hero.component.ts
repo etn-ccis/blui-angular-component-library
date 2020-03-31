@@ -1,5 +1,6 @@
 import {Component, Input, OnChanges} from '@angular/core';
-export type FontSize = 'normal' | 'large' | number;
+export type IconSize = 'normal' | 'large' | number;
+export type FontSize = 'small' | 'normal';
 
 @Component({
     selector: 'pxb-hero',
@@ -15,7 +16,7 @@ export type FontSize = 'normal' | 'large' | number;
             >
                 <ng-content select="[primary]"></ng-content>
             </div>
-            <span class="channel-value" [style.font-size.rem]="fontSize === 'normal' ? '1' : '1.25'">
+            <span class="channel-value" [style.font-size.rem]="fontSize === 'small' ? '1' : '1.25'">
                 <ng-content *ngIf="value === undefined" select="pxb-channel-value"></ng-content>
                 <pxb-channel-value *ngIf="value !== undefined" [value]="value" [units]="units">
                     <ng-content select="[secondary]"></ng-content>
@@ -31,7 +32,7 @@ export class HeroComponent implements OnChanges {
     @Input() label: string;
     @Input() value: string;
     @Input() units: string;
-    @Input() iconSize: FontSize = 'normal';
+    @Input() iconSize: IconSize = 'normal';
     @Input() fontSize: FontSize = 'normal';
     @Input() iconBackgroundColor: string;
     iSize = 36;
