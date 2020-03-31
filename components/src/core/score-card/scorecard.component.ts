@@ -39,6 +39,5 @@ export class ScoreCardComponent {
     @Input() headerInfo: string;
     @Input() headerColor: string;
     @Input() headerFontColor: string;
-    @Input() actionLimit: number;
     @Input() badgeOffset = 0;
 }
