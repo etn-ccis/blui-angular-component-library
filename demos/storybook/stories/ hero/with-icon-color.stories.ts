@@ -9,6 +9,6 @@ export const withIconColor = (): any => ({
       `,
     props: {
         iconColor: color('primary.style.color', Colors.white[50]),
-        iconBg: color('primary.style.backgroundColor', Colors.red[500])
+        iconBg: color('primary.style.backgroundColor', Colors.red[500]),
     },
 });

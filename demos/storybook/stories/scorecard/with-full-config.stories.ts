@@ -81,6 +81,5 @@ export const withFullConfig = (): any => ({
         headerFontColor: color('headerFontColor', Colors.white[50]),
         actionLimit: number('Number of Actions', 3, { range: true, min: 1, max: 6, step: 1 }),
         heroLimit: number('Number of Heroes', 1, { range: true, min: 0, max: 2, step: 1 }),
-
     },
 });
