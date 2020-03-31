@@ -13,8 +13,8 @@ export const withActions = (): any => ({
               [headerTitle]="'Substation 3'"
               [headerSubtitle]="'High Humidity Alarm'"
               [headerInfo]="'4 Devices'"
-              [headerColor]="headerColor"
-              [headerFontColor]="headerFontColor"
+              [headerColor]="colors.red[500]"
+              [headerFontColor]="colors.white[50]"
           >
             <ng-container action-items>
                 <ng-container *ngFor="let action of actions; index as i;">
@@ -37,11 +37,10 @@ export const withActions = (): any => ({
         </pxb-scorecard>
       `,
     props: {
+        actionClick: (iconName): any => action(`${iconName} clicked`)(),
         actionLimit: number('Number of Actions', 3, { range: true, min: 1, max: 6, step: 1 }),
         actionRowClick: action('View Location clicked'),
         actions: demoActions,
-        headerColor: Colors.red[500],
-        headerFontColor: Colors.white[50],
-        actionClick: (iconName): any => action(`${iconName} clicked`)(),
+        colors: Colors,
     },
 });

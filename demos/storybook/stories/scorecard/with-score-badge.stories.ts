@@ -3,6 +3,7 @@ import * as Colors from '@pxblue/colors';
 import { action } from '@storybook/addon-actions';
 import { withCustomHeaderStyles } from './with-custom-header.stories';
 import { demoActions } from './with-actions.stories';
+import {ViewEncapsulation} from "@angular/core";
 
 export const withScoreBadge = (): any => ({
     styles: [
@@ -19,14 +20,14 @@ export const withScoreBadge = (): any => ({
         }
     `,
     ],
+    encapsulation: ViewEncapsulation.None,
     template: `
           <pxb-scorecard 
               [actionLimit]="actionLimit"
               [headerTitle]="'Substation 3'"
               [headerSubtitle]="'Normal'"
               [headerInfo]="'4 Devices'"
-              [headerColor]="headerColor"
-              [headerFontColor]="headerFontColor"
+              [headerFontColor]="colors.white[50]"
               [badgeOffset]="badgeOffset"
           >
             <mat-icon action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
@@ -44,8 +45,8 @@ export const withScoreBadge = (): any => ({
                     <mat-icon mat-list-icon>cloud</mat-icon>
                 </mat-list-item>
             </mat-list>
-            <pxb-hero badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="72" [iconBackgroundColor]="gradeBackgroundColor">
-                <i primary [style.color]="gradeColor" class="pxb-grade_a"></i>
+            <pxb-hero badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="72" [iconBackgroundColor]="colors.white[50]">
+                <i primary [style.color]="colors.green[500]" class="pxb-grade_a"></i>
             </pxb-hero>
             <mat-list action-row>
                 <mat-list-item (click)="actionRowClick()">
@@ -56,15 +57,10 @@ export const withScoreBadge = (): any => ({
         </pxb-scorecard>
       `,
     props: {
+        actionClick: (iconName): any => action(`${iconName} clicked`)(),
         actionRowClick: action('View Location clicked'),
         actions: demoActions,
         badgeOffset: number('badgeOffset', -74),
         colors: Colors,
-        headerColor: Colors.blue[500],
-        headerFontColor: Colors.white[50],
-        gradeBackgroundColor: Colors.white[50],
-        gradeColor: Colors.green[500],
-        actionLimit: number('Number of Actions', 3, { range: true, min: 1, max: 6, step: 1 }),
-        actionClick: (iconName): any => action(`${iconName} clicked`)(),
     },
 });

@@ -11,8 +11,8 @@ export const withHeroes = (): any => ({
               [headerTitle]="'Substation 3'"
               [headerSubtitle]="'High Humidity Alarm'"
               [headerInfo]="'4 Devices'"
-              [headerColor]="headerColor"
-              [headerFontColor]="headerFontColor"
+              [headerColor]="colors.red[500]"
+              [headerFontColor]="colors.white[50]"
           >
             <mat-icon action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
             <mat-list body>
@@ -25,7 +25,7 @@ export const withHeroes = (): any => ({
                     <i primary class="pxb-temp"></i>
                 </pxb-hero>
                 <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="48">
-                    <i primary [style.color]="bluePrimary" class="pxb-moisture"></i>
+                    <i primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
                 </pxb-hero>
             </pxb-hero-banner>
             <mat-list action-row>
@@ -37,11 +37,9 @@ export const withHeroes = (): any => ({
         </pxb-scorecard>
       `,
     props: {
-        headerColor: Colors.red[500],
-        headerFontColor: Colors.white[50],
-        heroLimit: number('Number of Heroes', 1, { range: true, min: 0, max: 2, step: 1 }),
-        actionRowClick: action('View Location clicked'),
-        bluePrimary: Colors.blue[500],
         actionClick: (iconName): any => action(`${iconName} clicked`)(),
+        actionRowClick: action('View Location clicked'),
+        colors: Colors,
+        heroLimit: number('Number of Heroes', 1, { range: true, min: 0, max: 2, step: 1 }),
     },
 });
