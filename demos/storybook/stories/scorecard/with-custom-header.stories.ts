@@ -5,7 +5,7 @@ const backgroundImage = require('../../assets/topology_40.png');
 
 export const withCustomHeaderStyles = `
     ${matListStyles}
-    /deep/ .pxb-scorecard .header-overlay { 
+    /deep/ pxb-scorecard .header-overlay { 
         background-image: url(${backgroundImage});
     }`;
 

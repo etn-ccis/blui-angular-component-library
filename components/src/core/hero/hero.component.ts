@@ -3,9 +3,9 @@ import { Component, Input, OnInit } from '@angular/core';
 @Component({
     selector: 'pxb-hero',
     template: `
-        <div class="pxb-hero">
+        <div class="root">
             <div
-                class="pxb-hero-primary-icon"
+                class="primary-icon"
                 [style.backgroundColor]="iconBackgroundColor"
                 [class.large]="iconSize === 'large'"
                 [style.height.px]="iSize"

@@ -3,7 +3,7 @@ import { Component, Input } from '@angular/core';
 @Component({
     selector: 'pxb-scorecard',
     template: `
-        <mat-card class="pxb-scorecard">
+        <mat-card class="root">
             <div class="header" [style.backgroundColor]="headerColor" [style.color]="headerFontColor">
                 <div class="header-overlay"></div>
                 <div class="header-wrapper">
