@@ -15,7 +15,6 @@ import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import {HeroModule} from "../../../../components/src/core";
 
 @NgModule({
     declarations: [AppComponent],
@@ -33,7 +32,6 @@ import {HeroModule} from "../../../../components/src/core";
     NgProgressIconsModule,
     ChannelValueModule,
     EmptyStateModule,
-    HeroModule,
     ScoreCardModule,
     HeroModule,
   ],
