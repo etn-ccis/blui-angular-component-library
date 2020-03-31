@@ -23,7 +23,6 @@ export const withScoreBadge = (): any => ({
     encapsulation: ViewEncapsulation.None,
     template: `
           <pxb-scorecard 
-              [actionLimit]="actionLimit"
               [headerTitle]="'Substation 3'"
               [headerSubtitle]="'Normal'"
               [headerInfo]="'4 Devices'"

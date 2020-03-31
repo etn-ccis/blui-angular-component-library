@@ -21,7 +21,6 @@ export const withFullConfig = (): any => ({
     ],
     template: `
           <pxb-scorecard 
-              [actionLimit]="actionLimit"
               [headerTitle]="headerTitle"
               [headerSubtitle]="headerSubtitle"
               [headerInfo]="headerInfo"

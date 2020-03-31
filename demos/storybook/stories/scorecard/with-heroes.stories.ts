@@ -7,7 +7,6 @@ export const withHeroes = (): any => ({
     styles: [withCustomHeaderStyles],
     template: `
           <pxb-scorecard 
-              [actionLimit]="actionLimit"
               [headerTitle]="'Substation 3'"
               [headerSubtitle]="'High Humidity Alarm'"
               [headerInfo]="'4 Devices'"
