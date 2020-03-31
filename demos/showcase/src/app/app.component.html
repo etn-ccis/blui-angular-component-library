@@ -1,7 +1,96 @@
+<div style="display: flex; padding: 16px; justify-content: space-between">
+    <pxb-scorecard
+        [headerTitle]="'Substation 3'"
+        [headerSubtitle]="'High Humidity Alarm'"
+        [headerInfo]="'4 Devices'"
+        [headerColor]="colors.red[500]"
+        [headerFontColor]="colors.white[50]"
+    >
+        <mat-icon action-items>more_vert</mat-icon>
+        <mat-list body>
+            <mat-list-item>
+                <p mat-line>0 Alarms</p>
+                <mat-icon mat-list-icon>notifications</mat-icon>
+            </mat-list-item>
+            <mat-list-item [style.color]="colors.blue[500]">
+                <p mat-line>1 Event</p>
+                <mat-icon mat-list-icon>list_alt</mat-icon>
+            </mat-list-item>
+            <mat-list-item>
+                <p mat-line>Online</p>
+                <mat-icon mat-list-icon>cloud</mat-icon>
+            </mat-list-item>
+        </mat-list>
+        <pxb-hero-banner badge [divider]="false">
+            <pxb-hero [label]="'Temperature'" [value]="'98'" [units]="'°F'" [iconSize]="'normal'">
+                <mat-icon svgIcon="px-icons:temp" primary></mat-icon>
+            </pxb-hero>
+            <pxb-hero [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="'normal'">
+                <mat-icon svgIcon="px-icons:moisture" primary [style.color]="colors.blue[300]"></mat-icon>
+            </pxb-hero>
+        </pxb-hero-banner>
+        <mat-list action-row>
+            <mat-list-item>
+                <p mat-line>View Location</p>
+                <mat-icon mat-list-icon style="order: 10">chevron_right</mat-icon>
+            </mat-list-item>
+        </mat-list>
+    </pxb-scorecard>
+
+    <pxb-scorecard
+        [headerTitle]="'Substation 3'"
+        [headerSubtitle]="'Normal'"
+        [headerInfo]="'4 Devices'"
+        [headerFontColor]="colors.white[50]"
+        [badgeOffset]="-92"
+    >
+        <mat-icon action-items>more_vert</mat-icon>
+        <mat-list body>
+            <mat-list-item>
+                <p mat-line>0 Alarms</p>
+                <mat-icon mat-list-icon>notifications</mat-icon>
+            </mat-list-item>
+            <mat-list-item [style.color]="colors.blue[500]">
+                <p mat-line>1 Event</p>
+                <mat-icon mat-list-icon>list_alt</mat-icon>
+            </mat-list-item>
+            <mat-list-item>
+                <p mat-line>Online</p>
+                <mat-icon mat-list-icon>cloud</mat-icon>
+            </mat-list-item>
+        </mat-list>
+        <pxb-hero
+            badge
+            label="Healthy"
+            value="96"
+            units="/100"
+            [iconBackgroundColor]="colors.white[50]"
+            (click)="test()"
+            style="cursor: pointer"
+            [iconSize]="'large'"
+        >
+            <mat-icon svgIcon="px-icons:grade_a" primary [style.color]="colors.green[500]"></mat-icon>
+        </pxb-hero>
+        <mat-list action-row>
+            <mat-list-item>
+                <p mat-line>View Location</p>
+                <mat-icon mat-list-icon style="order: 10">chevron_right</mat-icon>
+            </mat-list-item>
+        </mat-list>
+    </pxb-scorecard>
+</div>
+
 <mat-card style="padding: 0">
     <mat-list style="padding: 0">
         <pxb-hero-banner [divider]="true">
-            <pxb-hero label="Healthy" value="96" units="/100" (click)="test()" style="cursor: pointer">
+            <pxb-hero
+                label="Healthy"
+                value="96"
+                units="/100"
+                (click)="test()"
+                style="cursor: pointer"
+                [iconSize]="'normal'"
+            >
                 <mat-icon svgIcon="px-icons:grade_a" primary [style.color]="colors.green[500]"></mat-icon>
             </pxb-hero>
 
