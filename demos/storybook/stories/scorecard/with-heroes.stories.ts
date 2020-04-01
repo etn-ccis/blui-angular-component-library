@@ -4,14 +4,18 @@ import { action } from '@storybook/addon-actions';
 import { withCustomHeaderStyles } from './with-custom-header.stories';
 
 export const withHeroes = (): any => ({
-    styles: [withCustomHeaderStyles],
+    styles: [
+        `${withCustomHeaderStyles}
+        ::ng-deep pxb-scorecard .root .header {
+            background-color: ${Colors.red[500]};
+            color: ${Colors.white[50]};
+        }`,
+    ],
     template: `
           <pxb-scorecard 
               [headerTitle]="'Substation 3'"
               [headerSubtitle]="'High Humidity Alarm'"
               [headerInfo]="'4 Devices'"
-              [headerColor]="colors.red[500]"
-              [headerFontColor]="colors.white[50]"
           >
             <mat-icon action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
             <mat-list body>

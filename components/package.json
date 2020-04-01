@@ -14,12 +14,10 @@
     "lint:fix": "eslint \"src/**/**.ts\" --fix"
   },
   "peerDependencies": {
-    "@pxblue/angular-themes": "^4.0.0",
     "@angular/material": "^8.2.3",
     "@pxblue/colors": "^2.0.0"
   },
   "devDependencies": {
-    "@pxblue/angular-themes": "^4.0.0",
     "@angular-devkit/build-angular": "^0.803.23",
     "@angular-devkit/build-ng-packagr": "~0.803.23",
     "@angular/animations": "~8.2.2",

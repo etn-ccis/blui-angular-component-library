@@ -1,34 +1,37 @@
-import { color, text } from '@storybook/addon-knobs';
+import { text } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
 import { matListStyles } from './with-basic-config.stories';
 const backgroundImage = require('../../assets/topology_40.png');
 
 export const withCustomHeaderStyles = `
-    ${matListStyles}
-    ::ng-deep pxb-scorecard .header-overlay { 
+    ${matListStyles} 
+    ::ng-deep pxb-scorecard .header-background {
         background-image: url(${backgroundImage});
     }`;
 
 export const withCustomHeader = (): any => ({
-    styles: [withCustomHeaderStyles],
+    styles: [
+        `${withCustomHeaderStyles}
+        ::ng-deep pxb-scorecard .root .header {
+            background-color: ${Colors.red[500]};
+            color: ${Colors.white[50]};
+        }`,
+    ],
     template: `
-          <pxb-scorecard 
-              [headerTitle]="headerTitle"
-              [headerSubtitle]="headerSubtitle"
-              [headerInfo]="headerInfo"
-              [headerColor]="headerColor"
-              [headerFontColor]="headerFontColor"
-          >
-          <mat-list body>
-                <mat-list-item>Body Content</mat-list-item>
-            </mat-list>
-        </pxb-scorecard>
-      `,
+      <pxb-scorecard 
+          [class.root.header.color]="test"
+          [headerTitle]="headerTitle"
+          [headerSubtitle]="headerSubtitle"
+          [headerInfo]="headerInfo"
+      >
+      <mat-list body>
+          <mat-list-item>Body Content</mat-list-item>
+      </mat-list>
+    </pxb-scorecard>
+  `,
     props: {
-        headerColor: color('headerColor', Colors.red[500]),
-        headerFontColor: color('headerFontColor', Colors.white[50]),
-        headerInfo: text('headerInfo', '4 Devices'),
-        headerSubtitle: text('headerSubtitle', 'Card Subtitle'),
         headerTitle: text('headerTitle', 'Card Title'),
+        headerSubtitle: text('headerSubtitle', 'Card Subtitle'),
+        headerInfo: text('headerInfo', '4 Devices'),
     },
 });

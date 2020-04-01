@@ -1,4 +1,3 @@
-@import '~@pxblue/angular-themes/theme.scss';
 @import '~@pxblue/colors/palette.scss';
 
 .root {
@@ -16,9 +15,9 @@
     border-top-right-radius: 4px;
     height: 100px;
     box-sizing: border-box;
-    background-color: map-get($pxb-blue-primary, 500);
-    color: map-get($pxb-white, 50);
     position: relative;
+    background-color: map_get($pxb-blue, 500);
+    color: map_get($pxb-white, 50);
     * {
         color: inherit;
         overflow: hidden;

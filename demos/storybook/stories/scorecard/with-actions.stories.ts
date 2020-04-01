@@ -1,20 +1,23 @@
 import { number } from '@storybook/addon-knobs';
-import * as Colors from '@pxblue/colors';
 import { action } from '@storybook/addon-actions';
 import { withCustomHeaderStyles } from './with-custom-header.stories';
+import * as Colors from '@pxblue/colors';
 
 export const demoActions = ['more_vert', 'search', 'mail', 'notifications', 'list_alt', 'cloud'];
 
 export const withActions = (): any => ({
-    styles: [withCustomHeaderStyles],
+    styles: [
+        `${withCustomHeaderStyles}
+        ::ng-deep pxb-scorecard .root .header {
+            background-color: ${Colors.black[500]};
+            color: ${Colors.white[50]};
+        }`,
+    ],
     template: `
           <pxb-scorecard 
-              [actionLimit]="actionLimit"
               [headerTitle]="'Substation 3'"
               [headerSubtitle]="'High Humidity Alarm'"
               [headerInfo]="'4 Devices'"
-              [headerColor]="colors.red[500]"
-              [headerFontColor]="colors.white[50]"
           >
             <ng-container action-items>
                 <ng-container *ngFor="let action of actions; index as i;">
@@ -41,6 +44,5 @@ export const withActions = (): any => ({
         actionLimit: number('Number of Actions', 3, { range: true, min: 1, max: 6, step: 1 }),
         actionRowClick: action('View Location clicked'),
         actions: demoActions,
-        colors: Colors,
     },
 });

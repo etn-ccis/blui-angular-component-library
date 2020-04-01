@@ -46,8 +46,6 @@ imports: [
 | badge                 | Content to render in the callout area       | `ng-content`          | no       |                              |
 | badgeOffset           | Vertical offset for the badge content       | `number`              | no       |                              |
 | body                  | Content to render in the body               | `ng-content`          | no       |                              |
-| headerColor           | The color of the header                     | `string`              | no       |                              |
-| headerFontColor       | The color for text and icons in header      | `string`              | no       |                              | 
 | headerInfo            | Tertiary text                               | `string`              | no       |                              |
 | headerTitle           | The primary text                            | `string`              | no       |                              |
 | headerSubtitle        | The secondary text                          | `string`              | no       |                              | 

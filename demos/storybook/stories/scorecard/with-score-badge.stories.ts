@@ -1,14 +1,13 @@
 import { number } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
 import { action } from '@storybook/addon-actions';
-import { withCustomHeaderStyles } from './with-custom-header.stories';
+import {  withCustomHeaderStyles } from './with-custom-header.stories';
 import { demoActions } from './with-actions.stories';
-import {ViewEncapsulation} from "@angular/core";
+import { ViewEncapsulation } from '@angular/core';
 
 export const withScoreBadge = (): any => ({
     styles: [
-        `
-        ${withCustomHeaderStyles}
+        `${withCustomHeaderStyles}
         .sb-scorecard-content mat-list-item {
             height: 36px!important;
         }
@@ -26,7 +25,6 @@ export const withScoreBadge = (): any => ({
               [headerTitle]="'Substation 3'"
               [headerSubtitle]="'Normal'"
               [headerInfo]="'4 Devices'"
-              [headerFontColor]="colors.white[50]"
               [badgeOffset]="badgeOffset"
           >
             <mat-icon action-items (click)="actionClick('more_vert')">more_vert</mat-icon>

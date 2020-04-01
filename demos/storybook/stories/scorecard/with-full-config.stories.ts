@@ -1,8 +1,8 @@
-import { color, number, text } from '@storybook/addon-knobs';
+import { number, text } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
 import { action } from '@storybook/addon-actions';
-import { withCustomHeaderStyles } from './with-custom-header.stories';
 import { demoActions } from './with-actions.stories';
+import {withCustomHeaderStyles} from './with-custom-header.stories';
 
 export const withFullConfig = (): any => ({
     styles: [
@@ -24,8 +24,6 @@ export const withFullConfig = (): any => ({
               [headerTitle]="headerTitle"
               [headerSubtitle]="headerSubtitle"
               [headerInfo]="headerInfo"
-              [headerColor]="headerColor"
-              [headerFontColor]="headerFontColor"
               [badgeOffset]="badgeOffset"
           >
             <ng-container action-items>
@@ -34,7 +32,7 @@ export const withFullConfig = (): any => ({
                         {{actions[i]}}
                     </mat-icon>
                 </ng-container>
-            </ng-container>
+            </ng-container> 
             <mat-list body class="sb-scorecard-content">
                 <mat-list-item>
                     <p mat-line>0 Alarms</p>
@@ -76,9 +74,6 @@ export const withFullConfig = (): any => ({
         headerTitle: text('headerTitle', 'Substation 3'),
         headerSubtitle: text('headerSubtitle', 'High Humidity Alarm'),
         headerInfo: text('headerInfo', '4 Devices'),
-        headerColor: color('headerColor', Colors.red[500]),
-        headerFontColor: color('headerFontColor', Colors.white[50]),
-        actionLimit: number('Number of Actions', 3, { range: true, min: 1, max: 6, step: 1 }),
         heroLimit: number('Number of Heroes', 1, { range: true, min: 0, max: 2, step: 1 }),
     },
 });

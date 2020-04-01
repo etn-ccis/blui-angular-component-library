@@ -1,12 +1,13 @@
 import { text } from '@storybook/addon-knobs';
 
 export const matListStyles = `
+    .mat-list-base {
+        padding: 8px 0px!important;
+    }
     ::ng-deep .mat-list-text {
         padding-left: 0px!important;
     }
-    ::ng-deep .mat-list-base {
-        padding: 8px 0px!important;
-    }`;
+`;
 
 export const withBasicConfig = (): any => ({
     styles: [matListStyles],
@@ -15,7 +16,7 @@ export const withBasicConfig = (): any => ({
         <mat-list body>
             <mat-list-item>Body Content</mat-list-item>
         </mat-list>
-      </pxb-scorecard>
+      </pxb-scorecard> 
       `,
     props: {
         headerTitle: text('headerTitle', 'Card Title'),

@@ -1,30 +1,26 @@
 @import '~@pxblue/colors/palette.scss';
+
 .list {
-    color: map-get($pxb-gray, 800);
-}
-.mat-list-base .mat-list-item {
-    color: inherit;
-    height: 48px;
-}
-.list-label {
-    margin: 0;
-    margin-left: 15px;
-}
-.list-value {
-    flex: 1 1 0px;
-    text-align: right;
+   mat-list-item {
+      color: map-get($pxb-gray, 800)!important;
+     .list-label {
+       margin: 0;
+       margin-left: 15px;
+     }
+     .list-value {
+       flex: 1 1 0px;
+       text-align: right;
+     }
+   }
 }
 .error {
-    color: map-get($pxb-red, 500);
+  mat-list-item {
+    color: map-get($pxb-red, 500)!important;
+  }
 }
 
 .progress-icon {
     color: map-get($pxb-blue, 500);
-}
-
-::ng-deep .mat-tab-body {
-    height: 400px;
-    padding: 20px;
 }
 
 pxb-scorecard {
