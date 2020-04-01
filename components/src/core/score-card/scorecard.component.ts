@@ -1,11 +1,11 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
     selector: 'pxb-scorecard',
     template: `
         <mat-card class="root">
-            <div class="header" [style.backgroundColor]="headerColor" [style.color]="headerFontColor">
-                <div class="header-overlay"></div>
+            <div class="header">
+                <div class="header-background"></div>
                 <div class="header-wrapper">
                     <div class="header-text">
                         <mat-card-title class="title">{{ headerTitle }}</mat-card-title>
@@ -37,7 +37,5 @@ export class ScoreCardComponent {
     @Input() headerTitle: string;
     @Input() headerSubtitle: string;
     @Input() headerInfo: string;
-    @Input() headerColor: string;
-    @Input() headerFontColor: string;
     @Input() badgeOffset = 0;
 }
