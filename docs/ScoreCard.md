@@ -39,7 +39,7 @@ imports: [
         <mat-list-item>Body Content</mat-list-item>
     </mat-list>
 
-    <pxb-hero badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="72" [iconBackgroundColor]="colors.white[50]">
+    <pxb-hero badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="'large'" [iconBackgroundColor]="'white'">
         <i primary class="pxb-grade_a"></i>
     </pxb-hero>
 </pxb-scorecard>
