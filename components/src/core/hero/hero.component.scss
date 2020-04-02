@@ -49,10 +49,6 @@
     font-size: 100%;
 }
 
-:host ::ng-deep .primary-icon i {
-    margin-top: -1.5px;
-}
-
 /* SVG icons require a transform to scale.  We use 'normal' or 'large' FontSize to determine how much to scale. */
 :host ::ng-deep .primary-icon mat-icon {
     margin-top: 0;
