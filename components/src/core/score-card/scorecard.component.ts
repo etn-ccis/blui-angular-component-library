@@ -3,29 +3,29 @@ import {Component, Input} from '@angular/core';
 @Component({
     selector: 'pxb-scorecard',
     template: `
-        <mat-card class="root">
-            <div class="header">
-                <div class="header-background"></div>
-                <div class="header-wrapper">
-                    <div class="header-text">
-                        <mat-card-title class="title">{{ headerTitle }}</mat-card-title>
-                        <mat-card-subtitle class="subtitle">{{ headerSubtitle }}</mat-card-subtitle>
-                        <mat-card-subtitle class="info">{{ headerInfo }}</mat-card-subtitle>
+        <mat-card class="pxb-root">
+            <div class="pxb-header">
+                <div class="pxb-header-background"></div>
+                <div class="pxb-header-wrapper">
+                    <div class="pxb-header-text">
+                        <mat-card-title class="pxb-title">{{ headerTitle }}</mat-card-title>
+                        <mat-card-subtitle class="pxb-subtitle">{{ headerSubtitle }}</mat-card-subtitle>
+                        <mat-card-subtitle class="pxb-info">{{ headerInfo }}</mat-card-subtitle>
                     </div>
-                    <div class="action-items">
+                    <div class="pxb-action-items">
                         <ng-content select="[action-items]"></ng-content>
                     </div>
                 </div>
             </div>
             <mat-card-content>
-                <div class="body">
+                <div class="pxb-body">
                     <ng-content select="[body]"></ng-content>
-                    <div class="badge-wrapper" [style.marginTop.px]="badgeOffset || 'inherit'">
+                    <div class="pxb-badge-wrapper" [style.marginTop.px]="badgeOffset || 'inherit'">
                         <ng-content select="[badge]"></ng-content>
                     </div>
                 </div>
                 <mat-divider></mat-divider>
-                <div class="action-row">
+                <div class="pxb-action-row">
                     <ng-content select="[action-row]"></ng-content>
                 </div>
             </mat-card-content>

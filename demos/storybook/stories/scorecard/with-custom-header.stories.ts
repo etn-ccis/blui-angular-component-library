@@ -4,21 +4,21 @@ import { matListStyles } from './with-basic-config.stories';
 const backgroundImage = require('../../assets/topology_40.png');
 
 export const withCustomHeaderStyles = `
-    ${matListStyles} 
-    ::ng-deep pxb-scorecard .header-background {
+    ${matListStyles}
+    ::ng-deep pxb-scorecard .pxb-header-background {
         background-image: url(${backgroundImage});
     }`;
 
 export const withCustomHeader = (): any => ({
     styles: [
         `${withCustomHeaderStyles}
-        ::ng-deep pxb-scorecard .root .header {
+        ::ng-deep pxb-scorecard .pxb-root .pxb-header {
             background-color: ${Colors.red[500]};
             color: ${Colors.white[50]};
         }`,
     ],
     template: `
-      <pxb-scorecard 
+      <pxb-scorecard
           [class.root.header.color]="test"
           [headerTitle]="headerTitle"
           [headerSubtitle]="headerSubtitle"

@@ -1,16 +1,16 @@
 @import '~@pxblue/colors/palette.scss';
 
-.root {
+.pxb-root {
     padding: 0;
 }
 
-// Styles applied to supplied action items.
-:host ::ng-deep .action-items * {
+// Styles applied to supplied action items.pxb-
+:host ::ng-deep .pxb-action-items * {
     margin-left: 12px;
     cursor: pointer;
 }
 
-.header {
+.pxb-header {
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     height: 100px;
@@ -24,7 +24,7 @@
         text-overflow: ellipsis;
         white-space: nowrap;
     }
-    .header-background {
+    .pxb-header-background {
         position: absolute;
         width: 100%;
         height: 100%;
@@ -33,44 +33,44 @@
         background-size: cover;
         pointer-events: none;
     }
-    .header-wrapper {
+    .pxb-header-wrapper {
         padding: 16px;
         padding-bottom: 0;
         display: flex;
         justify-content: space-between;
     }
-    .action-items {
+    .pxb-action-items {
         text-overflow: unset;
         overflow: unset;
     }
-    .title {
+    .pxb-title {
         font-weight: 600;
         line-height: 1.6;
         font-size: 1.125rem;
         margin-bottom: 0;
     }
-    .subtitle {
+    .pxb-subtitle {
         font-weight: 400;
         margin: 0;
         line-height: 1.2;
     }
-    .info {
+    .pxb-info {
         font-weight: 200;
         line-height: 2;
     }
 }
 
-.body {
+.pxb-body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    .badge-wrapper {
+    .pxb-badge-wrapper {
         z-index: 1;
         margin-left: 16px;
         margin-right: 16px;
     }
 }
 
-.action-row {
+.pxb-action-row {
     cursor: pointer;
 }

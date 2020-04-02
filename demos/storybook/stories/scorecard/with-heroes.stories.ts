@@ -6,13 +6,13 @@ import { withCustomHeaderStyles } from './with-custom-header.stories';
 export const withHeroes = (): any => ({
     styles: [
         `${withCustomHeaderStyles}
-        ::ng-deep pxb-scorecard .root .header {
+        ::ng-deep pxb-scorecard .pxb-root .pxb-header {
             background-color: ${Colors.red[500]};
             color: ${Colors.white[50]};
         }`,
     ],
     template: `
-          <pxb-scorecard 
+          <pxb-scorecard
               [headerTitle]="'Substation 3'"
               [headerSubtitle]="'High Humidity Alarm'"
               [headerInfo]="'4 Devices'"
