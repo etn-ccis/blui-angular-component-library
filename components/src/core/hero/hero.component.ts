@@ -13,7 +13,7 @@ export type FontSize = 'small' | 'normal';
             >
                 <ng-content select="[primary]"></ng-content>
             </div>
-            <span class="channel-value" [style.font-size.rem]="fontSize === 'small' ? '1' : '1.25'">
+            <span class="channel-value" [style.fontSize.rem]="fontSize === 'small' ? '1' : '1.25'">
                 <ng-content *ngIf="value === undefined" select="pxb-channel-value"></ng-content>
                 <pxb-channel-value *ngIf="value !== undefined" [value]="value" [units]="units">
                     <ng-content select="[secondary]"></ng-content>

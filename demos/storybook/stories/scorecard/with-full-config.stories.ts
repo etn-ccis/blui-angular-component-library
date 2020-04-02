@@ -66,15 +66,15 @@ export const withFullConfig = (): any => ({
         </pxb-scorecard>
       `,
     props: {
-        actionClick: (iconName): any => action(`${iconName} clicked`)(),
-        actionLimit: number('Number of Actions', 3, { range: true, min: 1, max: 6, step: 1 }),
-        actionRowClick: action('View Location clicked'),
-        actions: demoActions,
-        colors: Colors,
-        badgeOffset: number('badgeOffset', -74),
         headerTitle: text('headerTitle', 'Substation 3'),
         headerSubtitle: text('headerSubtitle', 'High Humidity Alarm'),
         headerInfo: text('headerInfo', '4 Devices'),
+        actionLimit: number('Number of Actions', 3, { range: true, min: 1, max: 6, step: 1 }),
         heroLimit: number('Number of Heroes', 1, { range: true, min: 0, max: 2, step: 1 }),
+        badgeOffset: number('badgeOffset', -74),
+        actionRowClick: action('View Location clicked'),
+        actionClick: (iconName): any => action(`${iconName} clicked`)(),
+        actions: demoActions,
+        colors: Colors,
     },
 });
