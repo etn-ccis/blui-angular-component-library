@@ -1,22 +1,22 @@
 @import '~@pxblue/colors/palette.scss';
 
 .list {
-   mat-list-item {
-      color: map-get($pxb-gray, 800)!important;
-     .list-label {
-       margin: 0;
-       margin-left: 15px;
-     }
-     .list-value {
-       flex: 1 1 0px;
-       text-align: right;
-     }
-   }
+    mat-list-item {
+        color: map-get($pxb-gray, 800) !important;
+        .list-label {
+            margin: 0;
+            margin-left: 15px;
+        }
+        .list-value {
+            flex: 1 1 0px;
+            text-align: right;
+        }
+    }
 }
 .error {
-  mat-list-item {
-    color: map-get($pxb-red, 500)!important;
-  }
+    mat-list-item {
+        color: map-get($pxb-red, 500) !important;
+    }
 }
 
 .progress-icon {
@@ -28,13 +28,13 @@ pxb-scorecard {
 }
 
 pxb-scorecard {
-  .pxb-header-background {
-    background-image: url('../assets/topology_40.png')
-  }
-  margin: 16px;
+    .pxb-header-background {
+        background-image: url('../assets/topology_40.png');
+    }
+    margin: 16px;
 }
 .red-scorecard {
-  .pxb-root .pxb-header {
-    background-color: map-get($pxb-red, 500);
-  }
+    .pxb-root .pxb-header {
+        background-color: map-get($pxb-red, 500);
+    }
 }

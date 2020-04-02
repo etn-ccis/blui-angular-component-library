@@ -3,7 +3,7 @@ import { ScoreCardComponent } from './scorecard.component';
 import { ScoreCardModule } from './scorecard.module';
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
-import {count} from "../../utils/test-utils";
+import { count } from '../../utils/test-utils';
 
 @Component({
     template: `
@@ -93,13 +93,22 @@ describe('ScoreCardComponent', () => {
     });
 
     it('should enforce class naming conventions', () => {
-       const classList = [
-           '.pxb-root', '.pxb-header', '.pxb-header-background', '.pxb-header-wrapper',
-           '.pxb-header-text', '.pxb-title', '.pxb-subtitle', '.pxb-info', '.pxb-action-items',
-            '.pxb-body', '.pxb-badge-wrapper', '.pxb-action-row'
-       ];
-       for (const className of classList) {
-           count(fixture, className);
-       }
+        const classList = [
+            '.pxb-root',
+            '.pxb-header',
+            '.pxb-header-background',
+            '.pxb-header-wrapper',
+            '.pxb-header-text',
+            '.pxb-title',
+            '.pxb-subtitle',
+            '.pxb-info',
+            '.pxb-action-items',
+            '.pxb-body',
+            '.pxb-badge-wrapper',
+            '.pxb-action-row',
+        ];
+        for (const className of classList) {
+            count(fixture, className);
+        }
     });
 });
