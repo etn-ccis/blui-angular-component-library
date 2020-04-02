@@ -21,7 +21,7 @@ export const withScoreBadge = (): any => ({
     ],
     encapsulation: ViewEncapsulation.None,
     template: `
-          <pxb-scorecard 
+          <pxb-scorecard
               [headerTitle]="'Substation 3'"
               [headerSubtitle]="'Normal'"
               [headerInfo]="'4 Devices'"
@@ -42,7 +42,7 @@ export const withScoreBadge = (): any => ({
                     <mat-icon mat-list-icon>cloud</mat-icon>
                 </mat-list-item>
             </mat-list>
-            <pxb-hero badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="72" [iconBackgroundColor]="colors.white[50]">
+            <pxb-hero badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="'large'" [iconBackgroundColor]="colors.white[50]">
                 <i primary [style.color]="colors.green[500]" class="pxb-grade_a"></i>
             </pxb-hero>
             <mat-list action-row>

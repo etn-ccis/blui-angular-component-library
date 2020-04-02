@@ -23,15 +23,25 @@ imports: [
 ```
 
 ```typescript
-// Example with basic body content and header action items
-<pxb-scorecard [headerTitle]="'Title'" >
-    <mat-list body>
-        <mat-list-item>Body Content</mat-list-item>
-    </mat-list>
+// Example with basic body content, action items, and a score badge
+<pxb-scorecard 
+  [headerTitle]="'Substation 3'"
+  [headerSubtitle]="'Normal'"
+  [headerInfo]="'4 Devices'"
+  [badgeOffset]="-76"
+>
     <ng-container action-items>
         <mat-icon>search</mat-icon>
         <mat-icon>more_vert</mat-icon>
     </ng-container>
+
+    <mat-list body>
+        <mat-list-item>Body Content</mat-list-item>
+    </mat-list>
+
+    <pxb-hero badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="72" [iconBackgroundColor]="colors.white[50]">
+        <i primary class="pxb-grade_a"></i>
+    </pxb-hero>
 </pxb-scorecard>
 ```
 

@@ -23,11 +23,11 @@ export const withHeroes = (): any => ({
                     <p mat-line>Body Content</p>
                 </mat-list-item>
             </mat-list>
-            <pxb-hero-banner badge [divider]="false">
-                <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'" [units]="'°F'" [iconSize]="48">
+            <pxb-hero-banner badge>
+                <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'" [units]="'°F'" [iconSize]="'normal'">
                     <i primary class="pxb-temp"></i>
                 </pxb-hero>
-                <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="48">
+                <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="'normal'">
                     <i primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
                 </pxb-hero>
             </pxb-hero-banner>

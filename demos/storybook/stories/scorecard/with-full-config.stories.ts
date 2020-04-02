@@ -20,7 +20,7 @@ export const withFullConfig = (): any => ({
     `,
     ],
     template: `
-          <pxb-scorecard 
+          <pxb-scorecard
               [headerTitle]="headerTitle"
               [headerSubtitle]="headerSubtitle"
               [headerInfo]="headerInfo"
@@ -32,7 +32,7 @@ export const withFullConfig = (): any => ({
                         {{actions[i]}}
                     </mat-icon>
                 </ng-container>
-            </ng-container> 
+            </ng-container>
             <mat-list body class="sb-scorecard-content">
                 <mat-list-item>
                     <p mat-line>0 Alarms</p>
@@ -47,13 +47,13 @@ export const withFullConfig = (): any => ({
                     <mat-icon mat-list-icon>cloud</mat-icon>
                 </mat-list-item>
             </mat-list>
-            <pxb-hero-banner badge [divider]="false">
-                <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'" 
-                    [units]="'°F'" [iconSize]="48" [iconBackgroundColor]="colors.white[50]">
+            <pxb-hero-banner badge>
+                <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'"
+                    [units]="'°F'" [iconSize]="'large'" [iconBackgroundColor]="colors.white[50]">
                     <i primary class="pxb-temp"></i>
                 </pxb-hero>
-                <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'" 
-                    [units]="'%'" [iconSize]="48" [iconBackgroundColor]="colors.white[50]">
+                <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'"
+                    [units]="'%'" [iconSize]="'large'" [iconBackgroundColor]="colors.white[50]">
                     <i primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
                 </pxb-hero>
             </pxb-hero-banner>
@@ -67,6 +67,7 @@ export const withFullConfig = (): any => ({
       `,
     props: {
         actionClick: (iconName): any => action(`${iconName} clicked`)(),
+        actionLimit: number('Number of Actions', 3, { range: true, min: 1, max: 6, step: 1 }),
         actionRowClick: action('View Location clicked'),
         actions: demoActions,
         colors: Colors,

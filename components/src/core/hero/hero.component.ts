@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges } from '@angular/core';
-export type IconSize = 'normal' | 'large' | number;
+export type IconSize = 'normal' | 'large';
 export type FontSize = 'small' | 'normal';
 
 @Component({
@@ -7,12 +7,9 @@ export type FontSize = 'small' | 'normal';
     template: `
         <div class="root">
             <div
-                class="primary-icon"
+                class="primary-container"
                 [style.backgroundColor]="iconBackgroundColor"
                 [class.large]="iconSize === 'large'"
-                [style.height.px]="iSize"
-                [style.width.px]="iSize"
-                [style.font-size.px]="iSize"
             >
                 <ng-content select="[primary]"></ng-content>
             </div>
@@ -39,6 +36,6 @@ export class HeroComponent implements OnChanges {
 
     // We can't support dynamic iconSize w/ px-blue icons until https://github.com/angular/components/issues/5188 is fixed
     ngOnChanges(): void {
-        this.iSize = this.iconSize === 'large' ? 72 : this.iconSize === 'normal' ? 36 : this.iconSize;
+        this.iSize = this.iconSize === 'large' ? 72 : 36;
     }
 }
