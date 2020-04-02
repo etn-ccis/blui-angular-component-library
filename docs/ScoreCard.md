@@ -44,7 +44,7 @@ imports: [
 | actionItems           | Icons shown to the right of the header text | `ng-content`          | no       |                              |
 | actionRow             | Content to render for the footer            | `ng-content`          | no       |                              |
 | badge                 | Content to render in the callout area       | `ng-content`          | no       |                              |
-| badgeOffset           | Vertical offset for the badge content       | `number`              | no       |                              |
+| badgeOffset           | Vertical offset for the badge content       | `number`              | no       | 0                            |
 | body                  | Content to render in the body               | `ng-content`          | no       |                              |
 | headerInfo            | Tertiary text                               | `string`              | no       |                              |
 | headerTitle           | The primary text                            | `string`              | no       |                              |
