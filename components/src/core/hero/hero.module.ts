@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ChannelValueModule } from '../channel-value/public-api';
+import { ChannelValueModule } from '../channel-value/public_api';
 import { HeroBannerComponent } from './hero-banner.component';
 import { HeroComponent } from './hero.component';
 import { CommonModule } from '@angular/common';

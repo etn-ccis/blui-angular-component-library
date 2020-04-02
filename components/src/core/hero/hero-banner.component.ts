@@ -12,4 +12,5 @@ import { Component, Input } from '@angular/core';
 })
 export class HeroBannerComponent {
     @Input() divider = false;
+
 }

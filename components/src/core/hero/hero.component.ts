@@ -31,8 +31,8 @@ export class HeroComponent implements OnInit {
     @Input() value: string;
     @Input() units: string;
     @Input() iconSize = 'normal';
-    @Input() iSize = 36;
-    @Input() fontSize = 'normal';
+    @Input() iSize = 346;
+    @Input() fontSize = 'asddgadsdg';
 
     ngOnInit(): void {
         // We can't support dynamic iconSize w/ px-blue icons until https://github.com/angular/components/issues/5188 is fixed

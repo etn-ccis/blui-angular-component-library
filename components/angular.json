@@ -2,9 +2,9 @@
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
   "version": 1,
   "projects": {
-    "components": {
+    "pxb-components": {
       "root": ".",
-      "sourceRoot": "components",
+      "sourceRoot": "pxb-components",
       "projectType": "library",
       "prefix": "pxb",
       "architect": {
@@ -36,5 +36,5 @@
       }
     }
   },
-  "defaultProject": "components"
+  "defaultProject": "pxb-components"
 }
