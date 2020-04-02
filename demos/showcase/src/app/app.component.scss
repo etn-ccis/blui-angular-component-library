@@ -26,3 +26,15 @@
 pxb-scorecard {
     width: 400px;
 }
+
+pxb-scorecard {
+  .pxb-header-background {
+    background-image: url('../assets/topology_40.png')
+  }
+  margin: 16px;
+}
+.red-scorecard {
+  .pxb-root .pxb-header {
+    background-color: map-get($pxb-red, 500);
+  }
+}
