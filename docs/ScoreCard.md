@@ -1,4 +1,5 @@
 # ScoreCard
+
 Card component that calls attention to particular values.
 
 <div style="align-items: center; text-align: center; width: 100%; display: flex; justify-content: space-evenly; margin-bottom: 20px">
@@ -24,7 +25,7 @@ imports: [
 
 ```typescript
 // Example with basic body content, action items, and a score badge
-<pxb-scorecard 
+<pxb-scorecard
   [headerTitle]="'Substation 3'"
   [headerSubtitle]="'Normal'"
   [headerInfo]="'4 Devices'"
@@ -49,15 +50,15 @@ imports: [
 
 <div style="overflow: auto;">
 
-| Prop Name             | Description                                 | Type                  | Required | Default                      |
-|-----------------------|---------------------------------------------|-----------------------|----------|------------------------------|
-| actionItems           | Icons shown to the right of the header text | `ng-content`          | no       |                              |
-| actionRow             | Content to render for the footer            | `ng-content`          | no       |                              |
-| badge                 | Content to render in the callout area       | `ng-content`          | no       |                              |
-| badgeOffset           | Vertical offset for the badge content       | `number`              | no       | 0                            |
-| body                  | Content to render in the body               | `ng-content`          | no       |                              |
-| headerInfo            | Tertiary text                               | `string`              | no       |                              |
-| headerTitle           | The primary text                            | `string`              | no       |                              |
-| headerSubtitle        | The secondary text                          | `string`              | no       |                              | 
+| Prop Name      | Description                                 | Type         | Required | Default |
+| -------------- | ------------------------------------------- | ------------ | -------- | ------- |
+| actionItems    | Icons shown to the right of the header text | `ng-content` | no       |         |
+| actionRow      | Content to render for the footer            | `ng-content` | no       |         |
+| badge          | Content to render in the callout area       | `ng-content` | no       |         |
+| badgeOffset    | Vertical offset for the badge content       | `number`     | no       | 0       |
+| body           | Content to render in the body               | `ng-content` | no       |         |
+| headerInfo     | Tertiary text                               | `string`     | no       |         |
+| headerSubtitle | The secondary text                          | `string`     | no       |         |
+| headerTitle    | The primary text                            | `string`     | no       |         |
 
 </div>
