@@ -24,8 +24,8 @@ import { Component, Input } from '@angular/core';
                         <ng-content select="[badge]"></ng-content>
                     </div>
                 </div>
-                <mat-divider></mat-divider>
-                <div class="pxb-action-row">
+                <mat-divider *ngIf="actionRow.childNodes.length !== 0"></mat-divider>
+                <div class="pxb-action-row" #actionRow>
                     <ng-content select="[action-row]"></ng-content>
                 </div>
             </mat-card-content>
