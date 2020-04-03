@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "ng serve --aot",
     "build": "ng build",
     "test": "ng test",
     "lint": "eslint \"src/**/**.ts\"",
@@ -24,6 +24,7 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "@pxblue/angular-components": "2.0.0-beta.2",
     "@pxblue/colors": "^1.0.13",
     "@pxblue/icons-svg": "^1.0.10",
     "@pxblue/ng-progress-icons": "^1.1.3",
