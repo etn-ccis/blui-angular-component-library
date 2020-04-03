@@ -14,8 +14,8 @@
     "lint:fix": "eslint \"src/**/**.ts\" --fix"
   },
   "peerDependencies": {
-    "@pxblue/colors": "^2.0.0",
-    "@angular/material": "^8.2.3"
+    "@angular/material": "^8.2.3",
+    "@pxblue/colors": "^2.0.0"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.23",
@@ -74,5 +74,8 @@
   "bugs": {
     "url": "https://github.com/pxblue/angular-component-library/issues"
   },
-  "homepage": "https://github.com/pxblue/angular-component-library#readme"
+  "homepage": "https://github.com/pxblue/angular-component-library#readme",
+  "dependencies": {
+    "@pxblue/icons-svg": "^1.0.18"
+  }
 }

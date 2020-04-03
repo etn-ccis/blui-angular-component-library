@@ -984,6 +984,11 @@
   optionalDependencies:
     eslint-plugin-react "^7.16.0"
 
+"@pxblue/icons-svg@^1.0.18":
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/@pxblue/icons-svg/-/icons-svg-1.0.18.tgz#3da719aaaec46cd6b48400995883355f32880519"
+  integrity sha512-T2Vs7Qt8wIMvOYkMR8nkVnUnbPlWpX2nQ3bERdabOJMzfnnWJxLGs/A5CJWCP1FKkjnaryvimaSv/AEaL4DvAQ==
+
 "@pxblue/ng-progress-icons@^1.1.3":
   version "1.1.4"
   resolved "https://registry.npmjs.org/@pxblue/ng-progress-icons/-/ng-progress-icons-1.1.4.tgz#02e3051d8d0d7be33deedccd603c033f17e1dd8c"
