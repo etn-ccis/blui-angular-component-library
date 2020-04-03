@@ -31,6 +31,10 @@ echo "Checking EmptyState..."
 echo -ne "  empty-state.component: "
 if [ ! -f ./core/empty-state/empty-state.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
+echo "Checking Scorecard..."
+echo -ne "  scorecard.component: "
+if [ ! -f ./core/score-card/scorecard.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+
 echo -e "\r\n${GREEN}-----------------------------------"
 echo -e "@pxblue/angular-components package successfully created"
 echo -e "-----------------------------------${NC}\r\n\r\n"
