@@ -40,7 +40,8 @@ imports: [
         <mat-list-item>Body Content</mat-list-item>
     </mat-list>
 
-    <pxb-hero badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="'large'" [iconBackgroundColor]="'white'">
+    <pxb-hero badge [label]="'Grade'" [value]="'98'" [units]="'/100'" 
+        [iconSize]="'large'" [iconBackgroundColor]="'white'">
         <i primary class="pxb-grade_a"></i>
     </pxb-hero>
 </pxb-scorecard>
@@ -50,7 +51,7 @@ imports: [
 
 <div style="overflow: auto;">
 
-| Prop Name      | Description                                 | Type         | Required | Default |
+| Attributes     | Description                                 | Type         | Required | Default |
 | -------------- | ------------------------------------------- | ------------ | -------- | ------- |
 | actionItems    | Icons shown to the right of the header text | `ng-content` | no       |         |
 | actionRow      | Content to render for the footer            | `ng-content` | no       |         |
