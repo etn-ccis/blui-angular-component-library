@@ -7,7 +7,7 @@ export const withValueUnits = (): any => ({
           </pxb-hero>
       `,
     props: {
-        value: text('value', '94'),
+        value: text('value', '88'),
         units: text('units', '%'),
     },
 });

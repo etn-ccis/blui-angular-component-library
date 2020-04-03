@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as PXBColors from '@pxblue/colors';
@@ -9,6 +9,7 @@ const iconSet = require('@pxblue/icons-svg/icons.svg');
     selector: 'app-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
     colors: Record<string, any>;
