@@ -1,6 +1,6 @@
 {
   "dest": "../demos/storybook/node_modules/@pxblue/angular-components",
   "lib": {
-    "entryFile": "src/index.ts"
+    "entryFile": "src/public_api.ts"
   }
 }
