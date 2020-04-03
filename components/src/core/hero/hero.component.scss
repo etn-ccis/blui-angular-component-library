@@ -53,7 +53,7 @@
     }
 }
 
-:host ::ng-deep .primary-icon * {
+:host ::ng-deep .primary-container * {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,7 +63,7 @@
 }
 
 /* SVG icons require a transform to scale.  We use 'normal' or 'large' iconSize to determine how much to scale. */
-:host ::ng-deep .primary-icon mat-icon {
+:host ::ng-deep .primary-container mat-icon {
     margin-top: 0;
     line-height: 1.1;
     svg {
@@ -71,6 +71,8 @@
         transform-origin: top left;
     }
 }
-:host ::ng-deep .primary-icon.large mat-icon svg {
-    transform: scale(3);
+:host ::ng-deep .primary-container.large mat-icon {
+    svg {
+        transform: scale(3);
+    }
 }
