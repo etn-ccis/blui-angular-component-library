@@ -40,9 +40,14 @@ export const withHeroes = (): any => ({
         </pxb-scorecard>
       `,
     props: {
-        actionClick: (iconName): any => action(`${iconName} clicked`)(),
+        actionClick: (iconName: string): any => action(`${iconName} clicked`)(),
         actionRowClick: action('View Location clicked'),
         colors: Colors,
-        heroLimit: number('Number of Heroes', 1, { range: true, min: 0, max: 2, step: 1 }),
+        heroLimit: number('Number of Heroes', 1, {
+            range: true,
+            min: 0,
+            max: 2,
+            step: 1,
+        }),
     },
 });

@@ -2,7 +2,7 @@ import { number, text } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
 import { action } from '@storybook/addon-actions';
 import { demoActions } from './with-actions.stories';
-import {withCustomHeaderStyles} from './with-custom-header.stories';
+import { withCustomHeaderStyles } from './with-custom-header.stories';
 
 export const withFullConfig = (): any => ({
     styles: [
@@ -69,11 +69,21 @@ export const withFullConfig = (): any => ({
         headerTitle: text('headerTitle', 'Substation 3'),
         headerSubtitle: text('headerSubtitle', 'High Humidity Alarm'),
         headerInfo: text('headerInfo', '4 Devices'),
-        actionLimit: number('Number of Actions', 3, { range: true, min: 1, max: 6, step: 1 }),
-        heroLimit: number('Number of Heroes', 1, { range: true, min: 0, max: 2, step: 1 }),
+        actionLimit: number('Number of Actions', 3, {
+            range: true,
+            min: 1,
+            max: 6,
+            step: 1,
+        }),
+        heroLimit: number('Number of Heroes', 1, {
+            range: true,
+            min: 0,
+            max: 2,
+            step: 1,
+        }),
         badgeOffset: number('badgeOffset', -74),
         actionRowClick: action('View Location clicked'),
-        actionClick: (iconName): any => action(`${iconName} clicked`)(),
+        actionClick: (iconName: string): any => action(`${iconName} clicked`)(),
         actions: demoActions,
         colors: Colors,
     },

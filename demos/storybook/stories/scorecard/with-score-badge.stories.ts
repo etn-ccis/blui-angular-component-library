@@ -1,7 +1,7 @@
 import { number } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
 import { action } from '@storybook/addon-actions';
-import {  withCustomHeaderStyles } from './with-custom-header.stories';
+import { withCustomHeaderStyles } from './with-custom-header.stories';
 import { demoActions } from './with-actions.stories';
 import { ViewEncapsulation } from '@angular/core';
 
@@ -54,7 +54,7 @@ export const withScoreBadge = (): any => ({
         </pxb-scorecard>
       `,
     props: {
-        actionClick: (iconName): any => action(`${iconName} clicked`)(),
+        actionClick: (iconName: string): any => action(`${iconName} clicked`)(),
         actionRowClick: action('View Location clicked'),
         actions: demoActions,
         badgeOffset: number('badgeOffset', -74),

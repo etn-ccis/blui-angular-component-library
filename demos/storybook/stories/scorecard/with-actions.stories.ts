@@ -40,8 +40,13 @@ export const withActions = (): any => ({
         </pxb-scorecard>
       `,
     props: {
-        actionClick: (iconName): any => action(`${iconName} clicked`)(),
-        actionLimit: number('Number of Actions', 3, { range: true, min: 1, max: 6, step: 1 }),
+        actionClick: (iconName: string): any => action(`${iconName} clicked`)(),
+        actionLimit: number('Number of Actions', 3, {
+            range: true,
+            min: 1,
+            max: 6,
+            step: 1,
+        }),
         actionRowClick: action('View Location clicked'),
         actions: demoActions,
     },
