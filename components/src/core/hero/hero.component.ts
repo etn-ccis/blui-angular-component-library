@@ -1,12 +1,4 @@
-import {
-    AfterContentChecked,
-    ChangeDetectorRef,
-    Component,
-    ElementRef,
-    Input,
-    OnChanges,
-    ViewChild
-} from '@angular/core';
+import { AfterContentChecked, Component, ElementRef, Input, OnChanges, ViewChild } from '@angular/core';
 export type IconSize = 'small' | 'normal' | 'large';
 export type FontSize = 'small' | 'normal';
 
@@ -20,7 +12,7 @@ export type FontSize = 'small' | 'normal';
                 [style.backgroundColor]="iconBackgroundColor"
                 [style.lineHeight.px]="iSize"
                 [style.fontSize.px]="iSize"
-                [style.width.px]="iSize"   
+                [style.width.px]="iSize"
                 [style.height.px]="iSize"
             >
                 <ng-content select="[primary]"></ng-content>
@@ -45,7 +37,7 @@ export class HeroComponent implements OnChanges, AfterContentChecked {
     @Input() fontSize: FontSize = 'normal';
     @Input() svgScaling = true;
     @Input() iconBackgroundColor: string;
-    @ViewChild('primaryContainer', {static: false}) primaryContainer: ElementRef;
+    @ViewChild('primaryContainer', { static: false }) primaryContainer: ElementRef;
 
     iSize = 36;
     iconString: string;
@@ -63,7 +55,7 @@ export class HeroComponent implements OnChanges, AfterContentChecked {
         }
     }
 
-    /* https://stackoverflow.com/questions/47306357/angular2-detect-changes-in-ng-content */
+    // Used to listen for changes in the primary icon content.
     ngAfterContentChecked(): void {
         if (!this.primaryContainer || !this.svgScaling) {
             return;
@@ -95,8 +87,8 @@ export class HeroComponent implements OnChanges, AfterContentChecked {
 
             const scaleAmount = this.iSize / biggestBox;
             const svg =
-               this.primaryContainer.nativeElement.querySelector('div mat-icon[svgIcon] svg') ||
-               this.primaryContainer.nativeElement.querySelector('div mat-icon[svgicon] svg');
+                this.primaryContainer.nativeElement.querySelector('div mat-icon[svgIcon] svg') ||
+                this.primaryContainer.nativeElement.querySelector('div mat-icon[svgicon] svg');
 
             svg.style.setProperty('transform', `scale(${scaleAmount})`);
             svg.style.setProperty('transform-origin', 'top left');

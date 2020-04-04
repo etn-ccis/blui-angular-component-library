@@ -21,10 +21,20 @@
             </mat-list-item>
         </mat-list>
         <pxb-hero-banner badge>
-            <pxb-hero [label]="'Temperature'" [value]="'98'" [units]="'°F'" [iconSize]="87" [iconBackgroundColor]="colors.red[500]">
+            <pxb-hero
+                [label]="'Temperature'"
+                [value]="'98'"
+                [units]="'°F'"
+                [iconSize]="'normal'"
+            >
                 <mat-icon inline="true" svgIcon="px-icons:temp" primary></mat-icon>
             </pxb-hero>
-            <pxb-hero [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="24" [iconBackgroundColor]="colors.red[500]">
+            <pxb-hero
+                [label]="'Humidity'"
+                [value]="'54'"
+                [units]="'%'"
+                [iconSize]="'normal'"
+            >
                 <mat-icon svgIcon="px-icons:moisture" primary [style.color]="colors.blue[300]"></mat-icon>
             </pxb-hero>
         </pxb-hero-banner>
@@ -65,7 +75,7 @@
             [iconBackgroundColor]="colors.white[50]"
             (click)="test()"
             style="cursor: pointer"
-            [iconSize]="102"
+            [iconSize]="'large'"
         >
             <mat-icon svgIcon="px-icons:grade_a" primary [style.color]="colors.green[500]"></mat-icon>
         </pxb-hero>
