@@ -14,22 +14,13 @@
 
     // Icon Styles
     .primary-container {
+        padding: 3px;
         $normal: 32px;
         $large: 72px;
         color: map-get($pxb-gray, 800);
         border-radius: 50%;
         margin-bottom: 5px;
         text-align: center;
-        height: $normal;
-        width: $normal;
-        font-size: $normal;
-        line-height: $normal;
-        &.large {
-            height: $large;
-            width: $large;
-            font-size: $large;
-            line-height: $large;
-        }
     }
 
     // Channel Value Styles
@@ -63,11 +54,12 @@
 }
 
 /* SVG icons require a transform to scale.  We use 'normal' or 'large' iconSize to determine how much to scale. */
+/*
 :host ::ng-deep .primary-container mat-icon {
     margin-top: 0;
     line-height: 1.1;
     svg {
-        transform: scale(1.5);
+        transform: scale(1.2);
         transform-origin: top left;
     }
 }
@@ -76,3 +68,4 @@
         transform: scale(3);
     }
 }
+*/

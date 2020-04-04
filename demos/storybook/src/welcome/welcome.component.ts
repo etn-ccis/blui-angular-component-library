@@ -14,10 +14,10 @@ const icon = require('../../assets/pxb-icon.svg');
     styleUrls: ['welcome.component.css'],
     template: `
         <div class="pxb-blue mat-typography root"
-             [style.backgroundColor]="pxbColors.blue[500]" 
+             [style.backgroundColor]="pxbColors.blue[500]"
              [style.color]="pxbColors.white[50]"
              [style.backgroundImage]='background'>
-            
+
             <div class="container">
                 <div class="img-container">
                     <img [src]="pxbIcon" alt="pxb-icon" class="rotate" />
@@ -29,8 +29,8 @@ const icon = require('../../assets/pxb-icon.svg');
                         Learn about and interact with our PX Blue components using Storybook.
                     </div>
                     <div class="buttons">
-                        <a target="_blank" href="https://github.com/pxblue/angular-component-library" mat-stroked-button 
-                            [style.color]="pxbColors.white[50]" 
+                        <a target="_blank" href="https://github.com/pxblue/angular-component-library" mat-stroked-button
+                            [style.color]="pxbColors.white[50]"
                             [style.borderColor]="pxbColors.white[50]"
                             class="link">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="github" [style.fill]="pxbColors.white[50]">
