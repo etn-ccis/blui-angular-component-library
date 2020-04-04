@@ -7,7 +7,7 @@ import {
     OnChanges,
     ViewChild
 } from '@angular/core';
-export type IconSize = 'normal' | 'large';
+export type IconSize = 'small' | 'normal' | 'large';
 export type FontSize = 'small' | 'normal';
 
 @Component({
@@ -43,10 +43,12 @@ export class HeroComponent implements OnChanges, AfterContentChecked {
     @Input() units: string;
     @Input() iconSize: IconSize = 'normal';
     @Input() fontSize: FontSize = 'normal';
+    @Input() svgScaling = true;
     @Input() iconBackgroundColor: string;
     @ViewChild('primaryContainer', {static: false}) primaryContainer: ElementRef;
+
     iSize = 36;
-    iconString = '';
+    iconString: string;
 
     // We can't support dynamic iconSize w/ px-blue icons until https://github.com/angular/components/issues/5188 is fixed
     ngOnChanges(): void {
@@ -54,6 +56,8 @@ export class HeroComponent implements OnChanges, AfterContentChecked {
             this.iSize = 72;
         } else if (this.iconSize === 'normal') {
             this.iSize = 36;
+        } else if (this.iconSize === 'small') {
+            this.iSize = 24;
         } else {
             this.iSize = parseInt(this.iconSize, 10);
         }
@@ -61,28 +65,41 @@ export class HeroComponent implements OnChanges, AfterContentChecked {
 
     /* https://stackoverflow.com/questions/47306357/angular2-detect-changes-in-ng-content */
     ngAfterContentChecked(): void {
-        if (!this.primaryContainer) {
+        if (!this.primaryContainer || !this.svgScaling) {
             return;
         }
 
-        const c = this.primaryContainer.nativeElement.innerHTML;
-        if (c !== this.iconString) {
-            this.iconString = c;
-            const path = this.primaryContainer.nativeElement.querySelector('div mat-icon[svgIcon] path') ||
-                this.primaryContainer.nativeElement.querySelector('div mat-icon[svgicon] path');
+        // If the icon content did not change, stop.
+        const iconHtml = this.primaryContainer.nativeElement.innerHTML;
+        if (iconHtml === this.iconString) {
+            return;
+        }
 
-            //const svg2 = this.primaryContainer.nativeElement.querySelector('div mat-icon[svgIcon] svg') ||
-            //    this.primaryContainer.nativeElement.querySelector('div mat-icon[svgicon] svg');
-            //console.log(svg2);
-            if (path) {
+        // Update icon data.
+        this.iconString = iconHtml;
+
+        // Search icon inner content for presence of a svgIcon.
+        const paths =
+            this.primaryContainer.nativeElement.querySelectorAll('div mat-icon[svgIcon] path') ||
+            this.primaryContainer.nativeElement.querySelectorAll('div mat-icon[svgicon] path');
+
+        // Search through all svg elements, find largest element.  Typically this will be the svg background element.
+        // This will be used to determine how much we have to scale the svg.
+        if (paths && paths.length > 0) {
+            let biggestBox = 0;
+            for (const path of paths) {
                 const boundingRect = path.getBoundingClientRect();
                 const longestSide = Math.max(boundingRect.height, boundingRect.width);
-                const scaleAmount = this.iSize / longestSide;
-                const svg = this.primaryContainer.nativeElement.querySelector('div mat-icon[svgIcon] svg') ||
-                    this.primaryContainer.nativeElement.querySelector('div mat-icon[svgicon] svg');
-                svg.style.setProperty('transform', `scale(${scaleAmount})`);
-                svg.style.setProperty('transform-origin', 'top left');
+                biggestBox = Math.max(biggestBox, longestSide);
             }
+
+            const scaleAmount = this.iSize / biggestBox;
+            const svg =
+               this.primaryContainer.nativeElement.querySelector('div mat-icon[svgIcon] svg') ||
+               this.primaryContainer.nativeElement.querySelector('div mat-icon[svgicon] svg');
+
+            svg.style.setProperty('transform', `scale(${scaleAmount})`);
+            svg.style.setProperty('transform-origin', 'top left');
         }
     }
 }
