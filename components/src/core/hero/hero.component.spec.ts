@@ -1,29 +1,26 @@
-import { TestBed, async } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { MatCardModule, MatIconModule, MatListModule } from '@angular/material';
+import {TestBed, async, ComponentFixture} from '@angular/core/testing';
+import {count} from "../../utils/test-utils";
 import { HeroComponent } from './hero.component';
+import {HeroModule} from "./hero.module";
 
 describe('HeroComponent', () => {
+    let fixture: ComponentFixture<HeroComponent>;
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [HeroComponent],
-            imports: [MatCardModule, MatIconModule, MatListModule],
-            schemas: [CUSTOM_ELEMENTS_SCHEMA],
+            imports: [HeroModule],
         }).compileComponents();
+        fixture = TestBed.createComponent(HeroComponent);
     }));
 
-    it(`root element should have class as 'root'`, () => {
-        const fixture = TestBed.createComponent(HeroComponent);
-        const heroComponent = fixture.debugElement;
-        const wrapperDiv: HTMLElement = heroComponent.query(By.css('div')).nativeElement;
-        expect(wrapperDiv.getAttribute('class')).toEqual('root');
-    });
-
-    it(`H5 element should have class as 'label'`, () => {
-        const fixture = TestBed.createComponent(HeroComponent);
-        const heroComponent = fixture.debugElement;
-        const labelEle: HTMLElement = heroComponent.query(By.css('h5')).nativeElement;
-        expect(labelEle.getAttribute('class')).toEqual('label');
+    it('should enforce class naming conventions', () => {
+        const classList = [
+            '.pxb-root',
+            '.pxb-primary-wrapper',
+            '.pxb-channel-value-wrapper',
+            '.pxb-label'
+        ];
+        for (const className of classList) {
+            count(fixture, className);
+        }
     });
 });

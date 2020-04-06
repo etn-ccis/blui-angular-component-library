@@ -2,7 +2,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppComponent } from './app.component';
 //pxblue modules
 import { NgProgressIconsModule } from '@pxblue/ng-progress-icons';
@@ -18,23 +17,23 @@ import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
     declarations: [AppComponent],
-    imports: [
-        BrowserAnimationsModule,
-        BrowserModule,
-        FormsModule,
-        MatDividerModule,
-        MatIconModule,
-        MatCardModule,
-        MatListModule,
-        MatButtonModule,
-        HttpClientModule,
-        //pxblue
-        NgProgressIconsModule,
-        ChannelValueModule,
-        EmptyStateModule,
-        ScoreCardModule,
-        HeroModule,
-    ],
+  imports: [
+    BrowserAnimationsModule,
+    BrowserModule,
+    FormsModule,
+    MatDividerModule,
+    MatIconModule,
+    MatCardModule,
+    MatListModule,
+    MatButtonModule,
+    HttpClientModule,
+    //pxblue
+    NgProgressIconsModule,
+    ChannelValueModule,
+    EmptyStateModule,
+    ScoreCardModule,
+    HeroModule,
+  ],
     providers: [],
     bootstrap: [AppComponent],
     schemas: [CUSTOM_ELEMENTS_SCHEMA],
