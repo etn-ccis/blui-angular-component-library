@@ -102,13 +102,12 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
         }
         // Update icon data.
         this.iconString = iconHtml;
-        // Search for mat-icon & calculate
+        // Search for mat-icon & calculate.
         const matIcon = this.getMatSvgIcon();
         if (matIcon) {
-            const scaleAmount = this.iSize / matIcon.getBoundingClientRect().height;
             const svg = matIcon.querySelector('svg');
             if (svg) {
-                svg.style.setProperty('transform', `scale(${scaleAmount})`);
+                svg.style.setProperty('transform', `scale(${this.iSize/24})`);
             }
         }
     }
