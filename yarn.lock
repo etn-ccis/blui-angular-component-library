@@ -2,27 +2,3 @@
 # yarn lockfile v1
 
 
-fast-deep-equal@^3.0.0:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/fast-deep-equal/-/fast-deep-equal-3.1.1.tgz#545145077c501491e33b15ec408c294376e94ae4"
-  integrity sha512-8UEa58QDLauDNfpbrX55Q9jrGHThw2ZMdOky5Gl1CDtVeJDPVrG4Jxx1N8jw2gkWaff5UUuX1KJd+9zGe2B+ZA==
-
-map-or-similar@^1.5.0:
-  version "1.5.0"
-  resolved "https://registry.yarnpkg.com/map-or-similar/-/map-or-similar-1.5.0.tgz#6de2653174adfb5d9edc33c69d3e92a1b76faf08"
-  integrity sha1-beJlMXSt+12e3DPGnT6Sobdvrwg=
-
-memoizerific@^1.11.3:
-  version "1.11.3"
-  resolved "https://registry.yarnpkg.com/memoizerific/-/memoizerific-1.11.3.tgz#7c87a4646444c32d75438570905f2dbd1b1a805a"
-  integrity sha1-fIekZGREwy11Q4VwkF8tvRsagFo=
-  dependencies:
-    map-or-similar "^1.5.0"
-
-storybook-dark-mode@^0.4.0:
-  version "0.4.0"
-  resolved "https://registry.yarnpkg.com/storybook-dark-mode/-/storybook-dark-mode-0.4.0.tgz#d58f6d6591150138d666876d342d724d841af843"
-  integrity sha512-z6srmjsQxMVaaiyeeYav4wywloUzQQg64vX2ajdGViRsbfy9z3TbBcOBdnDzLLLCAx9S8ATly8njoy3S6KsEpg==
-  dependencies:
-    fast-deep-equal "^3.0.0"
-    memoizerific "^1.11.3"
