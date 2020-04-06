@@ -10,6 +10,8 @@ import * as Colors from '@pxblue/colors';
 export class InfoListItemComponent {
 
   @Input() title: string;
+  @Input() subTitle: string;
+  @Input() units: string;
 
   colors = Colors;
 
