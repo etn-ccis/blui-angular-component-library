@@ -33,5 +33,8 @@
   "homepage": "https://github.com/pxblue/angular-component-library#readme",
   "directories": {
     "doc": "docs"
+  },
+  "devDependencies": {
+    "storybook-dark-mode": "^0.4.0"
   }
 }

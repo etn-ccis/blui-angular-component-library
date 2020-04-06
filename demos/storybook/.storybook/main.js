@@ -7,6 +7,7 @@ module.exports = {
         '@storybook/addon-knobs',
         '@storybook/addon-notes',
         '@storybook/addon-viewport',
+        'storybook-dark-mode/register',
         {
             name: '@storybook/addon-storysource',
             options: {
