@@ -74,8 +74,5 @@
   "bugs": {
     "url": "https://github.com/pxblue/angular-component-library/issues"
   },
-  "homepage": "https://github.com/pxblue/angular-component-library#readme",
-  "dependencies": {
-    "@pxblue/icons-svg": "^1.0.18"
-  }
+  "homepage": "https://github.com/pxblue/angular-component-library#readme"
 }

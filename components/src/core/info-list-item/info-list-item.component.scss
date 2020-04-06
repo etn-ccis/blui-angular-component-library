@@ -1,0 +1,8 @@
+@import '~@pxblue/colors/palette';
+
+
+.pxb-root {
+  background-color: map-get($pxb-white, 50);
+  height: 56px;
+  width: 100%;
+}

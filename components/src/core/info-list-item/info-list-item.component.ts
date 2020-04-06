@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import * as Colors from '@pxblue/colors';
 
 
@@ -7,11 +7,10 @@ import * as Colors from '@pxblue/colors';
   templateUrl: './info-list-item.component.html',
   styleUrls: ['./info-list-item.component.scss']
 })
-export class InfoListItemComponent implements OnInit {
+export class InfoListItemComponent {
 
-  constructor() { }
+  @Input() title: string;
 
-  ngOnInit(): void {
-  }
+  colors = Colors;
 
 }
