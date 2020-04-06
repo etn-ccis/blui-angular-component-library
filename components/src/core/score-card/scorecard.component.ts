@@ -12,7 +12,7 @@ import { Component, Input } from '@angular/core';
                         <mat-card-subtitle class="pxb-subtitle">{{ headerSubtitle }}</mat-card-subtitle>
                         <mat-card-subtitle class="pxb-info">{{ headerInfo }}</mat-card-subtitle>
                     </div>
-                    <div class="pxb-action-items">
+                    <div class="pxb-action-items-wrapper">
                         <ng-content select="[action-items]"></ng-content>
                     </div>
                 </div>
@@ -25,7 +25,7 @@ import { Component, Input } from '@angular/core';
                     </div>
                 </div>
                 <mat-divider *ngIf="actionRow.childNodes.length !== 0"></mat-divider>
-                <div class="pxb-action-row" #actionRow>
+                <div class="pxb-action-row-wrapper" #actionRow>
                     <ng-content select="[action-row]"></ng-content>
                 </div>
             </mat-card-content>
