@@ -5,7 +5,7 @@ import { HeroModule } from '@pxblue/angular-components';
 import * as Colors from '@pxblue/colors';
 import {HttpClientModule} from '@angular/common/http';
 const iconSet = require('@pxblue/icons-svg/icons.svg');
-const Trex = require('../../assets/pxblue.png');
+const Trex = require('../../assets/trex.png');
 
 @Component({
     selector: 'image-types-story',

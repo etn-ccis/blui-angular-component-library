@@ -49,7 +49,7 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
     @Input() iconBackgroundColor: string;
     @ViewChild('primaryContainer', { static: false }) primaryContainer: ElementRef;
 
-    iSize = 36;
+    iSize: number;
     iconString: string;
     hasMatSvgIcon: boolean;
 
@@ -102,9 +102,9 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
         }
         // Update icon data.
         this.iconString = iconHtml;
-        // Search for mat-icon & calculate.
         const matIcon = this.getMatSvgIcon();
         if (matIcon) {
+            this.hasMatSvgIcon = true;
             const svg = matIcon.querySelector('svg');
             if (svg) {
                 svg.style.setProperty('transform', `scale(${this.iSize/24})`);
