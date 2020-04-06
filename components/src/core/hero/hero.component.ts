@@ -1,11 +1,12 @@
 import {
-    AfterContentChecked, AfterViewInit,
+    AfterContentChecked,
+    AfterViewInit,
     ChangeDetectorRef,
     Component,
     ElementRef,
     Input,
     OnChanges,
-    ViewChild
+    ViewChild,
 } from '@angular/core';
 export type IconSize = 'small' | 'normal' | 'large' | number;
 export type FontSize = 'small' | 'normal';
@@ -15,14 +16,14 @@ export type FontSize = 'small' | 'normal';
     template: `
         <div class="pxb-root">
             <div
-               class="pxb-primary-wrapper"
-               #primaryContainer
-               [style.backgroundColor]="iconBackgroundColor"
-               [style.lineHeight.px]="iSize"
-               [style.fontSize.px]="iSize"
-               [style.width.px]="iSize"
-               [style.height.px]="iSize"
-               [class.pxb-svgIcon]="hasMatSvgIcon"
+                class="pxb-primary-wrapper"
+                #primaryContainer
+                [style.backgroundColor]="iconBackgroundColor"
+                [style.lineHeight.px]="iSize"
+                [style.fontSize.px]="iSize"
+                [style.width.px]="iSize"
+                [style.height.px]="iSize"
+                [class.pxb-svgIcon]="hasMatSvgIcon"
             >
                 <ng-content select="[primary]"></ng-content>
             </div>
@@ -69,15 +70,15 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
 
     normalizeIconSize(): void {
         switch (this.iconSize) {
-            case "small": {
+            case 'small': {
                 this.iSize = 24;
                 break;
             }
-            case "normal": {
+            case 'normal': {
                 this.iSize = 36;
                 break;
             }
-            case "large": {
+            case 'large': {
                 this.iSize = 72;
                 break;
             }
