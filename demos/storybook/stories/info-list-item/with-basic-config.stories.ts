@@ -2,11 +2,9 @@ import { text } from '@storybook/addon-knobs';
 
 export const withBasicConfig = (): any => ({
     template: `
-          <div style="width: 800px">
-            <pxb-info-list-item [title]="title"></pxb-info-list-item>
-          </div>
+        <pxb-info-list-item [title]="title"></pxb-info-list-item>
       `,
     props: {
-        title: text('title', 'Info List Item title'),
+        title: text('title', 'Info List Item'),
     },
 });

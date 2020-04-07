@@ -1,15 +1,12 @@
-import { text } from '@storybook/addon-knobs';
+import * as Colors from '@pxblue/colors';
 
 export const withIcon = (): any => ({
     template: `
-          <div style="width: 800px">
-            <pxb-info-list-item [title]="title" [subtitle]="subtitle">
-                <div icon>Icon</div> 
-            </pxb-info-list-item>
-          </div>
+        <pxb-info-list-item title="Info List Item" subtitle="with an icon">
+            <mat-icon [style.color]="colors.green[500]" icon>eco</mat-icon>
+        </pxb-info-list-item>
       `,
     props: {
-        title: text('title', 'Info List Item title'),
-        subtitle: text('subtitle', 'Info List Item subtitle'),
-    },
+        colors: Colors
+    }
 });

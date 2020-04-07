@@ -1,14 +1,70 @@
 @import '~@pxblue/colors/palette';
 
+$statusWidth: 6px;
+$contentPaddingLeft: 16px;
 
-.pxb-root {
-  background-color: map-get($pxb-white, 50);
-  height: 56px;
-  width: 100%;
+.pxb-root {}
+
+.mat-list-item-content {
+  padding-left: $contentPaddingLeft;
+  padding-right: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  box-sizing: border-box;
+  height: 72px;
+  display: flex;
+  align-items: center;
 }
 
-h2 {
-  font-weight: 300;
-  margin: 2px;
-  padding: 2px;
+.status .mat-list-item-content {
+  border-left: solid $statusWidth;
+  border-left-color: inherit;
+  padding-left: $contentPaddingLeft - $statusWidth;
+}
+
+.dense .mat-list-item-content {
+  height: 56px;
+}
+
+.pxb-title {
+  font-size: 16px; // TODO: Fix via theme
+  font-weight: 600;
+  line-height: 1.25;
+  margin-bottom: 0;
+}
+
+.pxb-subtitle {
+  font-weight: 400;
+  line-height: 1.3;
+}
+
+.pxb-icon {
+  order: 1;
+  width: 56px;
+  line-height: 0;
+  &.hidePadding {
+    width: 0;
+  }
+}
+
+.pxb-left-component {
+  order: 2;
+  margin-right: 16px;
+}
+
+.mat-list-text {
+  order: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.pxb-spacer {
+  order: 4;
+  display: flex;
+  flex-grow: 1;
+}
+
+.pxb-right-component {
+  order: 5;
+  margin-left: 16px;
 }

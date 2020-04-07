@@ -1,6 +1,6 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
-import {InfoListItemModule} from "@pxblue/angular-components";
+import {InfoListItemModule, ChannelValueModule} from "@pxblue/angular-components";
 import {
     COMPONENT_SECTION_NAME,
     README_STORY_NAME,
@@ -9,19 +9,34 @@ import {
 } from '../../src/constants';
 import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/utils';
 import { withBasicConfig } from './with-basic-config.stories';
-import {withIcon} from "./with-icon.stories";
-import {withSubtitle} from "./with-subtitle.stories";
+import { withIcon } from "./with-icon.stories";
+import { withSubtitle } from "./with-subtitle.stories";
+import {withStatus} from "./with-status.stories";
+import {withLeftComponent} from "./with-left-component.stories";
+import {withRightComponent} from "./with-right-component.stories";
+
+export const infoListItemWrapper = () => (storyFn): any => {
+    const story = storyFn();
+    return {
+        ...story,
+        template: `<div style="width: 500px; background-color: white">${story.template}</div>`,
+    };
+};
 
 storiesOf(`${COMPONENT_SECTION_NAME}/Info List Item`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [InfoListItemModule, UtilModule],
+            imports: [InfoListItemModule, ChannelValueModule, UtilModule],
         })
     )
     .addDecorator(withKnobs)
     .addDecorator(storyWrapper())
+    .addDecorator(infoListItemWrapper())
     .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('Hero.md') } })
     .add(README_STORY_NAME, getReadMeStory)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
     .add('with subtitle', withSubtitle)
-     .add('with icon', withIcon);
+    .add('with icon', withIcon)
+    .add('with status', withStatus)
+    .add('with left component', withLeftComponent)
+    .add('with right component', withRightComponent);

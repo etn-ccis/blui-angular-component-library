@@ -2,12 +2,10 @@ import { text } from '@storybook/addon-knobs';
 
 export const withSubtitle = (): any => ({
     template: `
-          <div style="width: 800px">
-            <pxb-info-list-item [title]="title" [subtitle]="subtitle"></pxb-info-list-item>
-          </div>
+        <pxb-info-list-item [title]="title" [subtitle]="subtitle"></pxb-info-list-item>
       `,
     props: {
-        title: text('title', 'Info List Item title'),
-        subtitle: text('subtitle', 'Info List Item subtitle'),
+        title: text('title', 'Info List Item'),
+        subtitle: text('subtitle', 'this is a subtitle within an InfoListItem'),
     },
 });
