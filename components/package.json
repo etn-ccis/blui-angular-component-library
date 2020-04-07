@@ -74,5 +74,7 @@
   "bugs": {
     "url": "https://github.com/pxblue/angular-component-library/issues"
   },
-  "homepage": "https://github.com/pxblue/angular-component-library#readme"
+  "homepage": "https://github.com/pxblue/angular-component-library#readme",
+  "dependencies": {
+  }
 }

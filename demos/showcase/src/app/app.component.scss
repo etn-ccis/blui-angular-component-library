@@ -1,28 +1,49 @@
 @import '~@pxblue/colors/palette.scss';
+
 .list {
-    color: map-get($pxb-gray, 800);
-}
-.mat-list-base .mat-list-item {
-    color: inherit;
-    height: 48px;
-}
-.list-label {
-    margin: 0;
-    margin-left: 15px;
-}
-.list-value {
-    flex: 1 1 0px;
-    text-align: right;
+    mat-list-item {
+        color: map-get($pxb-gray, 800) !important;
+        .list-label {
+            margin: 0;
+            margin-left: 15px;
+        }
+        .list-value {
+            flex: 1 1 0px;
+            text-align: right;
+        }
+    }
 }
 .error {
-    color: map-get($pxb-red, 500);
+    mat-list-item {
+        color: map-get($pxb-red, 500) !important;
+    }
 }
 
 .progress-icon {
     color: map-get($pxb-blue, 500);
 }
 
-::ng-deep .mat-tab-body {
-    height: 400px;
-    padding: 20px;
+pxb-scorecard {
+    width: 400px;
+}
+
+pxb-scorecard {
+    .pxb-header-background {
+        background-image: url('../assets/topology_40.png');
+    }
+    .mat-list-base {
+      padding: 8px 0px!important;
+    }
+    .mat-list-item {
+      height: 48px!important;
+    }
+    .mat-list-text {
+      padding-left: 0px!important;
+    }
+}
+.red-scorecard {
+    .pxb-root .pxb-header {
+        background-color: map-get($pxb-red, 500);
+    }
+    margin-right: 16px;
 }
