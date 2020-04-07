@@ -1,7 +1,6 @@
 import { addParameters } from '@storybook/angular';
 require('@pxblue/icons/iconfont/PXBlueIcons.css');
-import { pxblueTheme } from '@pxblue/storybook-themes';
-import { pxblueDarkTheme } from './darkTheme';
+import { pxblueTheme, pxblueDarkTheme } from '@pxblue/storybook-themes';
 
 const newViewports = {
     iPhone5: {
@@ -31,6 +30,10 @@ pxblueTheme.brandTitle = 'PX Blue Angular Component Library';
 pxblueTheme.brandImage = require('../assets/pxblue angular.svg');
 pxblueTheme.brandUrl = 'https://pxblue.github.io';
 
+pxblueDarkTheme.brandTitle = 'PX Blue Angular Component Library';
+pxblueDarkTheme.brandImage = require('../assets/pxblue angular.svg');
+pxblueDarkTheme.brandUrl = 'https://pxblue.github.io';
+
 const themeInit = { dark: pxblueDarkTheme, light: pxblueTheme, current: 'light' }
 window.localStorage.setItem('sb-addon-themes-3', JSON.stringify(themeInit));
 
@@ -44,7 +47,6 @@ addParameters({
         viewports: newViewports,
     },
     options: {
-        // theme: pxblueTheme,
         showRoots: true,
     },
     darkMode: {
