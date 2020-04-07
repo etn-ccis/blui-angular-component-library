@@ -78,8 +78,7 @@ getReadMeStory.story = { name: README_STORY_NAME };
 
 export const isDarkMode = () => {
     const darkModeLocalStorage = JSON.parse(window.localStorage.getItem('sb-addon-themes-3'));
-    const useDarkMode = darkModeLocalStorage.current === 'dark' ? true : false;
-    return useDarkMode;
+    return darkModeLocalStorage.current === 'dark';
 }
 
 @Component({
@@ -124,6 +123,9 @@ export class StoryComponent {
 
         window.onstorage = () => {
             this.useDarkMode = isDarkMode();
+
+            const canvas = document.querySelector('.sb-show-main') as HTMLElement;
+            canvas.style.backgroundColor = this.useDarkMode ? 'transparent' : '#efefef';
         };
     }
 }

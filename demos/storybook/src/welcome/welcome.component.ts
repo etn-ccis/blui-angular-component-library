@@ -15,8 +15,7 @@ import { isDarkMode } from '../utils';
     selector: 'welcome',
     styleUrls: ['welcome.component.css'],
     template: `
-        <div class="mat-typography root"
-             [ngClass]="useDarkMode ? 'pxb-blue-dark' : 'pxb-blue'"
+        <div class="pxb-blue mat-typography root"
              [style.backgroundColor]="pxbColors.blue[500]" 
              [style.color]="pxbColors.white[50]"
              [style.backgroundImage]='background'>
