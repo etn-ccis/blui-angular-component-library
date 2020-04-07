@@ -13,11 +13,11 @@ describe('HeroComponent', () => {
         }).compileComponents();
     }));
 
-    it(`Div element should have class as 'wrapper'`, () => {
+    it(`root element should have class as 'root'`, () => {
         const fixture = TestBed.createComponent(HeroComponent);
         const heroComponent = fixture.debugElement;
         const wrapperDiv: HTMLElement = heroComponent.query(By.css('div')).nativeElement;
-        expect(wrapperDiv.getAttribute('class')).toEqual('wrapper');
+        expect(wrapperDiv.getAttribute('class')).toEqual('root');
     });
 
     it(`H5 element should have class as 'label'`, () => {

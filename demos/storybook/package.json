@@ -8,10 +8,8 @@
     "storybook": "start-storybook -p 6006 -s ../../docs/,./assets,./node_modules/typeface-open-sans/files",
     "build-storybook": "build-storybook -s ../../docs/,./assets,./node_modules/typeface-open-sans/files",
     "lint": "eslint \"stories/**/**.ts\"",
-    "lint:fix": "eslint \"stories/**/**.ts\" --fix",
-    "prettier": "prettier \"stories/**/**.{ts,json,css,scss,html}\" --write"
+    "lint:fix": "eslint \"stories/**/**.ts\" --fix"
   },
-  "prettier": "@pxblue/prettier-config",
   "private": true,
   "dependencies": {
     "@angular/animations": "~8.2.2",
@@ -24,6 +22,7 @@
     "@angular/platform-browser": "~8.2.2",
     "@angular/platform-browser-dynamic": "~8.2.2",
     "@angular/router": "~8.2.2",
+    "@pxblue/angular-themes": "^4.0.0",
     "@pxblue/colors": "^2.0.0",
     "@pxblue/icons": "^1.0.25",
     "@pxblue/storybook-themes": "^1.1.0-beta.1",
@@ -41,7 +40,6 @@
     "@angular/language-service": "~8.2.2",
     "@babel/core": "^7.7.7",
     "@pxblue/eslint-config": "^1.1.4",
-    "@pxblue/prettier-config": "^1.0.2",
     "@storybook/addon-actions": "^5.3.13",
     "@storybook/addon-docs": "^5.3.13",
     "@storybook/addon-knobs": "^5.3.13",

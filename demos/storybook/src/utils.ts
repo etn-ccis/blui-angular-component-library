@@ -43,7 +43,6 @@ export const updateTitle = (): void => {
     window.top.document.getElementsByTagName('head')[0].appendChild(link);
 };
 
-
 export const storyWrapper = () => (storyFn): any => {
     const story = storyFn();
     return {
