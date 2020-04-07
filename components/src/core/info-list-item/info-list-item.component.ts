@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input} from '@angular/core';
 import * as Colors from '@pxblue/colors';
 
 
@@ -10,8 +10,7 @@ import * as Colors from '@pxblue/colors';
 export class InfoListItemComponent {
 
   @Input() title: string;
-  @Input() subTitle: string;
-  @Input() units: string;
+  @Input() subtitle: string;
 
   colors = Colors;
 

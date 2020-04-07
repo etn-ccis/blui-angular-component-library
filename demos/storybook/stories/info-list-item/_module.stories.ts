@@ -9,6 +9,8 @@ import {
 } from '../../src/constants';
 import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/utils';
 import { withBasicConfig } from './with-basic-config.stories';
+import {withIcon} from "./with-icon.stories";
+import {withSubtitle} from "./with-subtitle.stories";
 
 storiesOf(`${COMPONENT_SECTION_NAME}/Info List Item`, module)
     .addDecorator(
@@ -20,4 +22,6 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Info List Item`, module)
     .addDecorator(storyWrapper())
     .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('Hero.md') } })
     .add(README_STORY_NAME, getReadMeStory)
-    .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig);
+    .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
+    .add('with subtitle', withSubtitle)
+     .add('with icon', withIcon);
