@@ -1,15 +1,18 @@
-import {Component, Input, NgModule} from '@angular/core';
+import { Component, Input, NgModule } from '@angular/core';
 
 @Component({
     selector: 'pxb-spacer',
     template: `
-        <div class="pxb-root"
-             style="display: flex" 
-             [style.width.px]="width" 
-             [style.height.px]="height">
-        </div>
+        <div class="pxb-root" style="display: flex" [style.width.px]="width" [style.height.px]="height"></div>
     `,
-    styles: [`:host { display: flex; flex: 1 1 0px; }`]
+    styles: [
+        `
+            :host {
+                display: flex;
+                flex: 1 1 0px;
+            }
+        `,
+    ],
 })
 export class SpacerComponent {
     @Input() flex: number;
@@ -18,7 +21,7 @@ export class SpacerComponent {
 }
 
 @NgModule({
-  declarations: [SpacerComponent],
-  exports: [SpacerComponent]
+    declarations: [SpacerComponent],
+    exports: [SpacerComponent],
 })
-export class SpacerModule { }
+export class SpacerModule {}
