@@ -39,7 +39,7 @@
         display: flex;
         justify-content: space-between;
     }
-    .pxb-action-items {
+    .pxb-action-items-wrapper {
         text-overflow: unset;
         overflow: unset;
     }
@@ -71,6 +71,6 @@
     }
 }
 
-.pxb-action-row {
+.pxb-action-row-wrapper {
     cursor: pointer;
 }
