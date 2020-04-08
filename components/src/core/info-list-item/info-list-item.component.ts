@@ -25,7 +25,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
                 </ng-container>
                 <ng-container *ngIf="!subtitleIsArray">{{ subtitle }}</ng-container>
             </div>
-            <pxb-spacer flex="1"></pxb-spacer>
+            <pxb-spacer flex="1" class="pxb-spacer"></pxb-spacer>
             <div class="pxb-right-component">
                 <mat-icon *ngIf="chevron">chevron_right</mat-icon>
                 <ng-content *ngIf="!chevron" select="[right-component]"></ng-content>
@@ -34,8 +34,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
         <mat-divider *ngIf="divider" class="pxb-divider" [class.pxb-partial-divider]="divider === 'partial'">
         </mat-divider>
     `,
-    styleUrls: ['./info-list-item.component.scss'],
-    encapsulation: ViewEncapsulation.None,
+    styleUrls: ['./info-list-item.component.scss']
 })
 export class InfoListItemComponent {
     @Input() title: string;

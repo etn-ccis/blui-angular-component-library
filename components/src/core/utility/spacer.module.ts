@@ -1,23 +1,19 @@
-import { Component, Input, NgModule } from '@angular/core';
+import {Component, HostBinding, Input, NgModule} from '@angular/core';
 
 @Component({
     selector: 'pxb-spacer',
-    template: `
-        <div class="pxb-root" style="display: flex" [style.width.px]="width" [style.height.px]="height"></div>
-    `,
-    styles: [
-        `
-            :host {
-                display: flex;
-                flex: 1 1 0px;
-            }
-        `,
-    ],
+    template: `<ng-content></ng-content>`,
 })
 export class SpacerComponent {
-    @Input() flex: number;
-    @Input() height: number;
-    @Input() width: number;
+    @Input() flex = 0;
+    @HostBinding('style.height.px') @Input() height: number;
+    @HostBinding('style.width.px') @Input() width: number;
+    @HostBinding('style.flex') grow: string;
+    @HostBinding('style.display') display = 'flex';
+
+    ngOnChanges(): void {
+        this.grow = `${this.flex} ${this.flex} ${this.flex === 0 ? 'auto' : '0px'}`;
+    }
 }
 
 @NgModule({

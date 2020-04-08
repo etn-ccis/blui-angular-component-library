@@ -62,7 +62,7 @@ $denseHeight: 56px;
 .pxb-icon,
 .pxb-left-component,
 .mat-list-text,
-pxb-spacer,
+.pxb-spacer,
 .pxb-right-component {
     display: flex;
 }
@@ -90,7 +90,7 @@ pxb-spacer,
     flex-direction: column;
 }
 
-pxb-spacer {
+.pxb-spacer {
     order: 4;
 }
 
