@@ -79,7 +79,9 @@ pxb-spacer,
 
 .pxb-left-component {
     order: 2;
-    margin-right: 16px;
+    > * {
+        margin-right: 16px;
+    }
 }
 
 .mat-list-text {
@@ -95,4 +97,12 @@ pxb-spacer {
 .pxb-right-component {
     order: 5;
     margin-left: 16px;
+}
+
+.pxb-partial-divider {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    left: 72px;
+    width: calc(100% - 72px);
 }

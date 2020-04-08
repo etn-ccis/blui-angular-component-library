@@ -24,6 +24,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
                 <ng-content *ngIf="!chevron" select="[right-component]"></ng-content>
             </div>
         </mat-list-item>
+        <mat-divider *ngIf="divider" [class.pxb-partial-divider]="divider === 'partial'"></mat-divider>
     `,
     styleUrls: ['./info-list-item.component.scss'],
     encapsulation: ViewEncapsulation.None,
@@ -37,4 +38,7 @@ export class InfoListItemComponent {
     @Input() chevron: boolean;
     @Input() wrapTitle: boolean;
     @Input() wrapSubtitle: boolean;
+    @Input() divider: DividerType;
 }
+
+type DividerType = 'full' | 'partial' | undefined;
