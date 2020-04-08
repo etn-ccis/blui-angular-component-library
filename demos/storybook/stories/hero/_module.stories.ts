@@ -16,11 +16,18 @@ import { withIconColor } from './with-icon-color.stories';
 import { withChannelValueChildren } from './with-channelValue-children.stories';
 import { withValueUnits } from './with-value-and-units.stories';
 import { withBasicConfig } from './with-basic-config.stories';
+import { withDiffImageTypes } from './with-different-image-types.stories';
+import { DifferentImageTypesModule } from './different-image-types.component';
 
 storiesOf(`${COMPONENT_SECTION_NAME}/Hero`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [HeroModule, ChannelValueModule, UtilModule, MatIconModule],
+            imports: [
+                HeroModule,
+                ChannelValueModule,
+                UtilModule,
+                MatIconModule,
+                DifferentImageTypesModule],
         })
     )
     .addDecorator(withKnobs)
@@ -31,5 +38,6 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Hero`, module)
     .add('with value and units', withValueUnits)
     .add('with ChannelValue children', withChannelValueChildren)
     .add('with icon colors', withIconColor)
+    .add('with icon sizes and types', withDiffImageTypes)
     .add(WITH_FULL_CONFIG_STORY_NAME, withFullConfig)
     .add('within a HeroBanner', withinBanner);

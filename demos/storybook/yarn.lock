@@ -1501,9 +1501,14 @@
   optionalDependencies:
     eslint-plugin-react "^7.16.0"
 
+"@pxblue/icons-svg@^1.0.18":
+  version "1.0.18"
+  resolved "https://registry.yarnpkg.com/@pxblue/icons-svg/-/icons-svg-1.0.18.tgz#3da719aaaec46cd6b48400995883355f32880519"
+  integrity sha512-T2Vs7Qt8wIMvOYkMR8nkVnUnbPlWpX2nQ3bERdabOJMzfnnWJxLGs/A5CJWCP1FKkjnaryvimaSv/AEaL4DvAQ==
+
 "@pxblue/icons@^1.0.25":
   version "1.0.25"
-  resolved "https://registry.npmjs.org/@pxblue/icons/-/icons-1.0.25.tgz#52d22a987f168840ae7bdafb065f52c3ad5396da"
+  resolved "https://registry.yarnpkg.com/@pxblue/icons/-/icons-1.0.25.tgz#52d22a987f168840ae7bdafb065f52c3ad5396da"
   integrity sha512-Q1+wgCjRpX5TeOY8JPpea1yF4uZOCsISQuguRcRIgqthAWH//Jcq4zCKMeOYLHjmXUU7RbWKv4PaA91//xPekQ==
 
 "@pxblue/storybook-themes@^1.1.0-beta.1":

@@ -1,8 +1,10 @@
 @import '~@pxblue/colors/palette';
+
 :host {
     flex: 1 1 0px;
 }
-.root {
+
+.pxb-root {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -11,68 +13,49 @@
     overflow: hidden;
     color: map-get($pxb-gray, 500);
     padding: 16px 8px;
-
-    // Icon Styles
-    .primary-container {
-        $normal: 32px;
-        $large: 72px;
-        color: map-get($pxb-gray, 800);
-        border-radius: 50%;
-        margin-bottom: 5px;
-        text-align: center;
-        height: $normal;
-        width: $normal;
-        font-size: $normal;
-        line-height: $normal;
-        &.large {
-            height: $large;
-            width: $large;
-            font-size: $large;
-            line-height: $large;
-        }
-    }
-
-    // Channel Value Styles
-    .channel-value {
-        display: flex;
-        color: map-get($pxb-gray, 800);
-    }
-
-    // Label Styles
-    .label {
-        font-size: inherit;
-        line-height: 1.2;
-        letter-spacing: 0;
-        font-weight: 600;
-        width: 100%;
-        text-align: center;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        margin: 0;
-    }
 }
 
-:host ::ng-deep .primary-container * {
+.pxb-primary-wrapper {
+    padding: 3px;
+    $normal: 32px;
+    $large: 72px;
+    color: map-get($pxb-gray, 800);
+    border-radius: 50%;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.pxb-channel-value-wrapper {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    font-size: 100%;
+    color: map-get($pxb-gray, 800);
 }
 
-/* SVG icons require a transform to scale.  We use 'normal' or 'large' iconSize to determine how much to scale. */
-:host ::ng-deep .primary-container mat-icon {
-    margin-top: 0;
-    line-height: 1.1;
-    svg {
-        transform: scale(1.5);
-        transform-origin: top left;
-    }
+// Label Styles
+.pxb-label {
+    font-size: inherit;
+    line-height: 1.2;
+    letter-spacing: 0;
+    font-weight: 600;
+    width: 100%;
+    text-align: center;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin: 0;
 }
-:host ::ng-deep .primary-container.large mat-icon {
-    svg {
-        transform: scale(3);
+
+:host ::ng-deep .pxb-primary-wrapper {
+    * {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 100%;
+    }
+    &:not(.pxb-svgIcon) * {
+        width: 100%;
+        height: 100%;
+    }
+    &.pxb-svgIcon svg {
+        transform-origin: top left;
     }
 }

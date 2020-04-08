@@ -26,6 +26,7 @@
     "@pxblue/colors": "^2.0.0",
     "@pxblue/icons": "^1.0.25",
     "@pxblue/storybook-themes": "^1.1.0-beta.1",
+    "@pxblue/icons-svg": "^1.0.18",
     "@pxblue/themes": "^3.0.2",
     "core-js": "^3.6.4",
     "node-sass": "^4.13.1",
