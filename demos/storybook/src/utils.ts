@@ -4,6 +4,7 @@ import { Component, NgModule } from '@angular/core';
 import 'typeface-open-sans';
 import { BrowserModule } from "@angular/platform-browser";
 import { COMPONENT_SECTION_NAME, README_STORY_NAME } from "./constants";
+import * as Colors from '@pxblue/colors';
 
 let banner: HTMLElement;
 let prevUrl = '';
@@ -125,7 +126,7 @@ export class StoryComponent {
             this.useDarkMode = isDarkMode();
 
             const canvas = document.querySelector('.sb-show-main') as HTMLElement;
-            canvas.style.backgroundColor = this.useDarkMode ? 'transparent' : '#efefef';
+            canvas.style.backgroundColor = this.useDarkMode ? Colors.black['A200'] : Colors.gray[50];
         };
     }
 }
