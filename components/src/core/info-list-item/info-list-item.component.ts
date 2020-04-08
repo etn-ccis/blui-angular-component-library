@@ -24,7 +24,9 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
                 <ng-content *ngIf="!chevron" select="[right-component]"></ng-content>
             </div>
         </mat-list-item>
-        <mat-divider *ngIf="divider" [class.pxb-partial-divider]="divider === 'partial'"></mat-divider>
+        <mat-divider *ngIf="divider" class="pxb-divider"
+                     [class.pxb-partial-divider]="divider === 'partial'">
+        </mat-divider>
     `,
     styleUrls: ['./info-list-item.component.scss'],
     encapsulation: ViewEncapsulation.None,

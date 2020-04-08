@@ -54,6 +54,6 @@ export const withinList = (): any => ({
     props: {
         colors: Colors,
         fontSize: 16,
-        divider: select('divider', ['full', 'partial', undefined], 'full')
+        divider: select('divider', ['full', 'partial', ''], 'full')
     }
 });
