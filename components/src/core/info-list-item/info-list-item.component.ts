@@ -1,10 +1,10 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import {Component, Input, ViewEncapsulation} from '@angular/core';
 
 @Component({
     selector: 'pxb-info-list-item',
     template: `
         <mat-list-item
-            class="pxb-root"
+            class="pxb-info-list-item"
             [class.pxb-wrap]="wrapSubtitle || wrapTitle"
             [class.pxb-dense]="dense"
             [class.pxb-status]="statusColor"
@@ -34,7 +34,8 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
         <mat-divider *ngIf="divider" class="pxb-divider" [class.pxb-partial-divider]="divider === 'partial'">
         </mat-divider>
     `,
-    styleUrls: ['./info-list-item.component.scss']
+    styleUrls: ['./info-list-item.component.scss'],
+    encapsulation: ViewEncapsulation.None
 })
 export class InfoListItemComponent {
     @Input() title: string;

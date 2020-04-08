@@ -1,5 +1,5 @@
 /*
- * Public API Surface of empty-state
+ * Public API Surface of Info List Item
  */
 
 export * from './info-list-item.component';
