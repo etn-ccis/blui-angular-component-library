@@ -34,12 +34,12 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 export class InfoListItemComponent {
     @Input() title: string;
     @Input() subtitle: string;
-    @Input() hidePadding = false;
-    @Input() dense = false;
     @Input() statusColor: string;
-    @Input() chevron: boolean;
-    @Input() wrapTitle: boolean;
-    @Input() wrapSubtitle: boolean;
+    @Input() chevron = false;
+    @Input() dense = false;
+    @Input() hidePadding = false;
+    @Input() wrapSubtitle = false;
+    @Input() wrapTitle = false;
     @Input() divider: DividerType;
 }
 
