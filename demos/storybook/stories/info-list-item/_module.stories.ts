@@ -17,6 +17,7 @@ import {withRightComponent} from "./with-right-component.stories";
 import {withFullConfig} from "./with-full-config.stories";
 import {MatRippleModule} from "@angular/material/core";
 import {withinList} from "./within-list.stories";
+import {withArraySubtitle} from "./with-array-for-subtitle.stories";
 
 export const infoListItemWrapper = () => (storyFn): any => {
     const story = storyFn();
@@ -40,6 +41,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Info List Item`, module)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
     .add('with subtitle', withSubtitle)
     .add('with icon', withIcon)
+    .add('with array for subtitle', withArraySubtitle)
     .add('with status', withStatus)
     .add('with left component', withLeftComponent)
     .add('with right component', withRightComponent)
