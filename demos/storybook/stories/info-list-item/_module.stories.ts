@@ -4,7 +4,7 @@ import {InfoListItemModule, ChannelValueModule} from "@pxblue/angular-components
 import {
     COMPONENT_SECTION_NAME,
     README_STORY_NAME,
-    STORY_PARAMS,
+    STORY_PARAMS, WITH_FULL_CONFIG_STORY_NAME,
     WITH_MIN_PROPS_STORY_NAME,
 } from '../../src/constants';
 import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/utils';
@@ -16,6 +16,7 @@ import {withLeftComponent} from "./with-left-component.stories";
 import {withRightComponent} from "./with-right-component.stories";
 import {withFullConfig} from "./with-full-config.stories";
 import {MatRippleModule} from "@angular/material/core";
+import {withinList} from "./within-list.stories";
 
 export const infoListItemWrapper = () => (storyFn): any => {
     const story = storyFn();
@@ -42,4 +43,6 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Info List Item`, module)
     .add('with status', withStatus)
     .add('with left component', withLeftComponent)
     .add('with right component', withRightComponent)
-    .add('with full config', withFullConfig);
+    .add(WITH_FULL_CONFIG_STORY_NAME, withFullConfig)
+    .add('within a full list', withinList);
+
