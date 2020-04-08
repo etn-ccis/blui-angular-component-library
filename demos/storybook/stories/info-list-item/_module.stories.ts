@@ -14,6 +14,8 @@ import { withSubtitle } from "./with-subtitle.stories";
 import {withStatus} from "./with-status.stories";
 import {withLeftComponent} from "./with-left-component.stories";
 import {withRightComponent} from "./with-right-component.stories";
+import {withFullConfig} from "./with-full-config.stories";
+import {MatRippleModule} from "@angular/material/core";
 
 export const infoListItemWrapper = () => (storyFn): any => {
     const story = storyFn();
@@ -26,7 +28,7 @@ export const infoListItemWrapper = () => (storyFn): any => {
 storiesOf(`${COMPONENT_SECTION_NAME}/Info List Item`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [InfoListItemModule, ChannelValueModule, UtilModule],
+            imports: [InfoListItemModule, MatRippleModule, ChannelValueModule, UtilModule],
         })
     )
     .addDecorator(withKnobs)
@@ -39,4 +41,5 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Info List Item`, module)
     .add('with icon', withIcon)
     .add('with status', withStatus)
     .add('with left component', withLeftComponent)
-    .add('with right component', withRightComponent);
+    .add('with right component', withRightComponent)
+    .add('with full config', withFullConfig);

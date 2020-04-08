@@ -2,17 +2,21 @@
 
 $statusWidth: 6px;
 $contentPaddingLeft: 16px;
+$normalHeight: 72px;
+$denseHeight: 56px;
 
-.pxb-root {}
+.pxb-root {
+  width: 100%;
+}
 
 .mat-list-item-content {
+  display: flex;
   padding-left: $contentPaddingLeft;
   padding-right: 16px;
   padding-top: 8px;
   padding-bottom: 8px;
   box-sizing: border-box;
-  height: 72px;
-  display: flex;
+  height: $normalHeight;
   align-items: center;
 }
 
@@ -23,7 +27,23 @@ $contentPaddingLeft: 16px;
 }
 
 .dense .mat-list-item-content {
-  height: 56px;
+  height: $denseHeight;
+}
+
+.wrap .mat-list-item-content {
+  height: unset;
+  min-height: $normalHeight;
+  &.dense {
+    min-height: $denseHeight
+  }
+}
+
+.wrap {
+  .pxb-title, .pxb-subtitle {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 }
 
 .pxb-title {
@@ -39,9 +59,9 @@ $contentPaddingLeft: 16px;
 }
 
 .pxb-icon {
+  display: flex;
   order: 1;
   width: 56px;
-  line-height: 0;
   &.hidePadding {
     width: 0;
   }
@@ -50,6 +70,7 @@ $contentPaddingLeft: 16px;
 .pxb-left-component {
   order: 2;
   margin-right: 16px;
+  display: flex;
 }
 
 .mat-list-text {
@@ -58,13 +79,12 @@ $contentPaddingLeft: 16px;
   flex-direction: column;
 }
 
-.pxb-spacer {
+pxb-spacer {
   order: 4;
-  display: flex;
-  flex-grow: 1;
 }
 
 .pxb-right-component {
   order: 5;
   margin-left: 16px;
+  display: flex;
 }
