@@ -27,8 +27,8 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
             </div>
             <pxb-spacer flex="1" class="pxb-spacer"></pxb-spacer>
             <div class="pxb-right-component">
-                <mat-icon *ngIf="chevron">chevron_right</mat-icon>
-                <ng-content *ngIf="!chevron" select="[right-component]"></ng-content>
+                <div #right><ng-content select="[right-component]"></ng-content></div>
+                <mat-icon *ngIf="chevron && !right.innerHTML">chevron_right</mat-icon>
             </div>
         </mat-list-item>
         <mat-divider *ngIf="divider" class="pxb-divider" [class.pxb-partial-divider]="divider === 'partial'">
