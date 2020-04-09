@@ -2,9 +2,9 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { COMPONENT_SECTION_NAME, README_STORY_NAME, STORY_PARAMS } from '../../src/constants';
 import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/utils';
-import { SpacerModule } from "../../../../components/src/core";
 import {withFlexLayout} from "./with-flex-layout.stories";
 import {withStaticLayout} from "./with-static-layout.stories";
+import {SpacerModule} from "@pxblue/angular-components";
 
 storiesOf(`${COMPONENT_SECTION_NAME}/Spacer`, module)
     .addDecorator(
