@@ -11,7 +11,7 @@ $denseHeight: 56px;
         display: flex;
         align-items: center;
         box-sizing: border-box;
-        min-height: $normalHeight;
+        height: $normalHeight;
         padding: 8px 16px 8px $contentPaddingLeft;
     }
 
@@ -22,16 +22,16 @@ $denseHeight: 56px;
     }
 
     &.pxb-dense .mat-list-item-content {
-        min-height: $denseHeight;
+        height: $denseHeight;
     }
 
     &.pxb-wrap {
         .mat-list-item-content {
-            min-height: unset;
-            height: $normalHeight;
+            height: unset;
+            min-height: $normalHeight;
         }
         &.pxb-dense .mat-list-item-content {
-            height: $denseHeight;
+            min-height: $denseHeight;
         }
     }
 
@@ -49,10 +49,13 @@ $denseHeight: 56px;
 
     .pxb-title,
     .pxb-subtitle {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
         &.pxb-wrap {
-            white-space: nowrap;
-            overflow: hidden;
-            text-overflow: ellipsis;
+            white-space: normal;
+            overflow: unset;
+            text-overflow: unset;
         }
     }
 
