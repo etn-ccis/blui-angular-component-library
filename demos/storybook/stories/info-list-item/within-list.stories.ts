@@ -3,13 +3,14 @@ import {select} from "@storybook/addon-knobs";
 
 export const withinList = (): any => ({
     template: `
-        <pxb-info-list-item title="Status" [statusColor]="colors.green[500]" [divider]="divider">
+        <pxb-info-list-item title="Status" [statusColor]="colors.green[500]" [divider]="divider" class="test">
             <mat-icon icon [style.color]="colors.green[500]">eco</mat-icon>
             <pxb-channel-value right-component value="Online, ESS+" [fontSize]="fontSize"></pxb-channel-value>
         </pxb-info-list-item>
 
         <pxb-info-list-item title="Input Voltage" subtitle="Phase A · Phase B · Phase C" [divider]="divider">
-            <mat-icon icon [style.backgroundColor]="colors.black[500]" class="avatar">check_circle</mat-icon>
+            <mat-icon icon [style.backgroundColor]="colors.black[500]"
+                style="border-radius: 50%; padding: 8px; color: white;">check_circle</mat-icon>
             <span right-component>
                 <pxb-channel-value value="478" units="V" [fontSize]="fontSize"></pxb-channel-value>,
                 <pxb-channel-value value="479" units="V" [fontSize]="fontSize"></pxb-channel-value>,
@@ -19,7 +20,8 @@ export const withinList = (): any => ({
 
         <pxb-info-list-item title="Output Voltage" subtitle="Phase A · Phase B · Phase C"
             [style.color]="colors.red[500]" [statusColor]="colors.red[500]" [divider]="divider">
-            <mat-icon icon [style.backgroundColor]="colors.red[500]" class="avatar">check_circle</mat-icon>
+            <mat-icon icon [style.backgroundColor]="colors.red[500]"
+                style="border-radius: 50%; padding: 8px; color: white;">check_circle</mat-icon>
             <span right-component>
                 <pxb-channel-value value="478" units="V" [fontSize]="fontSize"></pxb-channel-value>,
                 <pxb-channel-value value="479" units="V" [fontSize]="fontSize"></pxb-channel-value>,
@@ -44,13 +46,6 @@ export const withinList = (): any => ({
             </span>
         </pxb-info-list-item>
       `,
-    styles: [
-        `.avatar {
-            border-radius: 50%;
-            padding: 8px;
-            color: white;
-        }`
-    ],
     props: {
         colors: Colors,
         fontSize: 16,
