@@ -23,7 +23,7 @@ imports: [
 
 <div style="overflow: auto;">
 
-| Prop Name         | Description                                      | Type                                               | Required | Default        |
+| Attributes        | Description                                      | Type                                               | Required | Default        |
 |-------------------|--------------------------------------------------|----------------------------------------------------|----------|----------------|
 | chevron           | Add a chevron icon on the right                  | `boolean`                                          | no       | false          |
 | dense             | Smaller height row with less padding             | `boolean`                                          | no       | false          |

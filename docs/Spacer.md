@@ -28,10 +28,10 @@ imports: [
 
 <div style="overflow: auto;">
 
-| Prop Name | Description                             | Type     | Required | Default |
-|-----------|-----------------------------------------|----------|----------|---------|
-| flex      | Flex grow/shrink value for flex layouts | `number` | no       | 1       |
-| height    | Height (in px) for static layouts       | `number` | no       |         |
-| width     | Width (in px) for static layouts        | `number` | no       |         |
+| Attributes | Description                             | Type     | Required | Default |
+|------------|-----------------------------------------|----------|----------|---------|
+| flex       | Flex grow/shrink value for flex layouts | `number` | no       | 1       |
+| height     | Height (in px) for static layouts       | `number` | no       |         |
+| width      | Width (in px) for static layouts        | `number` | no       |         |
 
 </div>
