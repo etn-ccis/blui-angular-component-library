@@ -13,7 +13,7 @@ const icon = require('../../assets/pxb-icon.svg');
     selector: 'welcome',
     styleUrls: ['welcome.component.css'],
     template: `
-        <div class="pxb-blue mat-typography root"
+        <div class="pxb-blue mat-typography welcome-root"
              [style.backgroundColor]="pxbColors.blue[500]"
              [style.color]="pxbColors.white[50]"
              [style.backgroundImage]='background'>
@@ -52,17 +52,11 @@ export class WelcomeComponent implements OnInit, OnDestroy {
     pxbIcon = icon;
 
     ngOnInit(): void {
-        const root = document.getElementById('root');
         hideTopBanner();
-        root.style.height = '100%';
-        root.style.width = '100%';
     }
 
     ngOnDestroy(): void {
-        const root = document.getElementById('root');
         showTopBanner();
-        root.style.height = 'unset';
-        root.style.width = 'unset';
     }
 }
 

@@ -23,7 +23,8 @@ export const infoListItemWrapper = () => (storyFn): any => {
     const story = storyFn();
     return {
         ...story,
-        template: `<div style="width: 500px; background-color: white">${story.template}</div>`,
+        template: `<div style="width: 90%; background-color: white">${story.template}</div>`,
+        styles: [`:host { display: flex; width: 100%; justify-content: center;`]
     };
 };
 
