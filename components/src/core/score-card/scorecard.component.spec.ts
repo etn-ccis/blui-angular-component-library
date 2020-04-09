@@ -102,10 +102,10 @@ describe('ScoreCardComponent', () => {
             '.pxb-title',
             '.pxb-subtitle',
             '.pxb-info',
-            '.pxb-action-items',
+            '.pxb-action-items-wrapper',
             '.pxb-body',
             '.pxb-badge-wrapper',
-            '.pxb-action-row',
+            '.pxb-action-row-wrapper',
         ];
         for (const className of classList) {
             count(fixture, className);
