@@ -1,8 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { InfoListItemComponent } from './info-list-item.component';
-import {InfoListItemModule} from "./info-list-item.module";
-import {Component} from "@angular/core";
-import {By} from "@angular/platform-browser";
+import { InfoListItemModule } from './info-list-item.module';
+import { Component } from '@angular/core';
+import { By } from '@angular/platform-browser';
 
 @Component({
     template: `
@@ -38,7 +38,7 @@ describe('InfoListItemComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             declarations: [TestIconComponent, TestLeftComponent, TestRightComponent],
-            imports: [InfoListItemModule]
+            imports: [InfoListItemModule],
         }).compileComponents();
     }));
 

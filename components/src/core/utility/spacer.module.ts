@@ -1,8 +1,10 @@
-import {Component, HostBinding, Input, NgModule} from '@angular/core';
+import { Component, HostBinding, Input, NgModule } from '@angular/core';
 
 @Component({
     selector: 'pxb-spacer',
-    template: `<ng-content></ng-content>`,
+    template: `
+        <ng-content></ng-content>
+    `,
 })
 export class SpacerComponent {
     @Input() flex = 0;

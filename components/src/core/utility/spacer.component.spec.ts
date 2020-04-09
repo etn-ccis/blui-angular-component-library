@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {SpacerComponent, SpacerModule} from "./spacer.module";
+import { SpacerComponent, SpacerModule } from './spacer.module';
 
 describe('SpacerComponent', () => {
     let component: SpacerComponent;

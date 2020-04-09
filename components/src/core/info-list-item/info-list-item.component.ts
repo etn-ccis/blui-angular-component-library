@@ -1,4 +1,4 @@
-import {Component, Input, ViewEncapsulation} from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector: 'pxb-info-list-item',
@@ -35,7 +35,7 @@ import {Component, Input, ViewEncapsulation} from '@angular/core';
         </mat-divider>
     `,
     styleUrls: ['./info-list-item.component.scss'],
-    encapsulation: ViewEncapsulation.None
+    encapsulation: ViewEncapsulation.None,
 })
 export class InfoListItemComponent {
     @Input() title: string;
