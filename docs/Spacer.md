@@ -19,7 +19,7 @@ imports: [
 
 ```typescript
 // using flex layout
-<pxb-spacer flex="1"></pxb-spacer>
+<pxb-spacer></pxb-spacer>
 // using pixels
 <pxb-spacer width="50"></pxb-spacer>
 ```
@@ -30,7 +30,7 @@ imports: [
 
 | Prop Name | Description                             | Type     | Required | Default |
 |-----------|-----------------------------------------|----------|----------|---------|
-| flex      | Flex grow/shrink value for flex layouts | `number` | no       | 0       |
+| flex      | Flex grow/shrink value for flex layouts | `number` | no       | 1       |
 | height    | Height (in px) for static layouts       | `number` | no       |         |
 | width     | Width (in px) for static layouts        | `number` | no       |         |
 

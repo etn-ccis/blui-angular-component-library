@@ -25,7 +25,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
                 </ng-container>
                 <ng-container *ngIf="!subtitleIsArray">{{ subtitle }}</ng-container>
             </div>
-            <pxb-spacer flex="1" class="pxb-spacer"></pxb-spacer>
+            <pxb-spacer class="pxb-spacer"></pxb-spacer>
             <div class="pxb-right-component">
                 <div #right><ng-content select="[right-component]"></ng-content></div>
                 <mat-icon *ngIf="chevron && !right.innerHTML">chevron_right</mat-icon>
