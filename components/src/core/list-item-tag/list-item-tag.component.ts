@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import * as Colors from '@pxblue/colors';
 
 @Component({
@@ -10,6 +10,7 @@ export class ListItemTagComponent {
 
   Colors: any = Colors;
 
-  @Input label: string;
-
+  @Input() label: string;
+  @Input() backgroundColor: string;
+  @Input() fontColor: string;
 }
