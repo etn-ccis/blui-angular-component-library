@@ -8,6 +8,8 @@ import {hideTopBanner, showTopBanner, UtilModule} from "../utils";
 import * as Colors from '@pxblue/colors';
 const bg = require('../../assets/circles-bg.svg');
 const icon = require('../../assets/pxb-icon.svg');
+import {CommonModule} from '@angular/common';
+import { isDarkMode } from '../utils';
 
 @Component({
     selector: 'welcome',
@@ -50,12 +52,17 @@ export class WelcomeComponent implements OnInit, OnDestroy {
     pxbColors = Colors;
     background = `url(${bg})`;
     pxbIcon = icon;
+    useDarkMode = isDarkMode();
 
     ngOnInit(): void {
         const root = document.getElementById('root');
         hideTopBanner();
         root.style.height = '100%';
         root.style.width = '100%';
+
+        window.onstorage = () => {
+            this.useDarkMode = isDarkMode();
+        };
     }
 
     ngOnDestroy(): void {
@@ -67,7 +74,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
 }
 
 @NgModule({
-    imports: [UtilModule, MatButtonModule, MatCardModule, MatDividerModule],
+    imports: [UtilModule, MatButtonModule, MatCardModule, MatDividerModule, CommonModule],
     declarations: [WelcomeComponent],
     exports: [WelcomeComponent, UtilModule],
 })

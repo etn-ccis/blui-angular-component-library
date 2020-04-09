@@ -1,9 +1,10 @@
 import '@pxblue/themes/angular/theme.scss';
-import {CommonModule} from "@angular/common";
+import { CommonModule } from "@angular/common";
 import { Component, NgModule } from '@angular/core';
 import 'typeface-open-sans';
-import {BrowserModule} from "@angular/platform-browser";
-import {COMPONENT_SECTION_NAME, README_STORY_NAME} from "./constants";
+import { BrowserModule } from "@angular/platform-browser";
+import { COMPONENT_SECTION_NAME, README_STORY_NAME } from "./constants";
+import * as Colors from '@pxblue/colors';
 
 let banner: HTMLElement;
 let prevUrl = '';
@@ -76,6 +77,10 @@ export const getReadMeStory = (): any => {
 };
 getReadMeStory.story = { name: README_STORY_NAME };
 
+export const isDarkMode = () => {
+    const darkModeLocalStorage = JSON.parse(window.localStorage.getItem('sb-addon-themes-3'));
+    return darkModeLocalStorage.current === 'dark';
+}
 
 @Component({
     selector: 'readme',
@@ -96,10 +101,12 @@ export class ReadMeComponent {
 @Component({
     selector: 'story',
     template: `
-        <div class="pxb-blue mat-typography" style="height: 100%; width: 100%"><ng-content></ng-content></div>
+        <div class="mat-typography" [ngClass]="useDarkMode ? 'pxb-blue-dark' : 'pxb-blue'" style="height: 100%; width: 100%"><ng-content></ng-content></div>
     `,
 })
 export class StoryComponent {
+    useDarkMode = isDarkMode();
+
     // Auto-navigates the user to the Canvas tab when switching stories.
     ngOnInit(): void {
         const currentUrl = window.top.location.href;
@@ -114,6 +121,13 @@ export class StoryComponent {
             selectCanvasTab();
         }
         prevUrl = currentUrl;
+
+        window.onstorage = () => {
+            this.useDarkMode = isDarkMode();
+
+            const canvas = document.querySelector('.sb-show-main') as HTMLElement;
+            canvas.style.backgroundColor = this.useDarkMode ? Colors.black['A200'] : Colors.gray[50];
+        };
     }
 }
 
@@ -122,4 +136,4 @@ export class StoryComponent {
     declarations: [StoryComponent, ReadMeComponent],
     exports: [StoryComponent, ReadMeComponent],
 })
-export class UtilModule {}
+export class UtilModule { }

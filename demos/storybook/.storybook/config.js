@@ -1,4 +1,4 @@
-import {addParameters} from '@storybook/angular';
+import { addParameters } from '@storybook/angular';
 require('@pxblue/icons/iconfont/PXBlueIcons.css');
 import { pxblueTheme } from '@pxblue/storybook-themes';
 
@@ -27,7 +27,7 @@ const newViewports = {
 };
 
 pxblueTheme.brandTitle = 'PX Blue Angular Component Library';
-pxblueTheme.brandImage = require('../assets/pxblue angular.svg');
+pxblueTheme.brandImage =  require('../assets/pxblue-angular.svg');
 pxblueTheme.brandUrl = 'https://pxblue.github.io';
 
 addParameters({
@@ -39,7 +39,12 @@ addParameters({
         viewports: newViewports,
     },
     options: {
-        theme: pxblueTheme,
         showRoots: true,
     },
+    darkMode: {
+        // Override the default light theme
+        light: { ...pxblueTheme },
+        // Override the default dark theme
+        dark: { ...pxblueTheme }
+    }
 });
