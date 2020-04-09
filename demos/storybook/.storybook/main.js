@@ -17,9 +17,6 @@ module.exports = {
         '@storybook/addon-storysource',
     ],
     webpackFinal: async (config, { configType })=> {
-
-        console.log(configType);
-
         config.module.rules.push({
             include: [path.resolve(__dirname, '../stories')],
             exclude: [path.resolve(__dirname, '../node_modules')],
