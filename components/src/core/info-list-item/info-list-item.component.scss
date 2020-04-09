@@ -96,17 +96,17 @@ $denseHeight: 56px;
         order: 5;
         margin-left: 16px;
     }
+}
 
-    mat-divider {
-        &.pxb-divider {
-            margin-top: -1px;
-        }
-        &.pxb-partial-divider {
-            position: relative;
-            bottom: 0;
-            right: 0;
-            left: 72px;
-            width: calc(100% - 72px);
-        }
+mat-divider {
+    &.pxb-divider {
+        margin-top: -1px;
+    }
+    &.pxb-partial-divider {
+        position: relative;
+        bottom: 0;
+        right: 0;
+        left: 72px;
+        width: calc(100% - 72px);
     }
 }

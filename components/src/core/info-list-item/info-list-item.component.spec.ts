@@ -1,4 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import {count} from "../../utils/test-utils";
 import { InfoListItemComponent } from './info-list-item.component';
 import { InfoListItemModule } from './info-list-item.module';
 import { Component } from '@angular/core';
@@ -93,5 +94,23 @@ describe('InfoListItemComponent', () => {
         fixture.detectChanges();
         const root = fixture.debugElement.query(By.css('.pxb-info-list-item'));
         expect(root.nativeElement.children[0].offsetHeight).toBe(56);
+    });
+
+    it('should enforce class naming conventions', () => {
+        component.divider = 'full';
+        fixture.detectChanges();
+        const classList = [
+            '.pxb-info-list-item',
+            '.pxb-icon',
+            '.pxb-left-component',
+            '.pxb-title',
+            '.pxb-subtitle',
+            '.pxb-spacer',
+            '.pxb-right-component',
+            '.pxb-divider'
+        ];
+        for (const className of classList) {
+            count(fixture, className);
+        }
     });
 });
