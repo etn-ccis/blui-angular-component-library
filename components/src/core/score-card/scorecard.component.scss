@@ -42,6 +42,12 @@
     .pxb-action-items-wrapper {
         text-overflow: unset;
         overflow: unset;
+       ::ng-deep > * {
+            cursor: pointer;
+            height: 32px;
+            width: 32px;
+            text-align: center;
+        }
     }
     .pxb-title {
         font-weight: 600;
