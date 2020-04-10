@@ -5,7 +5,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppComponent } from './app.component';
 //pxblue modules
 import { NgProgressIconsModule } from '@pxblue/ng-progress-icons';
-import { HeroModule, ChannelValueModule, EmptyStateModule, ScoreCardModule } from '@pxblue/angular-components';
+import {
+    HeroModule,
+    ChannelValueModule,
+    EmptyStateModule,
+    ScoreCardModule,
+    InfoListItemModule,
+} from '@pxblue/angular-components';
 
 //material modules
 import { MatDividerModule } from '@angular/material/divider';
@@ -33,6 +39,7 @@ import { MatButtonModule } from '@angular/material/button';
         EmptyStateModule,
         ScoreCardModule,
         HeroModule,
+        InfoListItemModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

@@ -79,7 +79,7 @@ getReadMeStory.story = { name: README_STORY_NAME };
 
 export const isDarkMode = () => {
     const darkModeLocalStorage = JSON.parse(window.localStorage.getItem('sb-addon-themes-3'));
-    return darkModeLocalStorage.current === 'dark';
+    return darkModeLocalStorage && darkModeLocalStorage.current === 'dark';
 }
 
 @Component({

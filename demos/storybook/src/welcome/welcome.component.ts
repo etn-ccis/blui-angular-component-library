@@ -15,7 +15,7 @@ import { isDarkMode } from '../utils';
     selector: 'welcome',
     styleUrls: ['welcome.component.css'],
     template: `
-        <div class="pxb-blue mat-typography root"
+        <div class="pxb-blue mat-typography welcome-root"
              [style.backgroundColor]="pxbColors.blue[500]"
              [style.color]="pxbColors.white[50]"
              [style.backgroundImage]='background'>
@@ -55,10 +55,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
     useDarkMode = isDarkMode();
 
     ngOnInit(): void {
-        const root = document.getElementById('root');
         hideTopBanner();
-        root.style.height = '100%';
-        root.style.width = '100%';
 
         window.onstorage = () => {
             this.useDarkMode = isDarkMode();
@@ -66,10 +63,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
     }
 
     ngOnDestroy(): void {
-        const root = document.getElementById('root');
         showTopBanner();
-        root.style.height = 'unset';
-        root.style.width = 'unset';
     }
 }
 

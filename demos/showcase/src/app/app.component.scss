@@ -1,18 +1,15 @@
 @import '~@pxblue/colors/palette.scss';
 
 .list {
-    mat-list-item {
-        color: map-get($pxb-gray, 800) !important;
-        .list-label {
-            margin: 0;
-            margin-left: 15px;
-        }
-        .list-value {
-            flex: 1 1 0px;
-            text-align: right;
-        }
-    }
+    color: map-get($pxb-gray, 800) !important;
+    white-space: nowrap;
 }
+
+.mat-card.container-card {
+    margin: 0px 16px;
+    padding: 0;
+}
+
 .error {
     mat-list-item {
         color: map-get($pxb-red, 500) !important;
