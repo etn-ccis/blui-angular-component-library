@@ -72,7 +72,7 @@ $denseHeight: 56px;
         order: 1;
         width: 56px;
         min-width: 56px;
-        &.pxb-hide-padding {
+        &.pxb-hide-padding:empty {
             width: 0;
             min-width: unset;
         }
