@@ -38,7 +38,7 @@ imports: [
 
 | Prop Name   | Description                             | Type              | Required | Default | 
 |-------------|-----------------------------------------|-------------------|----------|---------|
-| title       | The main text to display                | `string`          | yes      |         |
 | description | The secondary text to display           | `string`          | no       |         |
+| title       | The main text to display                | `string`          | yes      |         |
 
 </div>

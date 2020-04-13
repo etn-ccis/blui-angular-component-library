@@ -21,7 +21,7 @@
             </mat-list-item>
         </mat-list>
         <pxb-hero-banner badge>
-            <pxb-hero [label]="'Temperature'" [value]="'98'" [units]="'°F'" [iconSize]="'normal'">
+            <pxb-hero [label]="'Temperature'" [value]="98" [units]="'°F'" [iconSize]="'normal'">
                 <mat-icon svgIcon="px-icons:temp" primary></mat-icon>
             </pxb-hero>
             <pxb-hero [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="'normal'">
@@ -147,14 +147,14 @@
 
     <pxb-info-list-item title="Temperature" divider="full" dense="true">
         <mat-icon icon svgIcon="px-icons:temp"></mat-icon>
-        <pxb-channel-value right-component value="68" units="°F">
+        <pxb-channel-value right-component value="68" units="°F" style="display: flex;">
             <mat-icon [style.color]="colors.red['500']">trending_up</mat-icon>
         </pxb-channel-value>
     </pxb-info-list-item>
 </mat-card>
 
 <mat-card class="container-card" style="margin-top: 10px; margin-bottom: 24px; padding: 16px;">
-    <pxb-empty-state title="No Devices">
+    <pxb-empty-state title="No Devices" description="Consult your local admin for more information">
         <mat-icon empty-icon>devices</mat-icon>
         <button mat-raised-button color="primary" actions>
             <mat-icon>add_circle</mat-icon>

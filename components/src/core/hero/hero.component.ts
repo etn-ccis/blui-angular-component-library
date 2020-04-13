@@ -28,7 +28,7 @@ export type FontSize = 'small' | 'normal';
                 <ng-content select="[primary]"></ng-content>
             </div>
             <span class="pxb-channel-value-wrapper" [style.fontSize.rem]="fontSize === 'small' ? '1' : '1.25'">
-                <ng-content select="pxb-channel-value" *ngIf="value === undefined" ></ng-content>
+                <ng-content select="pxb-channel-value" *ngIf="value === undefined"></ng-content>
                 <pxb-channel-value *ngIf="value !== undefined" [value]="value" [units]="units">
                     <ng-content select="[secondary]"></ng-content>
                 </pxb-channel-value>
@@ -107,7 +107,7 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
             this.hasMatSvgIcon = true;
             const svg = matIcon.querySelector('svg');
             if (svg) {
-                svg.style.setProperty('transform', `scale(${this.iSize/24})`);
+                svg.style.setProperty('transform', `scale(${this.iSize / 24})`);
             }
         }
     }

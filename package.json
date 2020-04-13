@@ -13,7 +13,7 @@
     "start:showcase": "yarn install:dependencies && yarn link:components && cd demos/showcase && yarn start",
     "lint": "cd components && yarn lint && cd ../demos/showcase && yarn lint && cd ../storybook && yarn lint",
     "lint:fix": "cd components && yarn lint:fix && cd ../demos/showcase && yarn lint:fix && cd ../storybook && yarn lint:fix",
-    "prettier": "cd components && yarn prettier && cd ../demos/showcase && yarn prettier && cd ../storybook && yarn prettier"
+    "prettier": "cd components && yarn prettier && cd ../demos/showcase && yarn prettier"
   },
   "private": true,
   "repository": {

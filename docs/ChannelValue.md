@@ -31,12 +31,12 @@ imports: [
 
 <div style="overflow: auto;">
 
-| Prop Name   | Description                                    | Type                     | Required | Default   |
-|-------------|------------------------------------------------|--------------------------|----------|-----------|
-| value       | The the value (bold text) to display           | `string` &vert; `Number` | yes      |           |
-| units       | The text to display for the units (light text) | `string`                 | no       |           |
-| prefix      | Show units before the value                    | `boolean`                | no       | false     |
-| fontSize    | The size of the font                           | `string`                 | no       | 'inherit' |
-| color       | The color of the font                          | `string`                 | no       | 'inherit' |
+| Prop Name   | Description                                    | Type               | Required | Default   |
+|-------------|------------------------------------------------|--------------------|----------|-----------|
+| color       | The color of the font                          | `string`           | no       | 'inherit' |
+| fontSize    | The size of the font                           | `string`           | no       | 'inherit' |
+| prefix      | Show units before the value                    | `boolean`          | no       | false     |
+| units       | The text to display for the units (light text) | `string`           | no       |           |
+| value       | The the value (bold text) to display           | `string | Number`  | yes      |           |
 
 </div>

@@ -49,13 +49,13 @@ imports: [
 
 <div style="overflow: auto;">
 
-| Prop Name           | Description                             | Type                                                               | Required |
-|---------------------|-----------------------------------------|--------------------------------------------------------------------|----------|
-| label               | The text shown below the `ChannelValue` | `string`                                                           | yes      |
-| iconSize            | The size of the primary icon (10-48)    | `string`                                                           | no       |
-| fontSize            | The text size for the value line        | 'normal' &vert; 'small'                                            | no       |
-| value               | The value for the channel               | `string` &vert; `number`                                           | no       |
-| units               | Text to show after the value            | `string`                                                           | no       |
+| Prop Name           | Description                             | Type                    | Required |
+|---------------------|-----------------------------------------|-------------------------|----------|
+| fontSize            | The text size for the value line        | `'normal' | 'small'`    | no       |
+| iconSize            | The size of the primary icon (10-48)    | `string`                | no       |
+| label               | The text shown below the `ChannelValue` | `string`                | yes      |
+| units               | Text to show after the value            | `string`                | no       |
+| value               | The value for the channel               | `string | number`       | no       |
 
 </div>
 

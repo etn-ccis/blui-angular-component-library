@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {count} from "../../utils/test-utils";
+import { count } from '../../utils/test-utils';
 import { InfoListItemComponent } from './info-list-item.component';
 import { InfoListItemModule } from './info-list-item.module';
 import { Component } from '@angular/core';
@@ -107,7 +107,7 @@ describe('InfoListItemComponent', () => {
             '.pxb-subtitle',
             '.pxb-spacer',
             '.pxb-right-component',
-            '.pxb-divider'
+            '.pxb-divider',
         ];
         for (const className of classList) {
             count(fixture, className);
