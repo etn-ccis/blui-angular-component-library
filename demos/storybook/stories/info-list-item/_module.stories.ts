@@ -18,6 +18,7 @@ import {withFullConfig} from "./with-full-config.stories";
 import {MatRippleModule} from "@angular/material/core";
 import {withinList} from "./within-list.stories";
 import {withArraySubtitle} from "./with-array-for-subtitle.stories";
+import { withA11y } from '@storybook/addon-a11y';
 
 export const infoListItemWrapper = () => (storyFn): any => {
     const story = storyFn();
@@ -35,6 +36,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Info List Item`, module)
         })
     )
     .addDecorator(withKnobs)
+    .addDecorator(withA11y)
     .addDecorator(storyWrapper())
     .addDecorator(infoListItemWrapper())
     .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('InfoListItem.md') } })

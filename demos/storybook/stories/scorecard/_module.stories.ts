@@ -19,6 +19,7 @@ import { CommonModule } from '@angular/common';
 import { withHeroes } from './with-heroes.stories';
 import { withScoreBadge } from './with-score-badge.stories';
 import { withFullConfig } from './with-full-config.stories';
+import { withA11y } from '@storybook/addon-a11y';
 
 export const scorecardContainer = () => (storyFn): any => {
     const story = storyFn();
@@ -43,6 +44,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Scorecard`, module)
         })
     )
     .addDecorator(withKnobs)
+    .addDecorator(withA11y)
     .addDecorator(storyWrapper())
     .addDecorator(scorecardContainer())
     .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('ScoreCard.md') } })

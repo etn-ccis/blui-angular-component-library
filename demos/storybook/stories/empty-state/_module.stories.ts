@@ -15,6 +15,7 @@ import { withDescription } from './with-description.stories';
 import { withBasicConfig } from './basic-config.stories';
 import { withActions } from './with-actions.stories';
 import { withFullConfig } from './with-full-config.stories';
+import { withA11y } from '@storybook/addon-a11y';
 
 storiesOf(`${COMPONENT_SECTION_NAME}/Empty State`, module)
     .addDecorator(
@@ -23,6 +24,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Empty State`, module)
         })
     )
     .addDecorator(withKnobs)
+    .addDecorator(withA11y)
     .addDecorator(storyWrapper())
     .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('EmptyState.md') } })
     .add(README_STORY_NAME, getReadMeStory)
