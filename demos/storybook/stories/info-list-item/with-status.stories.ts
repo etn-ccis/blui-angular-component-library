@@ -1,5 +1,5 @@
 import * as Colors from '@pxblue/colors';
-import {color} from "@storybook/addon-knobs";
+import { color } from '@storybook/addon-knobs';
 
 export const withStatus = (): any => ({
     template: `
@@ -10,6 +10,6 @@ export const withStatus = (): any => ({
         </pxb-info-list-item>
       `,
     props: {
-        statusColor: color('statusColor', Colors.green[500])
-    }
+        statusColor: color('statusColor', Colors.green[500]),
+    },
 });

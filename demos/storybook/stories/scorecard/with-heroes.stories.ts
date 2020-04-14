@@ -12,11 +12,11 @@ export const withHeroes = (): any => ({
         }`,
     ],
     template: `
-          <pxb-scorecard
-              [headerTitle]="'Substation 3'"
-              [headerSubtitle]="'High Humidity Alarm'"
-              [headerInfo]="'4 Devices'"
-          >
+        <pxb-scorecard
+            [headerTitle]="'Substation 3'"
+            [headerSubtitle]="'High Humidity Alarm'"
+            [headerInfo]="'4 Devices'"
+        >
             <mat-icon action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
             <mat-list body>
                 <mat-list-item>
@@ -38,7 +38,7 @@ export const withHeroes = (): any => ({
                 </mat-list-item>
             </mat-list>
         </pxb-scorecard>
-      `,
+    `,
     props: {
         actionClick: (iconName: string): any => action(`${iconName} clicked`)(),
         actionRowClick: action('View Location clicked'),

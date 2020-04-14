@@ -1,4 +1,5 @@
-# Channel Value
+# ChannelValue
+
 The ChannelValue component is used to display a channel value (and units). This component abstracts the styles used to display the channel and units as well as an optional inline icon. These are used as part of the [Hero](./Hero.md) component, but can also be used inline (e.g., in a list).
 
 Icons are passed in as a child element of the ChannelValue component.
@@ -31,12 +32,12 @@ imports: [
 
 <div style="overflow: auto;">
 
-| Prop Name   | Description                                    | Type               | Required | Default   |
-|-------------|------------------------------------------------|--------------------|----------|-----------|
-| color       | The color of the font                          | `string`           | no       | 'inherit' |
-| fontSize    | The size of the font                           | `string`           | no       | 'inherit' |
-| prefix      | Show units before the value                    | `boolean`          | no       | false     |
-| units       | The text to display for the units (light text) | `string`           | no       |           |
-| value       | The the value (bold text) to display           | `string | Number`  | yes      |           |
+| Attributes | Description                                    | Type              | Required | Default   |
+| ---------- | ---------------------------------------------- | ----------------- | -------- | --------- |
+| color      | The color of the font                          | `string`          | no       | 'inherit' |
+| fontSize   | The size of the font                           | `string`          | no       | 'inherit' |
+| prefix     | Show units before the value                    | `boolean`         | no       | false     |
+| units      | The text to display for the units (light text) | `string`          | no       |           |
+| value      | The the value (bold text) to display           | `string | Number` | yes      |           |
 
 </div>

@@ -20,12 +20,12 @@ export const withFullConfig = (): any => ({
     `,
     ],
     template: `
-          <pxb-scorecard
-              [headerTitle]="headerTitle"
-              [headerSubtitle]="headerSubtitle"
-              [headerInfo]="headerInfo"
-              [badgeOffset]="badgeOffset"
-          >
+        <pxb-scorecard
+            [headerTitle]="headerTitle"
+            [headerSubtitle]="headerSubtitle"
+            [headerInfo]="headerInfo"
+            [badgeOffset]="badgeOffset"
+        >
             <ng-container action-items>
                 <ng-container *ngFor="let action of actions; index as i;">
                     <mat-icon *ngIf="i < actionLimit" (click)="actionClick(actions[i])">
@@ -64,7 +64,7 @@ export const withFullConfig = (): any => ({
                 </mat-list-item>
             </mat-list>
         </pxb-scorecard>
-      `,
+    `,
     props: {
         headerTitle: text('headerTitle', 'Substation 3'),
         headerSubtitle: text('headerSubtitle', 'High Humidity Alarm'),

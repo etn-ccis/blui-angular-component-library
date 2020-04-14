@@ -31,14 +31,14 @@ imports: [
   </button>
 </pxb-empty-state>
 ```
- 
+
 ## API
 
 <div style="overflow: auto;">
 
-| Prop Name   | Description                             | Type              | Required | Default | 
-|-------------|-----------------------------------------|-------------------|----------|---------|
-| description | The secondary text to display           | `string`          | no       |         |
-| title       | The main text to display                | `string`          | yes      |         |
+| Attributes  | Description                   | Type     | Required | Default |
+| ----------- | ----------------------------- | -------- | -------- | ------- |
+| description | The secondary text to display | `string` | no       |         |
+| title       | The main text to display      | `string` | yes      |         |
 
 </div>

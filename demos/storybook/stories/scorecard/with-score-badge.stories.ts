@@ -21,12 +21,12 @@ export const withScoreBadge = (): any => ({
     ],
     encapsulation: ViewEncapsulation.None,
     template: `
-          <pxb-scorecard
-              [headerTitle]="'Substation 3'"
-              [headerSubtitle]="'Normal'"
-              [headerInfo]="'4 Devices'"
-              [badgeOffset]="badgeOffset"
-          >
+        <pxb-scorecard
+            [headerTitle]="'Substation 3'"
+            [headerSubtitle]="'Normal'"
+            [headerInfo]="'4 Devices'"
+            [badgeOffset]="badgeOffset"
+        >
             <mat-icon action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
             <mat-list body class="sb-scorecard-content">
                 <mat-list-item>
@@ -52,7 +52,7 @@ export const withScoreBadge = (): any => ({
                 </mat-list-item>
             </mat-list>
         </pxb-scorecard>
-      `,
+    `,
     props: {
         actionClick: (iconName: string): any => action(`${iconName} clicked`)(),
         actionRowClick: action('View Location clicked'),

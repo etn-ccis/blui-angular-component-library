@@ -18,17 +18,17 @@ export const withCustomHeader = (): any => ({
         }`,
     ],
     template: `
-      <pxb-scorecard
-          [class.root.header.color]="test"
-          [headerTitle]="headerTitle"
-          [headerSubtitle]="headerSubtitle"
-          [headerInfo]="headerInfo"
-      >
-      <mat-list body>
-          <mat-list-item>Body Content</mat-list-item>
-      </mat-list>
-    </pxb-scorecard>
-  `,
+        <pxb-scorecard
+            [class.root.header.color]="test"
+            [headerTitle]="headerTitle"
+            [headerSubtitle]="headerSubtitle"
+            [headerInfo]="headerInfo"
+        >
+            <mat-list body>
+                <mat-list-item>Body Content</mat-list-item>
+            </mat-list>
+        </pxb-scorecard>
+    `,
     props: {
         headerTitle: text('headerTitle', 'Card Title'),
         headerSubtitle: text('headerSubtitle', 'Card Subtitle'),

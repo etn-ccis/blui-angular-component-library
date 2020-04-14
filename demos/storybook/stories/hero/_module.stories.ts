@@ -22,12 +22,7 @@ import { DifferentImageTypesModule } from './different-image-types.component';
 storiesOf(`${COMPONENT_SECTION_NAME}/Hero`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [
-                HeroModule,
-                ChannelValueModule,
-                UtilModule,
-                MatIconModule,
-                DifferentImageTypesModule],
+            imports: [HeroModule, ChannelValueModule, UtilModule, MatIconModule, DifferentImageTypesModule],
         })
     )
     .addDecorator(withKnobs)

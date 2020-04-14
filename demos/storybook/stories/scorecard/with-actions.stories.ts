@@ -14,11 +14,11 @@ export const withActions = (): any => ({
         }`,
     ],
     template: `
-          <pxb-scorecard
-              [headerTitle]="'Substation 3'"
-              [headerSubtitle]="'High Humidity Alarm'"
-              [headerInfo]="'4 Devices'"
-          >
+        <pxb-scorecard
+            [headerTitle]="'Substation 3'"
+            [headerSubtitle]="'High Humidity Alarm'"
+            [headerInfo]="'4 Devices'"
+        >
             <ng-container action-items>
                 <ng-container *ngFor="let action of actions; index as i;">
                     <mat-icon *ngIf="i < actionLimit" (click)="actionClick(actions[i])">
@@ -38,7 +38,7 @@ export const withActions = (): any => ({
                 </mat-list-item>
             </mat-list>
         </pxb-scorecard>
-      `,
+    `,
     props: {
         actionClick: (iconName: string): any => action(`${iconName} clicked`)(),
         actionLimit: number('Number of Actions', 3, {
