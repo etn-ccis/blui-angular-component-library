@@ -80,6 +80,7 @@ $denseHeight: 56px;
         order: 2;
         > * {
             margin-right: 16px;
+            display: flex;
         }
     }
 
@@ -96,6 +97,9 @@ $denseHeight: 56px;
     .pxb-info-list-item-right-component {
         order: 5;
         margin-left: 16px;
+        .pxb-info-list-item-right-component-wrapper > * {
+            display: flex;
+        }
     }
 }
 

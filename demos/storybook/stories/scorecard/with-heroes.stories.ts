@@ -6,7 +6,7 @@ import { withCustomHeaderStyles } from './with-custom-header.stories';
 export const withHeroes = (): any => ({
     styles: [
         `${withCustomHeaderStyles}
-        ::ng-deep pxb-scorecard .pxb-root .pxb-header {
+        ::ng-deep pxb-scorecard .pxb-scorecard .pxb-scorecard-header {
             background-color: ${Colors.red[500]};
             color: ${Colors.white[50]};
         }`,

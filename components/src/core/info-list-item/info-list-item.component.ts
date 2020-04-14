@@ -19,8 +19,8 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
                 <ng-content select="[left-component]"></ng-content>
             </div>
             <div class="mat-body-1 pxb-info-list-item-title" matLine [class.pxb-info-list-item-wrap]="wrapTitle">
-                {{ title }}
-            </div>
+                {{title}}
+            </div> 
             <div class="mat-body-2 pxb-info-list-item-subtitle" matLine [class.pxb-info-list-item-wrap]="wrapSubtitle">
                 <ng-container *ngIf="subtitleIsArray">
                     <ng-container *ngFor="let sub of subtitle; let last = last">
@@ -31,7 +31,9 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
             </div>
             <pxb-spacer class="pxb-info-list-item-spacer"></pxb-spacer>
             <div class="pxb-info-list-item-right-component">
-                <div #right><ng-content select="[right-component]"></ng-content></div>
+                <div #right class="pxb-info-list-item-right-component-wrapper">
+                    <ng-content select="[right-component]"></ng-content>
+                </div>
                 <mat-icon *ngIf="chevron && !right.innerHTML">chevron_right</mat-icon>
             </div>
         </mat-list-item>

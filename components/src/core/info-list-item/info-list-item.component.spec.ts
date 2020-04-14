@@ -56,7 +56,7 @@ describe('InfoListItemComponent', () => {
     it('should render a title', () => {
         component.title = 'Test Title';
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.pxb-info-list-item-title').innerHTML).toBe('Test Title');
+        expect(fixture.nativeElement.querySelector('.pxb-info-list-item-title').innerHTML.trim()).toBe('Test Title');
     });
 
     it('should render a subtitle', () => {
@@ -110,6 +110,7 @@ describe('InfoListItemComponent', () => {
             '.pxb-info-list-item-spacer',
             '.pxb-info-list-item-right-component',
             '.pxb-info-list-item-divider',
+            '.pxb-info-list-item-right-component-wrapper'
         ];
         for (const className of classList) {
             count(fixture, className);

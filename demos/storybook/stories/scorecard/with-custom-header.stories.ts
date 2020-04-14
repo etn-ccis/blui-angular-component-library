@@ -5,7 +5,7 @@ const backgroundImage = require('../../assets/topology_40.png');
 
 export const withCustomHeaderStyles = `
     ${matListStyles}
-    ::ng-deep pxb-scorecard .pxb-header-background {
+    ::ng-deep .pxb-scorecard .pxb-scorecard-header-background {
         background-image: url(${backgroundImage});
     }`;
 
