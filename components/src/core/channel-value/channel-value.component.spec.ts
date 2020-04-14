@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ChannelValueComponent } from './channel-value.component';
-import {count} from "../../utils/test-utils";
-import {ChannelValueModule} from "./channel-value.module";
+import { count } from '../../utils/test-utils';
+import { ChannelValueModule } from './channel-value.module';
 
 describe('ChannelValueComponent', () => {
     let component: ChannelValueComponent;
@@ -31,7 +31,7 @@ describe('ChannelValueComponent', () => {
             '.pxb-channel-value',
             '.pxb-channel-value-units',
             '.pxb-channel-value-icon',
-            '.pxb-channel-value-value'
+            '.pxb-channel-value-value',
         ];
         for (const className of classList) {
             count(fixture, className);

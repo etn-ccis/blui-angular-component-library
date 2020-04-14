@@ -18,7 +18,7 @@ describe('SpacerComponent', () => {
         expect(component).toBeTruthy();
     });
 
-   it('should have a default flex value of 1', () => {
+    it('should have a default flex value of 1', () => {
         fixture.detectChanges();
         expect(component.flex).toBe(1);
         expect(component.grow).toBe('1 1 0px');

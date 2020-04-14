@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector: 'pxb-info-list-item',
@@ -18,7 +18,9 @@ import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from '@ang
             <div class="pxb-info-list-item-left-component">
                 <ng-content select="[left-component]"></ng-content>
             </div>
-            <div class="mat-body-1 pxb-info-list-item-title" matLine [class.pxb-info-list-item-wrap]="wrapTitle">{{ title }}</div>
+            <div class="mat-body-1 pxb-info-list-item-title" matLine [class.pxb-info-list-item-wrap]="wrapTitle">
+                {{ title }}
+            </div>
             <div class="mat-body-2 pxb-info-list-item-subtitle" matLine [class.pxb-info-list-item-wrap]="wrapSubtitle">
                 <ng-container *ngIf="subtitleIsArray">
                     <ng-container *ngFor="let sub of subtitle; let last = last">
@@ -33,7 +35,11 @@ import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from '@ang
                 <mat-icon *ngIf="chevron && !right.innerHTML">chevron_right</mat-icon>
             </div>
         </mat-list-item>
-        <mat-divider *ngIf="divider" class="pxb-info-list-item-divider" [class.pxb-info-list-item-partial-divider]="divider === 'partial'">
+        <mat-divider
+            *ngIf="divider"
+            class="pxb-info-list-item-divider"
+            [class.pxb-info-list-item-partial-divider]="divider === 'partial'"
+        >
         </mat-divider>
     `,
     styleUrls: ['./info-list-item.component.scss'],

@@ -33,14 +33,14 @@ export type FontSize = 'small' | 'normal';
                 <ng-content select="[primary]"></ng-content>
             </div>
             <span class="pxb-hero-channel-value-wrapper" [class.pxb-hero-small]="fontSize === 'small'">
-                <ng-content select="pxb-channel-value" *ngIf="value === undefined" ></ng-content>
+                <ng-content select="pxb-channel-value" *ngIf="value === undefined"></ng-content>
                 <pxb-channel-value *ngIf="value !== undefined" [value]="value" [units]="units">
                     <ng-content select="[secondary]"></ng-content>
                 </pxb-channel-value>
             </span>
             <h5 class="pxb-hero-label">{{ label }}</h5>
         </div>
-    `
+    `,
 })
 export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChecked {
     @Input() color: string;
@@ -111,7 +111,7 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
             this.hasMatSvgIcon = true;
             const svg = matIcon.querySelector('svg');
             if (svg) {
-                svg.style.setProperty('transform', `scale(${this.iSize/24})`);
+                svg.style.setProperty('transform', `scale(${this.iSize / 24})`);
             }
         }
     }

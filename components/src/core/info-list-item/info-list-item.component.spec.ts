@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {count} from "../../utils/test-utils";
+import { count } from '../../utils/test-utils';
 import { InfoListItemComponent } from './info-list-item.component';
 import { InfoListItemModule } from './info-list-item.module';
 import { Component } from '@angular/core';
@@ -62,7 +62,9 @@ describe('InfoListItemComponent', () => {
     it('should render a subtitle', () => {
         component.subtitle = 'Test Subtitle';
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.pxb-info-list-item-subtitle').innerHTML).toContain('Test Subtitle');
+        expect(fixture.nativeElement.querySelector('.pxb-info-list-item-subtitle').innerHTML).toContain(
+            'Test Subtitle'
+        );
     });
 
     it('should render an icon', () => {
@@ -107,7 +109,7 @@ describe('InfoListItemComponent', () => {
             '.pxb-info-list-item-subtitle',
             '.pxb-info-list-item-spacer',
             '.pxb-info-list-item-right-component',
-            '.pxb-info-list-item-divider'
+            '.pxb-info-list-item-divider',
         ];
         for (const className of classList) {
             count(fixture, className);

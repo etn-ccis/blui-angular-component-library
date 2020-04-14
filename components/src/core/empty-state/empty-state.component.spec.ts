@@ -1,9 +1,9 @@
-import {async, ComponentFixture, TestBed} from '@angular/core/testing';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { EmptyStateComponent } from './empty-state.component';
-import {count} from "../../utils/test-utils";
-import {EmptyStateModule} from "./empty-state.module";
+import { count } from '../../utils/test-utils';
+import { EmptyStateModule } from './empty-state.module';
 
 /** Test component that contains an MatButton. */
 @Component({
@@ -22,7 +22,6 @@ import {EmptyStateModule} from "./empty-state.module";
 class TestEmpty {}
 
 describe('Empty State Component', () => {
-
     let fixture: ComponentFixture<EmptyStateComponent>;
     let component: EmptyStateComponent;
 
@@ -99,7 +98,7 @@ describe('Empty State Component', () => {
             '.pxb-empty-state',
             '.pxb-empty-state-empty-icon-wrapper',
             '.pxb-empty-state-title',
-            '.pxb-empty-state-description'
+            '.pxb-empty-state-description',
         ];
         for (const className of classList) {
             count(fixture, className);
