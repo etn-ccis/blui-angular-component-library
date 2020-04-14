@@ -5,21 +5,27 @@
     justify-content: center;
 }
 
-:host ::ng-deep [empty-icon] {
-    display: block;
-    font-size: 100px;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-}
-
-.container {
+.pxb-empty-state {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
 
-h2,
-h4 {
-    text-align: center;
+    .pxb-empty-state-title {
+        margin-bottom: 0;
+    }
+
+    .pxb-empty-state-title, .pxb-empty-state-description {
+        text-align: center;
+    }
+
+    .pxb-empty-state-empty-icon-wrapper {
+        line-height: 1;
+        > * {
+            display: block;
+            font-size: 100px;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+        }
+    }
 }

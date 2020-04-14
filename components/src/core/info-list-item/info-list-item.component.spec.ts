@@ -56,13 +56,13 @@ describe('InfoListItemComponent', () => {
     it('should render a title', () => {
         component.title = 'Test Title';
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.pxb-title').innerHTML).toBe('Test Title');
+        expect(fixture.nativeElement.querySelector('.pxb-info-list-item-title').innerHTML).toBe('Test Title');
     });
 
     it('should render a subtitle', () => {
         component.subtitle = 'Test Subtitle';
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.pxb-subtitle').innerHTML).toContain('Test Subtitle');
+        expect(fixture.nativeElement.querySelector('.pxb-info-list-item-subtitle').innerHTML).toContain('Test Subtitle');
     });
 
     it('should render an icon', () => {
@@ -101,13 +101,13 @@ describe('InfoListItemComponent', () => {
         fixture.detectChanges();
         const classList = [
             '.pxb-info-list-item',
-            '.pxb-icon',
-            '.pxb-left-component',
-            '.pxb-title',
-            '.pxb-subtitle',
-            '.pxb-spacer',
-            '.pxb-right-component',
-            '.pxb-divider'
+            '.pxb-info-list-item-icon',
+            '.pxb-info-list-item-left-component',
+            '.pxb-info-list-item-title',
+            '.pxb-info-list-item-subtitle',
+            '.pxb-info-list-item-spacer',
+            '.pxb-info-list-item-right-component',
+            '.pxb-info-list-item-divider'
         ];
         for (const className of classList) {
             count(fixture, className);

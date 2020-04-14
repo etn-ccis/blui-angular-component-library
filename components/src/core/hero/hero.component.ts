@@ -7,36 +7,40 @@ import {
     Input,
     OnChanges,
     ViewChild,
+    ChangeDetectionStrategy,
+    ViewEncapsulation,
 } from '@angular/core';
 export type IconSize = 'small' | 'normal' | 'large' | number;
 export type FontSize = 'small' | 'normal';
 
 @Component({
     selector: 'pxb-hero',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
+    styleUrls: ['./hero.component.scss'],
     template: `
-        <div class="pxb-root">
+        <div class="pxb-hero">
             <div
-                class="pxb-primary-wrapper"
+                class="pxb-hero-primary-wrapper"
                 #primaryContainer
                 [style.backgroundColor]="iconBackgroundColor"
                 [style.lineHeight.px]="iSize"
                 [style.fontSize.px]="iSize"
                 [style.width.px]="iSize"
                 [style.height.px]="iSize"
-                [class.pxb-svgIcon]="hasMatSvgIcon"
+                [class.pxb-hero-svgIcon]="hasMatSvgIcon"
             >
                 <ng-content select="[primary]"></ng-content>
             </div>
-            <span class="pxb-channel-value-wrapper" [style.fontSize.rem]="fontSize === 'small' ? '1' : '1.25'">
+            <span class="pxb-hero-channel-value-wrapper" [class.pxb-hero-small]="fontSize === 'small'">
                 <ng-content select="pxb-channel-value" *ngIf="value === undefined" ></ng-content>
                 <pxb-channel-value *ngIf="value !== undefined" [value]="value" [units]="units">
                     <ng-content select="[secondary]"></ng-content>
                 </pxb-channel-value>
             </span>
-            <h5 class="pxb-label">{{ label }}</h5>
+            <h5 class="pxb-hero-label">{{ label }}</h5>
         </div>
-    `,
-    styleUrls: ['./hero.component.scss'],
+    `
 })
 export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChecked {
     @Input() color: string;

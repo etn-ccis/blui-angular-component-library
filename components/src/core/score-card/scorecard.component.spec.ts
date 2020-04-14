@@ -53,21 +53,21 @@ describe('ScoreCardComponent', () => {
     it('should display a header', () => {
         component.headerTitle = 'Header Title';
         fixture.detectChanges();
-        const title = fixture.nativeElement.querySelector('.pxb-title');
+        const title = fixture.nativeElement.querySelector('.pxb-scorecard-title');
         expect(title.innerHTML).toBe('Header Title');
     });
 
     it('should display a subheader', () => {
         component.headerSubtitle = 'Header Subheader';
         fixture.detectChanges();
-        const subtitle = fixture.nativeElement.querySelector('.pxb-subtitle');
+        const subtitle = fixture.nativeElement.querySelector('.pxb-scorecard-subtitle');
         expect(subtitle.innerHTML).toBe('Header Subheader');
     });
 
     it('should display a third line of text in the header', () => {
         component.headerInfo = 'Header Info';
         fixture.detectChanges();
-        const info = fixture.nativeElement.querySelector('.pxb-info');
+        const info = fixture.nativeElement.querySelector('.pxb-scorecard-info');
         expect(info.innerHTML).toBe('Header Info');
     });
 
@@ -94,18 +94,18 @@ describe('ScoreCardComponent', () => {
 
     it('should enforce class naming conventions', () => {
         const classList = [
-            '.pxb-root',
-            '.pxb-header',
-            '.pxb-header-background',
-            '.pxb-header-wrapper',
-            '.pxb-header-text',
-            '.pxb-title',
-            '.pxb-subtitle',
-            '.pxb-info',
-            '.pxb-action-items-wrapper',
-            '.pxb-body',
-            '.pxb-badge-wrapper',
-            '.pxb-action-row-wrapper',
+            '.pxb-scorecard',
+            '.pxb-scorecard-header',
+            '.pxb-scorecard-header-background',
+            '.pxb-scorecard-header-wrapper',
+            '.pxb-scorecard-header-text',
+            '.pxb-scorecard-title',
+            '.pxb-scorecard-subtitle',
+            '.pxb-scorecard-info',
+            '.pxb-scorecard-action-items-wrapper',
+            '.pxb-scorecard-body',
+            '.pxb-scorecard-badge-wrapper',
+            '.pxb-scorecard-action-row-wrapper',
         ];
         for (const className of classList) {
             count(fixture, className);

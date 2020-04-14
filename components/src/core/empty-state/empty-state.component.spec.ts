@@ -1,7 +1,9 @@
-import { async, TestBed } from '@angular/core/testing';
+import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { EmptyStateComponent } from './empty-state.component';
+import {count} from "../../utils/test-utils";
+import {EmptyStateModule} from "./empty-state.module";
 
 /** Test component that contains an MatButton. */
 @Component({
@@ -20,77 +22,82 @@ import { EmptyStateComponent } from './empty-state.component';
 class TestEmpty {}
 
 describe('Empty State Component', () => {
+
+    let fixture: ComponentFixture<EmptyStateComponent>;
+    let component: EmptyStateComponent;
+
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            imports: [],
-            declarations: [EmptyStateComponent, TestEmpty],
-        });
-
-        TestBed.compileComponents();
+            imports: [EmptyStateModule],
+            declarations: [TestEmpty],
+        }).compileComponents();
     }));
 
-    // Title Check
-    it('should show title when supplied', () => {
-        const fixture = TestBed.createComponent(EmptyStateComponent);
-
-        const testComponent = fixture.debugElement.componentInstance;
-        const titleElement = fixture.debugElement.query(By.css('h2'));
-
-        testComponent.title = 'TEST';
-        fixture.detectChanges();
-        expect(titleElement.nativeElement.innerHTML).toBe('TEST');
-
-        testComponent.title = '';
-        fixture.detectChanges();
-        expect(titleElement.nativeElement.innerHTML).toBe('');
-
-        testComponent.title = null;
-        fixture.detectChanges();
-
-        expect(titleElement.nativeElement.innerHTML).toBe('');
+    beforeEach(() => {
+        fixture = TestBed.createComponent(EmptyStateComponent);
+        component = fixture.componentInstance;
     });
 
-    // Description Check
+    it('should show title when supplied', () => {
+        component.title = 'title';
+        fixture.detectChanges();
+        const titleElement = fixture.debugElement.query(By.css('h2'));
+        expect(titleElement.nativeElement.innerHTML).toBe('title');
+    });
+
+    it('should not show empty title', () => {
+        component.title = undefined;
+        fixture.detectChanges();
+        const titleElement = fixture.debugElement.query(By.css('h2'));
+        expect(titleElement.nativeElement.innerHTML).toBeFalsy();
+    });
+
     it('should show description when supplied', () => {
-        const fixture = TestBed.createComponent(EmptyStateComponent);
-
-        const testComponent = fixture.debugElement.componentInstance;
-        let descriptionElement = fixture.debugElement.query(By.css('h4'));
-
-        testComponent.title = 'TEST';
+        component.description = 'description';
         fixture.detectChanges();
-        expect(descriptionElement).toBeNull();
+        const descriptionElement = fixture.debugElement.query(By.css('h4'));
+        expect(descriptionElement.nativeElement.innerHTML).toBe('description');
+    });
 
-        testComponent.description = 'SAMPLE';
+    it('should not show empty description', () => {
+        component.description = '';
         fixture.detectChanges();
-        descriptionElement = fixture.debugElement.query(By.css('h4'));
-        expect(descriptionElement.nativeElement.innerHTML).toBe('SAMPLE');
-
-        testComponent.description = null;
-        fixture.detectChanges();
-        descriptionElement = fixture.debugElement.query(By.css('h4'));
-        expect(descriptionElement).toBeNull();
+        const descriptionElement = fixture.debugElement.query(By.css('h4'));
+        expect(descriptionElement).toBeFalsy();
     });
 
     // Action Check
     it('should show actions when supplied', () => {
-        const fixture = TestBed.createComponent(TestEmpty);
-
-        let actionElement = fixture.debugElement.query(By.css('.withActions [actions]'));
+        const actikonFixture = TestBed.createComponent(TestEmpty);
+        let actionElement = actikonFixture.debugElement.query(By.css('.withActions [actions]'));
         expect(actionElement).not.toBeNull();
 
-        actionElement = fixture.debugElement.query(By.css('.empty [actions]'));
+        actionElement = actikonFixture.debugElement.query(By.css('.empty [actions]'));
         expect(actionElement).toBeNull();
     });
 
     // Icon Check
     it('should show icon when supplied', () => {
-        const fixture = TestBed.createComponent(TestEmpty);
-
-        let actionElement = fixture.debugElement.query(By.css('.withIcon [empty-icon]'));
+        const iconFixture = TestBed.createComponent(TestEmpty);
+        let actionElement = iconFixture.debugElement.query(By.css('.withIcon [empty-icon]'));
         expect(actionElement).not.toBeNull();
 
-        actionElement = fixture.debugElement.query(By.css('.empty [empty-icon]'));
+        actionElement = iconFixture.debugElement.query(By.css('.empty [empty-icon]'));
         expect(actionElement).toBeNull();
+    });
+
+    it('should enforce class naming conventions', () => {
+        component.title = 'title';
+        component.description = 'description';
+        fixture.detectChanges();
+        const classList = [
+            '.pxb-empty-state',
+            '.pxb-empty-state-empty-icon-wrapper',
+            '.pxb-empty-state-title',
+            '.pxb-empty-state-description'
+        ];
+        for (const className of classList) {
+            count(fixture, className);
+        }
     });
 });

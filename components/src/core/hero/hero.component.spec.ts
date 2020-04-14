@@ -13,7 +13,7 @@ describe('HeroComponent', () => {
     }));
 
     it('should enforce class naming conventions', () => {
-        const classList = ['.pxb-root', '.pxb-primary-wrapper', '.pxb-channel-value-wrapper', '.pxb-label'];
+        const classList = ['.pxb-hero', '.pxb-hero-primary-wrapper', '.pxb-hero-channel-value-wrapper', '.pxb-hero-label'];
         for (const className of classList) {
             count(fixture, className);
         }
