@@ -12,6 +12,10 @@ Icons are passed in as a child element of the ChannelValue component.
 
 ## Usage
 
+<div style="width: 100%; text-align: center">
+    <img width="100%" style="max-width: 400px" alt="Channel Value Anatomy" src="./images/channelValueAnatomy.png">
+</div>
+
 ```typescript
 // app.module.ts
 import { ChannelValueModule } from '@pxblue/angular-components';

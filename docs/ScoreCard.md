@@ -9,8 +9,8 @@ Card component that calls attention to particular values.
 
 ## Usage
 
-<div style="align-items: center; text-align: center; width: 100%; display: flex; justify-content: space-evenly; margin-bottom: 20px">
-    <img width="80%" alt="Score Card with labels on different parts" src="./images/scoreCardAnatomy.png"><br/>
+<div style="width: 100%; text-align: center">
+    <img width="100%" style="max-width: 800px" alt="Empty State Anatomy" src="./images/scoreCardAnatomy.png">
 </div>
 
 ```typescript
@@ -40,7 +40,7 @@ imports: [
         <mat-list-item>Body Content</mat-list-item>
     </mat-list>
 
-    <pxb-hero badge [label]="'Grade'" [value]="'98'" [units]="'/100'" 
+    <pxb-hero badge [label]="'Grade'" [value]="'98'" [units]="'/100'"
         [iconSize]="'large'" [iconBackgroundColor]="'white'">
         <i primary class="pxb-grade_a"></i>
     </pxb-hero>
@@ -53,8 +53,8 @@ imports: [
 
 | Attributes     | Description                                 | Type         | Required | Default |
 | -------------- | ------------------------------------------- | ------------ | -------- | ------- |
-| actionItems    | Icons shown to the right of the header text | `ng-content` | no       |         |
-| actionRow      | Content to render for the footer            | `ng-content` | no       |         |
+| action-items   | Icons shown to the right of the header text | `ng-content` | no       |         |
+| action-row     | Content to render for the footer            | `ng-content` | no       |         |
 | badge          | Content to render in the callout area       | `ng-content` | no       |         |
 | badgeOffset    | Vertical offset for the badge content       | `number`     | no       | 0       |
 | body           | Content to render in the body               | `ng-content` | no       |         |

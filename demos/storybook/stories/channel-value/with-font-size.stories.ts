@@ -1,6 +1,6 @@
 import { number } from '@storybook/addon-knobs';
 
-export const withExtraLargeFont = (): any => ({
+export const withFontSize = (): any => ({
     template: `
         <pxb-channel-value [value]="'123'" [units]="'hz'" [fontSize]="fontSize">
             <mat-icon [style.color]="iconColor">trending_up</mat-icon>
