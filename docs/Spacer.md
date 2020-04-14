@@ -18,9 +18,10 @@ imports: [
 ...
 ```
 
-```typescript
+```html
 // using flex layout
 <pxb-spacer></pxb-spacer>
+
 // using pixels
 <pxb-spacer width="50"></pxb-spacer>
 ```

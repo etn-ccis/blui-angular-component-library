@@ -25,9 +25,9 @@ imports: [
 ],
 ```
 
-```typescript
-// your-component.html
-<pxb-channel-value class="content" value="65" units="%" [prefix]="true" fontSize="10px" >
+```html
+// your-components.html
+<pxb-channel-value class="content" value="65" units="%" [prefix]="true" fontSize="10px">
     <mat-icon>trending_up</mat-icon>
 </pxb-channel-value>
 ```

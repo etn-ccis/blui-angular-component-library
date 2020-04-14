@@ -1,4 +1,4 @@
-# ScoreCard
+# Scorecard
 
 Card component that calls attention to particular values.
 
@@ -19,17 +19,18 @@ import { ScoreCardModule } from '@pxblue/angular-components';
 ...
 imports: [
     ScoreCardModule
-  ],
+],
 ...
 ```
 
-```typescript
+```html
 // Example with basic body content, action items, and a score badge
+
 <pxb-scorecard
-  [headerTitle]="'Substation 3'"
-  [headerSubtitle]="'Normal'"
-  [headerInfo]="'4 Devices'"
-  [badgeOffset]="-76"
+    [headerTitle]="'Substation 3'"
+    [headerSubtitle]="'Normal'"
+    [headerInfo]="'4 Devices'"
+    [badgeOffset]="-76"
 >
     <ng-container action-items>
         <mat-icon>search</mat-icon>
@@ -40,8 +41,14 @@ imports: [
         <mat-list-item>Body Content</mat-list-item>
     </mat-list>
 
-    <pxb-hero badge [label]="'Grade'" [value]="'98'" [units]="'/100'"
-        [iconSize]="'large'" [iconBackgroundColor]="'white'">
+    <pxb-hero
+        badge
+        [label]="'Grade'"
+        [value]="'98'"
+        [units]="'/100'"
+        [iconSize]="'large'"
+        [iconBackgroundColor]="'white'"
+    >
         <i primary class="pxb-grade_a"></i>
     </pxb-hero>
 </pxb-scorecard>

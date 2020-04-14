@@ -25,8 +25,8 @@ imports: [
 ],
 ```
 
-```typescript
-// your-component.html
+```html
+// your-components.html
 <pxb-empty-state title="No Devices Found">
     <mat-icon empty-icon>notifications_none</mat-icon>
     <button mat-raised-button color="primary" actions>
