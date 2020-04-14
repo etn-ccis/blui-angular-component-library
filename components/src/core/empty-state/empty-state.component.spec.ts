@@ -38,6 +38,11 @@ describe('Empty State Component', () => {
         component = fixture.componentInstance;
     });
 
+    it('should initialize', () => {
+        fixture.detectChanges();
+        expect(component).toBeTruthy();
+    });
+
     it('should show title when supplied', () => {
         component.title = 'title';
         fixture.detectChanges();
