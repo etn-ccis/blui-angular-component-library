@@ -14,6 +14,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Spacer`, module)
         })
     )
     .addDecorator(withKnobs)
+    // @accessibility
     .addDecorator(withA11y)
     .addDecorator(storyWrapper())
     .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('Spacer.md') } })

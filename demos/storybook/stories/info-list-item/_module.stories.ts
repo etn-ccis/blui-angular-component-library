@@ -36,6 +36,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Info List Item`, module)
         })
     )
     .addDecorator(withKnobs)
+    // @accessibility
     .addDecorator(withA11y)
     .addDecorator(storyWrapper())
     .addDecorator(infoListItemWrapper())

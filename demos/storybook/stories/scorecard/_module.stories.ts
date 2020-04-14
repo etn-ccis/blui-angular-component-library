@@ -44,6 +44,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Scorecard`, module)
         })
     )
     .addDecorator(withKnobs)
+    // @accessibility
     .addDecorator(withA11y)
     .addDecorator(storyWrapper())
     .addDecorator(scorecardContainer())

@@ -24,6 +24,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Empty State`, module)
         })
     )
     .addDecorator(withKnobs)
+    // @accessibility
     .addDecorator(withA11y)
     .addDecorator(storyWrapper())
     .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('EmptyState.md') } })
