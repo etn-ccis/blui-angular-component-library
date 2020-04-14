@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListItemTagComponent } from './list-item-tag.component';
+import { ListItemTagModule } from './list-item-tag.module';
 
 describe('ListItemTagComponent', () => {
   let component: ListItemTagComponent;
@@ -8,7 +9,8 @@ describe('ListItemTagComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ListItemTagComponent ]
+      declarations: [ ListItemTagComponent ],
+      imports: [ListItemTagModule],
     })
     .compileComponents();
   }));
