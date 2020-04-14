@@ -12,6 +12,10 @@ The value section of the Hero utilizes a [ChannelValue](./ChannelValue.md) compo
 
 ## Hero Usage
 
+<div style="width: 100%; text-align: center">
+    <img width="100%" style="max-width: 600px" alt="Hero Anatomy" src="./images/heroAnatomy.png">
+</div>
+
 ```typescript
 // app.module.ts
 import { HeroModule } from '@pxblue/angular-components';
@@ -39,6 +43,8 @@ imports: [
 
 ## Hero API
 
+Parent element (`pxb-hero`) attributes:
+
 <div style="overflow: auto;">
 
 | Attributes | Description                             | Type                 | Required | Default       |
@@ -52,6 +58,18 @@ imports: [
 </div>
 
 > **Note**: When using the `iconSize` attribute, you may specify either normal (36px) or large (72px). When using `<mat-icon>` icons (not PX Blue supplemental icon), you may also specify a numeric value from 10 to 72.
+
+Child element with attributes:
+
+<div style="overflow: auto;">
+
+| Attributes     | Description                                           | Required | Default |
+| -------------- | ----------------------------------------------------- | -------- | ------- |
+| (channelValue) | The `ChannelValue` to display under the primary icon  | no       |         |
+| primary        | The large icon displayed on the top                   | no       |         |
+| secondary      | The icon displayed to the left of the value and units | no       |         |
+
+</div>
 
 # HeroBanner
 
@@ -82,6 +100,8 @@ imports: [
 
 ## HeroBanner API
 
+Parent element (`pxb-hero-banner`) attributes:
+
 <div style="overflow: auto;">
 
 | Attributes | Description                        | Type      | Required | Default |
@@ -89,3 +109,11 @@ imports: [
 | divider    | Whether to show the line separator | `boolean` | no       | false   |
 
 </div>
+
+Child element:
+
+<div style="overflow: auto;">
+
+| Attributes | Description           | Required | Default |
+| ---------- | --------------------- | -------- | ------- |
+| (heros)    | `pxb-hero` to display | no       |         |
