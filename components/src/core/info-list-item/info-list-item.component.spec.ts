@@ -110,7 +110,7 @@ describe('InfoListItemComponent', () => {
             '.pxb-info-list-item-spacer',
             '.pxb-info-list-item-right-component',
             '.pxb-info-list-item-divider',
-            '.pxb-info-list-item-right-component-wrapper'
+            '.pxb-info-list-item-right-component-wrapper',
         ];
         for (const className of classList) {
             count(fixture, className);

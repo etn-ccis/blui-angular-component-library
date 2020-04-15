@@ -22,7 +22,7 @@
     "@angular/platform-browser": "~8.2.2",
     "@angular/platform-browser-dynamic": "~8.2.2",
     "@angular/router": "~8.2.2",
-    "@pxblue/angular-themes": "^4.0.0",
+    "@pxblue/angular-themes": "^5.0.0-beta.0",
     "@pxblue/colors": "^2.0.0",
     "@pxblue/icons": "^1.0.25",
     "@pxblue/storybook-themes": "^1.1.0-beta.1",

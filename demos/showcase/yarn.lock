@@ -309,10 +309,25 @@
     tree-kill "1.2.0"
     webpack-sources "1.2.0"
 
+"@pxblue/angular-themes@^5.0.0-beta.0":
+  version "5.0.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@pxblue/angular-themes/-/angular-themes-5.0.0-beta.0.tgz#cb9e308fd678fc29ada63f84bd9b0286b2653a63"
+  integrity sha512-2Wj4PqmfUy9L639wB9X5EBNeq+Et4aK2NyfPGBoUw7+xaU8sYiXEofnj2jbitGY7nQ06jwysQBVjrObYp5iNhg==
+  dependencies:
+    "@pxblue/colors" "^2.0.0"
+    typeface-open-sans "^0.0.75"
+
 "@pxblue/colors@^1.0.13":
   version "1.0.13"
   resolved "https://registry.yarnpkg.com/@pxblue/colors/-/colors-1.0.13.tgz#1ed76734267f77dd4b390836f61d01439fc35132"
   integrity sha512-tneNNYclHmNNIbo6J7XXEumoJZLBXqeO2LFufWxRvIs5yeVVfaJN3zWREl1oo5KP67aDixYgEKB7LH0oeTL+lQ==
+
+"@pxblue/colors@^2.0.0":
+  version "2.0.1"
+  resolved "https://registry.yarnpkg.com/@pxblue/colors/-/colors-2.0.1.tgz#d24dae5bc6c3b9755b52a22738aa567bfeea3b8c"
+  integrity sha512-Uceh+1Bd0acoC+KulmhxrUOkWMlOgnqXFLS02l5SHYRL3ggyjSgHBVMRp2DLt24e/OJn5tAOoNJTC9q77U297w==
+  dependencies:
+    "@pxblue/types" "^1.0.0"
 
 "@pxblue/eslint-config@^1.1.4":
   version "1.1.4"
@@ -341,13 +356,10 @@
   resolved "https://registry.yarnpkg.com/@pxblue/prettier-config/-/prettier-config-1.0.2.tgz#fb00503df6557b66c3d91d43c9101e614c35d2ec"
   integrity sha512-/3cLBoTjZs3kV1ATPA/Sp0tsL7XmlV/b8HW/qt0jqR/uP5+cdXL2YIhMXQngLRa7PhpSkEiRIYK5sl0rKsXTUg==
 
-"@pxblue/themes@^2.0.2":
-  version "2.1.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/themes/-/themes-2.1.0.tgz#cae223f37aac743697a8f3cc835b16b56dfc694e"
-  integrity sha512-ctA9HaQYmPlj8kQ8qUfO8TRWP5l7gPYSoKvD1Z2mA1KmjCTSTVS7ros/Z1VF9k5Jz4ic5KtDg0T/wJxyAJWgKA==
-  dependencies:
-    "@pxblue/colors" "^1.0.13"
-    typeface-open-sans "^0.0.54"
+"@pxblue/types@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@pxblue/types/-/types-1.0.0.tgz#befa98a12ae95a407c252399c69677aa7427d97e"
+  integrity sha512-K0liTITRTZfv7n/2UmbP0g/nTelr3aaDlA5XleGqC+1hLRab20MpVaOSgLRiU8+4f0vayGtbBm63HyHgoXMROw==
 
 "@schematics/angular@7.2.4":
   version "7.2.4"
@@ -7899,6 +7911,11 @@ typeface-open-sans@^0.0.54:
   version "0.0.54"
   resolved "https://registry.yarnpkg.com/typeface-open-sans/-/typeface-open-sans-0.0.54.tgz#20f5b5ea5c7f95d89dc1f8b2d2b1457680129cee"
   integrity sha512-w6wOd6EicZdZKf0jSU/K3EzEi3zFgvWQSN7NOpRIQI5KeMWmC5Pg/lqtBVJHB0pRChYRmLdhf4h8ROur0A3JZQ==
+
+typeface-open-sans@^0.0.75:
+  version "0.0.75"
+  resolved "https://registry.yarnpkg.com/typeface-open-sans/-/typeface-open-sans-0.0.75.tgz#20d0c330f14c0c40463c334adbedd6005389abe4"
+  integrity sha512-0lLmB7pfj113OP4T78SbpSmC4OCdFQ0vUxdSXQccsSb6qF76F92iEuC/DghFgmPswTyidk8+Hwf+PS/htiJoRQ==
 
 typescript@3.2.2:
   version "3.2.2"

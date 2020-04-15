@@ -19,8 +19,8 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
                 <ng-content select="[left-component]"></ng-content>
             </div>
             <div class="mat-body-1 pxb-info-list-item-title" matLine [class.pxb-info-list-item-wrap]="wrapTitle">
-                {{title}}
-            </div> 
+                {{ title }}
+            </div>
             <div class="mat-body-2 pxb-info-list-item-subtitle" matLine [class.pxb-info-list-item-wrap]="wrapSubtitle">
                 <ng-container *ngIf="subtitleIsArray">
                     <ng-container *ngFor="let sub of subtitle; let last = last">
