@@ -15,7 +15,7 @@ import { Component, Input } from '@angular/core';
     styleUrls: ['./channel-value.component.scss'],
 })
 export class ChannelValueComponent {
-    @Input() value: string;
+    @Input() value: string | number;
     @Input() units: string;
     @Input() fontSize = 'inherit';
     @Input() prefix = false;

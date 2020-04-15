@@ -56,6 +56,6 @@ Child element with attributes:
 | Attributes | Description                    | Required | Default |
 | ---------- | ------------------------------ | -------- | ------- |
 | actions    | action elements below the text | no       |         |
-| empty-icon | The large icon to display      | no       |         |
+| empty-icon | The large icon to display      | yes      |         |
 
 </div>

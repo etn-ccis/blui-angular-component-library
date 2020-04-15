@@ -37,7 +37,7 @@ Parent element (`pxb-info-list-item`) attributes:
 | statusColor       | Left border color                      | `string`             | no       |                |
 | subtitle          | The text to show on the second line    | `string | string[]`  | no       |                |
 | subtitleSeparator | Separator character for subtitle       | `string`             | no       | '·' ('\u00B7') |
-| title             | The text to show on the first line     | `string`             | no       |                |
+| title             | The text to show on the first line     | `string`             | yes      |                |
 | wrapSubtitle      | Whether to wrap subtitle on overflow   | `boolean`            | no       | false          |
 | wrapTitle         | Whether to wrap title on overflow      | `boolean`            | no       | false          |
 

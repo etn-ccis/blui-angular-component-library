@@ -115,4 +115,4 @@ Child element:
 
 | Attributes | Description           | Required | Default |
 | ---------- | --------------------- | -------- | ------- |
-| (child)    | `pxb-hero` to display | no       |         |
+| (child)    | `pxb-hero` to display | yes      |         |

@@ -1,37 +1,37 @@
 {
-  "name": "pxblue-angular-components",
-  "version": "0.0.0",
-  "description": "Angular components for PX Blue applications",
-  "main": "index.js",
-  "scripts": {
-    "test": "cd ./components && yarn test:ci",
-    "test:artifacts": "bash scripts/buildTest.sh",
-    "build": "bash scripts/buildComponents.sh",
-    "install:dependencies": "cd demos/showcase && yarn && cd ../storybook && yarn && cd ../../components && yarn",
-    "link:components": "bash scripts/linkComponents.sh",
-    "start:storybook": "yarn install:dependencies && yarn link:components && cd demos/storybook && yarn start",
-    "start:showcase": "yarn install:dependencies && yarn link:components && cd demos/showcase && yarn start",
-    "lint": "cd components && yarn lint && cd ../demos/showcase && yarn lint && cd ../storybook && yarn lint",
-    "lint:fix": "cd components && yarn lint:fix && cd ../demos/showcase && yarn lint:fix && cd ../storybook && yarn lint:fix",
-    "prettier": "cd components && yarn prettier && cd ../demos/showcase && yarn prettier"
-  },
-  "private": true,
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/pxblue/angular-component-library.git"
-  },
-  "keywords": [
-    "angular",
-    "components",
-    "pxblue"
-  ],
-  "author": "pxblue <pxblue@eaton.com>",
-  "license": "BSD-3-Clause",
-  "bugs": {
-    "url": "https://github.com/pxblue/angular-component-library/issues"
-  },
-  "homepage": "https://github.com/pxblue/angular-component-library#readme",
-  "directories": {
-    "doc": "docs"
-  }
+    "name": "pxblue-angular-components",
+    "version": "0.0.0",
+    "description": "Angular components for PX Blue applications",
+    "main": "index.js",
+    "scripts": {
+        "test": "cd ./components && yarn test:ci",
+        "test:artifacts": "bash scripts/buildTest.sh",
+        "build": "bash scripts/buildComponents.sh",
+        "install:dependencies": "cd demos/showcase && yarn && cd ../storybook && yarn && cd ../../components && yarn",
+        "link:components": "bash scripts/linkComponents.sh",
+        "start:storybook": "yarn install:dependencies && yarn link:components && cd demos/storybook && yarn start",
+        "start:showcase": "yarn install:dependencies && yarn link:components && cd demos/showcase && yarn start",
+        "lint": "cd components && yarn lint && cd ../demos/showcase && yarn lint && cd ../storybook && yarn lint",
+        "lint:fix": "cd components && yarn lint:fix && cd ../demos/showcase && yarn lint:fix && cd ../storybook && yarn lint:fix",
+        "prettier": "cd components && yarn prettier && cd ../demos/showcase && yarn prettier"
+    },
+    "private": true,
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pxblue/angular-component-library.git"
+    },
+    "keywords": [
+        "angular",
+        "components",
+        "pxblue"
+    ],
+    "author": "pxblue <pxblue@eaton.com>",
+    "license": "BSD-3-Clause",
+    "bugs": {
+        "url": "https://github.com/pxblue/angular-component-library/issues"
+    },
+    "homepage": "https://github.com/pxblue/angular-component-library#readme",
+    "directories": {
+        "doc": "docs"
+    }
 }

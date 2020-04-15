@@ -66,7 +66,7 @@ Parent element (`pxb-score-card`) attributes:
 | badgeOffset    | Vertical offset for the badge content | `number`     | no       | 0       |
 | headerInfo     | Tertiary text                         | `string`     | no       |         |
 | headerSubtitle | The secondary text                    | `string`     | no       |         |
-| headerTitle    | The primary text                      | `string`     | no       |         |
+| headerTitle    | The primary text                      | `string`     | yes      |         |
 
 </div>
 

@@ -2,6 +2,8 @@
 
 ## v2.0.0
 
+-   `ChannelValue`'s value attribute now accepts both `string` type and `number` type.
+    _Breaking Changes_
 -   `pxb-scorecard` is now `pxb-score-card`.
 
 ## v1.3.0
