@@ -1,5 +1,4 @@
-@import '~@pxblue/colors/palette';
-.banner {
+.pxb-hero-banner {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -7,6 +6,5 @@
 :host ::ng-deep pxb-hero:nth-child(n + 5) {
     display: none;
 }
-.divider {
-    color: map-get($pxb-gray, 200);
+.pxb-hero-banner-divider {
 }

@@ -1,4 +1,4 @@
-import '@pxblue/themes/angular/theme.scss';
+import '@pxblue/angular-themes/theme.scss';
 import { CommonModule } from "@angular/common";
 import { Component, NgModule } from '@angular/core';
 import 'typeface-open-sans';

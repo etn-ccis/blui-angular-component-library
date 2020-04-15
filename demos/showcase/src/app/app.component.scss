@@ -25,7 +25,7 @@ pxb-score-card {
 }
 
 pxb-score-card {
-    .pxb-header-background {
+    .pxb-score-card-header-background {
         background-image: url('../assets/topology_40.png');
     }
     .mat-list-base {
@@ -39,7 +39,7 @@ pxb-score-card {
     }
 }
 .red-score-card {
-    .pxb-root .pxb-header {
+    .pxb-score-card .pxb-score-card-header {
         background-color: map-get($pxb-red, 500);
     }
     margin-right: 16px;

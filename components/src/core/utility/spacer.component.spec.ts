@@ -13,7 +13,7 @@ describe('SpacerComponent', () => {
         component = fixture.componentInstance;
     });
 
-    it('should create', () => {
+    it('should initialize', () => {
         fixture.detectChanges();
         expect(component).toBeTruthy();
     });

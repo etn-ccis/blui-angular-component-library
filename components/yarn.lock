@@ -983,13 +983,6 @@
     tree-kill "1.2.2"
     webpack-sources "1.4.3"
 
-"@pxblue/colors@^2.0.0":
-  version "2.0.1"
-  resolved "https://registry.yarnpkg.com/@pxblue/colors/-/colors-2.0.1.tgz#d24dae5bc6c3b9755b52a22738aa567bfeea3b8c"
-  integrity sha512-Uceh+1Bd0acoC+KulmhxrUOkWMlOgnqXFLS02l5SHYRL3ggyjSgHBVMRp2DLt24e/OJn5tAOoNJTC9q77U297w==
-  dependencies:
-    "@pxblue/types" "^1.0.0"
-
 "@pxblue/eslint-config@^1.1.4":
   version "1.1.5"
   resolved "https://registry.yarnpkg.com/@pxblue/eslint-config/-/eslint-config-1.1.5.tgz#7890242cb81170514aa02defd549032a834f29c3"
@@ -1011,11 +1004,6 @@
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@pxblue/prettier-config/-/prettier-config-1.0.2.tgz#fb00503df6557b66c3d91d43c9101e614c35d2ec"
   integrity sha512-/3cLBoTjZs3kV1ATPA/Sp0tsL7XmlV/b8HW/qt0jqR/uP5+cdXL2YIhMXQngLRa7PhpSkEiRIYK5sl0rKsXTUg==
-
-"@pxblue/types@^1.0.0":
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/types/-/types-1.0.0.tgz#befa98a12ae95a407c252399c69677aa7427d97e"
-  integrity sha512-K0liTITRTZfv7n/2UmbP0g/nTelr3aaDlA5XleGqC+1hLRab20MpVaOSgLRiU8+4f0vayGtbBm63HyHgoXMROw==
 
 "@schematics/angular@8.3.26":
   version "8.3.26"

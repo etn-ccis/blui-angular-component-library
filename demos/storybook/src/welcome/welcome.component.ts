@@ -1,4 +1,4 @@
-import '@pxblue/themes/angular/theme.scss';
+import '@pxblue/angular-themes/theme.scss';
 import {Component, NgModule, OnInit, OnDestroy} from '@angular/core';
 import 'typeface-open-sans';
 import {MatButtonModule} from "@angular/material/button";

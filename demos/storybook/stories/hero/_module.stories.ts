@@ -18,6 +18,7 @@ import { withValueUnits } from './with-value-and-units.stories';
 import { withBasicConfig } from './with-basic-config.stories';
 import { withDiffImageTypes } from './with-different-image-types.stories';
 import { DifferentImageTypesModule } from './different-image-types.component';
+import { withA11y } from '@storybook/addon-a11y';
 
 storiesOf(`${COMPONENT_SECTION_NAME}/Hero`, module)
     .addDecorator(
@@ -26,6 +27,8 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Hero`, module)
         })
     )
     .addDecorator(withKnobs)
+    // @accessibility
+    .addDecorator(withA11y)
     .addDecorator(storyWrapper())
     .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('Hero.md') } })
     .add(README_STORY_NAME, getReadMeStory)
