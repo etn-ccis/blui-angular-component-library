@@ -72,11 +72,11 @@ describe('Empty State Component', () => {
 
     // Action Check
     it('should show actions when supplied', () => {
-        const actikonFixture = TestBed.createComponent(TestEmpty);
-        let actionElement = actikonFixture.debugElement.query(By.css('.withActions [actions]'));
+        const actionFixture = TestBed.createComponent(TestEmpty);
+        let actionElement = actionFixture.debugElement.query(By.css('.withActions [actions]'));
         expect(actionElement).not.toBeNull();
 
-        actionElement = actikonFixture.debugElement.query(By.css('.empty [actions]'));
+        actionElement = actionFixture.debugElement.query(By.css('.empty [actions]'));
         expect(actionElement).toBeNull();
     });
 
