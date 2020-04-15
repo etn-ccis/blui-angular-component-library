@@ -14,8 +14,7 @@
     "lint:fix": "eslint \"src/**/**.ts\" --fix"
   },
   "peerDependencies": {
-    "@angular/material": "^8.2.3",
-    "@pxblue/colors": "^2.0.0"
+    "@angular/material": "^8.2.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^0.803.23",
@@ -31,7 +30,6 @@
     "@angular/material": "^8.2.3",
     "@angular/platform-browser": "~8.2.2",
     "@angular/platform-browser-dynamic": "~8.2.2",
-    "@pxblue/colors": "^2.0.0",
     "@pxblue/eslint-config": "^1.1.4",
     "@pxblue/ng-progress-icons": "^1.1.3",
     "@pxblue/prettier-config": "^1.0.2",

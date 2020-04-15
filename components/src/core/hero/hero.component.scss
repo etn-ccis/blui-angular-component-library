@@ -1,61 +1,59 @@
-@import '~@pxblue/colors/palette';
-
 :host {
     flex: 1 1 0px;
 }
 
-.pxb-root {
+.pxb-hero {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     font-size: 1rem;
     overflow: hidden;
-    color: map-get($pxb-gray, 500);
     padding: 16px 8px;
-}
 
-.pxb-primary-wrapper {
-    padding: 3px;
-    $normal: 32px;
-    $large: 72px;
-    color: map-get($pxb-gray, 800);
-    border-radius: 50%;
-    margin-bottom: 5px;
-    text-align: center;
-}
+    .pxb-hero-primary-wrapper {
+        padding: 4px;
+        $normal: 32px;
+        $large: 72px;
+        border-radius: 50%;
+        margin-bottom: 5px;
+        text-align: center;
+    }
 
-.pxb-channel-value-wrapper {
-    display: flex;
-    color: map-get($pxb-gray, 800);
-}
-
-// Label Styles
-.pxb-label {
-    font-size: inherit;
-    line-height: 1.2;
-    letter-spacing: 0;
-    font-weight: 600;
-    width: 100%;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    margin: 0;
-}
-
-:host ::ng-deep .pxb-primary-wrapper {
-    * {
+    .pxb-hero-channel-value-wrapper {
         display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 100%;
+        font-size: 1.25rem;
+        &.pxb-hero-small {
+            font-size: 1rem;
+        }
     }
-    &:not(.pxb-svgIcon) * {
+
+    .pxb-hero-label {
+        font-size: inherit;
+        line-height: 1.2;
+        letter-spacing: 0;
+        font-weight: 600;
         width: 100%;
-        height: 100%;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        margin: 0;
     }
-    &.pxb-svgIcon svg {
-        transform-origin: top left;
+
+    .pxb-hero-primary-wrapper {
+        * {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 100%;
+        }
+        &:not(.pxb-hero-svgIcon) * {
+            width: 100%;
+            height: 100%;
+        }
+        &.pxb-hero-svgIcon svg {
+            transform-origin: top left;
+        }
     }
 }

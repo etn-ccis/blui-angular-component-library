@@ -8,9 +8,8 @@ export const demoActions = ['more_vert', 'search', 'mail', 'notifications', 'lis
 export const withActions = (): any => ({
     styles: [
         `${withCustomHeaderStyles}
-        ::ng-deep pxb-scorecard .pxb-root .pxb-header {
-            background-color: ${Colors.red[500]};
-            color: ${Colors.white[50]};
+        ::ng-deep .pxb-scorecard-header {
+            background-color: ${Colors.red[500]}!important;
         }`,
     ],
     template: `

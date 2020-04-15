@@ -1,23 +1,27 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector: 'pxb-info-list-item',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
     template: `
         <mat-list-item
             class="pxb-info-list-item"
-            [class.pxb-wrap]="wrapSubtitle || wrapTitle"
-            [class.pxb-dense]="dense"
-            [class.pxb-status]="statusColor"
+            [class.pxb-info-list-item-wrap]="wrapSubtitle || wrapTitle"
+            [class.pxb-info-list-item-dense]="dense"
+            [class.pxb-info-list-item-status]="statusColor"
             [style.borderLeftColor]="statusColor"
         >
-            <div mat-list-icon class="pxb-icon" [class.pxb-hide-padding]="hidePadding">
+            <div mat-list-icon class="pxb-info-list-item-icon" [class.pxb-info-list-item-hide-padding]="hidePadding">
                 <ng-content select="[icon]"></ng-content>
             </div>
-            <div class="pxb-left-component">
+            <div class="pxb-info-list-item-left-component">
                 <ng-content select="[left-component]"></ng-content>
             </div>
-            <div class="mat-body-1 pxb-title" matLine [class.pxb-wrap]="wrapTitle">{{ title }}</div>
-            <div class="mat-body-2 pxb-subtitle" matLine [class.pxb-wrap]="wrapSubtitle">
+            <div class="mat-body-1 pxb-info-list-item-title" matLine [class.pxb-info-list-item-wrap]="wrapTitle">
+                {{ title }}
+            </div>
+            <div class="mat-body-2 pxb-info-list-item-subtitle" matLine [class.pxb-info-list-item-wrap]="wrapSubtitle">
                 <ng-container *ngIf="subtitleIsArray">
                     <ng-container *ngFor="let sub of subtitle; let last = last">
                         {{ sub }}<ng-container *ngIf="!last">{{ subtitleSeparator }}</ng-container>
@@ -25,17 +29,22 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
                 </ng-container>
                 <ng-container *ngIf="!subtitleIsArray">{{ subtitle }}</ng-container>
             </div>
-            <pxb-spacer class="pxb-spacer"></pxb-spacer>
-            <div class="pxb-right-component">
-                <div #right><ng-content select="[right-component]"></ng-content></div>
+            <pxb-spacer class="pxb-info-list-item-spacer"></pxb-spacer>
+            <div class="pxb-info-list-item-right-component">
+                <div #right class="pxb-info-list-item-right-component-wrapper">
+                    <ng-content select="[right-component]"></ng-content>
+                </div>
                 <mat-icon *ngIf="chevron && !right.innerHTML">chevron_right</mat-icon>
             </div>
         </mat-list-item>
-        <mat-divider *ngIf="divider" class="pxb-divider" [class.pxb-partial-divider]="divider === 'partial'">
+        <mat-divider
+            *ngIf="divider"
+            class="pxb-info-list-item-divider"
+            [class.pxb-info-list-item-partial-divider]="divider === 'partial'"
+        >
         </mat-divider>
     `,
     styleUrls: ['./info-list-item.component.scss'],
-    encapsulation: ViewEncapsulation.None,
 })
 export class InfoListItemComponent {
     @Input() title: string;
