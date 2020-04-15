@@ -12,7 +12,7 @@ import {
 } from '../../src/constants';
 import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/utils';
 import { withBasicConfig } from './with-basic-config.stories';
-import { withCustomColors } from './with-custon-colors.stories';
+import { withCustomColors } from './with-custom-colors.stories';
 import { withFullConfig } from './with-full-config.stories';
 
 storiesOf(`${COMPONENT_SECTION_NAME}/List Item Tag`, module)

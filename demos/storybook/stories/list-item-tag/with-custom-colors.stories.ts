@@ -1,4 +1,5 @@
 import { text } from '@storybook/addon-knobs';
+import * as Colors from '@pxblue/colors';
 
 export const withCustomColors = (): any => ({
     template: `
@@ -7,8 +8,8 @@ export const withCustomColors = (): any => ({
           </pxb-list-item-tag>
       `,
     props: {
-        label: text('label'),
-        backgroundcolor: text('backgroundColor'),
-        fontColor: text('fontColor'),
+        label: text('label', 'Active'),
+        backgroundcolor: text('backgroundColor', Colors.gold['500']),
+        fontColor: text('fontColor', Colors.black['500']),
     },
 });

@@ -7,6 +7,6 @@ export const withBasicConfig = (): any => ({
           </pxb-list-item-tag>
       `,
     props: {
-        label: text('label'),
+        label: text('label', 'active'),
     },
 });
