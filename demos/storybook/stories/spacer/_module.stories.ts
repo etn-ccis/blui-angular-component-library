@@ -5,6 +5,7 @@ import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/u
 import {withFlexLayout} from "./with-flex-layout.stories";
 import {withStaticLayout} from "./with-static-layout.stories";
 import {SpacerModule} from "@pxblue/angular-components";
+import { withA11y } from '@storybook/addon-a11y';
 
 storiesOf(`${COMPONENT_SECTION_NAME}/Spacer`, module)
     .addDecorator(
@@ -13,6 +14,8 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Spacer`, module)
         })
     )
     .addDecorator(withKnobs)
+    // @accessibility
+    .addDecorator(withA11y)
     .addDecorator(storyWrapper())
     .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('Spacer.md') } })
     .add(README_STORY_NAME, getReadMeStory)

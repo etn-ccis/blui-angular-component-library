@@ -15,6 +15,7 @@ import { withIcon } from './with-icon.stories';
 import { withExtraLargeFont } from './with-font-size.stories';
 import { withFullConfig } from './with-full-config.stories';
 import { withUnits } from './with-units.stories';
+import { withA11y } from '@storybook/addon-a11y';
 
 storiesOf(`${COMPONENT_SECTION_NAME}/Channel Value`, module)
     .addDecorator(
@@ -23,6 +24,8 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Channel Value`, module)
         })
     )
     .addDecorator(withKnobs)
+    // @accessibility
+    .addDecorator(withA11y)
     .addDecorator(storyWrapper())
     .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('ChannelValue.md') } })
     .add(README_STORY_NAME, getReadMeStory)

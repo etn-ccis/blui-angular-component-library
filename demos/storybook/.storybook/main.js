@@ -16,6 +16,8 @@ module.exports = {
         '@storybook/addon-viewport',
         '@storybook/addon-storysource',
         'storybook-dark-mode/register',
+        // @accessibility remove the following line and all other lines following @accessibility in the app to hide the a11y addon
+        '@storybook/addon-a11y/register'
     ],
     webpackFinal: async (config, { configType })=> {
         config.module.rules.push({
@@ -29,7 +31,6 @@ module.exports = {
                 },
             ],
         });
-
         config.module.rules.push({
             include: [path.resolve(__dirname, '../stories')],
             exclude: [path.resolve(__dirname, '../node_modules')],
