@@ -1,7 +1,7 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-    selector: 'pxb-scorecard',
+    selector: 'pxb-score-card',
     template: `
         <mat-card class="pxb-root">
             <div class="pxb-header">
@@ -31,7 +31,7 @@ import { Component, Input } from '@angular/core';
             </mat-card-content>
         </mat-card>
     `,
-    styleUrls: ['./scorecard.component.scss'],
+    styleUrls: ['./score-card.component.scss'],
 })
 export class ScoreCardComponent {
     @Input() headerTitle: string;

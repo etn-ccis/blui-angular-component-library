@@ -8,19 +8,19 @@ export const withFullConfig = (): any => ({
     styles: [
         `
         ${withCustomHeaderStyles}
-        .sb-scorecard-content mat-list-item {
+        .sb-score-card-content mat-list-item {
             height: 36px!important;
         }
-        .sb-scorecard-content mat-icon {
+        .sb-score-card-content mat-icon {
             margin-right: 32px;
         }
-        .sb-scorecard-content .mat-line {
+        .sb-score-card-content .mat-line {
             font-weight: 600!important;
         }
     `,
     ],
     template: `
-        <pxb-scorecard
+        <pxb-score-card
             [headerTitle]="headerTitle"
             [headerSubtitle]="headerSubtitle"
             [headerInfo]="headerInfo"
@@ -33,7 +33,7 @@ export const withFullConfig = (): any => ({
                     </mat-icon>
                 </ng-container>
             </ng-container>
-            <mat-list body class="sb-scorecard-content">
+            <mat-list body class="sb-score-card-content">
                 <mat-list-item>
                     <p mat-line>0 Alarms</p>
                     <mat-icon mat-list-icon>notifications</mat-icon>
@@ -63,7 +63,7 @@ export const withFullConfig = (): any => ({
                     <mat-icon mat-list-icon style="order: 10">chevron_right</mat-icon>
                 </mat-list-item>
             </mat-list>
-        </pxb-scorecard>
+        </pxb-score-card>
     `,
     props: {
         headerTitle: text('headerTitle', 'Substation 3'),

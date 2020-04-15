@@ -3,18 +3,18 @@ import { action } from '@storybook/addon-actions';
 import { withCustomHeaderStyles } from './with-custom-header.stories';
 import * as Colors from '@pxblue/colors';
 
-export const demoActions = ['more_vert', 'search', 'mail', 'notifications', 'list_alt', 'cloud'];
+export const demoActions = ['search', 'mail', 'notifications', 'list_alt', 'cloud', 'more_vert'];
 
 export const withActions = (): any => ({
     styles: [
         `${withCustomHeaderStyles}
-        ::ng-deep pxb-scorecard .pxb-root .pxb-header {
+        ::ng-deep pxb-score-card .pxb-root .pxb-header {
             background-color: ${Colors.red[500]};
             color: ${Colors.white[50]};
         }`,
     ],
     template: `
-        <pxb-scorecard
+        <pxb-score-card
             [headerTitle]="'Substation 3'"
             [headerSubtitle]="'High Humidity Alarm'"
             [headerInfo]="'4 Devices'"
@@ -37,7 +37,7 @@ export const withActions = (): any => ({
                     <mat-icon mat-list-icon style="order: 10">chevron_right</mat-icon>
                 </mat-list-item>
             </mat-list>
-        </pxb-scorecard>
+        </pxb-score-card>
     `,
     props: {
         actionClick: (iconName: string): any => action(`${iconName} clicked`)(),

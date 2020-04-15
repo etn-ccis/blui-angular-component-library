@@ -6,13 +6,13 @@ import { withCustomHeaderStyles } from './with-custom-header.stories';
 export const withHeroes = (): any => ({
     styles: [
         `${withCustomHeaderStyles}
-        ::ng-deep pxb-scorecard .pxb-root .pxb-header {
+        ::ng-deep pxb-score-card .pxb-root .pxb-header {
             background-color: ${Colors.red[500]};
             color: ${Colors.white[50]};
         }`,
     ],
     template: `
-        <pxb-scorecard
+        <pxb-score-card
             [headerTitle]="'Substation 3'"
             [headerSubtitle]="'High Humidity Alarm'"
             [headerInfo]="'4 Devices'"
@@ -37,7 +37,7 @@ export const withHeroes = (): any => ({
                     <mat-icon mat-list-icon style="order: 10">chevron_right</mat-icon>
                 </mat-list-item>
             </mat-list>
-        </pxb-scorecard>
+        </pxb-score-card>
     `,
     props: {
         actionClick: (iconName: string): any => action(`${iconName} clicked`)(),

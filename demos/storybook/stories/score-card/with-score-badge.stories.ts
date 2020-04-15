@@ -8,27 +8,27 @@ import { ViewEncapsulation } from '@angular/core';
 export const withScoreBadge = (): any => ({
     styles: [
         `${withCustomHeaderStyles}
-        .sb-scorecard-content mat-list-item {
+        .sb-score-card-content mat-list-item {
             height: 36px!important;
         }
-        .sb-scorecard-content mat-icon {
+        .sb-score-card-content mat-icon {
             margin-right: 32px;
         }
-        .sb-scorecard-content .mat-line {
+        .sb-score-card-content .mat-line {
             font-weight: 600!important;
         }
     `,
     ],
     encapsulation: ViewEncapsulation.None,
     template: `
-        <pxb-scorecard
+        <pxb-score-card
             [headerTitle]="'Substation 3'"
             [headerSubtitle]="'Normal'"
             [headerInfo]="'4 Devices'"
             [badgeOffset]="badgeOffset"
         >
             <mat-icon action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
-            <mat-list body class="sb-scorecard-content">
+            <mat-list body class="sb-score-card-content">
                 <mat-list-item>
                     <p mat-line>0 Alarms</p>
                     <mat-icon mat-list-icon>notifications</mat-icon>
@@ -51,7 +51,7 @@ export const withScoreBadge = (): any => ({
                     <mat-icon mat-list-icon style="order: 10">chevron_right</mat-icon>
                 </mat-list-item>
             </mat-list>
-        </pxb-scorecard>
+        </pxb-score-card>
     `,
     props: {
         actionClick: (iconName: string): any => action(`${iconName} clicked`)(),

@@ -28,7 +28,7 @@ export const scorecardContainer = () => (storyFn): any => {
     };
 };
 
-storiesOf(`${COMPONENT_SECTION_NAME}/Scorecard`, module)
+storiesOf(`${COMPONENT_SECTION_NAME}/Score Card`, module)
     .addDecorator(
         moduleMetadata({
             imports: [

@@ -1,33 +1,33 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ScoreCardComponent } from './scorecard.component';
-import { ScoreCardModule } from './scorecard.module';
+import { ScoreCardComponent } from './score-card.component';
+import { ScoreCardModule } from './score-card.module';
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { count } from '../../utils/test-utils';
 
 @Component({
     template: `
-        <pxb-scorecard>
+        <pxb-score-card>
             <ng-container action-items>
                 <mat-icon>mail</mat-icon>
                 <mat-icon>cloud</mat-icon>
                 <mat-icon>search</mat-icon>
             </ng-container>
-        </pxb-scorecard>
+        </pxb-score-card>
     `,
 })
 class TestScoreCardActions {}
 
 @Component({
     template: `
-        <pxb-scorecard><div body id="test-content">Content Goes Here</div></pxb-scorecard>
+        <pxb-score-card><div body id="test-content">Content Goes Here</div></pxb-score-card>
     `,
 })
 class TestScoreCardContent {}
 
 @Component({
     template: `
-        <pxb-scorecard><div action-row id="test-action-row">Show Details</div></pxb-scorecard>
+        <pxb-score-card><div action-row id="test-action-row">Show Details</div></pxb-score-card>
     `,
 })
 class TestScoreCardActionRow {}

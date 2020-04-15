@@ -20,11 +20,11 @@
     color: map-get($pxb-blue, 500);
 }
 
-pxb-scorecard {
+pxb-score-card {
     width: 400px;
 }
 
-pxb-scorecard {
+pxb-score-card {
     .pxb-header-background {
         background-image: url('../assets/topology_40.png');
     }
@@ -38,7 +38,7 @@ pxb-scorecard {
         padding-left: 0px !important;
     }
 }
-.red-scorecard {
+.red-score-card {
     .pxb-root .pxb-header {
         background-color: map-get($pxb-red, 500);
     }

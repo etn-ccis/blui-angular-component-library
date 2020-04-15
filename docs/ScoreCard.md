@@ -1,4 +1,4 @@
-# Scorecard
+# ScoreCard
 
 Card component that calls attention to particular values.
 
@@ -26,7 +26,7 @@ imports: [
 ```html
 // Example with basic body content, action items, and a score badge
 
-<pxb-scorecard
+<pxb-score-card
     [headerTitle]="'Substation 3'"
     [headerSubtitle]="'Normal'"
     [headerInfo]="'4 Devices'"
@@ -51,12 +51,12 @@ imports: [
     >
         <i primary class="pxb-grade_a"></i>
     </pxb-hero>
-</pxb-scorecard>
+</pxb-score-card>
 ```
 
 ## API
 
-Parent element (`pxb-scorecard`) attributes:
+Parent element (`pxb-score-card`) attributes:
 
 <div style="overflow: auto;">
 
