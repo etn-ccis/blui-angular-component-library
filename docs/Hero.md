@@ -65,11 +65,11 @@ Child element with attributes:
 
 <div style="overflow: auto;">
 
-| Attributes     | Description                                           | Required | Default |
-| -------------- | ----------------------------------------------------- | -------- | ------- |
-| (channelValue) | The `ChannelValue` to display under the primary icon  | no       |         |
-| primary        | The large icon displayed on the top                   | no       |         |
-| secondary      | The icon displayed to the left of the value and units | no       |         |
+| Attributes | Description                                           | Required | Default |
+| ---------- | ----------------------------------------------------- | -------- | ------- |
+| (child)    | The `ChannelValue` to display under the primary icon  | no       |         |
+| primary    | The large icon displayed on the top                   | no       |         |
+| secondary  | The icon displayed to the left of the value and units | no       |         |
 
 </div>
 
@@ -89,7 +89,7 @@ imports: [
 ```
 
 ```html
-// your-components.html
+// your-component.html
 <pxb-hero-banner [divider]="true">
     <pxb-hero [label]="'label'">
         <i primary class="pxb-grade_a"></i>
@@ -115,4 +115,4 @@ Child element:
 
 | Attributes | Description           | Required | Default |
 | ---------- | --------------------- | -------- | ------- |
-| (heros)    | `pxb-hero` to display | no       |         |
+| (child)    | `pxb-hero` to display | no       |         |

@@ -26,7 +26,7 @@ imports: [
 ```
 
 ```html
-// your-components.html
+// your-component.html
 <pxb-channel-value class="content" value="65" units="%" [prefix]="true" fontSize="10px">
     <mat-icon>trending_up</mat-icon>
 </pxb-channel-value>
@@ -51,4 +51,4 @@ Child element:
 
 | Attributes | Description             | Required | Default |
 | ---------- | ----------------------- | -------- | ------- |
-| (icon)     | Icons shown on the left | no       |         |
+| (child)    | Icons shown on the left | no       |         |
