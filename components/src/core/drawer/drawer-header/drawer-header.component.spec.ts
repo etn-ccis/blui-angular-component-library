@@ -66,7 +66,6 @@ describe('DrawerHeaderComponent', () => {
         const icon = fixture.debugElement.query(By.css('.pxb-drawer-header-icon-button'));
         expect(icon.nativeElement.innerText).toBe('home');
         expect(icon.nativeElement.classList).toContain('mat-icon-button');
-
     });
 
     it('should render passive icon', () => {
@@ -74,11 +73,12 @@ describe('DrawerHeaderComponent', () => {
         fixture.detectChanges();
         const passiveIcon = fixture.debugElement.query(By.css('.pxb-drawer-header-non-clickable-icon'));
         expect(passiveIcon.nativeElement.innerText).toBe('work');
-        expect(passiveIcon.nativeElement.innerHTML).toEqual('<mat-icon class="mat-icon notranslate material-icons mat-icon-no-color" role="img" aria-hidden="true">work</mat-icon>');
-    })
+        expect(passiveIcon.nativeElement.innerHTML).toEqual(
+            '<mat-icon class="mat-icon notranslate material-icons mat-icon-no-color" role="img" aria-hidden="true">work</mat-icon>'
+        );
+    });
 
     // it('should emit onIconClick when icon-button is pressed', () => {
 
     // });
-    
 });

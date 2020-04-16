@@ -26,7 +26,8 @@ export class AppComponent {
         alert('Hero component');
     }
 
-    clickDrawerHeaderButton() {
-        console.log('drawer header button clicked...')
+    clickDrawerHeaderButton(): void {
+        // eslint-disable-next-line
+        console.log('drawer header button clicked...');
     }
 }
