@@ -39,12 +39,6 @@ pxb-score-card {
     }
     .pxb-score-card .pxb-score-card-header {
         background-color: map-get($pxb-blue, 500);
-        color: map-get($pxb-white, 50);
-    }
-
-    .pxb-score-card-header .pxb-score-card-subtitle,
-    .pxb-score-card-header .pxb-score-card-info {
-        color: map-get($pxb-white, 50);
     }
 }
 .red-score-card {
