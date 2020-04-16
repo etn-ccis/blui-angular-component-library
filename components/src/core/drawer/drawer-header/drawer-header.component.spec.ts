@@ -77,8 +77,8 @@ describe('DrawerHeaderComponent', () => {
         expect(passiveIcon.nativeElement.innerHTML).toEqual('<mat-icon class="mat-icon notranslate material-icons mat-icon-no-color" role="img" aria-hidden="true">work</mat-icon>');
     })
 
-    it('should emit onIconClick when icon-button is pressed', () => {
+    // it('should emit onIconClick when icon-button is pressed', () => {
 
-    });
+    // });
     
 });
