@@ -162,3 +162,12 @@
         </button>
     </pxb-empty-state>
 </mat-card>
+
+<mat-card fxFlex fxLayout="row" class="container-card" style="margin-top: 10px; margin-bottom: 24px; padding: 16px;">
+    <pxb-drawer-header title="im the title"></pxb-drawer-header>
+    <pxb-drawer-header title="im the title" subtitle="im the subtitle"></pxb-drawer-header>
+    <pxb-drawer-header passiveIcon="home" title="im the title" subtitle="im the subtitle"></pxb-drawer-header>
+    <pxb-drawer-header passiveIcon="home"><div titleContent>im the title content</div></pxb-drawer-header>
+    <pxb-drawer-header passiveIcon="home" title="im the title" subtitle="im the subtitle"><div titleContent>im the title content but a title and subtitle were provided as well</div></pxb-drawer-header>
+    <pxb-drawer-header icon="work" (onIconClick)="clickDrawerHeaderButton()"><div titleContent>im the title content with onIconClick function and an active icon</div></pxb-drawer-header>
+</mat-card>
