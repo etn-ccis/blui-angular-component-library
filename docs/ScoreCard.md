@@ -10,7 +10,7 @@ Card component that calls attention to particular values.
 ## Usage
 
 <div style="width: 100%; text-align: center">
-    <img width="100%" style="max-width: 800px" alt="Empty State Anatomy" src="./images/scoreCardAnatomy.png">
+    <img width="100%" style="max-width: 800px" alt="Score Card Anatomy" src="./images/scoreCardAnatomy.png">
 </div>
 
 ```typescript

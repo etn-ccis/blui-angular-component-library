@@ -2,9 +2,10 @@
 
 ## v2.0.0
 
+-   Add new components for ScoreCard, InfoListItem, and Spacer.
 -   `ChannelValue`'s value attribute now accepts both `string` type and `number` type.
     _Breaking Changes_
--   `pxb-scorecard` is now `pxb-score-card`.
+-   We now switched to use `@pxblue/angular-themes` for our application's default style.
 
 ## v1.3.0
 

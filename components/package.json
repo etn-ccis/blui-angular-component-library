@@ -14,7 +14,7 @@
         "lint:fix": "eslint \"src/**/**.ts\" --fix"
     },
     "peerDependencies": {
-        "@angular/material": "^8.2.3"
+        "@angular/material": ">=7.0.0"
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "^0.803.23",
