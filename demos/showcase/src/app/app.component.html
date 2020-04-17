@@ -1,4 +1,4 @@
-<div style="display: flex; padding: 16px; justify-content: flex-start">
+<div style="display: flex; padding: 8px; justify-content: flex-start">
     <pxb-score-card
         class="red-score-card"
         [headerTitle]="'Substation 3'"
@@ -7,18 +7,15 @@
     >
         <mat-icon action-items>more_vert</mat-icon>
         <mat-list body>
-            <mat-list-item>
-                <p mat-line>0 Alarms</p>
-                <mat-icon mat-list-icon>notifications</mat-icon>
-            </mat-list-item>
-            <mat-list-item [style.color]="colors.blue[500]">
-                <p mat-line>1 Event</p>
-                <mat-icon mat-list-icon>list_alt</mat-icon>
-            </mat-list-item>
-            <mat-list-item>
-                <p mat-line>Online</p>
-                <mat-icon mat-list-icon>cloud</mat-icon>
-            </mat-list-item>
+            <pxb-info-list-item title="1 Alarm" dense="true" [style.color]="colors.red[500]">
+                <mat-icon icon>notifications</mat-icon>
+            </pxb-info-list-item>
+            <pxb-info-list-item title="1 Event" dense="true" [style.color]="colors.blue[500]">
+                <mat-icon icon>list_alt</mat-icon>
+            </pxb-info-list-item>
+            <pxb-info-list-item title="Online" dense="true">
+                <mat-icon icon>cloud</mat-icon>
+            </pxb-info-list-item>
         </mat-list>
         <pxb-hero-banner badge>
             <pxb-hero [label]="'Temperature'" [value]="98" [units]="'°F'" [iconSize]="'normal'">
@@ -28,12 +25,9 @@
                 <mat-icon svgIcon="px-icons:moisture" primary [style.color]="colors.blue[300]"></mat-icon>
             </pxb-hero>
         </pxb-hero-banner>
-        <mat-list action-row>
-            <mat-list-item>
-                <p mat-line>View Location</p>
-                <mat-icon mat-list-icon style="order: 10">chevron_right</mat-icon>
-            </mat-list-item>
-        </mat-list>
+        <pxb-info-list-item title="More" hidePadding="true" dense="true" action-row>
+            <mat-icon mat-list-icon style="order: 10" right-component>chevron_right</mat-icon>
+        </pxb-info-list-item>
     </pxb-score-card>
 
     <pxb-score-card
@@ -44,24 +38,21 @@
     >
         <mat-icon action-items>more_vert</mat-icon>
         <mat-list body>
-            <mat-list-item>
-                <p mat-line>0 Alarms</p>
-                <mat-icon mat-list-icon>notifications</mat-icon>
-            </mat-list-item>
-            <mat-list-item [style.color]="colors.blue[500]">
-                <p mat-line>1 Event</p>
-                <mat-icon mat-list-icon>list_alt</mat-icon>
-            </mat-list-item>
-            <mat-list-item>
-                <p mat-line>Online</p>
-                <mat-icon mat-list-icon>cloud</mat-icon>
-            </mat-list-item>
+            <pxb-info-list-item title="0 Alarms" dense="true">
+                <mat-icon icon>notifications</mat-icon>
+            </pxb-info-list-item>
+            <pxb-info-list-item title="1 Event" dense="true" [style.color]="colors.blue[500]">
+                <mat-icon icon>list_alt</mat-icon>
+            </pxb-info-list-item>
+            <pxb-info-list-item title="Online" dense="true">
+                <mat-icon icon>cloud</mat-icon>
+            </pxb-info-list-item>
         </mat-list>
         <pxb-hero
             badge
-            label="Healthy"
-            value="96"
-            units="/100"
+            label="Health"
+            value="98"
+            units="%"
             [iconBackgroundColor]="colors.white[50]"
             (click)="test()"
             style="cursor: pointer"
@@ -69,12 +60,9 @@
         >
             <mat-icon svgIcon="px-icons:grade_a" primary [style.color]="colors.green[500]"></mat-icon>
         </pxb-hero>
-        <mat-list action-row>
-            <mat-list-item>
-                <p mat-line>View Location</p>
-                <mat-icon mat-list-icon style="order: 10">chevron_right</mat-icon>
-            </mat-list-item>
-        </mat-list>
+        <pxb-info-list-item title="View Location" hidePadding="true" dense="true" action-row>
+            <mat-icon mat-list-icon style="order: 10" right-component>chevron_right</mat-icon>
+        </pxb-info-list-item>
     </pxb-score-card>
 </div>
 
@@ -111,12 +99,23 @@
         </pxb-hero-banner>
     </mat-list>
 
-    <pxb-info-list-item title="Status" divider="full" dense="true">
-        <mat-icon icon svgIcon="px-icons:leaf"></mat-icon>
+    <pxb-info-list-item
+        title="Status"
+        divider="full"
+        dense="true"
+        [style.color]="colors.green[500]"
+        [statusColor]="colors.green[500]"
+    >
+        <mat-icon icon svgIcon="px-icons:leaf" [style.color]="colors.green[500]"></mat-icon>
         <pxb-channel-value right-component value="Online, ESS+"></pxb-channel-value>
     </pxb-info-list-item>
 
-    <pxb-info-list-item title="Input Voltage" divider="full" dense="true">
+    <pxb-info-list-item
+        title="Input Voltage"
+        divider="full"
+        dense="true"
+        [subtitle]="['Phase A', 'Phase B', 'Phase C']"
+    >
         <mat-icon icon svgIcon="px-icons:voltage_circled"></mat-icon>
         <div right-component>
             <pxb-channel-value value="478" units="V"></pxb-channel-value>,
@@ -126,7 +125,13 @@
     </pxb-info-list-item>
 
     <div class="error">
-        <pxb-info-list-item title="Output Voltage" divider="full" dense="true">
+        <pxb-info-list-item
+            title="Output Voltage"
+            divider="full"
+            dense="true"
+            [subtitle]="['Phase A', 'Phase B', 'Phase C']"
+            [statusColor]="colors.red[500]"
+        >
             <mat-icon icon svgIcon="px-icons:voltage_circled"></mat-icon>
             <div right-component [style.color]="colors.black[500]">
                 <pxb-channel-value value="480" units="V"></pxb-channel-value>,
@@ -154,7 +159,7 @@
 </mat-card>
 
 <mat-card class="container-card" style="margin-top: 10px; margin-bottom: 24px; padding: 16px;">
-    <pxb-empty-state title="No Devices" description="Consult your local admin for more information">
+    <pxb-empty-state title="No Devices" description="Consult your local admin for details">
         <mat-icon empty-icon>devices</mat-icon>
         <button mat-raised-button color="primary" actions>
             <mat-icon>add_circle</mat-icon>

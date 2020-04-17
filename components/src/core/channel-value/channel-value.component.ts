@@ -21,5 +21,5 @@ export class ChannelValueComponent {
     @Input() units: string;
     @Input() fontSize = 'inherit';
     @Input() prefix = false;
-    @Input() color;
+    @Input() color: string;
 }

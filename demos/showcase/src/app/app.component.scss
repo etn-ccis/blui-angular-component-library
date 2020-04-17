@@ -6,7 +6,7 @@
 }
 
 .mat-card.container-card {
-    margin: 0px 16px;
+    margin: 0px 8px;
     padding: 0;
 }
 
@@ -22,9 +22,7 @@
 
 pxb-score-card {
     width: 400px;
-}
 
-pxb-score-card {
     .pxb-score-card-header-background {
         background-image: url('../assets/topology_40.png');
     }
@@ -32,15 +30,18 @@ pxb-score-card {
         padding: 0px !important;
     }
     .mat-list-item {
-        height: 48px !important;
+        height: 56px !important;
     }
     .mat-list-text {
         padding-left: 0px !important;
+    }
+    .mat-list-base .mat-list-item .mat-list-icon {
+        min-width: 56px;
     }
 }
 .red-score-card {
     .pxb-score-card .pxb-score-card-header {
         background-color: map-get($pxb-red, 500);
     }
-    margin-right: 16px;
+    margin-right: 8px;
 }
