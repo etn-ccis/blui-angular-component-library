@@ -14,6 +14,7 @@ import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/u
 import { withBasicConfig } from './with-basic-config.stories';
 import { withCustomColors } from './with-custom-colors.stories';
 import { withFullConfig } from './with-full-config.stories';
+import { withinAnInfoListItem } from './within-an-InfoListItem.stories';
 
 storiesOf(`${COMPONENT_SECTION_NAME}/List Item Tag`, module)
     .addDecorator(
@@ -27,4 +28,5 @@ storiesOf(`${COMPONENT_SECTION_NAME}/List Item Tag`, module)
     .add(README_STORY_NAME, getReadMeStory)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
     .add('with custom colors', withCustomColors)
-    .add(WITH_FULL_CONFIG_STORY_NAME, withFullConfig);
+    .add(WITH_FULL_CONFIG_STORY_NAME, withFullConfig)
+    .add('within an InfoListItem', withinAnInfoListItem);

@@ -36,8 +36,5 @@ export const withCustomColors = (): any => ({
 | Attributes        | Description                                      | Type                                               | Required | Default        |
 |-------------------|--------------------------------------------------|----------------------------------------------------|----------|----------------|
 | label             | The label text                                   | `string`                                           | yes      |                |
-| fontColor         | Color of the label                               | `string`                                           | no       | #ffffff        |
-| backgroundColor   | Color of the label  background                   | `string`                                           | no       | #007bc1        |
-
 
 </div>
