@@ -6,19 +6,8 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation, Output, E
     encapsulation: ViewEncapsulation.None,
     template: `
         <mat-toolbar class="pxb-drawer-header-toolbar">
-            <div *ngIf="icon || passiveIcon" class="pxb-drawer-header-icon-wrapper">
-                <button
-                    *ngIf="icon"
-                    mat-icon-button
-                    class="pxb-drawer-header-icon-button"
-                    (click)="onIconClick.emit($event)"
-                >
-                    <mat-icon>{{ icon }}</mat-icon>
-                </button>
-
-                <div *ngIf="passiveIcon" class="pxb-drawer-header-non-clickable-icon">
-                    <mat-icon>{{ passiveIcon }}</mat-icon>
-                </div>
+            <div class="pxb-drawer-header-icon-wrapper">
+                <ng-content select="[icon]"></ng-content>
             </div>
 
             <div *ngIf="!titleContentWrapper.innerHTML.trim()" class="pxb-drawer-header-wrapper">
@@ -39,9 +28,6 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation, Output, E
     styleUrls: ['./drawer-header.component.scss'],
 })
 export class DrawerHeaderComponent {
-    @Input() icon: string;
-    @Input() passiveIcon: string;
     @Input() subtitle: string;
     @Input() title: string;
-    @Output() onIconClick: EventEmitter<Event> = new EventEmitter();
 }

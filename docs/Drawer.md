@@ -14,9 +14,7 @@ The `DrawerHeader` contains the content at the top of the `Drawer`. By default, 
 
 | Prop Name         | Description                                    | Type              | Required | Default                      |
 |-------------------|------------------------------------------------|-------------------|----------|------------------------------|
-| icon              | A component to render a clickable icon         | `string`          | no       |                              |
-| onIconClick       | A function to execute when the icon is clicked | `EventEmitter`    | no       |                              |
-| passiveIcon       | A component to render a non-clickable icon     | `string`          | no       |                              |
+| icon              | A component to render an icon                  | `ng-content`      | no       |                              |
 | subtitle          | The text to show on the second line            | `string`          | no       |                              |
 | title             | The text to show on the first line             | `string`          | no       |                              |
 | titleContent      | Custom content for header title area           | `ng-content`      | no       |                              |
