@@ -5,7 +5,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <mat-toolbar class="pxb-drawer-header-toolbar">
+        <mat-toolbar class="pxb-drawer-header">
             <div class="pxb-drawer-header-icon-wrapper">
                 <ng-content select="[icon]"></ng-content>
             </div>

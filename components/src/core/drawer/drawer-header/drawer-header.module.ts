@@ -1,18 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DrawerHeaderComponent } from './drawer-header.component';
-import { MatDividerModule } from '@angular/material/divider';
-import { MatToolbarModule, MatIconModule, MatButtonModule } from '@angular/material';
+import { MatToolbarModule, MatIconModule } from '@angular/material';
 
 @NgModule({
     declarations: [DrawerHeaderComponent],
-    imports: [
-        CommonModule,
-        MatDividerModule,
-        MatToolbarModule,
-        MatIconModule,
-        MatButtonModule
-    ],
+    imports: [CommonModule, MatToolbarModule, MatIconModule],
     exports: [DrawerHeaderComponent],
 })
 export class DrawerHeaderModule {}
