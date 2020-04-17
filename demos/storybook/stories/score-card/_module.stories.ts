@@ -1,5 +1,5 @@
 import { MatIconModule } from '@angular/material/icon';
-import { ScoreCardModule, HeroModule } from '@pxblue/angular-components';
+import { ScoreCardModule, HeroModule, InfoListItemModule } from '@pxblue/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import {
@@ -35,6 +35,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Score Card`, module)
             imports: [
                 ScoreCardModule,
                 HeroModule,
+                InfoListItemModule,
                 UtilModule,
                 MatIconModule,
                 MatListModule,

@@ -30,12 +30,9 @@ export const withActions = (): any => ({
                     <p mat-line>Body Content</p>
                 </mat-list-item>
             </mat-list>
-            <mat-list action-row>
-                <mat-list-item (click)="actionRowClick()">
-                    <p mat-line>View Location</p>
-                    <mat-icon mat-list-icon style="order: 10">chevron_right</mat-icon>
-                </mat-list-item>
-            </mat-list>
+            <pxb-info-list-item title="View Location" hidePadding="true" dense="true" action-row (click)="actionRowClick()">
+                <mat-icon mat-list-icon right-component>chevron_right</mat-icon>
+            </pxb-info-list-item>
         </pxb-score-card>
     `,
     props: {
