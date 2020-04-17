@@ -7,13 +7,13 @@
     >
         <mat-icon action-items>more_vert</mat-icon>
         <mat-list body>
-            <pxb-info-list-item title="1 Alarm" dense="true" [style.color]="colors.red[500]">
+            <pxb-info-list-item title="1 Alarm" dense="true" [style.color]="colors.red[500]" class="card-body-item">
                 <mat-icon icon>notifications</mat-icon>
             </pxb-info-list-item>
-            <pxb-info-list-item title="1 Event" dense="true" [style.color]="colors.blue[500]">
+            <pxb-info-list-item title="1 Event" dense="true" [style.color]="colors.blue[500]" class="card-body-item">
                 <mat-icon icon>list_alt</mat-icon>
             </pxb-info-list-item>
-            <pxb-info-list-item title="Online" dense="true">
+            <pxb-info-list-item title="Online" dense="true" class="card-body-item">
                 <mat-icon icon>cloud</mat-icon>
             </pxb-info-list-item>
         </mat-list>
@@ -38,13 +38,13 @@
     >
         <mat-icon action-items>more_vert</mat-icon>
         <mat-list body>
-            <pxb-info-list-item title="0 Alarms" dense="true">
+            <pxb-info-list-item title="0 Alarms" dense="true" class="card-body-item">
                 <mat-icon icon>notifications</mat-icon>
             </pxb-info-list-item>
-            <pxb-info-list-item title="1 Event" dense="true" [style.color]="colors.blue[500]">
+            <pxb-info-list-item title="1 Event" dense="true" [style.color]="colors.blue[500]" class="card-body-item">
                 <mat-icon icon>list_alt</mat-icon>
             </pxb-info-list-item>
-            <pxb-info-list-item title="Online" dense="true">
+            <pxb-info-list-item title="Online" dense="true" class="card-body-item">
                 <mat-icon icon>cloud</mat-icon>
             </pxb-info-list-item>
         </mat-list>
@@ -110,12 +110,7 @@
         <pxb-channel-value right-component value="Online, ESS+"></pxb-channel-value>
     </pxb-info-list-item>
 
-    <pxb-info-list-item
-        title="Input Voltage"
-        divider="full"
-        dense="true"
-        [subtitle]="['Phase A', 'Phase B', 'Phase C']"
-    >
+    <pxb-info-list-item title="Input Voltage" divider="full" [subtitle]="['Phase A', 'Phase B', 'Phase C']">
         <mat-icon icon svgIcon="px-icons:voltage_circled"></mat-icon>
         <div right-component>
             <pxb-channel-value value="478" units="V"></pxb-channel-value>,
@@ -128,7 +123,6 @@
         <pxb-info-list-item
             title="Output Voltage"
             divider="full"
-            dense="true"
             [subtitle]="['Phase A', 'Phase B', 'Phase C']"
             [statusColor]="colors.red[500]"
         >

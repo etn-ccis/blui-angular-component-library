@@ -27,10 +27,11 @@ pxb-score-card {
         background-image: url('../assets/topology_40.png');
     }
     .mat-list-base {
-        padding: 0px !important;
+        padding: 16px 0px !important;
     }
-    .mat-list-item {
-        height: 56px !important;
+    .mat-list-item,
+    .card-body-item .pxb-info-list-item.pxb-info-list-item-dense .mat-list-item-content {
+        height: 36px !important;
     }
     .mat-list-text {
         padding-left: 0px !important;
