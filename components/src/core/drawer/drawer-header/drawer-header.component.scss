@@ -35,12 +35,16 @@
     .pxb-drawer-header-title {
         font-weight: 600;
         line-height: 1.6rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     .pxb-drawer-header-subtitle {
         font-weight: 300;
         line-height: 1.2rem;
         margin-top: -2px;
+        overflow: hidden;
+        text-overflow: ellipsis;
     }
 }
 
