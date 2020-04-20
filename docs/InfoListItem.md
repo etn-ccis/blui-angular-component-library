@@ -30,6 +30,7 @@ Parent element (`pxb-info-list-item`) attributes:
 
 | Attributes        | Description                            | Type                 | Required | Default        |
 | ----------------- | -------------------------------------- | -------------------- | -------- | -------------- |
+| avatar            | Show a colored background for the icon | `boolean`            | no       | false          |
 | chevron           | Add a chevron icon on the right        | `boolean`            | no       | false          |
 | dense             | Smaller height row with less padding   | `boolean`            | no       | false          |
 | divider           | Show a row separator below the row     | `'full' | 'partial'` | no       |                |
