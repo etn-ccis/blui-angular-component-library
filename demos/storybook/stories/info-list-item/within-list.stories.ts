@@ -1,5 +1,5 @@
 import * as Colors from '@pxblue/colors';
-import {select} from "@storybook/addon-knobs";
+import { select } from '@storybook/addon-knobs';
 
 export const withinList = (): any => ({
     template: `
@@ -45,10 +45,10 @@ export const withinList = (): any => ({
                 <pxb-channel-value value="68" units="°F" [fontSize]="fontSize"></pxb-channel-value>
             </span>
         </pxb-info-list-item>
-      `,
+    `,
     props: {
         colors: Colors,
         fontSize: 16,
-        divider: select('divider', ['full', 'partial', ''], 'full')
-    }
+        divider: select('divider', ['full', 'partial', ''], 'full'),
+    },
 });

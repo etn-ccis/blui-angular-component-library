@@ -3,10 +3,10 @@ import * as Colors from '@pxblue/colors';
 
 export const withFullConfig = (): any => ({
     template: `
-          <pxb-channel-value [value]="value" [units]="units" [fontSize]="fontSize" [color]="color" [prefix]="prefix">
+        <pxb-channel-value [value]="value" [units]="units" [fontSize]="fontSize" [color]="color" [prefix]="prefix">
             <mat-icon *ngIf="showIcon" [style.color]="iconColor">trending_up</mat-icon>
-          </pxb-channel-value> 
-      `,
+        </pxb-channel-value> 
+    `,
     props: {
         value: text('value', '123'),
         units: text('units', 'hz'),

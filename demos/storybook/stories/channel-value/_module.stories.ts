@@ -12,7 +12,7 @@ import {
 } from '../../src/constants';
 import { withBasicConfig } from './basic-config.stories';
 import { withIcon } from './with-icon.stories';
-import { withExtraLargeFont } from './with-font-size.stories';
+import { withFontSize } from './with-font-size.stories';
 import { withFullConfig } from './with-full-config.stories';
 import { withUnits } from './with-units.stories';
 import { withA11y } from '@storybook/addon-a11y';
@@ -32,5 +32,5 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Channel Value`, module)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
     .add('with units', withUnits)
     .add('with icon', withIcon)
-    .add('with extra large font size', withExtraLargeFont)
+    .add('with fontSize', withFontSize)
     .add(WITH_FULL_CONFIG_STORY_NAME, withFullConfig);

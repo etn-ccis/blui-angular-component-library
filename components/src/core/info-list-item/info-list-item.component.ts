@@ -48,7 +48,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
 })
 export class InfoListItemComponent {
     @Input() title: string;
-    @Input() subtitle: string | any[];
+    @Input() subtitle: string | string[];
     @Input() subtitleSeparator = '\u00B7';
     @Input() statusColor: string;
     @Input() chevron = false;

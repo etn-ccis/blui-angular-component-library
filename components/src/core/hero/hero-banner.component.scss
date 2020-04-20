@@ -6,5 +6,10 @@
 :host ::ng-deep pxb-hero:nth-child(n + 5) {
     display: none;
 }
+
+::ng-deep pxb-hero {
+    flex: 1 1 0px;
+}
+
 .pxb-hero-banner-divider {
 }

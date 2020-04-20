@@ -1,6 +1,6 @@
 import * as Colors from '@pxblue/colors';
-import { boolean, color, text } from "@storybook/addon-knobs";
-import { action } from "@storybook/addon-actions";
+import { boolean, color, text } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 
 export const withFullConfig = (): any => ({
     template: `
@@ -30,6 +30,6 @@ export const withFullConfig = (): any => ({
         wrapTitle: boolean('wrapTitle', false),
         wrapSubtitle: boolean('wrapSubtitle', false),
         action: action('InfoListItem clicked'),
-        colors: Colors
-    }
+        colors: Colors,
+    },
 });

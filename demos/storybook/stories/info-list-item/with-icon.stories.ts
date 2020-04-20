@@ -7,6 +7,6 @@ export const withIcon = (): any => ({
         </pxb-info-list-item>
       `,
     props: {
-        colors: Colors
-    }
+        colors: Colors,
+    },
 });

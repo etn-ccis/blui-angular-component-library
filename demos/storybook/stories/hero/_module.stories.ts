@@ -23,12 +23,7 @@ import { withA11y } from '@storybook/addon-a11y';
 storiesOf(`${COMPONENT_SECTION_NAME}/Hero`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [
-                HeroModule,
-                ChannelValueModule,
-                UtilModule,
-                MatIconModule,
-                DifferentImageTypesModule],
+            imports: [HeroModule, ChannelValueModule, UtilModule, MatIconModule, DifferentImageTypesModule],
         })
     )
     .addDecorator(withKnobs)

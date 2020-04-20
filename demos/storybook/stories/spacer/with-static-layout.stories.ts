@@ -2,7 +2,8 @@ import { number } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
 
 export const withStaticLayout = (): any => ({
-    styles: [`
+    styles: [
+        `
         .horizontal {
             height: 50px;
             display: flex;
@@ -13,7 +14,8 @@ export const withStaticLayout = (): any => ({
             display: flex;
             flex-direction: column;
         }
-    `],
+    `,
+    ],
     template: `
         <div class="mat-h4">Horizontal</div>
         <div class="horizontal">
@@ -29,9 +31,9 @@ export const withStaticLayout = (): any => ({
         </div>
       `,
     props: {
-        flex1:  number('Item 1 Size (px)', 60, { range: true, min: 20, max: 100, step: 10 }),
-        flex2:  number('Item 2 Size (px)', 60, { range: true, min: 20, max: 100, step: 10 }),
-        flex3:  number('Item 3 Size (px)', 60, { range: true, min: 20, max: 100, step: 10 }),
-        colors: Colors
+        flex1: number('Item 1 Size (px)', 60, { range: true, min: 20, max: 100, step: 10 }),
+        flex2: number('Item 2 Size (px)', 60, { range: true, min: 20, max: 100, step: 10 }),
+        flex3: number('Item 3 Size (px)', 60, { range: true, min: 20, max: 100, step: 10 }),
+        colors: Colors,
     },
 });

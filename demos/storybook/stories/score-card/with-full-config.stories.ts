@@ -8,24 +8,24 @@ export const withFullConfig = (): any => ({
     styles: [
         `
         ${withCustomHeaderStyles}
-        .sb-scorecard-content mat-list-item {
+        .sb-score-card-content mat-list-item {
             height: 36px!important;
         }
-        .sb-scorecard-content mat-icon {
+        .sb-score-card-content mat-icon {
             margin-right: 32px;
         }
-        .sb-scorecard-content .mat-line {
+        .sb-score-card-content .mat-line {
             font-weight: 600!important;
         }
     `,
     ],
     template: `
-          <pxb-scorecard
-              [headerTitle]="headerTitle"
-              [headerSubtitle]="headerSubtitle"
-              [headerInfo]="headerInfo"
-              [badgeOffset]="badgeOffset"
-          >
+        <pxb-score-card
+            [headerTitle]="headerTitle"
+            [headerSubtitle]="headerSubtitle"
+            [headerInfo]="headerInfo"
+            [badgeOffset]="badgeOffset"
+        >
             <ng-container action-items>
                 <ng-container *ngFor="let action of actions; index as i;">
                     <mat-icon *ngIf="i < actionLimit" (click)="actionClick(actions[i])">
@@ -33,7 +33,7 @@ export const withFullConfig = (): any => ({
                     </mat-icon>
                 </ng-container>
             </ng-container>
-            <mat-list body class="sb-scorecard-content">
+            <mat-list body class="sb-score-card-content">
                 <mat-list-item>
                     <p mat-line>0 Alarms</p>
                     <mat-icon mat-list-icon>notifications</mat-icon>
@@ -57,14 +57,11 @@ export const withFullConfig = (): any => ({
                     <i primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
                 </pxb-hero>
             </pxb-hero-banner>
-            <mat-list action-row>
-                <mat-list-item (click)="actionRowClick()">
-                    <p mat-line>View Location</p>
-                    <mat-icon mat-list-icon style="order: 10">chevron_right</mat-icon>
-                </mat-list-item>
-            </mat-list>
-        </pxb-scorecard>
-      `,
+            <pxb-info-list-item title="View Location" hidePadding="true" dense="true" action-row (click)="actionRowClick()">
+                <mat-icon mat-list-icon right-component>chevron_right</mat-icon>
+            </pxb-info-list-item>
+        </pxb-score-card>
+    `,
     props: {
         headerTitle: text('headerTitle', 'Substation 3'),
         headerSubtitle: text('headerSubtitle', 'High Humidity Alarm'),
