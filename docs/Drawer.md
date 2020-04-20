@@ -10,13 +10,24 @@ The `DrawerHeader` contains the content at the top of the `Drawer`. By default, 
     
 ### DrawerHeader API
 
+Parent element (`pxb-drawer-header`) attributes:
+
 <div style="overflow: auto;">
 
-| Prop Name         | Description                                    | Type              | Required | Default                      |
+| Attribute         | Description                                    | Type              | Required | Default                      |
 |-------------------|------------------------------------------------|-------------------|----------|------------------------------|
-| icon              | A component to render an icon                  | `ng-content`      | no       |                              |
 | subtitle          | The text to show on the second line            | `string`          | no       |                              |
 | title             | The text to show on the first line             | `string`          | no       |                              |
-| titleContent      | Custom content for header title area           | `ng-content`      | no       |                              |
+
+</div>
+
+Child element with attributes:
+
+<div style="overflow: auto;">
+
+| Attribute         | Description                                    | Required | Default                      |
+|-------------------|------------------------------------------------|----------|------------------------------|
+| icon              | A component to render an icon                  | no       |                              |
+| titleContent      | Custom content for header title area           | no       |                              |
 
 </div>
