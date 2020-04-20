@@ -20,7 +20,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
                 </div>
             </div>
 
-            <div #titleContentWrapper class="pxb-drawer-header-title-content">
+            <div #titleContentWrapper class="pxb-drawer-header-title-content-wrapper">
                 <ng-content select="[titleContent]"></ng-content>
             </div>
         </mat-toolbar>

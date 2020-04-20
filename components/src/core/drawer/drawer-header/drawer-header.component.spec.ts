@@ -90,7 +90,7 @@ describe('DrawerHeaderComponent', () => {
             '.pxb-drawer-header-wrapper',
             '.pxb-drawer-header-title',
             '.pxb-drawer-header-subtitle',
-            '.pxb-drawer-header-title-content',
+            '.pxb-drawer-header-title-content-wrapper',
         ];
         for (const className of classList) {
             count(customFixture, className);
