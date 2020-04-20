@@ -12,9 +12,12 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
             [class.pxb-info-list-item-status]="statusColor"
             [style.borderLeftColor]="statusColor"
         >
-            <div mat-list-icon class="pxb-info-list-item-icon" 
-                 [class.pxb-info-list-item-hide-padding]="hidePadding" 
-                 [class.pxb-info-list-item-avatar]="avatar">
+            <div
+                mat-list-icon
+                class="pxb-info-list-item-icon"
+                [class.pxb-info-list-item-hide-padding]="hidePadding"
+                [class.pxb-info-list-item-avatar]="avatar"
+            >
                 <ng-content select="[icon]"></ng-content>
             </div>
             <div class="pxb-info-list-item-left-component">
