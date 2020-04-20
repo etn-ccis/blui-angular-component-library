@@ -1,4 +1,5 @@
 import * as Colors from '@pxblue/colors';
+// import { InfoListItem, ListItemTag } from '@pxblue/angular-components';
 
 export const withinAnInfoListItem = (): any => ({
     template: `

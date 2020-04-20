@@ -9,7 +9,6 @@ describe('ListItemTagComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      // declarations: [ ListItemTagComponent ],
       imports: [ListItemTagModule],
     })
     .compileComponents();
