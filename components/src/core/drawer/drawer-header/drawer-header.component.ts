@@ -24,6 +24,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
                 <ng-content select="[titleContent]"></ng-content>
             </div>
         </mat-toolbar>
+        <mat-divider></mat-divider>
     `,
     styleUrls: ['./drawer-header.component.scss'],
 })
