@@ -45,8 +45,8 @@ pxb-scorecard {
     margin-right: 16px;
 }
 
-.test-background-image .pxb-drawer-header {
-    background-image: url('../assets/topology_40.png') !important;
-    background-color: #deadbeef !important;
-    background-size: cover !important;
+.test-background-image mat-toolbar.pxb-drawer-header {
+    background-image: url('../assets/topology_40.png');
+    background-color: #deadbeef;
+    background-size: cover;
 }
