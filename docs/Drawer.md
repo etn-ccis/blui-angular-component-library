@@ -14,7 +14,7 @@ Parent element (`pxb-drawer-header`) attributes:
 
 <div style="overflow: auto;">
 
-| Attribute         | Description                                    | Type              | Required | Default                      |
+| Attributes        | Description                                    | Type              | Required | Default                      |
 |-------------------|------------------------------------------------|-------------------|----------|------------------------------|
 | subtitle          | The text to show on the second line            | `string`          | no       |                              |
 | title             | The text to show on the first line             | `string`          | no       |                              |
@@ -25,7 +25,7 @@ Child element with attributes:
 
 <div style="overflow: auto;">
 
-| Attribute         | Description                                    | Required | Default                      |
+| Attributes        | Description                                    | Required | Default                      |
 |-------------------|------------------------------------------------|----------|------------------------------|
 | icon              | A component to render an icon                  | no       |                              |
 | titleContent      | Custom content for header title area           | no       |                              |
