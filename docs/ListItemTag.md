@@ -15,7 +15,7 @@ imports: [
 ```
 ```typescript
 
-  <pxb-list-item-tag [label]="label" [backgroundColor]="backgroundColor" [fontColor]="fontColor">
+  <pxb-list-item-tag [label]="label" [style.backgroundColor]="black" [style.fontColor]="gold">
   </pxb-list-item-tag>
     
 ```

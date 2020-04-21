@@ -1,3 +1,9 @@
-<div class="pxb-list-item-tag-container">
-    <h2 class="pxb-list-item-tag-label">{{ label }}</h2>
+<div class="pxb-list-item-tag-wrapper" 
+    [class.pxb-list-item-tag-backgroundColor]="backgroundColor" 
+    [style.backgroundColor]="backgroundColor">
+    
+    <div [class.pxb-list-item-tag-fontColor]="fontColor" [style.fontColor]="fontColor">
+        <h2>{{ label }}</h2>
+    </div>
+
 </div>
