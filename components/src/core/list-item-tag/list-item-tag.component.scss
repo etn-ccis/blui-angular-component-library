@@ -1,12 +1,14 @@
 .pxb-list-item-tag-wrapper {
-    width: 100%;
-    justify-content: center;
+    padding: 0;
+    overflow: hidden;
+    
+    line-height: inherit;
+    padding-left: 4px;
+    border-radius: 2px;
+    padding-right: 4px;
+    letter-spacing: 1px;
 }
-.pxb-list-item-tag-backgroundColor {
-    margin: 8px;
-    padding: 8px;
-    width: 100%;
-}
-.pxb-list-item-tag-fontColor {
-    font: open-sans;
+
+.pxb-list-item-tag-label {
+    font-weight: bold;
 }

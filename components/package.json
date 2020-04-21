@@ -30,7 +30,6 @@
     "@angular/material": "^8.2.3",
     "@angular/platform-browser": "^8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.2",
-    "@pxblue/colors": "^2.0.1",
     "@pxblue/eslint-config": "^1.1.4",
     "@pxblue/ng-progress-icons": "^1.1.3",
     "@pxblue/prettier-config": "^1.0.2",

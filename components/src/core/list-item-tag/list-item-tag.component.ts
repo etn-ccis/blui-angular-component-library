@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import * as Colors from '@pxblue/colors';
 
 @Component({
   selector: 'pxb-list-item-tag',
@@ -9,7 +8,10 @@ import * as Colors from '@pxblue/colors';
 
 export class ListItemTagComponent {
 
-  Colors: any = Colors;
+  ngOnInit() {
+
+    console.log( "LOOK HERE " + this.fontColor);
+  }
 
   @Input() label: string;
   @Input() backgroundColor: string;

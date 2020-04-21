@@ -1,9 +1,9 @@
 <div class="pxb-list-item-tag-wrapper" 
-    [class.pxb-list-item-tag-backgroundColor]="backgroundColor" 
+    
     [style.backgroundColor]="backgroundColor">
     
-    <div [class.pxb-list-item-tag-fontColor]="fontColor" [style.fontColor]="fontColor">
-        <h2>{{ label }}</h2>
+    <div class="mat-small" [class.pxb-list-item-tag-label]="label" [style.color]="fontColor">
+        {{ label.toUpperCase() }}
     </div>
 
 </div>
