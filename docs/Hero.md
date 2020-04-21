@@ -81,7 +81,7 @@ The HeroBanner component is a simple wrapper component that is used to contain `
 
 ```typescript
 // app.module.ts
-import { HeroModule } from '@pxblue/angular-components/core/hero';
+import { HeroModule } from '@pxblue/angular-components';
 ...
 imports: [
     HeroModule
