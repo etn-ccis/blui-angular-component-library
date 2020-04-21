@@ -9,6 +9,7 @@ export const withFullConfig = (): any => ({
             style="display:flex; cursor: pointer"
             [wrapSubtitle]="wrapSubtitle"
             [wrapTitle]="wrapTitle"
+            [avatar]="avatar"
             [title]="title"
             [subtitle]="subtitle"
             [statusColor]="statusColor"
@@ -16,7 +17,8 @@ export const withFullConfig = (): any => ({
             [dense]="dense"
             [chevron]="chevron"
             (click)="action()">
-            <mat-icon *ngIf="showIcon" [style.color]="colors.blue[500]" icon>assignment</mat-icon>
+            <mat-icon *ngIf="showIcon" [style.color]="iconColor"
+                [style.backgroundColor]="getBgColor(avatar, statusColor)" icon>assignment</mat-icon>
         </pxb-info-list-item>
       `,
     props: {
@@ -29,7 +31,10 @@ export const withFullConfig = (): any => ({
         dense: boolean('dense', false),
         wrapTitle: boolean('wrapTitle', false),
         wrapSubtitle: boolean('wrapSubtitle', false),
+        iconColor: color('icon color', Colors.blue[500]),
+        avatar: boolean('avatar', false),
         action: action('InfoListItem clicked'),
+        getBgColor:  (avatar: boolean, statusColor: string): string => avatar ? statusColor : 'unset',
         colors: Colors,
     },
 });
