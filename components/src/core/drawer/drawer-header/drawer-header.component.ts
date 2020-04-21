@@ -10,7 +10,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
                 <ng-content select="[icon]"></ng-content>
             </div>
 
-            <div *ngIf="!titleContentWrapper.innerHTML.trim()" class="pxb-drawer-header-wrapper">
+            <div *ngIf="!titleContentWrapper.innerHTML.trim()" class="pxb-drawer-header-title-wrapper">
                 <div *ngIf="title" class="pxb-drawer-header-title">
                     {{ title }}
                 </div>

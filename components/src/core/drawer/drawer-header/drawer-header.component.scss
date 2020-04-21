@@ -7,15 +7,13 @@
 }
 
 .pxb-drawer-header-icon-wrapper {
-    padding: 4px;
     height: 64px;
     display: flex;
     align-items: center;
     z-index: 1;
 }
 
-.pxb-drawer-header-wrapper {
-    margin-left: 16px;
+.pxb-drawer-header-title-wrapper {
     padding-right: 16px;
     min-width: 64px;
     display: flex;
@@ -43,7 +41,7 @@
 }
 
 @media screen and (max-width: 600px) {
-    .pxb-drawer-header-wrapper {
+    .pxb-drawer-header-title-wrapper {
         min-height: 56px;
     }
 

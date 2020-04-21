@@ -15,7 +15,7 @@ export const withBasicConfig = (): any => ({
     template: `
         <div class="basic-config-wrapper">
           <pxb-drawer-header title="Simple Drawer">
-            <mat-icon icon style="display: flex; padding-left: 8px; padding-right: 8px;">menu</mat-icon>
+            <mat-icon icon style="display: flex; padding-right: 32px;">menu</mat-icon>
           </pxb-drawer-header>
         </div>
       `,
