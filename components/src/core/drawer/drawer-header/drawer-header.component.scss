@@ -23,7 +23,7 @@
         align-items: center;
         z-index: 1;
     }
-    
+
     .pxb-drawer-header-title-wrapper {
         padding-right: 16px;
         min-width: 64px;
@@ -34,14 +34,14 @@
         width: calc(100% - 56px);
         box-sizing: border-box;
         z-index: 1;
-    
+
         .pxb-drawer-header-title {
             font-weight: 600;
             line-height: 1.6rem;
             overflow: hidden;
             text-overflow: ellipsis;
         }
-    
+
         .pxb-drawer-header-subtitle {
             font-weight: 300;
             line-height: 1.2rem;
