@@ -2,10 +2,14 @@
 
 ## v2.0.0
 
--   Add new components for ScoreCard, InfoListItem, and Spacer.
+-   Add new components for ScoreCard, InfoListItem, ListItemTag, and Spacer.
 -   `ChannelValue`'s value attribute now accepts both `string` type and `number` type.
+-   Enable support for Angular 9+.
+
     _Breaking Changes_
 -   We now switched to use `@pxblue/angular-themes` for our application's default style.
+-   Deep imports are deprecated; access modules by importing `@pxblue/angular-components`.
+
 
 ## v1.3.0
 
