@@ -30,7 +30,7 @@ pxblueTheme.brandTitle = 'PX Blue Angular Component Library';
 pxblueTheme.brandImage =  require('../assets/pxblue-angular.svg');
 pxblueTheme.brandUrl = 'https://pxblue.github.io';
 
-const themeInit = { dark: pxblueTheme, light: pxblueTheme, current: 'light' }
+const themeInit = { dark: pxblueTheme, light: pxblueTheme, current: 'light' };
 window.localStorage.setItem('sb-addon-themes-3', JSON.stringify(themeInit));
 
 addParameters({
