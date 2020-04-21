@@ -87,7 +87,7 @@ describe('DrawerHeaderComponent', () => {
         const classList = [
             '.pxb-drawer-header',
             '.pxb-drawer-header-icon-wrapper',
-            '.pxb-drawer-header-wrapper',
+            '.pxb-drawer-header-title-wrapper',
             '.pxb-drawer-header-title',
             '.pxb-drawer-header-subtitle',
             '.pxb-drawer-header-title-content-wrapper',
