@@ -46,7 +46,11 @@ pxb-scorecard {
 }
 
 .test-background-image mat-toolbar.pxb-drawer-header {
-    background-image: url('../assets/topology_40.png');
-    background-color: #deadbeef;
+    background-color: map-get($pxb-blue, 500);
     background-size: cover;
+    color: white;
+}
+
+.test-background-image .pxb-drawer-header-background {
+    background-image: url('../assets/topology_40.png');
 }

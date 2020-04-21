@@ -6,6 +6,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
     encapsulation: ViewEncapsulation.None,
     template: `
         <mat-toolbar class="pxb-drawer-header">
+            <div class="pxb-drawer-header-background"></div>
             <div class="pxb-drawer-header-icon-wrapper">
                 <ng-content select="[icon]"></ng-content>
             </div>
