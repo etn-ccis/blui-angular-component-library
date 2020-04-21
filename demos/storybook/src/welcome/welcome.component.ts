@@ -1,15 +1,14 @@
 import '@pxblue/angular-themes/theme.scss';
-import {Component, NgModule, OnInit, OnDestroy} from '@angular/core';
+import { Component, NgModule, OnInit, OnDestroy } from '@angular/core';
 import 'typeface-open-sans';
-import {MatButtonModule} from "@angular/material/button";
-import {MatCardModule} from "@angular/material/card";
-import {MatDividerModule} from "@angular/material/divider";
-import {hideTopBanner, showTopBanner, UtilModule} from "../utils";
+import { MatButtonModule } from "@angular/material/button";
+import { MatCardModule } from "@angular/material/card";
+import { MatDividerModule } from "@angular/material/divider";
+import { hideTopBanner, showTopBanner, UtilModule } from "../utils";
 import * as Colors from '@pxblue/colors';
 const bg = require('../../assets/circles-bg.svg');
 const icon = require('../../assets/pxb-icon.svg');
-import {CommonModule} from '@angular/common';
-import { isDarkMode } from '../utils';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'welcome',
@@ -52,14 +51,9 @@ export class WelcomeComponent implements OnInit, OnDestroy {
     pxbColors = Colors;
     background = `url(${bg})`;
     pxbIcon = icon;
-    useDarkMode = isDarkMode();
 
     ngOnInit(): void {
         hideTopBanner();
-
-        window.onstorage = () => {
-            this.useDarkMode = isDarkMode();
-        };
     }
 
     ngOnDestroy(): void {
