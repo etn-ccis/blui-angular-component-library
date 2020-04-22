@@ -48,10 +48,10 @@ Child element with attributes:
 
 <div style="overflow: auto;">
 
-| Attributes      | Description                           | Required | Default |
-| --------------- | ------------------------------------- | -------- | ------- |
-| icon            | A component to render for the icon    | no       |         |
-| left-component  | Component to render on the left side  | no       |         |
-| right-component | Component to render on the right side | no       |         |
+| Attributes     | Description                           | Required | Default |
+| -------------- | ------------------------------------- | -------- | ------- |
+| icon           | A component to render for the icon    | no       |         |
+| leftComponent  | Component to render on the left side  | no       |         |
+| rightComponent | Component to render on the right side | no       |         |
 
 </div>

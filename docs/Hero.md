@@ -8,7 +8,7 @@ The PX Blue Hero components are used to call attention to particular values that
 
 The Hero component displays a particular icon, value/units, and a label. Icon components are passed as a child element with the `primary` attribute - these will typically be a Material icon, PX Blue icon, or Progress Icon. It will also accept Text/Emoji values inside of a `<span>` element.
 
-The value section of the Hero utilizes a [ChannelValue](./ChannelValue.md) component. To display a single simple value, the information can be passed as attributes (`value`, `units`). An icon can be passed as a child of the `pxb-hero` component with the `secondary` attribute. For more complex values (such as a duration that displays hours and minutes), you can pass in multiple `<pxb-channel-value>` components as children and they will be displayed inline.
+The value section of the Hero utilizes a [Channel Value](./ChannelValue.md) component. To display a single simple value, the information can be passed as attributes (`value`, `units`). An icon can be passed as a child of the `pxb-hero` component with the `secondary` attribute. For more complex values (such as a duration that displays hours and minutes), you can pass in multiple `<pxb-channel-value>` components as children and they will be displayed inline.
 
 ## Hero Usage
 

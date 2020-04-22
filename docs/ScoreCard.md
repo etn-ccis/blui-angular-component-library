@@ -74,10 +74,10 @@ Child element with attributes:
 
 <div style="overflow: auto;">
 
-| Attributes   | Description                                 | Required | Default |
-| ------------ | ------------------------------------------- | -------- | ------- |
-| action-items | Icons shown to the right of the header text | no       |         |
-| action-row   | Content to render for the footer            | no       |         |
-| body         | Content to render in the body               | no       |         |
+| Attributes  | Description                                 | Required | Default |
+| ----------- | ------------------------------------------- | -------- | ------- |
+| actionItems | Icons shown to the right of the header text | no       |         |
+| actionRow   | Content to render for the footer            | no       |         |
+| body        | Content to render in the body               | no       |         |
 
 </div>

@@ -15,7 +15,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
                         <mat-card-subtitle class="pxb-score-card-info">{{ headerInfo }}</mat-card-subtitle>
                     </div>
                     <div class="pxb-score-card-action-items-wrapper">
-                        <ng-content select="[action-items]"></ng-content>
+                        <ng-content select="[actionItems]"></ng-content>
                     </div>
                 </div>
             </div>
@@ -28,7 +28,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
                 </div>
                 <mat-divider *ngIf="actionRow.childNodes.length !== 0"></mat-divider>
                 <div class="pxb-score-card-action-row-wrapper" #actionRow>
-                    <ng-content select="[action-row]"></ng-content>
+                    <ng-content select="[actionRow]"></ng-content>
                 </div>
             </mat-card-content>
         </mat-card>

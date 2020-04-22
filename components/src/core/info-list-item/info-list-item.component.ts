@@ -21,7 +21,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
                 <ng-content select="[icon]"></ng-content>
             </div>
             <div class="pxb-info-list-item-left-component">
-                <ng-content select="[left-component]"></ng-content>
+                <ng-content select="[leftComponent]"></ng-content>
             </div>
             <div class="mat-body-1 pxb-info-list-item-title" matLine [class.pxb-info-list-item-wrap]="wrapTitle">
                 {{ title }}
@@ -37,7 +37,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
             <pxb-spacer class="pxb-info-list-item-spacer"></pxb-spacer>
             <div class="pxb-info-list-item-right-component">
                 <div #right class="pxb-info-list-item-right-component-wrapper">
-                    <ng-content select="[right-component]"></ng-content>
+                    <ng-content select="[rightComponent]"></ng-content>
                 </div>
                 <mat-icon *ngIf="chevron && !right.innerHTML">chevron_right</mat-icon>
             </div>

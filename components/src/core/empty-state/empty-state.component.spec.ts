@@ -10,7 +10,7 @@ import { EmptyStateModule } from './empty-state.module';
     selector: 'test-app',
     template: `
         <pxb-empty-state class="withIcon">
-            <span empty-icon></span>
+            <span emptyIcon></span>
         </pxb-empty-state>
         <pxb-empty-state class="empty"></pxb-empty-state>
 
@@ -83,10 +83,10 @@ describe('Empty State Component', () => {
     // Icon Check
     it('should show icon when supplied', () => {
         const iconFixture = TestBed.createComponent(TestEmpty);
-        let actionElement = iconFixture.debugElement.query(By.css('.withIcon [empty-icon]'));
+        let actionElement = iconFixture.debugElement.query(By.css('.withIcon [emptyIcon]'));
         expect(actionElement).not.toBeNull();
 
-        actionElement = iconFixture.debugElement.query(By.css('.empty [empty-icon]'));
+        actionElement = iconFixture.debugElement.query(By.css('.empty [emptyIcon]'));
         expect(actionElement).toBeNull();
     });
 
