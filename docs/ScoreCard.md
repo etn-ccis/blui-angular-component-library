@@ -1,6 +1,6 @@
 # Score Card
 
-Card component that calls attention to particular values.
+`<pxb-score-card>` is a card component that calls attention to particular values.
 
 <div style="align-items: center; text-align: center; width: 100%; display: flex; justify-content: space-evenly; margin-bottom: 20px">
     <img width="40%" alt="Score Card with multiple highlighted values" src="./images/scoreCard.png"><br/>

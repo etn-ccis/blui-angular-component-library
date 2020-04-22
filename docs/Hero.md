@@ -1,14 +1,14 @@
 # Hero
 
-The PX Blue Hero components are used to call attention to particular values that are of the most importance to the user. These are typically displayed in a banner.
+The `<pxb-hero>` components are used to call attention to particular values that are of the most importance to the user. These are typically displayed in a banner.
 
 <div style="text-align:center">
 <img width="100%" style="max-width:600px" alt="Hero Banner" src="./images/heroes.png">
 </div>
 
-The Hero component displays a particular icon, value/units, and a label. Icon components are passed as a child element with the `primary` attribute - these will typically be a Material icon, PX Blue icon, or Progress Icon. It will also accept Text/Emoji values inside of a `<span>` element.
+The `<pxb-hero>` component displays a particular icon, value/units, and a label. Icon components are passed as a child element with the `primary` attribute - these will typically be a Material icon, PX Blue icon, or Progress Icon. It will also accept Text/Emoji values inside of a `<span>` element.
 
-The value section of the Hero utilizes a [Channel Value](./ChannelValue.md) component. To display a single simple value, the information can be passed as attributes (`value`, `units`). An icon can be passed as a child of the `pxb-hero` component with the `secondary` attribute. For more complex values (such as a duration that displays hours and minutes), you can pass in multiple `<pxb-channel-value>` components as children and they will be displayed inline.
+The value section of the `<pxb-hero>` utilizes a [`<pxb-channel-value>`](./ChannelValue.md) component. To display a single simple value, the information can be passed as attributes (`value`, `units`). An icon can be passed as a child of the `<pxb-hero>` component with the `secondary` attribute. For more complex values (such as a duration that displays hours and minutes), you can pass in multiple `<pxb-channel-value>` components as children and they will be displayed inline.
 
 ## Hero Usage
 
@@ -75,7 +75,7 @@ Child element with attributes:
 
 # HeroBanner
 
-The HeroBanner component is a simple wrapper component that is used to contain `<pxb-hero> </pxb-hero>`s. It creates the flex container and sets up the spacing rules to display them. It accepts up to four `<pxb-hero> </pxb-hero>` components as its children.
+The `<pxb-hero-banner>` component is a simple wrapper component that is used to contain `<pxb-hero> </pxb-hero>`s. It creates the flex container and sets up the spacing rules to display them. It accepts up to four `<pxb-hero> </pxb-hero>` components as its children.
 
 ## Hero Banner Usage
 

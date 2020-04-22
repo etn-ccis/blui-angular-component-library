@@ -1,6 +1,6 @@
 # Info List Item
 
-The Info List Item is intended to be used in List views. It positions a title as well as optional subtitle(s), icon, and status stripe.
+The `<pxb-info-list-item>` is intended to be used in List views. It positions a title as well as optional subtitle(s), icon, and status stripe.
 
 <img width="100%" alt="Info List Items in a variety of styles" src="./images/infoListItem.png">
 

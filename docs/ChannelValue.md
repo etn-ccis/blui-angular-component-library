@@ -1,8 +1,8 @@
 # Channel Value
 
-The Channel Value component is used to display a channel value (and units). This component abstracts the styles used to display the channel and units as well as an optional inline icon. These are used as part of the [Hero](./Hero.md) component, but can also be used inline (e.g., in a list).
+The `<pxb-channel-value>` component is used to display a channel value (and units). This component abstracts the styles used to display the channel and units as well as an optional inline icon. These are used as part of the [`<pxb-hero>`](./Hero.md) component, but can also be used inline (e.g., in a list).
 
-Icons are passed in as a child element of the Channel Value component.
+Icons are passed in as a child element of the `<pxb-channel-value>` component.
 
 <div style="text-align:center; margin-bottom:20px">
     <img width="100%" style="max-width: 600px" alt="Channel Value in Hero" src="./images/heroes.png">
