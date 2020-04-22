@@ -77,7 +77,7 @@ Child element with attributes:
 
 The HeroBanner component is a simple wrapper component that is used to contain `<pxb-hero> </pxb-hero>`s. It creates the flex container and sets up the spacing rules to display them. It accepts up to four `<pxb-hero> </pxb-hero>` components as its children.
 
-## HeroBanner Usage
+## Hero Banner Usage
 
 ```typescript
 // app.module.ts
@@ -97,7 +97,7 @@ imports: [
 </pxb-hero-banner>
 ```
 
-## HeroBanner API
+## Hero Banner API
 
 Parent element (`pxb-hero-banner`) attributes:
 

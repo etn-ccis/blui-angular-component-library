@@ -1,4 +1,4 @@
-# ScoreCard
+# Score Card
 
 Card component that calls attention to particular values.
 
