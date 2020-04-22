@@ -74,7 +74,7 @@ Child element with attributes:
 
 <div style="overflow: auto;">
 
-| Attributes  | Description                                 | Required | Default |
+| Selector    | Description                                 | Required | Default |
 | ----------- | ------------------------------------------- | -------- | ------- |
 | actionItems | Icons shown to the right of the header text | no       |         |
 | actionRow   | Content to render for the footer            | no       |         |
