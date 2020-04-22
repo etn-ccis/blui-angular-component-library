@@ -26,7 +26,7 @@ export const withFullConfig = (): any => ({
             [headerInfo]="headerInfo"
             [badgeOffset]="badgeOffset"
         >
-            <ng-container action-items>
+            <ng-container actionItems>
                 <ng-container *ngFor="let action of actions; index as i;">
                     <mat-icon *ngIf="i < actionLimit" (click)="actionClick(actions[i])">
                         {{actions[i]}}
@@ -57,8 +57,8 @@ export const withFullConfig = (): any => ({
                     <i primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
                 </pxb-hero>
             </pxb-hero-banner>
-            <pxb-info-list-item title="View Location" hidePadding="true" dense="true" action-row (click)="actionRowClick()">
-                <mat-icon mat-list-icon right-component>chevron_right</mat-icon>
+            <pxb-info-list-item title="View Location" hidePadding="true" dense="true" actionRow (click)="actionRowClick()">
+                <mat-icon mat-list-icon rightComponent>chevron_right</mat-icon>
             </pxb-info-list-item>
         </pxb-score-card>
     `,

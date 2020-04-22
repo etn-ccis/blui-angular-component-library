@@ -16,7 +16,7 @@ export const withHeroes = (): any => ({
             [headerSubtitle]="'High Humidity Alarm'"
             [headerInfo]="'4 Devices'"
         >
-            <mat-icon action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
+            <mat-icon actionItems (click)="actionClick('more_vert')">more_vert</mat-icon>
             <mat-list body>
                 <mat-list-item>
                     <p mat-line>Body Content</p>
@@ -30,8 +30,8 @@ export const withHeroes = (): any => ({
                     <i primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
                 </pxb-hero>
             </pxb-hero-banner>
-            <pxb-info-list-item title="View Location" hidePadding="true" dense="true" action-row (click)="actionRowClick()">
-                <mat-icon mat-list-icon right-component>chevron_right</mat-icon>
+            <pxb-info-list-item title="View Location" hidePadding="true" dense="true" actionRow (click)="actionRowClick()">
+                <mat-icon mat-list-icon rightComponent>chevron_right</mat-icon>
             </pxb-info-list-item>
         </pxb-score-card>
     `,

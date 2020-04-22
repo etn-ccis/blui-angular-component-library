@@ -17,7 +17,7 @@ class TestIconComponent {}
 @Component({
     template: `
         <pxb-info-list-item title="Left Component Test">
-            <div left-component class="test-left">lefty</div>
+            <div leftComponent class="test-left">lefty</div>
         </pxb-info-list-item>
     `,
 })
@@ -26,7 +26,7 @@ class TestLeftComponent {}
 @Component({
     template: `
         <pxb-info-list-item title="Right Component Test">
-            <div right-component class="test-right">righty</div>
+            <div rightComponent class="test-right">righty</div>
         </pxb-info-list-item>
     `,
 })

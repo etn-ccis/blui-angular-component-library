@@ -1,6 +1,6 @@
-# InfoListItem
+# Info List Item
 
-The InfoListItem is intended to be used in List views. It positions a title as well as optional subtitle(s), icon, and status stripe.
+The `<pxb-info-list-item>` is intended to be used in List views. It positions a title as well as optional subtitle(s), icon, and status stripe.
 
 <img width="100%" alt="Info List Items in a variety of styles" src="./images/infoListItem.png">
 
@@ -48,10 +48,10 @@ Child element with attributes:
 
 <div style="overflow: auto;">
 
-| Attributes      | Description                           | Required | Default |
-| --------------- | ------------------------------------- | -------- | ------- |
-| icon            | A component to render for the icon    | no       |         |
-| left-component  | Component to render on the left side  | no       |         |
-| right-component | Component to render on the right side | no       |         |
+| Attributes     | Description                           | Required | Default |
+| -------------- | ------------------------------------- | -------- | ------- |
+| icon           | A component to render for the icon    | no       |         |
+| leftComponent  | Component to render on the left side  | no       |         |
+| rightComponent | Component to render on the right side | no       |         |
 
 </div>
