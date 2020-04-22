@@ -7,13 +7,16 @@
     >
         <mat-icon actionItems>more_vert</mat-icon>
         <mat-list body>
-            <pxb-info-list-item title="1 Alarm" dense="true" [style.color]="colors.red[500]" class="card-body-item">
+            <pxb-info-list-item dense="true" [style.color]="colors.red[500]" class="card-body-item">
+                <div title>1 Alarm</div>
                 <mat-icon icon>notifications</mat-icon>
             </pxb-info-list-item>
-            <pxb-info-list-item title="1 Event" dense="true" [style.color]="colors.blue[500]" class="card-body-item">
+            <pxb-info-list-item dense="true" [style.color]="colors.blue[500]" class="card-body-item">
+                <div title>1 Event</div>
                 <mat-icon icon>list_alt</mat-icon>
             </pxb-info-list-item>
-            <pxb-info-list-item title="Online" dense="true" class="card-body-item">
+            <pxb-info-list-item dense="true" class="card-body-item">
+                <div title>Online</div>
                 <mat-icon icon>cloud</mat-icon>
             </pxb-info-list-item>
         </mat-list>
@@ -25,8 +28,9 @@
                 <mat-icon svgIcon="px-icons:moisture" primary [style.color]="colors.blue[300]"></mat-icon>
             </pxb-hero>
         </pxb-hero-banner>
-        <pxb-info-list-item title="More" hidePadding="true" dense="true" actionRow>
-            <mat-icon mat-list-icon rightComponent>chevron_right</mat-icon>
+        <pxb-info-list-item hidePadding="true" dense="true" actionRow>
+            <div title>More</div>
+            <mat-icon mat-list-icon rightContent>chevron_right</mat-icon>
         </pxb-info-list-item>
     </pxb-score-card>
 
@@ -38,13 +42,16 @@
     >
         <mat-icon actionItems>more_vert</mat-icon>
         <mat-list body>
-            <pxb-info-list-item title="0 Alarms" dense="true" class="card-body-item">
+            <pxb-info-list-item dense="true" class="card-body-item">
+                <div title>0 Alarms</div>
                 <mat-icon icon>notifications</mat-icon>
             </pxb-info-list-item>
-            <pxb-info-list-item title="1 Event" dense="true" [style.color]="colors.blue[500]" class="card-body-item">
+            <pxb-info-list-item dense="true" [style.color]="colors.blue[500]" class="card-body-item">
+                <div title>1 Event</div>
                 <mat-icon icon>list_alt</mat-icon>
             </pxb-info-list-item>
-            <pxb-info-list-item title="Online" dense="true" class="card-body-item">
+            <pxb-info-list-item dense="true" class="card-body-item">
+                <div title>Online</div>
                 <mat-icon icon>cloud</mat-icon>
             </pxb-info-list-item>
         </mat-list>
@@ -60,8 +67,9 @@
         >
             <mat-icon svgIcon="px-icons:grade_a" primary [style.color]="colors.green[500]"></mat-icon>
         </pxb-hero>
-        <pxb-info-list-item title="View Location" hidePadding="true" dense="true" actionRow>
-            <mat-icon mat-list-icon rightComponent>chevron_right</mat-icon>
+        <pxb-info-list-item hidePadding="true" dense="true" actionRow>
+            <div title>View Location</div>
+            <mat-icon mat-list-icon rightContent>chevron_right</mat-icon>
         </pxb-info-list-item>
     </pxb-score-card>
 </div>
@@ -107,7 +115,7 @@
     >
         <div title>Status</div>
         <mat-icon icon svgIcon="px-icons:leaf" [style.color]="colors.green[500]"></mat-icon>
-        <pxb-channel-value rightComponent value="Online, ESS+"></pxb-channel-value>
+        <pxb-channel-value rightContent value="Online, ESS+"></pxb-channel-value>
     </pxb-info-list-item>
 
     <pxb-info-list-item
@@ -122,7 +130,7 @@
             [style.backgroundColor]="colors.black[500]"
             [style.color]="colors.white[50]"
         ></mat-icon>
-        <div rightComponent>
+        <div rightContent>
             <pxb-channel-value value="478" units="V"></pxb-channel-value>,
             <pxb-channel-value value="479" units="V"></pxb-channel-value>,
             <pxb-channel-value value="473" units="V"></pxb-channel-value>
@@ -143,7 +151,7 @@
                 [style.color]="colors.white[50]"
                 [style.backgroundColor]="colors.red[500]"
             ></mat-icon>
-            <div rightComponent [style.color]="colors.black[500]">
+            <div rightContent [style.color]="colors.black[500]">
                 <pxb-channel-value value="480" units="V"></pxb-channel-value>,
                 <pxb-channel-value value="480" units="V"></pxb-channel-value>,
                 <pxb-channel-value value="480" units="V"></pxb-channel-value>
@@ -154,7 +162,7 @@
     <pxb-info-list-item divider="full" dense="true">
       <div title>Output Voltage</div>
         <mat-icon icon svgIcon="px-icons:current_circled"></mat-icon>
-        <div rightComponent>
+        <div rightContent>
             <pxb-channel-value value="15" units="A"></pxb-channel-value>,
             <pxb-channel-value value="15" units="A"></pxb-channel-value>,
             <pxb-channel-value value="14.9" units="A"></pxb-channel-value>
