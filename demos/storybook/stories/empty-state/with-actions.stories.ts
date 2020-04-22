@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 export const withActions = (): any => ({
     template: `
         <pxb-empty-state [title]="title" [description]="description">
-            <mat-icon empty-icon>devices</mat-icon>
+            <mat-icon emptyIcon>devices</mat-icon>
             <button actions mat-raised-button color="primary" (click)="click()">
                 <mat-icon>add_circle</mat-icon>
                 {{actionText}}

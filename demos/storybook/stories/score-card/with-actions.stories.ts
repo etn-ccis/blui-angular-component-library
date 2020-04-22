@@ -18,7 +18,7 @@ export const withActions = (): any => ({
             [headerSubtitle]="'High Humidity Alarm'"
             [headerInfo]="'4 Devices'"
         >
-            <ng-container action-items>
+            <ng-container actionItems>
                 <ng-container *ngFor="let action of actions; index as i;">
                     <mat-icon *ngIf="i < actionLimit" (click)="actionClick(actions[i])">
                         {{actions[i]}}
@@ -30,8 +30,8 @@ export const withActions = (): any => ({
                     <p mat-line>Body Content</p>
                 </mat-list-item>
             </mat-list>
-            <pxb-info-list-item title="View Location" hidePadding="true" dense="true" action-row (click)="actionRowClick()">
-                <mat-icon mat-list-icon right-component>chevron_right</mat-icon>
+            <pxb-info-list-item title="View Location" hidePadding="true" dense="true" actionRow (click)="actionRowClick()">
+                <mat-icon mat-list-icon rightComponent>chevron_right</mat-icon>
             </pxb-info-list-item>
         </pxb-score-card>
     `,
