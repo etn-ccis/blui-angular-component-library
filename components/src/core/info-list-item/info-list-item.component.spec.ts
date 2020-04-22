@@ -100,6 +100,8 @@ describe('InfoListItemComponent', () => {
 
     it('should enforce class naming conventions', () => {
         component.divider = 'full';
+        component.avatar = true;
+        component.hidePadding = true;
         fixture.detectChanges();
         const classList = [
             '.pxb-info-list-item',
@@ -110,6 +112,8 @@ describe('InfoListItemComponent', () => {
             '.pxb-info-list-item-spacer',
             '.pxb-info-list-item-right-component',
             '.pxb-info-list-item-divider',
+            '.pxb-info-list-item-avatar',
+            '.pxb-info-list-item-hide-padding',
             '.pxb-info-list-item-right-component-wrapper',
         ];
         for (const className of classList) {

@@ -85,8 +85,8 @@ describe('DrawerHeaderComponent', () => {
         const customFixture = TestBed.createComponent(TestDrawerHeader);
         customFixture.detectChanges();
         const classList = [
-						'.pxb-drawer-header',
-						'.pxb-drawer-header-background',
+            '.pxb-drawer-header',
+            '.pxb-drawer-header-background',
             '.pxb-drawer-header-icon-wrapper',
             '.pxb-drawer-header-title-wrapper',
             '.pxb-drawer-header-title',

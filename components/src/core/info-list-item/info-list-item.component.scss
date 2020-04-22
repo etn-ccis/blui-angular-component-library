@@ -74,6 +74,10 @@ $denseHeight: 56px;
             width: 0;
             min-width: unset;
         }
+        &.pxb-info-list-item-avatar > * {
+            padding: 8px;
+            border-radius: 50%;
+        }
     }
 
     .pxb-info-list-item-left-component {

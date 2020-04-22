@@ -8,6 +8,6 @@ export const withLeftComponent = (): any => ({
         </pxb-info-list-item>
       `,
     props: {
-        colors: Colors
-    }
+        colors: Colors,
+    },
 });

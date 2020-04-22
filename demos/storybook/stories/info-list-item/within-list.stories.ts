@@ -1,5 +1,5 @@
 import * as Colors from '@pxblue/colors';
-import {select} from "@storybook/addon-knobs";
+import { select } from '@storybook/addon-knobs';
 
 export const withinList = (): any => ({
     template: `
@@ -8,9 +8,9 @@ export const withinList = (): any => ({
             <pxb-channel-value right-component value="Online, ESS+" [fontSize]="fontSize"></pxb-channel-value>
         </pxb-info-list-item>
 
-        <pxb-info-list-item title="Input Voltage" subtitle="Phase A · Phase B · Phase C" [divider]="divider">
+        <pxb-info-list-item title="Input Voltage" subtitle="Phase A · Phase B · Phase C" [divider]="divider" [avatar]="true">
             <mat-icon icon [style.backgroundColor]="colors.black[500]"
-                style="border-radius: 50%; padding: 8px; color: white;">check_circle</mat-icon>
+                style="color: white;">check_circle</mat-icon>
             <span right-component>
                 <pxb-channel-value value="478" units="V" [fontSize]="fontSize"></pxb-channel-value>,
                 <pxb-channel-value value="479" units="V" [fontSize]="fontSize"></pxb-channel-value>,
@@ -19,9 +19,9 @@ export const withinList = (): any => ({
         </pxb-info-list-item>
 
         <pxb-info-list-item title="Output Voltage" subtitle="Phase A · Phase B · Phase C"
-            [style.color]="colors.red[500]" [statusColor]="colors.red[500]" [divider]="divider">
+            [style.color]="colors.red[500]" [statusColor]="colors.red[500]" [divider]="divider" [avatar]="true">
             <mat-icon icon [style.backgroundColor]="colors.red[500]"
-                style="border-radius: 50%; padding: 8px; color: white;">check_circle</mat-icon>
+                style="color: white">check_circle</mat-icon>
             <span right-component>
                 <pxb-channel-value value="478" units="V" [fontSize]="fontSize"></pxb-channel-value>,
                 <pxb-channel-value value="479" units="V" [fontSize]="fontSize"></pxb-channel-value>,
@@ -45,10 +45,10 @@ export const withinList = (): any => ({
                 <pxb-channel-value value="68" units="°F" [fontSize]="fontSize"></pxb-channel-value>
             </span>
         </pxb-info-list-item>
-      `,
+    `,
     props: {
         colors: Colors,
         fontSize: 16,
-        divider: select('divider', ['full', 'partial', ''], 'full')
-    }
+        divider: select('divider', ['full', 'partial', ''], 'full'),
+    },
 });

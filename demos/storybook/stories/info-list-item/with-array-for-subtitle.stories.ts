@@ -1,5 +1,5 @@
 import * as Colors from '@pxblue/colors';
-import {text} from "@storybook/addon-knobs";
+import { text } from '@storybook/addon-knobs';
 
 export const withArraySubtitle = (): any => ({
     template: `
@@ -10,6 +10,6 @@ export const withArraySubtitle = (): any => ({
     props: {
         colors: Colors,
         subtitle: [4, '🍂', 'leaves'],
-        subtitleSeparator: text('subtitleSeparator', '___')
-    }
+        subtitleSeparator: text('subtitleSeparator', '___'),
+    },
 });

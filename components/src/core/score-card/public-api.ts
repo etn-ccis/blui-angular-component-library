@@ -1,2 +1,2 @@
-export * from './scorecard.component';
-export * from './scorecard.module';
+export * from './score-card.component';
+export * from './score-card.module';

@@ -17,9 +17,9 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
     styleUrls: ['./channel-value.component.scss'],
 })
 export class ChannelValueComponent {
-    @Input() value: string;
+    @Input() value: string | number;
     @Input() units: string;
     @Input() fontSize = 'inherit';
     @Input() prefix = false;
-    @Input() color;
+    @Input() color: string;
 }
