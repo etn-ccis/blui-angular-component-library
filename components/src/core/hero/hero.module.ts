@@ -3,7 +3,7 @@ import { ChannelValueModule } from '../channel-value/public-api';
 import { HeroBannerComponent } from './hero-banner.component';
 import { HeroComponent } from './hero.component';
 import { CommonModule } from '@angular/common';
-import { MatDividerModule } from '@angular/material';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
     declarations: [HeroComponent, HeroBannerComponent],

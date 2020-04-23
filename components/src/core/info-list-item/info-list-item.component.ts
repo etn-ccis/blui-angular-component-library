@@ -12,11 +12,16 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
             [class.pxb-info-list-item-status]="statusColor"
             [style.borderLeftColor]="statusColor"
         >
-            <div mat-list-icon class="pxb-info-list-item-icon" [class.pxb-info-list-item-hide-padding]="hidePadding">
+            <div
+                mat-list-icon
+                class="pxb-info-list-item-icon"
+                [class.pxb-info-list-item-hide-padding]="hidePadding"
+                [class.pxb-info-list-item-avatar]="avatar"
+            >
                 <ng-content select="[icon]"></ng-content>
             </div>
             <div class="pxb-info-list-item-left-component">
-                <ng-content select="[left-component]"></ng-content>
+                <ng-content select="[leftComponent]"></ng-content>
             </div>
             <div class="mat-body-1 pxb-info-list-item-title" matLine [class.pxb-info-list-item-wrap]="wrapTitle">
                 {{ title }}
@@ -32,7 +37,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
             <pxb-spacer class="pxb-info-list-item-spacer"></pxb-spacer>
             <div class="pxb-info-list-item-right-component">
                 <div #right class="pxb-info-list-item-right-component-wrapper">
-                    <ng-content select="[right-component]"></ng-content>
+                    <ng-content select="[rightComponent]"></ng-content>
                 </div>
                 <mat-icon *ngIf="chevron && !right.innerHTML">chevron_right</mat-icon>
             </div>
@@ -48,11 +53,12 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
 })
 export class InfoListItemComponent {
     @Input() title: string;
-    @Input() subtitle: string | any[];
+    @Input() subtitle: string | string[];
     @Input() subtitleSeparator = '\u00B7';
     @Input() statusColor: string;
     @Input() chevron = false;
     @Input() dense = false;
+    @Input() avatar = false;
     @Input() hidePadding = false;
     @Input() wrapSubtitle = false;
     @Input() wrapTitle = false;

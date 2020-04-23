@@ -5,30 +5,30 @@ const backgroundImage = require('../../assets/topology_40.png');
 
 export const withCustomHeaderStyles = `
     ${matListStyles}
-    ::ng-deep .pxb-scorecard .pxb-scorecard-header-background {
+    ::ng-deep .pxb-score-card .pxb-score-card-header-background {
         background-image: url(${backgroundImage});
     }`;
 
 export const withCustomHeader = (): any => ({
     styles: [
         `${withCustomHeaderStyles}
-        ::ng-deep pxb-scorecard .pxb-root .pxb-header {
+        ::ng-deep pxb-score-card .pxb-root .pxb-header {
             background-color: ${Colors.red[500]};
             color: ${Colors.white[50]};
         }`,
     ],
     template: `
-      <pxb-scorecard
-          [class.root.header.color]="test"
-          [headerTitle]="headerTitle"
-          [headerSubtitle]="headerSubtitle"
-          [headerInfo]="headerInfo"
-      >
-      <mat-list body>
-          <mat-list-item>Body Content</mat-list-item>
-      </mat-list>
-    </pxb-scorecard>
-  `,
+        <pxb-score-card
+            [class.root.header.color]="test"
+            [headerTitle]="headerTitle"
+            [headerSubtitle]="headerSubtitle"
+            [headerInfo]="headerInfo"
+        >
+            <mat-list body>
+                <mat-list-item>Body Content</mat-list-item>
+            </mat-list>
+        </pxb-score-card>
+    `,
     props: {
         headerTitle: text('headerTitle', 'Card Title'),
         headerSubtitle: text('headerSubtitle', 'Card Subtitle'),

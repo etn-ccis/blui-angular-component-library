@@ -17,7 +17,7 @@ class TestIconComponent {}
 @Component({
     template: `
         <pxb-info-list-item title="Left Component Test">
-            <div left-component class="test-left">lefty</div>
+            <div leftComponent class="test-left">lefty</div>
         </pxb-info-list-item>
     `,
 })
@@ -26,7 +26,7 @@ class TestLeftComponent {}
 @Component({
     template: `
         <pxb-info-list-item title="Right Component Test">
-            <div right-component class="test-right">righty</div>
+            <div rightComponent class="test-right">righty</div>
         </pxb-info-list-item>
     `,
 })
@@ -100,6 +100,8 @@ describe('InfoListItemComponent', () => {
 
     it('should enforce class naming conventions', () => {
         component.divider = 'full';
+        component.avatar = true;
+        component.hidePadding = true;
         fixture.detectChanges();
         const classList = [
             '.pxb-info-list-item',
@@ -110,6 +112,8 @@ describe('InfoListItemComponent', () => {
             '.pxb-info-list-item-spacer',
             '.pxb-info-list-item-right-component',
             '.pxb-info-list-item-divider',
+            '.pxb-info-list-item-avatar',
+            '.pxb-info-list-item-hide-padding',
             '.pxb-info-list-item-right-component-wrapper',
         ];
         for (const className of classList) {

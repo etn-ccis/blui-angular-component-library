@@ -1,5 +1,5 @@
 import { MatIconModule } from '@angular/material/icon';
-import { ScoreCardModule, HeroModule } from '@pxblue/angular-components';
+import { ScoreCardModule, HeroModule, InfoListItemModule } from '@pxblue/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import {
@@ -29,12 +29,13 @@ export const scorecardContainer = () => (storyFn): any => {
     };
 };
 
-storiesOf(`${COMPONENT_SECTION_NAME}/Scorecard`, module)
+storiesOf(`${COMPONENT_SECTION_NAME}/Score Card`, module)
     .addDecorator(
         moduleMetadata({
             imports: [
                 ScoreCardModule,
                 HeroModule,
+                InfoListItemModule,
                 UtilModule,
                 MatIconModule,
                 MatListModule,

@@ -8,27 +8,27 @@ import { ViewEncapsulation } from '@angular/core';
 export const withScoreBadge = (): any => ({
     styles: [
         `${withCustomHeaderStyles}
-        .sb-scorecard-content mat-list-item {
+        .sb-score-card-content mat-list-item {
             height: 36px!important;
         }
-        .sb-scorecard-content mat-icon {
+        .sb-score-card-content mat-icon {
             margin-right: 32px;
         }
-        .sb-scorecard-content .mat-line {
+        .sb-score-card-content .mat-line {
             font-weight: 600!important;
         }
     `,
     ],
     encapsulation: ViewEncapsulation.None,
     template: `
-          <pxb-scorecard
-              [headerTitle]="'Substation 3'"
-              [headerSubtitle]="'Normal'"
-              [headerInfo]="'4 Devices'"
-              [badgeOffset]="badgeOffset"
-          >
-            <mat-icon action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
-            <mat-list body class="sb-scorecard-content">
+        <pxb-score-card
+            [headerTitle]="'Substation 3'"
+            [headerSubtitle]="'Normal'"
+            [headerInfo]="'4 Devices'"
+            [badgeOffset]="badgeOffset"
+        >
+            <mat-icon actionItems (click)="actionClick('more_vert')">more_vert</mat-icon>
+            <mat-list body class="sb-score-card-content">
                 <mat-list-item>
                     <p mat-line>0 Alarms</p>
                     <mat-icon mat-list-icon>notifications</mat-icon>
@@ -45,14 +45,11 @@ export const withScoreBadge = (): any => ({
             <pxb-hero badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="'large'" [iconBackgroundColor]="colors.white[50]">
                 <i primary [style.color]="colors.green[500]" class="pxb-grade_a"></i>
             </pxb-hero>
-            <mat-list action-row>
-                <mat-list-item (click)="actionRowClick()">
-                    <p mat-line>View Location</p>
-                    <mat-icon mat-list-icon style="order: 10">chevron_right</mat-icon>
-                </mat-list-item>
-            </mat-list>
-        </pxb-scorecard>
-      `,
+            <pxb-info-list-item title="View Location" hidePadding="true" dense="true" actionRow (click)="actionRowClick()">
+                <mat-icon mat-list-icon rightComponent>chevron_right</mat-icon>
+            </pxb-info-list-item>
+        </pxb-score-card>
+    `,
     props: {
         actionClick: (iconName: string): any => action(`${iconName} clicked`)(),
         actionRowClick: action('View Location clicked'),

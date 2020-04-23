@@ -6,18 +6,17 @@ import { withCustomHeaderStyles } from './with-custom-header.stories';
 export const withHeroes = (): any => ({
     styles: [
         `${withCustomHeaderStyles}
-        ::ng-deep pxb-scorecard .pxb-scorecard .pxb-scorecard-header {
+        ::ng-deep pxb-score-card .pxb-score-card .pxb-score-card-header {
             background-color: ${Colors.red[500]};
-            color: ${Colors.white[50]};
         }`,
     ],
     template: `
-          <pxb-scorecard
-              [headerTitle]="'Substation 3'"
-              [headerSubtitle]="'High Humidity Alarm'"
-              [headerInfo]="'4 Devices'"
-          >
-            <mat-icon action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
+        <pxb-score-card
+            [headerTitle]="'Substation 3'"
+            [headerSubtitle]="'High Humidity Alarm'"
+            [headerInfo]="'4 Devices'"
+        >
+            <mat-icon actionItems (click)="actionClick('more_vert')">more_vert</mat-icon>
             <mat-list body>
                 <mat-list-item>
                     <p mat-line>Body Content</p>
@@ -31,14 +30,11 @@ export const withHeroes = (): any => ({
                     <i primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
                 </pxb-hero>
             </pxb-hero-banner>
-            <mat-list action-row>
-                <mat-list-item (click)="actionRowClick()">
-                    <p mat-line>View Location</p>
-                    <mat-icon mat-list-icon style="order: 10">chevron_right</mat-icon>
-                </mat-list-item>
-            </mat-list>
-        </pxb-scorecard>
-      `,
+            <pxb-info-list-item title="View Location" hidePadding="true" dense="true" actionRow (click)="actionRowClick()">
+                <mat-icon mat-list-icon rightComponent>chevron_right</mat-icon>
+            </pxb-info-list-item>
+        </pxb-score-card>
+    `,
     props: {
         actionClick: (iconName: string): any => action(`${iconName} clicked`)(),
         actionRowClick: action('View Location clicked'),
