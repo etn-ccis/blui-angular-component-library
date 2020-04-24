@@ -2,7 +2,9 @@ import * as Colors from '@pxblue/colors';
 
 export const withIcon = (): any => ({
     template: `
-        <pxb-info-list-item title="Info List Item" subtitle="with an icon">
+        <pxb-info-list-item>
+            <span title>Info List Item</span>
+            <span subtitle>with an icon</span>
             <mat-icon [style.color]="colors.green[500]" icon>eco</mat-icon>
         </pxb-info-list-item>
       `,
