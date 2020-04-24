@@ -14,7 +14,7 @@ import { By } from '@angular/platform-browser';
         </pxb-info-list-item>
     `,
 })
-class BasicUsageComponent {}
+class TestBasicUsage {}
 
 @Component({
     template: `
@@ -52,7 +52,7 @@ describe('InfoListItemComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [BasicUsageComponent, TestIconComponent, TestLeftContent, TestRightContent],
+            declarations: [TestBasicUsage, TestIconComponent, TestLeftContent, TestRightContent],
             imports: [InfoListItemModule],
         }).compileComponents();
     }));
@@ -68,7 +68,7 @@ describe('InfoListItemComponent', () => {
     });
 
     it('should render a title', () => {
-        const customFixture = TestBed.createComponent(BasicUsageComponent);
+        const customFixture = TestBed.createComponent(TestBasicUsage);
         customFixture.detectChanges();
         expect(customFixture.nativeElement.querySelector('.pxb-info-list-item-title').innerHTML).toContain(
             'Test Title'
@@ -76,7 +76,7 @@ describe('InfoListItemComponent', () => {
     });
 
     it('should render a subtitle', () => {
-        const customFixture = TestBed.createComponent(BasicUsageComponent);
+        const customFixture = TestBed.createComponent(TestBasicUsage);
         customFixture.detectChanges();
         expect(customFixture.nativeElement.querySelector('.pxb-info-list-item-subtitle').innerHTML).toContain(
             'Test Subtitle'
