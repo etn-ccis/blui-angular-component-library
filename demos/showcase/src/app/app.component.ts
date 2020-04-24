@@ -12,6 +12,7 @@ const iconSet = require('@pxblue/icons-svg/icons.svg');
     encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
+    drawerBodyTestItems;
     colors: Record<string, any>;
     constructor(private readonly matIconRegistry: MatIconRegistry, private readonly domSanitizer: DomSanitizer) {
         this.colors = PXBColors;
@@ -19,6 +20,34 @@ export class AppComponent {
             'px-icons',
             this.domSanitizer.bypassSecurityTrustResourceUrl(iconSet)
         );
+
+        this.drawerBodyTestItems = [
+            {
+                title: 'First DrawerNavGroup',
+                items: [
+                    {
+                        statusColor: this.colors.red[500],
+                        title: 'DrawerNavItem 1'
+                    },
+                    {
+                        statusColor: this.colors.blue[500],
+                        title: 'DrawerNavItem 2'
+                    }
+                ]
+            },
+            {
+                title: 'Second DrawerNavGroup',
+                items: [
+                    {
+                        title: 'DrawerNavItem 3'
+                    },
+                    {
+                        statusColor: this.colors.orange[500],
+                        title: 'DrawerNavItem 4'
+                    }
+                ]
+            }
+        ]
     }
 
     test(): void {

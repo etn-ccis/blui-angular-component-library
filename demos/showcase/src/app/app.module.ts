@@ -11,9 +11,13 @@ import {
     EmptyStateModule,
     ScoreCardModule,
     InfoListItemModule,
+    DrawerModule,
+    DrawerBodyModule,
     DrawerHeaderModule,
     DrawerSubheaderModule,
-    DrawerFooterModule
+    DrawerFooterModule,
+    DrawerNavGroupModule,
+    DrawerNavItemModule
 } from '@pxblue/angular-components';
 
 //material modules
@@ -43,9 +47,13 @@ import { MatButtonModule } from '@angular/material/button';
         ScoreCardModule,
         HeroModule,
         InfoListItemModule,
+        DrawerModule,
+        DrawerBodyModule,
         DrawerHeaderModule,
         DrawerSubheaderModule,
-        DrawerFooterModule
+        DrawerFooterModule,
+        DrawerNavGroupModule,
+        DrawerNavItemModule
     ],
     providers: [],
     bootstrap: [AppComponent],
