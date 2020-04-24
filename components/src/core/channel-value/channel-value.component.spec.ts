@@ -23,6 +23,25 @@ describe('ChannelValueComponent', () => {
         expect(component).toBeTruthy();
     });
 
+    it('should render a value', () => {
+        component.value = 'Test Value';
+        fixture.detectChanges();
+
+
+    });
+
+    it('should render units to the left', () => {
+
+    });
+
+    it('should render units to the right', () => {
+
+    });
+
+    it('should render an icon', () => {
+
+    });
+
     it('should enforce class naming conventions', () => {
         component.value = '123';
         component.units = 'hz';
@@ -36,6 +55,5 @@ describe('ChannelValueComponent', () => {
         for (const className of classList) {
             count(fixture, className);
         }
-        count(fixture, '.pxb-channel-value-text', 2);
     });
 });

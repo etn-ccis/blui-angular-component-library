@@ -6,12 +6,9 @@
 .pxb-channel-value {
     display: flex;
     line-height: 1.2;
-
-    .pxb-channel-value-text {
-        font-size: inherit;
-        letter-spacing: 0;
-        margin: 0;
-    }
+    font-size: inherit;
+    letter-spacing: 0;
+    margin: 0;
 
     .pxb-channel-value-units {
         font-weight: 300;
