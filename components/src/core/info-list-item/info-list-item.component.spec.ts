@@ -14,11 +14,11 @@ import { By } from '@angular/platform-browser';
         </pxb-info-list-item>
     `,
 })
-class BasicUsageComponent {}
+class TestBasicUsage {}
 
 @Component({
     template: `
-        <pxb-info-list-item title="Icon Test">
+        <pxb-info-list-item>
             <div title>title</div>
             <mat-icon icon>mail</mat-icon>
         </pxb-info-list-item>
@@ -28,23 +28,23 @@ class TestIconComponent {}
 
 @Component({
     template: `
-        <pxb-info-list-item title="Left Component Test">
+        <pxb-info-list-item>
             <div title>title</div>
             <div leftContent class="test-left">lefty</div>
         </pxb-info-list-item>
     `,
 })
-class TestLeftComponent {}
+class TestLeftContent {}
 
 @Component({
     template: `
-        <pxb-info-list-item title="Right Component Test">
+        <pxb-info-list-item>
             <div title>title</div>
             <div rightContent class="test-right">righty</div>
         </pxb-info-list-item>
     `,
 })
-class TestRightComponent {}
+class TestRightContent {}
 
 describe('InfoListItemComponent', () => {
     let component: InfoListItemComponent;
@@ -52,7 +52,7 @@ describe('InfoListItemComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [BasicUsageComponent, TestIconComponent, TestLeftComponent, TestRightComponent],
+            declarations: [TestBasicUsage, TestIconComponent, TestLeftContent, TestRightContent],
             imports: [InfoListItemModule],
         }).compileComponents();
     }));
@@ -68,7 +68,7 @@ describe('InfoListItemComponent', () => {
     });
 
     it('should render a title', () => {
-        const customFixture = TestBed.createComponent(BasicUsageComponent);
+        const customFixture = TestBed.createComponent(TestBasicUsage);
         customFixture.detectChanges();
         expect(customFixture.nativeElement.querySelector('.pxb-info-list-item-title').innerHTML).toContain(
             'Test Title'
@@ -76,7 +76,7 @@ describe('InfoListItemComponent', () => {
     });
 
     it('should render a subtitle', () => {
-        const customFixture = TestBed.createComponent(BasicUsageComponent);
+        const customFixture = TestBed.createComponent(TestBasicUsage);
         customFixture.detectChanges();
         expect(customFixture.nativeElement.querySelector('.pxb-info-list-item-subtitle').innerHTML).toContain(
             'Test Subtitle'
@@ -90,13 +90,13 @@ describe('InfoListItemComponent', () => {
     });
 
     it('should render a left component', () => {
-        const customFixture = TestBed.createComponent(TestLeftComponent);
+        const customFixture = TestBed.createComponent(TestLeftContent);
         customFixture.detectChanges();
         expect(customFixture.nativeElement.querySelector('.test-left').innerHTML).toBe('lefty');
     });
 
     it('should render a right component', () => {
-        const customFixture = TestBed.createComponent(TestRightComponent);
+        const customFixture = TestBed.createComponent(TestRightContent);
         customFixture.detectChanges();
         expect(customFixture.nativeElement.querySelector('.test-right').innerHTML).toBe('righty');
     });
