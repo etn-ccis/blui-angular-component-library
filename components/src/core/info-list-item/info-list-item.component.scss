@@ -47,10 +47,12 @@ $denseHeight: 56px;
 
     .pxb-info-list-item-title,
     .pxb-info-list-item-subtitle {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-        &.pxb-info-list-item-wrap {
+        * {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        &.pxb-info-list-item-wrap * {
             white-space: normal;
             overflow: unset;
             text-overflow: unset;
@@ -59,10 +61,10 @@ $denseHeight: 56px;
 
     // Display order is below, left-to-right.
     .pxb-info-list-item-icon,
-    .pxb-info-list-item-left-component,
+    .pxb-info-list-item-left-content,
     .mat-list-text,
     .pxb-info-list-item-spacer,
-    .pxb-info-list-item-right-component {
+    .pxb-info-list-item-right-content {
         display: flex;
     }
 
@@ -80,7 +82,7 @@ $denseHeight: 56px;
         }
     }
 
-    .pxb-info-list-item-left-component {
+    .pxb-info-list-item-left-content {
         order: 2;
         > * {
             margin-right: 16px;
@@ -98,10 +100,10 @@ $denseHeight: 56px;
         order: 4;
     }
 
-    .pxb-info-list-item-right-component {
+    .pxb-info-list-item-right-content {
         order: 5;
         margin-left: 16px;
-        .pxb-info-list-item-right-component-wrapper > * {
+        .pxb-info-list-item-right-content-wrapper > * {
             display: flex;
         }
     }
