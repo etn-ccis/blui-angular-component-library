@@ -24,11 +24,11 @@ export const infoListItemWrapper = () => (storyFn): any => {
     const story = storyFn();
     return {
         ...story,
-        template: `<div style="width: 90%" [style.backgroundColor]="getBgColor()">${story.template}</div>`,
+        template: `<div style="width: 90%" [style.backgroundColor]="getDecoratorBgColor()">${story.template}</div>`,
         styles: [`:host { display: flex; width: 100%; justify-content: center;`],
         props: {
             ...story.props,
-            getBgColor: (): string => isDarkMode() ? Colors.black[500] : 'white',
+            getDecoratorBgColor: (): string => isDarkMode() ? Colors.black[500] : 'white',
         },
     };
 };
