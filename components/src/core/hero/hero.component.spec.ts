@@ -2,8 +2,8 @@ import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { count } from '../../utils/test-utils';
 import { HeroComponent } from './hero.component';
 import { HeroModule } from './hero.module';
-import {Component} from "@angular/core";
-import {ChannelValueModule} from "..";
+import { Component } from '@angular/core';
+import { ChannelValueModule } from '..';
 
 @Component({
     template: `

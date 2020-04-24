@@ -1,8 +1,8 @@
 import { TestBed, async, ComponentFixture } from '@angular/core/testing';
 import { HeroBannerComponent } from './hero-banner.component';
 import { count } from '../../utils/test-utils';
-import {Component} from "@angular/core";
-import {HeroModule} from "./hero.module";
+import { Component } from '@angular/core';
+import { HeroModule } from './hero.module';
 
 @Component({
     template: `

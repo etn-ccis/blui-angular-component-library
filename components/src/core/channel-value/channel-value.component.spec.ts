@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { ChannelValueComponent } from './channel-value.component';
 import { count } from '../../utils/test-utils';
 import { ChannelValueModule } from './channel-value.module';
-import {Component} from "@angular/core";
+import { Component } from '@angular/core';
 
 @Component({
     template: `
