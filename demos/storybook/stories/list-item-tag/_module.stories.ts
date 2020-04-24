@@ -1,4 +1,3 @@
-import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { ListItemTagModule, InfoListItemModule } from '@pxblue/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
@@ -18,7 +17,7 @@ import { withinAnInfoListItem } from './within-an-InfoListItem.stories';
 storiesOf(`${COMPONENT_SECTION_NAME}/List Item Tag`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [ListItemTagModule, MatButtonModule, MatIconModule, UtilModule, InfoListItemModule],
+            imports: [ListItemTagModule, MatIconModule, UtilModule, InfoListItemModule],
         })
     )
     .addDecorator(withKnobs)

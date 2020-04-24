@@ -5,8 +5,6 @@ import { WITH_MIN_PROPS_STORY_NAME } from '../../src/constants';
 
 export const withBasicConfig = (): any => ({
 
-    name: WITH_MIN_PROPS_STORY_NAME,
-
     template: `
           <pxb-list-item-tag [label]="label"></pxb-list-item-tag>
       `,

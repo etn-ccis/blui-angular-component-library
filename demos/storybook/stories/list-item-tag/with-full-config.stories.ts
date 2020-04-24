@@ -3,10 +3,10 @@ import * as Colors from '@pxblue/colors';
 
 export const withFullConfig = (): any => ({
     template: `
-          <pxb-list-item-tag [label]="label" [backgroundColor]="backgroundColor" [fontColor]="fontColor"  > </pxb-list-item-tag>
+          <pxb-list-item-tag [label]="label" [backgroundColor]="backgroundColor" [fontColor]="fontColor"> </pxb-list-item-tag>
       `,
     props: {
-        label: text('label', 'clickable'),
+        label: text('label', 'Label'),
         backgroundColor: color('backgroundColor', Colors.green[700]),
         fontColor: color('fontColor', Colors.white[100]),
     },

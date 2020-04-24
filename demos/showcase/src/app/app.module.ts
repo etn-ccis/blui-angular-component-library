@@ -13,7 +13,7 @@ import {
     InfoListItemModule,
     DrawerHeaderModule,
     DrawerSubheaderModule,
-    DrawerFooterModule
+    DrawerFooterModule,
 } from '@pxblue/angular-components';
 
 //material modules
@@ -45,7 +45,7 @@ import { MatButtonModule } from '@angular/material/button';
         InfoListItemModule,
         DrawerHeaderModule,
         DrawerSubheaderModule,
-        DrawerFooterModule
+        DrawerFooterModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

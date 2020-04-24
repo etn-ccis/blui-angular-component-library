@@ -181,11 +181,11 @@
 <mat-card class="container-card" style="margin-top: 10px; margin-bottom: 24px;">
     <pxb-drawer-header title="im the title" class="test-background-image"></pxb-drawer-header>
     <pxb-drawer-header title="im the title" subtitle="im the subtitle"></pxb-drawer-header>
-    
+
     <pxb-drawer-header title="im the title" subtitle="im the subtitle">
         <mat-icon icon style="display: flex; padding-right: 32px;">home</mat-icon>
     </pxb-drawer-header>
-    
+
     <pxb-drawer-header title="with clickable icon" class="test-background-image">
         <button mat-icon-button icon (click)="clickDrawerHeaderButton()" style="margin-right: 24px; margin-left: -8px;">
             <mat-icon>menu</mat-icon>
@@ -195,21 +195,24 @@
     <pxb-drawer-header title="with non-clickable icon">
         <mat-icon icon style="display: flex; padding-right: 32px;">menu</mat-icon>
     </pxb-drawer-header>
-    
-    <pxb-drawer-header title="im a really really really really really really really really really long title" subtitle="im a really really really really really really really really really long subtitle">
+
+    <pxb-drawer-header
+        title="im a really really really really really really really really really long title"
+        subtitle="im a really really really really really really really really really long subtitle"
+    >
         <mat-icon icon style="display: flex; padding-right: 32px;">home</mat-icon>
     </pxb-drawer-header>
-    
+
     <pxb-drawer-header>
         <mat-icon icon style="display: flex; padding-right: 32px;">home</mat-icon>
         <div titleContent>im the title content</div>
     </pxb-drawer-header>
-    
+
     <pxb-drawer-header title="im the title" subtitle="im the subtitle">
         <mat-icon icon style="display: flex; padding-right: 32px;">home</mat-icon>
         <div titleContent>im the title content but a title and subtitle were provided as well</div>
     </pxb-drawer-header>
-    
+
     <pxb-drawer-header>
         <button mat-icon-button icon (click)="clickDrawerHeaderButton()" style="margin-right: 24px; margin-left: -8px;">
             <mat-icon>work</mat-icon>
@@ -217,21 +220,19 @@
         <div titleContent>im the title content with click function and an icon</div>
     </pxb-drawer-header>
 
-    <pxb-drawer-subheader [drawerOpen]=true>
+    <pxb-drawer-subheader [drawerOpen]="true">
         <div subheaderContent>Subheader content</div>
     </pxb-drawer-subheader>
 
-    <pxb-drawer-subheader [drawerOpen]=false>
+    <pxb-drawer-subheader [drawerOpen]="false">
         <div subheaderContent>Subheader content that should be hidden</div>
     </pxb-drawer-subheader>
 
-    <pxb-drawer-footer [drawerOpen]=true>
+    <pxb-drawer-footer [drawerOpen]="true">
         <div footerContent>Footer content</div>
     </pxb-drawer-footer>
 
-    <pxb-drawer-footer [drawerOpen]=false>
+    <pxb-drawer-footer [drawerOpen]="false">
         <div footerContent>Footer content that should be hidden</div>
     </pxb-drawer-footer>
 </mat-card>
-
-
