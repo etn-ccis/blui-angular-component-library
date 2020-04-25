@@ -38,24 +38,24 @@ imports: [
 
 ## API
 
-Parent element (`pxb-empty-state`) attributes:
+Parent element (`<pxb-empty-state>`) attributes:
 
 <div style="overflow: auto;">
 
-| Attributes  | Description                   | Type     | Required | Default |
+| @input      | Description                   | Type     | Required | Default |
 | ----------- | ----------------------------- | -------- | -------- | ------- |
 | description | The secondary text to display | `string` | no       |         |
 | title       | The main text to display      | `string` | yes      |         |
 
 </div>
 
-Child element with attributes:
+The following child elements are projected into `<pxb-empty-state>`:
 
 <div style="overflow: auto;">
 
-| Attributes | Description                    | Required | Default |
-| ---------- | ------------------------------ | -------- | ------- |
-| actions    | action elements below the text | no       |         |
-| emptyIcon  | The large icon to display      | yes      |         |
+| Selector    | Description                    | Required | Default |
+| ----------- | ------------------------------ | -------- | ------- |
+| [actions]   | action elements below the text | no       |         |
+| [emptyIcon] | The large icon to display      | yes      |         |
 
 </div>

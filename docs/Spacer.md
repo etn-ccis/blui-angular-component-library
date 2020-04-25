@@ -28,14 +28,14 @@ imports: [
 
 ## API
 
-Parent element (`pxb-spacer`) attributes:
+Parent element (`<pxb-spacer>`) attributes:
 
 <div style="overflow: auto;">
 
-| Attributes | Description                             | Type     | Required | Default |
-| ---------- | --------------------------------------- | -------- | -------- | ------- |
-| flex       | Flex grow/shrink value for flex layouts | `number` | no       | 1       |
-| height     | Height (in px) for static layouts       | `number` | no       |         |
-| width      | Width (in px) for static layouts        | `number` | no       |         |
+| @input | Description                             | Type     | Required | Default |
+| ------ | --------------------------------------- | -------- | -------- | ------- |
+| flex   | Flex grow/shrink value for flex layouts | `number` | no       | 1       |
+| height | Height (in px) for static layouts       | `number` | no       |         |
+| width  | Width (in px) for static layouts        | `number` | no       |         |
 
 </div>

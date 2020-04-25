@@ -56,28 +56,28 @@ imports: [
 
 ## API
 
-Parent element (`pxb-score-card`) attributes:
+Parent element (`<pxb-score-card>`) attributes:
 
 <div style="overflow: auto;">
 
-| Attributes     | Description                           | Type         | Required | Default |
-| -------------- | ------------------------------------- | ------------ | -------- | ------- |
-| badge          | Content to render in the callout area | `ng-content` | no       |         |
-| badgeOffset    | Vertical offset for the badge content | `number`     | no       | 0       |
-| headerInfo     | Tertiary text                         | `string`     | no       |         |
-| headerSubtitle | The secondary text                    | `string`     | no       |         |
-| headerTitle    | The primary text                      | `string`     | yes      |         |
+| Attributes     | Description                           | Type     | Required | Default |
+| -------------- | ------------------------------------- | -------- | -------- | ------- |
+| badgeOffset    | Vertical offset for the badge content | `number` | no       | 0       |
+| headerInfo     | Tertiary text                         | `string` | no       |         |
+| headerSubtitle | The secondary text                    | `string` | no       |         |
+| headerTitle    | The primary text                      | `string` | yes      |         |
 
 </div>
 
-Child element with attributes:
+The following child elements are projected into `<pxb-score-card>`:
 
 <div style="overflow: auto;">
 
-| Attributes  | Description                                 | Required | Default |
-| ----------- | ------------------------------------------- | -------- | ------- |
-| actionItems | Icons shown to the right of the header text | no       |         |
-| actionRow   | Content to render for the footer            | no       |         |
-| body        | Content to render in the body               | no       |         |
+| Attributes    | Description                                 | Required | Default |
+| ------------- | ------------------------------------------- | -------- | ------- |
+| [actionItems] | Icons shown to the right of the header text | no       |         |
+| [actionRow]   | Content to render for the footer            | no       |         |
+| [badge]       | Content to render in the callout area       | no       |         |
+| [body]        | Content to render in the body               | no       |         |
 
 </div>
