@@ -27,8 +27,17 @@ const newViewports = {
 };
 
 pxblueTheme.brandTitle = 'PX Blue Angular Component Library';
-pxblueTheme.brandImage =  require('../assets/pxblue-angular.svg');
 pxblueTheme.brandUrl = 'https://pxblue.github.io';
+
+if (window.top.location.hostname === 'localhost') {
+    pxblueTheme.brandImage =  require('../assets/pxblue-angular-alpha.svg');
+} 
+else if (window.top.location.pathname.slice(13) === '/angular-dev/') {
+    pxblueTheme.brandImage =  require('../assets/pxblue-angular-beta.svg');
+}
+else {
+    pxblueTheme.brandImage =  require('../assets/pxblue-angular.svg');
+}
 
 const themeInit = { dark: pxblueTheme, light: pxblueTheme, current: 'light' };
 window.localStorage.setItem('sb-addon-themes-3', JSON.stringify(themeInit));
