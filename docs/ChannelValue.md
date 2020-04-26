@@ -43,7 +43,7 @@ Parent element (`<pxb-channel-value>`) attributes:
 | fontSize | The size of the font                           | `string`             | no       | 'inherit' |
 | prefix   | Show units before the value                    | `boolean`            | no       | false     |
 | units    | The text to display for the units (light text) | `string`             | no       |           |
-| value    | The the value (bold text) to display           | `string` \| `number` | yes      |           |
+| value    | The the value (bold text) to display           | ```string|number``` | yes      |           |
 
 </div>
 
