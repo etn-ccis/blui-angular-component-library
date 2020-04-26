@@ -34,7 +34,7 @@ Parent element (`<pxb-info-list-item>`) attributes:
 | avatar       | Show a colored background for the icon | `boolean`               | no       | false   |
 | chevron      | Add a chevron icon on the right        | `boolean`               | no       | false   |
 | dense        | Smaller height row with less padding   | `boolean`               | no       | false   |
-| divider      | Show a row separator below the row     | ```'full'|'partial'```  | no       |         |
+| divider      | Show a row separator below the row     | `'full'` \| `'partial'` | no       |         |
 | hidePadding  | Remove left padding if no icon is used | `boolean`               | no       | false   |
 | statusColor  | Left border color                      | `string`                | no       |         |
 | wrapSubtitle | Whether to wrap subtitle on overflow   | `boolean`               | no       | false   |

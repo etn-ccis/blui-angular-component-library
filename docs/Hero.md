@@ -49,13 +49,13 @@ Parent element (`<pxb-hero>`) attributes:
 
 <div style="overflow: auto;">
 
-| @input   | Description                            | Type                   | Required | Default       |
-| -------- | -------------------------------------- | ---------------------- | -------- | ------------- |
-| fontSize | The text size for the value line       | ```'normal'|'small'``` | no       | 'normal'      |
-| iconSize | The size of the primary icon (10-48)   | `string`               | no       | 'normal' (36) |
-| label    | The text shown below the Channel Value | `string`               | yes      |               |
-| units    | Text to show after the value           | `string`               | no       |               |
-| value    | The value for the channel              | ```string|number```    | no       |               |
+| @input   | Description                            | Type                    | Required | Default       |
+| -------- | -------------------------------------- | ----------------------- | -------- | ------------- |
+| fontSize | The text size for the value line       | `'normal'` \| `'small'` | no       | 'normal'      |
+| iconSize | The size of the primary icon (10-48)   | `string`                | no       | 'normal' (36) |
+| label    | The text shown below the Channel Value | `string`                | yes      |               |
+| units    | Text to show after the value           | `string`                | no       |               |
+| value    | The value for the channel              | `string` \| `number`    | no       |               |
 
 </div>
 
