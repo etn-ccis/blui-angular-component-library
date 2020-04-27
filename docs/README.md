@@ -5,6 +5,6 @@ We currently have the following components available for Angular applications:
 - [Empty State](https://github.com/pxblue/angular-component-library/blob/dev/docs/EmptyState.md)
 - [Hero & Hero Banner](https://github.com/pxblue/angular-component-library/blob/dev/docs/Hero.md)
 - [Info List Item](https://github.com/pxblue/angular-component-library/blob/dev/docs/InfoListItem.md)
-- [ListItemTag](https://github.com/pxblue/angular-component-library/blob/dev/docs/ListItemTag.md)
+- [List Item Tag](https://github.com/pxblue/angular-component-library/blob/dev/docs/ListItemTag.md)
 - [Score Card](https://github.com/pxblue/angular-component-library/blob/dev/docs/ScoreCard.md)
 - [Spacer](https://github.com/pxblue/angular-component-library/blob/dev/docs/Spacer.md)
