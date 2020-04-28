@@ -30,13 +30,11 @@ pxblueTheme.brandTitle = 'PX Blue Angular Component Library';
 pxblueTheme.brandUrl = 'https://pxblue.github.io';
 
 if (window.top.location.hostname === 'localhost') {
-    pxblueTheme.brandImage =  require('../assets/pxblue-angular-alpha.svg');
-} 
-else if (window.top.location.pathname.slice(13) === '/angular-dev/') {
-    pxblueTheme.brandImage =  require('../assets/pxblue-angular-beta.svg');
-}
-else {
-    pxblueTheme.brandImage =  require('../assets/pxblue-angular.svg');
+    pxblueTheme.brandImage = require('../assets/pxblue-angular-alpha.svg');
+} else if (window.top.location.pathname.slice(0, 13) === '/angular-dev/') {
+    pxblueTheme.brandImage = require('../assets/pxblue-angular-beta.svg');
+} else {
+    pxblueTheme.brandImage = require('../assets/pxblue-angular.svg');
 }
 
 const themeInit = { dark: pxblueTheme, light: pxblueTheme, current: 'light' };
@@ -57,6 +55,6 @@ addParameters({
         // Override the default light theme
         light: { ...pxblueTheme },
         // Override the default dark theme
-        dark: { ...pxblueTheme }
-    }
+        dark: { ...pxblueTheme },
+    },
 });
