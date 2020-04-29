@@ -9,8 +9,4 @@ export class ListItemTagComponent {
     @Input() label: string;
     @Input() backgroundColor: string;
     @Input() fontColor: string;
-
-    ngOnInit() {
-        console.log(`LOOK HERE ${this.fontColor}`);
-    }
 }
