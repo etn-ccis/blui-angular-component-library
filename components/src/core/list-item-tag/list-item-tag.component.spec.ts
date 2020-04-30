@@ -30,9 +30,7 @@ describe('ListItemTagComponent', () => {
 
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
-        const classList = [
-            '.pxb-list-item-tag',
-        ];
+        const classList = ['.pxb-list-item-tag'];
         for (const className of classList) {
             count(fixture, className);
         }

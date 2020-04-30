@@ -13,7 +13,7 @@ imports: [
     ListItemTagModule
   ],
 ```
-```typescript
+```HTML
 
   <pxb-list-item-tag [label]="label" [style.backgroundColor]="black" [style.fontColor]="gold">
   </pxb-list-item-tag>
@@ -24,7 +24,7 @@ imports: [
 
 <div style="overflow: auto;">
 
-| Attributes        | Description                                      | Type                                               | Required | Default        |
+| @Inputs           | Description                                      | Type                                               | Required | Default        |
 |-------------------|--------------------------------------------------|----------------------------------------------------|----------|----------------|
 | label             | The label text                                   | `string`                                           | yes      |                |
 
