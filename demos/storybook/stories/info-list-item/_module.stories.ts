@@ -7,7 +7,7 @@ import {
     STORY_PARAMS, WITH_FULL_CONFIG_STORY_NAME,
     WITH_MIN_PROPS_STORY_NAME,
 } from '../../src/constants';
-import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/utils';
+import {getReadMe, getReadMeStory, isDarkMode, storyWrapper, UtilModule} from '../../src/utils';
 import { withBasicConfig } from './with-basic-config.stories';
 import { withIcon } from "./with-icon.stories";
 import { withSubtitle } from "./with-subtitle.stories";
@@ -18,13 +18,18 @@ import {withinList} from "./within-list.stories";
 import { withA11y } from '@storybook/addon-a11y';
 import {withRightContent} from "./with-right-content.stories";
 import {withLeftContent} from "./with-left-content.stories";
+import * as Colors from '@pxblue/colors';
 
 export const infoListItemWrapper = () => (storyFn): any => {
     const story = storyFn();
     return {
         ...story,
-        template: `<div style="width: 90%; background-color: white">${story.template}</div>`,
-        styles: [`:host { display: flex; width: 100%; justify-content: center;`]
+        template: `<div style="width: 90%" [style.backgroundColor]="getDecoratorBgColor()">${story.template}</div>`,
+        styles: [`:host { display: flex; width: 100%; justify-content: center;`],
+        props: {
+            ...story.props,
+            getDecoratorBgColor: (): string => isDarkMode() ? Colors.black[500] : 'white',
+        },
     };
 };
 

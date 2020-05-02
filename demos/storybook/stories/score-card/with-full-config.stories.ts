@@ -57,8 +57,9 @@ export const withFullConfig = (): any => ({
                     <i primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
                 </pxb-hero>
             </pxb-hero-banner>
-            <pxb-info-list-item title="View Location" hidePadding="true" dense="true" actionRow (click)="actionRowClick()">
-                <mat-icon mat-list-icon rightComponent>chevron_right</mat-icon>
+            <pxb-info-list-item hidePadding="true" dense="true" actionRow (click)="actionRowClick()">
+                <div title>View Location</div>
+                <mat-icon mat-list-icon rightContent>chevron_right</mat-icon>
             </pxb-info-list-item>
         </pxb-score-card>
     `,
