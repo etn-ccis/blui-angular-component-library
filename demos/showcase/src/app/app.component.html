@@ -142,7 +142,9 @@
                 [style.color]="colors.white[50]"
                 [style.backgroundColor]="colors.red[500]"
             ></mat-icon>
+
             <div rightContent [style.color]="colors.black[500]">
+                <pxb-list-item-tag class="tag-label" label="monitored"></pxb-list-item-tag>
                 <pxb-channel-value value="480" units="V"></pxb-channel-value>,
                 <pxb-channel-value value="480" units="V"></pxb-channel-value>,
                 <pxb-channel-value value="480" units="V"></pxb-channel-value>
@@ -163,9 +165,14 @@
     <pxb-info-list-item dense="true">
         <div title>Temperature</div>
         <mat-icon icon svgIcon="px-icons:temp"></mat-icon>
-        <pxb-channel-value rightContent value="68" units="°F">
+        <div rightContent>
+          <pxb-list-item-tag class="tag-label" label="Active" [fontColor]="colors.green[500]" [backgroundColor]="colors.white[300]"></pxb-list-item-tag>
+          <pxb-list-item-tag class="tag-label" label="Overheat" [fontColor]="colors.white[50]" [backgroundColor]="colors.red[500]"></pxb-list-item-tag>
+          <pxb-channel-value value="68" units="°F">
             <mat-icon [style.color]="colors.red['500']">trending_up</mat-icon>
-        </pxb-channel-value>
+          </pxb-channel-value>
+        </div>
+
     </pxb-info-list-item>
 </mat-card>
 
