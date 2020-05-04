@@ -5,6 +5,7 @@ import { action } from '@storybook/addon-actions';
 export const withFullConfig = (): any => ({
     template: `
         <pxb-info-list-item
+            [style.color]="colors.blue[500]"
             matRipple
             style="display:flex; cursor: pointer"
             [wrapSubtitle]="wrapSubtitle"
