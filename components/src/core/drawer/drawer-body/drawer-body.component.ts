@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@a
     encapsulation: ViewEncapsulation.None,
     template: `
         <div class="pxb-drawer-body">
-            <pxb-drawer-nav-group *ngFor="let item of items" [title]="item.title" [items]="item.items">
+            <pxb-drawer-nav-group *ngFor="let item of items" [title]="item.title" [items]="item.items" [itemID]="item.itemID">
 
             </pxb-drawer-nav-group>
         </div>
