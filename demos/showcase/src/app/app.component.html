@@ -1,10 +1,6 @@
 <div style="display: flex; padding: 8px; justify-content: flex-start">
-    <pxb-score-card
-        class="red-score-card"
-        [headerTitle]="'Substation 3'"
-        [headerSubtitle]="'High Humidity Alarm'"
-        [headerInfo]="'4 Devices'"
-    >
+    <pxb-score-card class="red-score-card" [headerTitle]="'Substation 3'" [headerSubtitle]="'High Humidity Alarm'"
+        [headerInfo]="'4 Devices'">
         <mat-icon actionItems>more_vert</mat-icon>
         <mat-list body>
             <pxb-info-list-item title="1 Alarm" dense="true" [style.color]="colors.red[500]" class="card-body-item">
@@ -30,12 +26,8 @@
         </pxb-info-list-item>
     </pxb-score-card>
 
-    <pxb-score-card
-        [headerTitle]="'Substation 3'"
-        [headerSubtitle]="'Normal'"
-        [headerInfo]="'4 Devices'"
-        [badgeOffset]="-92"
-    >
+    <pxb-score-card [headerTitle]="'Substation 3'" [headerSubtitle]="'Normal'" [headerInfo]="'4 Devices'"
+        [badgeOffset]="-92">
         <mat-icon actionItems>more_vert</mat-icon>
         <mat-list body>
             <pxb-info-list-item title="0 Alarms" dense="true" class="card-body-item">
@@ -48,16 +40,8 @@
                 <mat-icon icon>cloud</mat-icon>
             </pxb-info-list-item>
         </mat-list>
-        <pxb-hero
-            badge
-            label="Health"
-            value="98"
-            units="%"
-            [iconBackgroundColor]="colors.white[50]"
-            (click)="test()"
-            style="cursor: pointer"
-            [iconSize]="'large'"
-        >
+        <pxb-hero badge label="Health" value="98" units="%" [iconBackgroundColor]="colors.white[50]" (click)="test()"
+            style="cursor: pointer" [iconSize]="'large'">
             <mat-icon svgIcon="px-icons:grade_a" primary [style.color]="colors.green[500]"></mat-icon>
         </pxb-hero>
         <pxb-info-list-item title="View Location" hidePadding="true" dense="true" actionRow>
@@ -69,14 +53,8 @@
 <mat-card class="container-card">
     <mat-list style="padding: 0">
         <pxb-hero-banner [divider]="true">
-            <pxb-hero
-                label="Healthy"
-                value="96"
-                units="/100"
-                (click)="test()"
-                style="cursor: pointer"
-                [iconSize]="'normal'"
-            >
+            <pxb-hero label="Healthy" value="96" units="/100" (click)="test()" style="cursor: pointer"
+                [iconSize]="'normal'">
                 <mat-icon svgIcon="px-icons:grade_a" primary [style.color]="colors.green[500]"></mat-icon>
             </pxb-hero>
 
@@ -99,29 +77,16 @@
         </pxb-hero-banner>
     </mat-list>
 
-    <pxb-info-list-item
-        title="Status"
-        divider="full"
-        dense="true"
-        [style.color]="colors.green[500]"
-        [statusColor]="colors.green[500]"
-    >
+    <pxb-info-list-item title="Status" divider="full" dense="true" [style.color]="colors.green[500]"
+        [statusColor]="colors.green[500]">
         <mat-icon icon svgIcon="px-icons:leaf" [style.color]="colors.green[500]"></mat-icon>
         <pxb-channel-value rightComponent value="Online, ESS+"></pxb-channel-value>
     </pxb-info-list-item>
 
-    <pxb-info-list-item
-        title="Input Voltage"
-        divider="full"
-        [subtitle]="['Phase A', 'Phase B', 'Phase C']"
-        [avatar]="true"
-    >
-        <mat-icon
-            icon
-            svgIcon="px-icons:voltage_circled"
-            [style.backgroundColor]="colors.black[500]"
-            [style.color]="colors.white[50]"
-        ></mat-icon>
+    <pxb-info-list-item title="Input Voltage" divider="full" [subtitle]="['Phase A', 'Phase B', 'Phase C']"
+        [avatar]="true">
+        <mat-icon icon svgIcon="px-icons:voltage_circled" [style.backgroundColor]="colors.black[500]"
+            [style.color]="colors.white[50]"></mat-icon>
         <div rightComponent>
             <pxb-channel-value value="478" units="V"></pxb-channel-value>,
             <pxb-channel-value value="479" units="V"></pxb-channel-value>,
@@ -130,19 +95,10 @@
     </pxb-info-list-item>
 
     <div class="error">
-        <pxb-info-list-item
-            title="Output Voltage"
-            divider="full"
-            [avatar]="true"
-            [subtitle]="['Phase A', 'Phase B', 'Phase C']"
-            [statusColor]="colors.red[500]"
-        >
-            <mat-icon
-                icon
-                svgIcon="px-icons:voltage_circled"
-                [style.color]="colors.white[50]"
-                [style.backgroundColor]="colors.red[500]"
-            ></mat-icon>
+        <pxb-info-list-item title="Output Voltage" divider="full" [avatar]="true"
+            [subtitle]="['Phase A', 'Phase B', 'Phase C']" [statusColor]="colors.red[500]">
+            <mat-icon icon svgIcon="px-icons:voltage_circled" [style.color]="colors.white[50]"
+                [style.backgroundColor]="colors.red[500]"></mat-icon>
             <div rightComponent [style.color]="colors.black[500]">
                 <pxb-channel-value value="480" units="V"></pxb-channel-value>,
                 <pxb-channel-value value="480" units="V"></pxb-channel-value>,
@@ -181,11 +137,11 @@
 <mat-card class="container-card" style="margin-top: 10px; margin-bottom: 24px;">
     <pxb-drawer-header title="im the title" class="test-background-image"></pxb-drawer-header>
     <pxb-drawer-header title="im the title" subtitle="im the subtitle"></pxb-drawer-header>
-    
+
     <pxb-drawer-header title="im the title" subtitle="im the subtitle">
         <mat-icon icon style="display: flex; padding-right: 32px;">home</mat-icon>
     </pxb-drawer-header>
-    
+
     <pxb-drawer-header title="with clickable icon" class="test-background-image">
         <button mat-icon-button icon (click)="clickDrawerHeaderButton()" style="margin-right: 24px; margin-left: -8px;">
             <mat-icon>menu</mat-icon>
@@ -195,21 +151,22 @@
     <pxb-drawer-header title="with non-clickable icon">
         <mat-icon icon style="display: flex; padding-right: 32px;">menu</mat-icon>
     </pxb-drawer-header>
-    
-    <pxb-drawer-header title="im a really really really really really really really really really long title" subtitle="im a really really really really really really really really really long subtitle">
+
+    <pxb-drawer-header title="im a really really really really really really really really really long title"
+        subtitle="im a really really really really really really really really really long subtitle">
         <mat-icon icon style="display: flex; padding-right: 32px;">home</mat-icon>
     </pxb-drawer-header>
-    
+
     <pxb-drawer-header>
         <mat-icon icon style="display: flex; padding-right: 32px;">home</mat-icon>
         <div titleContent>im the title content</div>
     </pxb-drawer-header>
-    
+
     <pxb-drawer-header title="im the title" subtitle="im the subtitle">
         <mat-icon icon style="display: flex; padding-right: 32px;">home</mat-icon>
         <div titleContent>im the title content but a title and subtitle were provided as well</div>
     </pxb-drawer-header>
-    
+
     <pxb-drawer-header>
         <button mat-icon-button icon (click)="clickDrawerHeaderButton()" style="margin-right: 24px; margin-left: -8px;">
             <mat-icon>work</mat-icon>
@@ -234,8 +191,68 @@
     </pxb-drawer-footer>
 </mat-card>
 
-<mat-card class="container-card" style="margin-top: 10px; margin-bottom: 24px;">
+<!-- <mat-card class="container-card" style="margin-top: 10px; margin-bottom: 24px;">
     <pxb-drawer-body [items]="drawerBodyTestItems">
 
     </pxb-drawer-body>
+</mat-card> -->
+
+<mat-card class="container-card" style="margin-top: 10px; margin-bottom: 24px;">
+    <div>
+        <pxb-drawer-header title="PX Blue Drawer" subtitle="Organize your menu items here" class="test-background-image">
+            <button mat-icon-button icon (click)="testClick('drawer header')"
+                style="margin-right: 24px; margin-left: -8px;">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </pxb-drawer-header>
+        <pxb-drawer-body>
+            <div drawer-body-content>
+                <pxb-drawer-nav-group title="First DrawerNavGroup" itemID="firstDrawerNavGroup">
+                </pxb-drawer-nav-group>
+                <pxb-drawer-nav-item 
+                    [statusColor]="colors.red[500]"
+                    title="DrawerNavItem 1" 
+                    subtitle="Subtitle 1"
+                    itemID="drawerNavItem1"
+                    (click)="testClick('drawer nav item 1')"
+                    >
+                    <div icon>
+                        <mat-icon>home</mat-icon>
+                    </div>
+                </pxb-drawer-nav-item>
+                <pxb-drawer-nav-item
+                    [statusColor]="colors.blue[500]"
+                    title="DrawerNavItem 2"
+                    subtitle="Subtitle 2"
+                    itemID="drawerNavItem2"
+                    (click)="testClick('drawer nav item 2')"
+                    >
+                </pxb-drawer-nav-item>
+
+                <pxb-drawer-nav-group title="Second DrawerNavGroup" itemID="secondDrawerNavGroup">
+                </pxb-drawer-nav-group>
+                <pxb-drawer-nav-item
+                    title="DrawerNavItem 3"
+                    subtitle="Subtitle 3"
+                    itemID="drawerNavItem3"
+                    (click)="testClick('drawer nav item 3')"
+                    >
+                    <div icon>
+                        <mat-icon>work</mat-icon>
+                    </div>
+                </pxb-drawer-nav-item>
+                <pxb-drawer-nav-item
+                    [statusColor]="colors.orange[500]"
+                    title="DrawerNavItem 4"
+                    subtitle="Subtitle 4"
+                    itemID="drawerNavItem4"
+                    (click)="testClick('drawer nav item 4')"
+                    >
+                    <div icon>
+                        <mat-icon>work</mat-icon>
+                    </div>
+                </pxb-drawer-nav-item>
+            </div>
+        </pxb-drawer-body>
+    </div>
 </mat-card>

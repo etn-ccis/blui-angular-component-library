@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input, OnInit, ViewChild, ElementRef, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@angular/core';
 
 @Component({
     selector: 'pxb-drawer-nav-item',
@@ -12,8 +12,8 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input, OnInit, V
                 [subtitle]="subtitle"
                 [chevron]="chevron"
             >
-                <div #iconWrapper class="pxb-drawer-nav-item-icon-wrapper" icon>
-                   
+                <div class="pxb-drawer-nav-item-icon-wrapper" icon>
+                   <ng-content select="[icon]"></ng-content>
                 </div>
                 <div rightComponent>
                     <ng-content select="[rightComponent]"></ng-content>
@@ -24,7 +24,7 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input, OnInit, V
     `,
     styleUrls: ['./drawer-nav-item.component.scss'],
 })
-export class DrawerNavItemComponent implements OnInit {
+export class DrawerNavItemComponent {
     @Input() statusColor: string;
     @Input() title: string;
     @Input() subtitle: string;
@@ -34,20 +34,5 @@ export class DrawerNavItemComponent implements OnInit {
     @Input() divider = true;
     @Input() items;
     @Input() icon;
-		@ViewChild("iconWrapper", null) iconWrapper: ElementRef;
-		
-		constructor(private changeDetector: ChangeDetectorRef) {
 
-		}
-
-    ngOnInit() {
-        if(this.icon) {
-					this.setIcon();
-					this.changeDetector.detectChanges();
-        }
-    }
-
-    setIcon() {
-        this.iconWrapper.nativeElement.innerHTML = this.icon
-    }
 }

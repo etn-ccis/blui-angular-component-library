@@ -20,45 +20,6 @@ export class AppComponent {
             'px-icons',
             this.domSanitizer.bypassSecurityTrustResourceUrl(iconSet)
         );
-
-        this.drawerBodyTestItems = [
-            {
-                title: 'First DrawerNavGroup',
-                itemID: 'firstDrawerNavGroup',
-                items: [
-                    {
-                        itemID: 'drawerNavItem1',
-                        statusColor: this.colors.red[500],
-                        title: 'DrawerNavItem 1',
-                        subtitle: 'Subtitle 1',
-                        icon: '<mat-icon>home</mat-icon>'
-                    },
-                    {
-                        itemID: 'drawerNavItem2',
-                        statusColor: this.colors.blue[500],
-                        title: 'DrawerNavItem 2',
-                        subtitle: 'Subtitle 2'
-                    }
-                ]
-            },
-            {
-                title: 'Second DrawerNavGroup',
-                itemID: 'secondDrawerNavGroup',
-                items: [
-                    {
-                        itemID: 'drawerNavItem3',
-                        title: 'DrawerNavItem 3',
-                        icon: '<mat-icon>work</mat-icon>'
-                    },
-                    {
-                        itemID: 'drawerNavItem4',
-                        statusColor: this.colors.orange[500],
-                        title: 'DrawerNavItem 4',
-                        icon: '<mat-icon>work</mat-icon>'
-                    }
-                ]
-            }
-        ]
     }
 
     test(): void {
@@ -69,5 +30,10 @@ export class AppComponent {
     clickDrawerHeaderButton(): void {
         // eslint-disable-next-line
         console.log('drawer header button clicked...');
+    }
+
+    testClick(string): void {
+        // eslint-disable-next-line
+        console.log(string, ' clicked...');
     }
 }

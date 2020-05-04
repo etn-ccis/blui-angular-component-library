@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector: 'pxb-drawer-body',
@@ -6,13 +6,10 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@a
     encapsulation: ViewEncapsulation.None,
     template: `
         <div class="pxb-drawer-body">
-            <pxb-drawer-nav-group *ngFor="let item of items" [title]="item.title" [items]="item.items" [itemID]="item.itemID">
-
-            </pxb-drawer-nav-group>
+            <ng-content select="[drawer-body-content]"></ng-content>
         </div>
     `,
     styleUrls: ['./drawer-body.component.scss'],
 })
 export class DrawerBodyComponent {
-    @Input() items // @TODO: Define type
 }

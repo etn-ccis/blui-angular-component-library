@@ -11,15 +11,10 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@a
             </mat-list>
             <mat-divider></mat-divider>
         </div>
-        <pxb-drawer-nav-item *ngFor="let item of items" [statusColor]="item.statusColor" [title]="item.title" [subtitle]="item.subtitle" [itemID]="item.itemID" [icon]="item.icon">
-            <!-- <div icon>{{item.icon}}</div> -->
-        </pxb-drawer-nav-item>
     `,
     styleUrls: ['./drawer-nav-group.component.scss'],
 })
 export class DrawerNavGroupComponent {
     @Input() title: string
-    @Input() items // @TODO: Define type
     @Input() itemID: string;
-    @Input() icon: string;
 }
