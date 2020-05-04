@@ -14,7 +14,7 @@ import {
     DrawerHeaderModule,
     DrawerSubheaderModule,
     DrawerFooterModule,
-    ListItemTagModule
+    ListItemTagModule,
 } from '@pxblue/angular-components';
 
 //material modules

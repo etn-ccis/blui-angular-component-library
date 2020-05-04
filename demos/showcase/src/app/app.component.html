@@ -166,13 +166,22 @@
         <div title>Temperature</div>
         <mat-icon icon svgIcon="px-icons:temp"></mat-icon>
         <div rightContent>
-          <pxb-list-item-tag class="tag-label" label="Active" [fontColor]="colors.green[500]" [backgroundColor]="colors.white[300]"></pxb-list-item-tag>
-          <pxb-list-item-tag class="tag-label" label="Overheat" [fontColor]="colors.white[50]" [backgroundColor]="colors.red[500]"></pxb-list-item-tag>
-          <pxb-channel-value value="68" units="°F">
-            <mat-icon [style.color]="colors.red['500']">trending_up</mat-icon>
-          </pxb-channel-value>
+            <pxb-list-item-tag
+                class="tag-label"
+                label="Active"
+                [fontColor]="colors.green[500]"
+                [backgroundColor]="colors.white[300]"
+            ></pxb-list-item-tag>
+            <pxb-list-item-tag
+                class="tag-label"
+                label="Overheat"
+                [fontColor]="colors.white[50]"
+                [backgroundColor]="colors.red[500]"
+            ></pxb-list-item-tag>
+            <pxb-channel-value value="68" units="°F">
+                <mat-icon [style.color]="colors.red['500']">trending_up</mat-icon>
+            </pxb-channel-value>
         </div>
-
     </pxb-info-list-item>
 </mat-card>
 
