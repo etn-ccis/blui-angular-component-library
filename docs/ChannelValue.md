@@ -52,3 +52,15 @@ The following child element is projected into `<pxb-channel-value>`:
 | Selector | Description             | Required | Default |
 | -------- | ----------------------- | -------- | ------- |
 | (child)  | Icons shown on the left | no       |         |
+
+
+### Classes
+You can override the classes used by PX Blue by passing a `classes` prop. It supports the following keys:
+
+| Name                      | Description                                 |
+|---------------------------|---------------------------------------------|
+| pxb-channel-value         | Styles applied to the root element          |
+| actions                   | Styles applied to the actions               |
+| description      | Styles applied to the description           |
+| icon             | Styles applied to the icon                  |
+| title            | Styles applied to the title                 |
