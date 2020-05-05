@@ -1,4 +1,13 @@
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
+import {
+    AfterViewInit,
+    ChangeDetectionStrategy,
+    Component,
+    ElementRef,
+    Input,
+    ViewChild,
+    ViewEncapsulation,
+} from '@angular/core';
+import { requireContent } from '../../utils/utils';
 
 @Component({
     selector: 'pxb-info-list-item',
@@ -23,7 +32,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
             <div class="pxb-info-list-item-left-content">
                 <ng-content select="[leftContent]"></ng-content>
             </div>
-            <div class="mat-body-1 pxb-info-list-item-title" matLine [class.pxb-info-list-item-wrap]="wrapTitle">
+            <div class="mat-body-1 pxb-info-list-item-title" matLine [class.pxb-info-list-item-wrap]="wrapTitle" #title>
                 <ng-content select="[title]"></ng-content>
             </div>
             <div class="mat-body-2 pxb-info-list-item-subtitle" matLine [class.pxb-info-list-item-wrap]="wrapSubtitle">
@@ -46,7 +55,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
     `,
     styleUrls: ['./info-list-item.component.scss'],
 })
-export class InfoListItemComponent {
+export class InfoListItemComponent implements AfterViewInit {
     @Input() statusColor: string;
     @Input() chevron = false;
     @Input() dense = false;
@@ -55,6 +64,13 @@ export class InfoListItemComponent {
     @Input() wrapSubtitle = false;
     @Input() wrapTitle = false;
     @Input() divider: DividerType;
+
+    @ViewChild('title', { static: false }) title: ElementRef;
+
+    ngAfterViewInit(): void {
+        const required = { id: 'title', ref: this.title };
+        requireContent([required], this);
+    }
 }
 
 type DividerType = 'full' | 'partial' | undefined;
