@@ -10,6 +10,7 @@ import {
     ChangeDetectionStrategy,
     ViewEncapsulation,
 } from '@angular/core';
+import {requireInput} from "../../utils/utils";
 export type IconSize = 'small' | 'normal' | 'large' | number;
 export type FontSize = 'small' | 'normal';
 
@@ -60,6 +61,7 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
     constructor(private readonly ref: ChangeDetectorRef) {}
 
     ngOnChanges(): void {
+        requireInput<HeroComponent>(['label'], this);
         this.normalizeIconSize();
     }
 

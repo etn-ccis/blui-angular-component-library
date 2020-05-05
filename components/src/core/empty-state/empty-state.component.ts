@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, OnChanges, ViewEncapsulation} from '@angular/core';
+import {requireInput} from "../../utils/utils";
 
 @Component({
     selector: 'pxb-empty-state',
@@ -7,7 +8,11 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
 })
-export class EmptyStateComponent {
+export class EmptyStateComponent implements OnChanges {
     @Input() title: string;
     @Input() description: string;
+
+    ngOnChanges(): void {
+        requireInput<EmptyStateComponent>(['title'], this);
+    }
 }
