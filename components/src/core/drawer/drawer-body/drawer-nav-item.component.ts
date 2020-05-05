@@ -12,6 +12,10 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@a
             <div title>{{ title }}</div>
             <div subtitle>{{ subtitle }}</div>
         </pxb-info-list-item>
+        <!-- Nested Nav Items -->
+        <div class="pxb-drawer-nested-nav-item">
+            <ng-content select="pxb-drawer-nav-item"></ng-content>
+        </div>
     `,
 })
 export class DrawerNavItemComponent {

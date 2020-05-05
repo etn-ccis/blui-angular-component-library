@@ -33,6 +33,7 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
                         [statusColor]="navItem.statusColor"
                     >
                         <mat-icon icon>{{ navItem.icon }}</mat-icon>
+                        <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items" [title]="nestedItem.title"></pxb-drawer-nav-item>
                     </pxb-drawer-nav-item>
                 </pxb-drawer-nav-group>
             </pxb-drawer-body>
@@ -47,8 +48,14 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
 export class DrawerComponent {
     colors = PXBColors;
 
+
+  nestedItems: DrawerNavItem[] = [
+    { title: 'Sub 1' },
+    { title: 'Sub 2' }
+  ];
+
     navGroup1: DrawerNavItem[] = [
-        { title: 'DrawerNavItem 1', subtitle: 'Subtitle 1', statusColor: PXBColors.red[500], icon: 'home' },
+        { title: 'DrawerNavItem 1', subtitle: 'Subtitle 1', statusColor: PXBColors.red[500], icon: 'home', items: this.nestedItems },
         { title: 'DrawerNavItem 2', subtitle: 'Subtitle 2', statusColor: PXBColors.blue[500], icon: 'help' },
     ];
 
