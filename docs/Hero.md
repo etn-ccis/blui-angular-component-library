@@ -45,37 +45,37 @@ imports: [
 
 ## Hero API
 
-Parent element (`pxb-hero`) attributes:
+Parent element (`<pxb-hero>`) attributes:
 
 <div style="overflow: auto;">
 
-| Attributes | Description                             | Type                 | Required | Default       |
-| ---------- | --------------------------------------- | -------------------- | -------- | ------------- |
-| fontSize   | The text size for the value line        | `'normal' | 'small'` | no       | 'normal'      |
-| iconSize   | The size of the primary icon (10-48)    | `string`             | no       | 'normal' (36) |
-| label      | The text shown below the `ChannelValue` | `string`             | yes      |               |
-| units      | Text to show after the value            | `string`             | no       |               |
-| value      | The value for the channel               | `string | number`    | no       |               |
+| @input   | Description                            | Type                    | Required | Default       |
+| -------- | -------------------------------------- | ----------------------- | -------- | ------------- |
+| fontSize | The text size for the value line       | `'normal'` \| `'small'` | no       | 'normal'      |
+| iconSize | The size of the primary icon (10-48)   | `string`                | no       | 'normal' (36) |
+| label    | The text shown below the Channel Value | `string`                | yes      |               |
+| units    | Text to show after the value           | `string`                | no       |               |
+| value    | The value for the channel              | `string` \| `number`    | no       |               |
 
 </div>
 
 > **Note**: When using the `iconSize` attribute, you may specify either normal (36px) or large (72px). When using `<mat-icon>` icons (not PX Blue supplemental icon), you may also specify a numeric value from 10 to 72.
 
-Child element with attributes:
+The following child elements are projected into `<pxb-hero>`:
 
 <div style="overflow: auto;">
 
-| Attributes | Description                                           | Required | Default |
-| ---------- | ----------------------------------------------------- | -------- | ------- |
-| (child)    | The `ChannelValue` to display under the primary icon  | no       |         |
-| primary    | The large icon displayed on the top                   | no       |         |
-| secondary  | The icon displayed to the left of the value and units | no       |         |
+| Selector    | Description                                                 | Required | Default |
+| ----------- | ----------------------------------------------------------- | -------- | ------- |
+| (child)     | The `<pxb-channel-value>` to display under the primary icon | no       |         |
+| [primary]   | The large icon displayed on the top                         | no       |         |
+| [secondary] | The icon displayed to the left of the value and units       | no       |         |
 
 </div>
 
-# HeroBanner
+# Hero Banner
 
-The `<pxb-hero-banner>` component is a simple wrapper component that is used to contain `<pxb-hero> </pxb-hero>`s. It creates the flex container and sets up the spacing rules to display them. It accepts up to four `<pxb-hero> </pxb-hero>` components as its children.
+The `<pxb-hero-banner>` component is a simple wrapper component that is used to contain `<pxb-hero>`s. It creates the flex container and sets up the spacing rules to display them. It accepts up to four `<pxb-hero>` components as its children.
 
 ## Hero Banner Usage
 
@@ -99,20 +99,20 @@ imports: [
 
 ## Hero Banner API
 
-Parent element (`pxb-hero-banner`) attributes:
+Parent element (`<pxb-hero-banner>`) attributes:
 
 <div style="overflow: auto;">
 
-| Attributes | Description                        | Type      | Required | Default |
-| ---------- | ---------------------------------- | --------- | -------- | ------- |
-| divider    | Whether to show the line separator | `boolean` | no       | false   |
+| @input  | Description                        | Type      | Required | Default |
+| ------- | ---------------------------------- | --------- | -------- | ------- |
+| divider | Whether to show the line separator | `boolean` | no       | false   |
 
 </div>
 
-Child element:
+The following child element is projected into `<pxb-hero-banner>`:
 
 <div style="overflow: auto;">
 
-| Attributes | Description           | Required | Default |
-| ---------- | --------------------- | -------- | ------- |
-| (child)    | `pxb-hero` to display | yes      |         |
+| Selector | Description           | Required | Default |
+| -------- | --------------------- | -------- | ------- |
+| (child)  | `pxb-hero` to display | yes      |         |

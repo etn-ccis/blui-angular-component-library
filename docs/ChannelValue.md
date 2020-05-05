@@ -34,21 +34,21 @@ imports: [
 
 ## API
 
-Parent element (`pxb-channel-value`) attributes:
+Parent element (`<pxb-channel-value>`) attributes:
 
 <div style="overflow: auto;">
 
-| Attributes | Description                                    | Type              | Required | Default   |
-| ---------- | ---------------------------------------------- | ----------------- | -------- | --------- |
-| fontSize   | The size of the font                           | `string`          | no       | 'inherit' |
-| prefix     | Show units before the value                    | `boolean`         | no       | false     |
-| units      | The text to display for the units (light text) | `string`          | no       |           |
-| value      | The the value (bold text) to display           | `string | number` | yes      |           |
+| @input   | Description                                    | Type                 | Required | Default   |
+| -------- | ---------------------------------------------- | -------------------- | -------- | --------- |
+| fontSize | The size of the font                           | `string`             | no       | 'inherit' |
+| prefix   | Show units before the value                    | `boolean`            | no       | false     |
+| units    | The text to display for the units (light text) | `string`             | no       |           |
+| value    | The the value (bold text) to display           | `string` \| `number` | yes      |           |
 
 </div>
 
-Child element:
+The following child element is projected into `<pxb-channel-value>`:
 
-| Attributes | Description             | Required | Default |
-| ---------- | ----------------------- | -------- | ------- |
-| (child)    | Icons shown on the left | no       |         |
+| Selector | Description             | Required | Default |
+| -------- | ----------------------- | -------- | ------- |
+| (child)  | Icons shown on the left | no       |         |

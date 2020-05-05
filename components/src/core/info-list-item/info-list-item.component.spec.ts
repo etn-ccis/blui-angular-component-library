@@ -7,7 +7,19 @@ import { By } from '@angular/platform-browser';
 
 @Component({
     template: `
-        <pxb-info-list-item title="Icon Test">
+        <pxb-info-list-item>
+            <div title>Test Title</div>
+            <div subtitle>Test Subtitle</div>
+            <mat-icon icon>mail</mat-icon>
+        </pxb-info-list-item>
+    `,
+})
+class TestBasicUsage {}
+
+@Component({
+    template: `
+        <pxb-info-list-item>
+            <div title>title</div>
             <mat-icon icon>mail</mat-icon>
         </pxb-info-list-item>
     `,
@@ -16,21 +28,23 @@ class TestIconComponent {}
 
 @Component({
     template: `
-        <pxb-info-list-item title="Left Component Test">
-            <div leftComponent class="test-left">lefty</div>
+        <pxb-info-list-item>
+            <div title>title</div>
+            <div leftContent class="test-left">lefty</div>
         </pxb-info-list-item>
     `,
 })
-class TestLeftComponent {}
+class TestLeftContent {}
 
 @Component({
     template: `
-        <pxb-info-list-item title="Right Component Test">
-            <div rightComponent class="test-right">righty</div>
+        <pxb-info-list-item>
+            <div title>title</div>
+            <div rightContent class="test-right">righty</div>
         </pxb-info-list-item>
     `,
 })
-class TestRightComponent {}
+class TestRightContent {}
 
 describe('InfoListItemComponent', () => {
     let component: InfoListItemComponent;
@@ -38,7 +52,7 @@ describe('InfoListItemComponent', () => {
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [TestIconComponent, TestLeftComponent, TestRightComponent],
+            declarations: [TestBasicUsage, TestIconComponent, TestLeftContent, TestRightContent],
             imports: [InfoListItemModule],
         }).compileComponents();
     }));
@@ -54,15 +68,17 @@ describe('InfoListItemComponent', () => {
     });
 
     it('should render a title', () => {
-        component.title = 'Test Title';
-        fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.pxb-info-list-item-title').innerHTML.trim()).toBe('Test Title');
+        const customFixture = TestBed.createComponent(TestBasicUsage);
+        customFixture.detectChanges();
+        expect(customFixture.nativeElement.querySelector('.pxb-info-list-item-title').innerHTML).toContain(
+            'Test Title'
+        );
     });
 
     it('should render a subtitle', () => {
-        component.subtitle = 'Test Subtitle';
-        fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.pxb-info-list-item-subtitle').innerHTML).toContain(
+        const customFixture = TestBed.createComponent(TestBasicUsage);
+        customFixture.detectChanges();
+        expect(customFixture.nativeElement.querySelector('.pxb-info-list-item-subtitle').innerHTML).toContain(
             'Test Subtitle'
         );
     });
@@ -74,13 +90,13 @@ describe('InfoListItemComponent', () => {
     });
 
     it('should render a left component', () => {
-        const customFixture = TestBed.createComponent(TestLeftComponent);
+        const customFixture = TestBed.createComponent(TestLeftContent);
         customFixture.detectChanges();
         expect(customFixture.nativeElement.querySelector('.test-left').innerHTML).toBe('lefty');
     });
 
     it('should render a right component', () => {
-        const customFixture = TestBed.createComponent(TestRightComponent);
+        const customFixture = TestBed.createComponent(TestRightContent);
         customFixture.detectChanges();
         expect(customFixture.nativeElement.querySelector('.test-right').innerHTML).toBe('righty');
     });
@@ -106,15 +122,15 @@ describe('InfoListItemComponent', () => {
         const classList = [
             '.pxb-info-list-item',
             '.pxb-info-list-item-icon',
-            '.pxb-info-list-item-left-component',
+            '.pxb-info-list-item-left-content',
             '.pxb-info-list-item-title',
             '.pxb-info-list-item-subtitle',
             '.pxb-info-list-item-spacer',
-            '.pxb-info-list-item-right-component',
+            '.pxb-info-list-item-right-content',
             '.pxb-info-list-item-divider',
             '.pxb-info-list-item-avatar',
             '.pxb-info-list-item-hide-padding',
-            '.pxb-info-list-item-right-component-wrapper',
+            '.pxb-info-list-item-right-content-wrapper',
         ];
         for (const className of classList) {
             count(fixture, className);

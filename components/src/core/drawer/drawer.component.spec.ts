@@ -5,9 +5,7 @@ import { Component } from '@angular/core';
 
 @Component({
     template: `
-        <pxb-drawer>
-           
-        </pxb-drawer>
+        <pxb-drawer> </pxb-drawer>
     `,
 })
 class TestDrawer {}

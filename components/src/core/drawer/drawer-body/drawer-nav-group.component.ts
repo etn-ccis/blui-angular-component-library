@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@angular/core';
+import {DrawerNavItem} from "./drawer-nav-item.component";
 
 @Component({
     selector: 'pxb-drawer-nav-group',
@@ -7,14 +8,18 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@a
     template: `
         <div class="pxb-drawer-nav-group">
             <mat-list>
-                <mat-list-item>{{title}}</mat-list-item>
+                <mat-list-item>{{ title }}</mat-list-item>
             </mat-list>
             <mat-divider></mat-divider>
+            <ng-content select="pxb-drawer-nav-item"></ng-content>
         </div>
     `,
-    styleUrls: ['./drawer-nav-group.component.scss'],
 })
 export class DrawerNavGroupComponent {
-    @Input() title: string
-    @Input() itemID: string;
+    @Input() title: string;
 }
+
+export type DrawerNavGroup = {
+    title: string;
+    items: DrawerNavItem[];
+};

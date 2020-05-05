@@ -9,9 +9,9 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
             <span class="pxb-channel-value-icon">
                 <ng-content></ng-content>
             </span>
-            <div *ngIf="units && prefix" class="pxb-channel-value-text pxb-channel-value-units">{{ units }}</div>
-            <div *ngIf="value" class="pxb-channel-value-text pxb-channel-value-value">{{ value }}</div>
-            <div *ngIf="units && !prefix" class="pxb-channel-value-text pxb-channel-value-units">{{ units }}</div>
+            <div *ngIf="units && prefix" class="pxb-channel-value-units">{{ units }}</div>
+            <div *ngIf="value" class="pxb-channel-value-value">{{ value }}</div>
+            <div *ngIf="units && !prefix" class="pxb-channel-value-units">{{ units }}</div>
         </span>
     `,
     styleUrls: ['./channel-value.component.scss'],

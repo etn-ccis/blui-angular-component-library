@@ -6,10 +6,9 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
     encapsulation: ViewEncapsulation.None,
     template: `
         <div class="pxb-drawer-body">
-            <ng-content select="[drawer-body-content]"></ng-content>
+            <ng-content></ng-content>
         </div>
     `,
     styleUrls: ['./drawer-body.component.scss'],
 })
-export class DrawerBodyComponent {
-}
+export class DrawerBodyComponent {}

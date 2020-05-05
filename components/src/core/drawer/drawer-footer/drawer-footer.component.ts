@@ -10,7 +10,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
                 [ngStyle]="{ visibility: drawerOpen ? 'inherit' : 'hidden' }"
                 class="pxb-drawer-footer-content-wrapper"
             >
-                <ng-content select="[footerContent]"></ng-content>
+                <ng-content></ng-content>
             </div>
         </div>
     `,

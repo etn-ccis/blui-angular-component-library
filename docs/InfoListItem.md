@@ -17,41 +17,41 @@ imports: [
 
 ```html
 // your-component.html
-<pxb-info-list-item title="Status" divider="full" [statusColor]="colors.green[500]">
+<pxb-info-list-item divider="full" [statusColor]="colors.green[500]">
+    <div title>Info List Item</div>
     <mat-icon [style.color]="colors.green[500]" icon>eco</mat-icon>
 </pxb-info-list-item>
 ```
 
 ## API
 
-Parent element (`pxb-info-list-item`) attributes:
+Parent element (`<pxb-info-list-item>`) attributes:
 
 <div style="overflow: auto;">
 
-| Attributes        | Description                            | Type                 | Required | Default        |
-| ----------------- | -------------------------------------- | -------------------- | -------- | -------------- |
-| avatar            | Show a colored background for the icon | `boolean`            | no       | false          |
-| chevron           | Add a chevron icon on the right        | `boolean`            | no       | false          |
-| dense             | Smaller height row with less padding   | `boolean`            | no       | false          |
-| divider           | Show a row separator below the row     | `'full' | 'partial'` | no       |                |
-| hidePadding       | Remove left padding if no icon is used | `boolean`            | no       | false          |
-| statusColor       | Left border color                      | `string`             | no       |                |
-| subtitle          | The text to show on the second line    | `string | string[]`  | no       |                |
-| subtitleSeparator | Separator character for subtitle       | `string`             | no       | '·' ('\u00B7') |
-| title             | The text to show on the first line     | `string`             | yes      |                |
-| wrapSubtitle      | Whether to wrap subtitle on overflow   | `boolean`            | no       | false          |
-| wrapTitle         | Whether to wrap title on overflow      | `boolean`            | no       | false          |
+| @input       | Description                            | Type                    | Required | Default |
+| ------------ | -------------------------------------- | ----------------------- | -------- | ------- |
+| avatar       | Show a colored background for the icon | `boolean`               | no       | false   |
+| chevron      | Add a chevron icon on the right        | `boolean`               | no       | false   |
+| dense        | Smaller height row with less padding   | `boolean`               | no       | false   |
+| divider      | Show a row separator below the row     | `'full'` \| `'partial'` | no       |         |
+| hidePadding  | Remove left padding if no icon is used | `boolean`               | no       | false   |
+| statusColor  | Left border color                      | `string`                | no       |         |
+| wrapSubtitle | Whether to wrap subtitle on overflow   | `boolean`               | no       | false   |
+| wrapTitle    | Whether to wrap title on overflow      | `boolean`               | no       | false   |
 
 </div>
 
-Child element with attributes:
+The following child elements are projected into `<pxb-info-list-item>`:
 
 <div style="overflow: auto;">
 
-| Attributes     | Description                           | Required | Default |
-| -------------- | ------------------------------------- | -------- | ------- |
-| icon           | A component to render for the icon    | no       |         |
-| leftComponent  | Component to render on the left side  | no       |         |
-| rightComponent | Component to render on the right side | no       |         |
+| Selector       | Description                         | Required | Default |
+| -------------- | ----------------------------------- | -------- | ------- |
+| [icon]         | A component to render for the icon  | no       |         |
+| [leftContent]  | Content to render on the left side  | no       |         |
+| [rightContent] | Content to render on the right side | no       |         |
+| [subtitle]     | Content to render for the subtitle  | no       |         |
+| [title]        | Content to render for the title     | yes      |         |
 
 </div>

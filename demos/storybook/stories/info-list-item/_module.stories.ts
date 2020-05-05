@@ -7,25 +7,29 @@ import {
     STORY_PARAMS, WITH_FULL_CONFIG_STORY_NAME,
     WITH_MIN_PROPS_STORY_NAME,
 } from '../../src/constants';
-import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/utils';
+import {getReadMe, getReadMeStory, isDarkMode, storyWrapper, UtilModule} from '../../src/utils';
 import { withBasicConfig } from './with-basic-config.stories';
 import { withIcon } from "./with-icon.stories";
 import { withSubtitle } from "./with-subtitle.stories";
 import {withStatus} from "./with-status.stories";
-import {withLeftComponent} from "./with-left-component.stories";
-import {withRightComponent} from "./with-right-component.stories";
 import {withFullConfig} from "./with-full-config.stories";
 import {MatRippleModule} from "@angular/material/core";
 import {withinList} from "./within-list.stories";
-import {withArraySubtitle} from "./with-array-for-subtitle.stories";
 import { withA11y } from '@storybook/addon-a11y';
+import {withRightContent} from "./with-right-content.stories";
+import {withLeftContent} from "./with-left-content.stories";
+import * as Colors from '@pxblue/colors';
 
 export const infoListItemWrapper = () => (storyFn): any => {
     const story = storyFn();
     return {
         ...story,
-        template: `<div style="width: 90%; background-color: white">${story.template}</div>`,
-        styles: [`:host { display: flex; width: 100%; justify-content: center;`]
+        template: `<div style="width: 90%" [style.backgroundColor]="getDecoratorBgColor()">${story.template}</div>`,
+        styles: [`:host { display: flex; width: 100%; justify-content: center;`],
+        props: {
+            ...story.props,
+            getDecoratorBgColor: (): string => isDarkMode() ? Colors.black[500] : 'white',
+        },
     };
 };
 
@@ -45,10 +49,9 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Info List Item`, module)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
     .add('with subtitle', withSubtitle)
     .add('with icon', withIcon)
-    .add('with array for subtitle', withArraySubtitle)
     .add('with status', withStatus)
-    .add('with left component', withLeftComponent)
-    .add('with right component', withRightComponent)
+    .add('with left content', withLeftContent)
+    .add('with right content', withRightContent)
     .add(WITH_FULL_CONFIG_STORY_NAME, withFullConfig)
     .add('within a full list', withinList);
 

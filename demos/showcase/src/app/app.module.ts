@@ -12,12 +12,7 @@ import {
     ScoreCardModule,
     InfoListItemModule,
     DrawerModule,
-    DrawerBodyModule,
-    DrawerHeaderModule,
-    DrawerSubheaderModule,
-    DrawerFooterModule,
-    DrawerNavGroupModule,
-    DrawerNavItemModule
+    ListItemTagModule,
 } from '@pxblue/angular-components';
 
 //material modules
@@ -27,9 +22,10 @@ import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { DrawerComponent } from './drawer.component';
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, DrawerComponent],
     imports: [
         BrowserAnimationsModule,
         BrowserModule,
@@ -48,12 +44,7 @@ import { MatButtonModule } from '@angular/material/button';
         HeroModule,
         InfoListItemModule,
         DrawerModule,
-        DrawerBodyModule,
-        DrawerHeaderModule,
-        DrawerSubheaderModule,
-        DrawerFooterModule,
-        DrawerNavGroupModule,
-        DrawerNavItemModule
+        ListItemTagModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

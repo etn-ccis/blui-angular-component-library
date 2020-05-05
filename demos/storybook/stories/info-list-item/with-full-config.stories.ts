@@ -5,18 +5,19 @@ import { action } from '@storybook/addon-actions';
 export const withFullConfig = (): any => ({
     template: `
         <pxb-info-list-item
+            [style.color]="colors.blue[500]"
             matRipple
             style="display:flex; cursor: pointer"
             [wrapSubtitle]="wrapSubtitle"
             [wrapTitle]="wrapTitle"
             [avatar]="avatar"
-            [title]="title"
-            [subtitle]="subtitle"
             [statusColor]="statusColor"
             [hidePadding]="hidePadding"
             [dense]="dense"
             [chevron]="chevron"
             (click)="action()">
+            <div title>{{title}}</div>
+            <div subtitle>{{subtitle}}</div>
             <mat-icon *ngIf="showIcon" [style.color]="iconColor"
                 [style.backgroundColor]="getBgColor(avatar, statusColor)" icon>assignment</mat-icon>
         </pxb-info-list-item>

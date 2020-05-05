@@ -31,9 +31,4 @@ export class AppComponent {
         // eslint-disable-next-line
         console.log('drawer header button clicked...');
     }
-
-    testClick(string): void {
-        // eslint-disable-next-line
-        console.log(string, ' clicked...');
-    }
 }
