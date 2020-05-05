@@ -55,12 +55,11 @@ The following child element is projected into `<pxb-channel-value>`:
 
 
 ### Classes
-You can override the classes used by PX Blue by passing a `classes` prop. It supports the following keys:
+Each PX Blue components has classes which can be used to override component styles: 
 
 | Name                      | Description                                 |
 |---------------------------|---------------------------------------------|
 | pxb-channel-value         | Styles applied to the root element          |
-| actions                   | Styles applied to the actions               |
-| description      | Styles applied to the description           |
-| icon             | Styles applied to the icon                  |
-| title            | Styles applied to the title                 |
+| pxb-channel-value-icon    | Styles applied to the icon container        |
+| pxb-channel-value-units   | Styles applied to the units @Input          |
+| pxb-channel-value-value   | Styles applied to value @Input              |
