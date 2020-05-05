@@ -68,7 +68,7 @@ export class InfoListItemComponent implements AfterViewInit {
     @ViewChild('title', { static: false }) title: ElementRef;
 
     ngAfterViewInit(): void {
-        const required = { id: 'title', ref: this.title };
+        const required = { selector: 'title', ref: this.title };
         requireContent([required], this);
     }
 }

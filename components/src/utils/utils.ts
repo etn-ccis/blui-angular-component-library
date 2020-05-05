@@ -13,12 +13,12 @@ export function requireContent(contentPairs: ContentPair[], component): void {
     contentPairs.forEach((contentPair) => {
         if (!contentPair.ref.nativeElement.children || contentPair.ref.nativeElement.children.length === 0) {
             // eslint-disable-next-line no-console
-            console.warn(`PXBlue ${component.constructor.name} error: Property "${contentPair.id}" is required.`);
+            console.warn(`PXBlue ${component.constructor.name} error: Property "${contentPair.selector}" is required.`);
         }
     });
 }
 
 export type ContentPair = {
-    id: string;
+    selector: string;
     ref: ElementRef;
 };
