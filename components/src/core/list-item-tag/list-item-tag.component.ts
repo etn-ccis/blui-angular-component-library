@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, Component, Input, OnChanges, ViewEncapsulation} from '@angular/core';
-import { requireInput } from "../../utils/utils";
+import { ChangeDetectionStrategy, Component, Input, OnChanges, ViewEncapsulation } from '@angular/core';
+import { requireInput } from '../../utils/utils';
 
 @Component({
     selector: 'pxb-list-item-tag',

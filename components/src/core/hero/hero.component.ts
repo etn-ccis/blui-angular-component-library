@@ -10,7 +10,7 @@ import {
     ChangeDetectionStrategy,
     ViewEncapsulation,
 } from '@angular/core';
-import {requireInput} from "../../utils/utils";
+import { requireInput } from '../../utils/utils';
 export type IconSize = 'small' | 'normal' | 'large' | number;
 export type FontSize = 'small' | 'normal';
 

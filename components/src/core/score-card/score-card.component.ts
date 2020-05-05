@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
-import {requireInput} from "../../utils/utils";
+import { requireInput } from '../../utils/utils';
 
 @Component({
     selector: 'pxb-score-card',
