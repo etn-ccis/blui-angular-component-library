@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, ViewEncapsulation } from '@angular/core';
+import { requireInput } from '../../utils/utils';
 
 @Component({
     selector: 'pxb-channel-value',
@@ -16,10 +17,14 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
     `,
     styleUrls: ['./channel-value.component.scss'],
 })
-export class ChannelValueComponent {
+export class ChannelValueComponent implements OnChanges {
     @Input() value: string | number;
     @Input() units: string;
     @Input() fontSize = 'inherit';
     @Input() prefix = false;
     @Input() color: string;
+
+    ngOnChanges(): void {
+        requireInput<ChannelValueComponent>(['value'], this);
+    }
 }
