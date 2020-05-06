@@ -13,7 +13,7 @@ import { EmptyStateModule } from './empty-state.module';
     `,
 })
 class EmptyStateBasicUsageComponent {
-    @Input() title: string = 'Placeholder Title';
+    @Input() title = 'Placeholder Title';
     @Input() description: string;
 }
 
