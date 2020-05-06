@@ -42,7 +42,7 @@ Parent element (`<pxb-empty-state>`) attributes:
 
 <div style="overflow: auto;">
 
-| @input      | Description                   | Type     | Required | Default |
+| @Input      | Description                   | Type     | Required | Default |
 | ----------- | ----------------------------- | -------- | -------- | ------- |
 | description | The secondary text to display | `string` | no       |         |
 | title       | The main text to display      | `string` | yes      |         |
@@ -59,3 +59,15 @@ The following child elements are projected into `<pxb-empty-state>`:
 | [emptyIcon] | The large icon to display      | yes      |         |
 
 </div>
+
+
+### Classes
+Each PX Blue component has classes which can be used to override component styles: 
+
+| Name                                | Description                                 |
+|-------------------------------------|--------------------------------------------|
+| pxb-empty-state                     | Styles applied to the root element          |
+| pxb-empty-state-empty-icon-wrapper  | Styles applied to the icon container        |
+| pxb-empty-state-title               | Styles applied to the title @Input          |
+| pxb-empty-state-description         | Styles applied to the description @Input    |
+| pxb-empty-state-actions-wrapper     | Styles applied to the actions container     |

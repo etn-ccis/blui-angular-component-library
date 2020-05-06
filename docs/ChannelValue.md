@@ -38,7 +38,7 @@ Parent element (`<pxb-channel-value>`) attributes:
 
 <div style="overflow: auto;">
 
-| @input   | Description                                    | Type                 | Required | Default   |
+| @Input   | Description                                    | Type                 | Required | Default   |
 | -------- | ---------------------------------------------- | -------------------- | -------- | --------- |
 | fontSize | The size of the font                           | `string`             | no       | 'inherit' |
 | prefix   | Show units before the value                    | `boolean`            | no       | false     |
@@ -52,3 +52,14 @@ The following child element is projected into `<pxb-channel-value>`:
 | Selector | Description             | Required | Default |
 | -------- | ----------------------- | -------- | ------- |
 | (child)  | Icons shown on the left | no       |         |
+
+
+### Classes
+Each PX Blue component has classes which can be used to override component styles: 
+
+| Name                            | Description                                 |
+|---------------------------------|---------------------------------------------|
+| pxb-channel-value               | Styles applied to the root element          |
+| pxb-channel-value-icon-wrapper  | Styles applied to the icon container        |
+| pxb-channel-value-units         | Styles applied to the units @Input          |
+| pxb-channel-value-value         | Styles applied to the value @Input          |

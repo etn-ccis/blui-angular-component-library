@@ -7,7 +7,7 @@ import { requireInput } from '../../utils/utils';
     encapsulation: ViewEncapsulation.None,
     template: `
         <span class="pxb-channel-value" [style.color]="color" [style.fontSize.px]="fontSize">
-            <span class="pxb-channel-value-icon">
+            <span class="pxb-channel-value-icon-wrapper">
                 <ng-content></ng-content>
             </span>
             <div *ngIf="units && prefix" class="pxb-channel-value-units">{{ units }}</div>
