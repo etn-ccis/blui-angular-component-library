@@ -55,3 +55,13 @@ The following child elements are projected into `<pxb-info-list-item>`:
 | [title]        | Content to render for the title     | yes      |         |
 
 </div>
+
+### Classes
+Each PX Blue component has classes which can be used to override component styles: 
+
+| Name                              | Description                                 |
+|-----------------------------------|---------------------------------------------|
+| pxb-info-list-item                          | Styles applied to the root element          |
+| pxb-info-list-item-primary-wrapper          | Styles applied to the primary icon container|
+| pxb-info-list-item-channel-value-wrapper    | Styles applied to channel-value             |
+| pxb-info-list-item-label                    | Styles applied to label @Input              |

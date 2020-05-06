@@ -26,7 +26,7 @@ Parent element (`pxb-list-item-tag`) attributes:
 
 <div style="overflow: auto;">
 
-| @Inputs           | Description                                      | Type                                               | Required | Default        |
+| @Input           | Description                                      | Type                                               | Required | Default        |
 |-------------------|--------------------------------------------------|----------------------------------------------------|----------|----------------|
 | backgroundColor   | Color of the label background                    | `string`                                           | no       |                | 
 | fontColor         | Color of the label                               | `string`                                           | no       |                | 

@@ -73,7 +73,7 @@ The following child elements are projected into `<pxb-score-card>`:
 
 <div style="overflow: auto;">
 
-| Attributes    | Description                                 | Required | Default |
+| @Input    | Description                                 | Required | Default |
 | ------------- | ------------------------------------------- | -------- | ------- |
 | [actionItems] | Icons shown to the right of the header text | no       |         |
 | [actionRow]   | Content to render for the footer            | no       |         |

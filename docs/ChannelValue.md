@@ -38,7 +38,7 @@ Parent element (`<pxb-channel-value>`) attributes:
 
 <div style="overflow: auto;">
 
-| @input   | Description                                    | Type                 | Required | Default   |
+| @Input   | Description                                    | Type                 | Required | Default   |
 | -------- | ---------------------------------------------- | -------------------- | -------- | --------- |
 | fontSize | The size of the font                           | `string`             | no       | 'inherit' |
 | prefix   | Show units before the value                    | `boolean`            | no       | false     |

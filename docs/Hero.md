@@ -49,7 +49,7 @@ Parent element (`<pxb-hero>`) attributes:
 
 <div style="overflow: auto;">
 
-| @input   | Description                            | Type                    | Required | Default       |
+| @Input   | Description                            | Type                    | Required | Default       |
 | -------- | -------------------------------------- | ----------------------- | -------- | ------------- |
 | fontSize | The text size for the value line       | `'normal'` \| `'small'` | no       | 'normal'      |
 | iconSize | The size of the primary icon (10-48)   | `string`                | no       | 'normal' (36) |
@@ -114,7 +114,7 @@ Parent element (`<pxb-hero-banner>`) attributes:
 
 <div style="overflow: auto;">
 
-| @input  | Description                        | Type      | Required | Default |
+| @Input  | Description                        | Type      | Required | Default |
 | ------- | ---------------------------------- | --------- | -------- | ------- |
 | divider | Whether to show the line separator | `boolean` | no       | false   |
 

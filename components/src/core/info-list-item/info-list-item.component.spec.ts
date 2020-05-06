@@ -122,11 +122,10 @@ describe('InfoListItemComponent', () => {
         const classList = [
             '.pxb-info-list-item',
             '.pxb-info-list-item-icon',
-            '.pxb-info-list-item-left-content',
+            '.pxb-info-list-item-left-content-wrapper',
             '.pxb-info-list-item-title',
             '.pxb-info-list-item-subtitle',
             '.pxb-info-list-item-spacer',
-            '.pxb-info-list-item-right-content',
             '.pxb-info-list-item-divider',
             '.pxb-info-list-item-avatar',
             '.pxb-info-list-item-hide-padding',

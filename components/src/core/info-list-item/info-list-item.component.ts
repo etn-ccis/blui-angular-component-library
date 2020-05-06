@@ -29,7 +29,7 @@ import { requireContent } from '../../utils/utils';
             >
                 <ng-content select="[icon]"></ng-content>
             </div>
-            <div class="pxb-info-list-item-left-content">
+            <div class="pxb-info-list-item-left-content-wrapper">
                 <ng-content select="[leftContent]"></ng-content>
             </div>
             <div class="mat-body-1 pxb-info-list-item-title" matLine [class.pxb-info-list-item-wrap]="wrapTitle" #title>
