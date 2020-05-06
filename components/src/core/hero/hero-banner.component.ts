@@ -1,8 +1,9 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, ViewEncapsulation} from '@angular/core';
 
 @Component({
     selector: 'pxb-hero-banner',
     changeDetection: ChangeDetectionStrategy.OnPush,
+    encapsulation: ViewEncapsulation.None,
     template: `
         <div class="pxb-hero-banner">
             <ng-content select="pxb-hero"></ng-content>

@@ -73,6 +73,17 @@ The following child elements are projected into `<pxb-hero>`:
 
 </div>
 
+### Classes
+Each PX Blue component has classes which can be used to override component styles: 
+
+| Name                              | Description                                 |
+|-----------------------------------|---------------------------------------------|
+| pxb-hero                          | Styles applied to the root element          |
+| pxb-hero-primary-wrapper          | Styles applied to the primary icon container|
+| pxb-hero-channel-value-wrapper    | Styles applied to channel-value             |
+| pxb-hero-label                    | Styles applied to label @Input              |
+
+
 # Hero Banner
 
 The `<pxb-hero-banner>` component is a simple wrapper component that is used to contain `<pxb-hero>`s. It creates the flex container and sets up the spacing rules to display them. It accepts up to four `<pxb-hero>` components as its children.
@@ -116,3 +127,11 @@ The following child element is projected into `<pxb-hero-banner>`:
 | Selector | Description           | Required | Default |
 | -------- | --------------------- | -------- | ------- |
 | (child)  | `pxb-hero` to display | yes      |         |
+
+### Classes
+Each PX Blue component has classes which can be used to override component styles: 
+
+| Name                              | Description                                 |
+|-----------------------------------|---------------------------------------------|
+| pxb-hero-banner                   | Styles applied to the root element          |
+| pxb-hero-banner-divider           | Styles applied to the divider               |
