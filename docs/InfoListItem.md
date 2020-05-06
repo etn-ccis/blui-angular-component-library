@@ -59,9 +59,13 @@ The following child elements are projected into `<pxb-info-list-item>`:
 ### Classes
 Each PX Blue component has classes which can be used to override component styles: 
 
-| Name                              | Description                                 |
-|-----------------------------------|---------------------------------------------|
-| pxb-info-list-item                          | Styles applied to the root element          |
-| pxb-info-list-item-primary-wrapper          | Styles applied to the primary icon container|
-| pxb-info-list-item-channel-value-wrapper    | Styles applied to channel-value             |
-| pxb-info-list-item-label                    | Styles applied to label @Input              |
+| Name                                        | Description                                   |
+|---------------------------------------------|-----------------------------------------------|
+| pxb-info-list-item                          | Styles applied to the root element            |
+| pxb-info-list-item-icon-wrapper             | Styles applied to the icon container          |  
+| pxb-info-list-item-left-content-wrapper     | Styles applied to the leftContent container   |
+| pxb-info-list-item-title-wrapper            | Styles applied to the title container         |
+| pxb-info-list-item-subtitle-wrapper         | Styles applied to the subtitle container      |
+| pxb-info-list-item-right-content            | Styles applied to the rightContent            |
+| pxb-info-list-item-right-content-wrapper    | Styles applied to the rightContent container  |
+| pxb-info-list-item-divider                  | Styles applied to the divider                 |
