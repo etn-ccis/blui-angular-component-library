@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { count } from '../../utils/test-utils';
+import { count, disableWarnings } from '../../utils/test-utils';
 import { InfoListItemComponent } from './info-list-item.component';
 import { InfoListItemModule } from './info-list-item.module';
 import { Component } from '@angular/core';
@@ -60,6 +60,7 @@ describe('InfoListItemComponent', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(InfoListItemComponent);
         component = fixture.componentInstance;
+        disableWarnings();
     });
 
     it('should initialize', () => {

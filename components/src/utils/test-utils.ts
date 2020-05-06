@@ -8,3 +8,7 @@ export const count = (fixture: ComponentFixture<any>, selector: string, expected
         `Expected ${expected} instances of '${selector}', but found ${instances.length}`
     );
 };
+
+export const disableWarnings = (): void => {
+    spyOn(console, 'warn').and.stub();
+};

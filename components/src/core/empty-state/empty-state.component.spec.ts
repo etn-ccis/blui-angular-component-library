@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { EmptyStateComponent } from './empty-state.component';
-import { count } from '../../utils/test-utils';
+import { count, disableWarnings } from '../../utils/test-utils';
 import { EmptyStateModule } from './empty-state.module';
 
 /** Test component that contains an MatButton. */
@@ -35,6 +35,7 @@ describe('Empty State Component', () => {
     beforeEach(() => {
         fixture = TestBed.createComponent(EmptyStateComponent);
         component = fixture.componentInstance;
+        disableWarnings();
     });
 
     it('should initialize', () => {
