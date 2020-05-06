@@ -64,10 +64,10 @@ The following child elements are projected into `<pxb-empty-state>`:
 ### Classes
 Each PX Blue component has classes which can be used to override component styles: 
 
-| Name                              | Description                                 |
-|-----------------------------------|---------------------------------------------|
-| pxb-empty-state                   | Styles applied to the root element          |
-| pxb-empty-state-empty-icon-wrapper| Styles applied to the icon container        |
-| pxb-empty-state-title             | Styles applied to the title @Input          |
-| pxb-empty-state-description       | Styles applied to description @Input        |
-| pxb-empty-state-actions-wrapper   |Styles applied to actions container          |
+| Name                                | Description                                 |
+|-------------------------------------|--------------------------------------------|
+| pxb-empty-state                     | Styles applied to the root element          |
+| pxb-empty-state-empty-icon-wrapper  | Styles applied to the icon container        |
+| pxb-empty-state-title               | Styles applied to the title @Input          |
+| pxb-empty-state-description         | Styles applied to the description @Input    |
+| pxb-empty-state-actions-wrapper     | Styles applied to the actions container     |
