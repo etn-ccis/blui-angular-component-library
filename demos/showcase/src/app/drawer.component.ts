@@ -4,6 +4,7 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
 
 @Component({
     selector: 'showcase-drawer',
+    styleUrls: ['./drawer.component.scss'],
     template: `
         <pxb-drawer>
             <pxb-drawer-header
@@ -20,26 +21,31 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
                 </button>
             </pxb-drawer-header>
 
-            <pxb-drawer-subheader>
+            <pxb-drawer-subheader [drawerOpen]="drawerOpen">
                 Subheader goes here
             </pxb-drawer-subheader>
 
             <pxb-drawer-body>
                 <pxb-drawer-nav-group *ngFor="let navGroup of navGroups" [title]="navGroup.title">
                     <pxb-drawer-nav-item
-                        *ngFor="let navItem of navGroup.items"
+                        *ngFor="let navItem of navGroup.items; let index = index;"
                         [title]="navItem.title"
                         [subtitle]="navItem.subtitle"
                         [statusColor]="navItem.statusColor"
+                        [selected]="selectedItemId === navItem.itemID"
+                        [itemID]="navItem.itemID"
+                        [hasChildren]="navItem.items"
+                        (click)="navItem.onClick(); setActive(navItem.itemID);"
                     >
                         <mat-icon icon>{{ navItem.icon }}</mat-icon>
-                        <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items" [title]="nestedItem.title"></pxb-drawer-nav-item>
+                        <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items" [title]="nestedItem.title" [divider]=false [selected]="selectedItemId === nestedItem.itemID"
+                        [itemID]="nestedItem.itemID" [hasChildren]="nestedItem.items" (click)="testClick('sub nav item', $event); setActive(nestedItem.itemID)"></pxb-drawer-nav-item>
                     </pxb-drawer-nav-item>
                 </pxb-drawer-nav-group>
             </pxb-drawer-body>
 
-            <pxb-drawer-footer>
-                Footer Goes Here
+            <pxb-drawer-footer [drawerOpen]="drawerOpen">
+                <img src="../assets/EatonLogo.svg" alt="Eaton Logo"/>
             </pxb-drawer-footer>
         </pxb-drawer>
     `,
@@ -47,21 +53,27 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
 })
 export class DrawerComponent {
     colors = PXBColors;
+    drawerOpen = true;
+    selectedItemId: string;
 
+    nestedItems1: DrawerNavItem[] = [
+        { title: 'Sub 1', itemID: 'sub0' },
+        { title: 'Sub 2', itemID: 'sub1' }
+    ];
 
-  nestedItems: DrawerNavItem[] = [
-    { title: 'Sub 1' },
-    { title: 'Sub 2' }
-  ];
+    nestedItems2: DrawerNavItem[] = [
+        { title: 'Sub 3', itemID: 'sub2' },
+        { title: 'Sub 4', itemID: 'sub3' }
+    ];
 
     navGroup1: DrawerNavItem[] = [
-        { title: 'DrawerNavItem 1', subtitle: 'Subtitle 1', statusColor: PXBColors.red[500], icon: 'home', items: this.nestedItems },
-        { title: 'DrawerNavItem 2', subtitle: 'Subtitle 2', statusColor: PXBColors.blue[500], icon: 'help' },
+        { title: 'DrawerNavItem 1', subtitle: 'Subtitle 1', itemID: '0', statusColor: PXBColors.red[500], onClick: (): void => this.testClick('Drawer Nav Item 1'), icon: 'home', items: this.nestedItems1 },
+        { title: 'DrawerNavItem 2', subtitle: 'Subtitle 2', itemID: '1', statusColor: PXBColors.blue[500], onClick: (): void => this.testClick('Drawer Nav Item 2'), icon: 'help', items: this.nestedItems2 },
     ];
 
     navGroup2: DrawerNavItem[] = [
-        { title: 'DrawerNavItem 3', subtitle: 'Subtitle 3', statusColor: PXBColors.green[500], icon: 'work' },
-        { title: 'DrawerNavItem 4', subtitle: 'Subtitle 4', statusColor: PXBColors.gray[500], icon: 'work' },
+        { title: 'DrawerNavItem 3', subtitle: 'Subtitle 3', itemID: '2', statusColor: PXBColors.green[500], onClick: (): void => this.testClick('Drawer Nav Item 3'), icon: 'work' },
+        { title: 'DrawerNavItem 4', subtitle: 'Subtitle 4', itemID: '3', statusColor: PXBColors.gray[500], onClick: (): void => this.testClick('Drawer Nav Item 4'), icon: 'work' },
     ];
 
     navGroups: DrawerNavGroup[] = [
@@ -71,4 +83,15 @@ export class DrawerComponent {
         },
         { title: 'Second NavGroup', items: this.navGroup2 },
     ];
+
+    testClick(string: string, e?: any) {
+        if (e) {
+            e.stopPropagation();
+        }
+        console.log(string, ' clicked ...');
+    }
+
+    setActive(id: string) {
+        this.selectedItemId = id;
+    }
 }
