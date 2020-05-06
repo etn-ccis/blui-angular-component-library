@@ -77,7 +77,7 @@ describe('ChannelValueComponent', () => {
         const classList = [
             '.pxb-channel-value',
             '.pxb-channel-value-units',
-            '.pxb-channel-value-icon',
+            '.pxb-channel-value-icon-wrapper',
             '.pxb-channel-value-value',
         ];
         for (const className of classList) {
