@@ -32,10 +32,19 @@ import { requireContent } from '../../utils/utils';
             <div class="pxb-info-list-item-left-content-wrapper">
                 <ng-content select="[leftContent]"></ng-content>
             </div>
-            <div class="mat-body-1 pxb-info-list-item-title-wrapper" matLine [class.pxb-info-list-item-wrap]="wrapTitle" #title>
+            <div
+                class="mat-body-1 pxb-info-list-item-title-wrapper"
+                matLine
+                [class.pxb-info-list-item-wrap]="wrapTitle"
+                #title
+            >
                 <ng-content select="[title]"></ng-content>
             </div>
-            <div class="mat-body-2 pxb-info-list-item-subtitle-wrapper" matLine [class.pxb-info-list-item-wrap]="wrapSubtitle">
+            <div
+                class="mat-body-2 pxb-info-list-item-subtitle-wrapper"
+                matLine
+                [class.pxb-info-list-item-wrap]="wrapSubtitle"
+            >
                 <ng-content select="[subtitle]"></ng-content>
             </div>
             <pxb-spacer class="pxb-info-list-item-spacer"></pxb-spacer>

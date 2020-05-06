@@ -99,7 +99,7 @@ describe('Empty State Component', () => {
             '.pxb-empty-state-empty-icon-wrapper',
             '.pxb-empty-state-title',
             '.pxb-empty-state-description',
-            '.pxb-empty-state-actions-wrapper'
+            '.pxb-empty-state-actions-wrapper',
         ];
         for (const className of classList) {
             count(fixture, className);
