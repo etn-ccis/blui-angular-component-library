@@ -1,20 +1,37 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { count } from '../../utils/test-utils';
-import { InfoListItemComponent } from './info-list-item.component';
 import { InfoListItemModule } from './info-list-item.module';
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 @Component({
     template: `
-        <pxb-info-list-item>
+        <pxb-info-list-item
+            [statusColor]="statusColor"
+            [chevron]="chevron"
+            [dense]="dense"
+            [avatar]="avatar"
+            [hidePadding]="hidePadding"
+            [wrapSubtitle]="wrapSubtitle"
+            [wrapTitle]="wrapTitle"
+            [divider]="divider"
+            >
             <div title>Test Title</div>
             <div subtitle>Test Subtitle</div>
             <mat-icon icon>mail</mat-icon>
         </pxb-info-list-item>
     `,
 })
-class TestBasicUsage {}
+class TestBasicUsage {
+    @Input() statusColor;
+    @Input() chevron;
+    @Input() dense;
+    @Input() avatar;
+    @Input() hidePadding;
+    @Input() wrapSubtitle;
+    @Input() wrapTitle;
+    @Input() divider: any;
+}
 
 @Component({
     template: `
@@ -25,6 +42,14 @@ class TestBasicUsage {}
     `,
 })
 class TestIconComponent {}
+
+@Component({
+    template: `
+        <pxb-info-list-item>
+        </pxb-info-list-item>
+    `,
+})
+class TestMissingTitle {}
 
 @Component({
     template: `
@@ -47,18 +72,18 @@ class TestLeftContent {}
 class TestRightContent {}
 
 describe('InfoListItemComponent', () => {
-    let component: InfoListItemComponent;
-    let fixture: ComponentFixture<InfoListItemComponent>;
+    let component: TestBasicUsage;
+    let fixture: ComponentFixture<TestBasicUsage>;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [TestBasicUsage, TestIconComponent, TestLeftContent, TestRightContent],
+            declarations: [TestBasicUsage, TestMissingTitle, TestIconComponent, TestLeftContent, TestRightContent],
             imports: [InfoListItemModule],
         }).compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(InfoListItemComponent);
+        fixture = TestBed.createComponent(TestBasicUsage);
         component = fixture.componentInstance;
     });
 
@@ -68,19 +93,24 @@ describe('InfoListItemComponent', () => {
     });
 
     it('should render a title', () => {
-        const customFixture = TestBed.createComponent(TestBasicUsage);
-        customFixture.detectChanges();
-        expect(customFixture.nativeElement.querySelector('.pxb-info-list-item-title-wrapper').innerHTML).toContain(
+        fixture.detectChanges();
+        expect(fixture.nativeElement.querySelector('.pxb-info-list-item-title-wrapper').innerHTML).toContain(
             'Test Title'
         );
     });
 
     it('should render a subtitle', () => {
-        const customFixture = TestBed.createComponent(TestBasicUsage);
-        customFixture.detectChanges();
-        expect(customFixture.nativeElement.querySelector('.pxb-info-list-item-subtitle-wrapper').innerHTML).toContain(
+        fixture.detectChanges();
+        expect(fixture.nativeElement.querySelector('.pxb-info-list-item-subtitle-wrapper').innerHTML).toContain(
             'Test Subtitle'
         );
+    });
+
+    it('should throw a warning if a title is not provided', () => {
+        const customFixture = TestBed.createComponent(TestMissingTitle);
+        const warnSpy = spyOn(console, 'warn').and.stub();
+        customFixture.detectChanges();
+        expect(warnSpy).toHaveBeenCalledTimes(1);
     });
 
     it('should render an icon', () => {

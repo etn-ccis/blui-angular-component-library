@@ -1,9 +1,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { EmptyStateComponent } from './empty-state.component';
 import { count } from '../../utils/test-utils';
 import { EmptyStateModule } from './empty-state.module';
+
+@Component({
+    selector: 'empty-state-basic-usage-test',
+    template: `
+        <pxb-empty-state [title]="title" [description]="description">
+            <span emptyIcon></span>
+        </pxb-empty-state>
+    `,
+})
+class EmptyStateBasicUsageComponent {
+    @Input() title = 'Placeholder Title';
+    @Input() description: string;
+}
 
 /** Test component that contains an MatButton. */
 @Component({
@@ -19,21 +31,22 @@ import { EmptyStateModule } from './empty-state.module';
         </pxb-empty-state>
     `,
 })
-class TestEmpty {}
+class TestEmpty {
+}
 
 describe('Empty State Component', () => {
-    let fixture: ComponentFixture<EmptyStateComponent>;
-    let component: EmptyStateComponent;
+    let fixture: ComponentFixture<EmptyStateBasicUsageComponent>;
+    let component: EmptyStateBasicUsageComponent;
 
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [EmptyStateModule],
-            declarations: [TestEmpty],
+            declarations: [EmptyStateBasicUsageComponent,  TestEmpty],
         }).compileComponents();
     }));
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(EmptyStateComponent);
+        fixture = TestBed.createComponent(EmptyStateBasicUsageComponent);
         component = fixture.componentInstance;
     });
 
@@ -49,8 +62,16 @@ describe('Empty State Component', () => {
         expect(titleElement.nativeElement.innerHTML).toBe('title');
     });
 
+    it('should throw a warning when the title is not supplied', () => {
+        component.title = undefined;
+        const warnSpy = spyOn(console, 'warn').and.stub();
+        fixture.detectChanges();
+        expect(warnSpy).toHaveBeenCalledTimes(1);
+    });
+
     it('should not show empty title', () => {
         component.title = undefined;
+        spyOn(console, 'warn').and.stub();
         fixture.detectChanges();
         const titleElement = fixture.debugElement.query(By.css('h2'));
         expect(titleElement.nativeElement.innerHTML).toBeFalsy();

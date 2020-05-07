@@ -6,9 +6,9 @@ import {
     Input,
     OnChanges,
     ViewChild,
-    ViewEncapsulation
+    ViewEncapsulation,
 } from '@angular/core';
-import {requireContent, requireInput} from '../../utils/utils';
+import { requireContent, requireInput } from '../../utils/utils';
 
 @Component({
     selector: 'pxb-empty-state',
