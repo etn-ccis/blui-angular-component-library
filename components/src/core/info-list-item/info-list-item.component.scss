@@ -11,6 +11,7 @@ $denseHeight: 56px;
         box-sizing: border-box;
         height: $normalHeight;
         padding: 8px 16px 8px $contentPaddingLeft;
+        width: 100%;
     }
 
     &.pxb-info-list-item-status .mat-list-item-content {

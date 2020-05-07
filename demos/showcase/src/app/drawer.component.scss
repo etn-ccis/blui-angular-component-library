@@ -3,6 +3,7 @@
 .pxb-drawer {
   width: 350px;
   background-color: #ffffff;
+  border-right: 1px solid map-get($pxb-black, 50);
 
   .pxb-drawer-subheader {
     height: 48px;
@@ -29,6 +30,10 @@
     }
   }
 
+  .pxb-drawer-nested-nav-item {
+    background-color: map-get($pxb-gray, 50);
+  }
+
   .pxb-info-list-item *{
     z-index: 1;
   }
@@ -40,7 +45,7 @@
 
   .pxb-info-list-item .mat-list-item-content:hover {
     cursor: pointer;
-    background-color: map-get($pxb-gray, 50);
+    background-color: map-get($pxb-gray, 100);
   }
 
   .pxb-drawer-nav-item-active .pxb-info-list-item .mat-list-item-content {

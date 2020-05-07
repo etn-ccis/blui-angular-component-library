@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@angular/core';
-import {DrawerNavItem} from "./drawer-nav-item.component";
+import { DrawerNavItem } from '../drawer-nav-item/public-api';
 
 @Component({
     selector: 'pxb-drawer-nav-group',
