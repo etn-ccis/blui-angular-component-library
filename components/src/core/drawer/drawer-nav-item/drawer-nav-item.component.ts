@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@angular/core';
 import * as colors from '@pxblue/colors';
+import { trigger, transition, style, animate } from '@angular/animations';
 
 export type DrawerNavItem = {
     statusColor?: string;
@@ -21,6 +22,30 @@ export type DrawerNavItem = {
     selector: 'pxb-drawer-nav-item',
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
+    styleUrls: ['./drawer-nav-item.component.scss'],
+    animations: [
+        trigger(
+          'showNestedItemsAnimation', 
+          [
+            transition(
+              ':enter', 
+              [
+                style({ height: 0, opacity: 0 }),
+                animate('300ms ease-out', 
+                        style({ height: '*', opacity: 1 }))
+              ]
+            ),
+            transition(
+              ':leave', 
+              [
+                style({ height: '*', opacity: 1 }),
+                animate('200ms ease-out', 
+                        style({ height: 0, opacity: 0 }))
+              ]
+            )
+          ]
+        )
+      ],
     template: `
     <div class="pxb-drawer-nav-item" [ngClass]="selected ? 'pxb-drawer-nav-item-active' : ''">
         <pxb-info-list-item class="pxb-info-list-item"
@@ -39,14 +64,15 @@ export type DrawerNavItem = {
             <div title>{{ title }}</div>
             <div subtitle>{{ subtitle }}</div>
             <div rightContent *ngIf="hasChildren" (click)="toggleNestedNavItems($event)">
-                <mat-icon *ngIf="!showNestedNavItems">keyboard_arrow_down</mat-icon>
-                <mat-icon *ngIf="showNestedNavItems">keyboard_arrow_up</mat-icon>
+                <mat-icon class="default-expand-icon" [ngClass]="showNestedNavItems ? 'inverted' : ''">keyboard_arrow_down</mat-icon>
             </div>
         </pxb-info-list-item>
     </div>
         <!-- Nested Nav Items -->
         <div class="pxb-drawer-nested-nav-item" [ngClass]="true ? 'pxb-info-list-item-active' : ''">
-            <ng-content *ngIf="showNestedNavItems" select="pxb-drawer-nav-item"></ng-content>
+            <div *ngIf="showNestedNavItems" [@showNestedItemsAnimation]>
+                <ng-content select="pxb-drawer-nav-item"></ng-content>
+            </div>
         </div>
     `,
 })
