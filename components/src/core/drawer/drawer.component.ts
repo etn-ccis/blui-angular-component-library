@@ -15,5 +15,4 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
     `,
     styleUrls: ['./drawer.component.scss'],
 })
-export class DrawerComponent {
-}
+export class DrawerComponent {}

@@ -9,7 +9,21 @@ import { DrawerNavItemModule } from './drawer-nav-item/drawer-nav-item.module';
 
 @NgModule({
     declarations: [DrawerComponent],
-    imports: [CommonModule, DrawerHeaderModule, DrawerSubheaderModule, DrawerBodyModule, DrawerFooterModule, DrawerNavItemModule],
-    exports: [DrawerComponent, DrawerHeaderModule, DrawerSubheaderModule, DrawerBodyModule, DrawerFooterModule, DrawerNavItemModule],
+    imports: [
+        CommonModule,
+        DrawerHeaderModule,
+        DrawerSubheaderModule,
+        DrawerBodyModule,
+        DrawerFooterModule,
+        DrawerNavItemModule,
+    ],
+    exports: [
+        DrawerComponent,
+        DrawerHeaderModule,
+        DrawerSubheaderModule,
+        DrawerBodyModule,
+        DrawerFooterModule,
+        DrawerNavItemModule,
+    ],
 })
 export class DrawerModule {}

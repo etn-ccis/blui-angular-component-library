@@ -16,7 +16,7 @@ export type DrawerNavItem = {
     hasChildren?: boolean;
     ripple?: boolean;
     rippleColor?: string;
-}
+};
 
 @Component({
     selector: 'pxb-drawer-nav-item',
@@ -24,50 +24,42 @@ export type DrawerNavItem = {
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./drawer-nav-item.component.scss'],
     animations: [
-        trigger(
-          'showNestedItemsAnimation', 
-          [
-            transition(
-              ':enter', 
-              [
+        trigger('showNestedItemsAnimation', [
+            transition(':enter', [
                 style({ height: 0, opacity: 0 }),
-                animate('300ms ease-out', 
-                        style({ height: '*', opacity: 1 }))
-              ]
-            ),
-            transition(
-              ':leave', 
-              [
+                animate('300ms ease-out', style({ height: '*', opacity: 1 })),
+            ]),
+            transition(':leave', [
                 style({ height: '*', opacity: 1 }),
-                animate('200ms ease-out', 
-                        style({ height: 0, opacity: 0 }))
-              ]
-            )
-          ]
-        )
-      ],
+                animate('200ms ease-out', style({ height: 0, opacity: 0 })),
+            ]),
+        ]),
+    ],
     template: `
-    <div class="pxb-drawer-nav-item">
-        <pxb-info-list-item class="pxb-info-list-item"
-            [statusColor]="statusColor"
-            [chevron]="chevron"
-            [divider]="divider ? 'full' : undefined"
-            [ngClass]="selected ? 'pxb-info-list-item-active' : ''"
-            matRipple
-            [matRippleDisabled]="!ripple"
-            [matRippleColor]="rippleColor"
-            style="display:flex;"
-            > 
-            <div class="pxb-drawer-nav-item-icon-wrapper" icon>
-                <ng-content select="[icon]"></ng-content>
-            </div>
-            <div title>{{ title }}</div>
-            <div subtitle>{{ subtitle }}</div>
-            <div rightContent *ngIf="hasChildren" (click)="toggleNestedNavItems($event)">
-                <mat-icon class="default-expand-icon" [ngClass]="showNestedNavItems ? 'inverted' : ''">keyboard_arrow_down</mat-icon>
-            </div>
-        </pxb-info-list-item>
-    </div>
+        <div class="pxb-drawer-nav-item">
+            <pxb-info-list-item
+                class="pxb-info-list-item"
+                [statusColor]="statusColor"
+                [chevron]="chevron"
+                [divider]="divider ? 'full' : undefined"
+                [ngClass]="selected ? 'pxb-info-list-item-active' : ''"
+                matRipple
+                [matRippleDisabled]="!ripple"
+                [matRippleColor]="rippleColor"
+                style="display:flex;"
+            >
+                <div class="pxb-drawer-nav-item-icon-wrapper" icon>
+                    <ng-content select="[icon]"></ng-content>
+                </div>
+                <div title>{{ title }}</div>
+                <div subtitle>{{ subtitle }}</div>
+                <div rightContent *ngIf="hasChildren" (click)="toggleNestedNavItems($event)">
+                    <mat-icon class="default-expand-icon" [ngClass]="showNestedNavItems ? 'inverted' : ''"
+                        >keyboard_arrow_down</mat-icon
+                    >
+                </div>
+            </pxb-info-list-item>
+        </div>
         <!-- Nested Nav Items -->
         <div class="pxb-drawer-nested-nav-item" [ngClass]="selected ? 'pxb-info-list-item-active' : ''">
             <div *ngIf="showNestedNavItems" [@showNestedItemsAnimation]>
@@ -76,7 +68,6 @@ export type DrawerNavItem = {
         </div>
     `,
 })
-
 export class DrawerNavItemComponent {
     @Input() statusColor: string;
     @Input() title: string;

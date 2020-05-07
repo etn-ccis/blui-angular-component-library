@@ -7,7 +7,14 @@ import { MatDividerModule, MatRippleModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
     declarations: [DrawerNavItemComponent],
-    imports: [CommonModule, InfoListItemModule, MatIconModule, MatDividerModule, BrowserAnimationsModule, MatRippleModule],
+    imports: [
+        CommonModule,
+        InfoListItemModule,
+        MatIconModule,
+        MatDividerModule,
+        BrowserAnimationsModule,
+        MatRippleModule,
+    ],
     exports: [DrawerNavItemComponent],
 })
 export class DrawerNavItemModule {}

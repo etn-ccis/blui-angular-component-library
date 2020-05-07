@@ -1,7 +1,6 @@
-.default-expand-icon{
+.default-expand-icon {
     transition-duration: 300ms;
     &.inverted {
         transform: rotate(180deg);
     }
 }
-
