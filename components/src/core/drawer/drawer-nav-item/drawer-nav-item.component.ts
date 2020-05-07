@@ -47,7 +47,7 @@ export type DrawerNavItem = {
         )
       ],
     template: `
-    <div class="pxb-drawer-nav-item" [ngClass]="selected ? 'pxb-drawer-nav-item-active' : ''">
+    <div class="pxb-drawer-nav-item">
         <pxb-info-list-item class="pxb-info-list-item"
             [statusColor]="statusColor"
             [chevron]="chevron"
