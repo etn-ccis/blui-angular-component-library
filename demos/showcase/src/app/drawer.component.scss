@@ -24,6 +24,7 @@
 
   .pxb-drawer-nav-item {
     position: relative;
+    user-select: none;
 
     * {
         z-index: 1;
@@ -32,6 +33,7 @@
 
   .pxb-drawer-nested-nav-item {
     background-color: map-get($pxb-gray, 50);
+    user-select: none;
   }
 
   .pxb-info-list-item *{
