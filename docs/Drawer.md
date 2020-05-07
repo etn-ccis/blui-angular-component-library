@@ -16,7 +16,7 @@ Parent element (`<pxb-drawer-header>`) attributes:
 
 <div style="overflow: auto;">
 
-| @input   | Description                         | Type     | Required | Default |
+| @Input   | Description                         | Type     | Required | Default |
 | -------- | ----------------------------------- | -------- | -------- | ------- |
 | subtitle | The text to show on the second line | `string` | no       |         |
 | title    | The text to show on the first line  | `string` | no       |         |

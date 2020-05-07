@@ -49,7 +49,7 @@ Parent element (`<pxb-hero>`) attributes:
 
 <div style="overflow: auto;">
 
-| @input   | Description                            | Type                    | Required | Default       |
+| @Input   | Description                            | Type                    | Required | Default       |
 | -------- | -------------------------------------- | ----------------------- | -------- | ------------- |
 | fontSize | The text size for the value line       | `'normal'` \| `'small'` | no       | 'normal'      |
 | iconSize | The size of the primary icon (10-48)   | `string`                | no       | 'normal' (36) |
@@ -72,6 +72,17 @@ The following child elements are projected into `<pxb-hero>`:
 | [secondary] | The icon displayed to the left of the value and units       | no       |         |
 
 </div>
+
+### Classes
+Each PX Blue component has classes which can be used to override component styles: 
+
+| Name                              | Description                                 |
+|-----------------------------------|---------------------------------------------|
+| pxb-hero                          | Styles applied to the root element          |
+| pxb-hero-primary-wrapper          | Styles applied to the primary icon container|
+| pxb-hero-channel-value-wrapper    | Styles applied to channel-value             |
+| pxb-hero-label                    | Styles applied to label @Input              |
+
 
 # Hero Banner
 
@@ -103,7 +114,7 @@ Parent element (`<pxb-hero-banner>`) attributes:
 
 <div style="overflow: auto;">
 
-| @input  | Description                        | Type      | Required | Default |
+| @Input  | Description                        | Type      | Required | Default |
 | ------- | ---------------------------------- | --------- | -------- | ------- |
 | divider | Whether to show the line separator | `boolean` | no       | false   |
 
@@ -116,3 +127,11 @@ The following child element is projected into `<pxb-hero-banner>`:
 | Selector | Description           | Required | Default |
 | -------- | --------------------- | -------- | ------- |
 | (child)  | `pxb-hero` to display | yes      |         |
+
+### Classes
+Each PX Blue component has classes which can be used to override component styles: 
+
+| Name                              | Description                                 |
+|-----------------------------------|---------------------------------------------|
+| pxb-hero-banner                   | Styles applied to the root element          |
+| pxb-hero-banner-divider           | Styles applied to the divider               |

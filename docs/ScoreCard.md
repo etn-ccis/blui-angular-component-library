@@ -73,7 +73,7 @@ The following child elements are projected into `<pxb-score-card>`:
 
 <div style="overflow: auto;">
 
-| Attributes    | Description                                 | Required | Default |
+| @Input    | Description                                 | Required | Default |
 | ------------- | ------------------------------------------- | -------- | ------- |
 | [actionItems] | Icons shown to the right of the header text | no       |         |
 | [actionRow]   | Content to render for the footer            | no       |         |
@@ -81,3 +81,21 @@ The following child elements are projected into `<pxb-score-card>`:
 | [body]        | Content to render in the body               | no       |         |
 
 </div>
+
+
+### Classes
+Each PX Blue component has classes which can be used to override component styles: 
+
+| Name                                 | Description                                        |
+|--------------------------------------|----------------------------------------------------|
+| pxb-score-card                       | Styles applied to the root element                 |
+| pxb-score-card-header                | Styles applied to the scorecard header             |
+| pxb-score-card-header-background     | Hidden overlay used to provide a background image  |
+| pxb-score-card-header-wrapper        | Styles used to align header text and actions       |
+| pxb-score-card-title                 | Styles applied to the headerTitle @Input           |
+| pxb-score-card-subtitle              | Styles applied to the headerSubtitle @Input        |
+| pxb-score-card-info                  | Styles applied to the info @Input                  |
+| pxb-score-card-action-items-wrapper  | Styles applied to the actionItems container        |
+| pxb-score-card-body                  | Styles applied to the scorecard body               |
+| pxb-score-card-badge-wrapper         | Styles applied to the badge container              |
+| pxb-score-card-action-row-wrapper    | Styles applied to the actionRow container          |

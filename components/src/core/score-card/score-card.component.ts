@@ -1,4 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
+import { requireInput } from '../../utils/utils';
 
 @Component({
     selector: 'pxb-score-card',
@@ -40,4 +41,8 @@ export class ScoreCardComponent {
     @Input() headerSubtitle: string;
     @Input() headerInfo: string;
     @Input() badgeOffset = 0;
+
+    ngOnChanges(): void {
+        requireInput<ScoreCardComponent>(['headerTitle'], this);
+    }
 }

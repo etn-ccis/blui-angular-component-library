@@ -32,7 +32,7 @@ Parent element (`<pxb-spacer>`) attributes:
 
 <div style="overflow: auto;">
 
-| @input | Description                             | Type     | Required | Default |
+| @Input | Description                             | Type     | Required | Default |
 | ------ | --------------------------------------- | -------- | -------- | ------- |
 | flex   | Flex grow/shrink value for flex layouts | `number` | no       | 1       |
 | height | Height (in px) for static layouts       | `number` | no       |         |
