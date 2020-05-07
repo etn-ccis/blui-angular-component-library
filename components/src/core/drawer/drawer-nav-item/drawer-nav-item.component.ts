@@ -69,7 +69,7 @@ export type DrawerNavItem = {
         </pxb-info-list-item>
     </div>
         <!-- Nested Nav Items -->
-        <div class="pxb-drawer-nested-nav-item" [ngClass]="true ? 'pxb-info-list-item-active' : ''">
+        <div class="pxb-drawer-nested-nav-item" [ngClass]="selected ? 'pxb-info-list-item-active' : ''">
             <div *ngIf="showNestedNavItems" [@showNestedItemsAnimation]>
                 <ng-content select="pxb-drawer-nav-item"></ng-content>
             </div>
