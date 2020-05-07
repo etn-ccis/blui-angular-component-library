@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@angular/core';
-import * as colors from '@pxblue/colors';
 import { trigger, transition, style, animate } from '@angular/animations';
 
 export type DrawerNavItem = {
@@ -45,7 +44,6 @@ export type DrawerNavItem = {
                 [ngClass]="selected ? 'pxb-info-list-item-active' : ''"
                 matRipple
                 [matRippleDisabled]="!ripple"
-                [matRippleColor]="rippleColor"
                 style="display:flex;"
             >
                 <div class="pxb-drawer-nav-item-icon-wrapper" icon>
@@ -80,7 +78,6 @@ export class DrawerNavItemComponent {
     @Input() showNestedNavItems = false;
     @Input() hasChildren = false;
     @Input() ripple = true;
-    @Input() rippleColor = colors.black[500];
 
     toggleNestedNavItems(e: any): void {
         if (e) {
