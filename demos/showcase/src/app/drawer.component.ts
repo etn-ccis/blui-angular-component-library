@@ -84,14 +84,15 @@ export class DrawerComponent {
         { title: 'Second NavGroup', items: this.navGroup2 },
     ];
 
-    testClick(string: string, e?: any) {
+    testClick(string: string, e?: any): void {
         if (e) {
             e.stopPropagation();
         }
+        //eslint-disable-next-line
         console.log(string, ' clicked ...');
     }
 
-    setActive(id: string) {
+    setActive(id: string): void {
         this.selectedItemId = id;
     }
 }
