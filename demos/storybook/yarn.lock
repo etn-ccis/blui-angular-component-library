@@ -1494,10 +1494,10 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@pxblue/angular-themes@^5.0.0-beta.1":
-  version "5.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@pxblue/angular-themes/-/angular-themes-5.0.0-beta.1.tgz#911b0faa35e23a3542f5de7ba20ae144b1427636"
-  integrity sha512-J3Rd5RahqVJqfrAlN2GFYQg3ejF3ofQREOAUTB9MHZ/zKythnJWv+OMzeCAMC1DJPlxZ1phAwYQ4/UyN+3P/ZA==
+"@pxblue/angular-themes@^5.0.0-beta.2":
+  version "5.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@pxblue/angular-themes/-/angular-themes-5.0.0-beta.2.tgz#6fc9988f872f7bb3bfb2d2c2a3e342f539f3d190"
+  integrity sha512-PHKgrlhI7fzojLCWfFlbHi4KC/Jk6Y5CorxNplBTolLg6yb6Zg6LkXwBjBMHYKX8R0qddzP7Doz/H4rPzcTYGg==
   dependencies:
     "@pxblue/colors" "^2.0.0"
     typeface-open-sans "^0.0.75"
@@ -1529,10 +1529,10 @@
   resolved "https://registry.yarnpkg.com/@pxblue/icons/-/icons-1.0.25.tgz#52d22a987f168840ae7bdafb065f52c3ad5396da"
   integrity sha512-Q1+wgCjRpX5TeOY8JPpea1yF4uZOCsISQuguRcRIgqthAWH//Jcq4zCKMeOYLHjmXUU7RbWKv4PaA91//xPekQ==
 
-"@pxblue/storybook-themes@^1.1.0-beta.1":
-  version "1.1.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@pxblue/storybook-themes/-/storybook-themes-1.1.0-beta.1.tgz#da671219b05e87b1baf8055a3957694321e0cf7b"
-  integrity sha512-hzWrdDebjldfxXYK7qJ8XklTTgVmISNiS2sklQerCQ2M++NhpP6NjSfOiA4lZa36CInmEuDeNehXTk9qhMd5TA==
+"@pxblue/storybook-themes@^1.1.0-beta.2":
+  version "1.1.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@pxblue/storybook-themes/-/storybook-themes-1.1.0-beta.2.tgz#ee8dc944e57851afe7ff200ae4ecdeb3e75000f3"
+  integrity sha512-ZOQ3vGBmYrXf1UnmbaHgpllCLRHdWkU8Ag/5X2fFle61uL+w3BY8uDYm6PTpgepeYi/PCvleBN+Qe+YJHyYdCw==
 
 "@pxblue/types@^1.0.0":
   version "1.0.0"
