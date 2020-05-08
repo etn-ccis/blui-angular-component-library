@@ -1,6 +1,25 @@
+.pxb-drawer-nav-item {
+     .pxb-info-list-item
+     .mat-divider.mat-divider-horizontal {
+        width: 100%;
+        position: absolute;
+        margin-top: 0;
+        bottom: 0;
+    }
+}
+
 .pxb-drawer-nav-item-default-expand-icon {
     transition-duration: 300ms;
     &.inverted {
         transform: rotate(180deg);
     }
 }
+
+.hide-padding {
+    .pxb-info-list-item .pxb-info-list-item-icon-wrapper {
+        width: 0px;
+        min-width: 0px;
+    }
+}
+
+

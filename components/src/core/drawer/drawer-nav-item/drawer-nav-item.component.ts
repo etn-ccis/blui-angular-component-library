@@ -17,6 +17,7 @@ export type DrawerNavItem = {
     expandIcon?: string;
     collapseIcon?: string;
     useCustomIconAnimation?: boolean;
+    hidePadding?: boolean;
 };
 
 @Component({
@@ -63,7 +64,7 @@ export type DrawerNavItem = {
                 [statusColor]="statusColor"
                 [chevron]="chevron"
                 [divider]="divider ? 'full' : undefined"
-                [ngClass]="selected ? 'pxb-info-list-item-active' : ''"
+                [ngClass]="[selected ? 'pxb-info-list-item-active' : '', hidePadding ? 'hide-padding' : '']"
                 matRipple
                 [matRippleDisabled]="!ripple"
                 style="display:flex;"
@@ -130,6 +131,7 @@ export class DrawerNavItemComponent {
     @Input() expandIcon: string;
     @Input() collapseIcon: string;
     @Input() useCustomIconAnimation = true;
+    @Input() hidePadding: boolean;
     toggled = false;
 
     toggleNestedNavItems(e: any): void {
