@@ -36,10 +36,17 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
                         [itemID]="navItem.itemID"
                         [hasChildren]="navItem.items"
                         (click)="navItem.onClick(); setActive(navItem.itemID);"
+                        [expandIcon]="navItem.expandIcon"
+                        [collapseIcon]="navItem.collapseIcon"
+                        [useCustomIconAnimation]="navItem.useCustomIconAnimation"
                     >
                         <mat-icon icon>{{ navItem.icon }}</mat-icon>
                         <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items" [title]="nestedItem.title" [divider]=false [selected]="selectedItemId === nestedItem.itemID"
-                        [itemID]="nestedItem.itemID" [hasChildren]="nestedItem.items" (click)="testClick('sub nav item', $event); setActive(nestedItem.itemID)"></pxb-drawer-nav-item>
+                        [itemID]="nestedItem.itemID"
+                        [hasChildren]="nestedItem.items"
+                        (click)="testClick('sub nav item', $event); setActive(nestedItem.itemID)"
+                        [expandIcon]="nestedItem.expandIcon"
+                        [collapseIcon]="nestedItem.collapseIcon"></pxb-drawer-nav-item>
                     </pxb-drawer-nav-item>
                 </pxb-drawer-nav-group>
             </pxb-drawer-body>
@@ -66,13 +73,18 @@ export class DrawerComponent {
         { title: 'Sub 4', itemID: 'sub3' }
     ];
 
+    nestedItems3: DrawerNavItem[] = [
+        { title: 'Sub 5', itemID: 'sub4' },
+        { title: 'Sub 6', itemID: 'sub5' }
+    ];
+
     navGroup1: DrawerNavItem[] = [
         { title: 'DrawerNavItem 1', subtitle: 'Subtitle 1', itemID: '0', statusColor: PXBColors.red[500], onClick: (): void => this.testClick('Drawer Nav Item 1'), icon: 'home', items: this.nestedItems1 },
-        { title: 'DrawerNavItem 2', subtitle: 'Subtitle 2', itemID: '1', statusColor: PXBColors.blue[500], onClick: (): void => this.testClick('Drawer Nav Item 2'), icon: 'help', items: this.nestedItems2 },
+        { title: 'DrawerNavItem 2', subtitle: 'Subtitle 2', itemID: '1', statusColor: PXBColors.blue[500], onClick: (): void => this.testClick('Drawer Nav Item 2'), icon: 'help', items: this.nestedItems2, expandIcon: 'arrow_drop_down', collapseIcon: 'arrow_drop_up' },
     ];
 
     navGroup2: DrawerNavItem[] = [
-        { title: 'DrawerNavItem 3', subtitle: 'Subtitle 3', itemID: '2', statusColor: PXBColors.green[500], onClick: (): void => this.testClick('Drawer Nav Item 3'), icon: 'work' },
+        { title: 'DrawerNavItem 3', subtitle: 'Subtitle 3', itemID: '2', statusColor: PXBColors.green[500], onClick: (): void => this.testClick('Drawer Nav Item 3'), icon: 'work', items: this.nestedItems3, expandIcon: 'arrow_drop_down', collapseIcon: 'arrow_drop_up', useCustomIconAnimation: true },
         { title: 'DrawerNavItem 4', subtitle: 'Subtitle 4', itemID: '3', statusColor: PXBColors.gray[500], onClick: (): void => this.testClick('Drawer Nav Item 4'), icon: 'work' },
     ];
 

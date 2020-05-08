@@ -14,7 +14,9 @@ export type DrawerNavItem = {
     itemID?: string;
     hasChildren?: boolean;
     ripple?: boolean;
-    rippleColor?: string;
+    expandIcon?: string;
+    collapseIcon?: string;
+    useCustomIconAnimation?: boolean;
 };
 
 @Component({
@@ -31,6 +33,26 @@ export type DrawerNavItem = {
             transition(':leave', [
                 style({ height: '*', opacity: 1 }),
                 animate('200ms ease-out', style({ height: 0, opacity: 0 })),
+            ]),
+        ]),
+        trigger('rotateExpandIconAnimation', [
+            transition(':enter', [
+                style({ transform: 'rotate(180deg)' }),
+                animate('300ms linear', style({ transform: 'rotate(0deg)' })),
+            ]),
+            transition(':leave', [
+                style({ transform: 'rotate(0deg)' }),
+                animate('300ms linear', style({ transform: 'rotate(180deg)' })),
+            ]),
+        ]),
+        trigger('rotateCollapseIconAnimation', [
+            transition(':enter', [
+                style({ transform: 'rotate(-180deg)' }),
+                animate('300ms linear', style({ transform: 'rotate(0deg)' })),
+            ]),
+            transition(':leave', [
+                style({ transform: 'rotate(0deg)' }),
+                animate('300ms linear', style({ transform: 'rotate(-180deg)' })),
             ]),
         ]),
     ],
@@ -51,17 +73,44 @@ export type DrawerNavItem = {
                 </div>
                 <div title>{{ title }}</div>
                 <div subtitle>{{ subtitle }}</div>
-                <div rightContent *ngIf="hasChildren" (click)="toggleNestedNavItems($event)">
-                    <mat-icon class="default-expand-icon" [ngClass]="showNestedNavItems ? 'inverted' : ''"
+                <div rightContent *ngIf="hasChildren && expandIcon && !showNestedNavItems">
+                    <mat-icon
+                        class="pxb-drawer-nav-item-expand-icon"
+                        (click)="toggleNestedNavItems($event)"
+                        [@rotateExpandIconAnimation]
+                        [@.disabled]="!toggled || !useCustomIconAnimation"
+                        >{{ expandIcon }}</mat-icon
+                    >
+                </div>
+                <div rightContent *ngIf="hasChildren && collapseIcon && showNestedNavItems">
+                    <mat-icon
+                        class="pxb-drawer-nav-item-collapse-icon"
+                        (click)="toggleNestedNavItems($event)"
+                        [@rotateCollapseIconAnimation]
+                        [@.disabled]="!toggled || !useCustomIconAnimation"
+                        >{{ collapseIcon }}</mat-icon
+                    >
+                </div>
+                <div
+                    rightContent
+                    *ngIf="hasChildren && !expandIcon && !collapseIcon"
+                    (click)="toggleNestedNavItems($event)"
+                >
+                    <mat-icon
+                        class="pxb-drawer-nav-item-default-expand-icon"
+                        [ngClass]="showNestedNavItems ? 'inverted' : ''"
                         >keyboard_arrow_down</mat-icon
                     >
                 </div>
             </pxb-info-list-item>
         </div>
         <!-- Nested Nav Items -->
-        <div class="pxb-drawer-nested-nav-item" [ngClass]="selected ? 'pxb-info-list-item-active' : ''">
+        <div class="pxb-drawer-nested-nav-item">
             <div *ngIf="showNestedNavItems" [@showNestedItemsAnimation]>
-                <ng-content select="pxb-drawer-nav-item"></ng-content>
+                <ng-content
+                    select="pxb-drawer-nav-item"
+                    [ngClass]="selected ? 'pxb-info-list-item-active' : ''"
+                ></ng-content>
             </div>
         </div>
     `,
@@ -78,11 +127,16 @@ export class DrawerNavItemComponent {
     @Input() showNestedNavItems = false;
     @Input() hasChildren = false;
     @Input() ripple = true;
+    @Input() expandIcon: string;
+    @Input() collapseIcon: string;
+    @Input() useCustomIconAnimation = true;
+    toggled = false;
 
     toggleNestedNavItems(e: any): void {
         if (e) {
             e.stopPropagation();
         }
         this.showNestedNavItems = !this.showNestedNavItems;
+        if (!this.toggled) this.toggled = !this.toggled;
     }
 }
