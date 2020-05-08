@@ -46,6 +46,7 @@ jobs:
       - image: circleci/node:12.9.1-browsers
     environment:
       - MASTER_BRANCH: master
+      - DEV_BRANCH: dev
     steps:
       - checkout
       - restore_cache:
@@ -72,6 +73,14 @@ jobs:
             # If we are building the master branch, use the published component library.
             if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
               yarn add @pxblue/angular-components
+            fi
+
+            # master and dev branches should configure Google Analytics IDs before the build.
+            if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
+              STORYBOOK_GA_ID=$MASTER_GA
+            fi
+            if [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
+              STORYBOOK_GA_ID=$DEV_GA
             fi
 
             yarn build-storybook

@@ -16,6 +16,7 @@ module.exports = {
         '@storybook/addon-viewport',
         '@storybook/addon-storysource',
         'storybook-dark-mode/register',
+        '@storybook/addon-google-analytics/register',
         // @accessibility remove the following line and all other lines following @accessibility in the app to hide the a11y addon
         '@storybook/addon-a11y/register'
     ],
