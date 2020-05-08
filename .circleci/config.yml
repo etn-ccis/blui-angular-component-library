@@ -46,6 +46,7 @@ jobs:
       - image: circleci/node:12.9.1-browsers
     environment:
       - MASTER_BRANCH: master
+      - DEV_BRANCH: dev
     steps:
       - checkout
       - restore_cache:
