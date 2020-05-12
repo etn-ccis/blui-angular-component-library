@@ -27,8 +27,6 @@ type VariantType = 'permanent' | 'persistent' | 'temporary';
                     : 'pxb-drawer-temporary',
                 drawerOpen ? 'pxb-drawer-open' : 'pxb-drawer-closed'
             ]"
-            (mouseenter)="persistentOpenDrawer()"
-            (mouseleave)="persistentCloseDrawer()"
         >
             <div
                 *ngIf="variant === 'temporary' && drawerOpen"
@@ -37,9 +35,11 @@ type VariantType = 'permanent' | 'persistent' | 'temporary';
             ></div>
             <!-- Drawer is responsible for managing the styles between the 4 subsections -->
             <ng-content select="pxb-drawer-header"></ng-content>
-            <ng-content select="pxb-drawer-subheader"></ng-content>
-            <ng-content select="pxb-drawer-body"></ng-content>
-            <ng-content select="pxb-drawer-footer"></ng-content>
+            <div (mouseenter)="persistentOpenDrawer()"(mouseleave)="persistentCloseDrawer()">
+                <ng-content select="pxb-drawer-subheader"></ng-content>
+                <ng-content select="pxb-drawer-body"></ng-content>
+                <ng-content select="pxb-drawer-footer"></ng-content>
+            </div>
         </div>
     `,
     styleUrls: ['./drawer.component.scss'],
