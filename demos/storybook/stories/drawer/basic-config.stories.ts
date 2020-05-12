@@ -1,6 +1,23 @@
 import * as Colors from '@pxblue/colors';
 import { boolean, text } from '@storybook/addon-knobs';
 
+let active: string;
+
+const navItems = [
+  { title: 'Identity Management', icon: 'perm_identity', itemID: '1', onClick: () => testClick('Identity Management') },
+  { title: 'Calender', icon:'today', itemID: '2', onClick: () => testClick('Calendar') },
+  { title: 'Accessibility', icon: 'accessibility', itemID: '3', onClick: () => testClick('Accessibility') },
+  { title: 'Notifications', icon: 'notifications_active', itemID: '4', onClick: () => testClick('Notifications') }
+];
+
+const testClick = (str: string): void => {
+  console.log(str, 'clicked...');
+};
+
+const setActive = (id: string): void => {
+  active = id;
+}
+
 export const withBasicConfig = (): any => ({
 
   // @TODO: why aren't .pxb-drawer styles working!
@@ -42,21 +59,6 @@ export const withBasicConfig = (): any => ({
   },
 });
 
-let active: string;
 
-const navItems = [
-  { title: 'Identity Management', icon: 'perm_identity', itemID: '1', onClick: () => testClick('Identity Management') },
-  { title: 'Calender', icon:'today', itemID: '2', onClick: () => testClick('Calendar') },
-  { title: 'Accessibility', icon: 'accessibility', itemID: '3', onClick: () => testClick('Accessibility') },
-  { title: 'Notifications', icon: 'notifications_active', itemID: '4', onClick: () => testClick('Notifications') }
-];
-
-const testClick = (str: string): void => {
-  console.log(str, 'clicked...');
-};
-
-const setActive = (id: string) => {
-  active = id;
-}
 
 

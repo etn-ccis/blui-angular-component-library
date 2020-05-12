@@ -136,11 +136,11 @@ export class DrawerComponent {
         this.variant = str;
     }
 
-    onDrawerOpenChange(bool:boolean): void {
+    onDrawerOpenChange(bool: boolean): void {
         this.drawerOpen = bool;
     }
 
-    updateChildDrawer() {
+    updateChildDrawer(): void {
         this.variantDrawerHandler = this.drawerOpen;
     }
 }
