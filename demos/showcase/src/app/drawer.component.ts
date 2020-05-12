@@ -124,7 +124,7 @@ export class DrawerComponent {
         this.selectedItemId = id;
     }
 
-    toggleDrawer() {
+    toggleDrawer(): void {
         if (this.variant !== 'permanent') {
             this.drawerOpen = !this.drawerOpen;
             this.updateChildDrawer();

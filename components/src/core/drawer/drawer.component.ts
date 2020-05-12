@@ -1,4 +1,14 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input, OnChanges, SimpleChanges, Output, EventEmitter, OnInit } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    ViewEncapsulation,
+    Input,
+    OnChanges,
+    SimpleChanges,
+    Output,
+    EventEmitter,
+    OnInit,
+} from '@angular/core';
 
 type VariantType = 'permanent' | 'persistent' | 'temporary';
 
@@ -7,11 +17,24 @@ type VariantType = 'permanent' | 'persistent' | 'temporary';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="pxb-drawer" [ngClass]="[
-            variant === 'permanent' ? 'pxb-drawer-permanent' : variant === 'persistent' ? 'pxb-drawer-persistent' : 'pxb-drawer-temporary',
-            drawerOpen ? 'pxb-drawer-open' : 'pxb-drawer-closed'
-            ]" (mouseenter)="persistentOpenDrawer()" (mouseleave)="persistentCloseDrawer()">
-            <div *ngIf="variant === 'temporary' && drawerOpen" class="pxb-drawer-temporary-overlay" (click)="drawerOpen = false;"></div>
+        <div
+            class="pxb-drawer"
+            [ngClass]="[
+                variant === 'permanent'
+                    ? 'pxb-drawer-permanent'
+                    : variant === 'persistent'
+                    ? 'pxb-drawer-persistent'
+                    : 'pxb-drawer-temporary',
+                drawerOpen ? 'pxb-drawer-open' : 'pxb-drawer-closed'
+            ]"
+            (mouseenter)="persistentOpenDrawer()"
+            (mouseleave)="persistentCloseDrawer()"
+        >
+            <div
+                *ngIf="variant === 'temporary' && drawerOpen"
+                class="pxb-drawer-temporary-overlay"
+                (click)="drawerOpen = false"
+            ></div>
             <!-- Drawer is responsible for managing the styles between the 4 subsections -->
             <ng-content select="pxb-drawer-header"></ng-content>
             <ng-content select="pxb-drawer-subheader"></ng-content>
@@ -27,38 +50,41 @@ export class DrawerComponent implements OnChanges, OnInit {
     @Input() variantDrawerHandler: boolean;
     @Output() drawerOpenChange: EventEmitter<boolean> = new EventEmitter();
 
-    ngOnInit() {
+    ngOnInit(): void {
         this.variantDrawerHandler = this.drawerOpen;
     }
 
-    ngOnChanges(changes: SimpleChanges) {
-        for (let propName in changes) {
+    ngOnChanges(changes: SimpleChanges): void {
+        for (const propName in changes) {
             if (propName === 'drawerOpen') {
                 this.onDrawerOpenChange();
             }
         }
     }
 
-    persistentOpenDrawer() {
+    persistentOpenDrawer(): void {
         if (this.variant === 'persistent') {
-            if (this.drawerOpen) { return };
+            if (this.drawerOpen) {
+                return;
+            }
             this.drawerOpen = true;
             this.onDrawerOpenChange();
         }
     }
 
-    persistentCloseDrawer() {
+    persistentCloseDrawer(): void {
         if (this.variant === 'persistent') {
-            if (this.variantDrawerHandler) { return }
+            if (this.variantDrawerHandler) {
+                return;
+            }
             this.drawerOpen = false;
             this.onDrawerOpenChange();
         }
     }
 
-    onDrawerOpenChange() {
+    onDrawerOpenChange(): void {
         if (this.variant === 'persistent') {
             this.drawerOpenChange.emit(this.drawerOpen);
         }
     }
 }
-
