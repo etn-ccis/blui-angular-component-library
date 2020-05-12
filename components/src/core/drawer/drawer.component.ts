@@ -28,14 +28,9 @@ type VariantType = 'permanent' | 'persistent' | 'temporary';
                 drawerOpen ? 'pxb-drawer-open' : 'pxb-drawer-closed'
             ]"
         >
-            <div
-                *ngIf="variant === 'temporary' && drawerOpen"
-                class="pxb-drawer-temporary-overlay"
-                (click)="drawerOpen = false"
-            ></div>
             <!-- Drawer is responsible for managing the styles between the 4 subsections -->
             <ng-content select="pxb-drawer-header"></ng-content>
-            <div (mouseenter)="persistentOpenDrawer()"(mouseleave)="persistentCloseDrawer()">
+            <div (mouseenter)="persistentOpenDrawer()" (mouseleave)="persistentCloseDrawer()">
                 <ng-content select="pxb-drawer-subheader"></ng-content>
                 <ng-content select="pxb-drawer-body"></ng-content>
                 <ng-content select="pxb-drawer-footer"></ng-content>

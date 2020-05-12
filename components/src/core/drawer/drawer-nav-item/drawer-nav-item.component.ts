@@ -9,7 +9,7 @@ export type DrawerNavItem = {
     dense?: boolean;
     divider?: boolean;
     items?: DrawerNavItem[];
-    onClick?: any; // @TODO: fix type definition
+    onClick?: any;
     icon?: string;
     itemID?: string;
     hasChildren?: boolean;

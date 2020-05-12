@@ -1,18 +1,18 @@
 import * as Colors from '@pxblue/colors';
 import { boolean, text } from '@storybook/addon-knobs';
 
-// @TODO: fix linting errors 
 let active: string;
 
 const testClick = (str: string): void => {
+  // eslint-disable-next-line no-console
   console.log(str, 'clicked...');
 };
 
 const navItems = [
-  { title: 'Identity Management', icon: 'perm_identity', itemID: '1', onClick: () => testClick('Identity Management') },
-  { title: 'Calender', icon:'today', itemID: '2', onClick: () => testClick('Calendar') },
-  { title: 'Accessibility', icon: 'accessibility', itemID: '3', onClick: () => testClick('Accessibility') },
-  { title: 'Notifications', icon: 'notifications_active', itemID: '4', onClick: () => testClick('Notifications') }
+  { title: 'Identity Management', icon: 'perm_identity', itemID: '1', onClick: (): void => testClick('Identity Management') },
+  { title: 'Calender', icon:'today', itemID: '2', onClick: (): void => testClick('Calendar') },
+  { title: 'Accessibility', icon: 'accessibility', itemID: '3', onClick: (): void => testClick('Accessibility') },
+  { title: 'Notifications', icon: 'notifications_active', itemID: '4', onClick: (): void => testClick('Notifications') }
 ];
 
 const setActive = (id: string): void => {
