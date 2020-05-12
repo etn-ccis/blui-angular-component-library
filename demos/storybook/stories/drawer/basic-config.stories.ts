@@ -1,7 +1,12 @@
 import * as Colors from '@pxblue/colors';
 import { boolean, text } from '@storybook/addon-knobs';
 
+// @TODO: fix linting errors 
 let active: string;
+
+const testClick = (str: string): void => {
+  console.log(str, 'clicked...');
+};
 
 const navItems = [
   { title: 'Identity Management', icon: 'perm_identity', itemID: '1', onClick: () => testClick('Identity Management') },
@@ -10,22 +15,16 @@ const navItems = [
   { title: 'Notifications', icon: 'notifications_active', itemID: '4', onClick: () => testClick('Notifications') }
 ];
 
-const testClick = (str: string): void => {
-  console.log(str, 'clicked...');
-};
-
 const setActive = (id: string): void => {
   active = id;
 }
 
 export const withBasicConfig = (): any => ({
-
-  // @TODO: why aren't .pxb-drawer styles working!
   styles: [
     `
-        .pxb-drawer {
-            width: 350px;
-            background-color: #ffffff;
+        ::ng-deep .pxb-drawer {
+            width: 350px !important;
+            background-color: #ffffff !important;
         }
 
         ::ng-deep pxb-drawer-header .pxb-drawer-header {
@@ -43,7 +42,7 @@ export const withBasicConfig = (): any => ({
               <pxb-drawer-nav-item
                 *ngFor="let navItem of navItems;"
                 [title]="navItem.title"
-                [selected]="selectedItemId === navItem.itemID"
+                [selected]="active === navItem.itemID"
                 (click)="navItem.onClick(); setActive(navItem.itemID);"
                 >
                 <mat-icon icon>{{ navItem.icon }}</mat-icon>
@@ -55,7 +54,8 @@ export const withBasicConfig = (): any => ({
     drawerOpen: boolean('open', true),
     drawerTitle: text('title', 'Simple Drawer'),
     navItems: navItems,
-    setActive: setActive
+    setActive: setActive,
+    active: active
   },
 });
 
