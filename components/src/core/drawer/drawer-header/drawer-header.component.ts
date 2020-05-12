@@ -12,11 +12,11 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
             </div>
 
             <div *ngIf="!titleContentWrapper.innerHTML.trim()" class="pxb-drawer-header-title-wrapper">
-                <div *ngIf="title" class="pxb-drawer-header-title">
+                <div *ngIf="title && drawerOpen" class="pxb-drawer-header-title">
                     {{ title }}
                 </div>
 
-                <div *ngIf="subtitle" class="pxb-drawer-header-subtitle mat-subheading-2">
+                <div *ngIf="subtitle && drawerOpen" class="pxb-drawer-header-subtitle mat-subheading-2">
                     {{ subtitle }}
                 </div>
             </div>
@@ -32,4 +32,5 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
 export class DrawerHeaderComponent {
     @Input() subtitle: string;
     @Input() title: string;
+    @Input() drawerOpen = true;
 }

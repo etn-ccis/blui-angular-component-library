@@ -14,6 +14,7 @@ export type DrawerNavItem = {
     itemID?: string;
     hasChildren?: boolean;
     ripple?: boolean;
+    rippleColor?: string;
     expandIcon?: string;
     collapseIcon?: string;
     useCustomIconAnimation?: boolean;
@@ -67,6 +68,7 @@ export type DrawerNavItem = {
                 [ngClass]="[selected ? 'pxb-info-list-item-active' : '', hidePadding ? 'hide-padding' : '']"
                 matRipple
                 [matRippleDisabled]="!ripple"
+                [matRippleColor]="rippleColor"
                 style="display:flex;"
             >
                 <div class="pxb-drawer-nav-item-icon-wrapper" icon>
@@ -132,6 +134,7 @@ export class DrawerNavItemComponent {
     @Input() collapseIcon: string;
     @Input() useCustomIconAnimation = true;
     @Input() hidePadding: boolean;
+    @Input() rippleColor: string;
     toggled = false;
 
     toggleNestedNavItems(e: any): void {

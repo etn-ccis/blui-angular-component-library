@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@angular/core';
 
 @Component({
     selector: 'pxb-drawer-body',
@@ -11,4 +11,6 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
     `,
     styleUrls: ['./drawer-body.component.scss'],
 })
-export class DrawerBodyComponent {}
+export class DrawerBodyComponent {
+    @Input() drawerOpen = true;
+}

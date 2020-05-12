@@ -8,7 +8,7 @@ import { DrawerNavItem } from '../drawer-nav-item/public-api';
     template: `
         <div class="pxb-drawer-nav-group">
             <mat-list>
-                <mat-list-item>{{ title }}</mat-list-item>
+                <mat-list-item *ngIf="drawerOpen">{{ title }}</mat-list-item>
             </mat-list>
             <mat-divider></mat-divider>
             <ng-content select="pxb-drawer-nav-item"></ng-content>
@@ -17,6 +17,7 @@ import { DrawerNavItem } from '../drawer-nav-item/public-api';
 })
 export class DrawerNavGroupComponent {
     @Input() title: string;
+    @Input() drawerOpen = true;
 }
 
 export type DrawerNavGroup = {

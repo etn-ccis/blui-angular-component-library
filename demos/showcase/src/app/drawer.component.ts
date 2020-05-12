@@ -6,16 +6,23 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
     selector: 'showcase-drawer',
     styleUrls: ['./drawer.component.scss'],
     template: `
-        <pxb-drawer>
-            <pxb-drawer-header
+        <button mat-raised-button [color]="variant === 'permanent' ? 'primary' : ''" style="margin-left: 8px; margin-bottom: 12px" (click)="setVariant('permanent')">Permanent</button>
+        <button mat-raised-button [color]="variant === 'persistent' ? 'primary' : ''" style="margin-left: 8px; margin-bottom: 12px" (click)="setVariant('persistent')">Persistent</button>
+        <button mat-raised-button [color]="variant === 'temporary' ? 'primary' : ''" style="margin-left: 8px; margin-bottom: 12px" (click)="setVariant('temporary')">Temporary</button>
+
+        <pxb-drawer [variant]="variant" [drawerOpen]="drawerOpen" (drawerOpenChange)="onDrawerOpenChange($event)" [variantDrawerHandler]="variantDrawerHandler">
+            
+        <pxb-drawer-header
                 title="PX Blue Drawer"
                 subtitle="Organize your menu items here"
                 class="test-background-image"
+                [drawerOpen]="drawerOpen"
             >
                 <button
                     mat-icon-button
                     icon
                     style="margin-right: 24px; margin-left: -8px;"
+                    (click)="toggleDrawer();"
                 >
                     <mat-icon>menu</mat-icon>
                 </button>
@@ -26,9 +33,9 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
             </pxb-drawer-subheader>
 
             <pxb-drawer-body>
-                <pxb-drawer-nav-group *ngFor="let navGroup of navGroups" [title]="navGroup.title">
+                <pxb-drawer-nav-group *ngFor="let navGroup of navGroups" [title]="navGroup.title" [drawerOpen]="drawerOpen">
                     <pxb-drawer-nav-item
-                        *ngFor="let navItem of navGroup.items; let index = index;"
+                        *ngFor="let navItem of navGroup.items;"
                         [title]="navItem.title"
                         [subtitle]="navItem.subtitle"
                         [statusColor]="navItem.statusColor"
@@ -40,6 +47,7 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
                         [collapseIcon]="navItem.collapseIcon"
                         [useCustomIconAnimation]="navItem.useCustomIconAnimation"
                         [divider]="navItem.divider"
+                        [rippleColor]="colors.gray[500]"
                     >
                         <mat-icon icon>{{ navItem.icon }}</mat-icon>
                         <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items" [title]="nestedItem.title" [divider]=false [selected]="selectedItemId === nestedItem.itemID"
@@ -49,6 +57,7 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
                         [expandIcon]="nestedItem.expandIcon"
                         [collapseIcon]="nestedItem.collapseIcon"
                         [hidePadding]="nestedItem.hidePadding"
+                        [rippleColor]="colors.gray[500]"
                         ></pxb-drawer-nav-item>
                     </pxb-drawer-nav-item>
                 </pxb-drawer-nav-group>
@@ -65,6 +74,8 @@ export class DrawerComponent {
     colors = PXBColors;
     drawerOpen = true;
     selectedItemId: string;
+    variant = 'permanent';
+    variantDrawerHandler;
 
     nestedItems1: DrawerNavItem[] = [
         { title: 'Sub 1', itemID: 'sub0' },
@@ -87,9 +98,9 @@ export class DrawerComponent {
     ];
 
     navGroup2: DrawerNavItem[] = [
-        { title: 'DrawerNavItem 3', subtitle: 'Subtitle 3', itemID: '2', divider: true, statusColor: PXBColors.green[500], onClick: (): void => this.testClick('Drawer Nav Item 3'), icon: 'work', items: this.nestedItems3, expandIcon: 'arrow_drop_down', collapseIcon: 'arrow_drop_up', useCustomIconAnimation: true },
+        { title: 'DrawerNavItem 3', subtitle: 'Subtitle 3', itemID: '2', divider: true, statusColor: PXBColors.green[500], onClick: (): void => this.testClick('Drawer Nav Item 3'), items: this.nestedItems3, expandIcon: 'arrow_drop_down', collapseIcon: 'arrow_drop_up', useCustomIconAnimation: true },
         { title: 'DrawerNavItem 4', subtitle: 'Subtitle 4', itemID: '3', divider: true,onClick: (): void => this.testClick('Drawer Nav Item 4'), icon: 'work' },
-        { title: 'DrawerNavItem 5', itemID: '4', divider: true, onClick: (): void => this.testClick('Drawer Nav Item 5'), icon: 'work' },
+        { title: 'DrawerNavItem 5', itemID: '4', divider: true, onClick: (): void => this.testClick('Drawer Nav Item 5') },
         { title: 'DrawerNavItem 6', itemID: '5', divider: true, statusColor: PXBColors.orange[500], onClick: (): void => this.testClick('Drawer Nav Item 6'), icon: 'work' },
     ];
 
@@ -111,5 +122,25 @@ export class DrawerComponent {
 
     setActive(id: string): void {
         this.selectedItemId = id;
+    }
+
+    toggleDrawer() {
+        if (this.variant !== 'permanent') {
+            this.drawerOpen = !this.drawerOpen;
+            this.updateChildDrawer();
+        }
+    }
+
+    setVariant(str: string): void {
+        this.drawerOpen = true;
+        this.variant = str;
+    }
+
+    onDrawerOpenChange(bool:boolean): void {
+        this.drawerOpen = bool;
+    }
+
+    updateChildDrawer() {
+        this.variantDrawerHandler = this.drawerOpen;
     }
 }
