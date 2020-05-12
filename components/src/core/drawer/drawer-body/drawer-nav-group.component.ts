@@ -5,6 +5,14 @@ import { DrawerNavItem } from '../drawer-nav-item/public-api';
     selector: 'pxb-drawer-nav-group',
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
+    styles: [`
+        .pxb-drawer-nav-group .mat-list-base {
+        height: 48px;
+        line-height: 3rem;
+        font-weight: 600;
+        padding-top: 0;
+    }
+  `],
     template: `
         <div class="pxb-drawer-nav-group">
             <mat-list>

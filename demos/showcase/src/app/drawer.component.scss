@@ -1,52 +1,26 @@
 @import '~@pxblue/colors/palette.scss';
 
 .pxb-drawer {
-  width: 350px;
   background-color: #ffffff;
   border-right: 1px solid map-get($pxb-black, 50);
 
   .pxb-drawer-subheader {
-    height: 48px;
-    line-height: 3rem;
-    font-weight: 600;
-    padding-right: 16px;
-    padding-left: 16px;
     color: map-get($pxb-black, 500);
   }
 
   .pxb-drawer-nav-group .mat-list-base {
-    height: 48px;
-    line-height: 3rem;
-    font-weight: 600;
-    padding-top: 0;
     color: map-get($pxb-black, 500);
-  }
-
-  .pxb-drawer-nav-item {
-    position: relative;
-    user-select: none;
-
-    * {
-      z-index: 1;
-    }
   }
 
   .pxb-drawer-nested-nav-item {
     background-color: map-get($pxb-gray, 50);
-    user-select: none;
-  }
-
-  .pxb-info-list-item * {
-    z-index: 1;
   }
 
   .pxb-info-list-item .mat-list-item-content {
-    height: 52px;
     color: map-get($pxb-black, 500);
   }
 
   .pxb-info-list-item .mat-list-item-content:hover {
-    cursor: pointer;
     background-color: map-get($pxb-gray, 100);
   }
 
@@ -55,15 +29,6 @@
   }
 
   .pxb-info-list-item-active:after {
-    content: '';
-    z-index: 0;
-    position: absolute;
-    height: 100%;
-    width: calc(100% - 8px);
-    left: 0;
-    top: 0;
-    border-radius: 0px 24px 24px 0px;
-    opacity: 0.9;
     background-color: map-get($pxb-blue, 50);
   }
 
