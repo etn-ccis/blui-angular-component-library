@@ -133,6 +133,7 @@ export class DrawerComponent {
 
     setVariant(str: string): void {
         this.drawerOpen = true;
+        this.updateChildDrawer();
         this.variant = str;
     }
 

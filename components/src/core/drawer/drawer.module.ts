@@ -17,7 +17,7 @@ import { DrawerLayoutModule } from './drawer-layout/drawer-layout.module';
         DrawerBodyModule,
         DrawerFooterModule,
         DrawerNavItemModule,
-        DrawerLayoutModule
+        DrawerLayoutModule,
     ],
     exports: [
         DrawerComponent,
@@ -26,7 +26,7 @@ import { DrawerLayoutModule } from './drawer-layout/drawer-layout.module';
         DrawerBodyModule,
         DrawerFooterModule,
         DrawerNavItemModule,
-        DrawerLayoutModule
+        DrawerLayoutModule,
     ],
 })
 export class DrawerModule {}

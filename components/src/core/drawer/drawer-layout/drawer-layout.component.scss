@@ -12,9 +12,20 @@
 
     .pxb-drawer-layout-content-wrapper {
         width: 100%;
-        transition: padding 175ms cubic-bezier(.4, 0, .2, 1);
-        // padding-left: 375px;
+        transition: padding 175ms cubic-bezier(0.4, 0, 0.2, 1);
     }
+}
+
+.pxb-drawer-layout-content-overlay::after {
+    display: flex;
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
 }
 
 @media screen and (max-width: 600px) {

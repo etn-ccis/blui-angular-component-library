@@ -9,7 +9,7 @@ import {
     EventEmitter,
     OnInit,
     HostListener,
-    } from '@angular/core';
+} from '@angular/core';
 
 type VariantType = 'permanent' | 'persistent' | 'temporary';
 
@@ -31,7 +31,7 @@ type VariantType = 'permanent' | 'persistent' | 'temporary';
         >
             <!-- Drawer is responsible for managing the styles between the 4 subsections -->
             <ng-content select="pxb-drawer-header"></ng-content>
-            <div (mouseenter)="persistentOpenDrawer()" (mouseleave)="persistentCloseDrawer()">
+            <div (mouseenter)="openDrawer()" (mouseleave)="closeDrawer()">
                 <ng-content select="pxb-drawer-subheader"></ng-content>
                 <ng-content select="pxb-drawer-body"></ng-content>
                 <ng-content select="pxb-drawer-footer"></ng-content>
@@ -44,18 +44,28 @@ export class DrawerComponent implements OnChanges, OnInit {
     @Input() variant: VariantType;
     @Input() drawerOpen: boolean;
     @Input() variantDrawerHandler: boolean;
+    @Input() drawerSize = 350;
+    @Input() navRailSize = 56;
     @Output() drawerOpenChange: EventEmitter<boolean> = new EventEmitter();
     pxbDrawer = document.getElementsByClassName('pxb-drawer');
     pxbDrawerLayoutContent = document.getElementById('pxb-drawer-layout-content-wrapper');
 
     @HostListener('window:resize', ['$event'])
-    
-    onResize(event){
-         let windowWidth = event.target.innerWidth;
+    onResize(event): void {
+        const windowWidth = event.target.innerWidth;
 
-         if(windowWidth <= 600) { 
+        if (windowWidth <= 600) {
             this.adjustContentPadding();
-         }
+        }
+    }
+
+    @HostListener('document:mousedown', ['$event'])
+    onGlobalClick(event): void {
+        if (event.target.className === 'pxb-drawer-layout' && this.drawerOpen) {
+            this.hideOverlay();
+            this.drawerOpen = false;
+            this.onDrawerOpenChange();
+        }
     }
 
     ngOnInit(): void {
@@ -67,18 +77,17 @@ export class DrawerComponent implements OnChanges, OnInit {
         for (const propName in changes) {
             if (propName === 'drawerOpen') {
                 this.onDrawerOpenChange();
-                if(this.variant === 'persistent') {
-                    if (this.drawerOpen) {
-                        this.adjustContentPadding();
-                    } else {
-                        this.adjustContentPadding();
-                    }
+                if (this.variant === 'persistent' || this.variant === 'temporary') {
+                    this.adjustContentPadding();
                 }
+            }
+            if (propName === 'variant') {
+                this.adjustContentPadding();
             }
         }
     }
 
-    persistentOpenDrawer(): void {
+    openDrawer(): void {
         if (this.variant === 'persistent') {
             if (this.drawerOpen) {
                 return;
@@ -89,7 +98,7 @@ export class DrawerComponent implements OnChanges, OnInit {
         }
     }
 
-    persistentCloseDrawer(): void {
+    closeDrawer(): void {
         if (this.variant === 'persistent') {
             if (this.variantDrawerHandler) {
                 return;
@@ -107,17 +116,25 @@ export class DrawerComponent implements OnChanges, OnInit {
     }
 
     adjustContentPadding(): void {
+        const drawer = this.pxbDrawer[0] as HTMLElement;
+        drawer.style.width = this.drawerOpen ? `${this.drawerSize}px` : `${this.navRailSize}px`;
+        let px = 0;
+        if (this.variant !== 'temporary') {
+            px = this.drawerOpen ? this.drawerSize + 8 : this.navRailSize + 8;
+        }
+        this.pxbDrawerLayoutContent.style.paddingLeft = `${px}px`;
 
-        // const adjustPadding = () => {
-        //     let px = this.getDrawerWidth() + 25;
-            let px = this.drawerOpen ? 375 : 81;
-            this.pxbDrawerLayoutContent.style.paddingLeft = `${px}px`;
-        // }
+        if (this.variant === 'temporary' && this.drawerOpen) {
+            this.pxbDrawerLayoutContent.style.zIndex = '-1';
+            this.pxbDrawerLayoutContent.classList.add('pxb-drawer-layout-content-overlay');
+        }
 
-        // setTimeout(adjustPadding, 175);
+        if (this.variant === 'temporary' && !this.drawerOpen) {
+            this.hideOverlay();
+        }
     }
 
-    getDrawerWidth(): number {
-        return this.pxbDrawer[0].clientWidth;
+    hideOverlay(): void {
+        this.pxbDrawerLayoutContent.classList.remove('pxb-drawer-layout-content-overlay');
     }
 }
