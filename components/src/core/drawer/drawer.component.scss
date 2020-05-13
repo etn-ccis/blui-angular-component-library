@@ -1,18 +1,23 @@
 .pxb-drawer {
     width: 350px;
 
+    &.pxb-drawer-persistent.pxb-drawer-open {
+        //  @TODO: fix transition - using this transition causes drawer and content to resize at the same time but makes drawer text appear too early which looks weird
+        // transition: width 175ms cubic-bezier(.4, 0, .2, 1);
+    }
+
     &.pxb-drawer-persistent.pxb-drawer-closed {
         width: 56px;
-        transition: width 200ms cubic-bezier(.4, 0, .2, 1);
+        transition: width 175ms cubic-bezier(.4, 0, .2, 1);
     }
 
     &.pxb-drawer-temporary.pxb-drawer-open {
-        transition: transform 300ms cubic-bezier(.4, 0, .2, 1);
+        transition: transform 175ms cubic-bezier(.4, 0, .2, 1);
         transform: translateX(0);
     }
 
     &.pxb-drawer-temporary.pxb-drawer-closed {
-        transition: transform 300ms cubic-bezier(.4, 0, .2, 1);
+        transition: transform 175ms cubic-bezier(.4, 0, .2, 1);
         transform: translateX(-100%);
     }
 }

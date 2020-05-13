@@ -3,6 +3,7 @@
 .pxb-drawer {
   background-color: #ffffff;
   border-right: 1px solid map-get($pxb-black, 50);
+  height: 100%;
 
   .pxb-drawer-subheader {
     color: map-get($pxb-black, 500);

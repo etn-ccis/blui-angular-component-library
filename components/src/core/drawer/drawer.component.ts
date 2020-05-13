@@ -8,7 +8,8 @@ import {
     Output,
     EventEmitter,
     OnInit,
-} from '@angular/core';
+    HostListener,
+    } from '@angular/core';
 
 type VariantType = 'permanent' | 'persistent' | 'temporary';
 
@@ -44,15 +45,35 @@ export class DrawerComponent implements OnChanges, OnInit {
     @Input() drawerOpen: boolean;
     @Input() variantDrawerHandler: boolean;
     @Output() drawerOpenChange: EventEmitter<boolean> = new EventEmitter();
+    pxbDrawer = document.getElementsByClassName('pxb-drawer');
+    pxbDrawerLayoutContent = document.getElementById('pxb-drawer-layout-content-wrapper');
+
+    @HostListener('window:resize', ['$event'])
+    
+    onResize(event){
+         let windowWidth = event.target.innerWidth;
+
+         if(windowWidth <= 600) { 
+            this.adjustContentPadding();
+         }
+    }
 
     ngOnInit(): void {
         this.variantDrawerHandler = this.drawerOpen;
+        this.adjustContentPadding();
     }
 
     ngOnChanges(changes: SimpleChanges): void {
         for (const propName in changes) {
             if (propName === 'drawerOpen') {
                 this.onDrawerOpenChange();
+                if(this.variant === 'persistent') {
+                    if (this.drawerOpen) {
+                        this.adjustContentPadding();
+                    } else {
+                        this.adjustContentPadding();
+                    }
+                }
             }
         }
     }
@@ -64,6 +85,7 @@ export class DrawerComponent implements OnChanges, OnInit {
             }
             this.drawerOpen = true;
             this.onDrawerOpenChange();
+            this.adjustContentPadding();
         }
     }
 
@@ -74,6 +96,7 @@ export class DrawerComponent implements OnChanges, OnInit {
             }
             this.drawerOpen = false;
             this.onDrawerOpenChange();
+            this.adjustContentPadding();
         }
     }
 
@@ -81,5 +104,20 @@ export class DrawerComponent implements OnChanges, OnInit {
         if (this.variant === 'persistent') {
             this.drawerOpenChange.emit(this.drawerOpen);
         }
+    }
+
+    adjustContentPadding(): void {
+
+        // const adjustPadding = () => {
+        //     let px = this.getDrawerWidth() + 25;
+            let px = this.drawerOpen ? 375 : 81;
+            this.pxbDrawerLayoutContent.style.paddingLeft = `${px}px`;
+        // }
+
+        // setTimeout(adjustPadding, 175);
+    }
+
+    getDrawerWidth(): number {
+        return this.pxbDrawer[0].clientWidth;
     }
 }

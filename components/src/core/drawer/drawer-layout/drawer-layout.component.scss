@@ -1,0 +1,24 @@
+.pxb-drawer-layout {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+
+    .pxb-drawer-layout-drawer-wrapper {
+        display: flex;
+        position: fixed;
+        height: 100%;
+        align-items: stretch;
+    }
+
+    .pxb-drawer-layout-content-wrapper {
+        width: 100%;
+        transition: padding 175ms cubic-bezier(.4, 0, .2, 1);
+        // padding-left: 375px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .pxb-drawer-layout-content-wrapper {
+        padding-left: 0px !important;
+    }
+}
