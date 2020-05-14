@@ -34,6 +34,23 @@ The following child elements are projected into `<pxb-drawer-header>`:
 
 </div>
 
+### Classes
+Each PX Blue component has classes which can be used to override component styles: 
+
+<div style="overflow: auto;">
+
+| Name                                        | Description                                   |
+|---------------------------------------------|-----------------------------------------------|
+| pxb-drawer-header                           | Styles applied to the root element            |
+| pxb-drawer-header-background                | Styles applied to the header background       |
+| pxb-drawer-header-icon-wrapper              | Styles applied to the header icon             |
+| pxb-drawer-header-title-wrapper             | Styles applied to title/subtitle wrapper      |
+| pxb-drawer-header-title                     | Styles applied to the title                   |
+| pxb-drawer-header-subtitle                  | Styles applied to the subtitle                |
+| pxb-drawer-header-title-content-wrapper     | Styles applied to custom titleContent         |
+
+</div>
+
 ## Drawer Subheader
 
 The `<pxb-drawer-subheader>` is an optional section that renders below the header and above the body of the `<pxb-drawer>`. It can be used to support custom content (passed as children), such as filtering options or to display additional information.
@@ -63,6 +80,18 @@ The following child element is projected into `<pxb-drawer-subheader>`:
 | Selector           | Description                  | Required | Default |
 | ------------------ | ---------------------------- | -------- | ------- |
 | [subheaderContent] | Custom content for subheader | no       |         |
+
+</div>
+
+### Classes
+Each PX Blue component has classes which can be used to override component styles: 
+
+<div style="overflow: auto;">
+
+| Name                                        | Description                                   |
+|---------------------------------------------|-----------------------------------------------|
+| pxb-drawer-subheader                        | Styles applied to the root element            |
+| pxb-drawer-subheader-content-wrapper        | Styles applied to custom subheaderContent     |
 
 </div>
 
