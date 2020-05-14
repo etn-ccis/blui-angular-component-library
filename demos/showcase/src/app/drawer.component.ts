@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, Input } from '@angular/core';
+import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 import * as PXBColors from '@pxblue/colors';
 import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
 
@@ -17,6 +17,7 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
                     mat-icon-button
                     icon
                     style="margin-right: 24px; margin-left: -8px;"
+                    (click)="clickMenuButton()"
                 >
                     <mat-icon>menu</mat-icon>
                 </button>
@@ -69,6 +70,7 @@ export class DrawerComponent {
     drawerOpen = true;
     selectedItemId: string;
     @Input() variant = 'permanent';
+    @Output() onClickMenuButton: EventEmitter<any> = new EventEmitter();
 
     nestedItems1: DrawerNavItem[] = [
         { title: 'Sub 1', itemID: 'sub0' },
@@ -117,22 +119,7 @@ export class DrawerComponent {
         this.selectedItemId = id;
     }
 
-    // toggleDrawer(): void {
-    //     if (this.variant !== 'permanent') {
-    //         this.drawerOpen = !this.drawerOpen;
-    //     }
-    // }
-
-    // setVariant(str: string): void {
-    //     this.drawerOpen = true;
-    //     this.variant = str;
-    // }
-
-    // onDrawerOpenChange(bool: boolean): void {
-    //     this.drawerOpen = bool;
-    // }
-
-    // updateChildDrawer(): void {
-    //     this.variantDrawerHandler = this.drawerOpen;
-    // }
+    clickMenuButton(): void {
+        this.onClickMenuButton.emit();
+    }
 }

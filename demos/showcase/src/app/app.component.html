@@ -3,7 +3,7 @@
         <button mat-raised-button [color]="variant === 'permanent' ? 'primary' : ''" style="margin-left: 8px; margin-bottom: 12px" (click)="setVariant('permanent')">Permanent</button>
         <button mat-raised-button [color]="variant === 'persistent' ? 'primary' : ''" style="margin-left: 8px; margin-bottom: 12px" (click)="setVariant('persistent')">Persistent</button>
         <button mat-raised-button [color]="variant === 'temporary' ? 'primary' : ''" style="margin-left: 8px; margin-bottom: 12px" (click)="setVariant('temporary')">Temporary</button>
-        <showcase-drawer></showcase-drawer>
+        <showcase-drawer (onClickMenuButton)="toggleDrawer()"></showcase-drawer>
     </div>
     <div content>
         <button *ngIf="variant==='temporary'" mat-icon-button color='accent' style="margin-left: 8px; margin-bottom: 12px" (click)="toggleDrawer()">
