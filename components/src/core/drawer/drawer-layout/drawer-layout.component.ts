@@ -8,7 +8,7 @@ type VariantType = 'permanent' | 'persistent' | 'temporary';
     encapsulation: ViewEncapsulation.None,
     template: `
         <div class="pxb-drawer-layout">
-            <mat-sidenav-container class="pxb-side-nav-container" (backdropClick)="closeDrawer()">
+            <mat-sidenav-container class="pxb-side-nav-container" (backdropClick)="closeDrawer()" autosize>
                 <mat-sidenav
                     [mode]="variant === 'temporary' ? 'over' : 'side'"
                     class="px-blue-side-nav"
