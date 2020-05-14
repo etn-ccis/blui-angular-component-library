@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation } from '@angular/core';
+import { Component, ViewEncapsulation, Input } from '@angular/core';
 import * as PXBColors from '@pxblue/colors';
 import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
 
@@ -6,13 +6,8 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
     selector: 'showcase-drawer',
     styleUrls: ['./drawer.component.scss'],
     template: `
-        <button mat-raised-button [color]="variant === 'permanent' ? 'primary' : ''" style="margin-left: 8px; margin-bottom: 12px" (click)="setVariant('permanent')">Permanent</button>
-        <button mat-raised-button [color]="variant === 'persistent' ? 'primary' : ''" style="margin-left: 8px; margin-bottom: 12px" (click)="setVariant('persistent')">Persistent</button>
-        <button mat-raised-button [color]="variant === 'temporary' ? 'primary' : ''" style="margin-left: 8px; margin-bottom: 12px" (click)="setVariant('temporary')">Temporary</button>
-
-        <pxb-drawer [variant]="variant" [drawerOpen]="drawerOpen" (drawerOpenChange)="onDrawerOpenChange($event)" [variantDrawerHandler]="variantDrawerHandler">
-            
-        <pxb-drawer-header
+       <pxb-drawer [variant]="variant" [drawerOpen]="drawerOpen">
+            <pxb-drawer-header
                 title="PX Blue Drawer"
                 subtitle="Organize your menu items here"
                 class="test-background-image"
@@ -22,7 +17,6 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
                     mat-icon-button
                     icon
                     style="margin-right: 24px; margin-left: -8px;"
-                    (click)="toggleDrawer();"
                 >
                     <mat-icon>menu</mat-icon>
                 </button>
@@ -74,8 +68,7 @@ export class DrawerComponent {
     colors = PXBColors;
     drawerOpen = true;
     selectedItemId: string;
-    variant = 'permanent';
-    variantDrawerHandler;
+    @Input() variant = 'permanent';
 
     nestedItems1: DrawerNavItem[] = [
         { title: 'Sub 1', itemID: 'sub0' },
@@ -124,24 +117,22 @@ export class DrawerComponent {
         this.selectedItemId = id;
     }
 
-    toggleDrawer(): void {
-        if (this.variant !== 'permanent') {
-            this.drawerOpen = !this.drawerOpen;
-            this.updateChildDrawer();
-        }
-    }
+    // toggleDrawer(): void {
+    //     if (this.variant !== 'permanent') {
+    //         this.drawerOpen = !this.drawerOpen;
+    //     }
+    // }
 
-    setVariant(str: string): void {
-        this.drawerOpen = true;
-        this.updateChildDrawer();
-        this.variant = str;
-    }
+    // setVariant(str: string): void {
+    //     this.drawerOpen = true;
+    //     this.variant = str;
+    // }
 
-    onDrawerOpenChange(bool: boolean): void {
-        this.drawerOpen = bool;
-    }
+    // onDrawerOpenChange(bool: boolean): void {
+    //     this.drawerOpen = bool;
+    // }
 
-    updateChildDrawer(): void {
-        this.variantDrawerHandler = this.drawerOpen;
-    }
+    // updateChildDrawer(): void {
+    //     this.variantDrawerHandler = this.drawerOpen;
+    // }
 }

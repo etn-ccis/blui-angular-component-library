@@ -1,8 +1,14 @@
-<pxb-drawer-layout>
+<pxb-drawer-layout [drawerOpen]="drawerOpen" [variant]="variant" (onDrawerClose)="toggleDrawer()">
     <div drawer>
+        <button mat-raised-button [color]="variant === 'permanent' ? 'primary' : ''" style="margin-left: 8px; margin-bottom: 12px" (click)="setVariant('permanent')">Permanent</button>
+        <button mat-raised-button [color]="variant === 'persistent' ? 'primary' : ''" style="margin-left: 8px; margin-bottom: 12px" (click)="setVariant('persistent')">Persistent</button>
+        <button mat-raised-button [color]="variant === 'temporary' ? 'primary' : ''" style="margin-left: 8px; margin-bottom: 12px" (click)="setVariant('temporary')">Temporary</button>
         <showcase-drawer></showcase-drawer>
     </div>
     <div content>
+        <button *ngIf="variant==='temporary'" mat-icon-button color='accent' style="margin-left: 8px; margin-bottom: 12px" (click)="toggleDrawer()">
+            <mat-icon>menu</mat-icon>
+        </button>
         <div style="display: flex; padding: 8px; justify-content: flex-start">
             <pxb-score-card class="red-score-card" [headerTitle]="'Substation 3'"
                 [headerSubtitle]="'High Humidity Alarm'" [headerInfo]="'4 Devices'">

@@ -10,7 +10,7 @@ const testClick = (str: string): void => {
 
 const navItems = [
   { title: 'Identity Management', icon: 'perm_identity', itemID: '1', onClick: (): void => testClick('Identity Management') },
-  { title: 'Calender', icon:'today', itemID: '2', onClick: (): void => testClick('Calendar') },
+  { title: 'Calender', icon: 'today', itemID: '2', onClick: (): void => testClick('Calendar') },
   { title: 'Accessibility', icon: 'accessibility', itemID: '3', onClick: (): void => testClick('Accessibility') },
   { title: 'Notifications', icon: 'notifications_active', itemID: '4', onClick: (): void => testClick('Notifications') }
 ];
