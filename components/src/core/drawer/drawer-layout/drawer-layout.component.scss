@@ -2,6 +2,10 @@
     .mat-drawer-side {
         border-right: none;
     }
+
+    .pxb-nav-content {
+        height: 100vh;
+    }
 }
 
 mat-sidenav.pxb-drawer-closed.pxb-drawer-persistent {

@@ -24,7 +24,7 @@ type VariantType = 'permanent' | 'persistent' | 'temporary';
                 >
                     <ng-content select="[drawer]"></ng-content>
                 </mat-sidenav>
-                <mat-sidenav-content class="nav-content">
+                <mat-sidenav-content class="pxb-nav-content">
                     <ng-content select="[content]"></ng-content>
                 </mat-sidenav-content>
             </mat-sidenav-container>
