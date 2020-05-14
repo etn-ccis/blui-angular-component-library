@@ -8,10 +8,10 @@
         position: fixed;
         height: 100%;
         align-items: stretch;
+        overflow-y: scroll;
     }
 
     .pxb-drawer-layout-content-wrapper {
-        width: 100%;
         transition: padding 175ms cubic-bezier(0.4, 0, 0.2, 1);
     }
 }
