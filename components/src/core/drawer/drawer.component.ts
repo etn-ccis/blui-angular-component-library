@@ -49,12 +49,18 @@ export class DrawerComponent implements OnChanges, OnInit {
     @Output() drawerOpenChange: EventEmitter<boolean> = new EventEmitter();
     pxbDrawer = document.getElementsByClassName('pxb-drawer');
     pxbDrawerLayoutContent = document.getElementById('pxb-drawer-layout-content-wrapper');
+    originalVariant: VariantType;
 
     @HostListener('window:resize', ['$event'])
     onResize(event): void {
         const windowWidth = event.target.innerWidth;
 
         if (windowWidth <= 600) {
+            this.variant = 'temporary';
+            this.adjustContentPadding();
+        } else {
+            this.variant = this.originalVariant;
+            if (this.variant !== 'temporary') {this.hideOverlay();}
             this.adjustContentPadding();
         }
     }
@@ -70,6 +76,7 @@ export class DrawerComponent implements OnChanges, OnInit {
 
     ngOnInit(): void {
         this.variantDrawerHandler = this.drawerOpen;
+        this.originalVariant = this.variant;
         this.adjustContentPadding();
     }
 
