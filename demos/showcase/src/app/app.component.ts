@@ -16,6 +16,7 @@ export class AppComponent {
     colors: Record<string, any>;
     drawerOpen = true;
     variant = 'persistent';
+    variantDrawerHandler: boolean;
     constructor(private readonly matIconRegistry: MatIconRegistry, private readonly domSanitizer: DomSanitizer) {
         this.colors = PXBColors;
         this.matIconRegistry.addSvgIconSetInNamespace(
@@ -37,12 +38,17 @@ export class AppComponent {
     toggleDrawer(): void {
         if (this.variant !== 'permanent') {
             this.drawerOpen = !this.drawerOpen;
+            this.updateChildDrawer();
         }
     }
 
     setVariant(str: string): void {
         this.drawerOpen = true;
         this.variant = str;
+        this.updateChildDrawer();
     }
 
+    updateChildDrawer(): void {
+        this.variantDrawerHandler = this.drawerOpen;
+    }
 }

@@ -1,4 +1,14 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    ViewEncapsulation,
+    Input,
+    Output,
+    EventEmitter,
+    OnInit,
+} from '@angular/core';
+
+export type VariantType = 'permanent' | 'persistent' | 'temporary';
 
 @Component({
     selector: 'pxb-drawer',
@@ -8,11 +18,48 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
         <div class="pxb-drawer">
             <!-- Drawer is responsible for managing the styles between the 4 subsections -->
             <ng-content select="pxb-drawer-header"></ng-content>
-            <ng-content select="pxb-drawer-subheader"></ng-content>
-            <ng-content select="pxb-drawer-body"></ng-content>
-            <ng-content select="pxb-drawer-footer"></ng-content>
+            <div (mouseenter)="openDrawer()" (mouseleave)="closeDrawer()">
+                <ng-content select="pxb-drawer-subheader"></ng-content>
+                <ng-content select="pxb-drawer-body"></ng-content>
+                <ng-content select="pxb-drawer-footer"></ng-content>
+            </div>
         </div>
     `,
     styleUrls: ['./drawer.component.scss'],
 })
-export class DrawerComponent {}
+export class DrawerComponent implements OnInit {
+    @Input() variant: VariantType;
+    @Input() drawerOpen: boolean;
+    @Input() variantDrawerHandler: boolean;
+    @Output() drawerOpenChange: EventEmitter<boolean> = new EventEmitter();
+
+    ngOnInit(): void {
+        this.variantDrawerHandler = this.drawerOpen;
+    }
+
+    openDrawer(): void {
+        if (this.variant === 'persistent') {
+            if (this.drawerOpen) {
+                return;
+            }
+            this.drawerOpen = true;
+            this.onDrawerOpenChange();
+        }
+    }
+
+    closeDrawer(): void {
+        if (this.variant === 'persistent') {
+            if (this.variantDrawerHandler) {
+                return;
+            }
+            this.drawerOpen = false;
+            this.onDrawerOpenChange();
+        }
+    }
+
+    onDrawerOpenChange(): void {
+        if (this.variant === 'persistent') {
+            this.drawerOpenChange.emit(this.drawerOpen);
+        }
+    }
+}

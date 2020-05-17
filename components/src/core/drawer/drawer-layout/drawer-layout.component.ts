@@ -12,15 +12,11 @@ type VariantType = 'permanent' | 'persistent' | 'temporary';
                 <mat-sidenav
                     [mode]="variant === 'temporary' ? 'over' : 'side'"
                     class="px-blue-side-nav"
-                    [ngClass]="[
-                        variant === 'permanent'
-                            ? 'pxb-drawer-permanent'
-                            : variant === 'persistent'
-                            ? 'pxb-drawer-persistent'
-                            : 'pxb-drawer-temporary',
-                        drawerOpen ? 'pxb-drawer-open' : 'pxb-drawer-closed'
-                    ]"
-                    [opened]="variant === 'permanent' || variant === 'persistent' ? true : drawerOpen"
+                    [class.pxb-drawer-permanent]="variant === 'permanent'"
+                    [class.pxb-drawer-persistent]="variant === 'persistent'"
+                    [class.pxb-drawer-temporary]="variant === 'temporary'"
+                    [ngClass]="[drawerOpen ? 'pxb-drawer-open' : 'pxb-drawer-closed']"
+                    [opened]="isOpen()"
                 >
                     <ng-content select="[drawer]"></ng-content>
                 </mat-sidenav>
@@ -39,5 +35,9 @@ export class DrawerLayoutComponent {
 
     closeDrawer(): void {
         this.onDrawerClose.emit();
+    }
+
+    isOpen(): boolean {
+        return this.variant === 'permanent' || this.variant === 'persistent' ? true : this.drawerOpen
     }
 }

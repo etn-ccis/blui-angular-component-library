@@ -6,7 +6,7 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
     selector: 'showcase-drawer',
     styleUrls: ['./drawer.component.scss'],
     template: `
-       <pxb-drawer [variant]="variant" [drawerOpen]="drawerOpen">
+       <pxb-drawer [variant]="variant" [drawerOpen]="drawerOpen" (drawerOpenChange)="onDrawerOpenChange()" [variantDrawerHandler]="variantDrawerHandler">
             <pxb-drawer-header
                 title="PX Blue Drawer"
                 subtitle="Organize your menu items here"
@@ -42,7 +42,6 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
                         [collapseIcon]="navItem.collapseIcon"
                         [useCustomIconAnimation]="navItem.useCustomIconAnimation"
                         [divider]="navItem.divider"
-                        [rippleColor]="colors.gray[500]"
                     >
                         <mat-icon icon>{{ navItem.icon }}</mat-icon>
                         <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items" [title]="nestedItem.title" [divider]=false [selected]="selectedItemId === nestedItem.itemID"
@@ -52,7 +51,6 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
                         [expandIcon]="nestedItem.expandIcon"
                         [collapseIcon]="nestedItem.collapseIcon"
                         [hidePadding]="nestedItem.hidePadding"
-                        [rippleColor]="colors.gray[500]"
                         ></pxb-drawer-nav-item>
                     </pxb-drawer-nav-item>
                 </pxb-drawer-nav-group>
@@ -67,9 +65,10 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
 })
 export class DrawerComponent {
     colors = PXBColors;
-    drawerOpen = true;
+    @Input() drawerOpen = true;
     selectedItemId: string;
-    @Input() variant = 'permanent';
+    @Input() variant: any;
+    @Input() variantDrawerHandler: boolean;
     @Output() onClickMenuButton: EventEmitter<any> = new EventEmitter();
 
     nestedItems1: DrawerNavItem[] = [
@@ -121,5 +120,9 @@ export class DrawerComponent {
 
     clickMenuButton(): void {
         this.onClickMenuButton.emit();
+    }
+
+    onDrawerOpenChange(): void {
+        this.clickMenuButton();
     }
 }
