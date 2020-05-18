@@ -44,7 +44,8 @@
     cursor: pointer;
 }
 
-.pxb-info-list-item-active.round:after, .pxb-info-list-item-active.square:after{
+.pxb-info-list-item-active.round:after,
+.pxb-info-list-item-active.square:after {
     content: '';
     z-index: 0;
     position: absolute;

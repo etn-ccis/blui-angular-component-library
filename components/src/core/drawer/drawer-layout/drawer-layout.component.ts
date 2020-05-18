@@ -38,6 +38,6 @@ export class DrawerLayoutComponent {
     }
 
     isOpen(): boolean {
-        return this.variant === 'permanent' || this.variant === 'persistent' ? true : this.drawerOpen
+        return this.variant === 'permanent' || this.variant === 'persistent' ? true : this.drawerOpen;
     }
 }

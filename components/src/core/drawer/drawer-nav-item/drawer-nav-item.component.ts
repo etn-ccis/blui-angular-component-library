@@ -123,7 +123,7 @@ export class DrawerNavItemComponent {
     @Input() statusColor: string;
     @Input() title: string;
     @Input() subtitle: string;
-    @Input() chevron = true;
+    @Input() chevron = false;
     @Input() divider = true;
     @Input() selected: boolean;
     @Input() itemID: string;

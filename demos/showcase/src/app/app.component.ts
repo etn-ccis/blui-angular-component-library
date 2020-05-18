@@ -47,7 +47,7 @@ export class AppComponent {
         this.updateChildDrawer();
     }
 
-    toggleDrawerAndUpdateChildDrawer() {
+    toggleDrawerAndUpdateChildDrawer(): void {
         this.toggleDrawer();
         this.updateChildDrawer();
     }
