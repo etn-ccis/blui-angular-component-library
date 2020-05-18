@@ -120,21 +120,21 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
     `,
 })
 export class DrawerNavItemComponent {
-    @Input() statusColor: string;
-    @Input() title: string;
-    @Input() subtitle: string;
-    @Input() chevron = false;
-    @Input() divider = true;
-    @Input() selected: boolean;
-    @Input() itemID: string;
-    @Input() showNestedNavItems = false;
-    @Input() hasChildren = false;
-    @Input() ripple = true;
-    @Input() expandIcon: string;
-    @Input() collapseIcon: string;
-    @Input() useCustomIconAnimation = true;
-    @Input() hidePadding: boolean;
     @Input() activeItemBackgroundShape: ActiveItemBackgroundShape = 'round';
+    @Input() chevron = false;
+    @Input() collapseIcon: string;
+    @Input() divider = true;
+    @Input() expandIcon: string;
+    @Input() hasChildren = false;
+    @Input() hidePadding: boolean;
+    @Input() itemID: string;
+    @Input() ripple = true;
+    @Input() selected: boolean;
+    @Input() showNestedNavItems = false;
+    @Input() statusColor: string;
+    @Input() subtitle: string;
+    @Input() title: string;
+    @Input() useCustomIconAnimation = true;
     toggled = false;
 
     toggleNestedNavItems(e: any): void {
