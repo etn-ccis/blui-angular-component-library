@@ -44,7 +44,7 @@
     cursor: pointer;
 }
 
-.pxb-info-list-item-active:after {
+.pxb-info-list-item-active.round:after, .pxb-info-list-item-active.square:after{
     content: '';
     z-index: 0;
     position: absolute;
@@ -54,4 +54,9 @@
     top: 0;
     border-radius: 0px 24px 24px 0px;
     opacity: 0.9;
+}
+
+.pxb-info-list-item-active.square:after {
+    border-radius: 0;
+    width: 100%;
 }

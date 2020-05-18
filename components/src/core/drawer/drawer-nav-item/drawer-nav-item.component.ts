@@ -6,7 +6,6 @@ export type DrawerNavItem = {
     title: string;
     subtitle?: string;
     chevron?: boolean;
-    dense?: boolean;
     divider?: boolean;
     items?: DrawerNavItem[];
     onClick?: any;
@@ -19,6 +18,8 @@ export type DrawerNavItem = {
     useCustomIconAnimation?: boolean;
     hidePadding?: boolean;
 };
+
+export type ActiveItemBackgroundShape = 'round' | 'square';
 
 @Component({
     selector: 'pxb-drawer-nav-item',
@@ -65,6 +66,8 @@ export type DrawerNavItem = {
                 [chevron]="chevron"
                 [divider]="divider ? 'full' : undefined"
                 [ngClass]="[selected ? 'pxb-info-list-item-active' : '', hidePadding ? 'hide-padding' : '']"
+                [class.round]="activeItemBackgroundShape === 'round'"
+                [class.square]="activeItemBackgroundShape === 'square'"
                 matRipple
                 [matRippleDisabled]="!ripple"
                 style="display:flex;"
@@ -120,8 +123,7 @@ export class DrawerNavItemComponent {
     @Input() statusColor: string;
     @Input() title: string;
     @Input() subtitle: string;
-    @Input() chevron = false;
-    @Input() dense = false;
+    @Input() chevron = true;
     @Input() divider = true;
     @Input() selected: boolean;
     @Input() itemID: string;
@@ -132,6 +134,7 @@ export class DrawerNavItemComponent {
     @Input() collapseIcon: string;
     @Input() useCustomIconAnimation = true;
     @Input() hidePadding: boolean;
+    @Input() activeItemBackgroundShape: ActiveItemBackgroundShape = 'round';
     toggled = false;
 
     toggleNestedNavItems(e: any): void {
