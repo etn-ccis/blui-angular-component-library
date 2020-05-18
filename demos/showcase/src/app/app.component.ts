@@ -38,13 +38,17 @@ export class AppComponent {
     toggleDrawer(): void {
         if (this.variant !== 'permanent') {
             this.drawerOpen = !this.drawerOpen;
-            this.updateChildDrawer();
         }
     }
 
     setVariant(str: string): void {
         this.drawerOpen = true;
         this.variant = str;
+        this.updateChildDrawer();
+    }
+
+    toggleDrawerAndUpdateChildDrawer() {
+        this.toggleDrawer();
         this.updateChildDrawer();
     }
 

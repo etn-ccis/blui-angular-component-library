@@ -1,9 +1,9 @@
-<pxb-drawer-layout [drawerOpen]="drawerOpen" [variant]="variant" (onDrawerClose)="toggleDrawer()">
+<pxb-drawer-layout [drawerOpen]="drawerOpen" [variant]="variant" (onDrawerClose)="toggleDrawerAndUpdateChildDrawer()">
     <div drawer>
-       <showcase-drawer (onClickMenuButton)="toggleDrawer()" [drawerOpen]="drawerOpen" [variant]="variant" [variantDrawerHandler]="variantDrawerHandler"></showcase-drawer>
+       <showcase-drawer (onClickMenuButton)="toggleDrawerAndUpdateChildDrawer()" [drawerOpen]="drawerOpen" [variant]="variant" [variantDrawerHandler]="variantDrawerHandler" (onDrawerOpenChange)="toggleDrawer()"></showcase-drawer>
     </div>
     <div content>
-        <button *ngIf="variant==='temporary'" mat-icon-button color='accent' style="margin-left: 8px; margin-bottom: 12px" (click)="toggleDrawer()">
+        <button *ngIf="variant==='temporary'" mat-icon-button color='accent' style="margin-left: 8px; margin-bottom: 12px" (click)="toggleDrawerAndUpdateChildDrawer()">
             <mat-icon>menu</mat-icon>
         </button>
         <button mat-raised-button [color]="variant === 'permanent' ? 'primary' : ''" style="margin-left: 8px; margin-bottom: 12px" (click)="setVariant('permanent')">Permanent</button>
