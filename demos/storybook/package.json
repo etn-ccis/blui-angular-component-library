@@ -9,7 +9,7 @@
         "build-storybook": "build-storybook -s ../../docs/,./assets,./node_modules/typeface-open-sans/files",
         "lint": "eslint \"stories/**/**.ts\"",
         "lint:fix": "eslint \"stories/**/**.ts\" --fix",
-        "prettier": "prettier \"stories/**/**.{ts,json,css,scss,html}\" --write"
+        "prettier": "prettier \"**/**.{ts,json,css,scss,html}\" --write"
     },
     "prettier": "@pxblue/prettier-config",
     "private": true,

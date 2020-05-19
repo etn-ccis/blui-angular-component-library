@@ -79,14 +79,14 @@ describe('Empty State Component', () => {
     it('should show description when supplied', () => {
         component.description = 'description';
         fixture.detectChanges();
-        const descriptionElement = fixture.debugElement.query(By.css('h4'));
+        const descriptionElement = fixture.debugElement.query(By.css('p'));
         expect(descriptionElement.nativeElement.innerHTML).toBe('description');
     });
 
     it('should not show empty description', () => {
         component.description = '';
         fixture.detectChanges();
-        const descriptionElement = fixture.debugElement.query(By.css('h4'));
+        const descriptionElement = fixture.debugElement.query(By.css('p'));
         expect(descriptionElement).toBeFalsy();
     });
 

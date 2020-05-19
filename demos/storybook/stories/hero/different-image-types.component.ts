@@ -72,4 +72,4 @@ export class DifferentImageTypesComponent {
     imports: [MatIconModule, BrowserModule, HeroModule, HttpClientModule],
     exports: [DifferentImageTypesComponent],
 })
-export class DifferentImageTypesModule { }
+export class DifferentImageTypesModule {}
