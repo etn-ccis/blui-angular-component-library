@@ -14,6 +14,13 @@ export const withStaticLayout = (): any => ({
             display: flex;
             flex-direction: column;
         }
+        .horizontal, .vertical {
+            color: black;
+        }
+        .mat-h4 {
+            text-align: center;
+            margin-top: 20px;
+        }
     `,
     ],
     template: `

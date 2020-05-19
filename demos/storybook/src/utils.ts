@@ -133,6 +133,7 @@ export class StoryComponent {
         const canvas = document.querySelector('.sb-show-main') as HTMLElement;
         if (canvas && canvas.style) {
             canvas.style.backgroundColor = this.useDarkMode ? Colors.darkBlack[100] : Colors.gray[50];
+            canvas.style.color = this.useDarkMode ? Colors.gray[300] : Colors.black[500];
         }
     }
 }
