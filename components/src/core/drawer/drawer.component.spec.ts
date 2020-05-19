@@ -59,25 +59,25 @@ describe('DrawerComponent', () => {
         expect(component).toBeTruthy();
     });
 
-    it('it should render the drawer header', () => {
+    it('should render the drawer header', () => {
         const customFixture = TestBed.createComponent(DrawerHeaderRenderTest);
         customFixture.detectChanges();
         expect(customFixture.nativeElement.querySelector('#test-header')).toBeTruthy();
     });
 
-    it('it should render the drawer subheader', () => {
+    it('should render the drawer subheader', () => {
         const customFixture = TestBed.createComponent(DrawerSubheaderRenderTest);
         customFixture.detectChanges();
         expect(customFixture.nativeElement.querySelector('#test-subheader')).toBeTruthy();
     });
 
-    it('it should render the drawer body', () => {
+    it('should render the drawer body', () => {
         const customFixture = TestBed.createComponent(DrawerBodyRenderTest);
         customFixture.detectChanges();
         expect(customFixture.nativeElement.querySelector('#test-body')).toBeTruthy();
     });
 
-    it('it should render the drawer footer', () => {
+    it('should render the drawer footer', () => {
         const customFixture = TestBed.createComponent(DrawerFooterRenderTest);
         customFixture.detectChanges();
         expect(customFixture.nativeElement.querySelector('#test-footer')).toBeTruthy();
