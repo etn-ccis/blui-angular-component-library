@@ -18,7 +18,7 @@ import { DrawerNavItem } from '../drawer-nav-item/public-api';
     template: `
         <div class="pxb-drawer-nav-group">
             <mat-list>
-                <mat-list-item *ngIf="drawerOpen">{{ title }}</mat-list-item>
+                <mat-list-item class="pxb-drawer-nav-group-title" *ngIf="drawerOpen">{{ title }}</mat-list-item>
             </mat-list>
             <mat-divider></mat-divider>
             <ng-content select="pxb-drawer-nav-item"></ng-content>
