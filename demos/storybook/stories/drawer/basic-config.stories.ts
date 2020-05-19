@@ -19,7 +19,5 @@ export const withBasicConfig = (): any => ({
           </pxb-drawer-header>
         </div>
       `,
-    props: {
-       
-    },
+    props: {},
 });

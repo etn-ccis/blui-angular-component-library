@@ -9,5 +9,5 @@ export const withFullConfig = (): any => ({
         label: text('label', 'Label'),
         backgroundColor: color('backgroundColor', Colors.green[700]),
         fontColor: color('fontColor', Colors.white[100]),
-    }
+    },
 });

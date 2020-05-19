@@ -13,6 +13,6 @@ export const withinAnInfoListItem = (): any => ({
         </pxb-info-list-item>
     `,
     props: {
-        colors: Colors
+        colors: Colors,
     },
 });

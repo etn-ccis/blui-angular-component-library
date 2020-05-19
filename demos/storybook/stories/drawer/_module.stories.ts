@@ -6,7 +6,7 @@ import {
     COMPONENT_SECTION_NAME,
     README_STORY_NAME,
     STORY_PARAMS,
-    WITH_MIN_PROPS_STORY_NAME
+    WITH_MIN_PROPS_STORY_NAME,
 } from '../../src/constants';
 import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/utils';
 import { CommonModule } from '@angular/common';
@@ -24,12 +24,7 @@ export const drawerContainer = () => (storyFn): any => {
 storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [
-                DrawerHeaderModule,
-                UtilModule,
-                MatIconModule,
-                CommonModule,
-            ],
+            imports: [DrawerHeaderModule, UtilModule, MatIconModule, CommonModule],
         })
     )
     .addDecorator(withKnobs)
@@ -37,6 +32,9 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     .addDecorator(withA11y)
     .addDecorator(storyWrapper())
     .addDecorator(drawerContainer())
-    .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('Drawer.md') } })
+    .addParameters({
+        ...STORY_PARAMS,
+        notes: { markdown: getReadMe('Drawer.md') },
+    })
     .add(README_STORY_NAME, getReadMeStory)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig);

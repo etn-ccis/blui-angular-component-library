@@ -9,8 +9,9 @@
         "build-storybook": "build-storybook -s ../../docs/,./assets,./node_modules/typeface-open-sans/files",
         "lint": "eslint \"stories/**/**.ts\"",
         "lint:fix": "eslint \"stories/**/**.ts\" --fix",
-        "prettier": "prettier \"src/**/**.{ts,json,css,scss,html}\" --write"
+        "prettier": "prettier \"stories/**/**.{ts,json,css,scss,html}\" --write"
     },
+    "prettier": "@pxblue/prettier-config",
     "private": true,
     "dependencies": {
         "@angular/animations": "~8.2.2",
@@ -40,6 +41,7 @@
         "@angular/compiler-cli": "^8.2.14",
         "@angular/language-service": "~8.2.2",
         "@babel/core": "^7.7.7",
+        "@pxblue/prettier-config": "^1.0.2",
         "@pxblue/eslint-config": "^1.1.4",
         "@storybook/addon-a11y": "^5.3.18",
         "@storybook/addon-actions": "^5.3.13",

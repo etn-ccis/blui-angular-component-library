@@ -23,13 +23,20 @@ export const useWhiteBackground = () => (storyFn): any => {
     return {
         ...story,
         template: `<div [style.backgroundColor]="getDecoratorBgColor()" id="white-background-story-wrapper">${story.template}</div>`,
-        styles: [`#white-background-story-wrapper {width: 100vw; height: 100vh; display: flex; align-items: center; justify-content: center;}`],
+        styles: [
+            `#white-background-story-wrapper {
+                width: 100vw; height: 100vh; 
+                display: flex; 
+                align-items: center; 
+                justify-content: center;
+            }`,
+        ],
         props: {
             ...story.props,
-            getDecoratorBgColor: (): string => isDarkMode() ? Colors.darkBlack[900] : 'white',
+            getDecoratorBgColor: (): string => (isDarkMode() ? Colors.darkBlack[900] : 'white'),
         },
     };
-}
+};
 
 storiesOf(`${COMPONENT_SECTION_NAME}/Empty State`, module)
     .addDecorator(
@@ -42,7 +49,10 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Empty State`, module)
     .addDecorator(withA11y)
     .addDecorator(storyWrapper())
     .addDecorator(useWhiteBackground())
-    .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('EmptyState.md') } })
+    .addParameters({
+        ...STORY_PARAMS,
+        notes: { markdown: getReadMe('EmptyState.md') },
+    })
     .add(README_STORY_NAME, getReadMeStory)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
     .add('with description', withDescription)
