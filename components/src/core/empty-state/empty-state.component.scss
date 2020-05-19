@@ -14,9 +14,14 @@
         margin-bottom: 0;
     }
 
+    .pxb-empty-state-description {
+        margin-bottom: 8px;
+    }
+
     .pxb-empty-state-title,
     .pxb-empty-state-description {
         text-align: center;
+        font-weight: 600;
     }
 
     .pxb-empty-state-empty-icon-wrapper {
