@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import { DrawerService } from '../drawer.service';
 
 type VariantType = 'permanent' | 'persistent' | 'temporary';
 
@@ -32,6 +33,16 @@ export class DrawerLayoutComponent {
     @Input() drawerOpen: boolean;
     @Input() variant: VariantType;
     @Output() onDrawerClose: EventEmitter<any> = new EventEmitter();
+
+    constructor(public drawerService: DrawerService) {}
+
+    ngOnChanges(changes: SimpleChanges) {
+        for (let propName in changes) {
+            if (propName === 'drawerOpen') {
+                this.drawerService.setDrawerOpen(this.drawerOpen);
+            }
+          }
+    }
 
     closeDrawer(): void {
         this.onDrawerClose.emit();
