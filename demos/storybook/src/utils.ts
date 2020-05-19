@@ -132,7 +132,7 @@ export class StoryComponent {
         this.useDarkMode = isDarkMode();
         const canvas = document.querySelector('.sb-show-main') as HTMLElement;
         if (canvas && canvas.style) {
-            canvas.style.backgroundColor = this.useDarkMode ? Colors.black['A200'] : Colors.gray[50];
+            canvas.style.backgroundColor = this.useDarkMode ? Colors.darkBlack[100] : Colors.gray[50];
         }
     }
 }

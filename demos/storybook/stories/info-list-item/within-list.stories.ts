@@ -3,9 +3,9 @@ import { select } from '@storybook/addon-knobs';
 
 export const withinList = (): any => ({
     template: `
-        <pxb-info-list-item [statusColor]="colors.green[500]" [divider]="divider" class="test">
+        <pxb-info-list-item [statusColor]="colors.green[700]" [divider]="divider" class="test">
             <div title>Status</div>
-            <mat-icon icon [style.color]="colors.green[500]">eco</mat-icon>
+            <mat-icon icon [style.color]="colors.green[700]">eco</mat-icon>
             <pxb-channel-value rightContent value="Online, ESS+" [fontSize]="fontSize"></pxb-channel-value>
         </pxb-info-list-item>
 
@@ -47,7 +47,7 @@ export const withinList = (): any => ({
             <div title>Temperature</div>
             <mat-icon icon>home</mat-icon>
             <span rightContent style="display: flex; align-items: center">
-                <mat-icon [style.color]="colors.green[500]">eco</mat-icon>
+                <mat-icon [style.color]="colors.green[700]">eco</mat-icon>
                 <pxb-channel-value value="68" units="°F" [fontSize]="fontSize"></pxb-channel-value>
             </span>
         </pxb-info-list-item>

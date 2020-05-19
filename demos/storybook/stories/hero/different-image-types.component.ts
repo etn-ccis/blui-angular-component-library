@@ -21,7 +21,7 @@ const Trex = require('../../assets/trex.png');
                 <i primary [style.color]="colors.green[800]" class="pxb-current_circled"></i>
             </pxb-hero>
             <pxb-hero label="PNG" value="normal" iconSize="normal" [iconBackgroundColor]="colors.white[50]">
-                <img primary [src]="trex" />
+                <img primary [src]="trex" alt="A T-Rex as the avatar image" />
             </pxb-hero>
         </pxb-hero-banner>
 
@@ -36,7 +36,7 @@ const Trex = require('../../assets/trex.png');
                 <i primary [style.color]="colors.green[800]" class="pxb-current_circled"></i>
             </pxb-hero>
             <pxb-hero label="PNG" units="px" value="48" iconSize="48" [iconBackgroundColor]="colors.white[50]">
-                <img primary [src]="trex" />
+                <img primary [src]="trex" alt="A T-Rex as the avatar image" />
             </pxb-hero>
         </pxb-hero-banner>
 
@@ -51,7 +51,7 @@ const Trex = require('../../assets/trex.png');
                 <i primary [style.color]="colors.green[800]" class="pxb-current_circled"></i>
             </pxb-hero>
             <pxb-hero label="PNG" value="large" iconSize="large" [iconBackgroundColor]="colors.white[50]">
-                <img primary [src]="trex" />
+                <img primary [src]="trex" alt="A T-Rex as the avatar image" />
             </pxb-hero>
         </pxb-hero-banner>
     `,
@@ -72,4 +72,4 @@ export class DifferentImageTypesComponent {
     imports: [MatIconModule, BrowserModule, HeroModule, HttpClientModule],
     exports: [DifferentImageTypesComponent],
 })
-export class DifferentImageTypesModule {}
+export class DifferentImageTypesModule { }
