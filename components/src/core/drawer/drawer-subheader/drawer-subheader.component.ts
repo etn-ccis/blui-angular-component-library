@@ -20,8 +20,8 @@ import { DrawerService } from '../drawer.service';
 })
 export class DrawerSubheaderComponent implements OnInit {
     drawerOpen: boolean;
-    
-    constructor(public drawerService: DrawerService, private changeDetector: ChangeDetectorRef) {}
+
+    constructor(public drawerService: DrawerService, private readonly changeDetector: ChangeDetectorRef) {}
 
     ngOnInit(): void {
         this.drawerOpen = this.drawerService.getDrawerOpen();

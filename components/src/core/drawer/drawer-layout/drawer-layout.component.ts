@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation, Output, EventEmitter, SimpleChanges } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    Input,
+    ViewEncapsulation,
+    Output,
+    EventEmitter,
+    SimpleChanges,
+} from '@angular/core';
 import { DrawerService } from '../drawer.service';
 
 type VariantType = 'permanent' | 'persistent' | 'temporary';
@@ -36,13 +44,12 @@ export class DrawerLayoutComponent {
 
     constructor(public drawerService: DrawerService) {}
 
-    ngOnChanges(changes: SimpleChanges) {
-        for (let propName in changes) {
+    ngOnChanges(changes: SimpleChanges): void {
+        for (const propName in changes) {
             if (propName === 'drawerOpen') {
-                console.log('setting drawer open to ' + this.drawerOpen);
                 this.drawerService.setDrawerOpen(this.drawerOpen);
             }
-          }
+        }
     }
 
     closeDrawer(): void {

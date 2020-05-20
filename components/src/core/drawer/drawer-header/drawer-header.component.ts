@@ -35,7 +35,7 @@ export class DrawerHeaderComponent implements OnInit {
     @Input() title: string;
     drawerOpen: boolean;
 
-    constructor(public drawerService: DrawerService, private changeDetector: ChangeDetectorRef) {}
+    constructor(public drawerService: DrawerService, private readonly changeDetector: ChangeDetectorRef) {}
 
     ngOnInit(): void {
         this.drawerOpen = this.drawerService.getDrawerOpen();
@@ -44,5 +44,4 @@ export class DrawerHeaderComponent implements OnInit {
             this.changeDetector.detectChanges();
         });
     }
-
 }

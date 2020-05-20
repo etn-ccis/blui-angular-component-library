@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {count} from "../../../utils/test-utils";
+import { count } from '../../../utils/test-utils';
 import { DrawerBodyComponent } from './drawer-body.component';
 import { DrawerBodyModule } from './drawer-body.module';
 
@@ -23,9 +23,7 @@ describe('DrawerBodyComponent', () => {
 
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
-        const classList = [
-            '.pxb-drawer-body',
-        ];
+        const classList = ['.pxb-drawer-body'];
         for (const className of classList) {
             count(fixture, className);
         }

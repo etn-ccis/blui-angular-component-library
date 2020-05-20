@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {count} from "../../../utils/test-utils";
+import { count } from '../../../utils/test-utils';
 import { DrawerBodyModule } from './drawer-body.module';
 import { DrawerNavGroupComponent } from './drawer-nav-group.component';
 
@@ -37,10 +37,7 @@ describe('DrawerNavGroupComponent', () => {
 
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
-        const classList = [
-            '.pxb-drawer-nav-group',
-            '.pxb-drawer-nav-group-title'
-        ];
+        const classList = ['.pxb-drawer-nav-group', '.pxb-drawer-nav-group-title'];
         for (const className of classList) {
             count(fixture, className);
         }

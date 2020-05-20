@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation, OnInit, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, OnInit, ChangeDetectorRef } from '@angular/core';
 import { DrawerService } from '../drawer.service';
 
 @Component({
@@ -20,7 +20,7 @@ import { DrawerService } from '../drawer.service';
 export class DrawerFooterComponent implements OnInit {
     drawerOpen: boolean;
 
-    constructor(public drawerService: DrawerService, private changeDetector: ChangeDetectorRef) {}
+    constructor(public drawerService: DrawerService, private readonly changeDetector: ChangeDetectorRef) {}
 
     ngOnInit(): void {
         this.drawerOpen = this.drawerService.getDrawerOpen();

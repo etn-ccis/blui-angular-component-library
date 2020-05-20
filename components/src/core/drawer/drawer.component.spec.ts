@@ -1,5 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {count} from "../../utils/test-utils";
+import { count } from '../../utils/test-utils';
 import { DrawerComponent } from './drawer.component';
 import { DrawerModule } from './drawer.module';
 import { Component } from '@angular/core';
@@ -40,14 +40,18 @@ class DrawerBodyRenderTest {}
 })
 class DrawerFooterRenderTest {}
 
-
 describe('DrawerComponent', () => {
     let component: DrawerComponent;
     let fixture: ComponentFixture<DrawerComponent>;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            declarations: [DrawerHeaderRenderTest, DrawerSubheaderRenderTest, DrawerBodyRenderTest, DrawerFooterRenderTest],
+            declarations: [
+                DrawerHeaderRenderTest,
+                DrawerSubheaderRenderTest,
+                DrawerBodyRenderTest,
+                DrawerFooterRenderTest,
+            ],
             imports: [DrawerModule],
         }).compileComponents();
         fixture = TestBed.createComponent(DrawerComponent);
@@ -85,9 +89,7 @@ describe('DrawerComponent', () => {
 
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
-        const classList = [
-            '.pxb-drawer',
-        ];
+        const classList = ['.pxb-drawer'];
         for (const className of classList) {
             count(fixture, className);
         }

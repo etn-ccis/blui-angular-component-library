@@ -35,7 +35,7 @@ export class DrawerComponent implements OnInit {
     @Output() drawerOpenChange: EventEmitter<boolean> = new EventEmitter();
     drawerOpen: boolean;
 
-    constructor(public drawerService: DrawerService, private changeDetector: ChangeDetectorRef) {}
+    constructor(public drawerService: DrawerService, private readonly changeDetector: ChangeDetectorRef) {}
 
     ngOnInit(): void {
         this.drawerOpen = this.drawerService.getDrawerOpen();

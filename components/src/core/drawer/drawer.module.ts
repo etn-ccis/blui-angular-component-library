@@ -7,7 +7,6 @@ import { DrawerSubheaderModule } from './drawer-subheader/drawer-subheader.modul
 import { DrawerFooterModule } from './drawer-footer/drawer-footer.module';
 import { DrawerNavItemModule } from './drawer-nav-item/drawer-nav-item.module';
 import { DrawerLayoutModule } from './drawer-layout/drawer-layout.module';
-import { DrawerService } from './drawer.service';
 
 @NgModule({
     declarations: [DrawerComponent],
@@ -28,6 +27,6 @@ import { DrawerService } from './drawer.service';
         DrawerFooterModule,
         DrawerNavItemModule,
         DrawerLayoutModule,
-    ]
+    ],
 })
 export class DrawerModule {}
