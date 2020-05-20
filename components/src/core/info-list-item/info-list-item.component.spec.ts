@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { count } from '../../utils/test-utils';
 import { InfoListItemModule } from './info-list-item.module';
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { By } from '@angular/platform-browser';
 
 @Component({
@@ -15,7 +15,7 @@ import { By } from '@angular/platform-browser';
             [wrapSubtitle]="wrapSubtitle"
             [wrapTitle]="wrapTitle"
             [divider]="divider"
-            >
+        >
             <div title>Test Title</div>
             <div subtitle>Test Subtitle</div>
             <mat-icon icon>mail</mat-icon>
@@ -45,8 +45,7 @@ class TestIconComponent {}
 
 @Component({
     template: `
-        <pxb-info-list-item>
-        </pxb-info-list-item>
+        <pxb-info-list-item> </pxb-info-list-item>
     `,
 })
 class TestMissingTitle {}

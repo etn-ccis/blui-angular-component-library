@@ -1,5 +1,8 @@
 # Change Log
 
+## v2.0.1
+-  Colors updated for accessibility
+
 ## v2.0.0
 
 -   Add new components for `<pxb-score-card>`, `<pxb-info-list-item>`, `<pxb-list-item-tag>`, and `<pxb-spacer>`.

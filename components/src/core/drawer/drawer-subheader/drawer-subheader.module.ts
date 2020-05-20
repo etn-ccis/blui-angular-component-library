@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DrawerSubheaderComponent } from './drawer-subheader.component';
-import {MatDividerModule} from "@angular/material/divider";
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
     declarations: [DrawerSubheaderComponent],
