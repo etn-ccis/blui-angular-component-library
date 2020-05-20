@@ -39,6 +39,7 @@ export class DrawerLayoutComponent {
     ngOnChanges(changes: SimpleChanges) {
         for (let propName in changes) {
             if (propName === 'drawerOpen') {
+                console.log('setting drawer open to ' + this.drawerOpen);
                 this.drawerService.setDrawerOpen(this.drawerOpen);
             }
           }

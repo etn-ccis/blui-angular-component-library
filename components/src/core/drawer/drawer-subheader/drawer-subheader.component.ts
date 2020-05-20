@@ -21,11 +21,11 @@ import { DrawerService } from '../drawer.service';
 export class DrawerSubheaderComponent implements OnInit {
     drawerOpen: boolean;
     
-    constructor(public drawerService:DrawerService, private changeDetector: ChangeDetectorRef) {}
+    constructor(public drawerService: DrawerService, private changeDetector: ChangeDetectorRef) {}
 
-    ngOnInit() {
-        this.drawerService.getDrawerOpen().subscribe(res => {
-            console.log(res);
+    ngOnInit(): void {
+        this.drawerOpen = this.drawerService.getDrawerOpen();
+        this.drawerService.drawerOpenChanges().subscribe((res: boolean) => {
             this.drawerOpen = res;
             this.changeDetector.detectChanges();
         });
