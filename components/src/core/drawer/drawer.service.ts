@@ -11,7 +11,6 @@ export class DrawerService {
   constructor() {}
 
   setDrawerOpen(drawerOpen: boolean): void {
-    console.log('setdrawer', this.drawerOpen);
     this.drawerOpen = drawerOpen;
     this.drawerOpenObs.next(this.drawerOpen);
   }
