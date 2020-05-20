@@ -8,5 +8,5 @@ export const withBasicConfig = (): any => ({
     props: {
         label: text('label', 'active'),
         colors: Colors,
-    }
+    },
 });

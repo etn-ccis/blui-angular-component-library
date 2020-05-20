@@ -10,6 +10,6 @@ export const withStatus = (): any => ({
         </pxb-info-list-item>
       `,
     props: {
-        statusColor: color('statusColor', Colors.green[500]),
+        statusColor: color('statusColor', Colors.green[700]),
     },
 });

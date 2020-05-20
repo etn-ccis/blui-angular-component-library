@@ -27,7 +27,10 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Channel Value`, module)
     // @accessibility
     .addDecorator(withA11y)
     .addDecorator(storyWrapper())
-    .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('ChannelValue.md') } })
+    .addParameters({
+        ...STORY_PARAMS,
+        notes: { markdown: getReadMe('ChannelValue.md') },
+    })
     .add(README_STORY_NAME, getReadMeStory)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
     .add('with units', withUnits)

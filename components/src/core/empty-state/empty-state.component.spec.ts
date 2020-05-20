@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import {Component, Input} from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { count } from '../../utils/test-utils';
 import { EmptyStateModule } from './empty-state.module';
@@ -31,8 +31,7 @@ class EmptyStateBasicUsageComponent {
         </pxb-empty-state>
     `,
 })
-class TestEmpty {
-}
+class TestEmpty {}
 
 describe('Empty State Component', () => {
     let fixture: ComponentFixture<EmptyStateBasicUsageComponent>;
@@ -41,7 +40,7 @@ describe('Empty State Component', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [EmptyStateModule],
-            declarations: [EmptyStateBasicUsageComponent,  TestEmpty],
+            declarations: [EmptyStateBasicUsageComponent, TestEmpty],
         }).compileComponents();
     }));
 
@@ -80,14 +79,14 @@ describe('Empty State Component', () => {
     it('should show description when supplied', () => {
         component.description = 'description';
         fixture.detectChanges();
-        const descriptionElement = fixture.debugElement.query(By.css('h4'));
+        const descriptionElement = fixture.debugElement.query(By.css('p'));
         expect(descriptionElement.nativeElement.innerHTML).toBe('description');
     });
 
     it('should not show empty description', () => {
         component.description = '';
         fixture.detectChanges();
-        const descriptionElement = fixture.debugElement.query(By.css('h4'));
+        const descriptionElement = fixture.debugElement.query(By.css('p'));
         expect(descriptionElement).toBeFalsy();
     });
 

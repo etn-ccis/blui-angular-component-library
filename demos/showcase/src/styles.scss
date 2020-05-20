@@ -4,5 +4,10 @@
 body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
+
+    // for light theme
     background-color: map-get($pxb-gray, 50);
+
+    // for dark theme
+    // background-color: map-get($pxb-darkBlack, 100);
 }

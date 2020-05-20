@@ -35,7 +35,7 @@ export const withFullConfig = (): any => ({
         iconColor: color('icon color', Colors.blue[500]),
         avatar: boolean('avatar', false),
         action: action('InfoListItem clicked'),
-        getBgColor:  (avatar: boolean, statusColor: string): string => avatar ? statusColor : 'unset',
+        getBgColor: (avatar: boolean, statusColor: string): string => (avatar ? statusColor : 'unset'),
         colors: Colors,
     },
 });

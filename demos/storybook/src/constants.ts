@@ -1,8 +1,8 @@
 export const STORY_PARAMS = {
-   options: {
-      showPanel: true,
-   },
-   notes: {},
+    options: {
+        showPanel: true,
+    },
+    notes: {},
 };
 
 export const COMPONENT_SECTION_NAME = 'Components';
