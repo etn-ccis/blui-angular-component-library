@@ -21,12 +21,13 @@ import { DrawerService } from '../drawer.service';
 export class DrawerSubheaderComponent implements OnInit {
     drawerOpen: boolean;
     
-    constructor(public drawerService:DrawerService, private changeDoctorService: ChangeDetectorRef) {}
+    constructor(public drawerService:DrawerService, private changeDetector: ChangeDetectorRef) {}
 
     ngOnInit() {
         this.drawerService.getDrawerOpen().subscribe(res => {
+            console.log(res);
             this.drawerOpen = res;
-            this.changeDoctorService.detectChanges();
+            this.changeDetector.detectChanges();
         });
     }
 }

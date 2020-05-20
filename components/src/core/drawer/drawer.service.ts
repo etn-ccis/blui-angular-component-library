@@ -1,19 +1,22 @@
 import { Injectable } from '@angular/core';
-import { of, Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DrawerService {
-  drawerOpen = true;
+  drawerOpen: boolean;
+  drawerOpenObs = new Subject();
   
-  constructor() { }
+  constructor() {}
 
   setDrawerOpen(drawerOpen: boolean): void {
+    console.log('setdrawer', this.drawerOpen);
     this.drawerOpen = drawerOpen;
+    this.drawerOpenObs.next(this.drawerOpen);
   }
 
-  getDrawerOpen(): Observable<boolean> {
-    return of(this.drawerOpen);
+  getDrawerOpen(): Observable<any> {
+    return this.drawerOpenObs;
   }
 }
