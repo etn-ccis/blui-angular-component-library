@@ -6,7 +6,7 @@ import { count } from 'src/utils/test-utils';
 
 @Component({
     template: `
-        <pxb-drawer-footer [drawerOpen]="true">
+        <pxb-drawer-footer>
             <div id="test-footer-content" footerContent>test footer content</div>
         </pxb-drawer-footer>
     `,

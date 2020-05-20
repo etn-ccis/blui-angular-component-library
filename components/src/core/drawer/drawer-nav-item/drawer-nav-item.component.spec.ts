@@ -2,6 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DrawerNavItemComponent } from './drawer-nav-item.component';
 import { DrawerNavItemModule } from './drawer-nav-item.module';
 import { Component } from '@angular/core';
+import { count } from 'src/utils/test-utils';
 
 @Component({
     template: `
@@ -26,5 +27,17 @@ describe('DrawerNavItemComponent', () => {
     it('should create', () => {
         fixture.detectChanges();
         expect(component).toBeTruthy();
+    });
+
+    it('should enforce class naming conventions', () => {
+        fixture.detectChanges();
+        const classList = [
+          '.pxb-drawer-nav-item',
+          '.pxb-drawer-nav-item-icon-wrapper',
+          '.pxb-drawer-nested-nav-item'
+        ];
+        for (const className of classList) {
+            count(fixture, className);
+        }
     });
 });

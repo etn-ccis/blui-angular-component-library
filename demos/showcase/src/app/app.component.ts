@@ -35,16 +35,16 @@ export class AppComponent {
         console.log('drawer header button clicked...');
     }
 
-    toggleDrawer(): void {
-        if (this.variant !== 'permanent') {
-            this.drawerOpen = !this.drawerOpen;
-        }
-    }
-
     setVariant(str: string): void {
         this.drawerOpen = true;
         this.variant = str;
         this.updateChildDrawer();
+    }
+
+    toggleDrawer(): void {
+        if (this.variant !== 'permanent') {
+            this.drawerOpen = !this.drawerOpen;
+        }
     }
 
     toggleDrawerAndUpdateChildDrawer(): void {

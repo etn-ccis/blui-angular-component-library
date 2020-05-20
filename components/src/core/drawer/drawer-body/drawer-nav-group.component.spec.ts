@@ -22,6 +22,7 @@ describe('DrawerNavGroupComponent', () => {
     });
 
     it('should render the title if the drawer is open', () => {
+        spyOn(component, 'ngOnInit').and.stub();
         component.title = 'test';
         component.drawerOpen = true;
         fixture.detectChanges();
@@ -36,6 +37,8 @@ describe('DrawerNavGroupComponent', () => {
     });
 
     it('should enforce class naming conventions', () => {
+        spyOn(component, 'ngOnInit').and.stub();
+        component.drawerOpen = true;
         fixture.detectChanges();
         const classList = ['.pxb-drawer-nav-group', '.pxb-drawer-nav-group-title'];
         for (const className of classList) {
