@@ -1,7 +1,7 @@
 # Change Log
 
 ## v2.0.1
--  Twists styles to address some accessibility concerns.
+-  Colors updated for accessibility
 
 ## v2.0.0
 
