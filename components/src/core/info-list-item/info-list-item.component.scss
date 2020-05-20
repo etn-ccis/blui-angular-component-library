@@ -3,8 +3,9 @@ $contentPaddingLeft: 16px;
 $normalHeight: 72px;
 $denseHeight: 56px;
 
-.pxb-info-list-item {
+.pxb-info-list-item, .mat-list-base .mat-list-item.pxb-info-list-item {
     width: 100%;
+    height: inherit;  /* Used to override height applied when wrapped in a mat-list. */
     .mat-list-item-content {
         display: flex;
         align-items: center;
@@ -71,6 +72,7 @@ $denseHeight: 56px;
     .pxb-info-list-item-icon-wrapper {
         order: 1;
         width: 56px;
+        height: auto; /* Used to override height applied when wrapped in a mat-list. */
         min-width: 56px;
         &.pxb-info-list-item-hide-padding:empty {
             width: 0;
@@ -103,6 +105,7 @@ $denseHeight: 56px;
     .pxb-info-list-item-right-content {
         order: 5;
         margin-left: 16px;
+        white-space: nowrap;
         .pxb-info-list-item-right-content-wrapper > * {
             display: flex;
         }
