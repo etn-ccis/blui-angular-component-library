@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input, OnInit, ChangeDetectorRef } from '@angular/core';
 import { DrawerNavItem } from '../drawer-nav-item/public-api';
+import { DrawerService } from '../drawer.service';
 
 @Component({
     selector: 'pxb-drawer-nav-group',
@@ -25,9 +26,19 @@ import { DrawerNavItem } from '../drawer-nav-item/public-api';
         </div>
     `,
 })
-export class DrawerNavGroupComponent {
+export class DrawerNavGroupComponent implements OnInit {
     @Input() title: string;
-    @Input() drawerOpen = true;
+    drawerOpen: boolean;
+
+    constructor(public drawerService: DrawerService, private changeDetector: ChangeDetectorRef) {}
+
+    ngOnInit(): void {
+        this.drawerOpen = this.drawerService.getDrawerOpen();
+        this.drawerService.drawerOpenChanges().subscribe((res: boolean) => {
+            this.drawerOpen = res;
+            this.changeDetector.detectChanges();
+        });
+    }
 }
 
 export type DrawerNavGroup = {

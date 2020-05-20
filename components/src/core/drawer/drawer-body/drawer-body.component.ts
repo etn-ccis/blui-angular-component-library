@@ -1,4 +1,5 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input, OnInit, ChangeDetectorRef } from '@angular/core';
+import { DrawerService } from '../drawer.service';
 
 @Component({
     selector: 'pxb-drawer-body',
@@ -11,6 +12,16 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@a
     `,
     styleUrls: ['./drawer-body.component.scss'],
 })
-export class DrawerBodyComponent {
-    @Input() drawerOpen = true;
+export class DrawerBodyComponent implements OnInit {
+    drawerOpen: boolean;
+
+    constructor(public drawerService: DrawerService, private changeDetector: ChangeDetectorRef) {}
+
+    ngOnInit(): void {
+        this.drawerOpen = this.drawerService.getDrawerOpen();
+        this.drawerService.drawerOpenChanges().subscribe((res: boolean) => {
+            this.drawerOpen = res;
+            this.changeDetector.detectChanges();
+        });
+    }
 }

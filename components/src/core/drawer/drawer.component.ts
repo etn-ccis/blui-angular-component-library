@@ -6,7 +6,9 @@ import {
     Output,
     EventEmitter,
     OnInit,
+    ChangeDetectorRef,
 } from '@angular/core';
+import { DrawerService } from './drawer.service';
 
 export type VariantType = 'permanent' | 'persistent' | 'temporary';
 
@@ -29,11 +31,19 @@ export type VariantType = 'permanent' | 'persistent' | 'temporary';
 })
 export class DrawerComponent implements OnInit {
     @Input() variant: VariantType;
-    @Input() drawerOpen: boolean;
     @Input() variantDrawerHandler: boolean;
     @Output() drawerOpenChange: EventEmitter<boolean> = new EventEmitter();
+    drawerOpen: boolean;
+
+    constructor(public drawerService: DrawerService, private changeDetector: ChangeDetectorRef) {}
 
     ngOnInit(): void {
+        this.drawerOpen = this.drawerService.getDrawerOpen();
+        this.drawerService.drawerOpenChanges().subscribe((res: boolean) => {
+            this.drawerOpen = res;
+            this.changeDetector.detectChanges();
+        });
+
         this.variantDrawerHandler = this.drawerOpen;
     }
 
