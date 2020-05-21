@@ -3,9 +3,10 @@ $contentPaddingLeft: 16px;
 $normalHeight: 72px;
 $denseHeight: 56px;
 
-.pxb-info-list-item, .mat-list-base .mat-list-item.pxb-info-list-item {
+.pxb-info-list-item,
+.mat-list-base .mat-list-item.pxb-info-list-item {
     width: 100%;
-    height: inherit;  /* Used to override height applied when wrapped in a mat-list. */
+    height: inherit; /* Used to override height applied when wrapped in a mat-list. */
     .mat-list-item-content {
         display: flex;
         align-items: center;
