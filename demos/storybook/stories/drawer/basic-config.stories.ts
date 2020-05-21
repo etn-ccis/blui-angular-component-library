@@ -34,8 +34,9 @@ export const withBasicConfig = (): any => ({
     `,
   ],
   template: `
-        <pxb-drawer variant="persistent" [drawerOpen]=drawerOpen>
-          <pxb-drawer-header [title]="drawerTitle" [drawerOpen]="drawerOpen">
+    <pxb-drawer-layout [drawerOpen]="drawerOpen" variant="permanent">
+        <pxb-drawer variant="persistent" drawer>
+          <pxb-drawer-header [title]="drawerTitle">
             <mat-icon icon style="display: flex; padding-right: 32px;">menu</mat-icon>
           </pxb-drawer-header>
           <pxb-drawer-body>
@@ -49,6 +50,7 @@ export const withBasicConfig = (): any => ({
               </pxb-drawer-nav-item>
             </pxb-drawer-body>
         </pxb-drawer>
+    </pxb-drawer-layout>
       `,
   props: {
     drawerOpen: boolean('open', true),

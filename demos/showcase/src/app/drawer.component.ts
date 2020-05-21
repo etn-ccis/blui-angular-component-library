@@ -6,7 +6,7 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
     selector: 'showcase-drawer',
     styleUrls: ['./drawer.component.scss'],
     template: `
-       <pxb-drawer [variant]="variant" [drawerOpen]="drawerOpen" (drawerOpenChange)="drawerOpenChange()" [variantDrawerHandler]="variantDrawerHandler">
+       <pxb-drawer [variant]="variant" (drawerOpenChange)="drawerOpenChange()" [variantDrawerHandler]="variantDrawerHandler">
             <pxb-drawer-header
                 title="PX Blue Drawer"
                 subtitle="Organize your menu items here"

@@ -25,7 +25,6 @@ Parent element (`<pxb-drawer>`) attributes:
 
 | @Input               | Description                               | Type                                       | Required | Default   |
 | -------------------- | ----------------------------------------- | ------------------------------------------ | -------- | ----------|
-| drawerOpen           | Whether the drawer is open or closed      | `boolean`                                  | no       |           |
 | variant              | Sets the drawer variant                   | `'permanent' | 'persistent' | 'temporary'` | no       |           |
 | variantDrawerHandler | Handles drawerOpen for persistent variant | `boolean`                                  | no       |           |
 
