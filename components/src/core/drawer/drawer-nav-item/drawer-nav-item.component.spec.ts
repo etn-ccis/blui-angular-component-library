@@ -31,11 +31,7 @@ describe('DrawerNavItemComponent', () => {
 
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
-        const classList = [
-          '.pxb-drawer-nav-item',
-          '.pxb-drawer-nav-item-icon-wrapper',
-          '.pxb-drawer-nested-nav-item'
-        ];
+        const classList = ['.pxb-drawer-nav-item', '.pxb-drawer-nav-item-icon-wrapper', '.pxb-drawer-nested-nav-item'];
         for (const className of classList) {
             count(fixture, className);
         }

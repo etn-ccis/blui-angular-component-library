@@ -11,7 +11,6 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
                 title="PX Blue Drawer"
                 subtitle="Organize your menu items here"
                 class="test-background-image"
-                [drawerOpen]="drawerOpen"
             >
                 <button
                     mat-icon-button
@@ -23,12 +22,12 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
                 </button>
             </pxb-drawer-header>
 
-            <pxb-drawer-subheader [drawerOpen]="drawerOpen">
+            <pxb-drawer-subheader>
                 Subheader goes here
             </pxb-drawer-subheader>
 
             <pxb-drawer-body>
-                <pxb-drawer-nav-group *ngFor="let navGroup of navGroups" [title]="navGroup.title" [drawerOpen]="drawerOpen">
+                <pxb-drawer-nav-group *ngFor="let navGroup of navGroups" [title]="navGroup.title">
                     <pxb-drawer-nav-item
                         *ngFor="let navItem of navGroup.items;"
                         [title]="navItem.title"
@@ -56,7 +55,7 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
                 </pxb-drawer-nav-group>
             </pxb-drawer-body>
 
-            <pxb-drawer-footer [drawerOpen]="drawerOpen">
+            <pxb-drawer-footer>
                 <img src="../assets/EatonLogo.svg" alt="Eaton Logo"/>
             </pxb-drawer-footer>
         </pxb-drawer>

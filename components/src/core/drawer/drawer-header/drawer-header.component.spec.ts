@@ -85,7 +85,7 @@ describe('DrawerHeaderComponent', () => {
         );
     });
 
-    it('should enforce class naming conventions', () => {       
+    it('should enforce class naming conventions', () => {
         spyOn(component, 'ngOnInit').and.stub();
         component.title = 'test title';
         component.subtitle = 'test subtitle';

@@ -12,7 +12,6 @@ const iconSet = require('@pxblue/icons-svg/icons.svg');
     encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
-    drawerBodyTestItems;
     colors: Record<string, any>;
     drawerOpen = true;
     variant = 'persistent';
@@ -41,6 +40,8 @@ export class AppComponent {
         this.updateChildDrawer();
     }
 
+    // end user is responsible for state management of the following:
+    // @TODO: Joe check these out!
     toggleDrawer(): void {
         if (this.variant !== 'permanent') {
             this.drawerOpen = !this.drawerOpen;

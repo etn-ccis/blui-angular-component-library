@@ -14,11 +14,11 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 class DrawerRenderTest {}
 
 @Component({
-  template: `
-      <pxb-drawer-layout>
-          <div content id="test-content"></div>
-      </pxb-drawer-layout>
-  `,
+    template: `
+        <pxb-drawer-layout>
+            <div content id="test-content"></div>
+        </pxb-drawer-layout>
+    `,
 })
 class ContentRenderTest {}
 
@@ -28,10 +28,7 @@ describe('DrawerLayoutComponent', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            declarations: [
-                DrawerRenderTest,
-                ContentRenderTest
-            ],
+            declarations: [DrawerRenderTest, ContentRenderTest],
             imports: [DrawerLayoutModule, NoopAnimationsModule],
         }).compileComponents();
         fixture = TestBed.createComponent(DrawerLayoutComponent);
@@ -50,18 +47,14 @@ describe('DrawerLayoutComponent', () => {
     });
 
     it('should render the content', () => {
-      const customFixture = TestBed.createComponent(ContentRenderTest);
-      customFixture.detectChanges();
-      expect(customFixture.nativeElement.querySelector('#test-content')).toBeTruthy();
-   });
+        const customFixture = TestBed.createComponent(ContentRenderTest);
+        customFixture.detectChanges();
+        expect(customFixture.nativeElement.querySelector('#test-content')).toBeTruthy();
+    });
 
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
-        const classList = [
-          '.pxb-drawer-layout',
-          '.pxb-side-nav-container',
-          '.pxb-nav-content'
-        ];
+        const classList = ['.pxb-drawer-layout', '.pxb-side-nav-container', '.pxb-nav-content'];
         for (const className of classList) {
             count(fixture, className);
         }

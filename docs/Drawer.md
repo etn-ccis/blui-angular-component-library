@@ -1,14 +1,67 @@
 # Drawer
 
-The `<pxb-drawer>` component is a wrapper around the [Angular Material Sidenav](https://material.angular.io/components/sidenav/overview) that adds specific PX Blue functionality and styling. It is used to organize content (typically navigation links) in a collapsible side panel. The `<pxb-drawer>` includes helper components for `<pxb-drawer-header>`, `<pxb-drawer-subheader>`, `<pxb-drawer-body>`, `<pxb-drawer-nav-group>`, `<pxb-drawer-footer>`, and `<pxb-drawer-layout>` to help organize the content.
+ The `<pxb-drawer>` is used to organize content (typically navigation links) within a `<pxb-drawer-layout>`. The `<pxb-drawer>` includes helper components for `<pxb-drawer-header>`, `<pxb-drawer-subheader>`, `<pxb-drawer-body>`, `<pxb-drawer-nav-group>`, `<pxb-drawer-footer>`, and `<pxb-drawer-layout>` to help organize the content.
 
 <div style="width: 100%; text-align: center">
     <img width="100%" style="max-width: 200px" alt="Nested Drawer" src="./images/drawer.png">
 </div>
 
+### Drawer Usage
+
+```html
+<pxb-drawer [variant]="variant" [drawerOpen]="drawerOpen" [variantDrawerHandler]="variantDrawerHandler" (drawerOpenChange)="onDrawerOpenChange()">
+    <pxb-drawer-header>Header content goes here</pxb-drawer-header>
+    <pxb-drawer-subheader>Subheader content goes here</pxb-drawer-subheader>
+    <pxb-drawer-body>Body content goes here</pxb-drawer-body>
+    <pxb-drawer-footer>Footer content goes here</pxb-drawer-footer>
+</pxb-drawer>
+```
+
+### Drawer API
+
+Parent element (`<pxb-drawer>`) attributes:
+
+<div style="overflow: auto;">
+
+| @Input               | Description                               | Type                                       | Required | Default   |
+| -------------------- | ----------------------------------------- | ------------------------------------------ | -------- | ----------|
+| drawerOpen           | Whether the drawer is open or closed      | `boolean`                                  | no       |           |
+| variant              | Sets the drawer variant                   | `'permanent' | 'persistent' | 'temporary'` | no       |           |
+| variantDrawerHandler | Handles drawerOpen for persistent variant | `boolean`                                  | no       |           |
+
+| @Output          | Description                              | Type           | Required | Default |
+| ---------------- | ---------------------------------------- | -------------- | -------- | ------- |
+| drawerOpenChange | Event triggered by toggling drawer       | 'EventEmitter' | no       |         |
+</div>
+
+The following child elements are projected into `<pxb-drawer>`:
+
+<div style="overflow: auto;">
+
+| Selector               | Description                             | Required | Default |
+| ---------------------- | --------------------------------------- | -------- | ------- |
+| [pxb-drawer-header]    | A component to render header content    | no       |         |
+| [pxb-drawer-subheader] | A component to render subheader content | no       |         |
+| [pxb-drawer-body]      | A component to render body content      | no       |         |
+| [pxb-drawer-footer]    | A component to render footer content    | no       |         |
+
+</div>
+
+### Drawer Classes
+
+Each PX Blue component has classes which can be used to override component styles: 
+
+<div style="overflow: auto;">
+
+| Name                                 | Description                                   |
+|--------------------------------------|-----------------------------------------------|
+| pxb-drawer                           | Styles applied to the root element            |
+
+</div>
+
 ## Drawer Layout
 
-The `<pxb-drawer-layout>` component is used to provide the appropriate resizing behavior for your main application content when used in conjunction with a PX Blue `<pxb-drawer>`. It accepts a drawer and content as child elements;
+The `<pxb-drawer-layout>` component is a wrapper around the [Angular Material Sidenav](https://material.angular.io/components/sidenav/overview) that adds specific PX Blue functionality and styling. The `<pxb-drawer-layout>` component is used to provide the appropriate resizing behavior for your main application content when used in conjunction with a PX Blue `<pxb-drawer>`. It accepts a drawer and content as child elements;
 
 ### Drawer Layout Usage
 
@@ -25,10 +78,10 @@ Parent element (`<pxb-drawer-layout>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input     | Description                         | Type                                       | Required | Default     |
-| ---------- | ----------------------------------- | ------------------------------------------ | -------- | ----------- |
-| drawerOpen | The text to show on the second line | `boolean`                                  | no       |             |
-| variant    | The text to show on the first line  | `'permanent' | 'persistent' | 'temporary'` | no       |             |
+| @Input     | Description                          | Type                                       | Required | Default     |
+| ---------- | ------------------------------------ | ------------------------------------------ | -------- | ----------- |
+| drawerOpen | Whether the drawer is open or closed | `boolean`                                  | no       |             |
+| variant    | Sets the drawer variant              | `'permanent' | 'persistent' | 'temporary'` | no       |             |
 
 | @Output       | Description                              | Type           | Required | Default |
 | ------------- | ---------------------------------------- | -------------- | -------- | ------- |
@@ -68,6 +121,14 @@ Each PX Blue component has classes which can be used to override component style
 
 The `<pxb-drawer-body>` is a wrapper for the main content of the Drawer. The typical use case is to display `<pxb-drawer-nav-group>` elements, but custom elements (e.g., for spacing) are accepted as well.
 
+### Drawer Body Usage
+
+```html
+<pxb-drawer-body>
+    drawer content goes here
+</pxb-drawer-body>
+```
+
 ### Drawer Body Classes
 
 Each PX Blue component has classes which can be used to override component styles: 
@@ -83,6 +144,14 @@ Each PX Blue component has classes which can be used to override component style
 ## Drawer Header
 
 The `<pxb-drawer-header>` contains the content at the top of the `<pxb-drawer>`. By default, it renders multiple lines of text in the PX Blue style.
+
+### Drawer Header Usage
+
+```html
+<pxb-drawer-header>
+    Drawer Header goes here
+</pxb-drawer-header>
+```
 
 ### Drawer Header API
 
@@ -140,16 +209,6 @@ The `<pxb-drawer-subheader>` is an optional section that renders below the heade
 
 ### Drawer Subheader API 
 
-Parent element (`<pxb-drawer-subheader>`) attributes:
-
-<div style="overflow: auto;">
-
-| @input     | Description                             | Type      | Required | Default |
-| ---------- | --------------------------------------- | --------- | -------- | ------- |
-| drawerOpen | Controls whether to show/hide component | `boolean` | yes      |         |
-
-</div>
-
 The following child element is projected into `<pxb-drawer-subheader>`:
 
 <div style="overflow: auto;">
@@ -176,6 +235,14 @@ Each PX Blue component has classes which can be used to override component style
 ## Drawer NavGroup
 A `<pxb-drawer-nav-group>` is used inside of the `<pxb-drawer-body>` to organize links/content. Each group consists of an (optional) group title and a series of NavItems.
 
+### Drawer NavGroup Usage
+
+```html
+<pxb-drawer-nav-group>
+    <pxb-drawer-nav-item></pxb-drawer-nav-item>
+</pxb-drawer-nav-group>
+```
+
 ### Drawer NavGroup API 
 
 Parent element (`<pxb-drawer-nav-group>`) attributes:
@@ -184,7 +251,6 @@ Parent element (`<pxb-drawer-nav-group>`) attributes:
 
 | @input     | Description                             | Type      | Required | Default |
 | ---------- | --------------------------------------- | --------- | -------- | ------- |
-| drawerOpen | Controls whether to show/hide component | `boolean` | yes      |         |
 | title      | Component to render a group title       | `string`  | no       |         |
 
 </div>
@@ -212,6 +278,7 @@ Each PX Blue component has classes which can be used to override component style
 </div>
 
 ## Drawer Nav Item
+The `<pxb-drawer-nav-item>` is a wrapper to the `<pxb-info-list-item>` that is meant to be used within a `<pxb-nav-group>`. It accepts `<pxb-drawer-nav-item>` as projected content to make nested nav items.
 
 ### Drawer NavItem API 
 
@@ -271,7 +338,7 @@ Each PX Blue component has classes which can be used to override component style
 
 ## Drawer Footer
 
-The `<pxb-drawer-footer>` is an optional section that renders at the bottom of the `<pxb-drawer-footer>`. It can be used to add any custom content (as children).
+The `<pxb-drawer-footer>` is an optional section that renders at the bottom of the `<pxb-drawer>`. It can be used to add any custom content (as children).
 
 ### Usage
 
@@ -283,16 +350,6 @@ The `<pxb-drawer-footer>` is an optional section that renders at the bottom of t
 
 ### Drawer Footer API 
 
-Parent element (`<pxb-drawer-footer>`) attributes:
-
-<div style="overflow: auto;">
-
-| @input     | Description                             | Type      | Required | Default |
-| ---------- | --------------------------------------- | --------- | -------- | ------- |
-| drawerOpen | Controls whether to show/hide component | `boolean` | yes      |         |
-
-</div>
-
 The following child element is projected into `<pxb-drawer-footer>`:
 
 <div style="overflow: auto;">
@@ -300,5 +357,18 @@ The following child element is projected into `<pxb-drawer-footer>`:
 | Selector        | Description               | Required | Default |
 | --------------- | ------------------------- | -------- | ------- |
 | [footerContent] | Custom content for footer | no       |         |
+
+</div>
+
+### Drawer Footer Classes
+
+Each PX Blue component has classes which can be used to override component styles: 
+
+<div style="overflow: auto;">
+
+| Name                                        | Description                                   |
+|---------------------------------------------|-----------------------------------------------|
+| pxb-drawer-footer                           | Styles applied to the root element            |
+| pxb-drawer-footer-content-wrapper           | Styles applied to footer content              | 
 
 </div>
