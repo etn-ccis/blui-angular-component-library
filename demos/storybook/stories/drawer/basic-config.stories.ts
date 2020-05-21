@@ -21,7 +21,11 @@ const setActive = (id: string): void => {
 
 export const withBasicConfig = (): any => ({
   styles: [
-    `
+    ` 
+        ::ng-deep storybook-dynamic-app-root>ng-component {
+          width: 100% !important;
+        }
+
         ::ng-deep .pxb-drawer {
             width: 350px !important;
             background-color: #ffffff !important;
