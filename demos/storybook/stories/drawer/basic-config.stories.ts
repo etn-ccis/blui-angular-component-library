@@ -34,7 +34,7 @@ export const withBasicConfig = (): any => ({
     `,
   ],
   template: `
-    <pxb-drawer-layout [drawerOpen]="drawerOpen" variant="permanent">
+    <pxb-drawer-layout [drawerOpen]="drawerOpen" variant="persistent">
         <pxb-drawer variant="persistent" drawer>
           <pxb-drawer-header [title]="drawerTitle">
             <mat-icon icon style="display: flex; padding-right: 32px;">menu</mat-icon>
