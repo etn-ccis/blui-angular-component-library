@@ -17,7 +17,10 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Spacer`, module)
     // @accessibility
     .addDecorator(withA11y)
     .addDecorator(storyWrapper())
-    .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('Spacer.md') } })
+    .addParameters({
+        ...STORY_PARAMS,
+        notes: { markdown: getReadMe('Spacer.md') },
+    })
     .add(README_STORY_NAME, getReadMeStory)
     .add('with flex layout', withFlexLayout)
     .add('with static layout', withStaticLayout);

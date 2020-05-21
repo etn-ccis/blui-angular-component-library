@@ -1066,18 +1066,13 @@
     tree-kill "1.2.2"
     webpack-sources "1.4.3"
 
-"@pxblue/angular-themes@^5.0.0-beta.1":
-  version "5.0.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@pxblue/angular-themes/-/angular-themes-5.0.0-beta.1.tgz#911b0faa35e23a3542f5de7ba20ae144b1427636"
-  integrity sha512-J3Rd5RahqVJqfrAlN2GFYQg3ejF3ofQREOAUTB9MHZ/zKythnJWv+OMzeCAMC1DJPlxZ1phAwYQ4/UyN+3P/ZA==
+"@pxblue/angular-themes@^5.0.0-beta.2":
+  version "5.0.0-beta.2"
+  resolved "https://registry.yarnpkg.com/@pxblue/angular-themes/-/angular-themes-5.0.0-beta.2.tgz#6fc9988f872f7bb3bfb2d2c2a3e342f539f3d190"
+  integrity sha512-PHKgrlhI7fzojLCWfFlbHi4KC/Jk6Y5CorxNplBTolLg6yb6Zg6LkXwBjBMHYKX8R0qddzP7Doz/H4rPzcTYGg==
   dependencies:
     "@pxblue/colors" "^2.0.0"
     typeface-open-sans "^0.0.75"
-
-"@pxblue/colors@^1.0.13":
-  version "1.0.13"
-  resolved "https://registry.yarnpkg.com/@pxblue/colors/-/colors-1.0.13.tgz#1ed76734267f77dd4b390836f61d01439fc35132"
-  integrity sha512-tneNNYclHmNNIbo6J7XXEumoJZLBXqeO2LFufWxRvIs5yeVVfaJN3zWREl1oo5KP67aDixYgEKB7LH0oeTL+lQ==
 
 "@pxblue/colors@^2.0.0":
   version "2.0.1"
@@ -1085,6 +1080,13 @@
   integrity sha512-Uceh+1Bd0acoC+KulmhxrUOkWMlOgnqXFLS02l5SHYRL3ggyjSgHBVMRp2DLt24e/OJn5tAOoNJTC9q77U297w==
   dependencies:
     "@pxblue/types" "^1.0.0"
+
+"@pxblue/colors@^3.0.0":
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/@pxblue/colors/-/colors-3.0.0.tgz#080fb5cfd5a08fea018ece7cac8022ed38f7878f"
+  integrity sha512-rMFW4an1V9M5KX4BiNzrbbaYe2fic4o9iGL8/bPYvITbeiwgAapyFX0VbMIoo8XKlIbNaxyn7oWnrxzI/tp8Rw==
+  dependencies:
+    "@pxblue/types" "^2.0.0"
 
 "@pxblue/eslint-config@^1.1.4":
   version "1.1.4"
@@ -1122,9 +1124,10 @@
   version "8.3.26"
   resolved "https://registry.yarnpkg.com/@schematics/angular/-/angular-8.3.26.tgz#adda1552de14126e4d0993b648b4ea6258a581ce"
   integrity sha512-NJCykMxB9RKL+Tmr9xHftUevsivKGsQZQKjkub528wrSgwrCWoFCxGWV31iOXkT3TlBWmuibH6MZkrWbCLX4Sw==
-  dependencies:
-    "@angular-devkit/core" "8.3.26"
-    "@angular-devkit/schematics" "8.3.26"
+"@pxblue/types@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@pxblue/types/-/types-2.0.0.tgz#3df970352aca5256974a10a97d75a2264bad1eba"
+  integrity sha512-rHABCqYALGjrDxdCfw/v4mFsHhE9y9+vdSD3VHfIzA3HY1g1Bp/VWwEuEXWbtj2H5n75D+jkMQZ0rTqSKY3vLw==
 
 "@schematics/update@0.803.26":
   version "0.803.26"

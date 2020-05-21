@@ -49,7 +49,10 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Score Card`, module)
     .addDecorator(withA11y)
     .addDecorator(storyWrapper())
     .addDecorator(scorecardContainer())
-    .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('ScoreCard.md') } })
+    .addParameters({
+        ...STORY_PARAMS,
+        notes: { markdown: getReadMe('ScoreCard.md') },
+    })
     .add(README_STORY_NAME, getReadMeStory)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
     .add('with custom header', withCustomHeader)

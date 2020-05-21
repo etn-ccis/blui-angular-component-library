@@ -5,16 +5,18 @@ export const withFlexLayout = (): any => ({
     styles: [
         `
         .horizontal {
-            width: 300px;
             height: 50px;
             display: flex;
             align-items: stretch;
         }
         .vertical {
-            width: 300px;
             height: 150px;
             display: flex;
             flex-direction: column;
+        }
+        .horizontal, .vertical {
+            width: 300px;
+            color: black;
         }
     `,
     ],

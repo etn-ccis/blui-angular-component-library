@@ -14,6 +14,13 @@ export const withStaticLayout = (): any => ({
             display: flex;
             flex-direction: column;
         }
+        .horizontal, .vertical {
+            color: black;
+        }
+        .mat-h4 {
+            text-align: center;
+            margin-top: 20px;
+        }
     `,
     ],
     template: `
@@ -31,9 +38,24 @@ export const withStaticLayout = (): any => ({
         </div>
       `,
     props: {
-        flex1: number('Item 1 Size (px)', 60, { range: true, min: 20, max: 100, step: 10 }),
-        flex2: number('Item 2 Size (px)', 60, { range: true, min: 20, max: 100, step: 10 }),
-        flex3: number('Item 3 Size (px)', 60, { range: true, min: 20, max: 100, step: 10 }),
+        flex1: number('Item 1 Size (px)', 60, {
+            range: true,
+            min: 20,
+            max: 100,
+            step: 10,
+        }),
+        flex2: number('Item 2 Size (px)', 60, {
+            range: true,
+            min: 20,
+            max: 100,
+            step: 10,
+        }),
+        flex3: number('Item 3 Size (px)', 60, {
+            range: true,
+            min: 20,
+            max: 100,
+            step: 10,
+        }),
         colors: Colors,
     },
 });

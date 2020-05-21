@@ -9,11 +9,11 @@ import {
     WITH_FULL_CONFIG_STORY_NAME,
     WITH_MIN_PROPS_STORY_NAME,
 } from '../../src/constants';
-import {getReadMe, getReadMeStory, storyWrapper, UtilModule} from '../../src/utils';
+import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/utils';
 import { withBasicConfig } from './with-basic-config.stories';
 import { withFullConfig } from './with-full-config.stories';
 import { withinAnInfoListItem } from './within-an-InfoListItem.stories';
-import {infoListItemWrapper} from "../info-list-item/_module.stories";
+import { infoListItemWrapper } from '../info-list-item/_module.stories';
 
 storiesOf(`${COMPONENT_SECTION_NAME}/List Item Tag`, module)
     .addDecorator(
@@ -23,7 +23,10 @@ storiesOf(`${COMPONENT_SECTION_NAME}/List Item Tag`, module)
     )
     .addDecorator(withKnobs)
     .addDecorator(storyWrapper())
-    .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('ListItemTag.md') } })
+    .addParameters({
+        ...STORY_PARAMS,
+        notes: { markdown: getReadMe('ListItemTag.md') },
+    })
     .add(README_STORY_NAME, getReadMeStory)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
     .add(WITH_FULL_CONFIG_STORY_NAME, withFullConfig);
@@ -37,5 +40,8 @@ storiesOf(`${COMPONENT_SECTION_NAME}/List Item Tag`, module)
     .addDecorator(withKnobs)
     .addDecorator(storyWrapper())
     .addDecorator(infoListItemWrapper())
-    .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('ListItemTag.md') } })
+    .addParameters({
+        ...STORY_PARAMS,
+        notes: { markdown: getReadMe('ListItemTag.md') },
+    })
     .add('within an InfoListItem', withinAnInfoListItem);
