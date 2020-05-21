@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input, ChangeDetectorRef } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
+import { DrawerService } from '../drawer.service';
 
 export type DrawerNavItem = {
     statusColor?: string;
@@ -67,7 +68,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 [divider]="divider ? 'full' : undefined"
                 [ngClass]="[selected ? 'pxb-info-list-item-active' : '', hidePadding ? 'hide-padding' : '']"
                 [class.round]="activeItemBackgroundShape === 'round'"
-                [class.square]="activeItemBackgroundShape === 'square'"
+                [class.square]="activeItemBackgroundShape === 'square' || !drawerOpen"
                 matRipple
                 [matRippleDisabled]="!ripple"
                 style="display:flex;"
@@ -136,6 +137,17 @@ export class DrawerNavItemComponent {
     @Input() title: string;
     @Input() useCustomIconAnimation = true;
     toggled = false;
+    drawerOpen: boolean;
+
+    constructor(public drawerService: DrawerService, private readonly changeDetector: ChangeDetectorRef) {}
+
+    ngOnInit(): void {
+        this.drawerOpen = this.drawerService.getDrawerOpen();
+        this.drawerService.drawerOpenChanges().subscribe((res: boolean) => {
+            this.drawerOpen = res;
+            this.changeDetector.detectChanges();
+        });
+    }
 
     toggleNestedNavItems(e: any): void {
         if (e) {
