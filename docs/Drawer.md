@@ -9,7 +9,7 @@
 ### Drawer Usage
 
 ```html
-<pxb-drawer [variant]="variant" [drawerOpen]="drawerOpen" [variantDrawerHandler]="variantDrawerHandler" (drawerOpenChange)="onDrawerOpenChange()">
+<pxb-drawer [variant]="variant" [variantDrawerHandler]="variantDrawerHandler" (drawerOpenChange)="onDrawerOpenChange()">
     <pxb-drawer-header>Header content goes here</pxb-drawer-header>
     <pxb-drawer-subheader>Subheader content goes here</pxb-drawer-subheader>
     <pxb-drawer-body>Body content goes here</pxb-drawer-body>
