@@ -35,6 +35,11 @@ echo "Checking ScoreCard..."
 echo -ne "  score-card.component: "
 if [ ! -f ./core/score-card/score-card.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
+echo "Checking Drawer..."
+echo -ne "  drawer.component: "
+if [ ! -f ./core/drawer/drawer.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+
+
 echo -e "\r\n${GREEN}-----------------------------------"
 echo -e "@pxblue/angular-components package successfully created"
 echo -e "-----------------------------------${NC}\r\n\r\n"
