@@ -6,6 +6,7 @@ import {
     Output,
     EventEmitter,
     SimpleChanges,
+    OnChanges,
 } from '@angular/core';
 import { DrawerService } from '../drawer.service';
 
@@ -37,7 +38,7 @@ type VariantType = 'permanent' | 'persistent' | 'temporary';
     `,
     styleUrls: ['./drawer-layout.component.scss'],
 })
-export class DrawerLayoutComponent {
+export class DrawerLayoutComponent implements OnChanges {
     @Input() drawerOpen: boolean;
     @Input() variant: VariantType;
     @Output() onDrawerClose: EventEmitter<any> = new EventEmitter();

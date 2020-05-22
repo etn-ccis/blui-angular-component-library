@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input, ChangeDetectorRef, OnInit } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { DrawerService } from '../drawer.service';
 
@@ -120,7 +120,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
         </div>
     `,
 })
-export class DrawerNavItemComponent {
+export class DrawerNavItemComponent implements OnInit {
     @Input() activeItemBackgroundShape: ActiveItemBackgroundShape = 'round';
     @Input() chevron = false;
     @Input() collapseIcon: string;
