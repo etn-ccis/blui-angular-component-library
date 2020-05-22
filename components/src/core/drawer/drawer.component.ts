@@ -20,7 +20,7 @@ export type VariantType = 'permanent' | 'persistent' | 'temporary';
         <div class="pxb-drawer">
             <!-- Drawer is responsible for managing the styles between the 4 subsections -->
             <ng-content select="pxb-drawer-header"></ng-content>
-            <div (mouseenter)="openDrawer()" (mouseleave)="closeDrawer()">
+            <div (mouseenter)="hoverDrawer()" (mouseleave)="unhoverDrawer()">
                 <ng-content select="pxb-drawer-subheader"></ng-content>
                 <ng-content select="pxb-drawer-body"></ng-content>
                 <ng-content select="pxb-drawer-footer"></ng-content>
@@ -47,7 +47,7 @@ export class DrawerComponent implements OnInit {
         this.variantDrawerHandler = this.drawerOpen;
     }
 
-    openDrawer(): void {
+    hoverDrawer(): void {
         if (this.variant === 'persistent') {
             if (this.drawerOpen) {
                 return;
@@ -57,7 +57,7 @@ export class DrawerComponent implements OnInit {
         }
     }
 
-    closeDrawer(): void {
+    unhoverDrawer(): void {
         if (this.variant === 'persistent') {
             if (this.variantDrawerHandler) {
                 return;
