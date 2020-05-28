@@ -48,10 +48,10 @@ export class DrawerComponent implements OnInit {
     }
 
     hoverDrawer(): void {
-        const openDrawer = () => {
-            this.drawerOpen = true
+        const openDrawer = (): void => {
+            this.drawerOpen = true;
             this.onDrawerOpenChange();
-        }
+        };
 
         if (this.variant === 'persistent') {
             if (this.drawerOpen) {
