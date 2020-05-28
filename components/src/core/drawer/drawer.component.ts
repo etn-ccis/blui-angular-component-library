@@ -48,12 +48,16 @@ export class DrawerComponent implements OnInit {
     }
 
     hoverDrawer(): void {
+        const openDrawer = () => {
+            this.drawerOpen = true
+            this.onDrawerOpenChange();
+        }
+
         if (this.variant === 'persistent') {
             if (this.drawerOpen) {
                 return;
             }
-            this.drawerOpen = true;
-            this.onDrawerOpenChange();
+            setTimeout(openDrawer, 300);
         }
     }
 
