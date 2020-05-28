@@ -111,7 +111,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
         </div>
         <!-- Nested Nav Items -->
         <div class="pxb-drawer-nested-nav-item">
-            <div *ngIf="showNestedNavItems" [@showNestedItemsAnimation]>
+            <div *ngIf="showNestedNavItems && drawerOpen" [@showNestedItemsAnimation]>
                 <ng-content
                     select="pxb-drawer-nav-item"
                     [ngClass]="selected ? 'pxb-info-list-item-active' : ''"
