@@ -27,7 +27,6 @@ export const withBasicConfig = (): any => ({
         }
 
         ::ng-deep .pxb-drawer {
-            width: 350px !important;
             background-color: #ffffff !important;
         }
 
