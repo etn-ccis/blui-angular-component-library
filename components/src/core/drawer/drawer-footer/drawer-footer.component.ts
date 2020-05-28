@@ -8,7 +8,8 @@ import { DrawerService } from '../drawer.service';
     template: `
         <div class="pxb-drawer-footer">
             <div
-                [ngStyle]="{ visibility: drawerOpen ? 'inherit' : 'hidden' }"
+                [class.pxb-drawer-footer-open]="drawerOpen"
+                [class.pxb-drawer-footer-closed]="!drawerOpen"
                 class="pxb-drawer-footer-content-wrapper"
             >
                 <ng-content></ng-content>

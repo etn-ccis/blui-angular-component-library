@@ -224,10 +224,12 @@ Each PX Blue component has classes which can be used to override component style
 
 <div style="overflow: auto;">
 
-| Name                                        | Description                                   |
-|---------------------------------------------|-----------------------------------------------|
-| pxb-drawer-subheader                        | Styles applied to the root element            |
-| pxb-drawer-subheader-content-wrapper        | Styles applied to custom subheaderContent     |
+| Name                                        | Description                                       |
+|---------------------------------------------|---------------------------------------------------|
+| pxb-drawer-subheader                        | Styles applied to the root element                |
+| pxb-drawer-subheader-content-wrapper        | Styles applied to custom subheaderContent         |
+| pxb-drawer-subheader-open                   | Styles applied to subheader when drawer is open   |
+| pxb-drawer-subheader-closed                 | Styles applied to subheader when drawer is closed |
 
 </div>
 
@@ -365,9 +367,11 @@ Each PX Blue component has classes which can be used to override component style
 
 <div style="overflow: auto;">
 
-| Name                                        | Description                                   |
-|---------------------------------------------|-----------------------------------------------|
-| pxb-drawer-footer                           | Styles applied to the root element            |
-| pxb-drawer-footer-content-wrapper           | Styles applied to footer content              | 
+| Name                                        | Description                                    |
+|---------------------------------------------|------------------------------------------------|
+| pxb-drawer-footer                           | Styles applied to the root element             |
+| pxb-drawer-footer-content-wrapper           | Styles applied to footer content               | 
+| pxb-drawer-footer-open                      | Styles applied to footer when drawer is open   |
+| pxb-drawer-footer-closed                    | Styles applied to footer when drawer is closed |
 
 </div>
