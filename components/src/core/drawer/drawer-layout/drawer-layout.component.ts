@@ -43,7 +43,7 @@ export class DrawerLayoutComponent implements OnChanges {
     @Input() variant: VariantType;
     @Output() onDrawerClose: EventEmitter<any> = new EventEmitter();
 
-    constructor(public drawerService: DrawerService) {}
+    constructor(private drawerService: DrawerService) {}
 
     ngOnChanges(changes: SimpleChanges): void {
         for (const propName in changes) {
