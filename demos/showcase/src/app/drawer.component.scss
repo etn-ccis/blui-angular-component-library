@@ -6,32 +6,12 @@
   height: 100%;
 
   .pxb-drawer-subheader {
-    color: map-get($pxb-black, 500);
-  }
-
-  .pxb-drawer-nav-group .mat-list-base {
-    color: map-get($pxb-black, 500);
-  }
-
-  .pxb-drawer-nested-nav-item {
-    background-color: map-get($pxb-gray, 50);
-  }
-
-  .pxb-info-list-item .mat-list-item-content {
-    color: map-get($pxb-black, 500);
-  }
-
-  .pxb-info-list-item .mat-list-item-content:hover {
-    background-color: map-get($pxb-gray, 100);
-  }
-
-  .pxb-info-list-item-active .pxb-info-list-item .mat-list-item-content {
-    color: map-get($pxb-blue, 500);
-  }
-
-  .pxb-info-list-item-active:after {
-    background-color: map-get($pxb-blue, 50);
-  }
+    height: 48px;
+    line-height: 3rem;
+    font-weight: 600;
+    padding-right: 16px;
+    padding-left: 16px;
+}
 
   .pxb-drawer-footer {
     .pxb-drawer-footer-content-wrapper {
