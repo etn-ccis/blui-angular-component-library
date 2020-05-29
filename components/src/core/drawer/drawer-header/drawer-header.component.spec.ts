@@ -52,6 +52,8 @@ describe('DrawerHeaderComponent', () => {
     });
 
     it('should render title', () => {
+        spyOn(component, 'ngOnInit').and.stub();
+        component.drawerOpen = true;
         component.title = 'test title';
         fixture.detectChanges();
         const title = fixture.debugElement.query(By.css('.pxb-drawer-header-title'));
@@ -59,6 +61,8 @@ describe('DrawerHeaderComponent', () => {
     });
 
     it('should render subtitle', () => {
+        spyOn(component, 'ngOnInit').and.stub();
+        component.drawerOpen = true;
         component.subtitle = 'test subtitle';
         fixture.detectChanges();
         const subtitle = fixture.debugElement.query(By.css('.pxb-drawer-header-subtitle'));
@@ -82,8 +86,11 @@ describe('DrawerHeaderComponent', () => {
     });
 
     it('should enforce class naming conventions', () => {
-        const customFixture = TestBed.createComponent(TestDrawerHeader);
-        customFixture.detectChanges();
+        spyOn(component, 'ngOnInit').and.stub();
+        component.title = 'test title';
+        component.subtitle = 'test subtitle';
+        component.drawerOpen = true;
+        fixture.detectChanges();
         const classList = [
             '.pxb-drawer-header',
             '.pxb-drawer-header-background',
@@ -94,7 +101,7 @@ describe('DrawerHeaderComponent', () => {
             '.pxb-drawer-header-title-content-wrapper',
         ];
         for (const className of classList) {
-            count(customFixture, className);
+            count(fixture, className);
         }
     });
 });

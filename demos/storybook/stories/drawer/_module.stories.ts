@@ -1,5 +1,5 @@
 import { MatIconModule } from '@angular/material/icon';
-import { DrawerHeaderModule } from '@pxblue/angular-components';
+import { DrawerModule } from '@pxblue/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import {
@@ -24,7 +24,12 @@ export const drawerContainer = () => (storyFn): any => {
 storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [DrawerHeaderModule, UtilModule, MatIconModule, CommonModule],
+            imports: [
+                DrawerModule,
+                UtilModule,
+                MatIconModule,
+                CommonModule,
+            ],
         })
     )
     .addDecorator(withKnobs)

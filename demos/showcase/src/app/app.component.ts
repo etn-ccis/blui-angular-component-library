@@ -13,6 +13,9 @@ const iconSet = require('@pxblue/icons-svg/icons.svg');
 })
 export class AppComponent {
     colors: Record<string, any>;
+    drawerOpen = true;
+    variant = 'persistent';
+    variantDrawerHandler: boolean;
     constructor(private readonly matIconRegistry: MatIconRegistry, private readonly domSanitizer: DomSanitizer) {
         this.colors = PXBColors;
         this.matIconRegistry.addSvgIconSetInNamespace(
@@ -29,5 +32,28 @@ export class AppComponent {
     clickDrawerHeaderButton(): void {
         // eslint-disable-next-line
         console.log('drawer header button clicked...');
+    }
+
+    setVariant(str: string): void {
+        this.drawerOpen = true;
+        this.variant = str;
+        this.updateChildDrawer();
+    }
+
+    // end user is responsible for state management of the following:
+    // @TODO: Joe check these out!
+    toggleDrawer(): void {
+        if (this.variant !== 'permanent') {
+            this.drawerOpen = !this.drawerOpen;
+        }
+    }
+
+    toggleDrawerAndUpdateChildDrawer(): void {
+        this.toggleDrawer();
+        this.updateChildDrawer();
+    }
+
+    updateChildDrawer(): void {
+        this.variantDrawerHandler = this.drawerOpen;
     }
 }

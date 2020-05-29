@@ -1,0 +1,10 @@
+.pxb-drawer-body {
+    width: 100%;
+}
+
+.pxb-drawer-nested-nav-item {
+    .pxb-info-list-item .mat-list-item-content {
+        padding-left: 24px;
+        height: 52px;
+    }
+}
