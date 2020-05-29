@@ -82,6 +82,7 @@ $denseHeight: 56px;
         }
         &.pxb-info-list-item-avatar > * {
             padding: 8px;
+            display: flex;
             border-radius: 50%;
         }
     }
