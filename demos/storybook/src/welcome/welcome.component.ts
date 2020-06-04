@@ -9,6 +9,7 @@ import * as Colors from '@pxblue/colors';
 const bg = require('../../assets/circles-bg.svg');
 const icon = require('../../assets/pxb-icon.svg');
 import { CommonModule } from '@angular/common';
+const packageJSON = require('@pxblue/angular-components/package.json');
 
 @Component({
     selector: 'welcome',
@@ -27,6 +28,7 @@ import { CommonModule } from '@angular/common';
                 <section class="mat-typography">
                     <div class="mat-display-3">Power Xpert <strong>Blue</strong></div>
                     <div class="mat-display-1" style="margin-top: -16px">Angular Component Library</div>
+                    <div class="mat-h3" *ngIf="package.version">v{{ package.version }}</div>
                     <div class="mat-h3 description">
                         Learn about and interact with our PX Blue components using Storybook.
                     </div>
@@ -59,6 +61,7 @@ export class WelcomeComponent implements OnInit, OnDestroy {
     pxbColors = Colors;
     background = `url(${bg})`;
     pxbIcon = icon;
+    package = packageJSON;
 
     ngOnInit(): void {
         hideTopBanner();
@@ -74,4 +77,4 @@ export class WelcomeComponent implements OnInit, OnDestroy {
     declarations: [WelcomeComponent],
     exports: [WelcomeComponent, UtilModule],
 })
-export class WelcomeModule {}
+export class WelcomeModule { }
