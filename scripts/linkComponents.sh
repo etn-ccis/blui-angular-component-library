@@ -42,5 +42,5 @@ fi
 echo -e "${GRAY}Complete${NC}\r\n"
 
 echo -en "${BLUE}Copying package.json...${NC}";
-cp ./components/package.json ./demos/storybook/src/_package.json
+cp ./components/package.json ./demos/storybook/assets/_package.json
 echo -e "${GRAY}Complete${NC}\r\n"

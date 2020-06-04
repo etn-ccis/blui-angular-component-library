@@ -6,10 +6,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { hideTopBanner, showTopBanner, UtilModule } from '../utils';
 import * as Colors from '@pxblue/colors';
+import { CommonModule } from '@angular/common';
 const bg = require('../../assets/circles-bg.svg');
 const icon = require('../../assets/pxb-icon.svg');
-import { CommonModule } from '@angular/common';
-const packageJson = require('../_package.json');
+const packageJson = require('../../assets/_package.json');
 
 @Component({
     selector: 'welcome',
