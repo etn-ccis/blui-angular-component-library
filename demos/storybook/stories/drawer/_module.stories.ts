@@ -3,10 +3,10 @@ import {DrawerModule} from '@pxblue/angular-components';
 import {withKnobs} from '@storybook/addon-knobs';
 import {moduleMetadata, storiesOf} from '@storybook/angular';
 import {COMPONENT_SECTION_NAME, README_STORY_NAME, STORY_PARAMS, WITH_MIN_PROPS_STORY_NAME,} from '../../src/constants';
-import {getReadMe, getReadMeStory, isDarkMode, storyWrapper, UtilModule} from '../../src/utils';
+import {getReadMe, getReadMeStory, storyWrapper, UtilModule} from '../../src/utils';
 import {withA11y} from '@storybook/addon-a11y';
 import {withBasicConfig} from './basic-config.stories';
-import * as Colors from "@pxblue/colors";
+import {withCustomHeader} from './with-custom-header.stories';
 import {MatButtonModule} from "@angular/material/button";
 
 export const drawerWrapper = () => (storyFn): any => {
@@ -36,4 +36,5 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     .addDecorator(drawerWrapper())
     .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('Drawer.md') } })
     .add(README_STORY_NAME, getReadMeStory)
-    .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig);
+    .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
+    .add('with custom header', withCustomHeader);

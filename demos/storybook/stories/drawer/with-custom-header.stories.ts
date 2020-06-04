@@ -8,7 +8,7 @@ export const navItems = [
   { title: 'Notifications', icon: 'notifications_active', itemID: '4', onClick: action('Selected: Notifications') }
 ];
 
-export const withBasicConfig = (): any => ({
+export const withCustomHeader = (): any => ({
   template: `
         <pxb-drawer [open]="state.open">
           <pxb-drawer-header [title]="drawerTitle">
