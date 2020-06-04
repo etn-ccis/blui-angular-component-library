@@ -1,13 +1,9 @@
-.pxb-drawer-footer,
-.pxb-drawer-footer-content-wrapper {
-    width: 100%;
-}
 
 .pxb-drawer-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
+    justify-content: center;
+    align-content: center;
+    display: flex;
+    width: 100%;
 }
 
 .pxb-drawer-footer-open {

@@ -1,5 +1,5 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation, OnInit, ChangeDetectorRef } from '@angular/core';
-import { DrawerService } from '../service/drawer.service';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewEncapsulation} from '@angular/core';
+import {DrawerService} from '../service/drawer.service';
 import {StateListener} from "../state-listener.component";
 
 @Component({
@@ -8,13 +8,7 @@ import {StateListener} from "../state-listener.component";
     encapsulation: ViewEncapsulation.None,
     template: `
         <div class="pxb-drawer-footer">
-            <div
-                [class.pxb-drawer-footer-open]="drawerOpen"
-                [class.pxb-drawer-footer-closed]="!drawerOpen"
-                class="pxb-drawer-footer-content-wrapper"
-            >
-                <ng-content></ng-content>
-            </div>
+            <ng-content></ng-content>
         </div>
     `,
     styleUrls: ['./drawer-footer.component.scss'],

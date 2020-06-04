@@ -1,9 +1,23 @@
 .pxb-drawer {
-    width: 360px;
+    display: flex;
+    flex-direction: column;
     height: 100%;
+    width: 360px;
     transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
+    pxb-drawer-header, pxb-drawer-subheader, pxb-drawer-body, pxb-drawer-footer {
+        display: flex;
+        flex-direction: column;
+    }
+    pxb-drawer-body {
+        height: 100%;
+        flex: 1 1 0px;
+    }
 }
 
 .collapse {
     width: 56px;
 }
+
+
+

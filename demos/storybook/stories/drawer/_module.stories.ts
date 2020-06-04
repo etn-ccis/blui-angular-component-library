@@ -17,6 +17,8 @@ import { withSubheader } from './with-subheader.stories';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { withMultiNavGroups } from './with-multiple-nav-groups.stories';
+import {withFooter} from "./with-footer.stories";
+import {MatDividerModule} from "@angular/material/divider";
 
 export const drawerWrapper = () => (storyFn): any => {
     const story = storyFn();
@@ -50,7 +52,7 @@ export const drawerWrapper = () => (storyFn): any => {
 storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [DrawerModule, UtilModule, MatFormFieldModule, MatInputModule, MatButtonModule, MatIconModule],
+            imports: [DrawerModule, UtilModule, MatFormFieldModule, MatDividerModule, MatInputModule, MatButtonModule, MatIconModule],
         })
     )
     .addDecorator(withKnobs)
@@ -63,4 +65,5 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
     .add('with custom header', withCustomHeader)
     .add('with subheader', withSubheader)
-    .add('with multiple nav groups', withMultiNavGroups);
+    .add('with multiple nav groups', withMultiNavGroups)
+    .add('with a footer', withFooter);
