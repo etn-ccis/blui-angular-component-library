@@ -63,6 +63,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
     template: `
         <div class="pxb-drawer-nav-item">
             <pxb-info-list-item
+                (click)="selectItem(itemID)"
                 class="pxb-info-list-item"
                 [statusColor]="statusColor"
                 [chevron]="chevron"
@@ -142,6 +143,10 @@ export class DrawerNavItemComponent extends StateListener {
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
+    }
+
+    selectItem(id: string): void {
+        this.drawerService.select(id);
     }
 
     toggleNestedNavItems(e: any): void {

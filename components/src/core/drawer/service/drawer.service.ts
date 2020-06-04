@@ -7,6 +7,7 @@ import { Observable, Subject } from 'rxjs';
 export class DrawerService {
     drawerOpen;
     drawerOpenObs = new Subject<boolean>();
+    drawerSelectObs = new Subject<string>();
 
     setDrawerOpen(drawerOpen: boolean): void {
         this.drawerOpen = drawerOpen;
@@ -19,5 +20,13 @@ export class DrawerService {
 
     drawerOpenChanges(): Observable<boolean> {
         return this.drawerOpenObs;
+    }
+
+    select(id: string): void {
+        this.drawerSelectObs.next(id);
+    }
+
+    drawerSelectionChanges(): Observable<string> {
+        return this.drawerSelectObs;
     }
 }

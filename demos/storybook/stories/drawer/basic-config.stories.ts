@@ -24,6 +24,7 @@ export const withBasicConfig = (): any => ({
            <pxb-drawer-body>
               <pxb-drawer-nav-item *ngFor="let navItem of navItems"
                 [title]="navItem.title"
+                [itemID]="navItem.itemID"
                 [selected]="state.selected === navItem.itemID"
                 (click)="navItem.onClick(); setActive(navItem.itemID, state);">
                 <mat-icon icon>{{ navItem.icon }}</mat-icon>

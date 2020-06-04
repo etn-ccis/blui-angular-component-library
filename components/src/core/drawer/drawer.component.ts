@@ -1,14 +1,5 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    ViewEncapsulation,
-    Input,
-    Output,
-    EventEmitter,
-    OnInit,
-    ChangeDetectorRef,
-} from '@angular/core';
-import { DrawerService } from './service/drawer.service';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, ViewEncapsulation,} from '@angular/core';
+import {DrawerService} from './service/drawer.service';
 import {StateListener} from "./state-listener.component";
 import {Subscription} from "rxjs";
 
@@ -38,6 +29,7 @@ export class DrawerComponent extends StateListener {
     hoverDelay: any;
     tempOpen = false;
     drawerOpenListener: Subscription;
+    drawerSelectionListener: Subscription;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
@@ -46,6 +38,7 @@ export class DrawerComponent extends StateListener {
     ngOnInit(): void {
         this.drawerService.setDrawerOpen(this.open);
         this.listenForDrawerChanges();
+        this.listenForDrawerSelection();
     }
 
     // This broadcasts changes to all of the drawer state listeners.
@@ -70,5 +63,16 @@ export class DrawerComponent extends StateListener {
             this.drawerService.setDrawerOpen(false);
             this.changeDetector.detectChanges();
         }
+    }
+
+    // Close drawer on selection if drawer is only temporarily opened.
+    private listenForDrawerSelection(): void {
+        this.drawerSelectionListener = this.drawerService.drawerSelectionChanges().subscribe((id: string) => {
+            if (this.tempOpen) {
+                this.drawerService.setDrawerOpen(false);
+                this.tempOpen = false;
+                this.changeDetector.detectChanges();
+            }
+        });
     }
 }
