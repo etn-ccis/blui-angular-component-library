@@ -40,7 +40,3 @@ if [ ! -s ./demos/storybook/node_modules/@pxblue/angular-components ];
         fi;
 fi
 echo -e "${GRAY}Complete${NC}\r\n"
-
-echo -en "${BLUE}Copying package.json...${NC}";
-cp ./components/package.json ./demos/storybook/src/_package.json
-echo -e "${GRAY}Complete${NC}\r\n"
