@@ -16,4 +16,4 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 **/**/.DS_Store
-demos/storybook/assets/_package.json
+demos/storybook/src/_package.json
