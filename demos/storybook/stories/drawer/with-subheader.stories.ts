@@ -4,7 +4,7 @@ import { text } from '@storybook/addon-knobs';
 export const withSubheader = (): any => ({
     template: `
         <pxb-drawer [open]="state.open">
-          <pxb-drawer-header [title]="drawerTitle">
+          <pxb-drawer-header title="PX Blue Drawer" subtitle="with a subtitle">
              <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                <mat-icon>menu</mat-icon>
              </button>
@@ -29,6 +29,5 @@ export const withSubheader = (): any => ({
       `,
     props: {
         navItems: navItems,
-        drawerTitle: text('title', 'Subheader Demo'),
     },
 });

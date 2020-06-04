@@ -15,20 +15,27 @@ import {StateListener} from "../../state-listener.component";
                 font-weight: 600;
                 padding-top: 0;
             }
+            .pxb-drawer-nav-group mat-list {
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis;
+            }
         `,
     ],
     template: `
         <div class="pxb-drawer-nav-group">
-            <mat-list>
+            <mat-list *ngIf="title">
                 <mat-list-item class="pxb-drawer-nav-group-title" *ngIf="drawerOpen">{{ title }}</mat-list-item>
             </mat-list>
-            <mat-divider></mat-divider>
+            <ng-content select="titleContent"></ng-content>
+            <mat-divider *ngIf="divider"></mat-divider>
             <ng-content select="pxb-drawer-nav-item"></ng-content>
         </div>
     `,
 })
-export class DrawerNavGroupComponent extends StateListener {
+export class DrawerNavGroupComponent extends StateListener implements Omit<DrawerNavGroup, 'items'>{
     @Input() title: string;
+    @Input() divider = true;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
@@ -36,6 +43,7 @@ export class DrawerNavGroupComponent extends StateListener {
 }
 
 export type DrawerNavGroup = {
+    divider: boolean;
     title: string;
     items: DrawerNavItem[];
 };
