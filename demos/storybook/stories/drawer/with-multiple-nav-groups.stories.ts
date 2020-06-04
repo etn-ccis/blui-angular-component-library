@@ -1,6 +1,6 @@
-import {navItems} from "./basic-config.stories";
-import {text} from "@storybook/addon-knobs";
-import {action} from "@storybook/addon-actions";
+import { navItems } from './basic-config.stories';
+import { text } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 
 export const navItems2 = [
     {

@@ -7,13 +7,7 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatRippleModule } from '@angular/material/core';
 @NgModule({
     declarations: [DrawerNavItemComponent],
-    imports: [
-        CommonModule,
-        InfoListItemModule,
-        MatIconModule,
-        MatDividerModule,
-        MatRippleModule,
-    ],
+    imports: [CommonModule, InfoListItemModule, MatIconModule, MatDividerModule, MatRippleModule],
     exports: [DrawerNavItemComponent],
 })
 export class DrawerNavItemModule {}

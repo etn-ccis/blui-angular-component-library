@@ -1,6 +1,6 @@
-import {ChangeDetectorRef, Component, Input, ViewEncapsulation,} from '@angular/core';
-import {DrawerService} from '../service/drawer.service';
-import {StateListener} from "../state-listener.component";
+import { ChangeDetectorRef, Component, Input, ViewEncapsulation } from '@angular/core';
+import { DrawerService } from '../service/drawer.service';
+import { StateListener } from '../state-listener.component';
 
 export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
 

@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input, OnInit, ChangeDetectorRef } from '@angular/core';
 import { DrawerNavItem } from '../nav-item/drawer-nav-item.component';
 import { DrawerService } from '../../service/drawer.service';
-import {StateListener} from "../../state-listener.component";
+import { StateListener } from '../../state-listener.component';
 
 @Component({
     selector: 'pxb-drawer-nav-group',
@@ -33,7 +33,7 @@ import {StateListener} from "../../state-listener.component";
         </div>
     `,
 })
-export class DrawerNavGroupComponent extends StateListener implements Omit<DrawerNavGroup, 'items'>{
+export class DrawerNavGroupComponent extends StateListener implements Omit<DrawerNavGroup, 'items'> {
     @Input() title: string;
     @Input() divider = true;
 

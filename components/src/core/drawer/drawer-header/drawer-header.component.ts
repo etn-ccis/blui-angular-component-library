@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
-import {StateListener} from "../state-listener.component";
+import { StateListener } from '../state-listener.component';
 
 @Component({
     selector: 'pxb-drawer-header',

@@ -1,7 +1,7 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, ViewEncapsulation,} from '@angular/core';
-import {DrawerService} from './service/drawer.service';
-import {StateListener} from "./state-listener.component";
-import {Subscription} from "rxjs";
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, ViewEncapsulation } from '@angular/core';
+import { DrawerService } from './service/drawer.service';
+import { StateListener } from './state-listener.component';
+import { Subscription } from 'rxjs';
 
 export type VariantType = 'permanent' | 'persistent' | 'temporary';
 
@@ -52,7 +52,7 @@ export class DrawerComponent extends StateListener {
                 this.tempOpen = true;
                 this.drawerService.setDrawerOpen(true);
                 this.changeDetector.detectChanges();
-            } , 500);
+            }, 500);
         }
     }
 

@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, OnInit, ChangeDetectorRef } from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
-import {StateListener} from "../state-listener.component";
+import { StateListener } from '../state-listener.component';
 
 @Component({
     selector: 'pxb-drawer-subheader',
@@ -21,7 +21,6 @@ import {StateListener} from "../state-listener.component";
     styleUrls: ['./drawer-subheader.component.scss'],
 })
 export class DrawerSubheaderComponent extends StateListener {
-
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
     }

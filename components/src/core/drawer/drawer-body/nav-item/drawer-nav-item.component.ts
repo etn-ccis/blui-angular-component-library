@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input, ChangeDetectorRef, OnInit } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
 import { DrawerService } from '../../service/drawer.service';
-import {StateListener} from "../../state-listener.component";
+import { StateListener } from '../../state-listener.component';
 
 export type DrawerNavItem = {
     statusColor?: string;

@@ -1,4 +1,4 @@
-import {navItems} from "./basic-config.stories";
+import { navItems } from './basic-config.stories';
 
 const bgImage = require('../../assets/EatonLogo.svg');
 
@@ -27,6 +27,6 @@ export const withFooter = (): any => ({
       `,
     props: {
         navItems: navItems,
-        bgImage: bgImage
+        bgImage: bgImage,
     },
 });
