@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation, ChangeDetectorRef, OnInit } from '@angular/core';
-import { DrawerService } from '../drawer.service';
+import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
+import { DrawerService } from '../service/drawer.service';
+import {StateListener} from "../state-listener.component";
 
 @Component({
     selector: 'pxb-drawer-header',
@@ -9,7 +10,7 @@ import { DrawerService } from '../drawer.service';
         <mat-toolbar class="pxb-drawer-header">
             <div class="pxb-drawer-header-background"></div>
             <div class="pxb-drawer-header-icon-wrapper">
-                <ng-content select="[icon]"></ng-content>
+                <ng-content select="[pxb-icon]"></ng-content>
             </div>
 
             <div *ngIf="!titleContentWrapper.innerHTML.trim()" class="pxb-drawer-header-title-wrapper">
@@ -30,18 +31,12 @@ import { DrawerService } from '../drawer.service';
     `,
     styleUrls: ['./drawer-header.component.scss'],
 })
-export class DrawerHeaderComponent implements OnInit {
+export class DrawerHeaderComponent extends StateListener {
     @Input() subtitle: string;
     @Input() title: string;
     drawerOpen: boolean;
 
-    constructor(public drawerService: DrawerService, private readonly changeDetector: ChangeDetectorRef) {}
-
-    ngOnInit(): void {
-        this.drawerOpen = this.drawerService.getDrawerOpen();
-        this.drawerService.drawerOpenChanges().subscribe((res: boolean) => {
-            this.drawerOpen = res;
-            this.changeDetector.detectChanges();
-        });
+    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+        super(drawerService, changeDetectorRef);
     }
 }

@@ -1,10 +1,13 @@
 .pxb-drawer-header {
-    padding-right: 0;
-    padding-left: 0;
     width: 100%;
     align-items: flex-start;
     box-sizing: border-box;
     position: relative;
+
+    &.mat-toolbar-single-row.mat-toolbar {
+        padding-right: 8px;
+        padding-left: 8px;
+    }
 
     .pxb-drawer-header-background {
         position: absolute;
@@ -18,7 +21,6 @@
     }
 
     .pxb-drawer-header-icon-wrapper {
-        height: 64px;
         display: flex;
         align-items: center;
         z-index: 1;

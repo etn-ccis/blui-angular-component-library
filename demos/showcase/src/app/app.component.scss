@@ -5,6 +5,11 @@
     white-space: nowrap;
 }
 
+.toolbar {
+    background-color: map-get($pxb-blue, 500) !important;
+    color: map-get($pxb-white, 50) !important;
+}
+
 .mat-card.container-card {
     margin: 0px 8px;
     padding: 0;

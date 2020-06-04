@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input, ChangeDetectorRef, OnInit } from '@angular/core';
 import { trigger, transition, style, animate } from '@angular/animations';
-import { DrawerService } from '../drawer.service';
+import { DrawerService } from '../../service/drawer.service';
+import {StateListener} from "../../state-listener.component";
 
 export type DrawerNavItem = {
     statusColor?: string;
@@ -120,7 +121,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
         </div>
     `,
 })
-export class DrawerNavItemComponent implements OnInit {
+export class DrawerNavItemComponent extends StateListener {
     @Input() activeItemBackgroundShape: ActiveItemBackgroundShape = 'round';
     @Input() chevron = false;
     @Input() collapseIcon: string;
@@ -139,14 +140,8 @@ export class DrawerNavItemComponent implements OnInit {
     toggled = false;
     drawerOpen: boolean;
 
-    constructor(public drawerService: DrawerService, private readonly changeDetector: ChangeDetectorRef) {}
-
-    ngOnInit(): void {
-        this.drawerOpen = this.drawerService.getDrawerOpen();
-        this.drawerService.drawerOpenChanges().subscribe((res: boolean) => {
-            this.drawerOpen = res;
-            this.changeDetector.detectChanges();
-        });
+    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+        super(drawerService, changeDetectorRef);
     }
 
     toggleNestedNavItems(e: any): void {

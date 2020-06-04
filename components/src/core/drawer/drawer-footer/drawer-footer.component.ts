@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, OnInit, ChangeDetectorRef } from '@angular/core';
-import { DrawerService } from '../drawer.service';
+import { DrawerService } from '../service/drawer.service';
+import {StateListener} from "../state-listener.component";
 
 @Component({
     selector: 'pxb-drawer-footer',
@@ -18,16 +19,10 @@ import { DrawerService } from '../drawer.service';
     `,
     styleUrls: ['./drawer-footer.component.scss'],
 })
-export class DrawerFooterComponent implements OnInit {
+export class DrawerFooterComponent extends StateListener {
     drawerOpen: boolean;
 
-    constructor(public drawerService: DrawerService, private readonly changeDetector: ChangeDetectorRef) {}
-
-    ngOnInit(): void {
-        this.drawerOpen = this.drawerService.getDrawerOpen();
-        this.drawerService.drawerOpenChanges().subscribe((res: boolean) => {
-            this.drawerOpen = res;
-            this.changeDetector.detectChanges();
-        });
+    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+        super(drawerService, changeDetectorRef);
     }
 }

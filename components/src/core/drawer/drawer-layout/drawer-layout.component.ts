@@ -1,22 +1,22 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    Input,
-    ViewEncapsulation,
-    Output,
-    EventEmitter,
-    SimpleChanges,
-    OnChanges,
-} from '@angular/core';
-import { DrawerService } from '../drawer.service';
+import {ChangeDetectorRef, Component, Input, ViewEncapsulation,} from '@angular/core';
+import {DrawerService} from '../service/drawer.service';
+import {StateListener} from "../state-listener.component";
 
-type VariantType = 'permanent' | 'persistent' | 'temporary';
+export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
 
 @Component({
     selector: 'pxb-drawer-layout',
-    changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
+        <mat-sidenav-container class="pxb-drawer-layout" (backdropClick)="closeDrawer()" autosize>
+            <mat-sidenav [mode]="getMode()" [opened]="isOpen()">
+                <ng-content select="[drawer]"></ng-content>
+            </mat-sidenav>
+            <mat-sidenav-content>
+                <ng-content select="[content]"></ng-content>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+        <!--
         <div class="pxb-drawer-layout">
             <mat-sidenav-container class="pxb-side-nav-container" (backdropClick)="closeDrawer()" autosize>
                 <mat-sidenav
@@ -25,7 +25,7 @@ type VariantType = 'permanent' | 'persistent' | 'temporary';
                     [class.pxb-drawer-permanent]="variant === 'permanent'"
                     [class.pxb-drawer-persistent]="variant === 'persistent'"
                     [class.pxb-drawer-temporary]="variant === 'temporary'"
-                    [ngClass]="[drawerOpen ? 'pxb-drawer-open' : 'pxb-drawer-closed']"
+                    [ngClass]="[isOpen() ? 'pxb-drawer-open' : 'pxb-drawer-closed']"
                     [opened]="isOpen()"
                 >
                     <ng-content select="[drawer]"></ng-content>
@@ -35,29 +35,31 @@ type VariantType = 'permanent' | 'persistent' | 'temporary';
                 </mat-sidenav-content>
             </mat-sidenav-container>
         </div>
+        -->
     `,
     styleUrls: ['./drawer-layout.component.scss'],
 })
-export class DrawerLayoutComponent implements OnChanges {
-    @Input() drawerOpen: boolean;
-    @Input() variant: VariantType;
-    @Output() onDrawerClose: EventEmitter<any> = new EventEmitter();
+export class DrawerLayoutComponent extends StateListener {
+    @Input() variant: DrawerLayoutVariantType;
+    drawerOpen: boolean;
 
-    constructor(private readonly drawerService: DrawerService) {}
+    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+        super(drawerService, changeDetectorRef);
+    }
 
-    ngOnChanges(changes: SimpleChanges): void {
-        for (const propName in changes) {
-            if (propName === 'drawerOpen') {
-                this.drawerService.setDrawerOpen(this.drawerOpen);
-            }
+    getMode(): string {
+        if (this.variant === 'temporary') {
+            return 'over';
+        } else {
+            return 'side';
         }
     }
 
     closeDrawer(): void {
-        this.onDrawerClose.emit();
+        this.drawerService.setDrawerOpen(false);
     }
 
     isOpen(): boolean {
-        return this.variant === 'permanent' || this.variant === 'persistent' ? true : this.drawerOpen;
+        return this.variant === 'permanent' || (this.variant === 'temporary' ? this.drawerOpen : true);
     }
 }

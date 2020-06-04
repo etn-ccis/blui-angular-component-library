@@ -22,7 +22,8 @@ import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
-import { DrawerComponent } from './drawer.component';
+import { DrawerComponent } from './drawer/drawer.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
     declarations: [AppComponent, DrawerComponent],
@@ -36,6 +37,7 @@ import { DrawerComponent } from './drawer.component';
         MatListModule,
         MatButtonModule,
         HttpClientModule,
+        MatToolbarModule,
         //pxblue
         NgProgressIconsModule,
         ChannelValueModule,

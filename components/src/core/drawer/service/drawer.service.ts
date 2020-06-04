@@ -5,11 +5,12 @@ import { Observable, Subject } from 'rxjs';
     providedIn: 'root',
 })
 export class DrawerService {
-    drawerOpen: boolean;
+    drawerOpen;
     drawerOpenObs = new Subject<boolean>();
 
     setDrawerOpen(drawerOpen: boolean): void {
         this.drawerOpen = drawerOpen;
+        console.log('new state: ' + this.drawerOpen);
         this.drawerOpenObs.next(this.drawerOpen);
     }
 

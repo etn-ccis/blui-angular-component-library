@@ -1,6 +1,7 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input, OnInit, ChangeDetectorRef } from '@angular/core';
-import { DrawerNavItem } from '../drawer-nav-item/public-api';
-import { DrawerService } from '../drawer.service';
+import { DrawerNavItem } from '../nav-item/drawer-nav-item.component';
+import { DrawerService } from '../../service/drawer.service';
+import {StateListener} from "../../state-listener.component";
 
 @Component({
     selector: 'pxb-drawer-nav-group',
@@ -26,18 +27,11 @@ import { DrawerService } from '../drawer.service';
         </div>
     `,
 })
-export class DrawerNavGroupComponent implements OnInit {
+export class DrawerNavGroupComponent extends StateListener {
     @Input() title: string;
-    drawerOpen: boolean;
 
-    constructor(public drawerService: DrawerService, private readonly changeDetector: ChangeDetectorRef) {}
-
-    ngOnInit(): void {
-        this.drawerOpen = this.drawerService.getDrawerOpen();
-        this.drawerService.drawerOpenChanges().subscribe((res: boolean) => {
-            this.drawerOpen = res;
-            this.changeDetector.detectChanges();
-        });
+    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+        super(drawerService, changeDetectorRef);
     }
 }
 

@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, OnInit, ChangeDetectorRef } from '@angular/core';
-import { DrawerService } from '../drawer.service';
+import { DrawerService } from '../service/drawer.service';
+import {StateListener} from "../state-listener.component";
 
 @Component({
     selector: 'pxb-drawer-subheader',
@@ -19,16 +20,9 @@ import { DrawerService } from '../drawer.service';
     `,
     styleUrls: ['./drawer-subheader.component.scss'],
 })
-export class DrawerSubheaderComponent implements OnInit {
-    drawerOpen: boolean;
+export class DrawerSubheaderComponent extends StateListener {
 
-    constructor(public drawerService: DrawerService, private readonly changeDetector: ChangeDetectorRef) {}
-
-    ngOnInit(): void {
-        this.drawerOpen = this.drawerService.getDrawerOpen();
-        this.drawerService.drawerOpenChanges().subscribe((res: boolean) => {
-            this.drawerOpen = res;
-            this.changeDetector.detectChanges();
-        });
+    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+        super(drawerService, changeDetectorRef);
     }
 }
