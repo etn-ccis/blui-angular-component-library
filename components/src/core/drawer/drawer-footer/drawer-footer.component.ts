@@ -7,7 +7,9 @@ import {StateListener} from "../state-listener.component";
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="pxb-drawer-footer">
+        <div class="pxb-drawer-footer"
+            [class.pxb-drawer-footer-open]="drawerOpen"
+            [class.pxb-drawer-footer-closed]="!drawerOpen">
             <ng-content></ng-content>
         </div>
     `,

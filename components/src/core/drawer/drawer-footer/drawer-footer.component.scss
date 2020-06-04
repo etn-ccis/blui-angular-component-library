@@ -1,9 +1,6 @@
-
 .pxb-drawer-footer {
-    justify-content: center;
-    align-content: center;
     display: flex;
-    width: 100%;
+    flex-direction: column;
 }
 
 .pxb-drawer-footer-open {
