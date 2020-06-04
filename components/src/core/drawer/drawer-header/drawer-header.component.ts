@@ -13,15 +13,9 @@ import {StateListener} from "../state-listener.component";
                 <div class="pxb-drawer-header-icon-wrapper">
                     <ng-content select="[pxb-icon]"></ng-content>
                 </div>
-                <div *ngIf="title" class="pxb-drawer-header-title-wrapper">
-                    
-                    <div *ngIf="title && drawerOpen" class="pxb-drawer-header-title">
-                        {{ title }}
-                    </div>
-    
-                    <div *ngIf="subtitle && drawerOpen" class="pxb-drawer-header-subtitle mat-subheading-2">
-                        {{ subtitle }}
-                    </div>
+                <div *ngIf="drawerOpen && title" class="pxb-drawer-header-title-wrapper">
+                    <div class="pxb-drawer-header-title">{{ title }}</div>
+                    <div *ngIf="subtitle" class="pxb-drawer-header-subtitle mat-subheading-2">{{ subtitle }}</div>
                 </div>
                 <ng-content *ngIf="drawerOpen" select="[titleContent]"></ng-content>
             </div>
