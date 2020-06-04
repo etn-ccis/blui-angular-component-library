@@ -10,7 +10,6 @@ export class DrawerService {
 
     setDrawerOpen(drawerOpen: boolean): void {
         this.drawerOpen = drawerOpen;
-        console.log('new state: ' + this.drawerOpen);
         this.drawerOpenObs.next(this.drawerOpen);
     }
 

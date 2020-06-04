@@ -12,6 +12,13 @@
     pxb-drawer-body {
         height: 100%;
         flex: 1 1 0px;
+        overflow: auto;
+    }
+
+    .pxb-drawer-hover-area {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
     }
 }
 
