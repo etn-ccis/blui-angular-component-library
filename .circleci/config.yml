@@ -68,6 +68,7 @@ jobs:
           name: Build Storybook
           command: |
             cp -r ./dist/. ./demos/storybook/node_modules/@pxblue/angular-components
+            cp ./components/package.json ./demos/storybook/assets/_package.json
             cd demos/storybook
 
             # If we are building the master branch, use the published component library.
