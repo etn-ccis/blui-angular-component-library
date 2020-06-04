@@ -11,10 +11,21 @@ import {MatButtonModule} from "@angular/material/button";
 
 export const drawerWrapper = () => (storyFn): any => {
     const story = storyFn();
+    const storyStyles = story.styles ? story.styles[0] : '';
     return {
         ...story,
         template: `<div style="box-sizing: border-box; height: 100%; padding: 16px">${story.template}</div>`,
-        styles: [`:host { display: flex; height: 100%; justify-content: center;}`],props: {
+        styles: [
+        `
+            :host { 
+                display: flex; 
+                height: 100%; 
+                justify-content: center;
+            }
+            ${storyStyles}
+            `
+        ],
+        props: {
             ...story.props,
             state: { selected: undefined, open: true },
             toggleDrawer: (state): void => { state.open = !state.open },
