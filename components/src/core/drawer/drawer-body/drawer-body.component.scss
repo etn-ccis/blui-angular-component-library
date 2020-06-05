@@ -4,3 +4,9 @@
         height: 52px;
     }
 }
+
+.pxb-drawer-body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
