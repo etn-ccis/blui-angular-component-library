@@ -1,15 +1,20 @@
 import { navItems } from './basic-config.stories';
-import {boolean, text} from '@storybook/addon-knobs';
+import { boolean, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 export const navItems2 = [
     {
         title: 'Contact',
         icon: 'contact_support',
-        itemID: 'g2i1',
+        itemID: 'group2_item1',
         onClick: action('Contact'),
     },
-    { title: 'Favorites', icon: 'favorite', itemID: 'g2i2', onClick: action('Selected: Favorites') },
+    {
+        title: 'Favorites',
+        icon: 'favorite',
+        itemID: 'group2_item2',
+        onClick: action('Selected: Favorites'),
+    },
 ];
 
 export const withMultiNavGroups = (): any => ({
@@ -46,6 +51,6 @@ export const withMultiNavGroups = (): any => ({
         navItems2: navItems2,
         groupTitle1: text('NavGroup 1 title', 'Group 1'),
         groupTitle2: text('NavGroup 2 title', 'Group 2'),
-        spacer: boolean('Add Spacer', false)
+        spacer: boolean('Add Spacer', false),
     },
 });

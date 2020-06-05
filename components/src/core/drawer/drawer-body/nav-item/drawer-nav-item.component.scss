@@ -28,10 +28,6 @@
         }
     }
 
-    .pxb-drawer-nested-nav-item {
-        user-select: none;
-    }
-
     .pxb-info-list-item * {
         z-index: 1;
     }
@@ -60,5 +56,16 @@
     .pxb-info-list-item-active.square:after {
         border-radius: 0;
         width: 100%;
+    }
+}
+
+
+
+.pxb-drawer-nested-nav-item {
+    .mat-expansion-panel-body {
+        padding: 0;
+    }
+    .mat-expansion-panel:not([class*='mat-elevation-z']) {
+        box-shadow: unset;
     }
 }

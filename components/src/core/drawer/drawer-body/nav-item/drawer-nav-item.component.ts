@@ -1,7 +1,14 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input, ChangeDetectorRef, OnInit } from '@angular/core';
-import { trigger, transition, style, animate } from '@angular/animations';
-import { DrawerService } from '../../service/drawer.service';
-import { StateListener } from '../../state-listener.component';
+import {
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    ElementRef,
+    Input, ViewChild,
+    ViewEncapsulation
+} from '@angular/core';
+import {animate, style, transition, trigger} from '@angular/animations';
+import {DrawerService} from '../../service/drawer.service';
+import {StateListener} from '../../state-listener.component';
 
 export type DrawerNavItem = {
     statusColor?: string;
@@ -9,7 +16,7 @@ export type DrawerNavItem = {
     subtitle?: string;
     chevron?: boolean;
     divider?: boolean;
-    items?: DrawerNavItem[];
+    items?: Array<Omit<DrawerNavItem, 'icon'>>;
     onClick?: any;
     icon?: string;
     itemID?: string;
@@ -28,42 +35,10 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./drawer-nav-item.component.scss'],
-    animations: [
-        trigger('showNestedItemsAnimation', [
-            transition(':enter', [
-                style({ height: 0, opacity: 0 }),
-                animate('300ms ease-out', style({ height: '*', opacity: 1 })),
-            ]),
-            transition(':leave', [
-                style({ height: '*', opacity: 1 }),
-                animate('200ms ease-out', style({ height: 0, opacity: 0 })),
-            ]),
-        ]),
-        trigger('rotateExpandIconAnimation', [
-            transition(':enter', [
-                style({ transform: 'rotate(180deg)' }),
-                animate('300ms linear', style({ transform: 'rotate(0deg)' })),
-            ]),
-            transition(':leave', [
-                style({ transform: 'rotate(0deg)' }),
-                animate('300ms linear', style({ transform: 'rotate(180deg)' })),
-            ]),
-        ]),
-        trigger('rotateCollapseIconAnimation', [
-            transition(':enter', [
-                style({ transform: 'rotate(-180deg)' }),
-                animate('300ms linear', style({ transform: 'rotate(0deg)' })),
-            ]),
-            transition(':leave', [
-                style({ transform: 'rotate(0deg)' }),
-                animate('300ms linear', style({ transform: 'rotate(-180deg)' })),
-            ]),
-        ]),
-    ],
     template: `
         <div class="pxb-drawer-nav-item">
             <pxb-info-list-item
-                (click)="selectItem(itemID)"
+                (click)="selectItem($event, itemID)"
                 class="pxb-info-list-item"
                 [statusColor]="statusColor"
                 [chevron]="chevron"
@@ -80,46 +55,31 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 </div>
                 <div title>{{ title }}</div>
                 <div subtitle>{{ subtitle }}</div>
+                <!--
                 <div rightContent *ngIf="hasChildren && expandIcon && !showNestedNavItems">
                     <mat-icon
                         class="pxb-drawer-nav-item-expand-icon"
-                        (click)="toggleNestedNavItems($event)"
-                        [@rotateExpandIconAnimation]
-                        [@.disabled]="!toggled || !useCustomIconAnimation"
                         >{{ expandIcon }}</mat-icon
                     >
                 </div>
                 <div rightContent *ngIf="hasChildren && collapseIcon && showNestedNavItems">
-                    <mat-icon
-                        class="pxb-drawer-nav-item-collapse-icon"
-                        (click)="toggleNestedNavItems($event)"
-                        [@rotateCollapseIconAnimation]
-                        [@.disabled]="!toggled || !useCustomIconAnimation"
-                        >{{ collapseIcon }}</mat-icon
-                    >
+                    <mat-icon class="pxb-drawer-nav-item-collapse-icon">{{ collapseIcon }}</mat-icon>
                 </div>
-                <div
-                    rightContent
-                    *ngIf="hasChildren && !expandIcon && !collapseIcon"
-                    (click)="toggleNestedNavItems($event)"
-                >
+                <div rightContent *ngIf="hasChildren && !expandIcon && !collapseIcon">
                     <mat-icon
                         class="pxb-drawer-nav-item-default-expand-icon"
                         [ngClass]="showNestedNavItems ? 'inverted' : ''"
                         >keyboard_arrow_down</mat-icon
                     >
-                </div>
+                </div> -->
             </pxb-info-list-item>
         </div>
         <!-- Nested Nav Items -->
-        <div class="pxb-drawer-nested-nav-item">
-            <div *ngIf="showNestedNavItems && drawerOpen" [@showNestedItemsAnimation]>
-                <ng-content
-                    select="pxb-drawer-nav-item"
-                    [ngClass]="selected ? 'pxb-info-list-item-active' : ''"
-                ></ng-content>
-            </div>
-        </div>
+        <mat-accordion *ngIf="hasChildren" displayMode="flat" class="pxb-drawer-nested-nav-item" #nestedNavItems>
+            <mat-expansion-panel [(expanded)]="showNestedNavItems && drawerOpen">    
+                <ng-content select="pxb-drawer-nav-item"></ng-content>
+            </mat-expansion-panel>
+        </mat-accordion>
     `,
 })
 export class DrawerNavItemComponent extends StateListener {
@@ -128,32 +88,44 @@ export class DrawerNavItemComponent extends StateListener {
     @Input() collapseIcon: string;
     @Input() divider = true;
     @Input() expandIcon: string;
-    @Input() hasChildren = false;
     @Input() hidePadding: boolean;
     @Input() itemID: string;
     @Input() ripple = true;
     @Input() selected: boolean;
-    @Input() showNestedNavItems = false;
     @Input() statusColor: string;
     @Input() subtitle: string;
     @Input() title: string;
     @Input() useCustomIconAnimation = true;
     toggled = false;
-    drawerOpen: boolean;
 
-    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+    drawerOpen: boolean;
+    hasChildren = true;
+    showNestedNavItems = false;
+
+    @ViewChild("nestedNavItems", { static: false }) nestedEl: ElementRef;
+
+
+    constructor(drawerService: DrawerService, private readonly changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
     }
 
-    selectItem(id: string): void {
+    ngAfterViewInit(): void {
+        this.hasChildren = this.nestedEl.nativeElement.children.length > 0;
+        this.showNestedNavItems = false;
+        this.changeDetectorRef.detectChanges();
+    }
+
+    selectItem(e: Event, id: string): void {
         this.drawerService.select(id);
+        if (this.hasChildren) {
+            this.toggleNestedNavItems(e);
+        }
     }
 
     toggleNestedNavItems(e: any): void {
-        if (e) {
-            e.stopPropagation();
-        }
         this.showNestedNavItems = !this.showNestedNavItems;
-        if (!this.toggled) this.toggled = !this.toggled;
+        if (!this.toggled) {
+            this.toggled = !this.toggled;
+        }
     }
 }
