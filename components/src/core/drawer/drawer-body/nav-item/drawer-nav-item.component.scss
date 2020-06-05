@@ -62,6 +62,9 @@
 
 
 .pxb-drawer-nested-nav-item {
+    .pxb-info-list-item .mat-list-item-content {
+        padding-left: 16px;
+    }
     .mat-expansion-panel-body {
         padding: 0;
     }
