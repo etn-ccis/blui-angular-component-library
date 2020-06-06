@@ -6,11 +6,8 @@
         z-index: 1;
     }
 
-    .pxb-info-list-item .mat-divider.mat-divider-horizontal {
-        width: 100%;
-        position: absolute;
-        margin-top: 0;
-        bottom: 0;
+    .pxb-info-list-item .pxb-info-list-item-icon-wrapper {
+        padding: 0;
     }
 
     .pxb-drawer-nav-item-default-expand-icon {
@@ -30,10 +27,6 @@
 
     .pxb-info-list-item * {
         z-index: 1;
-    }
-
-    .pxb-info-list-item .mat-list-item-content {
-        height: 52px;
     }
 
     .pxb-info-list-item .mat-list-item-content:hover {

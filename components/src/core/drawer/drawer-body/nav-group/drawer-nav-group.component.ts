@@ -1,7 +1,7 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input, OnInit, ChangeDetectorRef } from '@angular/core';
-import { DrawerNavItem } from '../nav-item/drawer-nav-item.component';
-import { DrawerService } from '../../service/drawer.service';
-import { StateListener } from '../../state-listener.component';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, ViewEncapsulation} from '@angular/core';
+import {DrawerNavItem} from '../nav-item/drawer-nav-item.component';
+import {DrawerService} from '../../service/drawer.service';
+import {StateListener} from '../../state-listener.component';
 
 @Component({
     selector: 'pxb-drawer-nav-group',
@@ -10,8 +10,6 @@ import { StateListener } from '../../state-listener.component';
     styles: [
         `
             .pxb-drawer-nav-group .mat-list-base {
-                height: 48px;
-                line-height: 3rem;
                 font-weight: 600;
                 padding-top: 0;
             }
@@ -29,7 +27,9 @@ import { StateListener } from '../../state-listener.component';
             </mat-list>
             <ng-content select="titleContent"></ng-content>
             <mat-divider *ngIf="divider"></mat-divider>
-            <ng-content select="pxb-drawer-nav-item"></ng-content>
+            <mat-nav-list>
+                <ng-content select="pxb-drawer-nav-item"></ng-content>
+            </mat-nav-list>
         </div>
     `,
 })

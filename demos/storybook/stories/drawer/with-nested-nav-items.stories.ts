@@ -7,12 +7,22 @@ export const nestedNavGroup: DrawerNavItem[] = [
         title: 'Identity Management',
         icon: 'perm_identity',
         itemID: 'group1_item1',
-        onClick: action('Selected: Identity Management'),
+        onSelect: action('Selected: Identity Management'),
         items: [
             {
                 title: 'History',
                 itemID: 'nested_item1',
-                onClick: action('Selected: History'),
+                onSelect: action('Selected: History'),
+            },
+            {
+                title: 'Permissions',
+                itemID: 'nested_item2',
+                onSelect: action('Selected: Permissions'),
+            },
+            {
+                title: 'Settings',
+                itemID: 'nested_item3',
+                onSelect: action('Selected: Settings'),
             }
         ]
     },
@@ -20,7 +30,7 @@ export const nestedNavGroup: DrawerNavItem[] = [
         title: 'Notifications',
         icon: 'notifications_active',
         itemID: 'group1_item4',
-        onClick: action('Selected: Notifications'),
+        onSelect: action('Selected: Notifications'),
     },
 ];
 
@@ -37,13 +47,13 @@ export const withNestedNavItems = (): any => ({
                 [title]="navItem.title"
                 [itemID]="navItem.itemID"
                 [selected]="state.selected === navItem.itemID"
-                (click)="navItem.onClick(); setActive(navItem, state);">
+                (select)="navItem.onSelect(); setActive(navItem, state);">
                 <mat-icon icon>{{ navItem.icon }}</mat-icon>
                     <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items"
                     [title]="nestedItem.title"
                     [itemID]="nestedItem.itemID"
                     [selected]="state.selected === nestedItem.itemID"
-                    (click)="nestedItem.onClick(); setActive(nestedItem, state);">
+                    (select)="nestedItem.onSelect(); setActive(nestedItem, state);">
                 </pxb-drawer-nav-item>
               </pxb-drawer-nav-item>
            </pxb-drawer-body>

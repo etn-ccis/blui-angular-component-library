@@ -7,13 +7,13 @@ export const navItems2 = [
         title: 'Contact',
         icon: 'contact_support',
         itemID: 'group2_item1',
-        onClick: action('Contact'),
+        onSelect: action('Contact'),
     },
     {
         title: 'Favorites',
         icon: 'favorite',
         itemID: 'group2_item2',
-        onClick: action('Selected: Favorites'),
+        onSelect: action('Selected: Favorites'),
     },
 ];
 
@@ -30,7 +30,7 @@ export const withMultiNavGroups = (): any => ({
                  <pxb-drawer-nav-item *ngFor="let navItem of navItems1"
                     [title]="navItem.title"
                     [selected]="state.selected === navItem.itemID"
-                    (click)="navItem.onClick(); setActive(navItem.itemID, state);">
+                    (select)="navItem.onSelect(); setActive(navItem.itemID, state);">
                     <mat-icon icon>{{ navItem.icon }}</mat-icon>
                  </pxb-drawer-nav-item>
               </pxb-drawer-nav-group>
@@ -39,7 +39,7 @@ export const withMultiNavGroups = (): any => ({
                  <pxb-drawer-nav-item *ngFor="let navItem of navItems2"
                     [title]="navItem.title"
                     [selected]="state.selected === navItem.itemID"
-                    (click)="navItem.onClick(); setActive(navItem.itemID, state);">
+                    (select)="navItem.onSelect(); setActive(navItem.itemID, state);">
                     <mat-icon icon>{{ navItem.icon }}</mat-icon>
                  </pxb-drawer-nav-item>
               </pxb-drawer-nav-group>

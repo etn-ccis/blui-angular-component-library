@@ -7,25 +7,25 @@ export const navItems: DrawerNavItem[] = [
         title: 'Identity Management',
         icon: 'perm_identity',
         itemID: 'group1_item1',
-        onClick: action('Selected: Identity Management'),
+        onSelect: action('Selected: Identity Management'),
     },
     {
         title: 'Calender',
         icon: 'today',
         itemID: 'group1_item2',
-        onClick: action('Selected: Calendar'),
+        onSelect: action('Selected: Calendar'),
     },
     {
         title: 'Accessibility',
         icon: 'accessibility',
         itemID: 'group1_item3',
-        onClick: action('Selected: Accessibility'),
+        onSelect: action('Selected: Accessibility'),
     },
     {
         title: 'Notifications',
         icon: 'notifications_active',
         itemID: 'group1_item4',
-        onClick: action('Selected: Notifications'),
+        onSelect: action('Selected: Notifications'),
     },
 ];
 
@@ -38,13 +38,15 @@ export const withBasicConfig = (): any => ({
              </button>
            </pxb-drawer-header>
            <pxb-drawer-body>
-              <pxb-drawer-nav-item *ngFor="let navItem of navItems"
-                [title]="navItem.title"
-                [itemID]="navItem.itemID"
-                [selected]="state.selected === navItem.itemID"
-                (click)="navItem.onClick(); setActive(navItem.itemID, state);">
-                <mat-icon icon>{{ navItem.icon }}</mat-icon>
-              </pxb-drawer-nav-item>
+              <pxb-drawer-nav-group>
+                   <pxb-drawer-nav-item *ngFor="let navItem of navItems"
+                    [title]="navItem.title"
+                    [itemID]="navItem.itemID"
+                    [selected]="state.selected === navItem.itemID"
+                    (select)="navItem.onSelect(); setActive(navItem.itemID, state);">
+                    <mat-icon icon>{{ navItem.icon }}</mat-icon>
+                  </pxb-drawer-nav-item>
+              </pxb-drawer-nav-group>
            </pxb-drawer-body>
         </pxb-drawer>
       `,

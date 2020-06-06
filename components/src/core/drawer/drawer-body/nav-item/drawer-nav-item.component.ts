@@ -3,10 +3,12 @@ import {
     ChangeDetectorRef,
     Component,
     ElementRef,
-    Input, ViewChild,
+    EventEmitter,
+    Input,
+    Output,
+    ViewChild,
     ViewEncapsulation
 } from '@angular/core';
-import {animate, style, transition, trigger} from '@angular/animations';
 import {DrawerService} from '../../service/drawer.service';
 import {StateListener} from '../../state-listener.component';
 
@@ -17,7 +19,7 @@ export type DrawerNavItem = {
     chevron?: boolean;
     divider?: boolean;
     items?: Array<Omit<DrawerNavItem, 'icon'>>;
-    onClick?: any;
+    onSelect?: any;
     icon?: string;
     itemID?: string;
     hasChildren?: boolean;
@@ -39,16 +41,17 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
         <div class="pxb-drawer-nav-item">
             <pxb-info-list-item
                 (click)="selectItem($event, itemID)"
-                class="pxb-info-list-item"
+                [dense]="true"
                 [statusColor]="statusColor"
                 [chevron]="chevron"
                 [divider]="divider ? 'full' : undefined"
-                [ngClass]="[selected ? 'pxb-info-list-item-active' : '', hidePadding ? 'hide-padding' : '']"
+                [class.pxb-info-list-item-active]="selected"
+                [class.hide-padding]="hidePadding"
                 [class.round]="activeItemBackgroundShape === 'round'"
                 [class.square]="activeItemBackgroundShape === 'square' || !drawerOpen"
                 matRipple
                 [matRippleDisabled]="!ripple"
-                style="display:flex;"
+                style="display:flex; flex-direction: column"
             >
                 <div class="pxb-drawer-nav-item-icon-wrapper" icon>
                     <ng-content select="[icon]"></ng-content>
@@ -82,7 +85,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
         </mat-accordion>
     `,
 })
-export class DrawerNavItemComponent extends StateListener {
+export class DrawerNavItemComponent extends StateListener implements Omit<DrawerNavItem, 'items'> {
     @Input() activeItemBackgroundShape: ActiveItemBackgroundShape = 'round';
     @Input() chevron = false;
     @Input() collapseIcon: string;
@@ -95,8 +98,7 @@ export class DrawerNavItemComponent extends StateListener {
     @Input() statusColor: string;
     @Input() subtitle: string;
     @Input() title: string;
-    @Input() useCustomIconAnimation = true;
-    toggled = false;
+    @Output() select: EventEmitter<string> = new EventEmitter<string>();
 
     drawerOpen: boolean;
     hasChildren = true;
@@ -118,14 +120,12 @@ export class DrawerNavItemComponent extends StateListener {
     selectItem(e: Event, id: string): void {
         this.drawerService.select(id);
         if (this.hasChildren) {
-            this.toggleNestedNavItems(e);
+            this.toggleNestedNavItems();
         }
+        this.select.emit(id);
     }
 
-    toggleNestedNavItems(e: any): void {
+    toggleNestedNavItems(): void {
         this.showNestedNavItems = !this.showNestedNavItems;
-        if (!this.toggled) {
-            this.toggled = !this.toggled;
-        }
     }
 }

@@ -27,7 +27,7 @@ export const withCustomHeader = (): any => ({
               <pxb-drawer-nav-item *ngFor="let navItem of navItems"
                 [title]="navItem.title"
                 [selected]="state.selected === navItem.itemID"
-                (click)="navItem.onClick(); setActive(navItem.itemID, state);">
+                (select)="navItem.onSelect(); setActive(navItem.itemID, state);">
                 <mat-icon icon>{{ navItem.icon }}</mat-icon>
               </pxb-drawer-nav-item>
             </pxb-drawer-body>
