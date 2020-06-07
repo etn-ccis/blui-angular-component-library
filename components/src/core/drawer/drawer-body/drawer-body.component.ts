@@ -9,6 +9,14 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
             <ng-content></ng-content> 
         </div>
     `,
-    styleUrls: ['./drawer-body.component.scss'],
+    styles: [
+        `
+            .pxb-drawer-body {
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+            }
+        `
+    ],
 })
 export class DrawerBodyComponent {}
