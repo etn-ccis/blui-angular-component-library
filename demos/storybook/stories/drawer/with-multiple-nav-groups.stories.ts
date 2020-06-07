@@ -5,13 +5,11 @@ import { action } from '@storybook/addon-actions';
 export const navItems2 = [
     {
         title: 'Contact',
-        icon: 'contact_support',
         itemID: 'group2_item1',
         onSelect: action('Contact'),
     },
     {
         title: 'Favorites',
-        icon: 'favorite',
         itemID: 'group2_item2',
         onSelect: action('Selected: Favorites'),
     },
@@ -38,9 +36,9 @@ export const withMultiNavGroups = (): any => ({
               <pxb-drawer-nav-group [title]="groupTitle2">
                  <pxb-drawer-nav-item *ngFor="let navItem of navItems2"
                     [title]="navItem.title"
+                    [hidePadding]="true"
                     [selected]="state.selected === navItem.title"
                     (select)="navItem.onSelect(); setActive(navItem.title, state);">
-                    <mat-icon icon>{{ navItem.icon }}</mat-icon>
                  </pxb-drawer-nav-item>
               </pxb-drawer-nav-group>
            </pxb-drawer-body>
@@ -49,8 +47,8 @@ export const withMultiNavGroups = (): any => ({
     props: {
         navItems1: navItems,
         navItems2: navItems2,
-        groupTitle1: text('NavGroup 1 title', 'Group 1'),
-        groupTitle2: text('NavGroup 2 title', 'Group 2'),
+        groupTitle1: text('NavGroup 1 title', 'Group 1 (with icons)'),
+        groupTitle2: text('NavGroup 2 title', 'Group 2 (no icons)'),
         spacer: boolean('Add Spacer', false),
     },
 });

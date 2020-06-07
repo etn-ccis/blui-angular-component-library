@@ -40,9 +40,9 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                     [dense]="true"
                     [statusColor]="statusColor"
                     [chevron]="chevron"
+                    [hidePadding]="hidePadding"
                     [divider]="divider ? 'full' : undefined"
                     [class.pxb-info-list-item-active]="selected"
-                    [class.hide-padding]="hidePadding"
                     [class.round]="activeItemBackgroundShape === 'round'"
                     [class.square]="activeItemBackgroundShape === 'square' || !drawerOpen"
                     matRipple
@@ -51,7 +51,10 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 <div class="pxb-drawer-nav-item-icon-wrapper" icon>
                     <ng-content select="[icon]"></ng-content>
                 </div>
-                <div title>{{ title }}</div>
+                <div title
+                     [class.pxb-drawer-nav-item-depth-1]="depth === 1"
+                     [class.pxb-drawer-nav-item-depth-2]="depth === 2"
+                     [class.pxb-drawer-nav-item-depth-3]="depth === 3">{{ title }}</div>
                 <div subtitle>{{ subtitle }}</div>
                 <mat-icon rightContent *ngIf="hasChildren" 
                           class="pxb-drawer-nav-item-expand-icon" [class.expanded]="expanded">expand_more</mat-icon>  
@@ -81,6 +84,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     isNestedItem: boolean;
     drawerOpen: boolean;
     hasChildren: boolean;
+    depth: number;
 
     @ContentChildren(DrawerNavItemComponent) nestedNavItems;
 
@@ -95,13 +99,22 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         }
     };
 
+    incrementDepth(parentDepth: number): void {
+        this.depth = parentDepth + 1;
+        for (const nestedItem of this.nestedNavItems._results.slice(1)) {
+            nestedItem.incrementDepth(this.depth);
+        }
+    }
+
     setNavItemDefaults(): void {
         if (this.divider === undefined)  this.divider = true;
+        this.incrementDepth(0);
     }
 
     setNestedDrawerDefaults(): void {
         this.isNestedItem = true;
         if (this.divider === undefined) this.divider = false;
+        if (this.hidePadding === undefined) this.hidePadding = true;
     }
 
     selectItem(): void {

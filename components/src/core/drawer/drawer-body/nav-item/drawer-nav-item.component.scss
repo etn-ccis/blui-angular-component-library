@@ -2,32 +2,30 @@
     position: relative;
     user-select: none;
 
-    * {
-        z-index: 1;
+
+    .pxb-drawer-nav-item-depth-1 {
+        padding-left: 0;
+    }
+    .pxb-drawer-nav-item-depth-2 {
+        padding-left: 0px;
+    }
+    .pxb-drawer-nav-item-depth-3 {
+        padding-left: 32px;
     }
 
     pxb-info-list-item {
         display: flex;
         flex-direction: column;
+        mat-list-item {
+            z-index: 1; // Used to keep text and icon above on-select highlight.
+        }
+        .mat-list-text {
+            padding-left: 0px!important; //TODO: Remove the !important, use higher specificity.
+        }
     }
 
     .pxb-info-list-item .pxb-info-list-item-icon-wrapper {
         padding: 0;
-    }
-
-    .hide-padding {
-        .pxb-info-list-item .pxb-info-list-item-icon-wrapper {
-            width: 0px;
-            min-width: 0px;
-        }
-    }
-
-    .pxb-info-list-item * {
-        z-index: 1;
-    }
-
-    .pxb-info-list-item .mat-list-item-content:hover {
-        cursor: pointer;
     }
 
     .pxb-info-list-item-active.round:after,
@@ -55,8 +53,6 @@
         }
     }
 }
-
-
 
 .pxb-drawer-nested-nav-item {
     .pxb-info-list-item .mat-list-item-content {

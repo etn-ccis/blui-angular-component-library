@@ -1,4 +1,11 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, ViewEncapsulation } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    Input,
+    OnChanges, OnInit,
+    ViewEncapsulation
+} from '@angular/core';
 import { DrawerService } from './service/drawer.service';
 import { StateListener } from './state-listener.component';
 import { Subscription } from 'rxjs';
@@ -22,13 +29,12 @@ export type VariantType = 'permanent' | 'persistent' | 'temporary';
     `,
     styleUrls: ['./drawer.component.scss'],
 })
-export class DrawerComponent extends StateListener {
+export class DrawerComponent extends StateListener implements OnInit, OnChanges{
     @Input() variant: VariantType;
     @Input() open: boolean;
 
     hoverDelay: any;
-    tempOpen = false;
-    drawerOpenListener: Subscription;
+    tempOpen = false; // Is the drawer being hovered and needs opened?
     drawerSelectionListener: Subscription;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
@@ -67,7 +73,7 @@ export class DrawerComponent extends StateListener {
 
     // Close drawer on selection if drawer is only temporarily opened.
     private listenForDrawerSelection(): void {
-        this.drawerSelectionListener = this.drawerService.drawerSelectionChanges().subscribe((id: string) => {
+        this.drawerSelectionListener = this.drawerService.drawerSelectionChanges().subscribe(() => {
             if (this.tempOpen) {
                 this.drawerService.setDrawerOpen(false);
                 this.tempOpen = false;

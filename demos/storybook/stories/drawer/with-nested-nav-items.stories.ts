@@ -14,6 +14,16 @@ export const nestedNavGroup: DrawerNavItem[] = [
             {
                 title: 'Permissions',
                 onSelect: action('Selected: Permissions'),
+                items: [
+                    {
+                        title: 'View',
+                        onSelect: action('Selected: View'),
+                    },
+                    {
+                        title: 'Request',
+                        onSelect: action('Selected: Request'),
+                    }
+                ]
             },
             {
                 title: 'Settings',
@@ -39,15 +49,20 @@ export const withNestedNavItems = (): any => ({
            <pxb-drawer-body>
               <pxb-drawer-nav-group>
                   <pxb-drawer-nav-item *ngFor="let navItem of navItems"
-                    [title]="navItem.title"
-                    [selected]="state.selected === navItem.title"
-                    (select)="navItem.onSelect(); setActive(navItem, state);">
-                    <mat-icon icon>{{ navItem.icon }}</mat-icon>
-                        <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items"
-                        [title]="nestedItem.title"
-                        [selected]="state.selected === nestedItem.title"
-                        (select)="nestedItem.onSelect(); setActive(nestedItem, state);">
-                    </pxb-drawer-nav-item>
+                     [title]="navItem.title"
+                     [selected]="state.selected === navItem.title"
+                     (select)="navItem.onSelect(); setActive(navItem, state);">
+                     <mat-icon icon>{{ navItem.icon }}</mat-icon>
+                     <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items"
+                       [title]="nestedItem.title"
+                       [selected]="state.selected === nestedItem.title"
+                       (select)="nestedItem.onSelect(); setActive(nestedItem, state);">
+                        <pxb-drawer-nav-item *ngFor="let deepItem of nestedItem.items"
+                           [title]="deepItem.title"
+                           [selected]="state.selected === deepItem.title"
+                           (select)="deepItem.onSelect(); setActive(deepItem, state);">
+                         </pxb-drawer-nav-item>
+                     </pxb-drawer-nav-item>
                   </pxb-drawer-nav-item>
               </pxb-drawer-nav-group>
            </pxb-drawer-body>
