@@ -6,10 +6,10 @@ import {
     EventEmitter,
     Input,
     Output,
-    ViewEncapsulation
+    ViewEncapsulation,
 } from '@angular/core';
-import {DrawerService} from '../../service/drawer.service';
-import {StateListener} from '../../state-listener.component';
+import { DrawerService } from '../../service/drawer.service';
+import { StateListener } from '../../state-listener.component';
 
 export type DrawerNavItem = {
     statusColor?: string;
@@ -36,28 +36,35 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
     template: `
         <div class="pxb-drawer-nav-item">
             <pxb-info-list-item
-                    (click)="selectItem()"
-                    [dense]="true"
-                    [statusColor]="statusColor"
-                    [chevron]="chevron"
-                    [hidePadding]="hidePadding"
-                    [divider]="divider ? 'full' : undefined"
-                    [class.pxb-info-list-item-active]="selected"
-                    [class.round]="activeItemBackgroundShape === 'round'"
-                    [class.square]="activeItemBackgroundShape === 'square' || !drawerOpen"
-                    matRipple
-                    [matRippleDisabled]="!ripple"
+                (click)="selectItem()"
+                [dense]="true"
+                [statusColor]="statusColor"
+                [chevron]="chevron"
+                [hidePadding]="hidePadding"
+                [divider]="divider ? 'full' : undefined"
+                [class.pxb-info-list-item-active]="selected"
+                [class.round]="activeItemBackgroundShape === 'round'"
+                [class.square]="activeItemBackgroundShape === 'square' || !drawerOpen"
+                [matRippleDisabled]="!ripple"
+                matRipple
             >
-                <div class="pxb-drawer-nav-item-icon-wrapper" icon>
-                    <ng-content select="[icon]"></ng-content>
+                <ng-content icon select="[icon]"></ng-content>
+                <div *ngIf="drawerOpen"
+                    title
+                    [class.pxb-drawer-nav-item-depth-1]="depth === 1"
+                    [class.pxb-drawer-nav-item-depth-2]="depth === 2"
+                    [class.pxb-drawer-nav-item-depth-3]="depth === 3"
+                >
+                    {{ title }}
                 </div>
-                <div title
-                     [class.pxb-drawer-nav-item-depth-1]="depth === 1"
-                     [class.pxb-drawer-nav-item-depth-2]="depth === 2"
-                     [class.pxb-drawer-nav-item-depth-3]="depth === 3">{{ title }}</div>
-                <div subtitle>{{ subtitle }}</div>
-                <mat-icon rightContent *ngIf="hasChildren" 
-                          class="pxb-drawer-nav-item-expand-icon" [class.expanded]="expanded">expand_more</mat-icon>  
+                <div *ngIf="drawerOpen" subtitle>{{ subtitle }}</div>
+                <mat-icon
+                    rightContent
+                    *ngIf="hasChildren"
+                    class="pxb-drawer-nav-item-expand-icon"
+                    [class.expanded]="expanded"
+                    >expand_more</mat-icon
+                >
             </pxb-info-list-item>
         </div>
         <!-- Nested Nav Items -->
@@ -72,7 +79,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @Input() activeItemBackgroundShape: ActiveItemBackgroundShape = 'round';
     @Input() chevron: boolean;
     @Input() divider: boolean;
-    @Input() hidePadding = true;
+    @Input() hidePadding: boolean;
     @Input() ripple = true;
     @Input() selected: string;
     @Input() statusColor: string;
@@ -97,7 +104,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         for (const nestedItem of this.nestedNavItems._results.slice(1)) {
             nestedItem.setNestedDrawerDefaults();
         }
-    };
+    }
 
     incrementDepth(parentDepth: number): void {
         this.depth = parentDepth + 1;
@@ -107,14 +114,15 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     }
 
     setNavItemDefaults(): void {
-        if (this.divider === undefined)  this.divider = true;
+        if (this.divider === undefined) this.divider = true;
+        if (this.hidePadding === undefined) this.hidePadding = true;
         this.incrementDepth(0);
     }
 
     setNestedDrawerDefaults(): void {
         this.isNestedItem = true;
         if (this.divider === undefined) this.divider = false;
-        if (this.hidePadding === undefined) this.hidePadding = true;
+        if (this.hidePadding === undefined) this.hidePadding = false;
     }
 
     selectItem(): void {

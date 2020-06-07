@@ -2,7 +2,6 @@
     position: relative;
     user-select: none;
 
-
     .pxb-drawer-nav-item-depth-1 {
         padding-left: 0;
     }
@@ -20,7 +19,7 @@
             z-index: 1; // Used to keep text and icon above on-select highlight.
         }
         .mat-list-text {
-            padding-left: 0px!important; //TODO: Remove the !important, use higher specificity.
+            padding-left: 0px !important; //TODO: Remove the !important, use higher specificity.
         }
     }
 

@@ -4,11 +4,11 @@ import {
     Component,
     ContentChildren,
     Input,
-    ViewEncapsulation
+    ViewEncapsulation,
 } from '@angular/core';
-import {DrawerNavItem, DrawerNavItemComponent} from '../nav-item/drawer-nav-item.component';
-import {DrawerService} from '../../service/drawer.service';
-import {StateListener} from '../../state-listener.component';
+import { DrawerNavItem, DrawerNavItemComponent } from '../nav-item/drawer-nav-item.component';
+import { DrawerService } from '../../service/drawer.service';
+import { StateListener } from '../../state-listener.component';
 
 @Component({
     selector: 'pxb-drawer-nav-group',
@@ -53,7 +53,7 @@ export class DrawerNavGroupComponent extends StateListener implements Omit<Drawe
         for (const navItem of this.navItems) {
             navItem.setNavItemDefaults();
         }
-    };
+    }
 }
 
 export type DrawerNavGroup = {

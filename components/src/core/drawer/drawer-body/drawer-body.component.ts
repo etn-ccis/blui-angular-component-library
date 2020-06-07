@@ -6,7 +6,7 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
     encapsulation: ViewEncapsulation.None,
     template: `
         <div class="pxb-drawer-body">
-            <ng-content></ng-content> 
+            <ng-content></ng-content>
         </div>
     `,
     styles: [
@@ -16,7 +16,7 @@ import { ChangeDetectionStrategy, Component, ViewEncapsulation } from '@angular/
                 display: flex;
                 flex-direction: column;
             }
-        `
+        `,
     ],
 })
 export class DrawerBodyComponent {}

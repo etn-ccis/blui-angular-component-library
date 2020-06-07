@@ -3,8 +3,9 @@ import {
     ChangeDetectorRef,
     Component,
     Input,
-    OnChanges, OnInit,
-    ViewEncapsulation
+    OnChanges,
+    OnInit,
+    ViewEncapsulation,
 } from '@angular/core';
 import { DrawerService } from './service/drawer.service';
 import { StateListener } from './state-listener.component';
@@ -29,7 +30,7 @@ export type VariantType = 'permanent' | 'persistent' | 'temporary';
     `,
     styleUrls: ['./drawer.component.scss'],
 })
-export class DrawerComponent extends StateListener implements OnInit, OnChanges{
+export class DrawerComponent extends StateListener implements OnInit, OnChanges {
     @Input() variant: VariantType;
     @Input() open: boolean;
 
