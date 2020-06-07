@@ -29,8 +29,8 @@ export const withMultiNavGroups = (): any => ({
               <pxb-drawer-nav-group [title]="groupTitle1">
                  <pxb-drawer-nav-item *ngFor="let navItem of navItems1"
                     [title]="navItem.title"
-                    [selected]="state.selected === navItem.itemID"
-                    (select)="navItem.onSelect(); setActive(navItem.itemID, state);">
+                    [selected]="state.selected === navItem.title"
+                    (select)="navItem.onSelect(); setActive(navItem.title, state);">
                     <mat-icon icon>{{ navItem.icon }}</mat-icon>
                  </pxb-drawer-nav-item>
               </pxb-drawer-nav-group>
@@ -38,8 +38,8 @@ export const withMultiNavGroups = (): any => ({
               <pxb-drawer-nav-group [title]="groupTitle2">
                  <pxb-drawer-nav-item *ngFor="let navItem of navItems2"
                     [title]="navItem.title"
-                    [selected]="state.selected === navItem.itemID"
-                    (select)="navItem.onSelect(); setActive(navItem.itemID, state);">
+                    [selected]="state.selected === navItem.title"
+                    (select)="navItem.onSelect(); setActive(navItem.title, state);">
                     <mat-icon icon>{{ navItem.icon }}</mat-icon>
                  </pxb-drawer-nav-item>
               </pxb-drawer-nav-group>

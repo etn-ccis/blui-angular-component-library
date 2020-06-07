@@ -1,5 +1,12 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, ViewEncapsulation} from '@angular/core';
-import {DrawerNavItem} from '../nav-item/drawer-nav-item.component';
+import {
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    ContentChildren,
+    Input,
+    ViewEncapsulation
+} from '@angular/core';
+import {DrawerNavItem, DrawerNavItemComponent} from '../nav-item/drawer-nav-item.component';
 import {DrawerService} from '../../service/drawer.service';
 import {StateListener} from '../../state-listener.component';
 
@@ -36,10 +43,17 @@ import {StateListener} from '../../state-listener.component';
 export class DrawerNavGroupComponent extends StateListener implements Omit<DrawerNavGroup, 'items'> {
     @Input() title: string;
     @Input() divider = true;
+    @ContentChildren(DrawerNavItemComponent) navItems;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
     }
+
+    ngAfterContentInit(): void {
+        for (const navItem of this.navItems) {
+            navItem.setNavItemDefaults();
+        }
+    };
 }
 
 export type DrawerNavGroup = {

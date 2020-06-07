@@ -6,16 +6,13 @@
         z-index: 1;
     }
 
-    .pxb-info-list-item .pxb-info-list-item-icon-wrapper {
-        padding: 0;
+    pxb-info-list-item {
+        display: flex;
+        flex-direction: column;
     }
 
-    .pxb-drawer-nav-item-default-expand-icon {
-        transition-duration: 300ms;
-
-        &.inverted {
-            transform: rotate(180deg);
-        }
+    .pxb-info-list-item .pxb-info-list-item-icon-wrapper {
+        padding: 0;
     }
 
     .hide-padding {
@@ -49,6 +46,13 @@
     .pxb-info-list-item-active.square:after {
         border-radius: 0;
         width: 100%;
+    }
+
+    .pxb-drawer-nav-item-expand-icon {
+        transition: 300ms;
+        &.expanded {
+            transform: rotate(180deg);
+        }
     }
 }
 

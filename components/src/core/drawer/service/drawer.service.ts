@@ -22,8 +22,8 @@ export class DrawerService {
         return this.drawerOpenObs;
     }
 
-    select(id: string): void {
-        this.drawerSelectObs.next(id);
+    select(): void {
+        this.drawerSelectObs.next();
     }
 
     drawerSelectionChanges(): Observable<string> {

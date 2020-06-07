@@ -6,25 +6,21 @@ export const navItems: DrawerNavItem[] = [
     {
         title: 'Identity Management',
         icon: 'perm_identity',
-        itemID: 'group1_item1',
         onSelect: action('Selected: Identity Management'),
     },
     {
         title: 'Calender',
         icon: 'today',
-        itemID: 'group1_item2',
         onSelect: action('Selected: Calendar'),
     },
     {
         title: 'Accessibility',
         icon: 'accessibility',
-        itemID: 'group1_item3',
         onSelect: action('Selected: Accessibility'),
     },
     {
         title: 'Notifications',
         icon: 'notifications_active',
-        itemID: 'group1_item4',
         onSelect: action('Selected: Notifications'),
     },
 ];
@@ -41,9 +37,8 @@ export const withBasicConfig = (): any => ({
               <pxb-drawer-nav-group>
                    <pxb-drawer-nav-item *ngFor="let navItem of navItems"
                     [title]="navItem.title"
-                    [itemID]="navItem.itemID"
-                    [selected]="state.selected === navItem.itemID"
-                    (select)="navItem.onSelect(); setActive(navItem.itemID, state);">
+                    [selected]="state.selected === navItem.title"
+                    (select)="navItem.onSelect(); setActive(navItem.title, state);">
                     <mat-icon icon>{{ navItem.icon }}</mat-icon>
                   </pxb-drawer-nav-item>
               </pxb-drawer-nav-group>

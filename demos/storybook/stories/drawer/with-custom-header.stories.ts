@@ -24,12 +24,14 @@ export const withCustomHeader = (): any => ({
             </div>
           </pxb-drawer-header>
           <pxb-drawer-body>
-              <pxb-drawer-nav-item *ngFor="let navItem of navItems"
-                [title]="navItem.title"
-                [selected]="state.selected === navItem.itemID"
-                (select)="navItem.onSelect(); setActive(navItem.itemID, state);">
-                <mat-icon icon>{{ navItem.icon }}</mat-icon>
-              </pxb-drawer-nav-item>
+              <pxb-drawer-nav-group>
+                  <pxb-drawer-nav-item *ngFor="let navItem of navItems"
+                    [title]="navItem.title"
+                    [selected]="state.selected === navItem.title"
+                    (select)="navItem.onSelect(); setActive(navItem.title, state);">
+                    <mat-icon icon>{{ navItem.icon }}</mat-icon>
+                  </pxb-drawer-nav-item>
+              </pxb-drawer-nav-group>
             </pxb-drawer-body>
         </pxb-drawer>
       `,
