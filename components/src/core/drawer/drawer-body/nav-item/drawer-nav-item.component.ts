@@ -69,7 +69,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                     *ngIf="hasChildren"
                     class="pxb-drawer-nav-item-expand-icon"
                     [class.expanded]="expanded"
-                    >expand_more</mat-icon
+                    >{{ depth > 1 ? 'arrow_drop_down' : 'expand_more'}}</mat-icon
                 >
             </pxb-info-list-item>
         </div>
@@ -135,10 +135,10 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
 
     selectItem(): void {
         this.drawerService.select();
+        this.select.emit();
         if (this.hasChildren) {
             this.toggleNestedNavItems();
         }
-        this.select.emit();
     }
 
     toggleNestedNavItems(): void {

@@ -22,8 +22,8 @@ import { MatDividerModule } from '@angular/material/divider';
 import { withNestedNavItems } from './with-nested-nav-items.stories';
 
 import * as Colors from '@pxblue/colors';
-import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
-import {withFullConfig} from "./with-full-config.stories";
+import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { withFullConfig } from './with-full-config.stories';
 const x = Colors.darkBlack[300];
 
 export const drawerWrapper = () => (storyFn): any => {
@@ -66,7 +66,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
                 MatInputModule,
                 MatButtonModule,
                 MatIconModule,
-                BrowserAnimationsModule
+                BrowserAnimationsModule,
             ],
         })
     )

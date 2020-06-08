@@ -1,4 +1,4 @@
-import {action} from "@storybook/addon-actions";
+import { action } from '@storybook/addon-actions';
 import { DrawerNavItem } from '@pxblue/angular-components';
 
 export const nestedNavGroup: DrawerNavItem[] = [
@@ -22,14 +22,14 @@ export const nestedNavGroup: DrawerNavItem[] = [
                     {
                         title: 'Request',
                         onSelect: action('Selected: Request'),
-                    }
-                ]
+                    },
+                ],
             },
             {
                 title: 'Settings',
                 onSelect: action('Selected: Settings'),
-            }
-        ]
+            },
+        ],
     },
     {
         title: 'Notifications',
@@ -71,7 +71,8 @@ export const withNestedNavItems = (): any => ({
     props: {
         navItems: nestedNavGroup,
         setActive: (item: DrawerNavItem, state: { selected: string }): void => {
-            if (!item.items) { // Only selects items that do not have nested nav items.
+            if (!item.items) {
+                // Only selects items that do not have nested nav items.
                 state.selected = item.title;
             }
         },

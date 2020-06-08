@@ -1,4 +1,4 @@
-import {boolean, number, text} from '@storybook/addon-knobs';
+import {boolean, number, select, text} from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { DrawerNavItem } from '@pxblue/angular-components';
 import * as Colors from '@pxblue/colors';
@@ -24,8 +24,8 @@ export const navItems1: DrawerNavItem[] = [
             {
                 title: 'Annual Report',
                 onSelect: action('Selected: Annual Report'),
-            }
-        ]
+            },
+        ],
     },
     {
         title: 'Calender',
@@ -49,7 +49,6 @@ export const navItems1: DrawerNavItem[] = [
         icon: 'backup',
         onSelect: action('Selected: Backups'),
     },
-
 ];
 
 export const navItems2 = [
@@ -71,12 +70,12 @@ export const navItems2 = [
     {
         title: 'Events',
         icon: 'event',
-        onSelect: action('Selected: Events')
+        onSelect: action('Selected: Events'),
     },
     {
         title: 'Checklist',
         icon: 'done_outline',
-        onSelect: action('Selected: Checklist')
+        onSelect: action('Selected: Checklist'),
     },
 ];
 
@@ -109,13 +108,15 @@ export const withFullConfig = (): any => ({
                       [statusColor]="navItem.statusColor"
                       [hidePadding]="hidePadding"
                       [divider]="itemDivider"
-                      (select)="navItem.onSelect(); setActive(navItem.title, state);">
+                      [activeItemBackgroundShape]="activeItemBackgroundShape"
+                      (select)="navItem.onSelect(); setActive(navItem, state);">
                         <mat-icon *ngIf="showNavItemIcon" icon>{{ navItem.icon }}</mat-icon>
                         <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items"
                            [title]="nestedItem.title"
                            [hidePadding]="hidePaddingNested"
                            [selected]="state.selected === nestedItem.title"
-                           (select)="nestedItem.onSelect(); setActive(nestedItem.title, state);">                             
+                           [activeItemBackgroundShape]="activeItemBackgroundShape"
+                           (select)="nestedItem.onSelect(); setActive(nestedItem, state);">                             
                         </pxb-drawer-nav-item>
                     </pxb-drawer-nav-item>
                  </pxb-drawer-nav-group>
@@ -140,23 +141,40 @@ export const withFullConfig = (): any => ({
         groupTitle2: text('NavGroup 2 title', 'Group 2', navGroup),
         groupDivider: boolean('divider', true, navGroup),
         spacer: boolean('Add Spacer', false, navGroup),
-        itemsLength1: number('Group 1 Items', 3, {
-            range: true,
-            min: 0,
-            max: navItems1.length,
-            step: 1,
-        }, navGroup),
-        itemsLength2: number('Group 2 Items', 3, {
-            range: true,
-            min: 0,
-            max: navItems2.length,
-            step: 1,
-        }, navGroup),
+        itemsLength1: number(
+            'Group 1 Items',
+            3,
+            {
+                range: true,
+                min: 0,
+                max: navItems1.length,
+                step: 1,
+            },
+            navGroup
+        ),
+        itemsLength2: number(
+            'Group 2 Items',
+            3,
+            {
+                range: true,
+                min: 0,
+                max: navItems2.length,
+                step: 1,
+            },
+            navGroup
+        ),
         chevron: boolean('chevron', false, navItem),
         hidePadding: boolean('hidePadding', true, navItem),
         hidePaddingNested: boolean('hidePadding (nested)', false, navItem),
         itemDivider: boolean('divider', true, navItem),
         showNavItemIcon: boolean('Show Icon', true, navItem),
+        activeItemBackgroundShape: select('activeItemBackgroundShape', ['round', 'square'], 'round', navItem),
         showFooter: boolean('Show Footer', true, 'DrawerFooter'),
+        setActive: (item: DrawerNavItem, state: { selected: string }): void => {
+            if (!item.items) {
+                // Only selects items that do not have nested nav items.
+                state.selected = item.title;
+            }
+        },
     },
 });
