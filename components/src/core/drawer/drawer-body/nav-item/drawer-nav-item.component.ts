@@ -69,7 +69,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
         </div>
         <!-- Nested Nav Items -->
         <mat-accordion displayMode="flat" class="pxb-drawer-nested-nav-item">
-            <mat-expansion-panel [(expanded)]="expanded && drawerOpen">
+            <mat-expansion-panel [expanded]="expanded && drawerOpen">
                 <ng-content select="pxb-drawer-nav-item"></ng-content>
             </mat-expansion-panel>
         </mat-accordion>
