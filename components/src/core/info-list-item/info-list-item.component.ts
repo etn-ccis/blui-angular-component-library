@@ -79,7 +79,7 @@ export class InfoListItemComponent implements AfterViewInit {
     isEmpty = (el): boolean => isEmptyView(el);
 
     ngAfterViewInit(): void {
-        const required = {selector: 'title', ref: this.titleEl};
+        const required = { selector: 'title', ref: this.titleEl };
         requireContent([required], this);
     }
 }

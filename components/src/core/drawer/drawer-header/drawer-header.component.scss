@@ -1,8 +1,10 @@
+$height: 64px;
 .pxb-drawer-header {
     width: 100%;
     align-items: flex-start;
     box-sizing: border-box;
     position: relative;
+    height: $height;
 
     &.mat-toolbar-single-row.mat-toolbar {
         padding-right: 8px;
@@ -24,19 +26,23 @@
     .pxb-drawer-header-content {
         z-index: 2;
         display: flex;
+        width: 100%;
     }
 
     .pxb-drawer-header-icon-wrapper {
         display: flex;
         align-items: center;
         z-index: 1;
-        margin-right: 24px;
+        margin-right: 16px;
+        &.pxb-drawer-header-no-icon {
+            margin-right: 0;
+        }
     }
 
     .pxb-drawer-header-title-wrapper {
-        padding-right: 16px;
-        min-width: 64px;
         display: flex;
+        padding-left: 8px;
+        padding-right: 16px;
         justify-content: center;
         align-self: stretch;
         flex-direction: column;
@@ -67,10 +73,8 @@ pxb-drawer-header .mat-divider-horizontal {
 
 @media screen and (max-width: 600px) {
     .pxb-drawer-header-title-wrapper {
-        min-height: 56px;
     }
 
     .pxb-drawer-header-icon-wrapper {
-        height: 56px;
     }
 }

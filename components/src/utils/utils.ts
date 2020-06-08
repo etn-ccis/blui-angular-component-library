@@ -1,4 +1,4 @@
-import {ElementRef, ViewChild} from '@angular/core';
+import { ElementRef } from '@angular/core';
 
 export function requireInput<T>(inputs: Array<keyof T>, component): void {
     inputs.forEach((input) => {

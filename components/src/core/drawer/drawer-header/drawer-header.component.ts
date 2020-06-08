@@ -1,6 +1,15 @@
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    Input,
+    ViewEncapsulation,
+    ChangeDetectorRef,
+    ViewChild,
+    ElementRef,
+} from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
+import { isEmptyView } from '../../../utils/utils';
 
 @Component({
     selector: 'pxb-drawer-header',
@@ -10,7 +19,7 @@ import { StateListener } from '../state-listener.component';
         <mat-toolbar class="pxb-drawer-header">
             <div class="pxb-drawer-header-background"></div>
             <div class="pxb-drawer-header-content">
-                <div class="pxb-drawer-header-icon-wrapper">
+                <div #icon class="pxb-drawer-header-icon-wrapper" [class.pxb-drawer-header-no-icon]="isEmpty(iconEl)">
                     <ng-content select="[pxb-icon]"></ng-content>
                 </div>
                 <div *ngIf="drawerOpen && title" class="pxb-drawer-header-title-wrapper">
@@ -27,7 +36,9 @@ import { StateListener } from '../state-listener.component';
 export class DrawerHeaderComponent extends StateListener {
     @Input() subtitle: string;
     @Input() title: string;
-    drawerOpen: boolean;
+    @ViewChild('icon', { static: true }) iconEl: ElementRef;
+
+    isEmpty = (el): boolean => isEmptyView(el);
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);

@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation, OnInit, ChangeDetectorRef } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 
@@ -8,11 +8,8 @@ import { StateListener } from '../state-listener.component';
     encapsulation: ViewEncapsulation.None,
     template: `
         <div class="pxb-drawer-subheader">
-            <div
-                [class.pxb-drawer-subheader-open]="drawerOpen"
-                [class.pxb-drawer-subheader-closed]="!drawerOpen"
-                class="pxb-drawer-subheader-content-wrapper"
-            >
+            <div class="pxb-drawer-subheader-content-wrapper"
+                 [class.pxb-drawer-subheader-closed]="!drawerOpen">
                 <ng-content></ng-content>
             </div>
         </div>

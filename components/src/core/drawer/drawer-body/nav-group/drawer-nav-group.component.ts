@@ -37,9 +37,12 @@ import { StateListener } from '../../state-listener.component';
     ],
     template: `
         <div class="pxb-drawer-nav-group">
-            <div *ngIf="title" class="pxb-drawer-nav-group-title" 
-                 [class.pxb-drawer-nav-group-title-closed]="!drawerOpen">
-                {{title}}
+            <div
+                *ngIf="title"
+                class="pxb-drawer-nav-group-title"
+                [class.pxb-drawer-nav-group-title-closed]="!drawerOpen"
+            >
+                {{ title }}
             </div>
             <ng-content select="titleContent"></ng-content>
             <mat-divider *ngIf="divider"></mat-divider>
