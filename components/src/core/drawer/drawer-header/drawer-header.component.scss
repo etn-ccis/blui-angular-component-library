@@ -5,6 +5,7 @@ $height: 64px;
     box-sizing: border-box;
     position: relative;
     height: $height;
+    overflow: hidden;
 
     &.mat-toolbar-single-row.mat-toolbar {
         padding-right: 8px;
