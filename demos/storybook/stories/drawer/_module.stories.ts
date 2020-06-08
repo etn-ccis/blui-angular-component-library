@@ -21,10 +21,9 @@ import { withFooter } from './with-footer.stories';
 import { MatDividerModule } from '@angular/material/divider';
 import { withNestedNavItems } from './with-nested-nav-items.stories';
 
-import * as Colors from '@pxblue/colors';
-import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { withFullConfig } from './with-full-config.stories';
-const x = Colors.darkBlack[300];
+import {withinDrawerLayout} from "./within-drawer-layout.stories";
 
 export const drawerWrapper = () => (storyFn): any => {
     const story = storyFn();
@@ -52,6 +51,21 @@ export const drawerWrapper = () => (storyFn): any => {
             },
             ...story.props,
         },
+    };
+};
+
+export const drawerLayoutWrapper = () => (storyFn): any => {
+    const story = storyFn();
+    return {
+        ...story,
+        styles: [
+            `
+            :host { 
+                height: 100%; 
+                width: 100%;
+            }
+            `,
+        ],
     };
 };
 
@@ -83,4 +97,30 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     .add('with multiple nav groups', withMultiNavGroups)
     .add('with nested nav items', withNestedNavItems)
     .add('with a footer', withFooter)
-    .add('with full config', withFullConfig);
+    .add('with full config', withFullConfig)
+    .add('within a Drawer Layout', withinDrawerLayout);
+
+
+storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
+    .addDecorator(
+        moduleMetadata({
+            imports: [
+                DrawerModule,
+                UtilModule,
+                MatFormFieldModule,
+                MatDividerModule,
+                MatInputModule,
+                MatButtonModule,
+                MatIconModule,
+                BrowserAnimationsModule,
+            ],
+        })
+    )
+    .addDecorator(withKnobs)
+    // @accessibility
+    .addDecorator(withA11y)
+    .addDecorator(storyWrapper())
+    .addDecorator(drawerLayoutWrapper())
+    .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('Drawer.md') } })
+    .add(README_STORY_NAME, getReadMeStory)
+    .add('within a Drawer Layout', withinDrawerLayout);

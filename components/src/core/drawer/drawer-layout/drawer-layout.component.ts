@@ -1,6 +1,6 @@
-import { ChangeDetectorRef, Component, Input, ViewEncapsulation } from '@angular/core';
-import { DrawerService } from '../service/drawer.service';
-import { StateListener } from '../state-listener.component';
+import {ChangeDetectorRef, Component, Input, ViewEncapsulation} from '@angular/core';
+import {DrawerService} from '../service/drawer.service';
+import {StateListener} from '../state-listener.component';
 
 export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
 
@@ -9,8 +9,8 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
     encapsulation: ViewEncapsulation.None,
     template: `
         <mat-sidenav-container class="pxb-drawer-layout" (backdropClick)="closeDrawer()" autosize>
-            <mat-sidenav [mode]="getMode()" [opened]="isOpen()">
-                <ng-content select="[drawer]"></ng-content>
+            <mat-sidenav [mode]="getMode()" [opened]="isOpen()" [class.pxb-drawer-layout-collapse]="!drawerOpen">
+                <ng-content select="pxb-drawer"></ng-content>
             </mat-sidenav>
             <mat-sidenav-content>
                 <ng-content select="[content]"></ng-content>
@@ -49,7 +49,7 @@ export class DrawerLayoutComponent extends StateListener {
 
     getMode(): string {
         if (this.variant === 'temporary') {
-            return 'over';
+            return 'push';
         } else {
             return 'side';
         }
