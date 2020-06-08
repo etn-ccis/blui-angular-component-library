@@ -7,7 +7,7 @@ import {
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
-import { requireContent } from '../../utils/utils';
+import { requireContent, isEmptyView } from '../../utils/utils';
 
 @Component({
     selector: 'pxb-info-list-item',
@@ -52,7 +52,7 @@ import { requireContent } from '../../utils/utils';
                 <div #right class="pxb-info-list-item-right-content-wrapper">
                     <ng-content select="[rightContent]"></ng-content>
                 </div>
-                <mat-icon *ngIf="chevron && !right.innerHTML">chevron_right</mat-icon>
+                <mat-icon *ngIf="chevron && isEmpty(rightEl)">chevron_right</mat-icon>
             </div>
         </mat-list-item>
         <mat-divider
@@ -74,10 +74,12 @@ export class InfoListItemComponent implements AfterViewInit {
     @Input() wrapTitle = false;
     @Input() divider: DividerType;
 
-    @ViewChild('title', { static: false }) title: ElementRef;
+    @ViewChild('title', { static: false }) titleEl: ElementRef;
+    @ViewChild('right', { static: false }) rightEl: ElementRef;
+    isEmpty = (el): boolean => isEmptyView(el);
 
     ngAfterViewInit(): void {
-        const required = { selector: 'title', ref: this.title };
+        const required = {selector: 'title', ref: this.titleEl};
         requireContent([required], this);
     }
 }

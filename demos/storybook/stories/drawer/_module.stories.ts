@@ -23,6 +23,7 @@ import { withNestedNavItems } from './with-nested-nav-items.stories';
 
 import * as Colors from '@pxblue/colors';
 import {BrowserAnimationsModule, NoopAnimationsModule} from "@angular/platform-browser/animations";
+import {withFullConfig} from "./with-full-config.stories";
 const x = Colors.darkBlack[300];
 
 export const drawerWrapper = () => (storyFn): any => {
@@ -81,4 +82,5 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     .add('with subheader', withSubheader)
     .add('with multiple nav groups', withMultiNavGroups)
     .add('with nested nav items', withNestedNavItems)
-    .add('with a footer', withFooter);
+    .add('with a footer', withFooter)
+    .add('with full config', withFullConfig);

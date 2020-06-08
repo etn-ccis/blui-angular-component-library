@@ -1,4 +1,4 @@
-import { ElementRef } from '@angular/core';
+import {ElementRef, ViewChild} from '@angular/core';
 
 export function requireInput<T>(inputs: Array<keyof T>, component): void {
     inputs.forEach((input) => {
@@ -16,6 +16,10 @@ export function requireContent(contentPairs: ContentPair[], component): void {
             console.warn(`PXBlue ${component.constructor.name} error: Selector "${contentPair.selector}" is required.`);
         }
     });
+}
+
+export function isEmptyView(el: ElementRef): boolean {
+    return !el || !el.nativeElement || el.nativeElement.children.length === 0;
 }
 
 export type ContentPair = {
