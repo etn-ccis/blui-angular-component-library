@@ -20,18 +20,27 @@ import { StateListener } from '../../state-listener.component';
                 font-weight: 600;
                 padding-top: 0;
             }
-            .pxb-drawer-nav-group mat-list {
-                white-space: nowrap;
+            .pxb-drawer-nav-group .pxb-drawer-nav-group-title {
+                font-weight: 600;
+                height: 48px;
+                line-height: 48px;
+                padding: 0 16px;
                 overflow: hidden;
+                white-space: nowrap;
                 text-overflow: ellipsis;
+                display: block;
+            }
+            .pxb-drawer-nav-group .pxb-drawer-nav-group-title-closed {
+                visibility: hidden;
             }
         `,
     ],
     template: `
         <div class="pxb-drawer-nav-group">
-            <mat-list *ngIf="title">
-                <mat-list-item class="pxb-drawer-nav-group-title" *ngIf="drawerOpen">{{ title }}</mat-list-item>
-            </mat-list>
+            <div *ngIf="title" class="pxb-drawer-nav-group-title" 
+                 [class.pxb-drawer-nav-group-title-closed]="!drawerOpen">
+                {{title}}
+            </div>
             <ng-content select="titleContent"></ng-content>
             <mat-divider *ngIf="divider"></mat-divider>
             <mat-nav-list>
