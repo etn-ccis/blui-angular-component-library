@@ -2,14 +2,15 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
-    ContentChildren,
+    ContentChildren, ElementRef,
     EventEmitter,
     Input,
-    Output,
+    Output, ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
 import { DrawerService } from '../../service/drawer.service';
 import { StateListener } from '../../state-listener.component';
+import {isEmptyView} from "../../../../utils/utils";
 
 export type DrawerNavItem = {
     statusColor?: string;
@@ -39,7 +40,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 (click)="selectItem()"
                 [dense]="true"
                 [statusColor]="statusColor"
-                [chevron]="chevron"
+                [chevron]="chevron && drawerOpen"
                 [hidePadding]="hidePadding"
                 [divider]="divider ? 'full' : undefined"
                 [class.pxb-info-list-item-active]="selected"
@@ -48,9 +49,10 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 [matRippleDisabled]="!ripple"
                 matRipple
             >
-                <ng-content icon select="[icon]"></ng-content>
-                <div *ngIf="drawerOpen"
-                    title
+                <ng-container icon #icon>
+                    <ng-content select="[icon]"></ng-content>
+                </ng-container>
+                <div title *ngIf="!isEmpty(iconEl) || drawerOpen"
                     [class.pxb-drawer-nav-item-depth-1]="depth === 1"
                     [class.pxb-drawer-nav-item-depth-2]="depth === 2"
                     [class.pxb-drawer-nav-item-depth-3]="depth === 3"
@@ -88,14 +90,16 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @Input() expanded = false;
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
 
+    @ViewChild('icon', { static: false }) iconEl: ElementRef;
+    @ContentChildren(DrawerNavItemComponent) nestedNavItems;
+
     isNestedItem: boolean;
     drawerOpen: boolean;
     hasChildren: boolean;
     depth: number;
+    isEmpty = (el): boolean => isEmptyView(el);
 
-    @ContentChildren(DrawerNavItemComponent) nestedNavItems;
-
-    constructor(drawerService: DrawerService, private readonly changeDetectorRef: ChangeDetectorRef) {
+    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
     }
 
@@ -104,6 +108,10 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         for (const nestedItem of this.nestedNavItems._results.slice(1)) {
             nestedItem.setNestedDrawerDefaults();
         }
+    }
+
+    ngAfterViewInit(): void {
+        console.log(this.iconEl);
     }
 
     incrementDepth(parentDepth: number): void {
