@@ -73,26 +73,19 @@ export const withFullConfig = (): any => ({
              </button>
            </pxb-drawer-header>
            <pxb-drawer-body>
-              <pxb-drawer-nav-group [title]="groupTitle1">
-                 <pxb-drawer-nav-item *ngFor="let navItem of navItems1.slice(0, itemsLength1)"
-                    [title]="navItem.title"
-                    [selected]="state.selected === navItem.title"
-                    [chevron]="chevron"
-                    (select)="navItem.onSelect(); setActive(navItem.title, state);">
-                    <mat-icon *ngIf="showNavItemIcon" icon>{{ navItem.icon }}</mat-icon>
-                 </pxb-drawer-nav-item>
-              </pxb-drawer-nav-group>
-              <pxb-spacer *ngIf="spacer"></pxb-spacer> 
-              <pxb-drawer-nav-group [title]="groupTitle2">
-                 <pxb-drawer-nav-item *ngFor="let navItem of navItems2.slice(0, itemsLength2)"
-                    [title]="navItem.title"
-                    [hidePadding]="true"
-                    [chevron]="chevron"
-                    [selected]="state.selected === navItem.title"
-                    (select)="navItem.onSelect(); setActive(navItem.title, state);">
-                    <mat-icon *ngIf="showNavItemIcon" icon>{{ navItem.icon }}</mat-icon>
-                 </pxb-drawer-nav-item>
-              </pxb-drawer-nav-group>
+              <ng-container *ngFor="let navGroup of [navItems1, navItems2]; let first = first;">
+                 <pxb-drawer-nav-group [title]="first ? groupTitle1 : groupTitle2" [divider]="groupDivider">
+                    <pxb-drawer-nav-item *ngFor="let navItem of navGroup.slice(0, first ? itemsLength1 : itemsLength2)"
+                      [title]="navItem.title"
+                      [selected]="state.selected === navItem.title"
+                      [chevron]="chevron"
+                      [hidePadding]="hidePadding"
+                      (select)="navItem.onSelect(); setActive(navItem.title, state);">
+                      <mat-icon *ngIf="showNavItemIcon" icon>{{ navItem.icon }}</mat-icon>
+                    </pxb-drawer-nav-item>
+                 </pxb-drawer-nav-group>
+                <pxb-spacer *ngIf="first && spacer"></pxb-spacer>
+              </ng-container>
            </pxb-drawer-body>
            <pxb-drawer-footer *ngIf="showFooter">
              <mat-divider></mat-divider>
@@ -108,6 +101,7 @@ export const withFullConfig = (): any => ({
         subtitle: text('subtitle', 'with full config', header),
         groupTitle1: text('NavGroup 1 title', 'Group 1', navGroup),
         groupTitle2: text('NavGroup 2 title', 'Group 2', navGroup),
+        groupDivider: boolean('divider', true, navGroup),
         itemsLength1: number('Group 1 Items', 3, {
             range: true,
             min: 0,
@@ -124,6 +118,7 @@ export const withFullConfig = (): any => ({
         spacer: boolean('Add Spacer', false, navGroup),
         showFooter: boolean('Show Footer', true, 'DrawerFooter'),
         chevron: boolean('chevron', false, navItem),
+        hidePadding: boolean('hidePadding', true, navItem),
         bgImage: bgImage,
     },
 });
