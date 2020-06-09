@@ -1,4 +1,4 @@
-import {ChangeDetectorRef, Component, Input, ViewEncapsulation} from '@angular/core';
+import {ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
 import {DrawerService} from '../service/drawer.service';
 import {StateListener} from '../state-listener.component';
 import {
@@ -37,8 +37,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
                 (@sidenavAnimationIsExpanded.done)="done()">
                 <ng-content select="pxb-drawer"></ng-content>
             </mat-sidenav>
-            <mat-sidenav-content>
-                {{isOpen()}}
+            <mat-sidenav-content style="transform-duration: 0s">
                 <ng-content select="[content]"></ng-content>
             </mat-sidenav-content>
         </mat-sidenav-container>
@@ -47,6 +46,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
 export class DrawerLayoutComponent extends StateListener {
     @Input() variant: DrawerLayoutVariantType;
     @Input() width: number;
+    @Output() backdropClick: EventEmitter<void> = new EventEmitter();
     animating = false;
 
     constructor(public readonly drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
@@ -76,6 +76,7 @@ export class DrawerLayoutComponent extends StateListener {
 
     closeDrawer(): void {
         this.drawerService.setDrawerOpen(false);
+        this.backdropClick.emit();
     }
 
     // Is the drawer seen on the screen and expanded.

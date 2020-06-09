@@ -8,9 +8,17 @@
     }
 
     .pxb-drawer {
+        transition: unset;
         width: 100%;
         &.collapse {
             width: 100%;
         }
+    }
+
+    .mat-drawer-transition .mat-drawer-content {
+        transition: unset;
+        transition-duration: unset;
+        transition-timing-function: unset;
+        transition-property: unset;
     }
 }
