@@ -1,13 +1,13 @@
-import {navItems} from "./basic-config.stories";
-import {select} from "@storybook/addon-knobs";
+import {number, select} from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
-import {nestedNavGroup} from "./with-nested-nav-items.stories";
+import { nestedNavGroup } from './with-nested-nav-items.stories';
+import { DrawerNavItem } from '@pxblue/angular-components';
 
 const items = [...nestedNavGroup];
 
 export const withinDrawerLayout = (): any => ({
     template: `
-        <pxb-drawer-layout [variant]="variant" (backdropClick)="state.open = false">
+        <pxb-drawer-layout [width]="width" [variant]="variant" (backdropClick)="state.open = false">
             <pxb-drawer drawer [open]="state.open">
                <pxb-drawer-header title="PX Blue Drawer" subtitle="in a PX Blue Drawer Layout">
                  <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
@@ -53,12 +53,25 @@ export const withinDrawerLayout = (): any => ({
         white: Colors.white[50],
         navItems: items,
         state: { selected: undefined, open: true },
+        width: number(
+            'width',
+            350,
+            {
+                range: true,
+                min: 200,
+                max: 600,
+                step: 5,
+            }
+        ),
         variant: select('variant', ['persistent', 'temporary', 'permanent'], 'persistent'),
         toggleDrawer: (state): void => {
             state.open = !state.open;
         },
-        setActive: (id: string, state: { selected: string }): void => {
-            state.selected = id;
+        setActive: (item: DrawerNavItem, state: { selected: string }): void => {
+            if (!item.items) {
+                // Only selects items that do not have nested nav items.
+                state.selected = item.title;
+            }
         },
     },
 });

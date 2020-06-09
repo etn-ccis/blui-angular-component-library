@@ -1,4 +1,4 @@
-import {boolean, number, select, text} from '@storybook/addon-knobs';
+import { boolean, number, select, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { DrawerNavItem } from '@pxblue/angular-components';
 import * as Colors from '@pxblue/colors';

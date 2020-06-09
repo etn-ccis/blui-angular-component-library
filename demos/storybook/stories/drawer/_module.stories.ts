@@ -23,8 +23,8 @@ import { withNestedNavItems } from './with-nested-nav-items.stories';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { withFullConfig } from './with-full-config.stories';
-import {withinDrawerLayout} from "./within-drawer-layout.stories";
-import {MatToolbarModule} from "@angular/material/toolbar";
+import { withinDrawerLayout } from './within-drawer-layout.stories';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 export const drawerWrapper = () => (storyFn): any => {
     const story = storyFn();
@@ -100,7 +100,6 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     .add('with a footer', withFooter)
     .add('with full config', withFullConfig)
     .add('within a Drawer Layout', withinDrawerLayout);
-
 
 storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     .addDecorator(

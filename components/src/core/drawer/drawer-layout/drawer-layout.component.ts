@@ -10,17 +10,16 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
     styleUrls: ['./drawer-layout.component.scss'],
     template: `
         <mat-sidenav-container class="pxb-drawer-layout" (backdropClick)="closeDrawer()">
-            <mat-sidenav class="sidenav"
+            <mat-sidenav class="pxb-drawer-layout-sidenav" 
                 [fixedInViewport]="true"
-                [class.open]="!isCollapsed()"
-                [class.temporary]="variant==='temporary'"
+                [style.width.px]="isCollapsed() ? 64 : width"
+                [class.mobile]="variant==='temporary'"
                 [mode]="getMode()" 
                 [opened]="isOpen()">
                 <ng-content select="[drawer]"></ng-content>
             </mat-sidenav>
-            <mat-sidenav-content class="nav-content" 
-                 [class.open]="!isCollapsed()"
-                 [class.mobile]="variant==='temporary'">
+            <mat-sidenav-content class="pxb-drawer-layout-nav-content" 
+                                 [style.marginLeft.px]="isCollapsed() ? 64 : width">
                 <ng-content select="[content]"></ng-content>
             </mat-sidenav-content>
         </mat-sidenav-container>
@@ -28,7 +27,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
 })
 export class DrawerLayoutComponent extends StateListener {
     @Input() variant: DrawerLayoutVariantType;
-    @Input() width: number;
+    @Input() width = 350;
     @Output() backdropClick: EventEmitter<void> = new EventEmitter();
 
     constructor(public readonly drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
