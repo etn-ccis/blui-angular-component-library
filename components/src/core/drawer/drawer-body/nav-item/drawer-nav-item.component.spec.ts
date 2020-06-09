@@ -22,6 +22,12 @@ describe('DrawerNavItemComponent', () => {
         }).compileComponents();
         fixture = TestBed.createComponent(DrawerNavItemComponent);
         component = fixture.componentInstance;
+        spyOn(component, 'ngOnInit').and.stub();
+        spyOn(component, 'ngOnDestroy').and.stub();
+    });
+
+    afterEach(() => {
+        fixture.destroy();
     });
 
     it('should create', () => {
@@ -30,8 +36,15 @@ describe('DrawerNavItemComponent', () => {
     });
 
     it('should enforce class naming conventions', () => {
+        component.hasChildren = true;
+        component.drawerOpen = true;
+        spyOn(component, 'ngAfterContentInit').and.stub();
         fixture.detectChanges();
-        const classList = ['.pxb-drawer-nav-item', '.pxb-drawer-nav-item-icon-wrapper', '.pxb-drawer-nested-nav-item'];
+        const classList = [
+            '.pxb-drawer-nav-item',
+            '.pxb-drawer-nav-item-expand-icon',
+            '.pxb-drawer-nested-nav-item'
+        ];
         for (const className of classList) {
             count(fixture, className);
         }

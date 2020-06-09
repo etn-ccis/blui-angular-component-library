@@ -18,8 +18,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
                 [opened]="isOpen()">
                 <ng-content select="[drawer]"></ng-content>
             </mat-sidenav>
-            <mat-sidenav-content class="pxb-drawer-layout-nav-content" 
-                                 [style.marginLeft.px]="isCollapsed() ? 64 : width">
+            <mat-sidenav-content class="pxb-drawer-layout-nav-content" [style.marginLeft.px]="isCollapsed() ? 64 : width">
                 <ng-content select="[content]"></ng-content>
             </mat-sidenav-content>
         </mat-sidenav-container>

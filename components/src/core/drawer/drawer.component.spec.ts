@@ -56,6 +56,12 @@ describe('DrawerComponent', () => {
         }).compileComponents();
         fixture = TestBed.createComponent(DrawerComponent);
         component = fixture.componentInstance;
+        spyOn(component, 'ngOnInit').and.stub();
+        spyOn(component, 'ngOnDestroy').and.stub();
+    });
+
+    afterEach(() => {
+        fixture.destroy();
     });
 
     it('should create', () => {

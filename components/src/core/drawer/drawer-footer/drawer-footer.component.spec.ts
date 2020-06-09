@@ -24,6 +24,12 @@ describe('DrawerFooterComponent', () => {
         }).compileComponents();
         fixture = TestBed.createComponent(DrawerFooterComponent);
         component = fixture.componentInstance;
+        spyOn(component, 'ngOnInit').and.stub();
+        spyOn(component, 'ngOnDestroy').and.stub();
+    });
+
+    afterEach(() => {
+        fixture.destroy();
     });
 
     it('should create', () => {
@@ -41,7 +47,7 @@ describe('DrawerFooterComponent', () => {
     it('should enforce class naming conventions', () => {
         const customFixture = TestBed.createComponent(TestDrawerFooter);
         customFixture.detectChanges();
-        const classList = ['.pxb-drawer-footer', '.pxb-drawer-footer-content-wrapper'];
+        const classList = ['.pxb-drawer-footer', '.pxb-drawer-footer-closed'];
         for (const className of classList) {
             count(customFixture, className);
         }

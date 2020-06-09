@@ -18,7 +18,7 @@ export const withCustomHeader = (): any => ({
             <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                 <mat-icon>menu</mat-icon>
             </button>
-            <div titleContent>
+            <div titleContent *ngIf="state.open">
                 <div class="mat-h4" style="margin-bottom: -8px; margin-top: 12px">Customizable</div>
                 <div class="mat-h2" style="margin-top: 0">Header Content</div>
             </div>

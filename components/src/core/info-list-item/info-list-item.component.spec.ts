@@ -136,11 +136,11 @@ describe('InfoListItemComponent', () => {
         expect(root.nativeElement.children[0].offsetHeight).toBe(72);
     });
 
-    it('should have a dense height of 56px', () => {
+    it('should have a dense height of 52px', () => {
         component.dense = true;
         fixture.detectChanges();
         const root = fixture.debugElement.query(By.css('.pxb-info-list-item'));
-        expect(root.nativeElement.children[0].offsetHeight).toBe(56);
+        expect(root.nativeElement.children[0].offsetHeight).toBe(52);
     });
 
     it('should enforce class naming conventions', () => {

@@ -25,7 +25,7 @@ class TestDrawerHeaderWithTitleContent {}
 @Component({
     template: `
         <pxb-drawer-header>
-            <button id="test-icon" mat-icon-button icon>
+            <button id="test-icon" mat-icon-button pxb-icon>
                 <mat-icon>menu</mat-icon>
             </button>
         </pxb-drawer-header>
@@ -44,6 +44,12 @@ describe('DrawerHeaderComponent', () => {
         }).compileComponents();
         fixture = TestBed.createComponent(DrawerHeaderComponent);
         component = fixture.componentInstance;
+        spyOn(component, 'ngOnInit').and.stub();
+        spyOn(component, 'ngOnDestroy').and.stub();
+    });
+
+    afterEach(() => {
+        fixture.destroy();
     });
 
     it('should create', () => {
@@ -52,7 +58,6 @@ describe('DrawerHeaderComponent', () => {
     });
 
     it('should render title', () => {
-        spyOn(component, 'ngOnInit').and.stub();
         component.drawerOpen = true;
         component.title = 'test title';
         fixture.detectChanges();
@@ -61,8 +66,8 @@ describe('DrawerHeaderComponent', () => {
     });
 
     it('should render subtitle', () => {
-        spyOn(component, 'ngOnInit').and.stub();
         component.drawerOpen = true;
+        component.title = 'test title';
         component.subtitle = 'test subtitle';
         fixture.detectChanges();
         const subtitle = fixture.debugElement.query(By.css('.pxb-drawer-header-subtitle'));
@@ -86,7 +91,6 @@ describe('DrawerHeaderComponent', () => {
     });
 
     it('should enforce class naming conventions', () => {
-        spyOn(component, 'ngOnInit').and.stub();
         component.title = 'test title';
         component.subtitle = 'test subtitle';
         component.drawerOpen = true;
@@ -94,11 +98,11 @@ describe('DrawerHeaderComponent', () => {
         const classList = [
             '.pxb-drawer-header',
             '.pxb-drawer-header-background',
+            '.pxb-drawer-header-content',
             '.pxb-drawer-header-icon-wrapper',
             '.pxb-drawer-header-title-wrapper',
             '.pxb-drawer-header-title',
             '.pxb-drawer-header-subtitle',
-            '.pxb-drawer-header-title-content-wrapper',
         ];
         for (const className of classList) {
             count(fixture, className);
