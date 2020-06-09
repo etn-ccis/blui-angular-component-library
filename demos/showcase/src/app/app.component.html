@@ -28,10 +28,10 @@
                     </pxb-info-list-item>
                 </mat-list>
                 <pxb-hero-banner badge>
-                    <pxb-hero [label]="'Temperature'" [value]="98" [units]="'°F'" [iconSize]="'normal'">
+                    <pxb-hero [label]="'Temperature'" [value]="98" [units]="'°F'">
                         <mat-icon svgIcon="px-icons:temp" primary></mat-icon>
                     </pxb-hero>
-                    <pxb-hero [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="'normal'">
+                    <pxb-hero [label]="'Humidity'" [value]="'54'" [units]="'%'">
                         <mat-icon svgIcon="px-icons:moisture" primary [style.color]="colors.blue[300]"></mat-icon>
                     </pxb-hero>
                 </pxb-hero-banner>
@@ -59,7 +59,7 @@
                     </pxb-info-list-item>
                 </mat-list>
                 <pxb-hero badge label="Health" value="98" units="%" [iconBackgroundColor]="colors.white[50]"
-                    (click)="test()" style="cursor: pointer" [iconSize]="'large'">
+                    (click)="test()" style="cursor: pointer" [iconSize]="72">
                     <mat-icon svgIcon="px-icons:grade_a" primary [style.color]="colors.green[500]"></mat-icon>
                 </pxb-hero>
                 <pxb-info-list-item hidePadding="true" dense="true" actionRow>
@@ -72,8 +72,7 @@
         <mat-card class="container-card">
             <mat-list style="padding: 0">
                 <pxb-hero-banner [divider]="true">
-                    <pxb-hero label="Healthy" value="96" units="/100" (click)="test()" style="cursor: pointer"
-                        [iconSize]="'normal'">
+                    <pxb-hero label="Healthy" value="96" units="/100" (click)="test()" style="cursor: pointer">
                         <mat-icon svgIcon="px-icons:grade_a" primary [style.color]="colors.green[500]"></mat-icon>
                     </pxb-hero>
 
