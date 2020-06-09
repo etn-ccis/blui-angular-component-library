@@ -31,13 +31,13 @@ export const drawerWrapper = () => (storyFn): any => {
     const storyStyles = story.styles ? story.styles[0] : '';
     return {
         ...story,
-        template: `<div style="box-sizing: border-box; height: 100%; padding: 16px">${story.template}</div>`,
+        template: `<div style="box-sizing: border-box; height: 100%;">${story.template}</div>`,
         styles: [
             `
             :host { 
                 display: flex; 
                 height: 100%; 
-                justify-content: center;
+                width: 100%;
             }
             ${storyStyles}
             `,
