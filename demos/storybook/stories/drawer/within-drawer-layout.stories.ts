@@ -53,7 +53,7 @@ export const withinDrawerLayout = (): any => ({
         white: Colors.white[50],
         navItems: items,
         state: { selected: undefined, open: true },
-        variant: select('variant', ['persistent', 'temporary', 'permanent'], 'temporary'),
+        variant: select('variant', ['persistent', 'temporary', 'permanent'], 'persistent'),
         toggleDrawer: (state): void => {
             state.open = !state.open;
         },
