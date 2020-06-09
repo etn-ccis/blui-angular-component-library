@@ -24,7 +24,7 @@
     "@angular/platform-browser": "~8.2.14",
     "@angular/platform-browser-dynamic": "~8.2.14",
     "@angular/router": "~8.2.14",
-    "@pxblue/angular-themes": "^5.0.0-beta.4",
+    "@pxblue/angular-themes": "5.0.0-beta.7",
     "@pxblue/colors": "^3.0.0",
     "@pxblue/icons-svg": "^1.0.10",
     "@pxblue/ng-progress-icons": "^1.1.3",

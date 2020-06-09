@@ -22,7 +22,7 @@ import { isEmptyView } from '../../../utils/utils';
                 <div #icon class="pxb-drawer-header-icon-wrapper" [class.pxb-drawer-header-no-icon]="isEmpty(iconEl)">
                     <ng-content select="[pxb-icon]"></ng-content>
                 </div>
-                <div *ngIf="drawerOpen && title" class="pxb-drawer-header-title-wrapper">
+                <div *ngIf="title" class="pxb-drawer-header-title-wrapper">
                     <div class="pxb-drawer-header-title">{{ title }}</div>
                     <div *ngIf="subtitle" class="pxb-drawer-header-subtitle mat-subheading-2">{{ subtitle }}</div>
                 </div>

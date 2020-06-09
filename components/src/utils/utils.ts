@@ -19,6 +19,7 @@ export function requireContent(contentPairs: ContentPair[], component): void {
 }
 
 export function isEmptyView(el: ElementRef): boolean {
+    console.log(el);
     return !el || !el.nativeElement || !el.nativeElement.children || el.nativeElement.children.length === 0;
 }
 

@@ -3,22 +3,44 @@
 .pxb-drawer-layout {
     height: 100%;
     width: 100%;
+
     .mat-drawer-side {
         border-right: none;
     }
 
     .pxb-drawer {
-        transition: unset;
         width: 100%;
         &.collapse {
             width: 100%;
         }
     }
 
-    .mat-drawer-transition .mat-drawer-content {
-        transition: unset;
-        transition-duration: unset;
-        transition-timing-function: unset;
-        transition-property: unset;
+    .sidenav {
+        transition: width 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+        &.mobile{
+            transition: unset;
+            width: 0px !important;
+            &.open{
+                width: 350px !important;
+            }
+        }
+        &:not(.mobile){
+            width: 64px !important;
+            &.open{
+                width: 350px !important;
+            }
+        }
+    }
+    .nav-content{
+        transition: margin 300ms cubic-bezier(0.4, 0.0, 0.2, 1);
+        &.mobile{
+            margin-left: auto !important;
+        }
+        &:not(.mobile){
+            margin-left: 64px !important;
+            &.open{
+                margin-left: 350px !important;
+            }
+        }
     }
 }

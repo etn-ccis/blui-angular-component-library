@@ -51,19 +51,15 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 [matRippleDisabled]="!ripple"
                 matRipple
             >
-                <ng-container icon #icon>
-                    <ng-content select="[icon]"></ng-content>
-                </ng-container>
-                <div
-                    title
-                    *ngIf="!isEmpty(iconEl) || drawerOpen"
+                <div icon #icon><ng-content select="[icon]"></ng-content></div>
+                <div title *ngIf="!isEmpty(iconEl) || drawerOpen"
                     [class.pxb-drawer-nav-item-depth-1]="depth === 1"
                     [class.pxb-drawer-nav-item-depth-2]="depth === 2"
                     [class.pxb-drawer-nav-item-depth-3]="depth === 3"
                 >
                     {{ title }}
                 </div>
-                <div *ngIf="drawerOpen" subtitle>{{ subtitle }}</div>
+                <div subtitle *ngIf="!isEmpty(iconEl) || drawerOpen">{{ subtitle }}</div>
                 <mat-icon
                     rightContent
                     *ngIf="hasChildren"
@@ -94,7 +90,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @Input() expanded = false;
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
 
-    @ViewChild('icon', { static: false }) iconEl: ElementRef;
+    @ViewChild('icon', { static: true }) iconEl: ElementRef;
     @ContentChildren(DrawerNavItemComponent) nestedNavItems;
 
     isNestedItem: boolean;

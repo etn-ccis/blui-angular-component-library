@@ -1,13 +1,6 @@
 import {ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
 import {DrawerService} from '../service/drawer.service';
 import {StateListener} from '../state-listener.component';
-import {
-    trigger,
-    state,
-    style,
-    animate,
-    transition
-} from '@angular/animations';
 
 export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
 
@@ -15,29 +8,19 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
     selector: 'pxb-drawer-layout',
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./drawer-layout.component.scss'],
-    animations: [
-        trigger('sidenavAnimationIsExpanded', [
-            state('true', style({
-                width: '360px'
-            })),
-            state('false', style({
-                width: '56px'
-            })),
-            transition('false <=> true', animate('300ms ease'))
-        ])
-    ],
     template: `
-        <mat-sidenav-container class="pxb-drawer-layout" (backdropClick)="closeDrawer()" autosize>
-            <mat-sidenav
-                fixedInViewport 
+        <mat-sidenav-container class="pxb-drawer-layout" (backdropClick)="closeDrawer()">
+            <mat-sidenav class="sidenav"
+                         
+                [class.open]="!isCollapsed()"
+                [class.temporary]="variant==='temporary'"
                 [mode]="getMode()" 
-                [opened]="isOpen()"
-                [@sidenavAnimationIsExpanded]="!isCollapsed()" 
-                (@sidenavAnimationIsExpanded.start)="start()" 
-                (@sidenavAnimationIsExpanded.done)="done()">
-                <ng-content select="pxb-drawer"></ng-content>
+                [opened]="isOpen()">
+                <ng-content select="[drawer]"></ng-content>
             </mat-sidenav>
-            <mat-sidenav-content style="transform-duration: 0s">
+            <mat-sidenav-content class="nav-content" 
+                 [class.open]="!isCollapsed()"
+                 [class.mobile]="variant==='temporary'">
                 <ng-content select="[content]"></ng-content>
             </mat-sidenav-content>
         </mat-sidenav-container>
@@ -47,7 +30,6 @@ export class DrawerLayoutComponent extends StateListener {
     @Input() variant: DrawerLayoutVariantType;
     @Input() width: number;
     @Output() backdropClick: EventEmitter<void> = new EventEmitter();
-    animating = false;
 
     constructor(public readonly drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
@@ -55,19 +37,6 @@ export class DrawerLayoutComponent extends StateListener {
 
     ngOnChanges(): void {
         this.drawerService.setDrawerVariant(this.variant);
-    }
-
-    start(): void {
-        this.animating = true;
-        this.tick();
-    }
-
-    done(): void {
-        this.animating = false;
-    }
-
-    tick(): void {
-        if (this.animating) requestAnimationFrame(() => this.tick());
     }
 
     getMode(): string {

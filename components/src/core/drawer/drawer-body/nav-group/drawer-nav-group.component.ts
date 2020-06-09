@@ -69,7 +69,7 @@ export class DrawerNavGroupComponent extends StateListener implements Omit<Drawe
 }
 
 export type DrawerNavGroup = {
-    divider: boolean;
-    title: string;
+    divider?: boolean;
+    title?: string;
     items: DrawerNavItem[];
 };

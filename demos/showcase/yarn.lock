@@ -987,10 +987,10 @@
     tree-kill "1.2.2"
     webpack-sources "1.4.3"
 
-"@pxblue/angular-themes@^5.0.0-beta.4":
-  version "5.0.0-beta.4"
-  resolved "https://registry.yarnpkg.com/@pxblue/angular-themes/-/angular-themes-5.0.0-beta.4.tgz#c6d7ded5f1c515787cf9392e20e5ecd2d90ce7fc"
-  integrity sha512-HnyQPuiGzqba9XaVlO19pDVy3iPYRA9J2cevIbGLObrkbnvCkHIVJ6VWFeAi3gCMdBsPAIoKsBL45HhBkb1A1Q==
+"@pxblue/angular-themes@5.0.0-beta.7":
+  version "5.0.0-beta.7"
+  resolved "https://registry.yarnpkg.com/@pxblue/angular-themes/-/angular-themes-5.0.0-beta.7.tgz#e2e336306e78f87c6893c7c47bd4992868a8f9cd"
+  integrity sha512-g1R1DmkNTs+2xQPIzA1BCoxTkGfaPk/HHI/v3e2ek/HNresgxcdfBCZVVs71zvOEAyir8i9yVo7JKE3G07hWjg==
   dependencies:
     "@pxblue/colors" "^3.0.0"
     typeface-open-sans "^0.0.75"
