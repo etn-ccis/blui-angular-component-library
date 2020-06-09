@@ -8,8 +8,8 @@ import {
     Output,
     ViewEncapsulation,
 } from '@angular/core';
-import {DrawerService} from '../../service/drawer.service';
-import {StateListener} from '../../state-listener.component';
+import { DrawerService } from '../../service/drawer.service';
+import { StateListener } from '../../state-listener.component';
 
 export type DrawerNavItem = {
     statusColor?: string;
@@ -51,10 +51,12 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 <ng-container icon #icon>
                     <ng-content select="[icon]"></ng-content>
                 </ng-container>
-                <div title
+                <div
+                    title
                     [class.pxb-drawer-nav-item-depth-1]="depth === 1"
                     [class.pxb-drawer-nav-item-depth-2]="depth === 2"
-                    [class.pxb-drawer-nav-item-depth-3]="depth === 3">
+                    [class.pxb-drawer-nav-item-depth-3]="depth === 3"
+                >
                     {{ title }}
                 </div>
                 <div subtitle>{{ subtitle }}</div>
@@ -63,7 +65,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                     *ngIf="hasChildren && drawerOpen"
                     class="pxb-drawer-nav-item-expand-icon"
                     [class.expanded]="expanded"
-                    >{{ depth > 1 ? 'arrow_drop_down' : 'expand_more'}}</mat-icon
+                    >{{ depth > 1 ? 'arrow_drop_down' : 'expand_more' }}</mat-icon
                 >
             </pxb-info-list-item>
         </div>

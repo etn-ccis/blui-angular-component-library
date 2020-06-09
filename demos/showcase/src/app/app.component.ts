@@ -4,7 +4,7 @@ import { DomSanitizer } from '@angular/platform-browser';
 import * as PXBColors from '@pxblue/colors';
 import { ViewportService } from './services/viewport.service';
 import { DrawerLayoutVariantType } from '@pxblue/angular-components';
-import {StateService} from "./services/state.service";
+import { StateService } from './services/state.service';
 const iconSet = require('@pxblue/icons-svg/icons.svg');
 
 @Component({
@@ -14,7 +14,6 @@ const iconSet = require('@pxblue/icons-svg/icons.svg');
     encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
-
     colors: Record<string, any>;
     variant: DrawerLayoutVariantType = 'persistent';
 
@@ -37,10 +36,10 @@ export class AppComponent {
     }
 
     isMobile(): boolean {
-      return this.viewportService.isSmall();
+        return this.viewportService.isSmall();
     }
 
     getVariant(): DrawerLayoutVariantType {
-      return this.viewportService.isSmall() ? 'temporary' : 'persistent';
+        return this.viewportService.isSmall() ? 'temporary' : 'persistent';
     }
 }

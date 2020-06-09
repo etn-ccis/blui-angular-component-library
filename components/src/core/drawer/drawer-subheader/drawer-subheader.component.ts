@@ -8,8 +8,7 @@ import { StateListener } from '../state-listener.component';
     encapsulation: ViewEncapsulation.None,
     template: `
         <div class="pxb-drawer-subheader">
-            <div class="pxb-drawer-subheader-content-wrapper"
-                 [class.pxb-drawer-subheader-closed]="!drawerOpen">
+            <div class="pxb-drawer-subheader-content-wrapper" [class.pxb-drawer-subheader-closed]="!drawerOpen">
                 <ng-content></ng-content>
             </div>
         </div>

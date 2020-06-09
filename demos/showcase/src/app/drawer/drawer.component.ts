@@ -1,15 +1,14 @@
 import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
 import * as PXBColors from '@pxblue/colors';
-import { DrawerNavItem, DrawerNavGroup, DrawerLayoutVariantType} from '@pxblue/angular-components';
-import {ViewportService} from "../services/viewport.service";
-import {StateService} from "../services/state.service";
+import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
+import { ViewportService } from '../services/viewport.service';
+import { StateService } from '../services/state.service';
 
 @Component({
     selector: 'showcase-drawer',
     styleUrls: ['./drawer.component.scss'],
     template: `
-        <pxb-drawer [open]="isOpen()"
-        >
+        <pxb-drawer [open]="isOpen()">
             <pxb-drawer-header
                 title="PX Blue Drawer"
                 subtitle="Organize your menu items here"
@@ -46,34 +45,25 @@ import {StateService} from "../services/state.service";
             </pxb-drawer-body>
 
             <pxb-drawer-footer>
-              <mat-divider></mat-divider>
-              <img src="../assets/EatonLogo.svg" width="170" style="align-self: center; padding: 16px" />
+                <mat-divider></mat-divider>
+                <img src="../assets/EatonLogo.svg" width="170" style="align-self: center; padding: 16px" />
             </pxb-drawer-footer>
         </pxb-drawer>
     `,
     encapsulation: ViewEncapsulation.None,
 })
 export class DrawerComponent {
-
     colors = PXBColors;
     selectedItemId: string;
     @Input() variantDrawerHandler: boolean;
     @Output() onClickMenuButton: EventEmitter<any> = new EventEmitter();
     @Output() onDrawerOpenChange: EventEmitter<any> = new EventEmitter();
 
-    constructor(
-      public readonly stateService: StateService,
-      private readonly viewportService: ViewportService) {}
+    constructor(public readonly stateService: StateService, private readonly viewportService: ViewportService) {}
 
-    nestedItems1: DrawerNavItem[] = [
-        { title: 'Sub 1'},
-        { title: 'Sub 2' },
-    ];
+    nestedItems1: DrawerNavItem[] = [{ title: 'Sub 1' }, { title: 'Sub 2' }];
 
-    nestedItems2: DrawerNavItem[] = [
-        { title: 'Sub 3'},
-        { title: 'Sub 4' },
-    ];
+    nestedItems2: DrawerNavItem[] = [{ title: 'Sub 3' }, { title: 'Sub 4' }];
 
     nestedItems3: DrawerNavItem[] = [
         { title: 'Sub 5', hidePadding: true },
@@ -93,11 +83,11 @@ export class DrawerComponent {
             title: 'DrawerNavItem 2',
             subtitle: 'Subtitle 2',
             statusColor: PXBColors.blue[500],
-          onSelect: (): void => this.testClick('Drawer Nav Item 2'),
+            onSelect: (): void => this.testClick('Drawer Nav Item 2'),
             icon: 'help',
             items: this.nestedItems2,
-          //  expandIcon: 'arrow_drop_down',
-          //  collapseIcon: 'arrow_drop_up',
+            //  expandIcon: 'arrow_drop_down',
+            //  collapseIcon: 'arrow_drop_up',
         },
     ];
 
@@ -107,7 +97,7 @@ export class DrawerComponent {
             subtitle: 'Subtitle 3',
             divider: true,
             statusColor: PXBColors.green[500],
-          onSelect: (): void => this.testClick('Drawer Nav Item 3'),
+            onSelect: (): void => this.testClick('Drawer Nav Item 3'),
             items: this.nestedItems3,
         },
         {
@@ -126,7 +116,7 @@ export class DrawerComponent {
             title: 'DrawerNavItem 6',
             divider: true,
             statusColor: PXBColors.orange[500],
-           onSelect: (): void => this.testClick('Drawer Nav Item 6'),
+            onSelect: (): void => this.testClick('Drawer Nav Item 6'),
             icon: 'work',
         },
     ];
@@ -148,7 +138,7 @@ export class DrawerComponent {
     }
 
     isOpen(): boolean {
-      return this.stateService.getDrawerOpen();
+        return this.stateService.getDrawerOpen();
     }
 
     setActive(id: string): void {

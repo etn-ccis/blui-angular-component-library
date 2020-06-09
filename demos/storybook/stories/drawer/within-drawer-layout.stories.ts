@@ -1,4 +1,4 @@
-import {number, select} from '@storybook/addon-knobs';
+import { number, select } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
 import { nestedNavGroup } from './with-nested-nav-items.stories';
 import { DrawerNavItem } from '@pxblue/angular-components';
@@ -53,16 +53,12 @@ export const withinDrawerLayout = (): any => ({
         white: Colors.white[50],
         navItems: items,
         state: { selected: undefined, open: true },
-        width: number(
-            'width',
-            350,
-            {
-                range: true,
-                min: 200,
-                max: 600,
-                step: 5,
-            }
-        ),
+        width: number('width', 350, {
+            range: true,
+            min: 200,
+            max: 600,
+            step: 5,
+        }),
         variant: select('variant', ['persistent', 'temporary', 'permanent'], 'persistent'),
         toggleDrawer: (state): void => {
             state.open = !state.open;

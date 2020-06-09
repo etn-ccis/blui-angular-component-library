@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
-import {DrawerLayoutVariantType} from "../..";
+import { DrawerLayoutVariantType } from '../..';
 
 @Injectable({
     providedIn: 'root',

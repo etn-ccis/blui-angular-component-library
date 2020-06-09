@@ -1,6 +1,6 @@
-import {ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
-import {DrawerService} from '../service/drawer.service';
-import {StateListener} from '../state-listener.component';
+import { ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { DrawerService } from '../service/drawer.service';
+import { StateListener } from '../state-listener.component';
 
 export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
 
@@ -10,15 +10,20 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
     styleUrls: ['./drawer-layout.component.scss'],
     template: `
         <mat-sidenav-container class="pxb-drawer-layout" (backdropClick)="closeDrawer()">
-            <mat-sidenav class="pxb-drawer-layout-sidenav" 
+            <mat-sidenav
+                class="pxb-drawer-layout-sidenav"
                 [fixedInViewport]="true"
                 [style.width.px]="isCollapsed() ? 64 : width"
-                [class.mobile]="variant==='temporary'"
-                [mode]="getMode()" 
-                [opened]="isOpen()">
+                [class.mobile]="variant === 'temporary'"
+                [mode]="getMode()"
+                [opened]="isOpen()"
+            >
                 <ng-content select="[drawer]"></ng-content>
             </mat-sidenav>
-            <mat-sidenav-content class="pxb-drawer-layout-nav-content" [style.marginLeft.px]="isCollapsed() ? 64 : width">
+            <mat-sidenav-content
+                class="pxb-drawer-layout-nav-content"
+                [style.marginLeft.px]="isCollapsed() ? 64 : width"
+            >
                 <ng-content select="[content]"></ng-content>
             </mat-sidenav-content>
         </mat-sidenav-container>
