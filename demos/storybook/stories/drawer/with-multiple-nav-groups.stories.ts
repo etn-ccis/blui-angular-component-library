@@ -24,7 +24,7 @@ export const withMultiNavGroups = (): any => ({
              </button>
            </pxb-drawer-header>
            <pxb-drawer-body>
-              <pxb-drawer-nav-group [title]="groupTitle1">
+              <pxb-drawer-nav-group [title]="groupTitle1" [divider]="true">
                  <pxb-drawer-nav-item *ngFor="let navItem of navItems1"
                     [title]="navItem.title"
                     [selected]="state.selected === navItem.title"
@@ -33,7 +33,7 @@ export const withMultiNavGroups = (): any => ({
                  </pxb-drawer-nav-item>
               </pxb-drawer-nav-group>
               <pxb-spacer *ngIf="spacer"></pxb-spacer> 
-              <pxb-drawer-nav-group [title]="groupTitle2">
+              <pxb-drawer-nav-group [title]="groupTitle2" [divider]="true">
                  <pxb-drawer-nav-item *ngFor="let navItem of navItems2"
                     [title]="navItem.title"
                     [hidePadding]="true"
