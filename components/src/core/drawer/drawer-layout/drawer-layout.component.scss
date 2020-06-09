@@ -1,21 +1,10 @@
 @import './../drawer.component';
 
 .pxb-drawer-layout {
-    transition: $transition;
     height: 100%;
     width: 100%;
     .mat-drawer-side {
         border-right: none;
-    }
-
-    mat-sidenav {
-        width: $width-open;
-        &.pxb-drawer-layout-collapse {
-            width: $width-closed;
-        }
-    }
-
-    .pxb-nav-content {
     }
 
     .pxb-drawer {

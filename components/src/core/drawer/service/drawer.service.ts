@@ -1,20 +1,30 @@
 import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
+import {DrawerLayoutVariantType} from "../..";
 
 @Injectable({
     providedIn: 'root',
 })
 export class DrawerService {
-    drawerOpen;
+    private drawerOpen: boolean;
+    private variant: DrawerLayoutVariantType;
     drawerOpenObs = new Subject<boolean>();
     drawerSelectObs = new Subject<string>();
 
     setDrawerOpen(drawerOpen: boolean): void {
-        this.drawerOpen = drawerOpen;
+        this.drawerOpen = drawerOpen || this.getDrawerVariant() === 'permanent';
         this.drawerOpenObs.next(this.drawerOpen);
     }
 
-    getDrawerOpen(): boolean {
+    getDrawerVariant(): DrawerLayoutVariantType {
+        return this.variant;
+    }
+
+    setDrawerVariant(variant: DrawerLayoutVariantType): void {
+        this.variant = variant;
+    }
+
+    isDrawerOpen(): boolean {
         return this.drawerOpen;
     }
 
