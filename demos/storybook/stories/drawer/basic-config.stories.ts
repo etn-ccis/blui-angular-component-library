@@ -4,24 +4,34 @@ import { boolean, text } from '@storybook/addon-knobs';
 let active: string;
 
 const testClick = (str: string): void => {
-  // eslint-disable-next-line no-console
-  console.log(str, 'clicked...');
+    // eslint-disable-next-line no-console
+    console.log(str, 'clicked...');
 };
 
 const navItems = [
-  { title: 'Identity Management', icon: 'perm_identity', itemID: '1', onClick: (): void => testClick('Identity Management') },
-  { title: 'Calender', icon: 'today', itemID: '2', onClick: (): void => testClick('Calendar') },
-  { title: 'Accessibility', icon: 'accessibility', itemID: '3', onClick: (): void => testClick('Accessibility') },
-  { title: 'Notifications', icon: 'notifications_active', itemID: '4', onClick: (): void => testClick('Notifications') }
+    {
+        title: 'Identity Management',
+        icon: 'perm_identity',
+        itemID: '1',
+        onClick: (): void => testClick('Identity Management'),
+    },
+    { title: 'Calender', icon: 'today', itemID: '2', onClick: (): void => testClick('Calendar') },
+    { title: 'Accessibility', icon: 'accessibility', itemID: '3', onClick: (): void => testClick('Accessibility') },
+    {
+        title: 'Notifications',
+        icon: 'notifications_active',
+        itemID: '4',
+        onClick: (): void => testClick('Notifications'),
+    },
 ];
 
 const setActive = (id: string): void => {
-  active = id;
-}
+    active = id;
+};
 
 export const withBasicConfig = (): any => ({
-  styles: [
-    ` 
+    styles: [
+        ` 
         ::ng-deep storybook-dynamic-app-root>ng-component {
           width: 100% !important;
         }
@@ -35,8 +45,8 @@ export const withBasicConfig = (): any => ({
             color: #ffffff !important;
         }
     `,
-  ],
-  template: `
+    ],
+    template: `
     <pxb-drawer-layout [drawerOpen]="drawerOpen" variant="persistent">
         <pxb-drawer variant="persistent" drawer>
           <pxb-drawer-header [title]="drawerTitle">
@@ -55,15 +65,11 @@ export const withBasicConfig = (): any => ({
         </pxb-drawer>
     </pxb-drawer-layout>
       `,
-  props: {
-    drawerOpen: boolean('open', true),
-    drawerTitle: text('title', 'Simple Drawer'),
-    navItems: navItems,
-    setActive: setActive,
-    active: active
-  },
+    props: {
+        drawerOpen: boolean('open', true),
+        drawerTitle: text('title', 'Simple Drawer'),
+        navItems: navItems,
+        setActive: setActive,
+        active: active,
+    },
 });
-
-
-
-

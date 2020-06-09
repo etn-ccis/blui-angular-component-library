@@ -1,4 +1,4 @@
-import { boolean, color, select, text, number } from '@storybook/addon-knobs';
+import { boolean, color, text, number } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
 
 export const withFullConfig = (): any => ({
