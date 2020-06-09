@@ -22,7 +22,6 @@ export const withFooter = (): any => ({
               </pxb-drawer-nav-group>
            </pxb-drawer-body>
            <pxb-drawer-footer>
-             <mat-divider></mat-divider>
              <img [src]="bgImage" width="170" style="align-self: center; padding: 16px" />
            </pxb-drawer-footer>
         </pxb-drawer>

@@ -11,8 +11,6 @@ import { DrawerService } from './service/drawer.service';
 import { StateListener } from './state-listener.component';
 import { Subscription } from 'rxjs';
 
-export type VariantType = 'permanent' | 'persistent' | 'temporary';
-
 @Component({
     selector: 'pxb-drawer',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -31,7 +29,6 @@ export type VariantType = 'permanent' | 'persistent' | 'temporary';
     styleUrls: ['./drawer.component.scss'],
 })
 export class DrawerComponent extends StateListener implements OnInit, OnChanges {
-    @Input() variant: VariantType;
     @Input() open: boolean;
 
     hoverDelay: any;

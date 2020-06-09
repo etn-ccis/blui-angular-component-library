@@ -54,7 +54,7 @@ import { StateListener } from '../../state-listener.component';
 })
 export class DrawerNavGroupComponent extends StateListener implements Omit<DrawerNavGroup, 'items'> {
     @Input() title: string;
-    @Input() divider: boolean;
+    @Input() divider = false;
     @ContentChildren(DrawerNavItemComponent) navItems;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {

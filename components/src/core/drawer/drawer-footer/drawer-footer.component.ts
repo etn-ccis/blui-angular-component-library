@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, ViewEncapsulation} from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 
@@ -9,16 +9,16 @@ import { StateListener } from '../state-listener.component';
     template: `
         <div
             class="pxb-drawer-footer"
-            [class.pxb-drawer-footer-open]="drawerOpen"
             [class.pxb-drawer-footer-closed]="!drawerOpen"
         >
+            <mat-divider *ngIf="divider"></mat-divider>
             <ng-content></ng-content>
         </div>
     `,
     styleUrls: ['./drawer-footer.component.scss'],
 })
 export class DrawerFooterComponent extends StateListener {
-    drawerOpen: boolean;
+    @Input() divider = true;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);

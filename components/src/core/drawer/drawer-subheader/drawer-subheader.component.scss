@@ -1,11 +1,6 @@
-.pxb-drawer-subheader,
-.pxb-drawer-subheader-content-wrapper {
-    width: 100%;
-}
-
 .pxb-drawer-subheader {
     box-sizing: border-box;
-    .pxb-drawer-subheader-closed {
+    &.pxb-drawer-subheader-closed {
         visibility: hidden;
     }
 }

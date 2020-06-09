@@ -1,12 +1,7 @@
 .pxb-drawer-footer {
     display: flex;
     flex-direction: column;
-}
-
-.pxb-drawer-footer-open {
-    visibility: inherit;
-}
-
-.pxb-drawer-footer-closed {
-    visibility: hidden;
+    &.pxb-drawer-footer-closed {
+        visibility: hidden;
+    }
 }

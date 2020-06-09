@@ -124,7 +124,6 @@ export const withFullConfig = (): any => ({
               </ng-container>
            </pxb-drawer-body>
            <pxb-drawer-footer *ngIf="showFooter">
-             <mat-divider></mat-divider>
              <img [src]="footerImage" width="170" style="align-self: center; padding: 16px" />
            </pxb-drawer-footer>
         </pxb-drawer>

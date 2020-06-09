@@ -83,7 +83,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @Input() divider: boolean;
     @Input() hidePadding: boolean;
     @Input() ripple = true;
-    @Input() selected: string;
+    @Input() selected: boolean;
     @Input() statusColor: string;
     @Input() subtitle: string;
     @Input() title: string;

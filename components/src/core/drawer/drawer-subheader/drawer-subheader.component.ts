@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation, ChangeDetectorRef } from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewEncapsulation, ChangeDetectorRef, Input} from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 
@@ -7,16 +7,16 @@ import { StateListener } from '../state-listener.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="pxb-drawer-subheader">
-            <div class="pxb-drawer-subheader-content-wrapper" [class.pxb-drawer-subheader-closed]="!drawerOpen">
-                <ng-content></ng-content>
-            </div>
+        <div class="pxb-drawer-subheader" [class.pxb-drawer-subheader-closed]="!drawerOpen">
+            <ng-content></ng-content>
         </div>
-        <mat-divider></mat-divider>
+        <mat-divider *ngIf="divider"></mat-divider>
     `,
     styleUrls: ['./drawer-subheader.component.scss'],
 })
 export class DrawerSubheaderComponent extends StateListener {
+    @Input() divider = true;
+
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
     }
