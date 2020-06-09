@@ -11,7 +11,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
     template: `
         <mat-sidenav-container class="pxb-drawer-layout" (backdropClick)="closeDrawer()">
             <mat-sidenav class="sidenav"
-                         
+                [fixedInViewport]="true"
                 [class.open]="!isCollapsed()"
                 [class.temporary]="variant==='temporary'"
                 [mode]="getMode()" 

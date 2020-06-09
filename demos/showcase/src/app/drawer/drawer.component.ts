@@ -15,14 +15,10 @@ import {StateService} from "../services/state.service";
                 subtitle="Organize your menu items here"
                 class="test-background-image"
             >
-                <button mat-icon-button pxb-icon style="margin-right: 24px; margin-left: -8px;" (click)="clickMenuButton()">
+                <button mat-icon-button pxb-icon (click)="clickMenuButton()">
                     <mat-icon>menu</mat-icon>
                 </button>
             </pxb-drawer-header>
-
-            <pxb-drawer-subheader>
-                Subheader goes here
-            </pxb-drawer-subheader>
 
             <pxb-drawer-body>
                 <pxb-drawer-nav-group *ngFor="let navGroup of navGroups" [title]="navGroup.title">
