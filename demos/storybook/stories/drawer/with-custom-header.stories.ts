@@ -19,7 +19,7 @@ export const withCustomHeader = (): any => ({
                 <mat-icon>menu</mat-icon>
             </button>
             <div titleContent>
-                <div class="mat-h4" style="margin-bottom: -8px; margin-top: 8px">Customizable</div>
+                <div class="mat-h4" style="margin-bottom: -8px; margin-top: 20px">Customizable</div>
                 <div class="mat-h2" style="margin-top: 0">Header Content</div>
             </div>
           </pxb-drawer-header>

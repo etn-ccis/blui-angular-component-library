@@ -3,16 +3,13 @@ import {
     ChangeDetectorRef,
     Component,
     ContentChildren,
-    ElementRef,
     EventEmitter,
     Input,
     Output,
-    ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
-import { DrawerService } from '../../service/drawer.service';
-import { StateListener } from '../../state-listener.component';
-import { isEmptyView } from '../../../../utils/utils';
+import {DrawerService} from '../../service/drawer.service';
+import {StateListener} from '../../state-listener.component';
 
 export type DrawerNavItem = {
     statusColor?: string;
@@ -51,18 +48,19 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 [matRippleDisabled]="!ripple"
                 matRipple
             >
-                <div icon #icon><ng-content select="[icon]"></ng-content></div>
-                <div title *ngIf="!isEmpty(iconEl) || drawerOpen"
+                <ng-container icon #icon>
+                    <ng-content select="[icon]"></ng-content>
+                </ng-container>
+                <div title
                     [class.pxb-drawer-nav-item-depth-1]="depth === 1"
                     [class.pxb-drawer-nav-item-depth-2]="depth === 2"
-                    [class.pxb-drawer-nav-item-depth-3]="depth === 3"
-                >
+                    [class.pxb-drawer-nav-item-depth-3]="depth === 3">
                     {{ title }}
                 </div>
-                <div subtitle *ngIf="!isEmpty(iconEl) || drawerOpen">{{ subtitle }}</div>
+                <div subtitle>{{ subtitle }}</div>
                 <mat-icon
                     rightContent
-                    *ngIf="hasChildren"
+                    *ngIf="hasChildren && drawerOpen"
                     class="pxb-drawer-nav-item-expand-icon"
                     [class.expanded]="expanded"
                     >{{ depth > 1 ? 'arrow_drop_down' : 'expand_more'}}</mat-icon
@@ -90,14 +88,12 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @Input() expanded = false;
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
 
-    @ViewChild('icon', { static: true }) iconEl: ElementRef;
     @ContentChildren(DrawerNavItemComponent) nestedNavItems;
 
     isNestedItem: boolean;
     drawerOpen: boolean;
     hasChildren: boolean;
     depth: number;
-    isEmpty = (el): boolean => isEmptyView(el);
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
