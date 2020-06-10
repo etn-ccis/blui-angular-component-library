@@ -231,6 +231,7 @@ Each PX Blue component has classes which can be used to override component style
 | Name                                        | Description                                   |
 |---------------------------------------------|-----------------------------------------------|
 | pxb-drawer-body                             | Styles applied to the root element            |
+| pxb-drawer-body-closed                      | Styles applied to body when drawer is closed  |
 
 </div>
 
@@ -296,6 +297,7 @@ Parent element (`<pxb-drawer-nav-item>`) attributes:
 | activeItemBackgroundShape| Sets the active item background shape      | `'round' | 'square'` | no       | 'round' |
 | chevron                  | Sets whether to show chevron               | `boolean`            | no       | false   |
 | divider                  | Sets whether to show divider               | `boolean`            | no       | true    |
+| expanded                 | Sets whether to show nested nav items      | `boolean`            | no       | false   |
 | hidePadding              | Sets whether to show/hide padding          | `boolean`            | no       |         |
 | ripple                   | Sets whether to show/hide ripple           | `boolean`            | no       | true    |
 | selected                 | Sets whether an item is selected           | `boolean`            | no       |         |
