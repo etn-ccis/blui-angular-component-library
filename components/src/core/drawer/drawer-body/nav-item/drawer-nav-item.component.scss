@@ -67,3 +67,7 @@
         box-shadow: unset;
     }
 }
+
+mat-accordion.pxb-drawer-nested-nav-item mat-expansion-panel.mat-expansion-panel {
+    border-radius: 0!important;
+}
