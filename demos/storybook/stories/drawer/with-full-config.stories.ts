@@ -8,6 +8,7 @@ const headerImage = require('../../assets/topology_40.png');
 const header = 'DrawerHeader';
 const navGroup = 'DrawerNavGroup';
 const navItem = 'DrawerNavItem';
+const footer = 'DrawerFooter';
 
 export const navItems1: DrawerNavItem[] = [
     {
@@ -123,7 +124,7 @@ export const withFullConfig = (): any => ({
                 <pxb-spacer *ngIf="first && spacer"></pxb-spacer>
               </ng-container>
            </pxb-drawer-body>
-           <pxb-drawer-footer *ngIf="showFooter">
+           <pxb-drawer-footer *ngIf="showFooter" [divider]="footerDivider">
              <img [src]="footerImage" width="170" style="align-self: center; padding: 16px" />
            </pxb-drawer-footer>
         </pxb-drawer>
@@ -168,7 +169,8 @@ export const withFullConfig = (): any => ({
         itemDivider: boolean('divider', true, navItem),
         showNavItemIcon: boolean('Show Icon', true, navItem),
         activeItemBackgroundShape: select('activeItemBackgroundShape', ['round', 'square'], 'round', navItem),
-        showFooter: boolean('Show Footer', true, 'DrawerFooter'),
+        showFooter: boolean('Show Footer', true, footer),
+        footerDivider: boolean('divider', true, footer),
         setActive: (item: DrawerNavItem, state: { selected: string }): void => {
             if (!item.items) {
                 // Only selects items that do not have nested nav items.
