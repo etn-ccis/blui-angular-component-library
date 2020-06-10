@@ -152,7 +152,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     }
 
     selectItem(): void {
-        this.drawerService.select();
+        this.drawerService.select(this.hasChildren);
         this.select.emit();
         if (this.hasChildren) {
             this.toggleNestedNavItems();

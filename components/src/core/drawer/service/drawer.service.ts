@@ -9,7 +9,7 @@ export class DrawerService {
     private drawerOpen: boolean;
     private variant: DrawerLayoutVariantType;
     drawerOpenObs = new Subject<boolean>();
-    drawerSelectObs = new Subject<string>();
+    drawerSelectObs = new Subject<boolean>();
 
     setDrawerOpen(drawerOpen: boolean): void {
         this.drawerOpen = drawerOpen || this.getDrawerVariant() === 'permanent';
@@ -32,11 +32,11 @@ export class DrawerService {
         return this.drawerOpenObs;
     }
 
-    select(): void {
-        this.drawerSelectObs.next();
+    select(hasChildren: boolean): void {
+        this.drawerSelectObs.next(hasChildren);
     }
 
-    drawerSelectionChanges(): Observable<string> {
+    drawerSelectionChanges(): Observable<boolean> {
         return this.drawerSelectObs;
     }
 }

@@ -70,9 +70,10 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
     }
 
     // Close drawer on selection if drawer is only temporarily opened.
+    // Expanding nested navitems when temporarily opened will not close the drawer.
     private listenForDrawerSelection(): void {
-        this.drawerSelectionListener = this.drawerService.drawerSelectionChanges().subscribe(() => {
-            if (this.tempOpen) {
+        this.drawerSelectionListener = this.drawerService.drawerSelectionChanges().subscribe((hasChildren) => {
+            if (this.tempOpen && !hasChildren) {
                 this.drawerService.setDrawerOpen(false);
                 this.tempOpen = false;
                 this.changeDetector.detectChanges();
