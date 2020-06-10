@@ -11,16 +11,16 @@ const Trex = require('../../assets/trex.png');
     selector: 'image-types-story',
     template: `
         <pxb-hero-banner>
-            <pxb-hero label="SVG" value="normal" iconSize="normal" [iconBackgroundColor]="colors.white[50]">
+            <pxb-hero label="SVG" value="36px" [iconBackgroundColor]="colors.white[50]">
                 <mat-icon svgIcon="px-icons:grade_a" primary [style.color]="colors.blue[500]"></mat-icon>
             </pxb-hero>
-            <pxb-hero label="mat icon" value="normal" iconSize="normal" [iconBackgroundColor]="colors.white[50]">
+            <pxb-hero label="mat icon" value="36px" [iconBackgroundColor]="colors.white[50]">
                 <mat-icon primary>schedule</mat-icon>
             </pxb-hero>
-            <pxb-hero label="web icon" value="normal" iconSize="normal" [iconBackgroundColor]="colors.white[50]">
+            <pxb-hero label="web icon" value="36px" [iconBackgroundColor]="colors.white[50]">
                 <i primary [style.color]="colors.green[800]" class="pxb-current_circled"></i>
             </pxb-hero>
-            <pxb-hero label="PNG" value="normal" iconSize="normal" [iconBackgroundColor]="colors.white[50]">
+            <pxb-hero label="PNG" value="36px" [iconBackgroundColor]="colors.white[50]">
                 <img primary [src]="trex" alt="A T-Rex as the avatar image" />
             </pxb-hero>
         </pxb-hero-banner>
@@ -41,16 +41,16 @@ const Trex = require('../../assets/trex.png');
         </pxb-hero-banner>
 
         <pxb-hero-banner>
-            <pxb-hero label="SVG" value="large" iconSize="large" [iconBackgroundColor]="colors.white[50]">
+            <pxb-hero label="SVG" value="72px" iconSize="72" [iconBackgroundColor]="colors.white[50]">
                 <mat-icon svgIcon="px-icons:grade_a" primary [style.color]="colors.blue[500]"></mat-icon>
             </pxb-hero>
-            <pxb-hero label="mat icon" value="large" iconSize="large" [iconBackgroundColor]="colors.white[50]">
+            <pxb-hero label="mat icon" value="72px" iconSize="72" [iconBackgroundColor]="colors.white[50]">
                 <mat-icon primary>schedule</mat-icon>
             </pxb-hero>
-            <pxb-hero label="web icon" value="large" iconSize="large" [iconBackgroundColor]="colors.white[50]">
+            <pxb-hero label="web icon" value="72px" iconSize="72" [iconBackgroundColor]="colors.white[50]">
                 <i primary [style.color]="colors.green[800]" class="pxb-current_circled"></i>
             </pxb-hero>
-            <pxb-hero label="PNG" value="large" iconSize="large" [iconBackgroundColor]="colors.white[50]">
+            <pxb-hero label="PNG" value="72px" iconSize="72" [iconBackgroundColor]="colors.white[50]">
                 <img primary [src]="trex" alt="A T-Rex as the avatar image" />
             </pxb-hero>
         </pxb-hero-banner>

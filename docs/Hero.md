@@ -51,15 +51,12 @@ Parent element (`<pxb-hero>`) attributes:
 
 | @Input   | Description                            | Type                    | Required | Default       |
 | -------- | -------------------------------------- | ----------------------- | -------- | ------------- |
-| fontSize | The text size for the value line       | `'normal'` \| `'small'` | no       | 'normal'      |
-| iconSize | The size of the primary icon (10-48)   | `string`                | no       | 'normal' (36) |
+| iconSize | The size of the primary icon (10-48)   | `number`                | no       | 'normal' (36) |
 | label    | The text shown below the Channel Value | `string`                | yes      |               |
 | units    | Text to show after the value           | `string`                | no       |               |
 | value    | The value for the channel              | `string` \| `number`    | no       |               |
 
 </div>
-
-> **Note**: When using the `iconSize` attribute, you may specify either normal (36px) or large (72px). When using `<mat-icon>` icons (not PX Blue supplemental icon), you may also specify a numeric value from 10 to 72.
 
 The following child elements are projected into `<pxb-hero>`:
 

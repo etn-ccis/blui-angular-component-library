@@ -1,9 +1,9 @@
-import { boolean, color, number, text } from '@storybook/addon-knobs';
+import { boolean, color, text } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
 
 export const withFullConfig = (): any => ({
     template: `
-        <pxb-channel-value [value]="value" [units]="units" [fontSize]="fontSize" [color]="color" [prefix]="prefix">
+        <pxb-channel-value [value]="value" [units]="units" [color]="color" [prefix]="prefix">
             <mat-icon *ngIf="showIcon" [style.color]="iconColor">trending_up</mat-icon>
         </pxb-channel-value> 
     `,
@@ -13,7 +13,6 @@ export const withFullConfig = (): any => ({
         iconColor: color('icon.color', Colors.red[500]),
         showIcon: boolean('Show Icon', true),
         color: color('color', 'blue'),
-        fontSize: number('fontSize', 30),
         prefix: boolean('prefix', false),
     },
 });
