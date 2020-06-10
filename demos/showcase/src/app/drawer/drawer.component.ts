@@ -20,7 +20,7 @@ import { StateService } from '../services/state.service';
             </pxb-drawer-header>
 
             <pxb-drawer-body>
-                <pxb-drawer-nav-group *ngFor="let navGroup of navGroups" [title]="navGroup.title">
+                <pxb-drawer-nav-group *ngFor="let navGroup of navGroups" [title]="navGroup.title" [divider]="true">
                     <pxb-drawer-nav-item
                         *ngFor="let navItem of navGroup.items"
                         [title]="navItem.title"

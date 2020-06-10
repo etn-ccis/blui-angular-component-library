@@ -1,6 +1,7 @@
 .pxb-drawer-footer {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
     &.pxb-drawer-footer-closed {
         visibility: hidden;
     }
