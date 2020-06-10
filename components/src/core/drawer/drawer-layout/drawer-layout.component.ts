@@ -13,16 +13,16 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
             <mat-sidenav
                 class="pxb-drawer-layout-sidenav"
                 [fixedInViewport]="true"
-                [style.width.px]="isCollapsed() ? 64 : width"
+                [style.width.px]="isCollapsed() ? 56 : width"
                 [class.mobile]="variant === 'temporary'"
-                [mode]="getMode()"
+                [mode]="getMode()" 
                 [opened]="isOpen()"
             >
                 <ng-content select="[drawer]"></ng-content>
             </mat-sidenav>
             <mat-sidenav-content
                 class="pxb-drawer-layout-nav-content"
-                [style.marginLeft.px]="isCollapsed() ? 64 : width"
+                [style.marginLeft.px]="isCollapsed() ? 56 : width"
             >
                 <ng-content select="[content]"></ng-content>
             </mat-sidenav-content>
