@@ -1,26 +1,26 @@
 @import '~@pxblue/colors/palette.scss';
 
 .pxb-drawer {
-  background-color: #ffffff;
-  border-right: 1px solid map-get($pxb-black, 50);
-  height: 100%;
+    background-color: #ffffff;
+    border-right: 1px solid map-get($pxb-black, 50);
+    height: 100%;
 
-  .pxb-drawer-subheader {
-    height: 48px;
-    line-height: 3rem;
-    font-weight: 600;
-    padding-right: 16px;
-    padding-left: 16px;
-}
-
-  .pxb-drawer-footer {
-    .pxb-drawer-footer-content-wrapper {
-      display: flex;
-      justify-content: center;
+    .pxb-drawer-subheader {
+        height: 48px;
+        line-height: 3rem;
+        font-weight: 600;
+        padding-right: 16px;
+        padding-left: 16px;
     }
 
-    img {
-      margin: 10px;
+    .pxb-drawer-footer {
+        .pxb-drawer-footer-content-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        img {
+            margin: 10px;
+        }
     }
-  }
 }

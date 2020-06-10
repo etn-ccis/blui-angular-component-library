@@ -11,8 +11,6 @@ import {
     ViewEncapsulation,
 } from '@angular/core';
 import { requireInput } from '../../utils/utils';
-export type IconSize = 'small' | 'normal' | 'large' | number;
-export type FontSize = 'small' | 'normal';
 
 @Component({
     selector: 'pxb-hero',
@@ -33,7 +31,7 @@ export type FontSize = 'small' | 'normal';
             >
                 <ng-content select="[primary]"></ng-content>
             </div>
-            <span class="pxb-hero-channel-value-wrapper" [class.pxb-hero-small]="fontSize === 'small'">
+            <span class="pxb-hero-channel-value-wrapper">
                 <ng-content select="pxb-channel-value" *ngIf="value === undefined"></ng-content>
                 <pxb-channel-value *ngIf="value !== undefined" [value]="value" [units]="units">
                     <ng-content select="[secondary]"></ng-content>
@@ -48,8 +46,7 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
     @Input() label: string;
     @Input() value: string;
     @Input() units: string;
-    @Input() iconSize: IconSize = 'normal';
-    @Input() fontSize: FontSize = 'normal';
+    @Input() iconSize = 36;
     @Input() scaleSvgIcon = true;
     @Input() iconBackgroundColor: string;
     @ViewChild('primaryContainer', { static: false }) primaryContainer: ElementRef;
@@ -62,9 +59,8 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
 
     ngOnChanges(): void {
         requireInput<HeroComponent>(['label'], this);
-        this.normalizeIconSize();
+        this.iSize = this.iconSize;
     }
-
     ngAfterViewInit(): void {
         this.hasMatSvgIcon = Boolean(this.getMatSvgIcon());
         this.ref.detectChanges();
@@ -72,26 +68,6 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
 
     ngAfterContentChecked(): void {
         this.scaleSvgIconOnChanges();
-    }
-
-    normalizeIconSize(): void {
-        switch (this.iconSize) {
-            case 'small': {
-                this.iSize = 24;
-                break;
-            }
-            case 'normal': {
-                this.iSize = 36;
-                break;
-            }
-            case 'large': {
-                this.iSize = 72;
-                break;
-            }
-            default: {
-                this.iSize = this.iconSize;
-            }
-        }
     }
 
     // Used to listen for changes in the primary icon content.

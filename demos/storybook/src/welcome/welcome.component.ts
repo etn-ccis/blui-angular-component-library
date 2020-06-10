@@ -77,4 +77,4 @@ export class WelcomeComponent implements OnInit, OnDestroy {
     declarations: [WelcomeComponent],
     exports: [WelcomeComponent, UtilModule],
 })
-export class WelcomeModule { }
+export class WelcomeModule {}

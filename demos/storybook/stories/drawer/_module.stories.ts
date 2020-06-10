@@ -24,12 +24,7 @@ export const drawerContainer = () => (storyFn): any => {
 storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [
-                DrawerModule,
-                UtilModule,
-                MatIconModule,
-                CommonModule,
-            ],
+            imports: [DrawerModule, UtilModule, MatIconModule, CommonModule],
         })
     )
     .addDecorator(withKnobs)
