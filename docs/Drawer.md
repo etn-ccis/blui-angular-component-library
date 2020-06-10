@@ -85,9 +85,9 @@ Parent element (`<pxb-drawer-layout>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Output       | Description                                          | Type           |
-| ------------- | ---------------------------------------------------- | -------------- |
-| backdropClick | Event triggered on `tempory` variant backdrop click | `EventEmitter` | 
+| @Output       | Description                                          | Type                |
+| ------------- | ---------------------------------------------------- | ------------------- |
+| backdropClick | Event triggered on `tempory` variant backdrop click | `EventEmitter<void>` | 
 
 </div>
 
@@ -302,6 +302,14 @@ Parent element (`<pxb-drawer-nav-item>`) attributes:
 | statusColor              | Status stripe color                        | `string`             | no       |         |
 | subtitle                 | Text to display as a subtitle              | `string`             | no       |         |
 | title                    | Text to display as a title                 | `string`             | no       |         |
+
+</div>
+
+<div style="overflow: auto;">
+
+| @Output       | Description                                          | Type                 |
+| ------------- | ---------------------------------------------------- | -------------------- |
+| select       | Event triggered on nav item select                    | `EventEmitter<void>` | 
 
 </div>
 
