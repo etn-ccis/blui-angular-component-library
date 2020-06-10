@@ -59,14 +59,38 @@ export const navItems2 = [
         onSelect: action('Contact'),
     },
     {
+        title: 'Account',
+        icon: 'history',
+        onSelect: action('Selected: History'),
+        items: [
+            {
+                title: 'History',
+                onSelect: action('Selected: History'),
+            },
+            {
+                title: 'Permissions',
+                onSelect: action('Selected: Permissions'),
+                items: [
+                    {
+                        title: 'View',
+                        onSelect: action('Selected: View'),
+                    },
+                    {
+                        title: 'Request',
+                        onSelect: action('Selected: Request'),
+                    },
+                ],
+            },
+            {
+                title: 'Settings',
+                onSelect: action('Selected: Settings'),
+            },
+        ],
+    },
+    {
         title: 'Favorites',
         icon: 'star',
         onSelect: action('Selected: Favorites'),
-    },
-    {
-        title: 'History',
-        icon: 'history',
-        onSelect: action('Selected: History'),
     },
     {
         title: 'Events',
@@ -119,7 +143,14 @@ export const withFullConfig = (): any => ({
                            [hidePadding]="hidePaddingNested"
                            [selected]="state.selected === nestedItem.title"
                            [activeItemBackgroundShape]="activeItemBackgroundShape"
-                           (select)="nestedItem.onSelect(); setActive(nestedItem, state);">                             
+                           (select)="nestedItem.onSelect(); setActive(nestedItem, state);">       
+                            <pxb-drawer-nav-item *ngFor="let deep of nestedItem.items"
+                               [title]="deep.title"
+                               [hidePadding]="hidePaddingNested"
+                               [selected]="state.selected === deep.title"
+                               [activeItemBackgroundShape]="activeItemBackgroundShape"
+                               (select)="deep.onSelect(); setActive(deep, state);">       
+                           </pxb-drawer-nav-item>                    
                         </pxb-drawer-nav-item>
                     </pxb-drawer-nav-item>
                  </pxb-drawer-nav-group>
