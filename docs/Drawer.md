@@ -321,7 +321,9 @@ The following child element is projected into `<pxb-drawer-nav-item>`:
 
 | Selector              | Description                                  | Required | Default |
 | --------------------- | -------------------------------------------- | -------- | ------- |
-| [icon]                | Custom content to render an icon             | no       |         |
+| [icon]                | Custom content to render an icon             | no       |         
+| [expandIcon]          | Custom expand icon to render                 | no       |         |
+| [collapseIcon]        | Custom collapsed icon to render              | no       |         |
 | [pxb-drawer-nav-item] | Custom content to render nested drawer items | no       |         |
 
 </div>
