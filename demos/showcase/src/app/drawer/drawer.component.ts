@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import * as PXBColors from '@pxblue/colors';
 import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
 import { ViewportService } from '../services/viewport.service';
@@ -55,9 +55,6 @@ import { StateService } from '../services/state.service';
 export class DrawerComponent {
     colors = PXBColors;
     selectedItemId: string;
-    @Input() variantDrawerHandler: boolean;
-    @Output() onClickMenuButton: EventEmitter<any> = new EventEmitter();
-    @Output() onDrawerOpenChange: EventEmitter<any> = new EventEmitter();
 
     constructor(public readonly stateService: StateService, private readonly viewportService: ViewportService) {}
 
@@ -146,7 +143,6 @@ export class DrawerComponent {
     }
 
     clickMenuButton(): void {
-        this.onClickMenuButton.emit();
         this.stateService.setDrawerOpen(!this.stateService.getDrawerOpen());
     }
 }
