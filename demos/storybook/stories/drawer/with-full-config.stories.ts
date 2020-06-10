@@ -112,6 +112,8 @@ export const withFullConfig = (): any => ({
                       [activeItemBackgroundShape]="activeItemBackgroundShape"
                       (select)="navItem.onSelect(); setActive(navItem, state);">
                         <mat-icon *ngIf="showNavItemIcon" icon>{{ navItem.icon }}</mat-icon>
+                        <mat-icon *ngIf="customExpandIcon" expandIcon>add</mat-icon>
+                        <mat-icon *ngIf="customExpandIcon" collapseIcon>remove</mat-icon>
                         <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items"
                            [title]="nestedItem.title"
                            [hidePadding]="hidePaddingNested"
@@ -168,6 +170,7 @@ export const withFullConfig = (): any => ({
         hidePaddingNested: boolean('hidePadding (nested)', false, navItem),
         itemDivider: boolean('divider', true, navItem),
         showNavItemIcon: boolean('Show Icon', true, navItem),
+        customExpandIcon: boolean('Custom Expand/Collapse Icons', false, navItem),
         activeItemBackgroundShape: select('activeItemBackgroundShape', ['round', 'square'], 'round', navItem),
         showFooter: boolean('Show Footer', true, footer),
         footerDivider: boolean('divider', true, footer),

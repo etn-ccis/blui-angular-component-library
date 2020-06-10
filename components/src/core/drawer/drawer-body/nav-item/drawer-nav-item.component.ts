@@ -3,13 +3,16 @@ import {
     ChangeDetectorRef,
     Component,
     ContentChildren,
+    ElementRef,
     EventEmitter,
     Input,
     Output,
+    ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
-import { DrawerService } from '../../service/drawer.service';
-import { StateListener } from '../../state-listener.component';
+import {DrawerService} from '../../service/drawer.service';
+import {StateListener} from '../../state-listener.component';
+import {isEmptyView} from "../../../../utils/utils";
 
 export type DrawerNavItem = {
     statusColor?: string;
@@ -30,8 +33,8 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
 
 @Component({
     selector: 'pxb-drawer-nav-item',
-    changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['./drawer-nav-item.component.scss'],
     template: `
         <div class="pxb-drawer-nav-item">
@@ -60,13 +63,19 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                     {{ title }}
                 </div>
                 <div subtitle>{{ subtitle }}</div>
-                <mat-icon
-                    rightContent
-                    *ngIf="hasChildren && drawerOpen"
-                    class="pxb-drawer-nav-item-expand-icon"
-                    [class.expanded]="expanded"
-                    >{{ depth > 1 ? 'arrow_drop_down' : 'expand_more' }}</mat-icon
-                >
+                <div rightContent *ngIf="hasChildren && drawerOpen">
+                    <div #expandIcon *ngIf="!expanded">
+                        <ng-content select="[expandIcon]"></ng-content>
+                    </div>
+                    <div #collapseIcon *ngIf="expanded">
+                        <ng-content select="[collapseIcon]"></ng-content>
+                    </div>
+                    <mat-icon
+                      *ngIf="isEmpty(collapseIconEl) && isEmpty(expandIconEl)"
+                      class="pxb-drawer-nav-item-expand-icon"
+                      [class.expanded]="expanded"
+                    >{{ depth > 1 ? 'arrow_drop_down' : 'expand_more' }}</mat-icon>
+                </div>
             </pxb-info-list-item>
         </div>
         <!-- Nested Nav Items -->
@@ -81,23 +90,27 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @Input() activeItemBackgroundShape: ActiveItemBackgroundShape = 'round';
     @Input() chevron: boolean;
     @Input() divider: boolean;
+    @Input() expanded = false;
     @Input() hidePadding: boolean;
     @Input() ripple = true;
     @Input() selected: boolean;
     @Input() statusColor: string;
     @Input() subtitle: string;
     @Input() title: string;
-    @Input() expanded = false;
+
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
 
     @ContentChildren(DrawerNavItemComponent) nestedNavItems;
+    @ViewChild('expandIcon', { static: false }) expandIconEl: ElementRef;
+    @ViewChild('collapseIcon', { static: false }) collapseIconEl: ElementRef;
 
+    isEmpty = (el): boolean => isEmptyView(el);
     isNestedItem: boolean;
     drawerOpen: boolean;
     hasChildren: boolean;
     depth: number;
 
-    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+    constructor(drawerService: DrawerService, private readonly changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
     }
 
@@ -106,6 +119,17 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         for (const nestedItem of this.nestedNavItems._results.slice(1)) {
             nestedItem.setNestedDrawerDefaults();
         }
+    }
+
+    listenForDrawerChanges(): void {
+        this.drawerOpenListener = this.drawerService.drawerOpenChanges().subscribe((res: boolean) => {
+            this.drawerOpen = res;
+            // Two detections are required to get the custom icons to work.
+            // First tick causes the icons to container to reappear.
+            // Second tick handles isEmpty function calls.
+            this.changeDetector.detectChanges();
+            this.changeDetector.detectChanges();
+        });
     }
 
     incrementDepth(parentDepth: number): void {
