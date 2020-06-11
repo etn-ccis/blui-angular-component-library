@@ -1,6 +1,6 @@
 import { navItems } from './basic-config.stories';
 import { OptionsKnobOptionsDisplay } from '@storybook/addon-knobs/dist/components/types/Options';
-import { optionsKnob } from '@storybook/addon-knobs';
+import {boolean, optionsKnob} from '@storybook/addon-knobs';
 
 const valuesObj = {
     filter: 'Filter',
@@ -18,7 +18,7 @@ export const withSubheader = (): any => ({
                <mat-icon>menu</mat-icon>
              </button>
           </pxb-drawer-header>
-           <pxb-drawer-subheader>
+           <pxb-drawer-subheader [divider]="divider">
               <mat-form-field *ngIf="content === 'Filter'"
                 style="width: 100%; padding: 8px 16px; box-sizing: border-box">
                 <mat-label>Search</mat-label>
@@ -51,6 +51,7 @@ export const withSubheader = (): any => ({
       `,
     props: {
         navItems: navItems,
+        divider: boolean('divider', true),
         content: optionsKnob('Subheader Content', valuesObj, 'Filter', optionsObj),
     },
 });
