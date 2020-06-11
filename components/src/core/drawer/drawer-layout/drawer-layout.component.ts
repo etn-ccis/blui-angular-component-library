@@ -11,18 +11,19 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
     template: `
         <mat-sidenav-container class="pxb-drawer-layout" (backdropClick)="closeDrawer()">
             <mat-sidenav
-                class="pxb-drawer-layout-sidenav"
-                [fixedInViewport]="true"
-                [style.width.px]="isCollapsed() ? 56 : width"
-                [class.mobile]="variant === 'temporary'"
-                [mode]="getMode()" 
-                [opened]="isOpen()"
+                    class="pxb-drawer-layout-sidenav"
+                    [fixedInViewport]="true"
+                    [class.smooth]="variant !== 'temporary' && transition"
+                    [style.width.px]="isCollapsed() ? 56 : width"
+                    [mode]="getMode()"
+                    [opened]="isOpen()"
             >
                 <ng-content select="[drawer]"></ng-content>
             </mat-sidenav>
             <mat-sidenav-content
-                class="pxb-drawer-layout-nav-content"
-                [style.marginLeft.px]="isCollapsed() ? 56 : width"
+                    class="pxb-drawer-layout-nav-content"
+                    [class.smooth]="variant !== 'temporary' && transition"
+                    [style.marginLeft.px]="getContentMarginLeft()"
             >
                 <ng-content select="[content]"></ng-content>
             </mat-sidenav-content>
@@ -34,12 +35,19 @@ export class DrawerLayoutComponent extends StateListener {
     @Input() width = 350;
     @Output() backdropClick: EventEmitter<void> = new EventEmitter();
 
-    constructor(public readonly drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+    transition = true;
+
+    constructor(public readonly drawerService: DrawerService, private readonly changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
     }
 
     ngOnChanges(): void {
+        this.transition = false;
+        setTimeout(() => {
+            this.transition = true;
+        }, 400);
         this.drawerService.setDrawerVariant(this.variant);
+        this.changeDetectorRef.detectChanges();
     }
 
     getMode(): string {
@@ -55,6 +63,14 @@ export class DrawerLayoutComponent extends StateListener {
     isOpen(): boolean {
         if (this.variant === 'temporary') return this.drawerOpen;
         return true;
+    }
+
+    getContentMarginLeft(): number {
+        if (this.variant === 'temporary') {
+            return 0;
+        } else {
+            return this.isCollapsed() ? 56 : this.width;
+        }
     }
 
     // Is the drawer condensed.

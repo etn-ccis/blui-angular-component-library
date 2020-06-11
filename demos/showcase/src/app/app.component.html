@@ -1,4 +1,4 @@
-<pxb-drawer-layout [variant]="getVariant()">
+<pxb-drawer-layout [variant]="getVariant()" (backdropClick)="stateService.setDrawerOpen(false)">
     <showcase-drawer drawer></showcase-drawer>
     <div content>
         <mat-toolbar class="toolbar">
