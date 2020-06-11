@@ -1,4 +1,5 @@
 import { navItems } from './basic-config.stories';
+import {boolean} from "@storybook/addon-knobs";
 
 const bgImage = require('../../assets/EatonLogo.svg');
 
@@ -21,7 +22,7 @@ export const withFooter = (): any => ({
                   </pxb-drawer-nav-item>
               </pxb-drawer-nav-group>
            </pxb-drawer-body>
-           <pxb-drawer-footer>
+           <pxb-drawer-footer *ngIf="showFooter" [divider]="divider">
              <img [src]="bgImage" width="170" style="align-self: center; padding: 16px" />
            </pxb-drawer-footer>
         </pxb-drawer>
@@ -29,5 +30,7 @@ export const withFooter = (): any => ({
     props: {
         navItems: navItems,
         bgImage: bgImage,
+        showFooter: boolean('Show Footer', true),
+        divider: boolean('divider', true)
     },
 });
