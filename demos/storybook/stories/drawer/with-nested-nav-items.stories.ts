@@ -1,6 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { DrawerNavItem } from '@pxblue/angular-components';
-import {boolean} from "@storybook/addon-knobs";
+import { boolean } from '@storybook/addon-knobs';
 
 export const nestedNavGroup: DrawerNavItem[] = [
     {

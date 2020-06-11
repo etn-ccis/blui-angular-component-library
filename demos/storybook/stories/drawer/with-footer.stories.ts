@@ -1,5 +1,5 @@
 import { navItems } from './basic-config.stories';
-import {boolean} from "@storybook/addon-knobs";
+import { boolean } from '@storybook/addon-knobs';
 
 const bgImage = require('../../assets/EatonLogo.svg');
 
@@ -31,6 +31,6 @@ export const withFooter = (): any => ({
         navItems: navItems,
         bgImage: bgImage,
         showFooter: boolean('Show Footer', true),
-        divider: boolean('divider', true)
+        divider: boolean('divider', true),
     },
 });
