@@ -1,6 +1,6 @@
 import { navItems } from './basic-config.stories';
 import { OptionsKnobOptionsDisplay } from '@storybook/addon-knobs/dist/components/types/Options';
-import {boolean, optionsKnob} from '@storybook/addon-knobs';
+import { boolean, optionsKnob } from '@storybook/addon-knobs';
 
 const valuesObj = {
     filter: 'Filter',

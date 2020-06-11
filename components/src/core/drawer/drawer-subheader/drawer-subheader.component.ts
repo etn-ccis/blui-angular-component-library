@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewEncapsulation, ChangeDetectorRef, Input} from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, ChangeDetectorRef, Input } from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 

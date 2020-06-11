@@ -11,19 +11,19 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
     template: `
         <mat-sidenav-container class="pxb-drawer-layout" (backdropClick)="closeDrawer()">
             <mat-sidenav
-                    class="pxb-drawer-layout-sidenav"
-                    [fixedInViewport]="true"
-                    [class.smooth]="variant !== 'temporary' && transition"
-                    [style.width.px]="isCollapsed() ? 56 : width"
-                    [mode]="getMode()"
-                    [opened]="isOpen()"
+                class="pxb-drawer-layout-sidenav"
+                [fixedInViewport]="true"
+                [class.smooth]="variant !== 'temporary' && transition"
+                [style.width.px]="isCollapsed() ? 56 : width"
+                [mode]="getMode()"
+                [opened]="isOpen()"
             >
                 <ng-content select="[drawer]"></ng-content>
             </mat-sidenav>
             <mat-sidenav-content
-                    class="pxb-drawer-layout-nav-content"
-                    [class.smooth]="variant !== 'temporary' && transition"
-                    [style.marginLeft.px]="getContentMarginLeft()"
+                class="pxb-drawer-layout-nav-content"
+                [class.smooth]="variant !== 'temporary' && transition"
+                [style.marginLeft.px]="getContentMarginLeft()"
             >
                 <ng-content select="[content]"></ng-content>
             </mat-sidenav-content>
@@ -68,9 +68,8 @@ export class DrawerLayoutComponent extends StateListener {
     getContentMarginLeft(): number {
         if (this.variant === 'temporary') {
             return 0;
-        } else {
-            return this.isCollapsed() ? 56 : this.width;
         }
+        return this.isCollapsed() ? 56 : this.width;
     }
 
     // Is the drawer condensed.

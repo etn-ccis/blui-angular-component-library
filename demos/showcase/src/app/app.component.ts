@@ -40,13 +40,13 @@ export class AppComponent {
     }
 
     getVariant(): DrawerLayoutVariantType {
-      if (this.variant === 'persistent' && this.viewportService.isSmall()) {
-        this.stateService.setDrawerOpen(false);
-      } else if (this.variant === 'temporary' && !this.viewportService.isSmall()) {
-        this.stateService.setDrawerOpen(false);
-      }
+        if (this.variant === 'persistent' && this.viewportService.isSmall()) {
+            this.stateService.setDrawerOpen(false);
+        } else if (this.variant === 'temporary' && !this.viewportService.isSmall()) {
+            this.stateService.setDrawerOpen(false);
+        }
 
-      this.variant = this.viewportService.isSmall() ? 'temporary' : 'persistent';
-      return this.variant;
+        this.variant = this.viewportService.isSmall() ? 'temporary' : 'persistent';
+        return this.variant;
     }
 }

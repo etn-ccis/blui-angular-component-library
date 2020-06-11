@@ -10,9 +10,9 @@ import {
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
-import {DrawerService} from '../../service/drawer.service';
-import {StateListener} from '../../state-listener.component';
-import {isEmptyView} from "../../../../utils/utils";
+import { DrawerService } from '../../service/drawer.service';
+import { StateListener } from '../../state-listener.component';
+import { isEmptyView } from '../../../../utils/utils';
 
 export type DrawerNavItem = {
     statusColor?: string;
@@ -71,10 +71,11 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                         <ng-content select="[collapseIcon]"></ng-content>
                     </div>
                     <mat-icon
-                      *ngIf="isEmpty(collapseIconEl) && isEmpty(expandIconEl)"
-                      class="pxb-drawer-nav-item-expand-icon"
-                      [class.expanded]="expanded"
-                    >{{ depth > 1 ? 'arrow_drop_down' : 'expand_more' }}</mat-icon>
+                        *ngIf="isEmpty(collapseIconEl) && isEmpty(expandIconEl)"
+                        class="pxb-drawer-nav-item-expand-icon"
+                        [class.expanded]="expanded"
+                        >{{ depth > 1 ? 'arrow_drop_down' : 'expand_more' }}</mat-icon
+                    >
                 </div>
             </pxb-info-list-item>
         </div>

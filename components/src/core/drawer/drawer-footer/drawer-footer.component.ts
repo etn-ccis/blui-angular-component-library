@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, ViewEncapsulation} from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, ViewEncapsulation } from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 
@@ -7,10 +7,7 @@ import { StateListener } from '../state-listener.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div
-            class="pxb-drawer-footer"
-            [class.pxb-drawer-footer-closed]="!drawerOpen"
-        >
+        <div class="pxb-drawer-footer" [class.pxb-drawer-footer-closed]="!drawerOpen">
             <mat-divider *ngIf="divider"></mat-divider>
             <ng-content></ng-content>
         </div>
