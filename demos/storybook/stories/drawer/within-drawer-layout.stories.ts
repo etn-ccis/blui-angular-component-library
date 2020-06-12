@@ -8,7 +8,7 @@ const items = [...nestedNavGroup];
 export const withinDrawerLayout = (): any => ({
     template: `
         <pxb-drawer-layout [width]="width" [variant]="variant" (backdropClick)="state.open = false">
-            <pxb-drawer drawer [open]="state.open">
+            <pxb-drawer pxb-drawer [open]="state.open">
                <pxb-drawer-header title="PX Blue Drawer" subtitle="in a PX Blue Drawer Layout">
                  <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                    <mat-icon>menu</mat-icon>
@@ -20,7 +20,7 @@ export const withinDrawerLayout = (): any => ({
                          [title]="navItem.title"
                          [selected]="state.selected === navItem.title"
                          (select)="navItem.onSelect(); setActive(navItem, state);">
-                         <mat-icon icon>{{ navItem.icon }}</mat-icon>
+                         <mat-icon pxb-icon>{{ navItem.icon }}</mat-icon>
                          <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items"
                            [title]="nestedItem.title"
                            [selected]="state.selected === nestedItem.title"
@@ -35,7 +35,7 @@ export const withinDrawerLayout = (): any => ({
                   </pxb-drawer-nav-group>
                </pxb-drawer-body>
             </pxb-drawer>
-            <div content>
+            <div pxb-content>
                 <mat-toolbar [style.backgroundColor]="blue" [style.color]="white" 
                     style="border-left: 1px solid white; padding-left: 24px">
                     <button *ngIf="variant === 'temporary'" 

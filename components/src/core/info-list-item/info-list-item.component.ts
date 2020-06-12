@@ -27,10 +27,10 @@ import { requireContent, isEmptyView } from '../../utils/utils';
                 [class.pxb-info-list-item-hide-padding]="hidePadding"
                 [class.pxb-info-list-item-avatar]="avatar"
             >
-                <ng-content select="[icon]"></ng-content>
+                <ng-content select="[pxb-icon]"></ng-content>
             </div>
             <div class="pxb-info-list-item-left-content-wrapper">
-                <ng-content select="[leftContent]"></ng-content>
+                <ng-content select="[pxb-left-content]"></ng-content>
             </div>
             <div
                 class="mat-body-1 pxb-info-list-item-title-wrapper"
@@ -38,19 +38,19 @@ import { requireContent, isEmptyView } from '../../utils/utils';
                 [class.pxb-info-list-item-wrap]="wrapTitle"
                 #title
             >
-                <ng-content select="[title]"></ng-content>
+                <ng-content select="[pxb-title]"></ng-content>
             </div>
             <div
                 class="mat-body-2 pxb-info-list-item-subtitle-wrapper"
                 matLine
                 [class.pxb-info-list-item-wrap]="wrapSubtitle"
             >
-                <ng-content select="[subtitle]"></ng-content>
+                <ng-content select="[pxb-subtitle]"></ng-content>
             </div>
             <pxb-spacer class="pxb-info-list-item-spacer"></pxb-spacer>
             <div class="pxb-info-list-item-right-content">
                 <div #right class="pxb-info-list-item-right-content-wrapper">
-                    <ng-content select="[rightContent]"></ng-content>
+                    <ng-content select="[pxb-right-content]"></ng-content>
                 </div>
                 <mat-icon *ngIf="chevron && isEmpty(rightEl)">chevron_right</mat-icon>
             </div>

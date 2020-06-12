@@ -53,10 +53,10 @@ The following child elements are projected into `<pxb-empty-state>`:
 
 <div style="overflow: auto;">
 
-| Selector    | Description                    | Required | Default |
-| ----------- | ------------------------------ | -------- | ------- |
-| [actions]   | action elements below the text | no       |         |
-| [emptyIcon] | The large icon to display      | yes      |         |
+| Selector         | Description                    | Required | Default |
+| ---------------- | ------------------------------ | -------- | ------- |
+| [pxb-actions]    | action elements below the text | no       |         |
+| [pxb-empty-icon] | The large icon to display      | yes      |         |
 
 </div>
 

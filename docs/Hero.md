@@ -62,11 +62,11 @@ The following child elements are projected into `<pxb-hero>`:
 
 <div style="overflow: auto;">
 
-| Selector    | Description                                                 | Required | Default |
-| ----------- | ----------------------------------------------------------- | -------- | ------- |
-| (child)     | The `<pxb-channel-value>` to display under the primary icon | no       |         |
-| [primary]   | The large icon displayed on the top                         | no       |         |
-| [secondary] | The icon displayed to the left of the value and units       | no       |         |
+| Selector        | Description                                                 | Required | Default |
+| --------------- | ----------------------------------------------------------- | -------- | ------- |
+| (child)         | The `<pxb-channel-value>` to display under the primary icon | no       |         |
+| [pxb-primary]   | The large icon displayed on the top                         | no       |         |
+| [pxb-secondary] | The icon displayed to the left of the value and units       | no       |         |
 
 </div>
 

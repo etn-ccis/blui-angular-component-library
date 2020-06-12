@@ -29,7 +29,7 @@ export const withMultiNavGroups = (): any => ({
                     [title]="navItem.title"
                     [selected]="state.selected === navItem.title"
                     (select)="navItem.onSelect(); setActive(navItem.title, state);">
-                    <mat-icon icon>{{ navItem.icon }}</mat-icon>
+                    <mat-icon pxb-icon>{{ navItem.icon }}</mat-icon>
                  </pxb-drawer-nav-item>
               </pxb-drawer-nav-group>
               <pxb-spacer *ngIf="spacer"></pxb-spacer> 

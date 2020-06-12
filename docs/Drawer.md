@@ -95,10 +95,10 @@ The following child elements are projected into `<pxb-drawer-layout>`:
 
 <div style="overflow: auto;">
 
-| Selector       | Description                          | Required | Default |
-| -------------- | ------------------------------------ | -------- | ------- |
-| [drawer]       | A component to render a drawer       | no       |         |
-| [content]      | A component to render content        | no       |         |
+| Selector           | Description                          | Required | Default |
+| ------------------ | ------------------------------------ | -------- | ------- |
+| [pxb-drawer]       | A component to render a drawer       | no       |         |
+| [pxb-content]      | A component to render content        | no       |         |
 
 </div>
 
@@ -147,10 +147,10 @@ The following child elements are projected into `<pxb-drawer-header>`:
 
 <div style="overflow: auto;">
 
-| Selector       | Description                          | Required | Default |
-| -------------- | ------------------------------------ | -------- | ------- |
-| [pxb-icon]     | A component to render an icon        | no       |         |
-| [titleContent] | Custom content for header title area | no       |         |
+| Selector              | Description                          | Required | Default |
+| --------------------- | ------------------------------------ | -------- | ------- |
+| [pxb-icon]            | A component to render an icon        | no       |         |
+| [pxb-title-content]   | Custom content for header title area | no       |         |
 
 </div>
 
@@ -266,7 +266,7 @@ The following child element is projected into `<pxb-drawer-nav-group>`:
 | Selector              | Description                               | Required | Default |
 | --------------------- | ----------------------------------------- | -------- | ------- |
 | [pxb-drawer-nav-item] | Navigation elements to render             | no       |         |
-| [titleContent]        | Custom title element to render            | no       |         |
+| [pxb-title-content]   | Custom title element to render            | no       |         |
 
 </div>
 
@@ -319,12 +319,12 @@ The following child element is projected into `<pxb-drawer-nav-item>`:
 
 <div style="overflow: auto;">
 
-| Selector              | Description                                  | Required | Default |
-| --------------------- | -------------------------------------------- | -------- | ------- |
-| [icon]                | Custom content to render an icon             | no       |         
-| [expandIcon]          | Custom expansion icon to render              | no       |         |
-| [collapseIcon]        | Custom collapsed icon to render              | no       |         |
-| [pxb-drawer-nav-item] | Custom content to render nested drawer items | no       |         |
+| Selector                   | Description                                  | Required | Default |
+| -------------------------- | -------------------------------------------- | -------- | ------- |
+| [pxb-icon]                 | Custom content to render an icon             | no       |         |
+| [pxb-expand-icon]          | Custom expansion icon to render              | no       |         |
+| [pxb-collapse-icon]        | Custom collapsed icon to render              | no       |         |
+| [pxb-drawer-nav-item]      | Custom content to render nested drawer items | no       |         |
 
 </div>
 

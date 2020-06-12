@@ -16,10 +16,10 @@ export const withFullConfig = (): any => ({
             [dense]="dense"
             [chevron]="chevron"
             (click)="action()">
-            <div title>{{title}}</div>
-            <div subtitle>{{subtitle}}</div>
+            <div pxb-title>{{title}}</div>
+            <div pxb-subtitle>{{subtitle}}</div>
             <mat-icon *ngIf="showIcon" [style.color]="iconColor"
-                [style.backgroundColor]="getBgColor(avatar, statusColor)" icon>assignment</mat-icon>
+                [style.backgroundColor]="getBgColor(avatar, statusColor)" pxb-icon>assignment</mat-icon>
         </pxb-info-list-item>
       `,
     props: {

@@ -44,7 +44,7 @@ import { StateListener } from '../../state-listener.component';
             >
                 {{ title }}
             </div>
-            <ng-content select="titleContent"></ng-content>
+            <ng-content select="pxb-title-content"></ng-content>
             <mat-divider *ngIf="divider"></mat-divider>
             <mat-nav-list>
                 <ng-content select="pxb-drawer-nav-item"></ng-content>

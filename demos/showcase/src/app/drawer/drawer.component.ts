@@ -30,7 +30,7 @@ import { StateService } from '../services/state.service';
                         (select)="navItem.onSelect(); setActive(navItem.title)"
                         [divider]="navItem.divider"
                     >
-                        <mat-icon icon>{{ navItem.icon }}</mat-icon>
+                        <mat-icon pxb-icon>{{ navItem.icon }}</mat-icon>
                         <pxb-drawer-nav-item
                             *ngFor="let nestedItem of navItem.items"
                             [title]="nestedItem.title"

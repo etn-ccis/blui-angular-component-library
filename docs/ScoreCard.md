@@ -60,7 +60,7 @@ Parent element (`<pxb-score-card>`) attributes:
 
 <div style="overflow: auto;">
 
-| Attributes     | Description                           | Type     | Required | Default |
+| @Input         | Description                           | Type     | Required | Default |
 | -------------- | ------------------------------------- | -------- | -------- | ------- |
 | badgeOffset    | Vertical offset for the badge content | `number` | no       | 0       |
 | headerInfo     | Tertiary text                         | `string` | no       |         |
@@ -73,12 +73,12 @@ The following child elements are projected into `<pxb-score-card>`:
 
 <div style="overflow: auto;">
 
-| @Input    | Description                                 | Required | Default |
-| ------------- | ------------------------------------------- | -------- | ------- |
-| [actionItems] | Icons shown to the right of the header text | no       |         |
-| [actionRow]   | Content to render for the footer            | no       |         |
-| [badge]       | Content to render in the callout area       | no       |         |
-| [body]        | Content to render in the body               | no       |         |
+| Selector           | Description                                 | Required | Default |
+| ------------------ | ------------------------------------------- | -------- | ------- |
+| [pxb-action-items] | Icons shown to the right of the header text | no       |         |
+| [pxb-action-row]   | Content to render for the footer            | no       |         |
+| [pxb-badge]        | Content to render in the callout area       | no       |         |
+| [pxb-body]         | Content to render in the body               | no       |         |
 
 </div>
 

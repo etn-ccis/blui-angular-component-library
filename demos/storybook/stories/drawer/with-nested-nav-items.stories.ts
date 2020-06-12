@@ -55,7 +55,7 @@ export const withNestedNavItems = (): any => ({
                      [hidePadding]="hidePadding"
                      [selected]="state.selected === navItem.title"
                      (select)="navItem.onSelect(); setActive(navItem, state);">
-                     <mat-icon *ngIf="showIcon" icon>{{ navItem.icon }}</mat-icon>
+                     <mat-icon *ngIf="showIcon" pxb-icon>{{ navItem.icon }}</mat-icon>
                      <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items"
                        [title]="nestedItem.title"
                        [divider]="dividerNested"

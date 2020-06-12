@@ -16,20 +16,20 @@ import { requireInput } from '../../utils/utils';
                         <mat-card-subtitle class="pxb-score-card-info">{{ headerInfo }}</mat-card-subtitle>
                     </div>
                     <div class="pxb-score-card-action-items-wrapper">
-                        <ng-content select="[actionItems]"></ng-content>
+                        <ng-content select="[pxb-action-items]"></ng-content>
                     </div>
                 </div>
             </div>
             <mat-card-content>
                 <div class="pxb-score-card-body">
-                    <ng-content select="[body]"></ng-content>
+                    <ng-content select="[pxb-body]"></ng-content>
                     <div class="pxb-score-card-badge-wrapper" [style.marginTop.px]="badgeOffset || 'inherit'">
-                        <ng-content select="[badge]"></ng-content>
+                        <ng-content select="[pxb-badge]"></ng-content>
                     </div>
                 </div>
                 <mat-divider *ngIf="actionRow.childNodes.length !== 0"></mat-divider>
                 <div class="pxb-score-card-action-row-wrapper" #actionRow>
-                    <ng-content select="[actionRow]"></ng-content>
+                    <ng-content select="[pxb-action-row]"></ng-content>
                 </div>
             </mat-card-content>
         </mat-card>

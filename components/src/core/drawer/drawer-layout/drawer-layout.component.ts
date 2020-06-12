@@ -18,14 +18,14 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
                 [mode]="getMode()"
                 [opened]="isOpen()"
             >
-                <ng-content select="[drawer]"></ng-content>
+                <ng-content select="[pxb-drawer]"></ng-content>
             </mat-sidenav>
             <mat-sidenav-content
                 class="pxb-drawer-layout-nav-content"
                 [class.smooth]="variant !== 'temporary' && transition"
                 [style.marginLeft.px]="getContentMarginLeft()"
             >
-                <ng-content select="[content]"></ng-content>
+                <ng-content select="[pxb-content]"></ng-content>
             </mat-sidenav-content>
         </mat-sidenav-container>
     `,
