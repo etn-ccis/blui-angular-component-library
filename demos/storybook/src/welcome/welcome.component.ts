@@ -27,7 +27,7 @@ const packageJSON = require('@pxblue/angular-components/package.json');
                 </div>
                 <section class="mat-typography">
                     <div class="mat-display-3">Power Xpert <strong>Blue</strong></div>
-                    <div class="mat-display-1" style="margin-top: -16px">Angular Component Library</div>
+                    <div class="mat-display-1">Angular Component Library</div>
                     <div class="mat-h3" *ngIf="package.version">v{{ package.version }}</div>
                     <div class="mat-h3 description">
                         Learn about and interact with our PX Blue components using Storybook.
