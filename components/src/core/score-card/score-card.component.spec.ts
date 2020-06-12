@@ -8,7 +8,7 @@ import { count } from '../../utils/test-utils';
 @Component({
     template: `
         <pxb-score-card>
-            <ng-container actionItems>
+            <ng-container pxb-action-items>
                 <mat-icon>mail</mat-icon>
                 <mat-icon>cloud</mat-icon>
                 <mat-icon>search</mat-icon>
@@ -20,14 +20,14 @@ class TestScoreCardActions {}
 
 @Component({
     template: `
-        <pxb-score-card><div body id="test-content">Content Goes Here</div></pxb-score-card>
+        <pxb-score-card><div pxb-body id="test-content">Content Goes Here</div></pxb-score-card>
     `,
 })
 class TestScoreCardContent {}
 
 @Component({
     template: `
-        <pxb-score-card><div actionRow id="test-action-row">Show Details</div></pxb-score-card>
+        <pxb-score-card><div pxb-action-row id="test-action-row">Show Details</div></pxb-score-card>
     `,
 })
 class TestScoreCardActionRow {}

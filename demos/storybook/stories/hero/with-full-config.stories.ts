@@ -5,7 +5,7 @@ export const withFullConfig = (): any => ({
     template: `
         <pxb-hero [label]="label" [value]="value" [units]="units"
             [iconBackgroundColor]="iconBg" [iconSize]="iconSize">
-            <i primary [style.color]="iconColor" class="pxb-fan"></i>
+            <i pxb-primary [style.color]="iconColor" class="pxb-fan"></i>
             <mat-icon *ngIf="showSecondary" secondary>trending_up</mat-icon>
         </pxb-hero>
       `,

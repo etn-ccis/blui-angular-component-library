@@ -26,7 +26,7 @@ import { isEmptyView } from '../../../utils/utils';
                     <div class="pxb-drawer-header-title">{{ title }}</div>
                     <div *ngIf="subtitle" class="pxb-drawer-header-subtitle mat-subheading-2">{{ subtitle }}</div>
                 </div>
-                <ng-content select="[titleContent]"></ng-content>
+                <ng-content select="[pxb-title-content]"></ng-content>
             </div>
         </mat-toolbar>
         <mat-divider></mat-divider>

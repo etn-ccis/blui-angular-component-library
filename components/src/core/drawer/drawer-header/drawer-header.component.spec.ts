@@ -16,7 +16,7 @@ class TestDrawerHeader {}
 @Component({
     template: `
         <pxb-drawer-header>
-            <div titleContent id="test-title-content">test title content</div>
+            <div pxb-title-content id="test-title-content">test title content</div>
         </pxb-drawer-header>
     `,
 })

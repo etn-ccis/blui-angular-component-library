@@ -7,8 +7,8 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 @Component({
     template: `
         <pxb-drawer-layout [variant]="'persistent'">
-            <div drawer id="test-drawer"></div>
-            <div content id="test-content"></div>
+            <div pxb-drawer id="test-drawer"></div>
+            <div pxb-content id="test-content"></div>
         </pxb-drawer-layout>
     `,
 })

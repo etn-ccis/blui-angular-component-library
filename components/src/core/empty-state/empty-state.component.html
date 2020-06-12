@@ -1,10 +1,10 @@
 <div class="pxb-empty-state">
     <div class="pxb-empty-state-empty-icon-wrapper" #emptyIcon>
-        <ng-content select="[emptyIcon]"></ng-content>
+        <ng-content select="[pxb-empty-icon]"></ng-content>
     </div>
     <h2 class="pxb-empty-state-title">{{ title }}</h2>
     <p *ngIf="description" class="pxb-empty-state-description mat-subheading-1">{{ description }}</p>
     <div class="pxb-empty-state-actions-wrapper">
-        <ng-content select="[actions]"></ng-content>
+        <ng-content select="[pxb-actions]"></ng-content>
     </div>
 </div>

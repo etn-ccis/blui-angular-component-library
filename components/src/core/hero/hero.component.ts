@@ -29,12 +29,12 @@ import { requireInput } from '../../utils/utils';
                 [style.height.px]="iSize"
                 [class.pxb-hero-svgIcon]="hasMatSvgIcon"
             >
-                <ng-content select="[primary]"></ng-content>
+                <ng-content select="[pxb-primary]"></ng-content>
             </div>
             <span class="pxb-hero-channel-value-wrapper">
                 <ng-content select="pxb-channel-value" *ngIf="value === undefined"></ng-content>
                 <pxb-channel-value *ngIf="value !== undefined" [value]="value" [units]="units">
-                    <ng-content select="[secondary]"></ng-content>
+                    <ng-content select="[pxb-secondary]"></ng-content>
                 </pxb-channel-value>
             </span>
             <h5 class="pxb-hero-label">{{ label }}</h5>

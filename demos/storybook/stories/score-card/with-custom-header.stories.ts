@@ -24,7 +24,7 @@ export const withCustomHeader = (): any => ({
             [headerSubtitle]="headerSubtitle"
             [headerInfo]="headerInfo"
         >
-            <mat-list body>
+            <mat-list pxb-body>
                 <mat-list-item>Body Content</mat-list-item>
             </mat-list>
         </pxb-score-card>

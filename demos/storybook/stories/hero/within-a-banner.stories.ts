@@ -5,16 +5,16 @@ export const withinBanner = (): any => ({
     template: `
         <pxb-hero-banner>
             <pxb-hero *ngIf="count > 0" [label]="'Health'" [value]="96" [units]="'/100'">
-                <i primary [style.color]="green" class="pxb-grade_a"></i>
+                <i pxb-primary [style.color]="green" class="pxb-grade_a"></i>
             </pxb-hero>
             <pxb-hero *ngIf="count > 1" [label]="'Load'" [value]="90" [units]="'%'">
-                <i primary [style.color]="yellow" class="pxb-current_circled"></i>
+                <i pxb-primary [style.color]="yellow" class="pxb-current_circled"></i>
             </pxb-hero>
             <pxb-hero *ngIf="count > 2" [label]="'Temp'" [value]="96" [units]="'C'">
-                <i primary [style.color]="green" class="pxb-temp"></i>
+                <i pxb-primary [style.color]="green" class="pxb-temp"></i>
             </pxb-hero>
             <pxb-hero *ngIf="count > 3" [label]="'Battery'" [value]="96" [units]="'/100'">
-                <i primary [style.color]="green" class="pxb-battery"></i>
+                <i pxb-primary [style.color]="green" class="pxb-battery"></i>
             </pxb-hero>
         </pxb-hero-banner>
     `,

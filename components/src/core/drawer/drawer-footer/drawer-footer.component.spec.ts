@@ -7,7 +7,7 @@ import { count } from 'src/utils/test-utils';
 @Component({
     template: `
         <pxb-drawer-footer>
-            <div id="test-footer-content" footerContent>test footer content</div>
+            <div id="test-footer-content">test footer content</div>
         </pxb-drawer-footer>
     `,
 })

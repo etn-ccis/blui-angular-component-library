@@ -16,23 +16,23 @@ export const withHeroes = (): any => ({
             [headerSubtitle]="'High Humidity Alarm'"
             [headerInfo]="'4 Devices'"
         >
-            <mat-icon actionItems (click)="actionClick('more_vert')">more_vert</mat-icon>
-            <mat-list body>
+            <mat-icon pxb-action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
+            <mat-list pxb-body>
                 <mat-list-item>
                     <p mat-line>Body Content</p>
                 </mat-list-item>
             </mat-list>
-            <pxb-hero-banner badge>
-                <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'" [units]="'°F'" [iconSize]="'normal'">
-                    <i primary class="pxb-temp"></i>
+            <pxb-hero-banner pxb-badge>
+                <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'" [units]="'°F'" [iconSize]="36">
+                    <i pxb-primary class="pxb-temp"></i>
                 </pxb-hero>
-                <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="'normal'">
-                    <i primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
+                <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="36">
+                    <i pxb-primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
                 </pxb-hero>
             </pxb-hero-banner>
             <pxb-info-list-item hidePadding="true" dense="true" actionRow (click)="actionRowClick()">
-                <div title>View Location</div>
-                <mat-icon mat-list-icon rightContent>chevron_right</mat-icon>
+                <div pxb-title>View Location</div>
+                <mat-icon mat-list-icon pxb-right-content>chevron_right</mat-icon>
             </pxb-info-list-item>
         </pxb-score-card>
     `,

@@ -51,24 +51,24 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 [matRippleDisabled]="!ripple"
                 matRipple
             >
-                <ng-container icon #icon>
-                    <ng-content select="[icon]"></ng-content>
+                <ng-container pxb-icon #icon>
+                    <ng-content select="[pxb-icon]"></ng-content>
                 </ng-container>
                 <div
-                    title
+                    pxb-title
                     [class.pxb-drawer-nav-item-depth-1]="depth === 1"
                     [class.pxb-drawer-nav-item-depth-2]="depth === 2"
                     [class.pxb-drawer-nav-item-depth-3]="depth === 3"
                 >
                     {{ title }}
                 </div>
-                <div subtitle>{{ subtitle }}</div>
-                <div rightContent *ngIf="hasChildren && drawerOpen">
+                <div pxb-subtitle>{{ subtitle }}</div>
+                <div pxb-right-content *ngIf="hasChildren && drawerOpen">
                     <div #expandIcon *ngIf="!expanded">
-                        <ng-content select="[expandIcon]"></ng-content>
+                        <ng-content select="[pxb-expand-icon]"></ng-content>
                     </div>
                     <div #collapseIcon *ngIf="expanded">
-                        <ng-content select="[collapseIcon]"></ng-content>
+                        <ng-content select="[pxb-collapse-icon]"></ng-content>
                     </div>
                     <mat-icon
                         *ngIf="isEmpty(collapseIconEl) && isEmpty(expandIconEl)"

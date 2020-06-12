@@ -5,8 +5,8 @@ import * as Colors from '@pxblue/colors';
 export const withFullConfig = (): any => ({
     template: `
         <pxb-empty-state [title]="title" [description]="description">
-            <mat-icon emptyIcon [style.color]="color" [style.fontSize.px]="fontSize">trending_up</mat-icon>
-            <button actions mat-raised-button color="primary" (click)="click()">
+            <mat-icon pxb-empty-icon [style.color]="color" [style.fontSize.px]="fontSize">trending_up</mat-icon>
+            <button pxb-actions mat-raised-button color="primary" (click)="click()">
                 <mat-icon>add_circle</mat-icon>
                 {{actionText}}
             </button>

@@ -3,7 +3,7 @@ import { text } from '@storybook/addon-knobs';
 export const withDescription = (): any => ({
     template: `
         <pxb-empty-state [title]="title" [description]="description">
-            <mat-icon emptyIcon>location_off</mat-icon>
+            <mat-icon pxb-empty-icon>location_off</mat-icon>
         </pxb-empty-state>
     `,
     props: {

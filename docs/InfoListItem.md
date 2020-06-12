@@ -46,13 +46,13 @@ The following child elements are projected into `<pxb-info-list-item>`:
 
 <div style="overflow: auto;">
 
-| Selector       | Description                         | Required | Default |
-| -------------- | ----------------------------------- | -------- | ------- |
-| [icon]         | A component to render for the icon  | no       |         |
-| [leftContent]  | Content to render on the left side  | no       |         |
-| [rightContent] | Content to render on the right side | no       |         |
-| [subtitle]     | Content to render for the subtitle  | no       |         |
-| [title]        | Content to render for the title     | yes      |         |
+| Selector            | Description                         | Required | Default |
+| ------------------- | ----------------------------------- | -------- | ------- |
+| [pxb-icon]          | A component to render for the icon  | no       |         |
+| [pxb-left-content]  | Content to render on the left side  | no       |         |
+| [pxb-right-content] | Content to render on the right side | no       |         |
+| [pxb-subtitle]      | Content to render for the subtitle  | no       |         |
+| [pxb-title]         | Content to render for the title     | yes      |         |
 
 </div>
 

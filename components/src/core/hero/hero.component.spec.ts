@@ -17,7 +17,7 @@ class TestChannelValue {}
 @Component({
     template: `
         <pxb-hero label="Duration">
-            <div primary id="test-primary-icon">Icon</div>
+            <div pxb-primary id="test-primary-icon">Icon</div>
         </pxb-hero>
     `,
 })
@@ -26,7 +26,7 @@ class TestPrimaryIcon {}
 @Component({
     template: `
         <pxb-hero label="Duration" value="60" units="hours">
-            <div secondary id="test-secondary-icon">Icon</div>
+            <div pxb-secondary id="test-secondary-icon">Icon</div>
         </pxb-hero>
     `,
 })

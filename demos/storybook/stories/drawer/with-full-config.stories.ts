@@ -135,9 +135,9 @@ export const withFullConfig = (): any => ({
                       [divider]="itemDivider"
                       [activeItemBackgroundShape]="activeItemBackgroundShape"
                       (select)="navItem.onSelect(); setActive(navItem, state);">
-                        <mat-icon *ngIf="showNavItemIcon" icon>{{ navItem.icon }}</mat-icon>
-                        <mat-icon *ngIf="customExpandIcon" expandIcon>add</mat-icon>
-                        <mat-icon *ngIf="customExpandIcon" collapseIcon>remove</mat-icon>
+                        <mat-icon *ngIf="showNavItemIcon" pxb-icon>{{ navItem.icon }}</mat-icon>
+                        <mat-icon *ngIf="customExpandIcon" pxb-expand-icon>add</mat-icon>
+                        <mat-icon *ngIf="customExpandIcon" pxb-collapse-icon>remove</mat-icon>
                         <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items"
                            [title]="nestedItem.title"
                            [hidePadding]="hidePaddingNested"

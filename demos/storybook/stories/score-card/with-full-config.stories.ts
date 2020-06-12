@@ -26,14 +26,14 @@ export const withFullConfig = (): any => ({
             [headerInfo]="headerInfo"
             [badgeOffset]="badgeOffset"
         >
-            <ng-container actionItems>
+            <ng-container pxb-action-items>
                 <ng-container *ngFor="let action of actions; index as i;">
                     <mat-icon *ngIf="i < actionLimit" (click)="actionClick(actions[i])">
                         {{actions[i]}}
                     </mat-icon>
                 </ng-container>
             </ng-container>
-            <mat-list body class="sb-score-card-content">
+            <mat-list pxb-body class="sb-score-card-content">
                 <mat-list-item>
                     <p mat-line>0 Alarms</p>
                     <mat-icon mat-list-icon>notifications</mat-icon>
@@ -47,19 +47,19 @@ export const withFullConfig = (): any => ({
                     <mat-icon mat-list-icon>cloud</mat-icon>
                 </mat-list-item>
             </mat-list>
-            <pxb-hero-banner badge>
+            <pxb-hero-banner pxb-badge>
                 <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'"
-                    [units]="'°F'" [iconSize]="'large'" [iconBackgroundColor]="colors.white[50]">
-                    <i primary class="pxb-temp"></i>
+                    [units]="'°F'" [iconSize]="72" [iconBackgroundColor]="colors.white[50]">
+                    <i pxb-primary class="pxb-temp"></i>
                 </pxb-hero>
                 <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'"
-                    [units]="'%'" [iconSize]="'large'" [iconBackgroundColor]="colors.white[50]">
-                    <i primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
+                    [units]="'%'" [iconSize]="72" [iconBackgroundColor]="colors.white[50]">
+                    <i pxb-primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
                 </pxb-hero>
             </pxb-hero-banner>
             <pxb-info-list-item hidePadding="true" dense="true" actionRow (click)="actionRowClick()">
-                <div title>View Location</div>
-                <mat-icon mat-list-icon rightContent>chevron_right</mat-icon>
+                <div pxb-title>View Location</div>
+                <mat-icon mat-list-icon pxb-right-content>chevron_right</mat-icon>
             </pxb-info-list-item>
         </pxb-score-card>
     `,

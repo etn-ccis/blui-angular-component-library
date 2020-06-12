@@ -27,8 +27,8 @@ export const withScoreBadge = (): any => ({
             [headerInfo]="'4 Devices'"
             [badgeOffset]="badgeOffset"
         >
-            <mat-icon actionItems (click)="actionClick('more_vert')">more_vert</mat-icon>
-            <mat-list body class="sb-score-card-content">
+            <mat-icon pxb-action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
+            <mat-list pxb-body class="sb-score-card-content">
                 <mat-list-item>
                     <p mat-line>0 Alarms</p>
                     <mat-icon mat-list-icon>notifications</mat-icon>
@@ -42,12 +42,12 @@ export const withScoreBadge = (): any => ({
                     <mat-icon mat-list-icon>cloud</mat-icon>
                 </mat-list-item>
             </mat-list>
-            <pxb-hero badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="'large'" [iconBackgroundColor]="colors.white[50]">
-                <i primary [style.color]="colors.green[500]" class="pxb-grade_a"></i>
+            <pxb-hero pxb-badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="72" [iconBackgroundColor]="colors.white[50]">
+                <i pxb-primary [style.color]="colors.green[500]" class="pxb-grade_a"></i>
             </pxb-hero>
             <pxb-info-list-item hidePadding="true" dense="true" actionRow (click)="actionRowClick()">
-                <div title>View Location</div>
-                <mat-icon mat-list-icon rightContent>chevron_right</mat-icon>
+                <div pxb-title>View Location</div>
+                <mat-icon mat-list-icon pxb-right-content>chevron_right</mat-icon>
             </pxb-info-list-item>
         </pxb-score-card>
     `,
