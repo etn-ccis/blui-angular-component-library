@@ -56,6 +56,12 @@ describe('DrawerComponent', () => {
         }).compileComponents();
         fixture = TestBed.createComponent(DrawerComponent);
         component = fixture.componentInstance;
+        spyOn(component, 'ngOnInit').and.stub();
+        spyOn(component, 'ngOnDestroy').and.stub();
+    });
+
+    afterEach(() => {
+        fixture.destroy();
     });
 
     it('should create', () => {
@@ -89,7 +95,7 @@ describe('DrawerComponent', () => {
 
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
-        const classList = ['.pxb-drawer'];
+        const classList = ['.pxb-drawer', '.pxb-drawer-hover-area'];
         for (const className of classList) {
             count(fixture, className);
         }

@@ -24,6 +24,12 @@ describe('DrawerSubheaderComponent', () => {
         }).compileComponents();
         fixture = TestBed.createComponent(DrawerSubheaderComponent);
         component = fixture.componentInstance;
+        spyOn(component, 'ngOnInit').and.stub();
+        spyOn(component, 'ngOnDestroy').and.stub();
+    });
+
+    afterEach(() => {
+        fixture.destroy();
     });
 
     it('should create', () => {
@@ -41,7 +47,7 @@ describe('DrawerSubheaderComponent', () => {
     it('should enforce class naming conventions', () => {
         const customFixture = TestBed.createComponent(TestDrawerSubheader);
         customFixture.detectChanges();
-        const classList = ['.pxb-drawer-subheader', '.pxb-drawer-subheader-content-wrapper'];
+        const classList = ['.pxb-drawer-subheader'];
         for (const className of classList) {
             count(customFixture, className);
         }

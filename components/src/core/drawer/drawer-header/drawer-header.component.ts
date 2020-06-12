@@ -1,5 +1,15 @@
-import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation, ChangeDetectorRef, OnInit } from '@angular/core';
-import { DrawerService } from '../drawer.service';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    Input,
+    ViewEncapsulation,
+    ChangeDetectorRef,
+    ViewChild,
+    ElementRef,
+} from '@angular/core';
+import { DrawerService } from '../service/drawer.service';
+import { StateListener } from '../state-listener.component';
+import { isEmptyView } from '../../../utils/utils';
 
 @Component({
     selector: 'pxb-drawer-header',
@@ -8,21 +18,14 @@ import { DrawerService } from '../drawer.service';
     template: `
         <mat-toolbar class="pxb-drawer-header">
             <div class="pxb-drawer-header-background"></div>
-            <div class="pxb-drawer-header-icon-wrapper">
-                <ng-content select="[icon]"></ng-content>
-            </div>
-
-            <div *ngIf="!titleContentWrapper.innerHTML.trim()" class="pxb-drawer-header-title-wrapper">
-                <div *ngIf="title && drawerOpen" class="pxb-drawer-header-title">
-                    {{ title }}
+            <div class="pxb-drawer-header-content">
+                <div #icon class="pxb-drawer-header-icon-wrapper" [class.pxb-drawer-header-no-icon]="isEmpty(iconEl)">
+                    <ng-content select="[pxb-icon]"></ng-content>
                 </div>
-
-                <div *ngIf="subtitle && drawerOpen" class="pxb-drawer-header-subtitle mat-subheading-2">
-                    {{ subtitle }}
+                <div *ngIf="title" class="pxb-drawer-header-title-wrapper">
+                    <div class="pxb-drawer-header-title">{{ title }}</div>
+                    <div *ngIf="subtitle" class="pxb-drawer-header-subtitle mat-subheading-2">{{ subtitle }}</div>
                 </div>
-            </div>
-
-            <div #titleContentWrapper class="pxb-drawer-header-title-content-wrapper">
                 <ng-content select="[titleContent]"></ng-content>
             </div>
         </mat-toolbar>
@@ -30,18 +33,14 @@ import { DrawerService } from '../drawer.service';
     `,
     styleUrls: ['./drawer-header.component.scss'],
 })
-export class DrawerHeaderComponent implements OnInit {
+export class DrawerHeaderComponent extends StateListener {
     @Input() subtitle: string;
     @Input() title: string;
-    drawerOpen: boolean;
+    @ViewChild('icon', { static: true }) iconEl: ElementRef;
 
-    constructor(public drawerService: DrawerService, private readonly changeDetector: ChangeDetectorRef) {}
+    isEmpty = (el): boolean => isEmptyView(el);
 
-    ngOnInit(): void {
-        this.drawerOpen = this.drawerService.getDrawerOpen();
-        this.drawerService.drawerOpenChanges().subscribe((res: boolean) => {
-            this.drawerOpen = res;
-            this.changeDetector.detectChanges();
-        });
+    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+        super(drawerService, changeDetectorRef);
     }
 }

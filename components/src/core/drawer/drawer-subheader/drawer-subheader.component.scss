@@ -1,16 +1,7 @@
-.pxb-drawer-subheader,
-.pxb-drawer-subheader-content-wrapper {
-    width: 100%;
-}
-
 .pxb-drawer-subheader {
     box-sizing: border-box;
-}
-
-.pxb-drawer-subheader-open {
-    visibility: inherit;
-}
-
-.pxb-drawer-subheader-closed {
-    visibility: hidden;
+    overflow: hidden;
+    &.pxb-drawer-subheader-closed {
+        visibility: hidden;
+    }
 }

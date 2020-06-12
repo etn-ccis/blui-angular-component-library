@@ -1,34 +1,23 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation, OnInit, ChangeDetectorRef } from '@angular/core';
-import { DrawerService } from '../drawer.service';
+import { ChangeDetectionStrategy, Component, ViewEncapsulation, ChangeDetectorRef, Input } from '@angular/core';
+import { DrawerService } from '../service/drawer.service';
+import { StateListener } from '../state-listener.component';
 
 @Component({
     selector: 'pxb-drawer-subheader',
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="pxb-drawer-subheader">
-            <div
-                [class.pxb-drawer-subheader-open]="drawerOpen"
-                [class.pxb-drawer-subheader-closed]="!drawerOpen"
-                class="pxb-drawer-subheader-content-wrapper"
-            >
-                <ng-content></ng-content>
-            </div>
+        <div class="pxb-drawer-subheader" [class.pxb-drawer-subheader-closed]="!drawerOpen">
+            <ng-content></ng-content>
         </div>
-        <mat-divider></mat-divider>
+        <mat-divider *ngIf="divider"></mat-divider>
     `,
     styleUrls: ['./drawer-subheader.component.scss'],
 })
-export class DrawerSubheaderComponent implements OnInit {
-    drawerOpen: boolean;
+export class DrawerSubheaderComponent extends StateListener {
+    @Input() divider = true;
 
-    constructor(public drawerService: DrawerService, private readonly changeDetector: ChangeDetectorRef) {}
-
-    ngOnInit(): void {
-        this.drawerOpen = this.drawerService.getDrawerOpen();
-        this.drawerService.drawerOpenChanges().subscribe((res: boolean) => {
-            this.drawerOpen = res;
-            this.changeDetector.detectChanges();
-        });
+    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+        super(drawerService, changeDetectorRef);
     }
 }

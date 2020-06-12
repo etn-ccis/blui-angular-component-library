@@ -1,19 +1,8 @@
-.pxb-drawer-footer,
-.pxb-drawer-footer-content-wrapper {
-    width: 100%;
-}
-
 .pxb-drawer-footer {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-}
-
-.pxb-drawer-footer-open {
-    visibility: inherit;
-}
-
-.pxb-drawer-footer-closed {
-    visibility: hidden;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    &.pxb-drawer-footer-closed {
+        visibility: hidden;
+    }
 }

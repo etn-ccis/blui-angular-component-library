@@ -1,63 +1,80 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    Input,
-    ViewEncapsulation,
-    Output,
-    EventEmitter,
-    SimpleChanges,
-    OnChanges,
-} from '@angular/core';
-import { DrawerService } from '../drawer.service';
+import { ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { DrawerService } from '../service/drawer.service';
+import { StateListener } from '../state-listener.component';
 
-type VariantType = 'permanent' | 'persistent' | 'temporary';
+export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
 
 @Component({
     selector: 'pxb-drawer-layout',
-    changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
-    template: `
-        <div class="pxb-drawer-layout">
-            <mat-sidenav-container class="pxb-side-nav-container" (backdropClick)="closeDrawer()" autosize>
-                <mat-sidenav
-                    [mode]="variant === 'temporary' ? 'over' : 'side'"
-                    class="px-blue-side-nav"
-                    [class.pxb-drawer-permanent]="variant === 'permanent'"
-                    [class.pxb-drawer-persistent]="variant === 'persistent'"
-                    [class.pxb-drawer-temporary]="variant === 'temporary'"
-                    [ngClass]="[drawerOpen ? 'pxb-drawer-open' : 'pxb-drawer-closed']"
-                    [opened]="isOpen()"
-                >
-                    <ng-content select="[drawer]"></ng-content>
-                </mat-sidenav>
-                <mat-sidenav-content class="pxb-nav-content">
-                    <ng-content select="[content]"></ng-content>
-                </mat-sidenav-content>
-            </mat-sidenav-container>
-        </div>
-    `,
     styleUrls: ['./drawer-layout.component.scss'],
+    template: `
+        <mat-sidenav-container class="pxb-drawer-layout" (backdropClick)="closeDrawer()">
+            <mat-sidenav
+                class="pxb-drawer-layout-sidenav"
+                [fixedInViewport]="true"
+                [class.smooth]="variant !== 'temporary' && transition"
+                [style.width.px]="isCollapsed() ? 56 : width"
+                [mode]="getMode()"
+                [opened]="isOpen()"
+            >
+                <ng-content select="[drawer]"></ng-content>
+            </mat-sidenav>
+            <mat-sidenav-content
+                class="pxb-drawer-layout-nav-content"
+                [class.smooth]="variant !== 'temporary' && transition"
+                [style.marginLeft.px]="getContentMarginLeft()"
+            >
+                <ng-content select="[content]"></ng-content>
+            </mat-sidenav-content>
+        </mat-sidenav-container>
+    `,
 })
-export class DrawerLayoutComponent implements OnChanges {
-    @Input() drawerOpen: boolean;
-    @Input() variant: VariantType;
-    @Output() onDrawerClose: EventEmitter<any> = new EventEmitter();
+export class DrawerLayoutComponent extends StateListener {
+    @Input() variant: DrawerLayoutVariantType;
+    @Input() width = 350;
+    @Output() backdropClick: EventEmitter<void> = new EventEmitter();
 
-    constructor(private readonly drawerService: DrawerService) {}
+    transition = true;
 
-    ngOnChanges(changes: SimpleChanges): void {
-        for (const propName in changes) {
-            if (propName === 'drawerOpen') {
-                this.drawerService.setDrawerOpen(this.drawerOpen);
-            }
-        }
+    constructor(public readonly drawerService: DrawerService, private readonly changeDetectorRef: ChangeDetectorRef) {
+        super(drawerService, changeDetectorRef);
+    }
+
+    ngOnChanges(): void {
+        this.transition = false;
+        setTimeout(() => {
+            this.transition = true;
+        }, 400);
+        this.drawerService.setDrawerVariant(this.variant);
+        this.changeDetectorRef.detectChanges();
+    }
+
+    getMode(): string {
+        return this.variant === 'temporary' ? 'over' : 'side';
     }
 
     closeDrawer(): void {
-        this.onDrawerClose.emit();
+        this.drawerService.setDrawerOpen(false);
+        this.backdropClick.emit();
     }
 
+    // Is the drawer seen on the screen and expanded.
     isOpen(): boolean {
-        return this.variant === 'permanent' || this.variant === 'persistent' ? true : this.drawerOpen;
+        if (this.variant === 'temporary') return this.drawerOpen;
+        return true;
+    }
+
+    getContentMarginLeft(): number {
+        if (this.variant === 'temporary') {
+            return 0;
+        }
+        return this.isCollapsed() ? 56 : this.width;
+    }
+
+    // Is the drawer condensed.
+    isCollapsed(): boolean {
+        if (this.variant === 'persistent') return !this.drawerOpen;
+        return false;
     }
 }

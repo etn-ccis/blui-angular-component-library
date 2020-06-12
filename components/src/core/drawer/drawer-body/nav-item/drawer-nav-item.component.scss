@@ -1,0 +1,73 @@
+.pxb-drawer-nav-item {
+    position: relative;
+    user-select: none;
+
+    .pxb-drawer-nav-item-depth-1 {
+        padding-left: 0;
+    }
+    .pxb-drawer-nav-item-depth-2 {
+        padding-left: 0;
+    }
+    .pxb-drawer-nav-item-depth-3 {
+        padding-left: 32px;
+    }
+
+    pxb-info-list-item {
+        display: flex;
+        flex-direction: column;
+        mat-list-item {
+            z-index: 1; // Used to keep text and icon above on-select highlight.
+        }
+        .mat-list-text {
+            padding-left: 0px !important; //TODO: Remove the !important, use higher specificity.
+        }
+    }
+
+    .pxb-info-list-item .pxb-info-list-item-icon-wrapper {
+        padding: 0;
+    }
+
+    .pxb-info-list-item-active.round:after,
+    .pxb-info-list-item-active.square:after {
+        content: '';
+        z-index: 0;
+        position: absolute;
+        height: 100%;
+        width: calc(100% - 8px);
+        left: 0;
+        top: 0;
+        border-radius: 0px 24px 24px 0px;
+        opacity: 0.9;
+    }
+
+    .pxb-info-list-item-active.square:after {
+        border-radius: 0;
+        width: 100%;
+    }
+
+    .pxb-drawer-nav-item-expand-icon {
+        transition: 300ms;
+        &.expanded {
+            transform: rotate(180deg);
+        }
+    }
+}
+
+.pxb-drawer-nested-nav-item {
+    .pxb-info-list-item .mat-list-item-content {
+        padding-left: 16px;
+    }
+    pxb-info-list-item .pxb-info-list-item .mat-list-text .pxb-info-list-item-title-wrapper {
+        font-weight: 400;
+    }
+    .mat-expansion-panel-body {
+        padding: 0;
+    }
+    .mat-expansion-panel:not([class*='mat-elevation-z']) {
+        box-shadow: unset;
+    }
+}
+
+mat-accordion.pxb-drawer-nested-nav-item mat-expansion-panel.mat-expansion-panel {
+    border-radius: 0 !important;
+}

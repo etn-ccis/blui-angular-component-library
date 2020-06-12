@@ -14,4 +14,9 @@
         align-items: center;
         justify-content: center;
     }
+
+    /* NoopAnimationModule or BrowserAnimationModule causes empty storybook-dynamic-app-root creation on story change.  Found during Drawer testing. */
+    #root > *:empty {
+        display: none;
+    }
 </style>

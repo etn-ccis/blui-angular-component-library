@@ -1,44 +1,33 @@
-import { Component, ViewEncapsulation, Input, Output, EventEmitter } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
 import * as PXBColors from '@pxblue/colors';
 import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
+import { ViewportService } from '../services/viewport.service';
+import { StateService } from '../services/state.service';
 
 @Component({
     selector: 'showcase-drawer',
     styleUrls: ['./drawer.component.scss'],
     template: `
-        <pxb-drawer
-            [variant]="variant"
-            (drawerOpenChange)="drawerOpenChange()"
-            [variantDrawerHandler]="variantDrawerHandler"
-        >
+        <pxb-drawer [open]="isOpen()">
             <pxb-drawer-header
                 title="PX Blue Drawer"
                 subtitle="Organize your menu items here"
                 class="test-background-image"
             >
-                <button mat-icon-button icon style="margin-right: 24px; margin-left: -8px;" (click)="clickMenuButton()">
+                <button mat-icon-button pxb-icon (click)="clickMenuButton()">
                     <mat-icon>menu</mat-icon>
                 </button>
             </pxb-drawer-header>
 
-            <pxb-drawer-subheader>
-                Subheader goes here
-            </pxb-drawer-subheader>
-
             <pxb-drawer-body>
-                <pxb-drawer-nav-group *ngFor="let navGroup of navGroups" [title]="navGroup.title">
+                <pxb-drawer-nav-group *ngFor="let navGroup of navGroups" [title]="navGroup.title" [divider]="true">
                     <pxb-drawer-nav-item
                         *ngFor="let navItem of navGroup.items"
                         [title]="navItem.title"
                         [subtitle]="navItem.subtitle"
                         [statusColor]="navItem.statusColor"
-                        [selected]="selectedItemId === navItem.itemID"
-                        [itemID]="navItem.itemID"
-                        [hasChildren]="navItem.items"
-                        (click)="navItem.onClick(); setActive(navItem.itemID)"
-                        [expandIcon]="navItem.expandIcon"
-                        [collapseIcon]="navItem.collapseIcon"
-                        [useCustomIconAnimation]="navItem.useCustomIconAnimation"
+                        [selected]="selectedItemId === navItem.title"
+                        (select)="navItem.onSelect(); setActive(navItem.title)"
                         [divider]="navItem.divider"
                     >
                         <mat-icon icon>{{ navItem.icon }}</mat-icon>
@@ -46,12 +35,9 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
                             *ngFor="let nestedItem of navItem.items"
                             [title]="nestedItem.title"
                             [divider]="false"
-                            [selected]="selectedItemId === nestedItem.itemID"
-                            [itemID]="nestedItem.itemID"
+                            [selected]="selectedItemId === nestedItem.title"
                             [hasChildren]="nestedItem.items"
-                            (click)="testClick('sub nav item', $event); setActive(nestedItem.itemID)"
-                            [expandIcon]="nestedItem.expandIcon"
-                            [collapseIcon]="nestedItem.collapseIcon"
+                            (select)="testClick('sub nav item', $event); setActive(nestedItem.title)"
                             [hidePadding]="nestedItem.hidePadding"
                         ></pxb-drawer-nav-item>
                     </pxb-drawer-nav-item>
@@ -59,7 +45,8 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
             </pxb-drawer-body>
 
             <pxb-drawer-footer>
-                <img src="../assets/EatonLogo.svg" alt="Eaton Logo" />
+                <mat-divider></mat-divider>
+                <img src="../assets/EatonLogo.svg" width="170" style="align-self: center; padding: 16px" />
             </pxb-drawer-footer>
         </pxb-drawer>
     `,
@@ -67,48 +54,37 @@ import { DrawerNavItem, DrawerNavGroup } from '@pxblue/angular-components';
 })
 export class DrawerComponent {
     colors = PXBColors;
-    @Input() drawerOpen = true;
     selectedItemId: string;
-    @Input() variant: any;
-    @Input() variantDrawerHandler: boolean;
-    @Output() onClickMenuButton: EventEmitter<any> = new EventEmitter();
-    @Output() onDrawerOpenChange: EventEmitter<any> = new EventEmitter();
 
-    nestedItems1: DrawerNavItem[] = [
-        { title: 'Sub 1', itemID: 'sub0' },
-        { title: 'Sub 2', itemID: 'sub1' },
-    ];
+    constructor(public readonly stateService: StateService, private readonly viewportService: ViewportService) {}
 
-    nestedItems2: DrawerNavItem[] = [
-        { title: 'Sub 3', itemID: 'sub2' },
-        { title: 'Sub 4', itemID: 'sub3' },
-    ];
+    nestedItems1: DrawerNavItem[] = [{ title: 'Sub 1' }, { title: 'Sub 2' }];
+
+    nestedItems2: DrawerNavItem[] = [{ title: 'Sub 3' }, { title: 'Sub 4' }];
 
     nestedItems3: DrawerNavItem[] = [
-        { title: 'Sub 5', itemID: 'sub4', hidePadding: true },
-        { title: 'Sub 6', itemID: 'sub5', hidePadding: true },
+        { title: 'Sub 5', hidePadding: true },
+        { title: 'Sub 6', hidePadding: true },
     ];
 
     navGroup1: DrawerNavItem[] = [
         {
             title: 'DrawerNavItem 1',
             subtitle: 'Subtitle 1',
-            itemID: '0',
             statusColor: PXBColors.red[500],
-            onClick: (): void => this.testClick('Drawer Nav Item 1'),
+            onSelect: (): void => this.testClick('Drawer Nav Item 1'),
             icon: 'home',
             items: this.nestedItems1,
         },
         {
             title: 'DrawerNavItem 2',
             subtitle: 'Subtitle 2',
-            itemID: '1',
             statusColor: PXBColors.blue[500],
-            onClick: (): void => this.testClick('Drawer Nav Item 2'),
+            onSelect: (): void => this.testClick('Drawer Nav Item 2'),
             icon: 'help',
             items: this.nestedItems2,
-            expandIcon: 'arrow_drop_down',
-            collapseIcon: 'arrow_drop_up',
+            //  expandIcon: 'arrow_drop_down',
+            //  collapseIcon: 'arrow_drop_up',
         },
     ];
 
@@ -116,35 +92,28 @@ export class DrawerComponent {
         {
             title: 'DrawerNavItem 3',
             subtitle: 'Subtitle 3',
-            itemID: '2',
             divider: true,
             statusColor: PXBColors.green[500],
-            onClick: (): void => this.testClick('Drawer Nav Item 3'),
+            onSelect: (): void => this.testClick('Drawer Nav Item 3'),
             items: this.nestedItems3,
-            expandIcon: 'arrow_drop_down',
-            collapseIcon: 'arrow_drop_up',
-            useCustomIconAnimation: true,
         },
         {
             title: 'DrawerNavItem 4',
             subtitle: 'Subtitle 4',
-            itemID: '3',
             divider: true,
-            onClick: (): void => this.testClick('Drawer Nav Item 4'),
+            onSelect: (): void => this.testClick('Drawer Nav Item 4'),
             icon: 'work',
         },
         {
             title: 'DrawerNavItem 5',
-            itemID: '4',
             divider: true,
-            onClick: (): void => this.testClick('Drawer Nav Item 5'),
+            onSelect: (): void => this.testClick('Drawer Nav Item 5'),
         },
         {
             title: 'DrawerNavItem 6',
-            itemID: '5',
             divider: true,
             statusColor: PXBColors.orange[500],
-            onClick: (): void => this.testClick('Drawer Nav Item 6'),
+            onSelect: (): void => this.testClick('Drawer Nav Item 6'),
             icon: 'work',
         },
     ];
@@ -165,15 +134,15 @@ export class DrawerComponent {
         console.log(string, ' clicked ...');
     }
 
+    isOpen(): boolean {
+        return this.stateService.getDrawerOpen();
+    }
+
     setActive(id: string): void {
         this.selectedItemId = id;
     }
 
     clickMenuButton(): void {
-        this.onClickMenuButton.emit();
-    }
-
-    drawerOpenChange(): void {
-        this.onDrawerOpenChange.emit();
+        this.stateService.setDrawerOpen(!this.stateService.getDrawerOpen());
     }
 }

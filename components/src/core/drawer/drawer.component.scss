@@ -1,3 +1,36 @@
+$width-open: 360px;
+$width-closed: 56px;
+$transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+
 .pxb-drawer {
-    width: 360px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: $width-open;
+    transition: $transition;
+    box-sizing: border-box;
+    border-right: 1px solid rgba(0, 0, 0, 0.12);
+
+    &.collapse {
+        width: $width-closed;
+    }
+
+    pxb-drawer-header,
+    pxb-drawer-subheader,
+    pxb-drawer-body,
+    pxb-drawer-footer {
+        display: flex;
+        flex-direction: column;
+    }
+    pxb-drawer-body {
+        height: 100%;
+        flex: 1 1 0;
+        overflow: auto;
+    }
+
+    .pxb-drawer-hover-area {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
 }

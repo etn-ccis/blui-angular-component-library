@@ -2,7 +2,9 @@ import { Component, ViewEncapsulation } from '@angular/core';
 import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as PXBColors from '@pxblue/colors';
-// eslint-disable-next-line @typescript-eslint/no-var-requires
+import { ViewportService } from './services/viewport.service';
+import { DrawerLayoutVariantType } from '@pxblue/angular-components';
+import { StateService } from './services/state.service';
 const iconSet = require('@pxblue/icons-svg/icons.svg');
 
 @Component({
@@ -13,10 +15,14 @@ const iconSet = require('@pxblue/icons-svg/icons.svg');
 })
 export class AppComponent {
     colors: Record<string, any>;
-    drawerOpen = true;
-    variant = 'persistent';
-    variantDrawerHandler: boolean;
-    constructor(private readonly matIconRegistry: MatIconRegistry, private readonly domSanitizer: DomSanitizer) {
+    variant: DrawerLayoutVariantType = 'persistent';
+
+    constructor(
+        public readonly stateService: StateService,
+        private readonly matIconRegistry: MatIconRegistry,
+        private readonly domSanitizer: DomSanitizer,
+        private readonly viewportService: ViewportService
+    ) {
         this.colors = PXBColors;
         this.matIconRegistry.addSvgIconSetInNamespace(
             'px-icons',
@@ -29,31 +35,18 @@ export class AppComponent {
         alert('Hero component');
     }
 
-    clickDrawerHeaderButton(): void {
-        // eslint-disable-next-line
-        console.log('drawer header button clicked...');
+    isMobile(): boolean {
+        return this.viewportService.isSmall();
     }
 
-    setVariant(str: string): void {
-        this.drawerOpen = true;
-        this.variant = str;
-        this.updateChildDrawer();
-    }
-
-    // end user is responsible for state management of the following:
-    // @TODO: Joe check these out!
-    toggleDrawer(): void {
-        if (this.variant !== 'permanent') {
-            this.drawerOpen = !this.drawerOpen;
+    getVariant(): DrawerLayoutVariantType {
+        if (this.variant === 'persistent' && this.viewportService.isSmall()) {
+            this.stateService.setDrawerOpen(false);
+        } else if (this.variant === 'temporary' && !this.viewportService.isSmall()) {
+            this.stateService.setDrawerOpen(false);
         }
-    }
 
-    toggleDrawerAndUpdateChildDrawer(): void {
-        this.toggleDrawer();
-        this.updateChildDrawer();
-    }
-
-    updateChildDrawer(): void {
-        this.variantDrawerHandler = this.drawerOpen;
+        this.variant = this.viewportService.isSmall() ? 'temporary' : 'persistent';
+        return this.variant;
     }
 }
