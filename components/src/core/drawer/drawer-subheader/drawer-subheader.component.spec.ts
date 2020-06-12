@@ -7,7 +7,7 @@ import { count } from 'src/utils/test-utils';
 @Component({
     template: `
         <pxb-drawer-subheader>
-            <div id="test-subheader-content" subheaderContent>test subheader content</div>
+            <div id="test-subheader-content">test subheader content</div>
         </pxb-drawer-subheader>
     `,
 })

@@ -8,7 +8,7 @@ import { EmptyStateModule } from './empty-state.module';
     selector: 'empty-state-basic-usage-test',
     template: `
         <pxb-empty-state [title]="title" [description]="description">
-            <span emptyIcon></span>
+            <span pxb-empty-icon></span>
         </pxb-empty-state>
     `,
 })
@@ -22,12 +22,12 @@ class EmptyStateBasicUsageComponent {
     selector: 'test-app',
     template: `
         <pxb-empty-state class="withIcon">
-            <span emptyIcon></span>
+            <span pxb-empty-icon></span>
         </pxb-empty-state>
         <pxb-empty-state class="empty"></pxb-empty-state>
 
         <pxb-empty-state class="withActions">
-            <span actions></span>
+            <span pxb-actions></span>
         </pxb-empty-state>
     `,
 })
@@ -93,20 +93,20 @@ describe('Empty State Component', () => {
     // Action Check
     it('should show actions when supplied', () => {
         const actionFixture = TestBed.createComponent(TestEmpty);
-        let actionElement = actionFixture.debugElement.query(By.css('.withActions [actions]'));
+        let actionElement = actionFixture.debugElement.query(By.css('.withActions [pxb-actions]'));
         expect(actionElement).not.toBeNull();
 
-        actionElement = actionFixture.debugElement.query(By.css('.empty [actions]'));
+        actionElement = actionFixture.debugElement.query(By.css('.empty [pxb-actions]'));
         expect(actionElement).toBeNull();
     });
 
     // Icon Check
     it('should show icon when supplied', () => {
         const iconFixture = TestBed.createComponent(TestEmpty);
-        let actionElement = iconFixture.debugElement.query(By.css('.withIcon [emptyIcon]'));
+        let actionElement = iconFixture.debugElement.query(By.css('.withIcon [pxb-empty-icon]'));
         expect(actionElement).not.toBeNull();
 
-        actionElement = iconFixture.debugElement.query(By.css('.empty [emptyIcon]'));
+        actionElement = iconFixture.debugElement.query(By.css('.empty [pxb-empty-icon]'));
         expect(actionElement).toBeNull();
     });
 

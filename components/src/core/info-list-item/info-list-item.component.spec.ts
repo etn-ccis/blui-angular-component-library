@@ -16,9 +16,9 @@ import { By } from '@angular/platform-browser';
             [wrapTitle]="wrapTitle"
             [divider]="divider"
         >
-            <div title>Test Title</div>
-            <div subtitle>Test Subtitle</div>
-            <mat-icon icon>mail</mat-icon>
+            <div pxb-title>Test Title</div>
+            <div pxb-subtitle>Test Subtitle</div>
+            <mat-icon pxb-icon>mail</mat-icon>
         </pxb-info-list-item>
     `,
 })
@@ -36,8 +36,8 @@ class TestBasicUsage {
 @Component({
     template: `
         <pxb-info-list-item>
-            <div title>title</div>
-            <mat-icon icon>mail</mat-icon>
+            <div pxb-title>title</div>
+            <mat-icon pxb-icon>mail</mat-icon>
         </pxb-info-list-item>
     `,
 })
@@ -53,8 +53,8 @@ class TestMissingTitle {}
 @Component({
     template: `
         <pxb-info-list-item>
-            <div title>title</div>
-            <div leftContent class="test-left">lefty</div>
+            <div pxb-title>title</div>
+            <div pxb-left-content class="test-left">lefty</div>
         </pxb-info-list-item>
     `,
 })
@@ -63,8 +63,8 @@ class TestLeftContent {}
 @Component({
     template: `
         <pxb-info-list-item>
-            <div title>title</div>
-            <div rightContent class="test-right">righty</div>
+            <div pxb-title>title</div>
+            <div pxb-right-content class="test-right">righty</div>
         </pxb-info-list-item>
     `,
 })
