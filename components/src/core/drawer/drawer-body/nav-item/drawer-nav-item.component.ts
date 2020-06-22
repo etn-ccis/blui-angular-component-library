@@ -123,7 +123,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         }
 
         // If ContentChildren is self-inclusive (ng version < 9), filter self out using service-generated NavItem ID.
-        this.nestedNavItems = this.nestedNavItems.filter((item: DrawerNavItemComponent) =>  item.id !== this.id);
+        this.nestedNavItems = this.nestedNavItems.filter((item: DrawerNavItemComponent) => item.id !== this.id);
         if (!this.nestedNavItems) {
             return;
         }
