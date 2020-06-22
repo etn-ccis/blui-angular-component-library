@@ -19,14 +19,6 @@ jobs:
             - components/node_modules
           key: v2-dependencies-angular-{{ checksum "components/yarn.lock" }}
       - run:
-          name: Build Library
-          command: |
-            yarn build
-      - run:
-          name: Test Artifacts
-          command: |
-            yarn test:artifacts
-      - run:
           name: Lint
           command: |
             cd components && yarn lint
@@ -34,6 +26,14 @@ jobs:
           name: Test
           command: |
             yarn test
+      - run:
+          name: Build Library
+          command: |
+            yarn build
+      - run:
+          name: Test Artifacts
+          command: |
+            yarn test:artifacts
       # Save the dist folder for use in future jobs.
       - persist_to_workspace:
           root: .
@@ -65,6 +65,11 @@ jobs:
       - attach_workspace:
           at: .
       - run:
+          name: Lint
+          command: |
+            cd demos/storybook
+            yarn lint
+      - run:
           name: Build Storybook
           command: |
             cp -r ./dist/. ./demos/storybook/node_modules/@pxblue/angular-components
@@ -86,11 +91,6 @@ jobs:
             yarn build-storybook
             cd storybook-static
             touch .nojekyll
-      - run:
-          name: Lint
-          command: |
-            cd demos/storybook
-            yarn lint
       - persist_to_workspace:
           root: .
           paths:
@@ -120,6 +120,11 @@ jobs:
       - attach_workspace:
           at: .
       - run:
+          name: Lint
+          command: |
+            cd demos/showcase
+            yarn lint
+      - run:
           name: Build Showcase
           command: |
             cp -r ./dist/. ./demos/showcase/node_modules/@pxblue/angular-components
@@ -131,11 +136,6 @@ jobs:
             fi
 
             yarn build
-      - run:
-          name: Lint
-          command: |
-            cd demos/showcase
-            yarn lint
 
   deploy_storybook:
     docker:
