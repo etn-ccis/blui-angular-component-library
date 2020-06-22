@@ -12,6 +12,24 @@ export const nestedNavGroup: DrawerNavItem[] = [
                 title: 'History',
                 onSelect: action('Selected: History'),
             },
+            {
+                title: 'Permissions',
+                onSelect: action('Selected: Permissions'),
+                items: [
+                    {
+                        title: 'View',
+                        onSelect: action('Selected: View'),
+                    },
+                    {
+                        title: 'Request',
+                        onSelect: action('Selected: Request'),
+                    },
+                ],
+            },
+            {
+                title: 'Settings',
+                onSelect: action('Selected: Settings'),
+            },
         ],
     },
     {
