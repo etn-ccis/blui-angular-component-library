@@ -89,8 +89,8 @@ $denseHeight: 52px;
 
     .pxb-info-list-item-left-content-wrapper {
         order: 2;
-        margin-right: 16px;
-        * {
+        > * {
+            margin-right: 16px;
             display: flex;
         }
     }
