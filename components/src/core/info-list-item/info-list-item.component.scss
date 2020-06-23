@@ -14,6 +14,11 @@ $denseHeight: 52px;
         height: $normalHeight;
         padding: 8px 16px 8px $contentPaddingLeft;
         width: 100%;
+
+        // Needed for ng v9
+        .mat-list-text {
+            padding-left: 0;
+        }
     }
 
     &.pxb-info-list-item-status .mat-list-item-content {
@@ -77,6 +82,7 @@ $denseHeight: 52px;
         height: auto; /* Used to override height applied when wrapped in a mat-list. */
         min-width: 56px;
         &.pxb-info-list-item-hide-padding:empty {
+            padding: 0;
             width: 0;
             min-width: unset;
         }
