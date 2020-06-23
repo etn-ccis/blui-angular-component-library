@@ -101,23 +101,35 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
 
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
 
-    @ContentChildren(DrawerNavItemComponent) nestedNavItems;
+    @ContentChildren(DrawerNavItemComponent, { descendants: false }) nestedNavItems;
     @ViewChild('expandIcon', { static: false }) expandIconEl: ElementRef;
     @ViewChild('collapseIcon', { static: false }) collapseIconEl: ElementRef;
 
     isEmpty = (el): boolean => isEmptyView(el);
     isNestedItem: boolean;
     drawerOpen: boolean;
-    hasChildren: boolean;
+    hasChildren = false;
     depth: number;
+    id: number;
 
     constructor(drawerService: DrawerService, private readonly changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
+        this.id = drawerService.createNavItemID();
     }
 
     ngAfterContentInit(): void {
-        this.hasChildren = this.nestedNavItems.length > 1; // ContentChildren is self-inclusive; the first result is this DrawerNavItem, not the nested DrawerNavItems.
-        for (const nestedItem of this.nestedNavItems._results.slice(1)) {
+        if (!this.nestedNavItems) {
+            return;
+        }
+
+        // If ContentChildren is self-inclusive (ng version < 9), filter self out using service-generated NavItem ID.
+        this.nestedNavItems = this.nestedNavItems.filter((item: DrawerNavItemComponent) => item.id !== this.id);
+        if (!this.nestedNavItems) {
+            return;
+        }
+
+        this.hasChildren = this.nestedNavItems.length >= 1;
+        for (const nestedItem of this.nestedNavItems) {
             nestedItem.setNestedDrawerDefaults();
         }
     }
@@ -135,8 +147,10 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
 
     incrementDepth(parentDepth: number): void {
         this.depth = parentDepth + 1;
-        for (const nestedItem of this.nestedNavItems._results.slice(1)) {
-            nestedItem.incrementDepth(this.depth);
+        if (this.nestedNavItems._results) {
+            for (const nestedItem of this.nestedNavItems._results) {
+                nestedItem.incrementDepth(this.depth);
+            }
         }
     }
 

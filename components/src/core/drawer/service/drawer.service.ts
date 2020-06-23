@@ -8,6 +8,7 @@ import { DrawerLayoutVariantType } from '../..';
 export class DrawerService {
     private drawerOpen: boolean;
     private variant: DrawerLayoutVariantType;
+    private navItemCount = 0;
     drawerOpenObs = new Subject<boolean>();
     drawerSelectObs = new Subject<boolean>();
 
@@ -38,5 +39,9 @@ export class DrawerService {
 
     drawerSelectionChanges(): Observable<boolean> {
         return this.drawerSelectObs;
+    }
+
+    createNavItemID(): number {
+        return ++this.navItemCount;
     }
 }

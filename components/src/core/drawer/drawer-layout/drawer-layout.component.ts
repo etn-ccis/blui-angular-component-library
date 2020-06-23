@@ -47,6 +47,9 @@ export class DrawerLayoutComponent extends StateListener {
             this.transition = true;
         }, 400);
         this.drawerService.setDrawerVariant(this.variant);
+        if (this.variant === 'permanent') {
+            this.drawerService.setDrawerOpen(true);
+        }
         this.changeDetectorRef.detectChanges();
     }
 
