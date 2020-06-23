@@ -109,8 +109,9 @@ $denseHeight: 52px;
         order: 5;
         margin-left: 16px;
         white-space: nowrap;
-        .pxb-info-list-item-right-content-wrapper * {
+        .pxb-info-list-item-right-content-wrapper > * {
             display: flex;
+            align-items: center;
         }
     }
 }
