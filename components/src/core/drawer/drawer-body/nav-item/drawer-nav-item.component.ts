@@ -147,8 +147,8 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
 
     incrementDepth(parentDepth: number): void {
         this.depth = parentDepth + 1;
-        if (this.nestedNavItems._results) {
-            for (const nestedItem of this.nestedNavItems._results) {
+        if (this.nestedNavItems) {
+            for (const nestedItem of this.nestedNavItems) {
                 nestedItem.incrementDepth(this.depth);
             }
         }
