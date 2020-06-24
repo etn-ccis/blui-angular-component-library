@@ -117,6 +117,7 @@ $denseHeight: 52px;
         white-space: nowrap;
         .pxb-info-list-item-right-content-wrapper > * {
             display: flex;
+            align-items: center;
         }
     }
 }

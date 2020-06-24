@@ -1,14 +1,9 @@
-:host {
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
 .pxb-empty-state {
+    height: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
 
     .pxb-empty-state-title {
         margin-bottom: 0;
