@@ -16,9 +16,6 @@ import { StateListener } from '../../state-listener.component';
     encapsulation: ViewEncapsulation.None,
     styles: [
         `
-            pxb-drawer-nav-item {
-                outline: none;
-            }
             .pxb-drawer-nav-group .mat-list-base {
                 font-weight: 600;
                 padding-top: 0;
