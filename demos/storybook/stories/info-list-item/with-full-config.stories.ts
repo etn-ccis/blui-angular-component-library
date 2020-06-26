@@ -18,6 +18,7 @@ export const withFullConfig = (): any => ({
             (click)="action()">
             <div pxb-title>{{title}}</div>
             <div pxb-subtitle>{{subtitle}}</div>
+            <div pxb-info>{{info}}</div>
             <mat-icon *ngIf="showIcon" [style.color]="iconColor"
                 [style.backgroundColor]="getBgColor(avatar, statusColor)" pxb-icon>assignment</mat-icon>
         </pxb-info-list-item>
@@ -25,6 +26,7 @@ export const withFullConfig = (): any => ({
     props: {
         title: text('title', 'Info List Item'),
         subtitle: text('subtitle', 'this is a subtitle within an InfoListItem'),
+        info: text('info', 'this is a third line of text'),
         statusColor: color('statusColor', Colors.yellow[500]),
         showIcon: boolean('Show Icon', true),
         hidePadding: boolean('hidePadding', false),

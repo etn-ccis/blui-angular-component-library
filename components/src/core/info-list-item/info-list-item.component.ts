@@ -47,6 +47,13 @@ import { requireContent, isEmptyView } from '../../utils/utils';
             >
                 <ng-content select="[pxb-subtitle]"></ng-content>
             </div>
+            <div
+                class="mat-body-2 pxb-info-list-item-info-wrapper"
+                matLine
+                [class.pxb-info-list-item-wrap]="wrapSubtitle"
+            >
+                <ng-content select="[pxb-info]"></ng-content>
+            </div>
             <pxb-spacer class="pxb-info-list-item-spacer"></pxb-spacer>
             <div class="pxb-info-list-item-right-content">
                 <div #right class="pxb-info-list-item-right-content-wrapper">
