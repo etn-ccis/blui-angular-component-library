@@ -54,6 +54,8 @@ export const withSubheader = (): any => ({
         navItems: navItems,
         divider: boolean('divider', true),
         content: optionsKnob('Subheader Content', valuesObj, 'Filter', optionsObj),
-        toggleExpansion: (state): void => { state.open = !state.open },
+        toggleExpansion: (state): void => {
+            state.open = !state.open;
+        },
     },
 });
