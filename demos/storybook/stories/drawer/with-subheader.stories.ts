@@ -27,7 +27,7 @@ export const withSubheader = (): any => ({
                 <mat-hint>The subheader can be used for custom content.</mat-hint>
               </mat-form-field>
               <mat-accordion *ngIf="content === 'Accordion'">
-                 <mat-expansion-panel>
+                 <mat-expansion-panel style="min-width: 360px" (click)="toggleExpansion(accordionState)" [expanded]="accordionState.open && state.open">
                     <mat-expansion-panel-header [style.margin.px]="16">
                        <mat-panel-title>
                           Expansion Panel 1
@@ -50,8 +50,10 @@ export const withSubheader = (): any => ({
         </pxb-drawer>
       `,
     props: {
+        accordionState: { open: false },
         navItems: navItems,
         divider: boolean('divider', true),
         content: optionsKnob('Subheader Content', valuesObj, 'Filter', optionsObj),
+        toggleExpansion: (state): void => { state.open = !state.open },
     },
 });
