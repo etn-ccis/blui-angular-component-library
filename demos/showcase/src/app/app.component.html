@@ -40,7 +40,11 @@
                             <mat-icon svgIcon="px-icons:temp" pxb-primary></mat-icon>
                         </pxb-hero>
                         <pxb-hero [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="36">
-                            <mat-icon svgIcon="px-icons:moisture" pxb-primary [style.color]="colors.blue[300]"></mat-icon>
+                            <mat-icon
+                                svgIcon="px-icons:moisture"
+                                pxb-primary
+                                [style.color]="colors.blue[300]"
+                            ></mat-icon>
                         </pxb-hero>
                     </pxb-hero-banner>
                     <pxb-info-list-item hidePadding="true" dense="true" pxb-action-row>
@@ -100,7 +104,11 @@
                             style="cursor: pointer"
                             [iconSize]="36"
                         >
-                            <mat-icon svgIcon="px-icons:grade_a" pxb-primary [style.color]="colors.green[500]"></mat-icon>
+                            <mat-icon
+                                svgIcon="px-icons:grade_a"
+                                pxb-primary
+                                [style.color]="colors.green[500]"
+                            ></mat-icon>
                         </pxb-hero>
 
                         <pxb-hero label="Load">
@@ -117,7 +125,12 @@
                         </pxb-hero>
 
                         <pxb-hero label="Battery" value="Full">
-                            <battery-progress class="progress-icon" percent="90" size="36" pxb-primary></battery-progress>
+                            <battery-progress
+                                class="progress-icon"
+                                percent="90"
+                                size="36"
+                                pxb-primary
+                            ></battery-progress>
                         </pxb-hero>
                     </pxb-hero-banner>
                 </mat-list>
