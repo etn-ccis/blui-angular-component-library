@@ -10,6 +10,7 @@
         "test": "ng test",
         "test:ci": "ng test --watch false",
         "prettier": "prettier \"src/**/**.{ts,json,css,scss,html}\" --write",
+        "prettier:check": "prettier \"src/**/**.{ts,json,css,scss,html}\" --check",
         "lint": "eslint \"src/**/**.ts\"",
         "lint:fix": "eslint \"src/**/**.ts\" --fix"
     },
