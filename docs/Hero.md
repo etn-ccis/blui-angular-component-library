@@ -49,12 +49,12 @@ Parent element (`<pxb-hero>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input   | Description                            | Type                    | Required | Default       |
-| -------- | -------------------------------------- | ----------------------- | -------- | ------------- |
-| iconSize | The size of the primary icon (10-48)   | `number`                | no       | 'normal' (36) |
-| label    | The text shown below the Channel Value | `string`                | yes      |               |
-| units    | Text to show after the value           | `string`                | no       |               |
-| value    | The value for the channel              | `string` \| `number`    | no       |               |
+| @Input   | Description                            | Type                 | Required | Default       |
+| -------- | -------------------------------------- | -------------------- | -------- | ------------- |
+| iconSize | The size of the primary icon (10-48)   | `number`             | no       | 'normal' (36) |
+| label    | The text shown below the Channel Value | `string`             | yes      |               |
+| units    | Text to show after the value           | `string`             | no       |               |
+| value    | The value for the channel              | `string` \| `number` | no       |               |
 
 </div>
 
@@ -71,15 +71,15 @@ The following child elements are projected into `<pxb-hero>`:
 </div>
 
 ### Classes
-Each PX Blue component has classes which can be used to override component styles: 
 
-| Name                              | Description                                 |
-|-----------------------------------|---------------------------------------------|
-| pxb-hero                          | Styles applied to the root element          |
-| pxb-hero-primary-wrapper          | Styles applied to the primary icon container|
-| pxb-hero-channel-value-wrapper    | Styles applied to channel-value             |
-| pxb-hero-label                    | Styles applied to label @Input              |
+Each PX Blue component has classes which can be used to override component styles:
 
+| Name                           | Description                                  |
+| ------------------------------ | -------------------------------------------- |
+| pxb-hero                       | Styles applied to the root element           |
+| pxb-hero-primary-wrapper       | Styles applied to the primary icon container |
+| pxb-hero-channel-value-wrapper | Styles applied to channel-value              |
+| pxb-hero-label                 | Styles applied to label @Input               |
 
 # Hero Banner
 
@@ -126,9 +126,10 @@ The following child element is projected into `<pxb-hero-banner>`:
 | (child)  | `pxb-hero` to display | yes      |         |
 
 ### Classes
-Each PX Blue component has classes which can be used to override component styles: 
 
-| Name                              | Description                                 |
-|-----------------------------------|---------------------------------------------|
-| pxb-hero-banner                   | Styles applied to the root element          |
-| pxb-hero-banner-divider           | Styles applied to the divider               |
+Each PX Blue component has classes which can be used to override component styles:
+
+| Name                    | Description                        |
+| ----------------------- | ---------------------------------- |
+| pxb-hero-banner         | Styles applied to the root element |
+| pxb-hero-banner-divider | Styles applied to the divider      |
