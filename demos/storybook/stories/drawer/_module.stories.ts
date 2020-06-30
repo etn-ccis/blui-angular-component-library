@@ -26,7 +26,7 @@ import { withFullConfig } from './with-full-config.stories';
 import { withinDrawerLayout } from './within-drawer-layout.stories';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
-import {MatCardModule} from "@angular/material/card";
+import { MatCardModule } from '@angular/material/card';
 
 export const drawerWrapper = () => (storyFn): any => {
     const story = storyFn();
