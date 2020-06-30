@@ -1,10 +1,11 @@
 import { navItems } from './basic-config.stories';
 import { OptionsKnobOptionsDisplay } from '@storybook/addon-knobs/dist/components/types/Options';
 import { boolean, optionsKnob } from '@storybook/addon-knobs';
+import * as Colors from '@pxblue/colors';
 
 const valuesObj = {
     filter: 'Filter',
-    accordion: 'Accordion',
+    card: 'Card',
 };
 const optionsObj = {
     display: 'inline-radio' as OptionsKnobOptionsDisplay,
@@ -26,16 +27,9 @@ export const withSubheader = (): any => ({
                 <mat-icon matSuffix>search</mat-icon>
                 <mat-hint>The subheader can be used for custom content.</mat-hint>
               </mat-form-field>
-              <mat-accordion *ngIf="content === 'Accordion'">
-                 <mat-expansion-panel>
-                    <mat-expansion-panel-header [style.margin.px]="16">
-                       <mat-panel-title>
-                          Expansion Panel 1
-                       </mat-panel-title>
-                    </mat-expansion-panel-header>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse malesuada lacus ex, sit amet blandit leo lobortis eget.
-                    </mat-expansion-panel>
-              </mat-accordion>
+              <mat-card *ngIf="content === 'Card'" style="font-weight: 500" [style.backgroundColor]="colors.gray[50]">
+                Sample Content Goes Here
+              </mat-card>
           </pxb-drawer-subheader>
            <pxb-drawer-body>
               <pxb-drawer-nav-group>
@@ -50,6 +44,7 @@ export const withSubheader = (): any => ({
         </pxb-drawer>
       `,
     props: {
+        colors: Colors,
         navItems: navItems,
         divider: boolean('divider', true),
         content: optionsKnob('Subheader Content', valuesObj, 'Filter', optionsObj),
