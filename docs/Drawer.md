@@ -85,7 +85,7 @@ Parent element (`<pxb-drawer-layout>`) attributes:
 
 | @Output       | Description                                         | Type                 |
 | ------------- | --------------------------------------------------- | -------------------- |
-| backdropClick | Event triggered on `tempory` variant backdrop click | `EventEmitter<void>` |
+| backdropClick | Event triggered on `'temporary` variant backdrop click | `EventEmitter<void>` |
 
 </div>
 
