@@ -1,7 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
-@import '~@pxblue/themes/angular/theme.scss';
+@import '~@pxblue/angular-themes/theme.scss';
 
 body {
     margin: 0;
     -webkit-font-smoothing: antialiased;
+
+    // for light theme
+    background-color: map-get($pxb-gray, 50);
+
+    // for dark theme
+    // background-color: map-get($pxb-darkBlack, 100);
 }

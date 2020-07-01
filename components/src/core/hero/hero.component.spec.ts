@@ -1,29 +1,108 @@
-import { TestBed, async } from '@angular/core/testing';
-import { By } from '@angular/platform-browser';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-import { MatCardModule, MatIconModule, MatListModule } from '@angular/material';
+import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { count } from '../../utils/test-utils';
 import { HeroComponent } from './hero.component';
+import { HeroModule } from './hero.module';
+import { Component } from '@angular/core';
+import { ChannelValueModule } from '..';
+
+@Component({
+    template: `
+        <pxb-hero label="Duration">
+            <pxb-channel-value value="60" units="hours"></pxb-channel-value>
+        </pxb-hero>
+    `,
+})
+class TestChannelValue {}
+
+@Component({
+    template: `
+        <pxb-hero label="Duration">
+            <div pxb-primary id="test-primary-icon">Icon</div>
+        </pxb-hero>
+    `,
+})
+class TestPrimaryIcon {}
+
+@Component({
+    template: `
+        <pxb-hero label="Duration" value="60" units="hours">
+            <div pxb-secondary id="test-secondary-icon">Icon</div>
+        </pxb-hero>
+    `,
+})
+class TestSecondaryIcon {}
 
 describe('HeroComponent', () => {
+    let fixture: ComponentFixture<HeroComponent>;
+    let component: HeroComponent;
+
     beforeEach(async(() => {
         TestBed.configureTestingModule({
-            declarations: [HeroComponent],
-            imports: [MatCardModule, MatIconModule, MatListModule],
-            schemas: [CUSTOM_ELEMENTS_SCHEMA],
+            declarations: [TestChannelValue, TestPrimaryIcon, TestSecondaryIcon],
+            imports: [HeroModule, ChannelValueModule],
         }).compileComponents();
     }));
 
-    it(`Div element should have class as 'wrapper'`, () => {
-        const fixture = TestBed.createComponent(HeroComponent);
-        const heroComponent = fixture.debugElement;
-        const wrapperDiv: HTMLElement = heroComponent.query(By.css('div')).nativeElement;
-        expect(wrapperDiv.getAttribute('class')).toEqual('wrapper');
+    beforeEach(() => {
+        fixture = TestBed.createComponent(HeroComponent);
+        component = fixture.componentInstance;
     });
 
-    it(`H5 element should have class as 'label'`, () => {
-        const fixture = TestBed.createComponent(HeroComponent);
-        const heroComponent = fixture.debugElement;
-        const labelEle: HTMLElement = heroComponent.query(By.css('h5')).nativeElement;
-        expect(labelEle.getAttribute('class')).toEqual('label');
+    it('should initialize', () => {
+        fixture.detectChanges();
+        expect(component).toBeTruthy();
+    });
+
+    it('should render a label', () => {
+        component.label = 'Test Label';
+        fixture.detectChanges();
+        const label = fixture.nativeElement.querySelector('.pxb-hero-label');
+        expect(label.innerHTML).toBe('Test Label');
+    });
+
+    it('should create and render a pxb-channel-value', () => {
+        component.label = 'Temp';
+        component.value = '80';
+        component.units = 'C';
+        fixture.detectChanges();
+        const value = fixture.nativeElement.querySelector('.pxb-channel-value-value');
+        const units = fixture.nativeElement.querySelector('.pxb-channel-value-units');
+        expect(value.innerHTML).toBe('80');
+        expect(units.innerHTML).toBe('C');
+    });
+
+    it('should accept and project a pxb-channel-value', () => {
+        const channelValueFixture = TestBed.createComponent(TestChannelValue);
+        channelValueFixture.detectChanges();
+        const value = channelValueFixture.nativeElement.querySelector('.pxb-channel-value-value');
+        const units = channelValueFixture.nativeElement.querySelector('.pxb-channel-value-units');
+        expect(value.innerHTML).toBe('60');
+        expect(units.innerHTML).toBe('hours');
+    });
+
+    it('should render an icon', () => {
+        const iconFixture = TestBed.createComponent(TestPrimaryIcon);
+        iconFixture.detectChanges();
+        const icon = iconFixture.nativeElement.querySelector('#test-primary-icon');
+        expect(icon).toBeTruthy();
+    });
+
+    it('should render a secondary icon', () => {
+        const iconFixture = TestBed.createComponent(TestSecondaryIcon);
+        iconFixture.detectChanges();
+        const icon = iconFixture.nativeElement.querySelector('#test-secondary-icon');
+        expect(icon).toBeTruthy();
+    });
+
+    it('should enforce class naming conventions', () => {
+        const classList = [
+            '.pxb-hero',
+            '.pxb-hero-primary-wrapper',
+            '.pxb-hero-channel-value-wrapper',
+            '.pxb-hero-label',
+        ];
+        for (const className of classList) {
+            count(fixture, className);
+        }
     });
 });

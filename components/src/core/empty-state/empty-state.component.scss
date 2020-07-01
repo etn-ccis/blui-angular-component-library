@@ -1,25 +1,32 @@
-:host {
+.pxb-empty-state {
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-:host ::ng-deep [empty-icon] {
-    display: block;
-    font-size: 100px;
-    height: 100%;
-    width: 100%;
-    text-align: center;
-}
-
-.container {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
+    justify-content: center;
 
-h2,
-h4 {
-    text-align: center;
+    .pxb-empty-state-title {
+        margin-bottom: 0;
+    }
+
+    .pxb-empty-state-description {
+        margin-bottom: 8px;
+    }
+
+    .pxb-empty-state-title,
+    .pxb-empty-state-description {
+        text-align: center;
+        font-weight: 600;
+    }
+
+    .pxb-empty-state-empty-icon-wrapper {
+        line-height: 1;
+        > * {
+            display: block;
+            font-size: 100px;
+            height: 100%;
+            width: 100%;
+            text-align: center;
+        }
+    }
 }

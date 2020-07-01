@@ -1,33 +1,32 @@
-:host {
+.pxb-channel-value {
     display: inline-flex;
-}
-.value-wrapper {
-    display: flex;
-}
-.text {
-    font-size: inherit;
+    align-items: center;
     line-height: 1.2;
+    font-size: inherit;
     letter-spacing: 0;
     margin: 0;
-}
-.units {
-    font-weight: 300;
-}
-.value {
-    font-weight: 600;
-}
-.icon {
-    font-size: inherit;
-    display: block;
-    margin-right: 5px;
-    &:empty {
-        display: none;
+
+    .pxb-channel-value-units {
+        font-weight: 300;
     }
-    ::ng-deep mat-icon {
+
+    .pxb-channel-value-value {
+        font-weight: 600;
+    }
+
+    .pxb-channel-value-icon-wrapper {
+        font-size: inherit;
         display: block;
-        width: 100%;
-        height: 100%;
-        font-size: 100%;
-        line-height: 1.2;
+        margin-right: 4px;
+        &:empty {
+            display: none;
+        }
+        * {
+            display: block;
+            width: 100%;
+            height: 100%;
+            font-size: 100%;
+            line-height: 1.2;
+        }
     }
 }

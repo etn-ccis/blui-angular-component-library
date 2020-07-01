@@ -1,0 +1,12 @@
+.pxb-list-item-tag {
+    overflow: hidden;
+    line-height: inherit;
+    padding: 0 4px;
+    border-radius: 2px;
+    letter-spacing: 1px;
+
+    .pxb-list-item-tag-label {
+        font-weight: 700;
+        text-transform: uppercase;
+    }
+}

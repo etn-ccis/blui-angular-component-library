@@ -1,15 +1,22 @@
 <!-- Used for styling story container -->
-<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
 <style>
-  html, body {
-    margin: 0;
-    padding: 0;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #efefef;
-  }
+    html,
+    body,
+    #root,
+    #root > * {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+
+    /* NoopAnimationModule or BrowserAnimationModule causes empty storybook-dynamic-app-root creation on story change.  Found during Drawer testing. */
+    #root > *:empty {
+        display: none;
+    }
 </style>

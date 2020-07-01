@@ -1,5 +1,5 @@
-.root {
-    height:100%;
+.welcome-root {
+    height: 100%;
     width: 100%;
     display: flex;
     align-content: center;
@@ -9,10 +9,10 @@
 }
 
 .container {
-    display:flex;
+    display: flex;
     flex-direction: column;
     justify-content: center;
-    text-align:center;
+    text-align: center;
     padding: 0 8px;
 }
 
@@ -24,17 +24,6 @@
     margin-right: 8px;
     height: 24px;
     width: 24px;
-}
-
-.buttons {
-    display: flex;
-    justify-content: space-around;
-    margin-top: 36px;
-}
-
-.buttons .link {
-    min-width: 100px;
-    font-weight: 600;
 }
 
 .description {

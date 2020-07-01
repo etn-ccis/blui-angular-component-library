@@ -2,11 +2,18 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
 import { AppComponent } from './app.component';
 //pxblue modules
 import { NgProgressIconsModule } from '@pxblue/ng-progress-icons';
-import { HeroModule, ChannelValueModule, EmptyStateModule } from '@pxblue/angular-components';
+import {
+    HeroModule,
+    ChannelValueModule,
+    EmptyStateModule,
+    ScoreCardModule,
+    InfoListItemModule,
+    DrawerModule,
+    ListItemTagModule,
+} from '@pxblue/angular-components';
 
 //material modules
 import { MatDividerModule } from '@angular/material/divider';
@@ -15,9 +22,11 @@ import { FormsModule } from '@angular/forms';
 import { MatListModule } from '@angular/material/list';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
+import { DrawerComponent } from './drawer/drawer.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
-    declarations: [AppComponent],
+    declarations: [AppComponent, DrawerComponent],
     imports: [
         BrowserAnimationsModule,
         BrowserModule,
@@ -28,11 +37,16 @@ import { MatButtonModule } from '@angular/material/button';
         MatListModule,
         MatButtonModule,
         HttpClientModule,
+        MatToolbarModule,
         //pxblue
         NgProgressIconsModule,
         ChannelValueModule,
         EmptyStateModule,
+        ScoreCardModule,
         HeroModule,
+        InfoListItemModule,
+        DrawerModule,
+        ListItemTagModule,
     ],
     providers: [],
     bootstrap: [AppComponent],

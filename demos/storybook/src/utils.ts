@@ -1,9 +1,10 @@
-import '@pxblue/themes/angular/theme.scss';
-import {CommonModule} from "@angular/common";
+import '@pxblue/angular-themes/theme.scss';
+import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
 import 'typeface-open-sans';
-import {BrowserModule} from "@angular/platform-browser";
-import {COMPONENT_SECTION_NAME, README_STORY_NAME} from "./constants";
+import { BrowserModule } from '@angular/platform-browser';
+import { COMPONENT_SECTION_NAME, README_STORY_NAME } from './constants';
+import * as Colors from '@pxblue/colors';
 
 let banner: HTMLElement;
 let prevUrl = '';
@@ -43,7 +44,6 @@ export const updateTitle = (): void => {
     window.top.document.getElementsByTagName('head')[0].appendChild(link);
 };
 
-
 export const storyWrapper = () => (storyFn): any => {
     const story = storyFn();
     return {
@@ -56,7 +56,7 @@ export const getReadMe = (name: string): any => {
     const md = require(`./../../../docs/${name}`);
 
     // Locate all relative links that use href syntax and replace them with absolute URLs.
-    md.default = (md.default).replace(/\(.\/.*md\)/g, (substring: string) => {
+    md.default = md.default.replace(/\(.\/.*md\)/g, (substring: string) => {
         // Example: http://localhost:6006/?path=/info/components-hero--readme
         const root = window.top.location.href.split('/?')[0];
         const path = `?path=/info/${COMPONENT_SECTION_NAME.toLowerCase()}`;
@@ -77,6 +77,10 @@ export const getReadMeStory = (): any => {
 };
 getReadMeStory.story = { name: README_STORY_NAME };
 
+export const isDarkMode = (): boolean => {
+    const darkModeLocalStorage = JSON.parse(window.localStorage.getItem('sb-addon-themes-3'));
+    return darkModeLocalStorage && darkModeLocalStorage.current === 'dark';
+};
 
 @Component({
     selector: 'readme',
@@ -97,10 +101,18 @@ export class ReadMeComponent {
 @Component({
     selector: 'story',
     template: `
-        <div class="pxb-blue mat-typography" style="height: 100%; width: 100%"><ng-content></ng-content></div>
+        <div
+            class="mat-typography"
+            [ngClass]="useDarkMode ? 'pxb-blue-dark' : 'pxb-blue'"
+            style="height: 100%; width: 100%"
+        >
+            <ng-content></ng-content>
+        </div>
     `,
 })
 export class StoryComponent {
+    useDarkMode = isDarkMode();
+
     // Auto-navigates the user to the Canvas tab when switching stories.
     ngOnInit(): void {
         const currentUrl = window.top.location.href;
@@ -115,6 +127,20 @@ export class StoryComponent {
             selectCanvasTab();
         }
         prevUrl = currentUrl;
+
+        this.setTheme();
+        window.onstorage = (): void => {
+            this.setTheme();
+        };
+    }
+
+    setTheme(): void {
+        this.useDarkMode = isDarkMode();
+        const canvas = document.querySelector('.sb-show-main') as HTMLElement;
+        if (canvas && canvas.style) {
+            canvas.style.backgroundColor = this.useDarkMode ? Colors.darkBlack[100] : Colors.gray[50];
+            canvas.style.color = this.useDarkMode ? Colors.gray[300] : Colors.black[500];
+        }
     }
 }
 
