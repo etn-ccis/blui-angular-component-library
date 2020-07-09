@@ -1,4 +1,4 @@
-import { Component, ElementRef } from '@angular/core';
+import { ElementRef } from '@angular/core';
 
 export function requireInput<T>(inputs: Array<keyof T>, component: any): void {
     inputs.forEach((input) => {
@@ -10,7 +10,7 @@ export function requireInput<T>(inputs: Array<keyof T>, component: any): void {
     });
 }
 
-export function requireContent(contentPairs: ContentPair[], component: Component): void {
+export function requireContent(contentPairs: ContentPair[], component: any): void {
     contentPairs.forEach((contentPair) => {
         if (!contentPair.ref.nativeElement.children || contentPair.ref.nativeElement.children.length === 0) {
             const name: string = component.constructor.name;
