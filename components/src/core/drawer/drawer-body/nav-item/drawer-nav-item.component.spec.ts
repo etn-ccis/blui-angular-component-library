@@ -16,7 +16,7 @@ describe('DrawerNavItemComponent', () => {
     let fixture: ComponentFixture<DrawerNavItemComponent>;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [TestDrawerNavItem],
             imports: [DrawerNavItemModule],
         }).compileComponents();
@@ -32,7 +32,7 @@ describe('DrawerNavItemComponent', () => {
 
     it('should create', () => {
         fixture.detectChanges();
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 
     it('should enforce class naming conventions', () => {

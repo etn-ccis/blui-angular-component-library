@@ -105,14 +105,14 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @ViewChild('expandIcon', { static: false }) expandIconEl: ElementRef;
     @ViewChild('collapseIcon', { static: false }) collapseIconEl: ElementRef;
 
-    isEmpty = (el): boolean => isEmptyView(el);
+    isEmpty = (el: ElementRef): boolean => isEmptyView(el);
     isNestedItem: boolean;
     drawerOpen: boolean;
     hasChildren = false;
     depth: number;
     id: number;
 
-    constructor(drawerService: DrawerService, private readonly changeDetectorRef: ChangeDetectorRef) {
+    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
         this.id = drawerService.createNavItemID();
     }

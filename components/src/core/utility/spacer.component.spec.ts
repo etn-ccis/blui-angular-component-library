@@ -6,7 +6,7 @@ describe('SpacerComponent', () => {
     let fixture: ComponentFixture<SpacerComponent>;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             imports: [SpacerModule],
         }).compileComponents();
         fixture = TestBed.createComponent(SpacerComponent);
@@ -15,12 +15,12 @@ describe('SpacerComponent', () => {
 
     it('should initialize', () => {
         fixture.detectChanges();
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 
     it('should have a default flex value of 1', () => {
         fixture.detectChanges();
-        expect(component.flex).toBe(1);
-        expect(component.grow).toBe('1 1 0px');
+        void expect(component.flex).toBe(1);
+        void expect(component.grow).toBe('1 1 0px');
     });
 });

@@ -83,7 +83,7 @@ export class InfoListItemComponent implements AfterViewInit {
 
     @ViewChild('title', { static: false }) titleEl: ElementRef;
     @ViewChild('right', { static: false }) rightEl: ElementRef;
-    isEmpty = (el): boolean => isEmptyView(el);
+    isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 
     ngAfterViewInit(): void {
         const required = { selector: 'title', ref: this.titleEl };

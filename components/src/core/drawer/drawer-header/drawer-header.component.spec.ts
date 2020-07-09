@@ -38,7 +38,7 @@ describe('DrawerHeaderComponent', () => {
     let fixture: ComponentFixture<DrawerHeaderComponent>;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [TestDrawerHeader, TestDrawerHeaderWithTitleContent, TestDrawerHeaderWithIcon],
             imports: [DrawerHeaderModule, MatIconModule],
         }).compileComponents();
@@ -54,7 +54,7 @@ describe('DrawerHeaderComponent', () => {
 
     it('should create', () => {
         fixture.detectChanges();
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 
     it('should render title', () => {
@@ -62,7 +62,7 @@ describe('DrawerHeaderComponent', () => {
         component.title = 'test title';
         fixture.detectChanges();
         const title = fixture.debugElement.query(By.css('.pxb-drawer-header-title'));
-        expect(title.nativeElement.innerHTML.trim()).toBe('test title');
+        void expect(title.nativeElement.innerHTML.trim()).toBe('test title');
     });
 
     it('should render subtitle', () => {
@@ -71,21 +71,21 @@ describe('DrawerHeaderComponent', () => {
         component.subtitle = 'test subtitle';
         fixture.detectChanges();
         const subtitle = fixture.debugElement.query(By.css('.pxb-drawer-header-subtitle'));
-        expect(subtitle.nativeElement.innerHTML.trim()).toBe('test subtitle');
+        void expect(subtitle.nativeElement.innerHTML.trim()).toBe('test subtitle');
     });
 
     it('should render titleContent', () => {
         const customFixture = TestBed.createComponent(TestDrawerHeaderWithTitleContent);
         customFixture.detectChanges();
         const content: HTMLElement = customFixture.nativeElement.querySelector('#test-title-content');
-        expect(content.innerHTML).toBe('test title content');
+        void expect(content.innerHTML).toBe('test title content');
     });
 
     it('should render icon', () => {
         const customFixture = TestBed.createComponent(TestDrawerHeaderWithIcon);
         customFixture.detectChanges();
         const icon: HTMLElement = customFixture.nativeElement.querySelector('#test-icon');
-        expect(icon.innerHTML).toBe(
+        void expect(icon.innerHTML).toBe(
             '<mat-icon class="mat-icon notranslate material-icons mat-icon-no-color" role="img" aria-hidden="true">menu</mat-icon>'
         );
     });

@@ -18,7 +18,7 @@ describe('DrawerFooterComponent', () => {
     let fixture: ComponentFixture<DrawerFooterComponent>;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [TestDrawerFooter],
             imports: [DrawerFooterModule],
         }).compileComponents();
@@ -34,14 +34,14 @@ describe('DrawerFooterComponent', () => {
 
     it('should create', () => {
         fixture.detectChanges();
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 
     it('should render footerContent', () => {
         const customFixture = TestBed.createComponent(TestDrawerFooter);
         customFixture.detectChanges();
         const content: HTMLElement = customFixture.nativeElement.querySelector('#test-footer-content');
-        expect(content.innerHTML).toBe('test footer content');
+        void expect(content.innerHTML).toBe('test footer content');
     });
 
     it('should enforce class naming conventions', () => {

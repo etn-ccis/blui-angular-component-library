@@ -37,8 +37,11 @@ export class DrawerLayoutComponent extends StateListener {
 
     transition = true;
 
-    constructor(public readonly drawerService: DrawerService, private readonly changeDetectorRef: ChangeDetectorRef) {
-        super(drawerService, changeDetectorRef);
+    constructor(
+        private readonly _drawerService: DrawerService,
+        private readonly _changeDetectorRef: ChangeDetectorRef
+    ) {
+        super(_drawerService, _changeDetectorRef);
     }
 
     ngOnChanges(): void {
@@ -46,11 +49,11 @@ export class DrawerLayoutComponent extends StateListener {
         setTimeout(() => {
             this.transition = true;
         }, 400);
-        this.drawerService.setDrawerVariant(this.variant);
+        this._drawerService.setDrawerVariant(this.variant);
         if (this.variant === 'permanent') {
-            this.drawerService.setDrawerOpen(true);
+            this._drawerService.setDrawerOpen(true);
         }
-        this.changeDetectorRef.detectChanges();
+        this._changeDetectorRef.detectChanges();
     }
 
     getMode(): string {
@@ -58,7 +61,7 @@ export class DrawerLayoutComponent extends StateListener {
     }
 
     closeDrawer(): void {
-        this.drawerService.setDrawerOpen(false);
+        this._drawerService.setDrawerOpen(false);
         this.backdropClick.emit();
     }
 
