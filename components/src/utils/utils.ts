@@ -1,11 +1,11 @@
 import { ElementRef } from '@angular/core';
 
 export function requireInput<T>(inputs: Array<keyof T>, component: any): void {
-    inputs.forEach((input) => {
+    inputs.forEach((input: any) => {
         if (component[input] === undefined || component[input] === null || component[input] === '') {
             const name: string = component.constructor.name;
             // eslint-disable-next-line no-console
-            console.warn(`PXBlue ${name} error: Property "${input as string}" is required.`);
+            console.warn(`PXBlue ${name} error: Property "${input}" is required.`);
         }
     });
 }
