@@ -51,10 +51,10 @@ export class AppComponent {
     }
 
     closeDrawer(): void {
-      this._stateService.setDrawerOpen(false);
+        this._stateService.setDrawerOpen(false);
     }
 
     openDrawer(): void {
-      this._stateService.setDrawerOpen(true);
+        this._stateService.setDrawerOpen(true);
     }
 }
