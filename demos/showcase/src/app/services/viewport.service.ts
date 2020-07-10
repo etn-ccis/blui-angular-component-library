@@ -9,8 +9,8 @@ export class ViewportService {
     breakpointSubscription: any;
     mobileViewport: boolean;
 
-    constructor(private readonly breakpointObserver: BreakpointObserver) {
-        this.breakpointSubscription = this.breakpointObserver.observe(['(max-width: 720px)']).subscribe((result) => {
+    constructor(private readonly _breakpointObserver: BreakpointObserver) {
+        this.breakpointSubscription = this._breakpointObserver.observe(['(max-width: 720px)']).subscribe((result) => {
             const small = Object.keys(result.breakpoints)[0];
             this.mobileViewport = result.breakpoints[small];
         });

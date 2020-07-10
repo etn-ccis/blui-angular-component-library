@@ -18,15 +18,15 @@ export class AppComponent {
     variant: DrawerLayoutVariantType = 'persistent';
 
     constructor(
-        public readonly stateService: StateService,
-        private readonly matIconRegistry: MatIconRegistry,
-        private readonly domSanitizer: DomSanitizer,
-        private readonly viewportService: ViewportService
+        private readonly _stateService: StateService,
+        private readonly _matIconRegistry: MatIconRegistry,
+        private readonly _domSanitizer: DomSanitizer,
+        private readonly _viewportService: ViewportService
     ) {
         this.colors = PXBColors;
-        this.matIconRegistry.addSvgIconSetInNamespace(
+        this._matIconRegistry.addSvgIconSetInNamespace(
             'px-icons',
-            this.domSanitizer.bypassSecurityTrustResourceUrl(iconSet)
+            this._domSanitizer.bypassSecurityTrustResourceUrl(iconSet)
         );
     }
 
@@ -36,17 +36,25 @@ export class AppComponent {
     }
 
     isMobile(): boolean {
-        return this.viewportService.isSmall();
+        return this._viewportService.isSmall();
     }
 
     getVariant(): DrawerLayoutVariantType {
-        if (this.variant === 'persistent' && this.viewportService.isSmall()) {
-            this.stateService.setDrawerOpen(false);
-        } else if (this.variant === 'temporary' && !this.viewportService.isSmall()) {
-            this.stateService.setDrawerOpen(false);
+        if (this.variant === 'persistent' && this._viewportService.isSmall()) {
+            this._stateService.setDrawerOpen(false);
+        } else if (this.variant === 'temporary' && !this._viewportService.isSmall()) {
+            this._stateService.setDrawerOpen(false);
         }
 
-        this.variant = this.viewportService.isSmall() ? 'temporary' : 'persistent';
+        this.variant = this._viewportService.isSmall() ? 'temporary' : 'persistent';
         return this.variant;
+    }
+
+    closeDrawer(): void {
+      this._stateService.setDrawerOpen(false);
+    }
+
+    openDrawer(): void {
+      this._stateService.setDrawerOpen(true);
     }
 }

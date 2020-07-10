@@ -18,7 +18,7 @@ import { withFullConfig } from './with-full-config.stories';
 import { withA11y } from '@storybook/addon-a11y';
 import * as Colors from '@pxblue/colors';
 
-export const useWhiteBackground = () => (storyFn): any => {
+export const useWhiteBackground = () => (storyFn: any): any => {
     const story = storyFn();
     return {
         ...story,

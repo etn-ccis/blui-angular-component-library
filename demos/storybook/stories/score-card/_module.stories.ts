@@ -21,7 +21,7 @@ import { withScoreBadge } from './with-score-badge.stories';
 import { withFullConfig } from './with-full-config.stories';
 import { withA11y } from '@storybook/addon-a11y';
 
-export const scorecardContainer = () => (storyFn): any => {
+export const scorecardContainer = () => (storyFn: any): any => {
     const story = storyFn();
     return {
         ...story,

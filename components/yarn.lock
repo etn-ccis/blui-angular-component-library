@@ -983,10 +983,10 @@
     tree-kill "1.2.2"
     webpack-sources "1.4.3"
 
-"@pxblue/eslint-config@^2.0.1-beta.0":
-  version "2.0.1-beta.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/eslint-config/-/eslint-config-2.0.1-beta.0.tgz#6267d9bb0dba5d5c077b387198d24c5f7b23bb66"
-  integrity sha512-YnkuYRObNlGUmADrG3vZ6dcXHUKFV8E+o4vQWoVoPDw/Cf7qQ/SX8ZmEaHUHzgkcGg9u6fkQN+ZjoIFcoZOBgA==
+"@pxblue/eslint-config@^2.0.1-beta.1":
+  version "2.0.1-beta.1"
+  resolved "https://registry.yarnpkg.com/@pxblue/eslint-config/-/eslint-config-2.0.1-beta.1.tgz#90fd1e028fa4ac7ba3d16da3cb450702c6bdbc2e"
+  integrity sha512-WWxraUfNMj65ljkX43HnF1A0mocqJ0DDa46mssktLqR4TleZmGglnN2kuLvrBrH+sSbLIA30gh7QofAKJwaUug==
   dependencies:
     "@typescript-eslint/parser" "^3.0.0"
     eslint-config-prettier ">= 6.3.0"
