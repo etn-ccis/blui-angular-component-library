@@ -41,7 +41,7 @@
         "@angular/cli": "~8.3.26",
         "@angular/compiler-cli": "~8.2.14",
         "@angular/language-service": "~8.2.14",
-        "@pxblue/eslint-config": "^2.0.1-beta.1",
+        "@pxblue/eslint-config": "^2.0.1",
         "@pxblue/prettier-config": "^1.0.2",
         "@types/jasmine": "~2.8.8",
         "@types/jasminewd2": "~2.0.3",

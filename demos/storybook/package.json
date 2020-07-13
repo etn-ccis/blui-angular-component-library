@@ -42,7 +42,7 @@
         "@angular/compiler-cli": "^8.2.14",
         "@angular/language-service": "~8.2.2",
         "@babel/core": "^7.7.7",
-        "@pxblue/eslint-config": "^2.0.1-beta.1",
+        "@pxblue/eslint-config": "^2.0.1",
         "@pxblue/prettier-config": "^1.0.2",
         "@storybook/addon-a11y": "^5.3.18",
         "@storybook/addon-actions": "^5.3.19",
