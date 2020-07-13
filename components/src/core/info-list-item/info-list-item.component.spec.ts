@@ -75,7 +75,7 @@ describe('InfoListItemComponent', () => {
     let fixture: ComponentFixture<TestBasicUsage>;
 
     beforeEach(async(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [TestBasicUsage, TestMissingTitle, TestIconComponent, TestLeftContent, TestRightContent],
             imports: [InfoListItemModule],
         }).compileComponents();
@@ -88,19 +88,19 @@ describe('InfoListItemComponent', () => {
 
     it('should initialize', () => {
         fixture.detectChanges();
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 
     it('should render a title', () => {
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.pxb-info-list-item-title-wrapper').innerHTML).toContain(
+        void expect(fixture.nativeElement.querySelector('.pxb-info-list-item-title-wrapper').innerHTML).toContain(
             'Test Title'
         );
     });
 
     it('should render a subtitle', () => {
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.pxb-info-list-item-subtitle-wrapper').innerHTML).toContain(
+        void expect(fixture.nativeElement.querySelector('.pxb-info-list-item-subtitle-wrapper').innerHTML).toContain(
             'Test Subtitle'
         );
     });
@@ -109,38 +109,38 @@ describe('InfoListItemComponent', () => {
         const customFixture = TestBed.createComponent(TestMissingTitle);
         const warnSpy = spyOn(console, 'warn').and.stub();
         customFixture.detectChanges();
-        expect(warnSpy).toHaveBeenCalledTimes(1);
+        void expect(warnSpy).toHaveBeenCalledTimes(1);
     });
 
     it('should render an icon', () => {
         const customFixture = TestBed.createComponent(TestIconComponent);
         customFixture.detectChanges();
-        expect(customFixture.nativeElement.querySelector('mat-icon').innerHTML).toBe('mail');
+        void expect(customFixture.nativeElement.querySelector('mat-icon').innerHTML).toBe('mail');
     });
 
     it('should render a left component', () => {
         const customFixture = TestBed.createComponent(TestLeftContent);
         customFixture.detectChanges();
-        expect(customFixture.nativeElement.querySelector('.test-left').innerHTML).toBe('lefty');
+        void expect(customFixture.nativeElement.querySelector('.test-left').innerHTML).toBe('lefty');
     });
 
     it('should render a right component', () => {
         const customFixture = TestBed.createComponent(TestRightContent);
         customFixture.detectChanges();
-        expect(customFixture.nativeElement.querySelector('.test-right').innerHTML).toBe('righty');
+        void expect(customFixture.nativeElement.querySelector('.test-right').innerHTML).toBe('righty');
     });
 
     it('should have a default height of 72px', () => {
         fixture.detectChanges();
         const root = fixture.debugElement.query(By.css('.pxb-info-list-item'));
-        expect(root.nativeElement.children[0].offsetHeight).toBe(72);
+        void expect(root.nativeElement.children[0].offsetHeight).toBe(72);
     });
 
     it('should have a dense height of 52px', () => {
         component.dense = true;
         fixture.detectChanges();
         const root = fixture.debugElement.query(By.css('.pxb-info-list-item'));
-        expect(root.nativeElement.children[0].offsetHeight).toBe(52);
+        void expect(root.nativeElement.children[0].offsetHeight).toBe(52);
     });
 
     it('should enforce class naming conventions', () => {

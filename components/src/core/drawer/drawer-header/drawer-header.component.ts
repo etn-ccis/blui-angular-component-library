@@ -38,7 +38,7 @@ export class DrawerHeaderComponent extends StateListener {
     @Input() title: string;
     @ViewChild('icon', { static: true }) iconEl: ElementRef;
 
-    isEmpty = (el): boolean => isEmptyView(el);
+    isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);

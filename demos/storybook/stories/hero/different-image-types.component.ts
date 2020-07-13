@@ -59,10 +59,10 @@ const Trex = require('../../assets/trex.png');
 export class DifferentImageTypesComponent {
     colors = Colors;
     trex = Trex;
-    constructor(private readonly matIconRegistry: MatIconRegistry, private readonly domSanitizer: DomSanitizer) {
-        this.matIconRegistry.addSvgIconSetInNamespace(
+    constructor(private readonly _matIconRegistry: MatIconRegistry, private readonly _domSanitizer: DomSanitizer) {
+        this._matIconRegistry.addSvgIconSetInNamespace(
             'px-icons',
-            this.domSanitizer.bypassSecurityTrustResourceUrl(iconSet)
+            this._domSanitizer.bypassSecurityTrustResourceUrl(iconSet)
         );
     }
 }

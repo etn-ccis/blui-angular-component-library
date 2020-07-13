@@ -6,7 +6,7 @@ export class StateListener implements OnInit, OnDestroy {
     drawerOpen: boolean;
     drawerOpenListener: Subscription;
 
-    constructor(public readonly drawerService: DrawerService, public readonly changeDetector: ChangeDetectorRef) {}
+    constructor(protected drawerService: DrawerService, protected changeDetector: ChangeDetectorRef) {}
 
     public ngOnInit(): void {
         this.drawerOpen = this.drawerService.isDrawerOpen();

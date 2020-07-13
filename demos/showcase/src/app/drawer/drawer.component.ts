@@ -56,7 +56,7 @@ export class DrawerComponent {
     colors = PXBColors;
     selectedItemId: string;
 
-    constructor(public readonly stateService: StateService, private readonly viewportService: ViewportService) {}
+    constructor(private readonly _stateService: StateService, private readonly _viewportService: ViewportService) {}
 
     nestedItems1: DrawerNavItem[] = [{ title: 'Sub 1' }, { title: 'Sub 2' }];
 
@@ -135,7 +135,7 @@ export class DrawerComponent {
     }
 
     isOpen(): boolean {
-        return this.stateService.getDrawerOpen();
+        return this._stateService.getDrawerOpen();
     }
 
     setActive(id: string): void {
@@ -143,6 +143,6 @@ export class DrawerComponent {
     }
 
     clickMenuButton(): void {
-        this.stateService.setDrawerOpen(!this.stateService.getDrawerOpen());
+        this._stateService.setDrawerOpen(!this._stateService.getDrawerOpen());
     }
 }

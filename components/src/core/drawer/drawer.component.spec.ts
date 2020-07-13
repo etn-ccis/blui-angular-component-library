@@ -45,7 +45,7 @@ describe('DrawerComponent', () => {
     let fixture: ComponentFixture<DrawerComponent>;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [
                 DrawerHeaderRenderTest,
                 DrawerSubheaderRenderTest,
@@ -66,31 +66,31 @@ describe('DrawerComponent', () => {
 
     it('should create', () => {
         fixture.detectChanges();
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 
     it('should render the drawer header', () => {
         const customFixture = TestBed.createComponent(DrawerHeaderRenderTest);
         customFixture.detectChanges();
-        expect(customFixture.nativeElement.querySelector('#test-header')).toBeTruthy();
+        void expect(customFixture.nativeElement.querySelector('#test-header')).toBeTruthy();
     });
 
     it('should render the drawer subheader', () => {
         const customFixture = TestBed.createComponent(DrawerSubheaderRenderTest);
         customFixture.detectChanges();
-        expect(customFixture.nativeElement.querySelector('#test-subheader')).toBeTruthy();
+        void expect(customFixture.nativeElement.querySelector('#test-subheader')).toBeTruthy();
     });
 
     it('should render the drawer body', () => {
         const customFixture = TestBed.createComponent(DrawerBodyRenderTest);
         customFixture.detectChanges();
-        expect(customFixture.nativeElement.querySelector('#test-body')).toBeTruthy();
+        void expect(customFixture.nativeElement.querySelector('#test-body')).toBeTruthy();
     });
 
     it('should render the drawer footer', () => {
         const customFixture = TestBed.createComponent(DrawerFooterRenderTest);
         customFixture.detectChanges();
-        expect(customFixture.nativeElement.querySelector('#test-footer')).toBeTruthy();
+        void expect(customFixture.nativeElement.querySelector('#test-footer')).toBeTruthy();
     });
 
     it('should enforce class naming conventions', () => {

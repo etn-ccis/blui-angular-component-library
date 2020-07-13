@@ -37,7 +37,7 @@ export class DrawerLayoutComponent extends StateListener {
 
     transition = true;
 
-    constructor(public readonly drawerService: DrawerService, private readonly changeDetectorRef: ChangeDetectorRef) {
+    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
     }
 
@@ -50,7 +50,7 @@ export class DrawerLayoutComponent extends StateListener {
         if (this.variant === 'permanent') {
             this.drawerService.setDrawerOpen(true);
         }
-        this.changeDetectorRef.detectChanges();
+        this.changeDetector.detectChanges();
     }
 
     getMode(): string {

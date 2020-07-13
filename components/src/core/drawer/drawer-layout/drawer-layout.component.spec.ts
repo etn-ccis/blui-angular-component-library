@@ -19,7 +19,7 @@ describe('DrawerLayoutComponent', () => {
     let fixture: ComponentFixture<DrawerLayoutComponent>;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [DrawerRenderTest],
             imports: [DrawerLayoutModule, NoopAnimationsModule],
         }).compileComponents();
@@ -35,19 +35,19 @@ describe('DrawerLayoutComponent', () => {
 
     it('should create', () => {
         fixture.detectChanges();
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 
     it('should render the drawer', () => {
         const customFixture = TestBed.createComponent(DrawerRenderTest);
         customFixture.detectChanges();
-        expect(customFixture.nativeElement.querySelector('#test-drawer')).toBeTruthy();
+        void expect(customFixture.nativeElement.querySelector('#test-drawer')).toBeTruthy();
     });
 
     it('should render the content', () => {
         const customFixture = TestBed.createComponent(DrawerRenderTest);
         customFixture.detectChanges();
-        expect(customFixture.nativeElement.querySelector('#test-content')).toBeTruthy();
+        void expect(customFixture.nativeElement.querySelector('#test-content')).toBeTruthy();
     });
 
     it('should enforce class naming conventions', () => {

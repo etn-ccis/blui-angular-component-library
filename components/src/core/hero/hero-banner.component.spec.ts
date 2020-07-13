@@ -19,7 +19,7 @@ describe('HeroBannerComponent', () => {
     let component: HeroBannerComponent;
 
     beforeEach(async(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [TestRenderHeroes],
             imports: [HeroModule],
         }).compileComponents();
@@ -32,28 +32,28 @@ describe('HeroBannerComponent', () => {
 
     it('should initialize', () => {
         fixture.detectChanges();
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 
     it('should render a divider', () => {
         component.divider = true;
         fixture.detectChanges();
         const divider = fixture.nativeElement.querySelector('.pxb-hero-banner-divider');
-        expect(divider).toBeTruthy();
+        void expect(divider).toBeTruthy();
     });
 
     it('should not render a divider', () => {
         component.divider = false;
         fixture.detectChanges();
         const divider = fixture.nativeElement.querySelector('.pxb-hero-banner-divider');
-        expect(divider).toBeFalsy();
+        void expect(divider).toBeFalsy();
     });
 
     it('should render two heroes', () => {
         const heroFixture = TestBed.createComponent(TestRenderHeroes);
         heroFixture.detectChanges();
         const heroes = heroFixture.nativeElement.querySelectorAll('.pxb-hero');
-        expect(heroes.length).toBe(2);
+        void expect(heroes.length).toBe(2);
     });
 
     it('should enforce class naming conventions', () => {

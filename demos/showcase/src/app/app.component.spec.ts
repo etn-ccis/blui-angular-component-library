@@ -16,7 +16,7 @@ import { MatCardModule } from '@angular/material/card';
 
 describe('AppComponent', () => {
     beforeEach(async(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [AppComponent],
             imports: [
                 BrowserModule,
@@ -37,7 +37,7 @@ describe('AppComponent', () => {
     it('should create the app', () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.debugElement.componentInstance;
-        expect(app).toBeTruthy();
+        void expect(app).toBeTruthy();
     });
 
     // it(`should have as title 'Hero-Component'`, () => {

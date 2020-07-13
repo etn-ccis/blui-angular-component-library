@@ -1,13 +1,8 @@
-<pxb-drawer-layout [variant]="getVariant()" (backdropClick)="stateService.setDrawerOpen(false)">
+<pxb-drawer-layout [variant]="getVariant()" (backdropClick)="closeDrawer()">
     <showcase-drawer pxb-drawer></showcase-drawer>
     <div pxb-content>
         <mat-toolbar class="toolbar">
-            <button
-                *ngIf="isMobile()"
-                mat-icon-button
-                style="margin-right: 16px"
-                (click)="stateService.setDrawerOpen(true)"
-            >
+            <button *ngIf="isMobile()" mat-icon-button style="margin-right: 16px" (click)="openDrawer()">
                 <mat-icon>menu</mat-icon>
             </button>
             <h2>Showcase</h2>

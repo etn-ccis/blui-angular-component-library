@@ -21,7 +21,7 @@ import { withRightContent } from './with-right-content.stories';
 import { withLeftContent } from './with-left-content.stories';
 import * as Colors from '@pxblue/colors';
 
-export const infoListItemWrapper = () => (storyFn): any => {
+export const infoListItemWrapper = () => (storyFn: any): any => {
     const story = storyFn();
     return {
         ...story,

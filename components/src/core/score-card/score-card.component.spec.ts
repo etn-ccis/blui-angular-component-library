@@ -37,7 +37,7 @@ describe('ScoreCardComponent', () => {
     let fixture: ComponentFixture<ScoreCardComponent>;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [TestScoreCardActions, TestScoreCardContent, TestScoreCardActionRow],
             imports: [ScoreCardModule, MatIconModule],
         }).compileComponents();
@@ -47,49 +47,49 @@ describe('ScoreCardComponent', () => {
 
     it('should initialize', () => {
         fixture.detectChanges();
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 
     it('should display a header', () => {
         component.headerTitle = 'Header Title';
         fixture.detectChanges();
         const title = fixture.nativeElement.querySelector('.pxb-score-card-title');
-        expect(title.innerHTML).toBe('Header Title');
+        void expect(title.innerHTML).toBe('Header Title');
     });
 
     it('should display a subheader', () => {
         component.headerSubtitle = 'Header Subheader';
         fixture.detectChanges();
         const subtitle = fixture.nativeElement.querySelector('.pxb-score-card-subtitle');
-        expect(subtitle.innerHTML).toBe('Header Subheader');
+        void expect(subtitle.innerHTML).toBe('Header Subheader');
     });
 
     it('should display a third line of text in the header', () => {
         component.headerInfo = 'Header Info';
         fixture.detectChanges();
         const info = fixture.nativeElement.querySelector('.pxb-score-card-info');
-        expect(info.innerHTML).toBe('Header Info');
+        void expect(info.innerHTML).toBe('Header Info');
     });
 
     it('should display three action icons', () => {
         const customFixture = TestBed.createComponent(TestScoreCardActions);
         customFixture.detectChanges();
         const actions = customFixture.nativeElement.querySelectorAll('mat-icon');
-        expect(actions.length).toBe(3);
+        void expect(actions.length).toBe(3);
     });
 
     it('should render the supplied content', () => {
         const customFixture = TestBed.createComponent(TestScoreCardContent);
         customFixture.detectChanges();
         const content: HTMLElement = customFixture.nativeElement.querySelector('#test-content');
-        expect(content.innerHTML).toBe('Content Goes Here');
+        void expect(content.innerHTML).toBe('Content Goes Here');
     });
 
     it('should render the supplied action row', () => {
         const customFixture = TestBed.createComponent(TestScoreCardActionRow);
         customFixture.detectChanges();
         const content: HTMLElement = customFixture.nativeElement.querySelector('#test-action-row');
-        expect(content.innerHTML).toBe('Show Details');
+        void expect(content.innerHTML).toBe('Show Details');
     });
 
     it('should enforce class naming conventions', () => {

@@ -8,7 +8,7 @@ describe('DrawerNavGroupComponent', () => {
     let fixture: ComponentFixture<DrawerNavGroupComponent>;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [],
             imports: [DrawerBodyModule],
         }).compileComponents();
@@ -24,21 +24,21 @@ describe('DrawerNavGroupComponent', () => {
 
     it('should create', () => {
         fixture.detectChanges();
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 
     it('should render the title if the drawer is open', () => {
         component.title = 'test';
         component.drawerOpen = true;
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.pxb-drawer-nav-group-title').innerHTML).toContain('test');
+        void expect(fixture.nativeElement.querySelector('.pxb-drawer-nav-group-title').innerHTML).toContain('test');
     });
 
     it('should hide the group title if the drawer is not open', () => {
         component.title = 'test';
         component.drawerOpen = false;
         fixture.detectChanges();
-        expect(fixture.nativeElement.querySelector('.pxb-drawer-nav-group-title-closed')).toBeTruthy();
+        void expect(fixture.nativeElement.querySelector('.pxb-drawer-nav-group-title-closed')).toBeTruthy();
     });
 
     it('should enforce class naming conventions', () => {

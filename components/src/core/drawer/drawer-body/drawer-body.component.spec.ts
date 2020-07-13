@@ -8,7 +8,7 @@ describe('DrawerBodyComponent', () => {
     let fixture: ComponentFixture<DrawerBodyComponent>;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [],
             imports: [DrawerBodyModule],
         }).compileComponents();
@@ -18,7 +18,7 @@ describe('DrawerBodyComponent', () => {
 
     it('should create', () => {
         fixture.detectChanges();
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 
     it('should enforce class naming conventions', () => {

@@ -55,7 +55,7 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
     iconString: string;
     hasMatSvgIcon: boolean;
 
-    constructor(private readonly ref: ChangeDetectorRef) {}
+    constructor(private readonly _ref: ChangeDetectorRef) {}
 
     ngOnChanges(): void {
         requireInput<HeroComponent>(['label'], this);
@@ -63,7 +63,7 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
     }
     ngAfterViewInit(): void {
         this.hasMatSvgIcon = Boolean(this.getMatSvgIcon());
-        this.ref.detectChanges();
+        this._ref.detectChanges();
     }
 
     ngAfterContentChecked(): void {
