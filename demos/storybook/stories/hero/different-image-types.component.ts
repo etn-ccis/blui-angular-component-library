@@ -25,7 +25,7 @@ const Trex = require('../../assets/trex.png');
                 <img pxb-primary [src]="trex" alt="A T-Rex as the avatar image" />
             </pxb-hero>
             <pxb-hero label="progress icon" value="36px" [iconBackgroundColor]="colors.white[50]">
-                <battery-progress pxb-primary size="36" [color]="colors.red[500]" percent="15"></battery-progress>
+                <battery-progress pxb-primary [color]="colors.red[500]" percent="15"></battery-progress>
             </pxb-hero>
         </pxb-hero-banner>
 
@@ -43,7 +43,7 @@ const Trex = require('../../assets/trex.png');
                 <img pxb-primary [src]="trex" alt="A T-Rex as the avatar image" />
             </pxb-hero>
             <pxb-hero label="progress icon" value="48px" iconSize="48" [iconBackgroundColor]="colors.white[50]">
-                <battery-progress pxb-primary size="48" [color]="colors.yellow[500]" percent="50"></battery-progress>
+                <battery-progress pxb-primary [color]="colors.yellow[500]" percent="50"></battery-progress>
             </pxb-hero>
         </pxb-hero-banner>
 
@@ -61,7 +61,7 @@ const Trex = require('../../assets/trex.png');
                 <img pxb-primary [src]="trex" alt="A T-Rex as the avatar image" />
             </pxb-hero>
             <pxb-hero label="progress icon" value="72px" iconSize="72" [iconBackgroundColor]="colors.white[50]">
-                <battery-progress pxb-primary size="72" [color]="colors.green[500]" percent="92"></battery-progress>
+                <battery-progress pxb-primary [color]="colors.green[500]" percent="92"></battery-progress>
             </pxb-hero>
         </pxb-hero-banner>
     `,
