@@ -4,7 +4,7 @@ import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { HeroModule } from '@pxblue/angular-components';
 import * as Colors from '@pxblue/colors';
 import { HttpClientModule } from '@angular/common/http';
-import {NgProgressIconsModule} from "@pxblue/ng-progress-icons";
+import { NgProgressIconsModule } from '@pxblue/ng-progress-icons';
 const iconSet = require('@pxblue/icons-svg/icons.svg');
 const Trex = require('../../assets/trex.png');
 
