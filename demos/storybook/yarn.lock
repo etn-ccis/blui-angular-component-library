@@ -1570,6 +1570,13 @@
   resolved "https://registry.yarnpkg.com/@pxblue/icons/-/icons-1.0.25.tgz#52d22a987f168840ae7bdafb065f52c3ad5396da"
   integrity sha512-Q1+wgCjRpX5TeOY8JPpea1yF4uZOCsISQuguRcRIgqthAWH//Jcq4zCKMeOYLHjmXUU7RbWKv4PaA91//xPekQ==
 
+"@pxblue/ng-progress-icons@^1.1.4":
+  version "1.1.4"
+  resolved "https://registry.yarnpkg.com/@pxblue/ng-progress-icons/-/ng-progress-icons-1.1.4.tgz#02e3051d8d0d7be33deedccd603c033f17e1dd8c"
+  integrity sha512-s3O4DINjeCUAXRWPMTqsbK9cTUEockb0/+MG7rsXoVur+ef9FDu1QQHVRC8jG6/+cB6LGt96Di8yFgCixQEQ4A==
+  dependencies:
+    tslib "^1.9.0"
+
 "@pxblue/prettier-config@^1.0.2":
   version "1.0.2"
   resolved "https://registry.yarnpkg.com/@pxblue/prettier-config/-/prettier-config-1.0.2.tgz#fb00503df6557b66c3d91d43c9101e614c35d2ec"
