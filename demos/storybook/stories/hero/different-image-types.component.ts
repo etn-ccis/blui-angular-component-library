@@ -4,6 +4,7 @@ import { BrowserModule, DomSanitizer } from '@angular/platform-browser';
 import { HeroModule } from '@pxblue/angular-components';
 import * as Colors from '@pxblue/colors';
 import { HttpClientModule } from '@angular/common/http';
+import { NgProgressIconsModule } from '@pxblue/ng-progress-icons';
 const iconSet = require('@pxblue/icons-svg/icons.svg');
 const Trex = require('../../assets/trex.png');
 
@@ -23,6 +24,9 @@ const Trex = require('../../assets/trex.png');
             <pxb-hero label="PNG" value="36px" [iconBackgroundColor]="colors.white[50]">
                 <img pxb-primary [src]="trex" alt="A T-Rex as the avatar image" />
             </pxb-hero>
+            <pxb-hero label="progress icon" value="36px" [iconBackgroundColor]="colors.white[50]">
+                <battery-progress pxb-primary [color]="colors.red[500]" percent="15"></battery-progress>
+            </pxb-hero>
         </pxb-hero-banner>
 
         <pxb-hero-banner>
@@ -38,6 +42,9 @@ const Trex = require('../../assets/trex.png');
             <pxb-hero label="PNG" units="px" value="48" iconSize="48" [iconBackgroundColor]="colors.white[50]">
                 <img pxb-primary [src]="trex" alt="A T-Rex as the avatar image" />
             </pxb-hero>
+            <pxb-hero label="progress icon" value="48px" iconSize="48" [iconBackgroundColor]="colors.white[50]">
+                <battery-progress pxb-primary [color]="colors.yellow[500]" percent="50"></battery-progress>
+            </pxb-hero>
         </pxb-hero-banner>
 
         <pxb-hero-banner>
@@ -52,6 +59,9 @@ const Trex = require('../../assets/trex.png');
             </pxb-hero>
             <pxb-hero label="PNG" value="72px" iconSize="72" [iconBackgroundColor]="colors.white[50]">
                 <img pxb-primary [src]="trex" alt="A T-Rex as the avatar image" />
+            </pxb-hero>
+            <pxb-hero label="progress icon" value="72px" iconSize="72" [iconBackgroundColor]="colors.white[50]">
+                <battery-progress pxb-primary [color]="colors.green[500]" percent="92"></battery-progress>
             </pxb-hero>
         </pxb-hero-banner>
     `,
@@ -69,7 +79,7 @@ export class DifferentImageTypesComponent {
 
 @NgModule({
     declarations: [DifferentImageTypesComponent],
-    imports: [MatIconModule, BrowserModule, HeroModule, HttpClientModule],
+    imports: [MatIconModule, BrowserModule, HeroModule, HttpClientModule, NgProgressIconsModule],
     exports: [DifferentImageTypesComponent],
 })
 export class DifferentImageTypesModule {}

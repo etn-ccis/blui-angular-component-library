@@ -30,6 +30,7 @@
         "@pxblue/icons": "^1.0.25",
         "@pxblue/icons-svg": "^1.0.18",
         "@pxblue/storybook-themes": "^1.1.0",
+        "@pxblue/ng-progress-icons": "^1.1.4",
         "core-js": "^3.6.4",
         "node-sass": "^4.14.1",
         "rxjs": "~6.5.4",
