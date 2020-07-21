@@ -3,7 +3,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as PXBColors from '@pxblue/colors';
 import { ViewportService } from './services/viewport.service';
-import { DrawerLayoutVariantType } from '@pxblue/angular-components';
+import { DrawerLayoutVariantType, UserMenuGroup } from '@pxblue/angular-components';
 import { StateService } from './services/state.service';
 const iconSet = require('@pxblue/icons-svg/icons.svg');
 
@@ -16,7 +16,33 @@ const iconSet = require('@pxblue/icons-svg/icons.svg');
 export class AppComponent {
     colors: Record<string, any>;
     variant: DrawerLayoutVariantType = 'persistent';
-
+     menuGroups: UserMenuGroup[] = [
+      {
+        items: [
+          {
+            title: 'Account Settings',
+            icon: 'settings',
+          },
+          {
+            title: 'Log Out',
+            icon: 'logout',
+          },
+        ],
+      },
+       {
+         title: 'Contact Us',
+         items: [
+           {
+             title: 'eatonhelp@eaton.com',
+             icon: 'send',
+           },
+           {
+             title: '1-866-905-9988',
+             icon: 'mail',
+           },
+         ]
+       }
+    ];
     constructor(
         private readonly _stateService: StateService,
         private readonly _matIconRegistry: MatIconRegistry,

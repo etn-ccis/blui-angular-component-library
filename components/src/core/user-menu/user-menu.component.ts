@@ -60,8 +60,9 @@ export type UserMenuGroup = {
                 </pxb-drawer-header>
                 <ng-content select="[pxb-header]"></ng-content>
                 <div *ngIf="menuGroups.length > 0" class="pxb-user-menu-body">
-                    <div *ngFor="let group of menuGroups">
+                    <div *ngFor="let group of menuGroups; let first = first">
                         <ng-container *ngIf="group.title">
+                            <mat-divider *ngIf="!first"></mat-divider>
                             <div class="pxb-user-menu-group-title">{{ group.title }}</div>
                             <mat-divider></mat-divider>
                         </ng-container>
