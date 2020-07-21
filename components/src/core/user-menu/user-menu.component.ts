@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
-import {matSelectAnimations} from "@angular/material/select";
-import {animate, state, style, transition, trigger} from "@angular/animations";
+import { animate, state, style, transition, trigger } from '@angular/animations';
 
 export type UserMenuGroupItem = {
     chevron?: boolean;
@@ -24,16 +23,15 @@ export type UserMenuGroup = {
     styleUrls: ['./user-menu.component.scss'],
     animations: [
         trigger('fade-in-out', [
-            state('*', style({opacity: 1, transform: 'scaleY(1)', 'transform-origin': 'top'})),
+            state('*', style({ opacity: 1, transform: 'scaleY(1)', 'transform-origin': 'top' })),
             // Create
             transition('void => *', [
-                style({opacity: 0, transform: 'scaleY(0.9)', 'transform-origin': 'top'}),
-                animate('120ms cubic-bezier(0, 0, 0.2, 1)')
+                style({ opacity: 0, transform: 'scaleY(0.9)', 'transform-origin': 'top' }),
+                animate('120ms cubic-bezier(0, 0, 0.2, 1)'),
             ]),
             // Destroy
-            transition('* => void',
-                animate('100ms 25ms linear', style({opacity: 0})))
-        ])
+            transition('* => void', animate('100ms 25ms linear', style({ opacity: 0 }))),
+        ]),
     ],
     template: `
         <!-- This button triggers the overlay and is it's origin -->

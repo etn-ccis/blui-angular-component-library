@@ -1,7 +1,25 @@
-import { menuGroups } from './with-basic-config.stories';
 import { UserMenuGroup } from '@pxblue/angular-components';
 
 import { text } from '@storybook/addon-knobs';
+
+const groups: UserMenuGroup[] = [
+    {
+        items: [
+            {
+                title: 'Account',
+                icon: 'settings',
+            },
+            {
+                title: 'Contact Us',
+                icon: 'mail',
+            },
+            {
+                title: 'Log Out',
+                icon: 'logout',
+            },
+        ],
+    },
+];
 
 export const withFullConfig = (): any => ({
     template: `
@@ -12,7 +30,7 @@ export const withFullConfig = (): any => ({
             [menuSubtitle]="menuSubtitle"></pxb-user-menu> 
     `,
     props: {
-        menuGroups: [...menuGroups],
+        menuGroups: groups,
         avatarValue: text('avatarValue', 'AV'),
         menuTitle: text('menuTitle', 'Sample Title'),
         menuSubtitle: text('menuSubtitle', 'Sample subtitle'),
