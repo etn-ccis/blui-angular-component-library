@@ -20,11 +20,8 @@
         align-self: center;
     }
 }
-.pxb-user-menu-items-container {
-}
 
 mat-card.pxb-user-menu-container {
-    width: 215px;
     background-color: white;
     padding: 0;
 }
@@ -35,4 +32,8 @@ mat-card.pxb-user-menu-container {
 
 .pxb-user-menu-header mat-toolbar {
     border-radius: 4px !important;
+}
+
+.pxb-user-menu-overlay {
+    background-color: unset;
 }

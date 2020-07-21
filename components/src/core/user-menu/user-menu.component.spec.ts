@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UserMenuModule } from './user-menu.module';
 import { UserMenuComponent } from './user-menu.component';
 
-describe('ScoreCardComponent', () => {
+describe('UserMenuComponent', () => {
     let component: UserMenuComponent;
     let fixture: ComponentFixture<UserMenuComponent>;
 

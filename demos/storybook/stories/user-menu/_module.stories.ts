@@ -14,11 +14,13 @@ import { withA11y } from '@storybook/addon-a11y';
 import { withNonTextAvatar } from './with-non-text-avatar.stories';
 import { MatIconModule } from '@angular/material/icon';
 import { withMenuHeader } from './with-menu-header.stories';
+import {withCustomMenu} from "./with-custom-menu.stories";
+import {MatDividerModule} from "@angular/material/divider";
 
 storiesOf(`${COMPONENT_SECTION_NAME}/UserMenu`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [UserMenuModule, UtilModule, MatIconModule],
+            imports: [UserMenuModule, MatDividerModule, UtilModule, MatIconModule],
         })
     )
     .addDecorator(withKnobs)
@@ -32,4 +34,5 @@ storiesOf(`${COMPONENT_SECTION_NAME}/UserMenu`, module)
     .add(README_STORY_NAME, getReadMeStory)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
     .add('with non-text avatar', withNonTextAvatar)
-    .add('with a menu header', withMenuHeader);
+    .add('with a menu header', withMenuHeader)
+    .add('with custom menu', withCustomMenu);
