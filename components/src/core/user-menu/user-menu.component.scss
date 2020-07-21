@@ -25,9 +25,10 @@
     font-size: 14px;
 }
 
-mat-card.pxb-user-menu-container {
+mat-card.pxb-user-menu-overlay {
     background-color: white;
     padding: 0;
+    color: unset;
 }
 
 .pxb-user-menu-header-avatar {
@@ -38,6 +39,6 @@ mat-card.pxb-user-menu-container {
     border-radius: 4px !important;
 }
 
-.pxb-user-menu-overlay {
+.pxb-user-menu-overlay-backdrop {
     background-color: unset;
 }

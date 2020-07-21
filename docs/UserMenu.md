@@ -129,12 +129,10 @@ Each PX Blue component has classes which can be used to override component style
 
 | Name                                     | Description                                  |
 | ---------------------------------------- | -------------------------------------------- |
-| pxb-info-list-item                       | Styles applied to the root element           |
-| pxb-info-list-item-icon-wrapper          | Styles applied to the icon container         |
-| pxb-info-list-item-info-wrapper          | Styles applied to the info container         |
-| pxb-info-list-item-left-content-wrapper  | Styles applied to the leftContent container  |
-| pxb-info-list-item-title-wrapper         | Styles applied to the title container        |
-| pxb-info-list-item-subtitle-wrapper      | Styles applied to the subtitle container     |
-| pxb-info-list-item-right-content         | Styles applied to the rightContent           |
-| pxb-info-list-item-right-content-wrapper | Styles applied to the rightContent container |
-| pxb-info-list-item-divider               | Styles applied to the divider                |
+| pxb-user-menu-avatar                     | Styles applied to avatar element             |
+| pxb-user-menu-container                  | Styles applied to the menu overlay           |
+| pxb-user-menu-header                     | Styles applied to the generated menu header  |
+| pxb-user-menu-header-avatar              | Styles applied to the menu header avatar     |
+| pxb-user-menu-body                       | Styles applied to the generated menu body    |
+| pxb-user-menu-group-title                | Styles applied to each menu item group title |
+| pxb-user-menu-overlay-backdrop           | Styles applied to the menu overlay backdrop  |

@@ -8,7 +8,7 @@ export type UserMenuGroupItem = {
     statusColor?: string;
     title: string;
     subtitle?: string;
-}
+};
 
 export type UserMenuGroup = {
     title?: string;
@@ -19,6 +19,7 @@ export type UserMenuGroup = {
     selector: 'pxb-user-menu',
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
+    styleUrls: ['./user-menu.component.scss'],
     template: `
         <!-- This button triggers the overlay and is it's origin -->
         <pxb-user-menu-avatar
@@ -39,20 +40,26 @@ export type UserMenuGroup = {
             [cdkConnectedOverlayOrigin]="trigger"
             [cdkConnectedOverlayOpen]="open"
             [cdkConnectedOverlayPositions]="positions"
-            [cdkConnectedOverlayBackdropClass]="'pxb-user-menu-overlay'"
+            [cdkConnectedOverlayBackdropClass]="'pxb-user-menu-overlay-backdrop'"
         >
-            <mat-card class="pxb-user-menu-container">
-                <pxb-drawer-header *ngIf="menuTitle"
+            <mat-card class="pxb-user-menu-overlay">
+                <pxb-drawer-header
+                    *ngIf="menuTitle"
                     class="pxb-user-menu-header"
                     [title]="menuTitle"
                     [subtitle]="menuSubtitle"
                 >
-                    <pxb-user-menu-avatar pxb-icon [avatarValue]="avatarValue" [avatarImage]="avatarImage" class="pxb-user-menu-header-avatar">
+                    <pxb-user-menu-avatar
+                        pxb-icon
+                        [avatarValue]="avatarValue"
+                        [avatarImage]="avatarImage"
+                        class="pxb-user-menu-header-avatar"
+                    >
                         <ng-content select="[pxb-menu-avatar]"></ng-content>
                     </pxb-user-menu-avatar>
                 </pxb-drawer-header>
                 <ng-content select="[pxb-header]"></ng-content>
-                <div *ngIf="menuGroups.length > 0" class="pxb-user-menu-items-container">
+                <div *ngIf="menuGroups.length > 0" class="pxb-user-menu-body">
                     <div *ngFor="let group of menuGroups">
                         <ng-container *ngIf="group.title">
                             <div class="pxb-user-menu-group-title">{{ group.title }}</div>
@@ -80,7 +87,6 @@ export type UserMenuGroup = {
             </mat-card>
         </ng-template>
     `,
-    styleUrls: ['./user-menu.component.scss'],
 })
 export class UserMenuComponent {
     @Input() avatarValue: string;
