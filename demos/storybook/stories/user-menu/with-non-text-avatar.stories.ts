@@ -14,7 +14,7 @@ export const withNonTextAvatar = (): any => ({
     ],
     template: `
         <div class="non-text-avatar-container">
-            <pxb-user-menu [menuGroups]="menuGroups" [src]="trex"></pxb-user-menu> 
+            <pxb-user-menu [menuGroups]="menuGroups" [avatarImage]="trex"></pxb-user-menu> 
             <pxb-user-menu [menuGroups]="menuGroups">
                 <mat-icon pxb-avatar>pets</mat-icon>
             </pxb-user-menu> 

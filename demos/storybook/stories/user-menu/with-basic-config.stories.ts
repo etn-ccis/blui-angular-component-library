@@ -22,10 +22,10 @@ export const menuGroups: UserMenuGroup[] = [
 
 export const withBasicConfig = (): any => ({
     template: `
-        <pxb-user-menu [menuGroups]="menuGroups" [value]="value"></pxb-user-menu> 
+        <pxb-user-menu [menuGroups]="menuGroups" [avatarValue]="avatarValue"></pxb-user-menu> 
     `,
     props: {
         menuGroups: menuGroups,
-        value: text('value', 'AV'),
+        avatarValue: text('avatarValue', 'AV'),
     },
 });

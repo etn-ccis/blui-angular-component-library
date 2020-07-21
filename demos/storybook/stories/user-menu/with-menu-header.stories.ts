@@ -5,13 +5,13 @@ export const withMenuHeader = (): any => ({
     template: `
         <pxb-user-menu 
             [menuGroups]="menuGroups" 
-            [value]="value" 
+            [avatarValue]="avatarValue" 
             [menuTitle]="menuTitle" 
             [menuSubtitle]="menuSubtitle"></pxb-user-menu> 
     `,
     props: {
         menuGroups: menuGroups,
-        value: text('value', 'AV'),
+        avatarValue: text('avatarValue', 'AV'),
         menuTitle: text('menuTitle', 'Sample Title'),
         menuSubtitle: text('menuSubtitle', 'Sample subtitle'),
     },

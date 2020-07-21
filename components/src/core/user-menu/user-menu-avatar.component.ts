@@ -5,14 +5,14 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="pxb-user-menu-avatar" [class.non-text-avatar]="!value">
-            <ng-container *ngIf="value">{{ value }}</ng-container>
-            <img *ngIf="src" [src]="src" alt="User Menu Avatar" />
+        <div class="pxb-user-menu-avatar" [class.non-text-avatar]="!avatarValue">
+            <ng-container *ngIf="avatarValue">{{ avatarValue }}</ng-container>
+            <img *ngIf="avatarImage" [src]="avatarImage" alt="User Menu Avatar" />
             <ng-content></ng-content>
         </div>
     `,
 })
 export class UserMenuAvatarComponent {
-    @Input() value: string;
-    @Input() src: string;
+    @Input() avatarValue: string;
+    @Input() avatarImage: string;
 }

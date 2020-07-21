@@ -1,7 +1,5 @@
-import { menuGroups } from './with-basic-config.stories';
-import { text } from '@storybook/addon-knobs';
 const Trex = require('../../assets/trex.png');
-const bgImage = require('../../assets/EatonLogo.svg');
+const eatonLogo = require('../../assets/EatonLogo.svg');
 
 export const withCustomMenu = (): any => ({
     styles: [
@@ -34,9 +32,9 @@ export const withCustomMenu = (): any => ({
     `,
     ],
     template: `
-        <pxb-user-menu [value]="value" [src]="src" [(open)]="state.open">
+        <pxb-user-menu [avatarImage]="avatarImage" [(open)]="state.open">
             <div pxb-header>
-                <div style="padding: 8px; padding-top: 16px; position: relative">
+                <div style="padding: 16px 8px 8px 8px; position: relative">
                     <div class="header1">Welcome,</div>
                     <div class="header2">T-Rex</div>
                     <div [style.backgroundImage]="trex" class="overlay"></div>
@@ -53,7 +51,7 @@ export const withCustomMenu = (): any => ({
             </mat-nav-list>
             <div pxb-footer >
                 <mat-divider></mat-divider>
-                <img [src]="bgImage" class="footer" />
+                <img [src]="eatonLogo" class="footer" />
             </div>
         </pxb-user-menu> 
     `,
@@ -62,7 +60,7 @@ export const withCustomMenu = (): any => ({
         close: (state): void => { state.open = !state.open },
         trex: `url(${Trex})`,
         items: ['My Account', 'Logout'],
-        src: Trex,
-        bgImage: bgImage,
+        avatarImage: Trex,
+        eatonLogo: eatonLogo,
     },
 });

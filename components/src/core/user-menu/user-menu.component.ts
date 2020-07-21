@@ -22,8 +22,8 @@ export type UserMenuGroup = {
     template: `
         <!-- This button triggers the overlay and is it's origin -->
         <pxb-user-menu-avatar
-            [value]="value"
-            [src]="src"
+            [avatarValue]="avatarValue"
+            [avatarImage]="avatarImage"
             (click)="openMenu()"
             cdkOverlayOrigin
             #trigger="cdkOverlayOrigin"
@@ -42,21 +42,22 @@ export type UserMenuGroup = {
             [cdkConnectedOverlayBackdropClass]="'pxb-user-menu-overlay'"
         >
             <mat-card class="pxb-user-menu-container">
-                <pxb-drawer-header
-                    *ngIf="menuTitle"
+                <pxb-drawer-header *ngIf="menuTitle"
                     class="pxb-user-menu-header"
                     [title]="menuTitle"
                     [subtitle]="menuSubtitle"
                 >
-                    <pxb-user-menu-avatar pxb-icon [value]="value" [src]="src" class="pxb-user-menu-header-avatar">
+                    <pxb-user-menu-avatar pxb-icon [avatarValue]="avatarValue" [avatarImage]="avatarImage" class="pxb-user-menu-header-avatar">
                         <ng-content select="[pxb-menu-avatar]"></ng-content>
                     </pxb-user-menu-avatar>
                 </pxb-drawer-header>
                 <ng-content select="[pxb-header]"></ng-content>
                 <div *ngIf="menuGroups.length > 0" class="pxb-user-menu-items-container">
                     <div *ngFor="let group of menuGroups">
-                        <div class="pxb-user-menu-group-title">{{ group.title }}</div>
-                        <mat-divider *ngIf="group.title"></mat-divider>
+                        <ng-container *ngIf="group.title">
+                            <div class="pxb-user-menu-group-title">{{ group.title }}</div>
+                            <mat-divider></mat-divider>
+                        </ng-container>
                         <mat-nav-list [style.paddingTop.px]="0">
                             <pxb-info-list-item
                                 *ngFor="let item of group.items"
@@ -82,8 +83,8 @@ export type UserMenuGroup = {
     styleUrls: ['./user-menu.component.scss'],
 })
 export class UserMenuComponent {
-    @Input() value: string;
-    @Input() src: string;
+    @Input() avatarValue: string;
+    @Input() avatarImage: string;
     @Input() menuTitle: string;
     @Input() menuSubtitle: string;
     @Input() menuGroups: UserMenuGroup[] = [];

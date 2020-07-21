@@ -64,12 +64,11 @@ Parent element (`<pxb-user-menu>`) attributes:
 
 | @Input       | Description                                      | Type                    | Required | Default |
 | ------------ | ------------------------------------------------ | ----------------------- | -------- | ------- |
-| menuGroups   | Groups of menu items that display                | `UserMenuGroups[]`      | no       |         |
+| menuGroups   | Groups of menu items that display                | `UserMenuGroup[]`      | no       |         |
 | menuSubtitle | Subtitle shown when menu is open                 | `string`                | no       |         |
 | menuTitle    | Title shown when menu is open                    | `string`                | no       |         |
-| src          | Image source for avatar                          | `string`                | no       |         |
-| value        | Avatar text value                                | `string`                | no       |         |
-
+| avatarImage  | Image source for avatar                          | `string`                | no       |         |
+| avatarValue  | Text value for avatar                            | `string`                | no       |         |
 
 </div>
 
@@ -78,17 +77,23 @@ Parent element (`<pxb-user-menu>`) attributes:
 | @Output      | Description                                      | Type                    | Required | Default |
 | ------------ | ------------------------------------------------ | ----------------------- | -------- | ------- |
 | openChange   | Emits an event when the open prop changes        | `EventEmitter<boolean>` | no       |         |
-| select       | Emits the title of the selected menu item        | `EventEmitter<string >` | no       |         |
+| select       | Emits the title of the selected menu item        | `EventEmitter<string>`  | no       |         |
 
 </div>
 
-#### Classes
+The following child elements are projected into `<pxb-user-menu>`:
 
-You can override the classes used by PX Blue by passing a `classes` prop. It supports the following keys:
+<div style="overflow: auto;">
 
-| Name | Description                        |
-| ---- | ---------------------------------- |
-| root | Styles applied to the root element |
+| Selector           | Description                                                                    | Required | Default |
+| ------------------ | ------------------------------------------------------------------------------ | -------- | ------- |
+| [pxb-avatar]       | Custom avatar to show, alternative to the `avatarImage` or `avatarValue` prop  | no       |         |
+| [pxb-menu-avatar]  | Custom menu avatar to show                                                     | no       |         |
+| [pxb-header]       | Custom Menu header content                                                     | no       |         |
+| [pxb-body]         | Custom Menu body content                                                       | no       |         |
+| [pxb-footer]       | Custom Menu footer content                                                     | no       |         |
+
+</div>
 
 #### UserMenuGroup Object
 
@@ -117,3 +122,19 @@ The `menuGroups` prop of the `<pxb-user-menu>` will  `<pxb-info-list-item>` to r
 | title       | The text to show on the first line  | `string`          | yes      |         |
 
 </div>
+
+### Classes
+
+Each PX Blue component has classes which can be used to override component styles:
+
+| Name                                     | Description                                  |
+| ---------------------------------------- | -------------------------------------------- |
+| pxb-info-list-item                       | Styles applied to the root element           |
+| pxb-info-list-item-icon-wrapper          | Styles applied to the icon container         |
+| pxb-info-list-item-info-wrapper          | Styles applied to the info container         |
+| pxb-info-list-item-left-content-wrapper  | Styles applied to the leftContent container  |
+| pxb-info-list-item-title-wrapper         | Styles applied to the title container        |
+| pxb-info-list-item-subtitle-wrapper      | Styles applied to the subtitle container     |
+| pxb-info-list-item-right-content         | Styles applied to the rightContent           |
+| pxb-info-list-item-right-content-wrapper | Styles applied to the rightContent container |
+| pxb-info-list-item-divider               | Styles applied to the divider                |

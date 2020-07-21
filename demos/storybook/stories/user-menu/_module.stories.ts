@@ -35,6 +35,8 @@ export const withinToolbarWrapper = () => (storyFn: any): any => {
     };
 };
 
+const userMenuReadMe = getReadMe('UserMenu.md');
+
 storiesOf(`${COMPONENT_SECTION_NAME}/User Menu`, module)
     .addDecorator(
         moduleMetadata({
@@ -55,7 +57,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/User Menu`, module)
     .addDecorator(storyWrapper())
     .addParameters({
         ...STORY_PARAMS,
-        notes: { markdown: getReadMe('UserMenu.md') },
+        notes: { markdown: userMenuReadMe },
     })
     .add(README_STORY_NAME, getReadMeStory)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
@@ -76,6 +78,6 @@ storiesOf(`${COMPONENT_SECTION_NAME}/User Menu`, module)
     .addDecorator(withinToolbarWrapper())
     .addParameters({
         ...STORY_PARAMS,
-        notes: { markdown: getReadMe('Spacer.md') },
+        notes: { markdown: userMenuReadMe },
     })
     .add('within a toolbar', withinToolbar);
