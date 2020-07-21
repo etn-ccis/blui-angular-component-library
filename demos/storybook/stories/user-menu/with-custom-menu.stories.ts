@@ -57,7 +57,9 @@ export const withCustomMenu = (): any => ({
     `,
     props: {
         state: { open: false },
-        close: (state): void => { state.open = !state.open },
+        close: (state): void => {
+            state.open = !state.open;
+        },
         trex: `url(${Trex})`,
         items: ['My Account', 'Logout'],
         avatarImage: Trex,

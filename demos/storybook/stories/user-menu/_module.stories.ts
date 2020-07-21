@@ -20,7 +20,7 @@ import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import * as Colors from '@pxblue/colors';
 import { withinToolbar } from './within-a-toolbar.stories';
-import {withFullConfig} from "./with-full-config.stories";
+import { withFullConfig } from './with-full-config.stories';
 
 export const withinToolbarWrapper = () => (storyFn: any): any => {
     const story = storyFn();
@@ -64,7 +64,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/User Menu`, module)
     .add('with non-text avatar', withNonTextAvatar)
     .add('with a menu header', withMenuHeader)
     .add('with custom menu', withCustomMenu)
-    .add('with full config', withFullConfig)
+    .add('with full config', withFullConfig);
 
 storiesOf(`${COMPONENT_SECTION_NAME}/User Menu`, module)
     .addDecorator(

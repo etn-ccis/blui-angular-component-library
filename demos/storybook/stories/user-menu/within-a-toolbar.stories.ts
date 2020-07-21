@@ -1,4 +1,4 @@
-import {menuGroups} from './with-basic-config.stories';
+import { menuGroups } from './with-basic-config.stories';
 
 export const withinToolbar = (): any => ({
     template: `

@@ -20,6 +20,6 @@ export const withFullConfig = (): any => ({
         mergeProps: (items, title): UserMenuGroup[] => {
             items[0].title = title;
             return items;
-        }
+        },
     },
 });
