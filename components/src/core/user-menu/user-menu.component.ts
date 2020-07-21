@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation} from '@angular/core';
-import {ConnectionPositionPair} from "@angular/cdk/overlay";
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import { ConnectionPositionPair } from '@angular/cdk/overlay';
 
 export type UserMenuGroup = {
     title?: string;
@@ -10,9 +10,8 @@ export type UserMenuGroup = {
         statusColor?: string;
         title: string;
         subtitle?: string;
-    }>
+    }>;
 };
-
 
 @Component({
     selector: 'pxb-user-menu',
@@ -29,7 +28,7 @@ export type UserMenuGroup = {
         >
             <ng-content select="[pxb-avatar]"></ng-content>
         </pxb-user-menu-avatar>
-        
+
         <ng-template
             cdkConnectedOverlay
             (backdropClick)="backdropClick()"
@@ -41,7 +40,12 @@ export type UserMenuGroup = {
             [cdkConnectedOverlayBackdropClass]="'pxb-user-menu-overlay'"
         >
             <mat-card class="pxb-user-menu-container">
-                <pxb-drawer-header *ngIf="menuTitle" class="pxb-user-menu-header" [title]="menuTitle" [subtitle]="menuSubtitle">
+                <pxb-drawer-header
+                    *ngIf="menuTitle"
+                    class="pxb-user-menu-header"
+                    [title]="menuTitle"
+                    [subtitle]="menuSubtitle"
+                >
                     <pxb-user-menu-avatar pxb-icon [value]="value" [src]="src" class="pxb-user-menu-header-avatar">
                         <ng-content select="[pxb-menu-avatar]"></ng-content>
                     </pxb-user-menu-avatar>
@@ -49,7 +53,7 @@ export type UserMenuGroup = {
                 <ng-content select="[pxb-header]"></ng-content>
                 <div *ngIf="menuGroups.length > 0" class="pxb-user-menu-items-container">
                     <div *ngFor="let group of menuGroups">
-                        <div class="pxb-user-menu-group-title">{{group.title}}</div>
+                        <div class="pxb-user-menu-group-title">{{ group.title }}</div>
                         <mat-nav-list [style.paddingTop.px]="0">
                             <pxb-info-list-item
                                 *ngFor="let item of group.items"
@@ -84,17 +88,12 @@ export class UserMenuComponent {
 
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
     @Output() openChange: EventEmitter<boolean> = new EventEmitter<boolean>();
-    
+
     positions = [
-        new ConnectionPositionPair(
-            { originX: 'start', originY: 'top' },
-            { overlayX: 'start', overlayY: 'top' }),
-        new ConnectionPositionPair(
-            { originX: 'start', originY: 'top' },
-            { overlayX: 'center', overlayY: 'top' }),
-        new ConnectionPositionPair(
-            { originX: 'end', originY: 'bottom' },
-            { overlayX: 'end', overlayY: 'top' })];
+        new ConnectionPositionPair({ originX: 'start', originY: 'top' }, { overlayX: 'start', overlayY: 'top' }),
+        new ConnectionPositionPair({ originX: 'start', originY: 'top' }, { overlayX: 'center', overlayY: 'top' }),
+        new ConnectionPositionPair({ originX: 'end', originY: 'bottom' }, { overlayX: 'end', overlayY: 'top' }),
+    ];
 
     ngOnChanges(): void {
         console.log(this.menuGroups);
