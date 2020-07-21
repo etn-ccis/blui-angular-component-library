@@ -98,10 +98,6 @@ export class UserMenuComponent {
         new ConnectionPositionPair({ originX: 'end', originY: 'bottom' }, { overlayX: 'end', overlayY: 'top' }),
     ];
 
-    ngOnChanges(): void {
-        console.log(this.menuGroups);
-    }
-
     backdropClick(): void {
         this.open = false;
         this.openChange.emit(this.open);
