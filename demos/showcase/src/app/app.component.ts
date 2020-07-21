@@ -16,32 +16,32 @@ const iconSet = require('@pxblue/icons-svg/icons.svg');
 export class AppComponent {
     colors: Record<string, any>;
     variant: DrawerLayoutVariantType = 'persistent';
-     menuGroups: UserMenuGroup[] = [
-      {
-        items: [
-          {
-            title: 'Account Settings',
-            icon: 'settings',
-          },
-          {
-            title: 'Log Out',
-            icon: 'logout',
-          },
-        ],
-      },
-       {
-         title: 'Contact Us',
-         items: [
-           {
-             title: 'eatonhelp@eaton.com',
-             icon: 'send',
-           },
-           {
-             title: '1-866-905-9988',
-             icon: 'mail',
-           },
-         ]
-       }
+    menuGroups: UserMenuGroup[] = [
+        {
+            items: [
+                {
+                    title: 'Account Settings',
+                    icon: 'settings',
+                },
+                {
+                    title: 'Log Out',
+                    icon: 'logout',
+                },
+            ],
+        },
+        {
+            title: 'Contact Us',
+            items: [
+                {
+                    title: 'eatonhelp@eaton.com',
+                    icon: 'send',
+                },
+                {
+                    title: '1-866-905-9988',
+                    icon: 'mail',
+                },
+            ],
+        },
     ];
     constructor(
         private readonly _stateService: StateService,
