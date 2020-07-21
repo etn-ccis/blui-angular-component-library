@@ -30,7 +30,7 @@ imports: [
 ```html
 // Example with a single menu group and an avatar value.
 
-<pxb-user-menu [menuGroups]="menuGroups" value="AV"></pxb-user-menu> 
+<pxb-user-menu [menuGroups]="menuGroups" value="HA"></pxb-user-menu> 
 ```
 
 ```tsx
