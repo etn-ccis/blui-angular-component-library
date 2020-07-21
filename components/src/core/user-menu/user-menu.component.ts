@@ -1,16 +1,18 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
 
+export type UserMenuGroupItem = {
+    chevron?: boolean;
+    divider?: boolean;
+    icon?: string;
+    statusColor?: string;
+    title: string;
+    subtitle?: string;
+}
+
 export type UserMenuGroup = {
     title?: string;
-    items: Array<{
-        chevron?: boolean;
-        divider?: boolean;
-        icon?: string;
-        statusColor?: string;
-        title: string;
-        subtitle?: string;
-    }>;
+    items: UserMenuGroupItem[];
 };
 
 @Component({
@@ -54,6 +56,7 @@ export type UserMenuGroup = {
                 <div *ngIf="menuGroups.length > 0" class="pxb-user-menu-items-container">
                     <div *ngFor="let group of menuGroups">
                         <div class="pxb-user-menu-group-title">{{ group.title }}</div>
+                        <mat-divider *ngIf="group.title"></mat-divider>
                         <mat-nav-list [style.paddingTop.px]="0">
                             <pxb-info-list-item
                                 *ngFor="let item of group.items"

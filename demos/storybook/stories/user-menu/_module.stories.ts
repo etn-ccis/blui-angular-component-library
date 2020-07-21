@@ -55,7 +55,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/User Menu`, module)
     .addDecorator(storyWrapper())
     .addParameters({
         ...STORY_PARAMS,
-        notes: { markdown: getReadMe('Spacer.md') },
+        notes: { markdown: getReadMe('UserMenu.md') },
     })
     .add(README_STORY_NAME, getReadMeStory)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)

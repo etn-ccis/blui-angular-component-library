@@ -7,7 +7,6 @@
     line-height: $size;
     cursor: pointer;
     text-align: center;
-    background-color: red;
     border-radius: 50%;
     display: flex;
     justify-content: center;
@@ -19,6 +18,11 @@
     mat-icon {
         align-self: center;
     }
+}
+
+.pxb-user-menu-group-title {
+    padding: 16px 24px;
+    font-size: 14px;
 }
 
 mat-card.pxb-user-menu-container {
