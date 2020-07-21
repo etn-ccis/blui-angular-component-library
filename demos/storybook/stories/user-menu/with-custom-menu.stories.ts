@@ -1,9 +1,22 @@
 import { menuGroups } from './with-basic-config.stories';
 import { text } from '@storybook/addon-knobs';
 const Trex = require('../../assets/trex.png');
+const bgImage = require('../../assets/EatonLogo.svg');
 
 export const withCustomMenu = (): any => ({
-    styles: [`
+    styles: [
+        `
+        .header1 {
+            margin: 0; 
+            font-size: 18px;
+            font-weight: 600;
+        }
+        .header2 {
+            margin: 0;
+            margin-top: -8px;
+            font-size: 42px;
+            font-weight: 600;
+        }
         .overlay {
             position: absolute;
             right: 0;
@@ -13,25 +26,43 @@ export const withCustomMenu = (): any => ({
             background-size: cover;
             opacity: 0.2;
         }
-    `],
+        .footer {
+            width: 100px;
+            align-self: center;
+            padding: 16px;
+        }
+    `,
+    ],
     template: `
-        <pxb-user-menu [menuGroups]="menuGroups" [value]="value">
+        <pxb-user-menu [value]="value" [src]="src" [(open)]="state.open">
             <div pxb-header>
                 <div style="padding: 8px; padding-top: 16px; position: relative">
-                    <div style="margin: 0; font-size: 18px">Welcome,</div>
-                    <div style="margin: 0; margin-top: -8px; font-size: 42px; font-weight: 600">T-Rex</div>
+                    <div class="header1">Welcome,</div>
+                    <div class="header2">T-Rex</div>
                     <div [style.backgroundImage]="trex" class="overlay"></div>
                 </div>
                 <mat-divider></mat-divider>
             </div>
-            <
+            <mat-nav-list pxb-body [style.paddingTop.px]="0">
+                <pxb-info-list-item *ngFor="let item of items" 
+                    [hidePadding]="true" 
+                    [dense]="true"
+                    (click)="close(state)">
+                    <div pxb-title>{{item}}</div>
+                </pxb-info-list-item>
+            </mat-nav-list>
+            <div pxb-footer >
+                <mat-divider></mat-divider>
+                <img [src]="bgImage" class="footer" />
+            </div>
         </pxb-user-menu> 
     `,
     props: {
+        state: { open: false },
+        close: (state): void => { state.open = !state.open },
         trex: `url(${Trex})`,
-        menuGroups: menuGroups,
-        value: text('value', 'AV'),
-        menuTitle: text('menuTitle', 'Sample Title'),
-        menuSubtitle: text('menuSubtitle', 'Sample subtitle'),
+        items: ['My Account', 'Logout'],
+        src: Trex,
+        bgImage: bgImage,
     },
 });

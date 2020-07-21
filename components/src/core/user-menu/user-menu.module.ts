@@ -10,7 +10,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 @NgModule({
     declarations: [UserMenuComponent, UserMenuAvatarComponent],
-    imports: [CommonModule, BrowserAnimationsModule, MatCardModule, InfoListItemModule, OverlayModule, DrawerHeaderModule],
+    imports: [CommonModule,BrowserAnimationsModule, MatCardModule, InfoListItemModule, OverlayModule, DrawerHeaderModule],
     exports: [UserMenuComponent, UserMenuAvatarComponent],
 })
 export class UserMenuModule {}

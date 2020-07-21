@@ -23,7 +23,7 @@ export type UserMenuGroup = {
         <pxb-user-menu-avatar
             [value]="value"
             [src]="src"
-            (click)="isOpen = !isOpen"
+            (click)="openMenu()"
             cdkOverlayOrigin
             #trigger="cdkOverlayOrigin"
         >
@@ -36,19 +36,20 @@ export type UserMenuGroup = {
             [cdkConnectedOverlayPush]="true"
             [cdkConnectedOverlayHasBackdrop]="true"
             [cdkConnectedOverlayOrigin]="trigger"
-            [cdkConnectedOverlayOpen]="isOpen"
+            [cdkConnectedOverlayOpen]="open"
             [cdkConnectedOverlayPositions]="positions"
             [cdkConnectedOverlayBackdropClass]="'pxb-user-menu-overlay'"
         >
             <mat-card class="pxb-user-menu-container">
                 <pxb-drawer-header *ngIf="menuTitle" class="pxb-user-menu-header" [title]="menuTitle" [subtitle]="menuSubtitle">
                     <pxb-user-menu-avatar pxb-icon [value]="value" [src]="src" class="pxb-user-menu-header-avatar">
-                        <ng-content select="[pxb-avatar]"></ng-content>
+                        <ng-content select="[pxb-menu-avatar]"></ng-content>
                     </pxb-user-menu-avatar>
                 </pxb-drawer-header>
                 <ng-content select="[pxb-header]"></ng-content>
                 <div *ngIf="menuGroups.length > 0" class="pxb-user-menu-items-container">
                     <div *ngFor="let group of menuGroups">
+                        <div class="pxb-user-menu-group-title">{{group.title}}</div>
                         <mat-nav-list [style.paddingTop.px]="0">
                             <pxb-info-list-item
                                 *ngFor="let item of group.items"
@@ -65,9 +66,9 @@ export type UserMenuGroup = {
                             </pxb-info-list-item>
                         </mat-nav-list>
                     </div>
-                    <ng-content select="[pxb-body]"></ng-content>
-                    <ng-content select="[pxb-footer]"></ng-content>
                 </div>
+                <ng-content select="[pxb-body]"></ng-content>
+                <ng-content select="[pxb-footer]"></ng-content>
             </mat-card>
         </ng-template>
     `,
@@ -79,8 +80,11 @@ export class UserMenuComponent {
     @Input() menuTitle: string;
     @Input() menuSubtitle: string;
     @Input() menuGroups: UserMenuGroup[] = [];
+    @Input() open = false;
 
-    isOpen = false;
+    @Output() select: EventEmitter<string> = new EventEmitter<string>();
+    @Output() openChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+    
     positions = [
         new ConnectionPositionPair(
             { originX: 'start', originY: 'top' },
@@ -92,14 +96,23 @@ export class UserMenuComponent {
             { originX: 'end', originY: 'bottom' },
             { overlayX: 'end', overlayY: 'top' })];
 
-    @Output() select: EventEmitter<string> = new EventEmitter<string>();
+    ngOnChanges(): void {
+        console.log(this.menuGroups);
+    }
 
     backdropClick(): void {
-        this.isOpen = false;
+        this.open = false;
+        this.openChange.emit(this.open);
+    }
+
+    openMenu(): void {
+        this.open = true;
+        this.openChange.emit(this.open);
     }
 
     selectItem(id: string): void {
         this.select.emit(id);
-        this.isOpen = false;
+        this.open = false;
+        this.openChange.emit(this.open);
     }
 }
