@@ -1,4 +1,6 @@
-<pxb-drawer-layout [variant]="getVariant()" (backdropClick)="closeDrawer()" [dir]="isRtl ? 'rtl' : 'ltr'">
+<pxb-drawer-layout [variant]="getVariant()" (backdropClick)="closeDrawer()"
+                   [dir]="isRtl ? 'rtl' : 'ltr'"
+                   [class.rtl]="isRtl">
     <showcase-drawer pxb-drawer></showcase-drawer>
     <div pxb-content>
         <mat-toolbar class="toolbar">

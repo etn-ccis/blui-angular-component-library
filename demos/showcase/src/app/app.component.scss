@@ -54,6 +54,10 @@ pxb-score-card {
     }
     margin-right: 8px;
 }
+.rtl .red-score-card {
+  margin-left: 8px;
+  margin-right: 0;
+}
 
 .test-background-image mat-toolbar.pxb-drawer-header {
     background-color: map-get($pxb-blue, 500);
@@ -65,6 +69,9 @@ pxb-score-card {
     background-image: url('../assets/topology_40.png');
 }
 
-.tag-label {
+:not(.rtl) .tag-label {
     margin-right: 8px;
+}
+.rtl .tag-label {
+  margin-left: 8px;
 }

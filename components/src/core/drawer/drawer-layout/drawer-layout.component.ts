@@ -47,6 +47,7 @@ export class DrawerLayoutComponent extends StateListener {
         this.isRtl = dir.value === 'rtl';
         this.dirChangeSubscription = dir.change.subscribe((direction: Direction) => {
             this.isRtl = direction === 'rtl';
+            this.changeDetector.detectChanges();
         });
     }
 

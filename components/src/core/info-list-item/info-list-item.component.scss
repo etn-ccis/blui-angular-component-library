@@ -21,10 +21,15 @@ $denseHeight: 52px;
         }
     }
 
-    &.pxb-info-list-item-status .mat-list-item-content {
+    &:not(.pxb-rtl).pxb-info-list-item-status .mat-list-item-content {
         border-left: solid $statusWidth;
         border-left-color: inherit;
         padding-left: $contentPaddingLeft - $statusWidth;
+    }
+    &.pxb-rtl.pxb-info-list-item-status .mat-list-item-content {
+        border-right: solid $statusWidth;
+        border-right-color: inherit;
+        padding-right: $contentPaddingLeft - $statusWidth;
     }
 
     &.pxb-info-list-item-dense .mat-list-item-content {
@@ -96,9 +101,14 @@ $denseHeight: 52px;
     .pxb-info-list-item-left-content-wrapper {
         order: 2;
         > * {
-            margin-right: 16px;
             display: flex;
         }
+    }
+    &:not(.pxb-rtl) .pxb-info-list-item-left-content-wrapper > * {
+        margin-right: 16px;
+    }
+    &.pxb-rtl .pxb-info-list-item-left-content-wrapper > * {
+        margin-left: 16px;
     }
 
     .mat-list-text {
@@ -113,13 +123,19 @@ $denseHeight: 52px;
 
     .pxb-info-list-item-right-content {
         order: 5;
-        margin-left: 16px;
         white-space: nowrap;
         .pxb-info-list-item-right-content-wrapper > * {
             display: flex;
             align-items: center;
         }
     }
+    &:not(.pxb-rtl) .pxb-info-list-item-right-content {
+        margin-left: 16px;
+    }
+    .pxb-rtl .pxb-info-list-item-right-content {
+        margin-right: 16px;
+    }
+
 }
 
 mat-divider {
