@@ -1535,10 +1535,10 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
-"@pxblue/angular-themes@^5.0.0":
-  version "5.0.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/angular-themes/-/angular-themes-5.0.0.tgz#172df4d4319cff82bf4cee55c77dfaca7caf291c"
-  integrity sha512-WiBXZTQC/wJtVxJbykUCK6N01O1bBiXdBJFryzb1EzYAfUL7kAjnLqtX/owKGHo2wT8NdkgIc62WcH+fIdDXrg==
+"@pxblue/angular-themes@^5.1.0":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@pxblue/angular-themes/-/angular-themes-5.1.0.tgz#dcdaca29c0ad09ae7a60fe6922927d16e983b39c"
+  integrity sha512-uQJL+mBAMI4jqkdFpd/n2LrwHrOiJJJ3aSRDPxcYiwgSr0pTN4rLinqFoAv1jInrqKcgVFF3nzYjEXTu1KGtJQ==
   dependencies:
     "@pxblue/colors" "^3.0.0"
     typeface-open-sans "^0.0.75"
