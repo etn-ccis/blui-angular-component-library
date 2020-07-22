@@ -20,9 +20,10 @@ export const withFullConfig = (): any => ({
         <pxb-user-menu 
             [avatarValue]="avatarValue" 
             [menuTitle]="menuTitle" 
-            [menuSubtitle]="menuSubtitle">
+            [menuSubtitle]="menuSubtitle"
+            [(open)]="open">
             <mat-nav-list pxb-body [style.paddingTop.px]="0">
-                <pxb-info-list-item *ngFor="let item of items" [dense]="true">
+                <pxb-info-list-item *ngFor="let item of items" [dense]="true" (click)="open=false">
                     <mat-icon pxb-icon>{{item.icon}}</mat-icon>
                     <div pxb-title>{{item.title}}</div>
                 </pxb-info-list-item>
@@ -30,6 +31,7 @@ export const withFullConfig = (): any => ({
     </pxb-user-menu> 
     `,
     props: {
+        open: false,
         items: items,
         avatarValue: text('avatarValue', 'AV'),
         menuTitle: text('menuTitle', 'Sample Title'),

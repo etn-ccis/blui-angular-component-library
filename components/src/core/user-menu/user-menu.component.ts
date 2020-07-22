@@ -39,6 +39,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
             [cdkConnectedOverlayOrigin]="trigger"
             [cdkConnectedOverlayOpen]="open"
             [cdkConnectedOverlayPositions]="positions"
+            [cdkConnectedOverlayViewportMargin]="16"
             [cdkConnectedOverlayBackdropClass]="'pxb-user-menu-overlay-backdrop'"
         >
             <mat-card class="pxb-user-menu-overlay" [@fade-in-out]>
@@ -75,8 +76,6 @@ export class UserMenuComponent {
 
     positions = [
         new ConnectionPositionPair({ originX: 'start', originY: 'top' }, { overlayX: 'start', overlayY: 'top' }),
-        new ConnectionPositionPair({ originX: 'start', originY: 'top' }, { overlayX: 'center', overlayY: 'top' }),
-        new ConnectionPositionPair({ originX: 'end', originY: 'bottom' }, { overlayX: 'end', overlayY: 'top' }),
     ];
 
     onClickBackdrop(): void {

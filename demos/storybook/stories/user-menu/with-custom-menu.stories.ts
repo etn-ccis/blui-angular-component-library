@@ -32,7 +32,7 @@ export const withCustomMenu = (): any => ({
     `,
     ],
     template: `
-        <pxb-user-menu [avatarImage]="avatarImage" [(open)]="state.open">
+        <pxb-user-menu [avatarImage]="avatarImage" [(open)]="open">
             <div pxb-header>
                 <div style="padding: 16px 8px 8px 8px; position: relative">
                     <div class="header1">Welcome,</div>
@@ -46,7 +46,7 @@ export const withCustomMenu = (): any => ({
                     <pxb-info-list-item *ngFor="let item of items" 
                         [hidePadding]="true" 
                         [dense]="true"
-                        (click)="close(state)">
+                        (click)="open=false">
                         <div pxb-title>{{item}}</div>
                     </pxb-info-list-item>
                 </mat-nav-list>
@@ -58,7 +58,7 @@ export const withCustomMenu = (): any => ({
         </pxb-user-menu> 
     `,
     props: {
-        state: { open: false },
+        open: false,
         close: (state): void => {
             state.open = !state.open;
         },

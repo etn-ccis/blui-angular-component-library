@@ -7,12 +7,25 @@
             </button>
             <h2>Showcase</h2>
             <pxb-spacer></pxb-spacer>
-            <pxb-user-menu
-                [menuGroups]="menuGroups"
-                avatarValue="MS"
-                menuTitle="Marshall Sutter"
-                menuSubtitle="msutter@acmesteel.com"
-            ></pxb-user-menu>
+            <pxb-user-menu avatarValue="MS" menuTitle="Marshall Sutter" menuSubtitle="msutter@acmesteel.com" [(open)]="userMenuOpen">
+                <mat-nav-list pxb-body [style.paddingTop.px]="0">
+                    <div *ngFor="let group of menuGroups">
+                        <ng-container *ngIf="group.title">
+                            <mat-divider></mat-divider>
+                            <div style="padding: 8px 24px 8px 24px; font-weight: 600">{{ group.title }}</div>
+                            <mat-divider></mat-divider>
+                        </ng-container>
+                        <pxb-info-list-item
+                            *ngFor="let item of group.items"
+                            [dense]="true"
+                            (click)="userMenuOpen = false"
+                        >
+                            <mat-icon pxb-icon>{{ item.icon }}</mat-icon>
+                            <div pxb-title>{{ item.title }}</div>
+                        </pxb-info-list-item>
+                    </div>
+                </mat-nav-list>
+            </pxb-user-menu>
         </mat-toolbar>
         <div style="padding: 24px">
             <div style="display: flex; padding: 8px;  justify-content: flex-start">

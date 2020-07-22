@@ -3,7 +3,7 @@ import { MatIconRegistry } from '@angular/material/icon';
 import { DomSanitizer } from '@angular/platform-browser';
 import * as PXBColors from '@pxblue/colors';
 import { ViewportService } from './services/viewport.service';
-import { DrawerLayoutVariantType, UserMenuGroup } from '@pxblue/angular-components';
+import { DrawerLayoutVariantType } from '@pxblue/angular-components';
 import { StateService } from './services/state.service';
 const iconSet = require('@pxblue/icons-svg/icons.svg');
 
@@ -16,7 +16,8 @@ const iconSet = require('@pxblue/icons-svg/icons.svg');
 export class AppComponent {
     colors: Record<string, any>;
     variant: DrawerLayoutVariantType = 'persistent';
-    menuGroups: UserMenuGroup[] = [
+    userMenuOpen = false;
+    menuGroups = [
         {
             items: [
                 {

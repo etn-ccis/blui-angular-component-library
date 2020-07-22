@@ -1,4 +1,4 @@
-import {items} from "./with-basic-config.stories";
+import { items } from './with-basic-config.stories';
 
 const Trex = require('../../assets/trex.png');
 
@@ -14,19 +14,19 @@ export const withNonTextAvatar = (): any => ({
     ],
     template: `
         <div class="non-text-avatar-container">
-            <pxb-user-menu [avatarImage]="trex">
+            <pxb-user-menu [avatarImage]="trex" [(open)]="open1">
                 <mat-nav-list pxb-body [style.paddingTop.px]="0">
-                    <pxb-info-list-item *ngFor="let item of items" [dense]="true">
+                    <pxb-info-list-item *ngFor="let item of items" [dense]="true" (click)="open1=false">
                         <mat-icon pxb-icon>{{item.icon}}</mat-icon>
                         <div pxb-title>{{item.title}}</div>
                     </pxb-info-list-item>
                 </mat-nav-list>
             </pxb-user-menu> 
             
-            <pxb-user-menu>
+            <pxb-user-menu [(open)]="open2">
                 <mat-icon pxb-avatar>pets</mat-icon>
                 <mat-nav-list pxb-body [style.paddingTop.px]="0">
-                    <pxb-info-list-item *ngFor="let item of items" [dense]="true">
+                    <pxb-info-list-item *ngFor="let item of items" [dense]="true" (click)="open2=false">
                         <mat-icon pxb-icon>{{item.icon}}</mat-icon>
                         <div pxb-title>{{item.title}}</div>
                     </pxb-info-list-item>
@@ -35,6 +35,8 @@ export const withNonTextAvatar = (): any => ({
         </div>
     `,
     props: {
+        open1: false,
+        open2: false,
         items: items,
         trex: Trex,
     },

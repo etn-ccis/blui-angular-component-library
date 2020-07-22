@@ -76,7 +76,8 @@ storiesOf(`${COMPONENT_SECTION_NAME}/User Menu`, module)
                 SpacerModule,
                 MatDividerModule,
                 UtilModule,
-                MatIconModule],
+                MatIconModule,
+            ],
         })
     )
     // @accessibility
