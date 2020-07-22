@@ -7,7 +7,12 @@
             </button>
             <h2>Showcase</h2>
             <pxb-spacer></pxb-spacer>
-            <pxb-user-menu avatarValue="MS" menuTitle="Marshall Sutter" menuSubtitle="msutter@acmesteel.com" [(open)]="userMenuOpen">
+            <pxb-user-menu
+                avatarValue="MS"
+                menuTitle="Marshall Sutter"
+                menuSubtitle="msutter@acmesteel.com"
+                [(open)]="userMenuOpen"
+            >
                 <mat-nav-list pxb-body [style.paddingTop.px]="0">
                     <div *ngFor="let group of menuGroups">
                         <ng-container *ngIf="group.title">

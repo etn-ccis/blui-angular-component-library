@@ -5,6 +5,7 @@ import * as PXBColors from '@pxblue/colors';
 import { ViewportService } from './services/viewport.service';
 import { DrawerLayoutVariantType } from '@pxblue/angular-components';
 import { StateService } from './services/state.service';
+
 const iconSet = require('@pxblue/icons-svg/icons.svg');
 
 @Component({
