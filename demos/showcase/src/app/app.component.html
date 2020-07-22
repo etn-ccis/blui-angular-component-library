@@ -1,4 +1,4 @@
-<pxb-drawer-layout [variant]="getVariant()" (backdropClick)="closeDrawer()">
+<pxb-drawer-layout [variant]="getVariant()" (backdropClick)="closeDrawer()" [dir]="isRtl ? 'rtl' : 'ltr'">
     <showcase-drawer pxb-drawer></showcase-drawer>
     <div pxb-content>
         <mat-toolbar class="toolbar">
@@ -7,7 +7,14 @@
             </button>
             <h2>Showcase</h2>
             <pxb-spacer></pxb-spacer>
+            <button mat-icon-button style="margin: 0px 8px" (click)="toggleTheme()">
+              <mat-icon>invert_colors</mat-icon>
+            </button>
+            <button mat-icon-button style="margin: 0px 8px" (click)="toggleDirectionality()">
+              <mat-icon>compare_arrows</mat-icon>
+            </button>
             <pxb-user-menu
+                style="margin: 0px 8px"
                 avatarValue="MS"
                 menuTitle="Marshall Sutter"
                 menuSubtitle="msutter@acmesteel.com"

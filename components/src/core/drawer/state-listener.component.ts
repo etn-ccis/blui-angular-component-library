@@ -14,6 +14,10 @@ export class StateListener implements OnInit, OnDestroy {
     }
 
     public ngOnDestroy(): void {
+        this.unsubscribeAll();
+    }
+
+    unsubscribeAll(): void {
         if (this.drawerOpenListener) {
             this.drawerOpenListener.unsubscribe();
         }

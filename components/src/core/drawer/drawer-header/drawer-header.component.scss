@@ -40,6 +40,10 @@ $height: 64px;
             margin-right: 0;
         }
     }
+    &.pxb-rtl .pxb-drawer-header-icon-wrapper {
+        margin-right: 0;
+        margin-left: 16px;
+    }
 
     .pxb-drawer-header-title-wrapper {
         display: flex;

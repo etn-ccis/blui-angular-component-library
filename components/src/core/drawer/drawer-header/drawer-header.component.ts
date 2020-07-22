@@ -10,13 +10,15 @@ import {
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 import { isEmptyView } from '../../../utils/utils';
+import {Direction, Directionality} from "@angular/cdk/bidi";
+import {Subscription} from "rxjs";
 
 @Component({
     selector: 'pxb-drawer-header',
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <mat-toolbar class="pxb-drawer-header">
+        <mat-toolbar class="pxb-drawer-header" [class.pxb-rtl]="isRtl">
             <div class="pxb-drawer-header-background"></div>
             <div class="pxb-drawer-header-content">
                 <div #icon class="pxb-drawer-header-icon-wrapper" [class.pxb-drawer-header-no-icon]="isEmpty(iconEl)">
@@ -40,7 +42,21 @@ export class DrawerHeaderComponent extends StateListener {
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 
-    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+    isRtl: boolean;
+    dirChangeSubscription = Subscription.EMPTY;
+
+    constructor(dir: Directionality, drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
+        this.isRtl = dir.value === 'rtl';
+        this.dirChangeSubscription = dir.change.subscribe((direction: Direction) => {
+            this.isRtl = direction === 'rtl';
+        });
+    }
+
+    ngOnDestroy(): void {
+        this.unsubscribeAll();
+        if (this.dirChangeSubscription) {
+            this.dirChangeSubscription.unsubscribe();
+        }
     }
 }

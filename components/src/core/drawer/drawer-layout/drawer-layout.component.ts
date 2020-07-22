@@ -1,6 +1,8 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
+import {Direction, Directionality} from "@angular/cdk/bidi";
+import {Subscription} from "rxjs";
 
 export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
 
@@ -23,7 +25,8 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
             <mat-sidenav-content
                 class="pxb-drawer-layout-nav-content"
                 [class.smooth]="variant !== 'temporary' && transition"
-                [style.marginLeft.px]="getContentMarginLeft()"
+                [style.marginRight.px]="isRtl ? getContentMargin() : 0"
+                [style.marginLeft.px]="isRtl ? 0 : getContentMargin()"
             >
                 <ng-content select="[pxb-content]"></ng-content>
             </mat-sidenav-content>
@@ -36,9 +39,15 @@ export class DrawerLayoutComponent extends StateListener {
     @Output() backdropClick: EventEmitter<void> = new EventEmitter();
 
     transition = true;
+    isRtl: boolean;
+    dirChangeSubscription = Subscription.EMPTY;
 
-    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+    constructor(dir: Directionality, drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
+        this.isRtl = dir.value === 'rtl';
+        this.dirChangeSubscription = dir.change.subscribe((direction: Direction) => {
+            this.isRtl = direction === 'rtl';
+        });
     }
 
     ngOnChanges(): void {
@@ -51,6 +60,13 @@ export class DrawerLayoutComponent extends StateListener {
             this.drawerService.setDrawerOpen(true);
         }
         this.changeDetector.detectChanges();
+    }
+
+    ngOnDestroy(): void {
+        this.unsubscribeAll();
+        if (this.dirChangeSubscription) {
+            this.dirChangeSubscription.unsubscribe();
+        }
     }
 
     getMode(): string {
@@ -68,7 +84,7 @@ export class DrawerLayoutComponent extends StateListener {
         return true;
     }
 
-    getContentMarginLeft(): number {
+    getContentMargin(): number {
         if (this.variant === 'temporary') {
             return 0;
         }
