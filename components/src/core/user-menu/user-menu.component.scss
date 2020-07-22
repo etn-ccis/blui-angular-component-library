@@ -29,7 +29,8 @@ mat-card.pxb-user-menu-overlay {
 }
 
 .pxb-user-menu-header mat-toolbar {
-    border-radius: 4px !important;
+    border-top-left-radius: 4px !important;
+    border-top-right-radius: 4px !important;
 }
 
 .pxb-user-menu-overlay-backdrop {
