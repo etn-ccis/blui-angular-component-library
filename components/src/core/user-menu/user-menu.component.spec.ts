@@ -9,7 +9,7 @@ import { MatListModule } from '@angular/material/list';
     selector: 'test-app',
     template: `
         <pxb-user-menu avatarValue="HA" [open]="true">
-            <div pxb-header>
+            <div pxb-menu-header>
                 <div id="custom-header-test"></div>
             </div>
         </pxb-user-menu>
@@ -22,7 +22,7 @@ class UserMenuCustomHeaderTest {}
     selector: 'test-app',
     template: `
         <pxb-user-menu avatarValue="HA" [open]="true">
-            <mat-nav-list pxb-body>
+            <mat-nav-list pxb-menu-body>
                 <mat-list-item id="list-item-test">List Item 1</mat-list-item>
             </mat-nav-list>
         </pxb-user-menu>
