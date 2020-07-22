@@ -27,12 +27,6 @@ imports: [
 ...
 ```
 
-```html
-// Example with a single menu group and an avatar value.
-
-<pxb-user-menu [menuGroups]="menuGroups" value="HA"></pxb-user-menu> 
-```
-
 ```tsx
 import { UserMenuGroup } from '@pxblue/angular-components';
 
@@ -56,6 +50,22 @@ menuGroups: UserMenuGroup[] = [
 ];
 ```
 
+```html
+// Example with an avatar value and generated menu items.
+<pxb-user-menu [menuGroups]="menuGroups" avatarValue="HA"></pxb-user-menu> 
+```
+```html
+// Example with custom header and body sections.
+<pxb-user-menu avatarValue="HA" [(open)]="state.open">
+    <h4 pxb-header>Header</h4>
+    <mat-nav-list pxb-body>
+        <mat-list-item (click)="state.open=false">
+            Item 1
+        </mat-list-item>
+    </mat-nav-list>
+</pxb-user-menu> 
+```
+
 ## API
 
 Parent element (`<pxb-user-menu>`) attributes:
@@ -74,10 +84,11 @@ Parent element (`<pxb-user-menu>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Output      | Description                                      | Type                    | Required | Default |
-| ------------ | ------------------------------------------------ | ----------------------- | -------- | ------- |
-| openChange   | Emits an event when the open prop changes        | `EventEmitter<boolean>` | no       |         |
-| select       | Emits the title of the selected menu item        | `EventEmitter<string>`  | no       |         |
+| @Output        | Description                                      | Type                    |
+| -------------- | ------------------------------------------------ | ----------------------- | 
+| backdropClick  | Emits event when backdrop is clicked             | `EventEmitter<void>`    | 
+| openChange     | Emits an event when the open prop changes        | `EventEmitter<boolean>` | 
+| select         | Emits the title of the selected menu item        | `EventEmitter<string>`  |
 
 </div>
 
@@ -85,13 +96,13 @@ The following child elements are projected into `<pxb-user-menu>`:
 
 <div style="overflow: auto;">
 
-| Selector           | Description                                                                    | Required | Default |
-| ------------------ | ------------------------------------------------------------------------------ | -------- | ------- |
-| [pxb-avatar]       | Custom avatar to show, alternative to the `avatarImage` or `avatarValue` prop  | no       |         |
-| [pxb-menu-avatar]  | Custom menu avatar to show                                                     | no       |         |
-| [pxb-header]       | Custom Menu header content                                                     | no       |         |
-| [pxb-body]         | Custom Menu body content                                                       | no       |         |
-| [pxb-footer]       | Custom Menu footer content                                                     | no       |         |
+| Selector           | Description                                                                    | Required | 
+| ------------------ | ------------------------------------------------------------------------------ | -------- | 
+| [pxb-avatar]       | Custom avatar to show, alternative to `avatarImage` or `avatarValue` prop  | no       | 
+| [pxb-menu-avatar]  | Custom menu avatar to show                                                     | no       |
+| [pxb-header]       | Custom menu header content                                                     | no       |
+| [pxb-body]         | Custom menu body content                                                       | no       | 
+| [pxb-footer]       | Custom menu footer content                                                     | no       | 
 
 </div>
 

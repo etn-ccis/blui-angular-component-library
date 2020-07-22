@@ -47,7 +47,7 @@ export type UserMenuGroup = {
 
         <ng-template
             cdkConnectedOverlay
-            (backdropClick)="backdropClick()"
+            (backdropClick)="onClickBackdrop()"
             [cdkConnectedOverlayPush]="true"
             [cdkConnectedOverlayHasBackdrop]="true"
             [cdkConnectedOverlayOrigin]="trigger"
@@ -112,6 +112,7 @@ export class UserMenuComponent {
 
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
     @Output() openChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+    @Output() backdropClick: EventEmitter<void> = new EventEmitter<void>();
 
     positions = [
         new ConnectionPositionPair({ originX: 'start', originY: 'top' }, { overlayX: 'start', overlayY: 'top' }),
@@ -119,9 +120,10 @@ export class UserMenuComponent {
         new ConnectionPositionPair({ originX: 'end', originY: 'bottom' }, { overlayX: 'end', overlayY: 'top' }),
     ];
 
-    backdropClick(): void {
+    onClickBackdrop(): void {
         this.open = false;
         this.openChange.emit(this.open);
+        this.backdropClick.emit();
     }
 
     openMenu(): void {
