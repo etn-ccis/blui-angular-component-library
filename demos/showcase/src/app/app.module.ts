@@ -13,6 +13,7 @@ import {
     InfoListItemModule,
     DrawerModule,
     ListItemTagModule,
+    SelectionToolbarModule
 } from '@pxblue/angular-components';
 
 //material modules
@@ -47,6 +48,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
         InfoListItemModule,
         DrawerModule,
         ListItemTagModule,
+        SelectionToolbarModule
     ],
     providers: [],
     bootstrap: [AppComponent],
