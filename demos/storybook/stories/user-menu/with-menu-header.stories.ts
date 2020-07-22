@@ -8,7 +8,7 @@ export const withMenuHeader = (): any => ({
             [menuTitle]="menuTitle" 
             [menuSubtitle]="menuSubtitle"
             [(open)]="open">
-            <mat-nav-list pxb-body [style.paddingTop.px]="0">
+            <mat-nav-list pxb-menu-body [style.paddingTop.px]="0">
                 <pxb-info-list-item *ngFor="let item of items" [dense]="true" (click)="open=false">
                     <mat-icon pxb-icon>{{item.icon}}</mat-icon>
                     <div pxb-title>{{item.title}}</div>

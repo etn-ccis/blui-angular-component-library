@@ -58,8 +58,8 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
                         <ng-content select="[pxb-menu-avatar]"></ng-content>
                     </pxb-user-menu-avatar>
                 </pxb-drawer-header>
-                <ng-content select="[pxb-header]"></ng-content>
-                <ng-content select="[pxb-body]"></ng-content>
+                <ng-content select="[pxb-menu-header]"></ng-content>
+                <ng-content select="[pxb-menu-body]"></ng-content>
             </mat-card>
         </ng-template>
     `,

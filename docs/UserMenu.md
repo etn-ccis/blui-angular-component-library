@@ -89,8 +89,8 @@ The following child elements are projected into `<pxb-user-menu>`:
 | ------------------ | ------------------------------------------------------------------------------ | -------- | 
 | [pxb-avatar]       | Custom avatar to show, alternative to `avatarImage` or `avatarValue` prop  | no       | 
 | [pxb-menu-avatar]  | Custom menu avatar to show                                                     | no       |
-| [pxb-header]       | Custom menu header content                                                     | no       |
-| [pxb-body]         | Custom menu body content                                                       | no       | 
+| [pxb-menu-header]       | Custom menu header content                                                     | no       |
+| [pxb-menu-body]         | Custom menu body content                                                       | no       | 
 
 </div>
 

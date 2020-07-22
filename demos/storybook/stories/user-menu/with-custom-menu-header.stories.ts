@@ -1,7 +1,7 @@
 const Trex = require('../../assets/trex.png');
 const eatonLogo = require('../../assets/EatonLogo.svg');
 
-export const withCustomMenu = (): any => ({
+export const withCustomMenuHeader = (): any => ({
     styles: [
         `
         .header1 {
@@ -33,7 +33,7 @@ export const withCustomMenu = (): any => ({
     ],
     template: `
         <pxb-user-menu [avatarImage]="avatarImage" [(open)]="open">
-            <div pxb-header>
+            <div pxb-menu-header>
                 <div style="padding: 16px 8px 8px 8px; position: relative">
                     <div class="header1">Welcome,</div>
                     <div class="header2">T-Rex</div>
@@ -41,7 +41,7 @@ export const withCustomMenu = (): any => ({
                 </div>
                 <mat-divider></mat-divider>
             </div>
-            <div pxb-body>
+            <div pxb-menu-body>
                 <mat-nav-list [style.paddingTop.px]="0">
                     <pxb-info-list-item *ngFor="let item of items" 
                         [hidePadding]="true" 

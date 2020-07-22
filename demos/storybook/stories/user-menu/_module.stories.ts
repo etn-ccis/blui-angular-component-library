@@ -14,7 +14,7 @@ import { withA11y } from '@storybook/addon-a11y';
 import { withNonTextAvatar } from './with-non-text-avatar.stories';
 import { MatIconModule } from '@angular/material/icon';
 import { withMenuHeader } from './with-menu-header.stories';
-import { withCustomMenu } from './with-custom-menu.stories';
+import { withCustomMenuHeader } from './with-custom-menu-header.stories';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -63,7 +63,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/User Menu`, module)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
     .add('with non-text avatar', withNonTextAvatar)
     .add('with a menu header', withMenuHeader)
-    .add('with custom menu', withCustomMenu)
+    .add('with custom menu header', withCustomMenuHeader)
     .add('with full config', withFullConfig);
 
 storiesOf(`${COMPONENT_SECTION_NAME}/User Menu`, module)

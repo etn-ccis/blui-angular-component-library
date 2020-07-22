@@ -13,7 +13,7 @@
                 menuSubtitle="msutter@acmesteel.com"
                 [(open)]="userMenuOpen"
             >
-                <mat-nav-list pxb-body [style.paddingTop.px]="0">
+                <mat-nav-list pxb-menu-body [style.paddingTop.px]="0">
                     <div *ngFor="let group of menuGroups">
                         <ng-container *ngIf="group.title">
                             <mat-divider></mat-divider>

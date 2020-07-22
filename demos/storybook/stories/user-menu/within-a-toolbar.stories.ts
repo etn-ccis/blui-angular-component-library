@@ -9,7 +9,7 @@ export const withinToolbar = (): any => ({
                 <pxb-user-menu menuTitle="Jane Doe" menuSubtitle="Account Manager" [(open)]="open">
                     <mat-icon pxb-avatar>person</mat-icon>
                     <mat-icon pxb-menu-avatar>person</mat-icon>
-                    <div pxb-body>
+                    <div pxb-menu-body>
                          <mat-nav-list [style.paddingTop.px]="0">
                             <pxb-info-list-item *ngFor="let item of items" [dense]="true" (click)="open=false">
                                 <mat-icon pxb-icon>{{item.icon}}</mat-icon>

@@ -15,7 +15,7 @@ export const withNonTextAvatar = (): any => ({
     template: `
         <div class="non-text-avatar-container">
             <pxb-user-menu [avatarImage]="trex" [(open)]="open1">
-                <mat-nav-list pxb-body [style.paddingTop.px]="0">
+                <mat-nav-list pxb-menu-body [style.paddingTop.px]="0">
                     <pxb-info-list-item *ngFor="let item of items" [dense]="true" (click)="open1=false">
                         <mat-icon pxb-icon>{{item.icon}}</mat-icon>
                         <div pxb-title>{{item.title}}</div>
@@ -25,7 +25,7 @@ export const withNonTextAvatar = (): any => ({
             
             <pxb-user-menu [(open)]="open2">
                 <mat-icon pxb-avatar>pets</mat-icon>
-                <mat-nav-list pxb-body [style.paddingTop.px]="0">
+                <mat-nav-list pxb-menu-body [style.paddingTop.px]="0">
                     <pxb-info-list-item *ngFor="let item of items" [dense]="true" (click)="open2=false">
                         <mat-icon pxb-icon>{{item.icon}}</mat-icon>
                         <div pxb-title>{{item.title}}</div>
