@@ -19,49 +19,39 @@ The Menu can be populated via the `menuGroups` prop, or can be entirely customiz
 
 ```typescript
 // app.module.ts
-import { UserMenuModule } from '@pxblue/angular-components';
+import { UserMenuModule, InfoListItemModule } from '@pxblue/angular-components';
 ...
 imports: [
-    UserMenuModule
+    UserMenuModule,
+    InfoListItemModule
 ],
 ...
 ```
 
 ```tsx
-import { UserMenuGroup } from '@pxblue/angular-components';
-
-menuGroups: UserMenuGroup[] = [
+const items = [
     {
-        items: [
-            {
-                title: 'Account',
-                icon: 'settings',
-            },
-            {
-                title: 'Contact Us',
-                icon: 'mail',
-            },
-            {
-                title: 'Log Out',
-                icon: 'logout',
-            },
-        ],
+        title: 'Account',
+        icon: 'settings',
     },
+    {
+        title: 'Contact Us',
+        icon: 'mail',
+    },
+    {
+        title: 'Log Out',
+        icon: 'logout',
+    }
 ];
 ```
 
 ```html
-// Example with an avatar value and generated menu items.
-<pxb-user-menu [menuGroups]="menuGroups" avatarValue="HA"></pxb-user-menu> 
-```
-```html
-// Example with custom header and body sections.
-<pxb-user-menu avatarValue="HA" [(open)]="state.open">
-    <h4 pxb-header>Header</h4>
-    <mat-nav-list pxb-body>
-        <mat-list-item (click)="state.open=false">
-            Item 1
-        </mat-list-item>
+<pxb-user-menu avatarValue="HA" menuTitle='Sample Title '[(open)]="state.open">
+    <mat-nav-list pxb-body [style.paddingTop.px]="0">
+        <pxb-info-list-item *ngFor="let item of items" [dense]="true">
+            <mat-icon pxb-icon>{{item.icon}}</mat-icon>
+            <div pxb-title>{{item.title}}</div>
+        </pxb-info-list-item>
     </mat-nav-list>
 </pxb-user-menu> 
 ```
@@ -74,11 +64,10 @@ Parent element (`<pxb-user-menu>`) attributes:
 
 | @Input       | Description                                      | Type                    | Required | Default |
 | ------------ | ------------------------------------------------ | ----------------------- | -------- | ------- |
-| menuGroups   | Groups of menu items that display                | `UserMenuGroup[]`      | no       |         |
-| menuSubtitle | Subtitle shown when menu is open                 | `string`                | no       |         |
-| menuTitle    | Title shown when menu is open                    | `string`                | no       |         |
 | avatarImage  | Image source for avatar                          | `string`                | no       |         |
 | avatarValue  | Text value for avatar                            | `string`                | no       |         |
+| menuSubtitle | Subtitle shown when menu is open                 | `string`                | no       |         |
+| menuTitle    | Title shown when menu is open                    | `string`                | no       |         |
 
 </div>
 
@@ -102,35 +91,6 @@ The following child elements are projected into `<pxb-user-menu>`:
 | [pxb-menu-avatar]  | Custom menu avatar to show                                                     | no       |
 | [pxb-header]       | Custom menu header content                                                     | no       |
 | [pxb-body]         | Custom menu body content                                                       | no       | 
-| [pxb-footer]       | Custom menu footer content                                                     | no       | 
-
-</div>
-
-#### UserMenuGroup Object
-
-The `menuGroups` prop of the `<pxb-user-menu>` will  `<pxb-info-list-item>` to represent each menu item.
-
-<div style="overflow: auto;">
-
-| Prop Name | Description                         | Type                   | Required | Default |
-| --------- | ----------------------------------- | ---------------------- | -------- | ------- |
-| items     | List of navigation items to render  | `UserMenuGroupItem[]`  | no       | []      |
-| title     | Text to display in the group header | `string`               | no       |         |
-
-</div>
-
-#### UserMenuGroupItem Object
-
-<div style="overflow: auto;">
-
-| Attribute   | Description                         | Type              | Required | Default |
-| ----------- | ----------------------------------- | ----------------- | -------- | ------- |
-| chevron     | Show chevron icon to the right      | `boolean`         | no       | false   |
-| divider     | Show a divider line below the item  | `boolean`         | no       | true    |
-| icon        | Mat icon to render for the icon     | `string`          | no       |         |
-| statusColor | Status stripe and icon color        | `string`          | no       |         |
-| subtitle    | The text to show on the second line | `string`          | no       |         |
-| title       | The text to show on the first line  | `string`          | yes      |         |
 
 </div>
 
@@ -144,6 +104,4 @@ Each PX Blue component has classes which can be used to override component style
 | pxb-user-menu-container                  | Styles applied to the menu overlay           |
 | pxb-user-menu-header                     | Styles applied to the generated menu header  |
 | pxb-user-menu-header-avatar              | Styles applied to the menu header avatar     |
-| pxb-user-menu-body                       | Styles applied to the generated menu body    |
-| pxb-user-menu-group-title                | Styles applied to each menu item group title |
 | pxb-user-menu-overlay-backdrop           | Styles applied to the menu overlay backdrop  |

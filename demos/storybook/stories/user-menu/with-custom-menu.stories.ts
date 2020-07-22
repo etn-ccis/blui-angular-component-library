@@ -41,17 +41,19 @@ export const withCustomMenu = (): any => ({
                 </div>
                 <mat-divider></mat-divider>
             </div>
-            <mat-nav-list pxb-body [style.paddingTop.px]="0">
-                <pxb-info-list-item *ngFor="let item of items" 
-                    [hidePadding]="true" 
-                    [dense]="true"
-                    (click)="close(state)">
-                    <div pxb-title>{{item}}</div>
-                </pxb-info-list-item>
-            </mat-nav-list>
-            <div pxb-footer >
-                <mat-divider></mat-divider>
-                <img [src]="eatonLogo" class="footer" />
+            <div pxb-body>
+                <mat-nav-list [style.paddingTop.px]="0">
+                    <pxb-info-list-item *ngFor="let item of items" 
+                        [hidePadding]="true" 
+                        [dense]="true"
+                        (click)="close(state)">
+                        <div pxb-title>{{item}}</div>
+                    </pxb-info-list-item>
+                </mat-nav-list>
+                <div>
+                    <mat-divider></mat-divider>
+                    <img [src]="eatonLogo" class="footer" />
+                </div>
             </div>
         </pxb-user-menu> 
     `,

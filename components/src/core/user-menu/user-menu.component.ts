@@ -2,20 +2,6 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output, ViewEn
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
-export type UserMenuGroupItem = {
-    chevron?: boolean;
-    divider?: boolean;
-    icon?: string;
-    statusColor?: string;
-    title: string;
-    subtitle?: string;
-};
-
-export type UserMenuGroup = {
-    title?: string;
-    items: UserMenuGroupItem[];
-};
-
 @Component({
     selector: 'pxb-user-menu',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -72,32 +58,7 @@ export type UserMenuGroup = {
                     </pxb-user-menu-avatar>
                 </pxb-drawer-header>
                 <ng-content select="[pxb-header]"></ng-content>
-                <div *ngIf="menuGroups.length > 0" class="pxb-user-menu-body">
-                    <div *ngFor="let group of menuGroups; let first = first">
-                        <ng-container *ngIf="group.title">
-                            <mat-divider *ngIf="!first"></mat-divider>
-                            <div class="pxb-user-menu-group-title">{{ group.title }}</div>
-                            <mat-divider></mat-divider>
-                        </ng-container>
-                        <mat-nav-list [style.paddingTop.px]="0">
-                            <pxb-info-list-item
-                                *ngFor="let item of group.items"
-                                [dense]="true"
-                                [hidePadding]="true"
-                                [chevron]="item.chevron"
-                                [statusColor]="item.statusColor"
-                                [divider]="item.divider ? 'full' : undefined"
-                                (click)="selectItem(item.title)"
-                            >
-                                <mat-icon pxb-icon *ngIf="item.icon">{{ item.icon }}</mat-icon>
-                                <div pxb-title>{{ item.title }}</div>
-                                <div pxb-subtitle *ngIf="item.subtitle">{{ item.title }}</div>
-                            </pxb-info-list-item>
-                        </mat-nav-list>
-                    </div>
-                </div>
                 <ng-content select="[pxb-body]"></ng-content>
-                <ng-content select="[pxb-footer]"></ng-content>
             </mat-card>
         </ng-template>
     `,
@@ -107,10 +68,8 @@ export class UserMenuComponent {
     @Input() avatarImage: string;
     @Input() menuTitle: string;
     @Input() menuSubtitle: string;
-    @Input() menuGroups: UserMenuGroup[] = [];
     @Input() open = false;
 
-    @Output() select: EventEmitter<string> = new EventEmitter<string>();
     @Output() openChange: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() backdropClick: EventEmitter<void> = new EventEmitter<void>();
 
@@ -128,12 +87,6 @@ export class UserMenuComponent {
 
     openMenu(): void {
         this.open = true;
-        this.openChange.emit(this.open);
-    }
-
-    selectItem(id: string): void {
-        this.select.emit(id);
-        this.open = false;
         this.openChange.emit(this.open);
     }
 }

@@ -69,7 +69,14 @@ storiesOf(`${COMPONENT_SECTION_NAME}/User Menu`, module)
 storiesOf(`${COMPONENT_SECTION_NAME}/User Menu`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [MatToolbarModule, UserMenuModule, SpacerModule, MatDividerModule, UtilModule, MatIconModule],
+            imports: [
+                MatToolbarModule,
+                InfoListItemModule,
+                UserMenuModule,
+                SpacerModule,
+                MatDividerModule,
+                UtilModule,
+                MatIconModule],
         })
     )
     // @accessibility
