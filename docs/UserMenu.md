@@ -29,6 +29,7 @@ imports: [
 ```
 
 ```tsx
+let open = false;
 const items = [
     {
         title: 'Account',
@@ -46,9 +47,9 @@ const items = [
 ```
 
 ```html
-<pxb-user-menu avatarValue="HA" menuTitle='Sample Title '[(open)]="state.open">
-    <mat-nav-list pxb-body [style.paddingTop.px]="0">
-        <pxb-info-list-item *ngFor="let item of items" [dense]="true">
+<pxb-user-menu avatarValue="HA" menuTitle='Sample Title' [(open)]="open">
+    <mat-nav-list pxb-body>
+        <pxb-info-list-item *ngFor="let item of items" [dense]="true" (click)="open=false">
             <mat-icon pxb-icon>{{item.icon}}</mat-icon>
             <div pxb-title>{{item.title}}</div>
         </pxb-info-list-item>
@@ -77,7 +78,6 @@ Parent element (`<pxb-user-menu>`) attributes:
 | -------------- | ------------------------------------------------ | ----------------------- | 
 | backdropClick  | Emits event when backdrop is clicked             | `EventEmitter<void>`    | 
 | openChange     | Emits an event when the open prop changes        | `EventEmitter<boolean>` | 
-| select         | Emits the title of the selected menu item        | `EventEmitter<string>`  |
 
 </div>
 
