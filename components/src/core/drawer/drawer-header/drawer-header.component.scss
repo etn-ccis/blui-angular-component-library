@@ -65,6 +65,9 @@ $height: 64px;
             margin-top: -2px;
             overflow: hidden;
             text-overflow: ellipsis;
+            &.mat-subheading-2 {
+                margin-bottom: 0;
+            }
         }
     }
 }

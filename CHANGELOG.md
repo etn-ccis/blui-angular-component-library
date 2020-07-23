@@ -1,5 +1,9 @@
 # Change Log
 
+## v2.1.0
+-   Add new component for `<pxb-user-menu>` (use @pxblue/angular-themes v5.1.0+ to get PX Blue themes for this component).
+
+
 ## v2.0.0
 
 -   Add new components for `<pxb-score-card>`, `<pxb-info-list-item>`, `<pxb-list-item-tag>`, and `<pxb-spacer>`.
