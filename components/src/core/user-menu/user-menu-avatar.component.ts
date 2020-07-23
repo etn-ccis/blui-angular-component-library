@@ -5,8 +5,8 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="pxb-user-menu-avatar" [class.non-text-avatar]="!avatarValue">
-            <ng-container *ngIf="avatarValue">{{ avatarValue }}</ng-container>
+        <div class="pxb-user-menu-avatar">
+            <div *ngIf="avatarValue" class="mat-h2 pxb-user-menu-text-avatar">{{ avatarValue }}</div>
             <img *ngIf="avatarImage" [src]="avatarImage" alt="User Menu Avatar" />
             <ng-content></ng-content>
         </div>

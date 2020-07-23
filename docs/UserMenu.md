@@ -9,7 +9,7 @@ The `<pxb-user-menu>` is an Avatar that opens a Menu when clicked. It is typical
 
 </div>
 
-The Menu header can be constructed by supplying a `menuTitle` and optional `menuSubtitle`, or your own custom content. The Menu body is entirely custom content.  See the API section below for more details.  
+The Menu header can be constructed by supplying a `menuTitle` and optional `menuSubtitle`, or your own custom content. The Menu body is entirely custom content. See the API section below for more details.  
 
 ## Usage
 
@@ -64,7 +64,7 @@ Parent element (`<pxb-user-menu>`) attributes:
 <div style="overflow: auto;">
 
 | @Input       | Description                                      | Type                        | Required | Default                                                                                                                     |
-| ------------ | ------------------------------------------------ | --------------------------- | -------- | -------                                                                                                                     |
+| ------------ | ------------------------------------------------ | --------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- |
 | avatarImage  | Image source for avatar                          | `string`                    | no       |                                                                                                                             |
 | avatarValue  | Text value for avatar                            | `string`                    | no       |                                                                                                                             |
 | menuSubtitle | Subtitle shown when menu is open                 | `string`                    | no       |                                                                                                                             |
@@ -88,10 +88,10 @@ The following child elements are projected into `<pxb-user-menu>`:
 
 | Selector           | Description                                                                    | Required | 
 | ------------------ | ------------------------------------------------------------------------------ | -------- | 
-| [pxb-avatar]       | Custom avatar to show, alternative to `avatarImage` or `avatarValue` prop  | no       | 
+| [pxb-avatar]       | Custom avatar to show, alternative to `avatarImage` or `avatarValue` prop      | no       | 
 | [pxb-menu-avatar]  | Custom menu avatar to show                                                     | no       |
-| [pxb-menu-header]       | Custom menu header content                                                     | no       |
-| [pxb-menu-body]         | Custom menu body content                                                       | no       | 
+| [pxb-menu-header]  | Custom menu header content                                                     | no       |
+| [pxb-menu-body]    | Custom menu body content                                                       | no       | 
 
 </div>
 
