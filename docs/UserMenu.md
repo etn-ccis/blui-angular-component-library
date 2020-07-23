@@ -64,7 +64,7 @@ Parent element (`<pxb-user-menu>`) attributes:
 <div style="overflow: auto;">
 
 | @Input       | Description                                      | Type                        | Required | Default                                                                                                                     |
-| ------------ | ------------------------------------------------ | --------------------------- | -------- | -------                                                                                                                     |
+| ------------ | ------------------------------------------------ | --------------------------- | -------- | --------------------------------------------------------------------------------------------------------------------------- |
 | avatarImage  | Image source for avatar                          | `string`                    | no       |                                                                                                                             |
 | avatarValue  | Text value for avatar                            | `string`                    | no       |                                                                                                                             |
 | menuSubtitle | Subtitle shown when menu is open                 | `string`                    | no       |                                                                                                                             |
@@ -88,10 +88,10 @@ The following child elements are projected into `<pxb-user-menu>`:
 
 | Selector           | Description                                                                    | Required | 
 | ------------------ | ------------------------------------------------------------------------------ | -------- | 
-| [pxb-avatar]       | Custom avatar to show, alternative to `avatarImage` or `avatarValue` prop  | no       | 
+| [pxb-avatar]       | Custom avatar to show, alternative to `avatarImage` or `avatarValue` prop      | no       | 
 | [pxb-menu-avatar]  | Custom menu avatar to show                                                     | no       |
-| [pxb-menu-header]       | Custom menu header content                                                     | no       |
-| [pxb-menu-body]         | Custom menu body content                                                       | no       | 
+| [pxb-menu-header]  | Custom menu header content                                                     | no       |
+| [pxb-menu-body]    | Custom menu body content                                                       | no       | 
 
 </div>
 
