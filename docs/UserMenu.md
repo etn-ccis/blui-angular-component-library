@@ -9,7 +9,7 @@ The `<pxb-user-menu>` is an Avatar that opens a Menu when clicked. It is typical
 
 </div>
 
-The Menu can be populated via the `menuGroups` prop, or can be entirely customized by supplying your own content.  See the API section below for more details.
+The Menu header can be constructed by supplying a `menuTitle` and optional `menuSubtitle`, or your own custom content. The Menu body is entirely custom content.  See the API section below for more details.  
 
 ## Usage
 
@@ -63,12 +63,13 @@ Parent element (`<pxb-user-menu>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input       | Description                                      | Type                    | Required | Default |
-| ------------ | ------------------------------------------------ | ----------------------- | -------- | ------- |
-| avatarImage  | Image source for avatar                          | `string`                | no       |         |
-| avatarValue  | Text value for avatar                            | `string`                | no       |         |
-| menuSubtitle | Subtitle shown when menu is open                 | `string`                | no       |         |
-| menuTitle    | Title shown when menu is open                    | `string`                | no       |         |
+| @Input       | Description                                      | Type                        | Required | Default                                                                                                                     |
+| ------------ | ------------------------------------------------ | --------------------------- | -------- | -------                                                                                                                     |
+| avatarImage  | Image source for avatar                          | `string`                    | no       |                                                                                                                             |
+| avatarValue  | Text value for avatar                            | `string`                    | no       |                                                                                                                             |
+| menuSubtitle | Subtitle shown when menu is open                 | `string`                    | no       |                                                                                                                             |
+| menuTitle    | Title shown when menu is open                    | `string`                    | no       |                                                                                                                             |
+| positions    | Where to render the menu relative to the avatar  | `ConnectionPositionPair[]`  | no       | `[new ConnectionPositionPair(` `{ originX: 'start', ` `originY: 'top' } ,` `{ overlayX: 'start', ` ` overlayY: 'top' })] `  |
 
 </div>
 

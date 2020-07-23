@@ -1,29 +1,15 @@
-import { select, text } from '@storybook/addon-knobs';
+import { select } from '@storybook/addon-knobs';
+import { items } from './with-basic-config.stories';
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
 
-const items = [
-    {
-        title: 'Account',
-        icon: 'settings',
-    },
-    {
-        title: 'Contact Us',
-        icon: 'mail',
-    },
-    {
-        title: 'Log Out',
-        icon: 'logout',
-    },
-];
-
-export const withFullConfig = (): any => ({
+export const withMenuPlacement = (): any => ({
     template: `
         <pxb-user-menu 
             [(open)]="open"
-            [avatarValue]="avatarValue" 
-            [menuTitle]="menuTitle" 
-            [menuSubtitle]="menuSubtitle"
-            [positions]="createPositions(originX, originY, overlayX, overlayY)">>
+            avatarValue="AV" 
+            menuTitle="Sample Title" 
+            menuSubtitle="Sample subtitle"
+            [positions]="createPositions(originX, originY, overlayX, overlayY)">
             <mat-nav-list pxb-menu-body [style.paddingTop.px]="0">
                 <pxb-info-list-item *ngFor="let item of items" [dense]="true" (click)="open=false">
                     <mat-icon pxb-icon>{{item.icon}}</mat-icon>
@@ -35,9 +21,6 @@ export const withFullConfig = (): any => ({
     props: {
         open: false,
         items: items,
-        avatarValue: text('avatarValue', 'AV'),
-        menuTitle: text('menuTitle', 'Sample Title'),
-        menuSubtitle: text('menuSubtitle', 'Sample subtitle'),
         originX: select('positions.originX', ['start', 'center', 'end'], 'start'),
         originY: select('positions.originY', ['top', 'center', 'bottom'], 'top'),
         overlayX: select('positions.overlayX', ['start', 'center', 'end'], 'start'),

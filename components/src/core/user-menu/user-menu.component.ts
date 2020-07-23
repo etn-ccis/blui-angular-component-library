@@ -70,13 +70,12 @@ export class UserMenuComponent {
     @Input() menuTitle: string;
     @Input() menuSubtitle: string;
     @Input() open = false;
+    @Input() positions = [
+        new ConnectionPositionPair({ originX: 'start', originY: 'top' }, { overlayX: 'start', overlayY: 'top' }),
+    ];
 
     @Output() openChange: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() backdropClick: EventEmitter<void> = new EventEmitter<void>();
-
-    positions = [
-        new ConnectionPositionPair({ originX: 'start', originY: 'top' }, { overlayX: 'start', overlayY: 'top' }),
-    ];
 
     onClickBackdrop(): void {
         this.open = false;

@@ -14,13 +14,14 @@ import { withA11y } from '@storybook/addon-a11y';
 import { withNonTextAvatar } from './with-non-text-avatar.stories';
 import { MatIconModule } from '@angular/material/icon';
 import { withMenuHeader } from './with-menu-header.stories';
-import { withCustomMenuHeader } from './with-custom-menu-header.stories';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import * as Colors from '@pxblue/colors';
 import { withinToolbar } from './within-a-toolbar.stories';
 import { withFullConfig } from './with-full-config.stories';
+import { withCustomMenu } from './with-custom-menu.stories';
+import { withMenuPlacement } from './with-menu-placement-options.stories';
 
 export const withinToolbarWrapper = () => (storyFn: any): any => {
     const story = storyFn();
@@ -63,7 +64,8 @@ storiesOf(`${COMPONENT_SECTION_NAME}/User Menu`, module)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
     .add('with non-text avatar', withNonTextAvatar)
     .add('with a menu header', withMenuHeader)
-    .add('with custom menu header', withCustomMenuHeader)
+    .add('with menu placement options', withMenuPlacement)
+    .add('with custom menu', withCustomMenu)
     .add('with full config', withFullConfig);
 
 storiesOf(`${COMPONENT_SECTION_NAME}/User Menu`, module)
