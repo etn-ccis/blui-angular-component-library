@@ -1,6 +1,14 @@
 @import '~@angular/cdk/overlay-prebuilt.css';
 $size: 40px;
 
+/* RTL */
+[dir=rtl] {
+    .pxb-user-menu-header-avatar {
+        margin-left: 0;
+        margin-right: 4px;
+    }
+}
+
 .pxb-user-menu-avatar {
     height: $size;
     width: $size;
