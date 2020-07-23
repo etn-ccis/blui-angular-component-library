@@ -1,7 +1,7 @@
 @import '~@angular/cdk/overlay-prebuilt.css';
+$size: 40px;
 
 .pxb-user-menu-avatar {
-    $size: 40px;
     height: $size;
     width: $size;
     line-height: $size;
@@ -26,6 +26,12 @@ mat-card.pxb-user-menu-overlay {
 
 .pxb-user-menu-header-avatar {
     margin-left: 4px;
+}
+
+.pxb-user-menu-text-avatar {
+    margin-bottom: 0;
+    font-weight: 400;
+    line-height: $size;
 }
 
 .pxb-user-menu-header mat-toolbar {
