@@ -4,7 +4,7 @@ import { items } from './with-basic-config.stories';
 export const withMenuHeader = (): any => ({
     template: `
         <pxb-user-menu 
-            [avatarValue]="avatarValue" 
+            avatarValue="AV" 
             [menuTitle]="menuTitle" 
             [menuSubtitle]="menuSubtitle"
             [(open)]="open">
@@ -18,7 +18,6 @@ export const withMenuHeader = (): any => ({
     `,
     props: {
         open: false,
-        avatarValue: text('avatarValue', 'AV'),
         items: items,
         menuTitle: text('menuTitle', 'Sample Title'),
         menuSubtitle: text('menuSubtitle', 'Sample subtitle'),
