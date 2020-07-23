@@ -20,7 +20,6 @@ import { BidiComponent } from '../utility/bidi.component';
     template: `
         <mat-list-item
             class="pxb-info-list-item"
-            [class.pxb-rtl]="isRtl"
             [class.pxb-info-list-item-wrap]="wrapSubtitle || wrapTitle"
             [class.pxb-info-list-item-dense]="dense"
             [class.pxb-info-list-item-status]="statusColor"
