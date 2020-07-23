@@ -53,4 +53,7 @@
             transform-origin: top left;
         }
     }
+    &.pxb-rtl .pxb-hero-primary-wrapper.pxb-hero-svgIcon svg {
+        transform-origin: top right;
+    }
 }

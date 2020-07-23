@@ -20,7 +20,7 @@ import { Directionality } from '@angular/cdk/bidi';
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./hero.component.scss'],
     template: `
-        <div class="pxb-hero">
+        <div class="pxb-hero" [class.pxb-rtl]="isRtl">
             <div
                 class="pxb-hero-primary-wrapper"
                 #primaryContainer
