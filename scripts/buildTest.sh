@@ -53,7 +53,7 @@ if [ ! -f ./core/list-item-tag/list-item-tag.component.d.ts  ]; then echo -e "${
 
 echo "Checking Spacer..."
 echo -ne "  spacer.component: "
-if [ ! -f ./core/utility/spacer.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+if [ ! -f ./core/utility/spacer.module.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
 
 echo -e "\r\n${GREEN}-----------------------------------"
