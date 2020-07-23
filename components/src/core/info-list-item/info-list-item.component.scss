@@ -51,7 +51,7 @@ $denseHeight: 52px;
         }
     }
 
-    .pxb-info-list-item-status .mat-list-item-content {
+    &.pxb-info-list-item-status .mat-list-item-content {
         border-left: solid $statusWidth;
         border-left-color: inherit;
         padding-left: $contentPaddingLeft - $statusWidth;
