@@ -4,7 +4,7 @@
     <showcase-drawer pxb-drawer></showcase-drawer>
     <div pxb-content>
         <mat-toolbar class="toolbar">
-            <button *ngIf="isMobile()" mat-icon-button style="margin-right: 16px" (click)="openDrawer()">
+            <button *ngIf="isMobile()" mat-icon-button class="menu-icon" (click)="openDrawer()">
                 <mat-icon>menu</mat-icon>
             </button>
             <h2>Showcase</h2>
@@ -42,7 +42,7 @@
             </pxb-user-menu>
         </mat-toolbar>
         <div style="padding: 24px">
-            <div style="display: flex; padding: 8px;  justify-content: flex-start">
+            <div class="scorecards">
                 <pxb-score-card
                     class="red-score-card"
                     [headerTitle]="'Substation 3'"
