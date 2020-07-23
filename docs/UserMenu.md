@@ -9,7 +9,7 @@ The `<pxb-user-menu>` is an Avatar that opens a Menu when clicked. It is typical
 
 </div>
 
-The Menu header can be constructed by supplying a `menuTitle` and optional `menuSubtitle`, or your own custom content. The Menu body is entirely custom content.  See the API section below for more details.  
+The Menu header can be constructed by supplying a `menuTitle` and optional `menuSubtitle`, or your own custom content. The Menu body is entirely custom content. See the API section below for more details.  
 
 ## Usage
 
