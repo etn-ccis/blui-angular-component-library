@@ -5,6 +5,15 @@ $contentPaddingLeft: 16px;
 $normalHeight: 72px;
 $denseHeight: 52px;
 
+[dir=rtl] .pxb-info-list-item,
+.mat-list-base .mat-list-item.pxb-info-list-item {
+    &.pxb-info-list-item-status .mat-list-item-content {
+        border-right: solid $statusWidth;
+        border-right-color: inherit;
+        padding-right: $contentPaddingLeft - $statusWidth;
+    }
+}
+
 .pxb-info-list-item,
 .mat-list-base .mat-list-item.pxb-info-list-item {
     width: 100%;
@@ -20,6 +29,7 @@ $denseHeight: 52px;
         // Needed for ng v9
         .mat-list-text {
             padding-left: 0;
+            padding-right: 0;
         }
     }
 
@@ -28,11 +38,7 @@ $denseHeight: 52px;
         border-left-color: inherit;
         padding-left: $contentPaddingLeft - $statusWidth;
     }
-    &.pxb-rtl.pxb-info-list-item-status .mat-list-item-content {
-        border-right: solid $statusWidth;
-        border-right-color: inherit;
-        padding-right: $contentPaddingLeft - $statusWidth;
-    }
+
 
     &.pxb-info-list-item-dense .mat-list-item-content {
         height: $denseHeight;
