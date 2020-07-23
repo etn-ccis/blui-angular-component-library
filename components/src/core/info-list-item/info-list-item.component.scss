@@ -13,6 +13,7 @@ $denseHeight: 52px;
             border-right: solid $statusWidth;
             border-right-color: inherit;
             padding-right: $contentPaddingLeft - $statusWidth;
+            padding-left: $contentPaddingLeft;
             border-left: unset;
         }
         .mat-list-item-content .mat-list-text {
