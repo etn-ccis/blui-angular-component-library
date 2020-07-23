@@ -1,6 +1,7 @@
 import {
     AfterViewInit,
-    ChangeDetectionStrategy, ChangeDetectorRef,
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
     Component,
     ElementRef,
     Input,
@@ -9,8 +10,8 @@ import {
     ViewEncapsulation,
 } from '@angular/core';
 import { requireContent, requireInput } from '../../utils/utils';
-import {BidiComponent} from "../utility/bidi.component";
-import {Directionality} from "@angular/cdk/bidi";
+import { BidiComponent } from '../utility/bidi.component';
+import { Directionality } from '@angular/cdk/bidi';
 
 @Component({
     selector: 'pxb-empty-state',

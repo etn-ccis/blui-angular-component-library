@@ -5,21 +5,21 @@
     white-space: nowrap;
 }
 .menu-icon {
-  margin-right: 16px;
+    margin-right: 16px;
 }
 .rtl .menu-icon {
-  margin-right: 0;
-  margin-left: 16px;
+    margin-right: 0;
+    margin-left: 16px;
 }
 
 .scorecards {
-  display: flex;
-  padding: 8px 8px 0px 8px;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  > * {
-    margin-bottom: 8px;
-  }
+    display: flex;
+    padding: 8px 8px 0px 8px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    > * {
+        margin-bottom: 8px;
+    }
 }
 
 .toolbar {
@@ -66,14 +66,14 @@ pxb-score-card {
     }
 }
 .red-score-card {
-  margin-right: 8px;
+    margin-right: 8px;
     .pxb-score-card .pxb-score-card-header {
         background-color: map-get($pxb-red, 500);
     }
 }
 .rtl .red-score-card {
-  margin-left: 8px;
-  margin-right: 0;
+    margin-left: 8px;
+    margin-right: 0;
 }
 
 .test-background-image mat-toolbar.pxb-drawer-header {
@@ -90,6 +90,6 @@ pxb-score-card {
     margin-right: 8px;
 }
 .rtl .tag-label {
-  margin-right: 0;
-  margin-left: 8px;
+    margin-right: 0;
+    margin-left: 8px;
 }

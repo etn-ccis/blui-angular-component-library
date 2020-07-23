@@ -1,6 +1,9 @@
-<pxb-drawer-layout [variant]="getVariant()" (backdropClick)="closeDrawer()"
-                   [dir]="isRtl ? 'rtl' : 'ltr'"
-                   [class.rtl]="isRtl">
+<pxb-drawer-layout
+    [variant]="getVariant()"
+    (backdropClick)="closeDrawer()"
+    [dir]="isRtl ? 'rtl' : 'ltr'"
+    [class.rtl]="isRtl"
+>
     <showcase-drawer pxb-drawer></showcase-drawer>
     <div pxb-content>
         <mat-toolbar class="toolbar">
@@ -10,10 +13,10 @@
             <h2>Showcase</h2>
             <pxb-spacer></pxb-spacer>
             <button mat-icon-button style="margin: 0px 8px" (click)="toggleTheme()">
-              <mat-icon>invert_colors</mat-icon>
+                <mat-icon>invert_colors</mat-icon>
             </button>
             <button mat-icon-button style="margin: 0px 8px" (click)="toggleDirectionality()">
-              <mat-icon>compare_arrows</mat-icon>
+                <mat-icon>compare_arrows</mat-icon>
             </button>
             <pxb-user-menu
                 style="margin: 0px 8px"
