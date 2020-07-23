@@ -1,8 +1,7 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
-import { Direction, Directionality } from '@angular/cdk/bidi';
-import { Subscription } from 'rxjs';
+import { Directionality } from '@angular/cdk/bidi';
 
 export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
 

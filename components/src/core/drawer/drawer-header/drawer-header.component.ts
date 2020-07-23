@@ -10,9 +10,7 @@ import {
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 import { isEmptyView } from '../../../utils/utils';
-import { Direction, Directionality } from '@angular/cdk/bidi';
-import { Subscription } from 'rxjs';
-import { BidiComponent } from '../../utility/bidi.component';
+import { Directionality } from '@angular/cdk/bidi';
 
 @Component({
     selector: 'pxb-drawer-header',
