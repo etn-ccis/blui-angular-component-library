@@ -47,10 +47,8 @@ export const withCustomMenu = (): any => ({
                         {{item}}
                     </mat-list-item>
                 </mat-nav-list>
-                <div>
-                    <mat-divider></mat-divider>
-                    <img [src]="eatonLogo" class="footer" />
-                </div>
+                <mat-divider></mat-divider>
+                <img [src]="eatonLogo" class="footer" />
             </div>
         </pxb-user-menu> 
     `,

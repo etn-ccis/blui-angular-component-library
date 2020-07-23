@@ -74,10 +74,8 @@ export class UserMenuComponent {
         new ConnectionPositionPair({ originX: 'start', originY: 'top' }, { overlayX: 'start', overlayY: 'top' }),
     ];
 
-
     @Output() openChange: EventEmitter<boolean> = new EventEmitter<boolean>();
     @Output() backdropClick: EventEmitter<void> = new EventEmitter<void>();
-
 
     onClickBackdrop(): void {
         this.open = false;
