@@ -38,7 +38,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['./drawer-nav-item.component.scss'],
     template: `
-        <div class="pxb-drawer-nav-item">
+        <div class="pxb-drawer-nav-item" [class.pxb-rtl]="isRtl">
             <pxb-info-list-item
                 (click)="selectItem()"
                 [dense]="true"

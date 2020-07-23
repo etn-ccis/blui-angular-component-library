@@ -40,8 +40,14 @@ pxb-drawer-nav-item {
         width: calc(100% - 8px);
         left: 0;
         top: 0;
-        border-radius: 0px 24px 24px 0px;
+        border-radius: 0 24px 24px 0;
         opacity: 0.9;
+    }
+    &.pxb-rtl {
+        .pxb-info-list-item-active.round:after,
+        .pxb-info-list-item-active.square:after {
+            border-radius: 24px 0 0 24px;
+        }
     }
 
     .pxb-info-list-item-active.square:after {
