@@ -43,6 +43,18 @@ echo "Checking UserMenu..."
 echo -ne "  user-menu.component: "
 if [ ! -f ./core/user-menu/user-menu.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
+echo "Checking InfoListItem..."
+echo -ne "  info-list-item.component: "
+if [ ! -f ./core/info-list-item/info-list-item.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+
+echo "Checking ListItemTag..."
+echo -ne "  list-item-tag.component: "
+if [ ! -f ./core/list-item-tag/list-item-tag.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+
+echo "Checking Spacer..."
+echo -ne "  spacer.component: "
+if [ ! -f ./core/spacer/spacer.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+
 
 echo -e "\r\n${GREEN}-----------------------------------"
 echo -e "@pxblue/angular-components package successfully created"
