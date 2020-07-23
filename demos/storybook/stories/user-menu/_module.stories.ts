@@ -21,7 +21,7 @@ import * as Colors from '@pxblue/colors';
 import { withinToolbar } from './within-a-toolbar.stories';
 import { withFullConfig } from './with-full-config.stories';
 import { withCustomMenu } from './with-custom-menu.stories';
-import {withMenuPlacement} from "./with-menu-placement-options.stories";
+import { withMenuPlacement } from './with-menu-placement-options.stories';
 
 export const withinToolbarWrapper = () => (storyFn: any): any => {
     const story = storyFn();
