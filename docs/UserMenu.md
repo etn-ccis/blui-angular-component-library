@@ -63,12 +63,13 @@ Parent element (`<pxb-user-menu>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input       | Description                                      | Type                    | Required | Default |
-| ------------ | ------------------------------------------------ | ----------------------- | -------- | ------- |
-| avatarImage  | Image source for avatar                          | `string`                | no       |         |
-| avatarValue  | Text value for avatar                            | `string`                | no       |         |
-| menuSubtitle | Subtitle shown when menu is open                 | `string`                | no       |         |
-| menuTitle    | Title shown when menu is open                    | `string`                | no       |         |
+| @Input       | Description                                      | Type                        | Required | Default                                                                                                                     |
+| ------------ | ------------------------------------------------ | --------------------------- | -------- | -------                                                                                                                     |
+| avatarImage  | Image source for avatar                          | `string`                    | no       |                                                                                                                             |
+| avatarValue  | Text value for avatar                            | `string`                    | no       |                                                                                                                             |
+| menuSubtitle | Subtitle shown when menu is open                 | `string`                    | no       |                                                                                                                             |
+| menuTitle    | Title shown when menu is open                    | `string`                    | no       |                                                                                                                             |
+| positions    | Where to render the menu relative to the avatar  | `ConnectionPositionPair[]`  | no       | `[new ConnectionPositionPair(` `{ originX: 'start', ` `originY: 'top' } ,` `{ overlayX: 'start', ` ` overlayY: 'top' })] `  |
 
 </div>
 
