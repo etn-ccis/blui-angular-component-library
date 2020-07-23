@@ -13,6 +13,7 @@ import {
 import { DrawerService } from '../../service/drawer.service';
 import { StateListener } from '../../state-listener.component';
 import { isEmptyView } from '../../../../utils/utils';
+import { Directionality } from '@angular/cdk/bidi';
 
 export type DrawerNavItem = {
     statusColor?: string;
@@ -112,8 +113,8 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     depth: number;
     id: number;
 
-    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
-        super(drawerService, changeDetectorRef);
+    constructor(dir: Directionality, drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+        super(dir, drawerService, changeDetectorRef);
         this.id = drawerService.createNavItemID();
     }
 

@@ -1,12 +1,20 @@
 import { ChangeDetectorRef, OnDestroy, OnInit } from '@angular/core';
 import { DrawerService } from './service/drawer.service';
 import { Subscription } from 'rxjs';
+import { BidiComponent } from '../utility/bidi.component';
+import { Directionality } from '@angular/cdk/bidi';
 
-export class StateListener implements OnInit, OnDestroy {
+export class StateListener extends BidiComponent implements OnInit, OnDestroy {
     drawerOpen: boolean;
     drawerOpenListener: Subscription;
 
-    constructor(protected drawerService: DrawerService, protected changeDetector: ChangeDetectorRef) {}
+    constructor(
+        protected dir: Directionality,
+        protected drawerService: DrawerService,
+        protected changeDetector: ChangeDetectorRef
+    ) {
+        super(dir, changeDetector);
+    }
 
     public ngOnInit(): void {
         this.drawerOpen = this.drawerService.isDrawerOpen();
@@ -14,10 +22,7 @@ export class StateListener implements OnInit, OnDestroy {
     }
 
     public ngOnDestroy(): void {
-        this.unsubscribeAll();
-    }
-
-    unsubscribeAll(): void {
+        this.unsubscribeDir();
         if (this.drawerOpenListener) {
             this.drawerOpenListener.unsubscribe();
         }

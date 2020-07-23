@@ -10,8 +10,9 @@ import {
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 import { isEmptyView } from '../../../utils/utils';
-import {Direction, Directionality} from "@angular/cdk/bidi";
-import {Subscription} from "rxjs";
+import { Direction, Directionality } from '@angular/cdk/bidi';
+import { Subscription } from 'rxjs';
+import { BidiComponent } from '../../utility/bidi.component';
 
 @Component({
     selector: 'pxb-drawer-header',
@@ -42,22 +43,7 @@ export class DrawerHeaderComponent extends StateListener {
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 
-    isRtl: boolean;
-    dirChangeSubscription = Subscription.EMPTY;
-
     constructor(dir: Directionality, drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
-        super(drawerService, changeDetectorRef);
-        this.isRtl = dir.value === 'rtl';
-        this.dirChangeSubscription = dir.change.subscribe((direction: Direction) => {
-            this.isRtl = direction === 'rtl';
-            this.changeDetector.detectChanges();
-        });
-    }
-
-    ngOnDestroy(): void {
-        this.unsubscribeAll();
-        if (this.dirChangeSubscription) {
-            this.dirChangeSubscription.unsubscribe();
-        }
+        super(dir, drawerService, changeDetectorRef);
     }
 }

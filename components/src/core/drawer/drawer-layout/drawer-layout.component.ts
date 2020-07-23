@@ -1,8 +1,8 @@
 import { ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
-import {Direction, Directionality} from "@angular/cdk/bidi";
-import {Subscription} from "rxjs";
+import { Direction, Directionality } from '@angular/cdk/bidi';
+import { Subscription } from 'rxjs';
 
 export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
 
@@ -39,16 +39,9 @@ export class DrawerLayoutComponent extends StateListener {
     @Output() backdropClick: EventEmitter<void> = new EventEmitter();
 
     transition = true;
-    isRtl: boolean;
-    dirChangeSubscription = Subscription.EMPTY;
 
     constructor(dir: Directionality, drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
-        super(drawerService, changeDetectorRef);
-        this.isRtl = dir.value === 'rtl';
-        this.dirChangeSubscription = dir.change.subscribe((direction: Direction) => {
-            this.isRtl = direction === 'rtl';
-            this.changeDetector.detectChanges();
-        });
+        super(dir, drawerService, changeDetectorRef);
     }
 
     ngOnChanges(): void {
@@ -61,13 +54,6 @@ export class DrawerLayoutComponent extends StateListener {
             this.drawerService.setDrawerOpen(true);
         }
         this.changeDetector.detectChanges();
-    }
-
-    ngOnDestroy(): void {
-        this.unsubscribeAll();
-        if (this.dirChangeSubscription) {
-            this.dirChangeSubscription.unsubscribe();
-        }
     }
 
     getMode(): string {

@@ -1,15 +1,17 @@
 import {
     AfterViewInit,
-    ChangeDetectionStrategy, ChangeDetectorRef,
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
     Component,
     ElementRef,
-    Input, OnDestroy,
+    Input,
+    OnDestroy,
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
 import { requireContent, isEmptyView } from '../../utils/utils';
-import {Direction, Directionality} from "@angular/cdk/bidi";
-import {Subscription} from "rxjs";
+import { Directionality } from '@angular/cdk/bidi';
+import { BidiComponent } from '../utility/bidi.component';
 
 @Component({
     selector: 'pxb-info-list-item',
@@ -17,12 +19,13 @@ import {Subscription} from "rxjs";
     encapsulation: ViewEncapsulation.None,
     template: `
         <mat-list-item
-            [class.pxb-rtl]="isRtl"
             class="pxb-info-list-item"
+            [class.pxb-rtl]="isRtl"
             [class.pxb-info-list-item-wrap]="wrapSubtitle || wrapTitle"
             [class.pxb-info-list-item-dense]="dense"
             [class.pxb-info-list-item-status]="statusColor"
-            [ngStyle]="getBorderStyle()">
+            [ngStyle]="getBorderStyle()"
+        >
             <div
                 mat-list-icon
                 class="pxb-info-list-item-icon-wrapper"
@@ -73,7 +76,7 @@ import {Subscription} from "rxjs";
     `,
     styleUrls: ['./info-list-item.component.scss'],
 })
-export class InfoListItemComponent implements AfterViewInit, OnDestroy {
+export class InfoListItemComponent extends BidiComponent implements AfterViewInit, OnDestroy {
     @Input() statusColor: string;
     @Input() chevron = false;
     @Input() dense = false;
@@ -87,16 +90,8 @@ export class InfoListItemComponent implements AfterViewInit, OnDestroy {
     @ViewChild('right', { static: false }) rightEl: ElementRef;
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 
-    isRtl: boolean;
-    dirChangeSubscription = Subscription.EMPTY;
-
     constructor(dir: Directionality, changeDetector: ChangeDetectorRef) {
-
-        this.isRtl = dir.value === 'rtl';
-        this.dirChangeSubscription = dir.change.subscribe((direction: Direction) => {
-            this.isRtl = direction === 'rtl';
-            changeDetector.detectChanges();
-        });
+        super(dir, changeDetector);
     }
 
     ngAfterViewInit(): void {
@@ -104,18 +99,8 @@ export class InfoListItemComponent implements AfterViewInit, OnDestroy {
         requireContent([required], this);
     }
 
-    ngOnDestroy(): void {
-        if (this.dirChangeSubscription) {
-            this.dirChangeSubscription.unsubscribe();
-        }
-    }
-
     getBorderStyle(): any {
-        if (this.isRtl) {
-            return { 'border-right-color': this.statusColor };
-        } else {
-            return { 'border-left-color': this.statusColor };
-        }
+        return this.isRtl ? { 'border-right-color': this.statusColor } : { 'border-left-color': this.statusColor };
     }
 }
 

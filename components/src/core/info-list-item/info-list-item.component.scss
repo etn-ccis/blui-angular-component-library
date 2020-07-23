@@ -97,6 +97,12 @@ $denseHeight: 52px;
             border-radius: 50%;
         }
     }
+    &.pxb-rtl .pxb-info-list-item-icon-wrapper > * {
+        transform: scaleX(-1);
+        -moz-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        -ms-transform: scaleX(-1);
+    }
 
     .pxb-info-list-item-left-content-wrapper {
         order: 2;
@@ -135,7 +141,6 @@ $denseHeight: 52px;
     .pxb-rtl .pxb-info-list-item-right-content {
         margin-right: 16px;
     }
-
 }
 
 mat-divider {
