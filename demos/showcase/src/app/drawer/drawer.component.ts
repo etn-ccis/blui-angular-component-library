@@ -44,7 +44,6 @@ import { StateService } from '../services/state.service';
             </pxb-drawer-body>
 
             <pxb-drawer-footer>
-                <mat-divider></mat-divider>
                 <img src="../assets/EatonLogo.svg" width="170" style="align-self: center; padding: 16px" />
             </pxb-drawer-footer>
         </pxb-drawer>

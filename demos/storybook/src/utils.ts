@@ -5,6 +5,29 @@ import 'typeface-open-sans';
 import { BrowserModule } from '@angular/platform-browser';
 import { COMPONENT_SECTION_NAME, README_STORY_NAME } from './constants';
 import * as Colors from '@pxblue/colors';
+import addons from '@storybook/addons';
+import { Direction_MODE_EVENT_NAME } from 'storybook-rtl-addon';
+
+// There is an issue in the storybook-rtl-addon where it currently resets the direction back `ltr` when switching between stories.
+// This variable is used to retain the current direction change when swapping between stories.
+// Unfortunately the icon for the directionality tool still resets on story change.
+let ignoreDirectionChange = false;
+
+const setDirection = (dir: string) => {
+    const body = document.querySelector('body') as HTMLElement;
+    if (body) {
+        body.setAttribute('dir', dir);
+    }
+}
+
+// Listen for RTL/LTR events.
+const channel = addons.getChannel();
+channel.on(Direction_MODE_EVENT_NAME, (dir) => {
+    if (!ignoreDirectionChange) {
+        setDirection(dir);
+    }
+    ignoreDirectionChange = false;
+});
 
 let banner: HTMLElement;
 let prevUrl = '';
@@ -128,6 +151,10 @@ export class StoryComponent {
         window.onstorage = (): void => {
             this.setTheme();
         };
+    }
+    
+    ngOnDestroy(): void {
+        ignoreDirectionChange = true;
     }
 
     setTheme(): void {
