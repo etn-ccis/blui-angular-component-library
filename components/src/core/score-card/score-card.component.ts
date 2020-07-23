@@ -8,7 +8,7 @@ import { Directionality } from '@angular/cdk/bidi';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <mat-card class="pxb-score-card" [class.pxb-rtl]="isRtl">
+        <mat-card class="pxb-score-card">
             <div class="pxb-score-card-header">
                 <div class="pxb-score-card-header-background"></div>
                 <div class="pxb-score-card-header-wrapper">
@@ -38,15 +38,11 @@ import { Directionality } from '@angular/cdk/bidi';
     `,
     styleUrls: ['./score-card.component.scss'],
 })
-export class ScoreCardComponent extends BidiComponent {
+export class ScoreCardComponent {
     @Input() headerTitle: string;
     @Input() headerSubtitle: string;
     @Input() headerInfo: string;
     @Input() badgeOffset = 0;
-
-    constructor(dir: Directionality, changeDetectorRef: ChangeDetectorRef) {
-        super(dir, changeDetectorRef);
-    }
 
     ngOnChanges(): void {
         requireInput<ScoreCardComponent>(['headerTitle'], this);
