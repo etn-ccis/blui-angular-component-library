@@ -17,7 +17,6 @@
     .pxb-channel-value-icon-wrapper {
         font-size: inherit;
         display: block;
-        margin-right: 4px;
         &:empty {
             display: none;
         }
@@ -28,5 +27,11 @@
             font-size: 100%;
             line-height: 1.2;
         }
+    }
+    &:not(.pxb-rtl) .pxb-channel-value-icon-wrapper {
+        margin-right: 4px;
+    }
+    &.pxb-rtl .pxb-channel-value-icon-wrapper {
+        margin-left: 4px;
     }
 }
