@@ -2,15 +2,11 @@ import { ChangeDetectorRef, OnDestroy, OnInit } from '@angular/core';
 import { DrawerService } from './service/drawer.service';
 import { Subscription } from 'rxjs';
 
-export class StateListener  implements OnInit, OnDestroy {
+export class StateListener implements OnInit, OnDestroy {
     drawerOpen: boolean;
     drawerOpenListener: Subscription;
 
-    constructor(
-        protected drawerService: DrawerService,
-        protected changeDetector: ChangeDetectorRef
-    ) {
-    }
+    constructor(protected drawerService: DrawerService, protected changeDetector: ChangeDetectorRef) {}
 
     public ngOnInit(): void {
         this.drawerOpen = this.drawerService.isDrawerOpen();

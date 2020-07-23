@@ -13,9 +13,10 @@
 }
 
 .rtl {
-  button mat-icon, .scorecard-chevron {
-    transform: scaleX(-1);
-  }
+    button mat-icon,
+    .scorecard-chevron {
+        transform: scaleX(-1);
+    }
 }
 
 .scorecards {

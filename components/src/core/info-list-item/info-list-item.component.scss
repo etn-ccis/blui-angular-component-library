@@ -6,7 +6,7 @@ $normalHeight: 72px;
 $denseHeight: 52px;
 
 /* RTL */
-[dir=rtl] {
+[dir='rtl'] {
     .pxb-info-list-item,
     .mat-list-base .mat-list-item.pxb-info-list-item {
         &.pxb-info-list-item-status .mat-list-item-content {
@@ -57,7 +57,6 @@ $denseHeight: 52px;
         border-left-color: inherit;
         padding-left: $contentPaddingLeft - $statusWidth;
     }
-
 
     &.pxb-info-list-item-dense .mat-list-item-content {
         height: $denseHeight;

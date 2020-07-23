@@ -10,7 +10,7 @@ import {
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
-import {requireInput} from '../../utils/utils';
+import { requireInput } from '../../utils/utils';
 
 @Component({
     selector: 'pxb-hero',
@@ -55,8 +55,7 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
     iconString: string;
     hasMatSvgIcon: boolean;
 
-    constructor(private readonly _ref: ChangeDetectorRef) {
-    }
+    constructor(private readonly _ref: ChangeDetectorRef) {}
 
     ngOnChanges(): void {
         requireInput<HeroComponent>(['label'], this);

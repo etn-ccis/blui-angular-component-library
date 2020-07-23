@@ -1,7 +1,5 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 import { requireInput } from '../../utils/utils';
-import { BidiComponent } from '../utility/bidi.component';
-import { Directionality } from '@angular/cdk/bidi';
 
 @Component({
     selector: 'pxb-score-card',

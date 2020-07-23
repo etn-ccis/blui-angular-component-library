@@ -1,8 +1,7 @@
 @import '../utility/utility';
 
-
 /* RTL */
-[dir=rtl] .pxb-empty-state .pxb-empty-state-empty-icon-wrapper > * {
+[dir='rtl'] .pxb-empty-state .pxb-empty-state-empty-icon-wrapper > * {
     @include invert();
 }
 

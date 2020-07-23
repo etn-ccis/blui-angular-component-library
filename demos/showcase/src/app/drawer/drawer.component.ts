@@ -61,10 +61,7 @@ export class DrawerComponent {
 
     nestedItems2: DrawerNavItem[] = [{ title: 'Sub 3' }, { title: 'Sub 4' }];
 
-    nestedItems3: DrawerNavItem[] = [
-        { title: 'Sub 5' },
-        { title: 'Sub 6' },
-    ];
+    nestedItems3: DrawerNavItem[] = [{ title: 'Sub 5' }, { title: 'Sub 6' }];
 
     navGroup1: DrawerNavItem[] = [
         {
