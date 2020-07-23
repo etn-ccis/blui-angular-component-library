@@ -46,6 +46,7 @@ pxb-drawer-nav-item {
     &.pxb-rtl {
         .pxb-info-list-item-active.round:after,
         .pxb-info-list-item-active.square:after {
+            right: 0;
             border-radius: 24px 0 0 24px;
         }
     }
