@@ -1,3 +1,5 @@
+@import '../utility/utility';
+
 .pxb-empty-state {
     height: 100%;
     display: flex;
@@ -28,5 +30,8 @@
             width: 100%;
             text-align: center;
         }
+    }
+    &.pxb-rtl .pxb-empty-state-empty-icon-wrapper > * {
+        @include invert();
     }
 }

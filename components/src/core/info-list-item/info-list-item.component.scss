@@ -1,3 +1,5 @@
+@import '../utility/utility';
+
 $statusWidth: 6px;
 $contentPaddingLeft: 16px;
 $normalHeight: 72px;
@@ -98,10 +100,7 @@ $denseHeight: 52px;
         }
     }
     &.pxb-rtl .pxb-info-list-item-icon-wrapper > * {
-        transform: scaleX(-1);
-        -moz-transform: scaleX(-1);
-        -webkit-transform: scaleX(-1);
-        -ms-transform: scaleX(-1);
+        @include invert();
     }
 
     .pxb-info-list-item-left-content-wrapper {
