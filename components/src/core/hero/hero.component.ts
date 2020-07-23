@@ -1,18 +1,16 @@
 import {
     AfterContentChecked,
     AfterViewInit,
+    ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
     ElementRef,
     Input,
     OnChanges,
     ViewChild,
-    ChangeDetectionStrategy,
     ViewEncapsulation,
 } from '@angular/core';
-import { requireInput } from '../../utils/utils';
-import { BidiComponent } from '../utility/bidi.component';
-import { Directionality } from '@angular/cdk/bidi';
+import {requireInput} from '../../utils/utils';
 
 @Component({
     selector: 'pxb-hero',
@@ -20,7 +18,7 @@ import { Directionality } from '@angular/cdk/bidi';
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./hero.component.scss'],
     template: `
-        <div class="pxb-hero" [class.pxb-rtl]="isRtl">
+        <div class="pxb-hero">
             <div
                 class="pxb-hero-primary-wrapper"
                 #primaryContainer
@@ -43,7 +41,7 @@ import { Directionality } from '@angular/cdk/bidi';
         </div>
     `,
 })
-export class HeroComponent extends BidiComponent implements OnChanges, AfterViewInit, AfterContentChecked {
+export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChecked {
     @Input() color: string;
     @Input() label: string;
     @Input() value: string;
@@ -57,8 +55,7 @@ export class HeroComponent extends BidiComponent implements OnChanges, AfterView
     iconString: string;
     hasMatSvgIcon: boolean;
 
-    constructor(dir: Directionality, private readonly _ref: ChangeDetectorRef) {
-        super(dir, _ref);
+    constructor(private readonly _ref: ChangeDetectorRef) {
     }
 
     ngOnChanges(): void {

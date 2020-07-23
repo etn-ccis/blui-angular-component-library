@@ -1,3 +1,11 @@
+
+/* RTL */
+[dir=rtl] .pxb-hero {
+    .pxb-hero-primary-wrapper.pxb-hero-svgIcon svg {
+        transform-origin: top right;
+    }
+}
+
 .pxb-hero {
     display: flex;
     flex: 1 1 0px;
@@ -52,8 +60,5 @@
         &.pxb-hero-svgIcon svg {
             transform-origin: top left;
         }
-    }
-    &.pxb-rtl .pxb-hero-primary-wrapper.pxb-hero-svgIcon svg {
-        transform-origin: top right;
     }
 }

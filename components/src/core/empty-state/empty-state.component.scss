@@ -2,10 +2,8 @@
 
 
 /* RTL */
-[dir=rtl] {
-    .pxb-empty-state .pxb-empty-state-empty-icon-wrapper > * {
-        @include invert();
-    }
+[dir=rtl] .pxb-empty-state .pxb-empty-state-empty-icon-wrapper > * {
+    @include invert();
 }
 
 .pxb-empty-state {
