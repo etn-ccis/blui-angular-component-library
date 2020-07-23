@@ -1,7 +1,10 @@
+@import '../utility/utility';
+
 /* RTL */
 [dir='rtl'] .pxb-channel-value .pxb-channel-value-icon-wrapper {
     margin-right: 0;
     margin-left: 4px;
+    @include invert();
 }
 
 .pxb-channel-value {
