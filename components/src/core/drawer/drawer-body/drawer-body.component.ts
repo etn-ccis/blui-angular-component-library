@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
 import { StateListener } from '../state-listener.component';
 import { DrawerService } from '../service/drawer.service';
-import { Directionality } from '@angular/cdk/bidi';
 
 @Component({
     selector: 'pxb-drawer-body',
@@ -26,7 +25,7 @@ import { Directionality } from '@angular/cdk/bidi';
     ],
 })
 export class DrawerBodyComponent extends StateListener {
-    constructor(dir: Directionality, drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
-        super(dir, drawerService, changeDetectorRef);
+    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+        super(drawerService, changeDetectorRef);
     }
 }

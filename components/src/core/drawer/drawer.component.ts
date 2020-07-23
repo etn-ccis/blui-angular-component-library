@@ -10,7 +10,6 @@ import {
 import { DrawerService } from './service/drawer.service';
 import { StateListener } from './state-listener.component';
 import { Subscription } from 'rxjs';
-import { Directionality } from '@angular/cdk/bidi';
 
 @Component({
     selector: 'pxb-drawer',
@@ -36,8 +35,8 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
     tempOpen = false; // Is the drawer being hovered and needs opened?
     drawerSelectionListener: Subscription;
 
-    constructor(dir: Directionality, drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
-        super(dir, drawerService, changeDetectorRef);
+    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+        super(drawerService, changeDetectorRef);
     }
 
     ngOnInit(): void {

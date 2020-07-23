@@ -9,7 +9,6 @@ import {
 import { DrawerNavItem, DrawerNavItemComponent } from '../nav-item/drawer-nav-item.component';
 import { DrawerService } from '../../service/drawer.service';
 import { StateListener } from '../../state-listener.component';
-import { Directionality } from '@angular/cdk/bidi';
 
 @Component({
     selector: 'pxb-drawer-nav-group',
@@ -58,8 +57,8 @@ export class DrawerNavGroupComponent extends StateListener implements Omit<Drawe
     @Input() divider = false;
     @ContentChildren(DrawerNavItemComponent) navItems;
 
-    constructor(dir: Directionality, drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
-        super(dir, drawerService, changeDetectorRef);
+    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+        super(drawerService, changeDetectorRef);
     }
 
     ngAfterContentInit(): void {

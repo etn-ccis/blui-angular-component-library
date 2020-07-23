@@ -10,14 +10,13 @@ import {
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 import { isEmptyView } from '../../../utils/utils';
-import { Directionality } from '@angular/cdk/bidi';
 
 @Component({
     selector: 'pxb-drawer-header',
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <mat-toolbar class="pxb-drawer-header" [class.pxb-rtl]="isRtl">
+        <mat-toolbar class="pxb-drawer-header">
             <div class="pxb-drawer-header-background"></div>
             <div class="pxb-drawer-header-content">
                 <div #icon class="pxb-drawer-header-icon-wrapper" [class.pxb-drawer-header-no-icon]="isEmpty(iconEl)">
@@ -41,7 +40,7 @@ export class DrawerHeaderComponent extends StateListener {
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 
-    constructor(dir: Directionality, drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
-        super(dir, drawerService, changeDetectorRef);
+    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+        super(drawerService, changeDetectorRef);
     }
 }

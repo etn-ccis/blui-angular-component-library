@@ -1,7 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, ViewEncapsulation } from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
-import { Directionality } from '@angular/cdk/bidi';
 
 @Component({
     selector: 'pxb-drawer-footer',
@@ -18,7 +17,7 @@ import { Directionality } from '@angular/cdk/bidi';
 export class DrawerFooterComponent extends StateListener {
     @Input() divider = true;
 
-    constructor(dir: Directionality, drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
-        super(dir, drawerService, changeDetectorRef);
+    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+        super(drawerService, changeDetectorRef);
     }
 }

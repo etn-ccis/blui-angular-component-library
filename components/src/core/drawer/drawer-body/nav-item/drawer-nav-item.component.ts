@@ -13,7 +13,6 @@ import {
 import { DrawerService } from '../../service/drawer.service';
 import { StateListener } from '../../state-listener.component';
 import { isEmptyView } from '../../../../utils/utils';
-import { Directionality } from '@angular/cdk/bidi';
 
 export type DrawerNavItem = {
     statusColor?: string;
@@ -38,7 +37,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
     changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['./drawer-nav-item.component.scss'],
     template: `
-        <div class="pxb-drawer-nav-item" [class.pxb-rtl]="isRtl">
+        <div class="pxb-drawer-nav-item">
             <pxb-info-list-item
                 (click)="selectItem()"
                 [dense]="true"
@@ -113,8 +112,8 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     depth: number;
     id: number;
 
-    constructor(dir: Directionality, drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
-        super(dir, drawerService, changeDetectorRef);
+    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+        super(drawerService, changeDetectorRef);
         this.id = drawerService.createNavItemID();
     }
 
