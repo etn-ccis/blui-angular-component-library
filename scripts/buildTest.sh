@@ -39,6 +39,10 @@ echo "Checking Drawer..."
 echo -ne "  drawer.component: "
 if [ ! -f ./core/drawer/drawer.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
+echo "Checking UserMenu..."
+echo -ne "  user-menu.component: "
+if [ ! -f ./core/user-menu/user-menu.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+
 
 echo -e "\r\n${GREEN}-----------------------------------"
 echo -e "@pxblue/angular-components package successfully created"
