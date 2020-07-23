@@ -23,9 +23,7 @@ describe('SelectionToolbarComponent', () => {
     });
 
     it('should enforce class naming conventions', () => {
-        const classList = [
-            '.pxb-selection-header',
-        ];
+        const classList = ['.pxb-selection-toolbar'];
         for (const className of classList) {
             count(fixture, className);
         }

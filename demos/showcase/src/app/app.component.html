@@ -7,7 +7,60 @@
             </button>
             <h2>Showcase</h2>
         </mat-toolbar>
-        <pxb-selection-toolbar></pxb-selection-toolbar>
+        <pxb-selection-toolbar title="Test Title" [subtitle]="selectionToolbarSubtitle">
+            <ng-container pxb-menu>
+                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Test Item 1')">
+                    <span>Test Item 1</span>
+                </button>
+                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Test Item 2')">
+                    <span>Test Item 2</span>
+                </button>
+                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Test Item 3')">
+                    <span>Test Item 3</span>
+                </button>
+            </ng-container>
+            <button mat-icon-button pxb-right-content>
+                <mat-icon>menu</mat-icon>
+            </button>
+        </pxb-selection-toolbar>
+        <pxb-selection-toolbar title="Test Title" [subtitle]="selectionToolbarSubtitle">
+            <mat-icon pxb-icon>menu</mat-icon>
+            <ng-container pxb-menu>
+                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Test Item 1')">
+                    <span>Test Item 1</span>
+                </button>
+                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Test Item 2')">
+                    <span>Test Item 2</span>
+                </button>
+                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Test Item 3')">
+                    <span>Test Item 3</span>
+                </button>
+            </ng-container>
+            <div pxb-right-content>
+                <button mat-icon-button>
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <button mat-icon-button>
+                    <mat-icon>home</mat-icon>
+                </button>
+            </div>
+        </pxb-selection-toolbar>
+        <pxb-selection-toolbar title="Test Title" [subtitle]="selectionToolbarSubtitle">
+            <button mat-icon-button pxb-icon>
+                <mat-icon>menu</mat-icon>
+            </button>
+            <ng-container pxb-menu>
+                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Test Item 1')">
+                    <span>Test Item 1</span>
+                </button>
+                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Test Item 2')">
+                    <span>Test Item 2</span>
+                </button>
+                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Test Item 3')">
+                    <span>Test Item 3</span>
+                </button>
+            </ng-container>
+        </pxb-selection-toolbar>
         <div style="padding: 24px">
             <div style="display: flex; padding: 8px;  justify-content: flex-start">
                 <pxb-score-card
@@ -36,11 +89,8 @@
                             <mat-icon svgIcon="px-icons:temp" pxb-primary></mat-icon>
                         </pxb-hero>
                         <pxb-hero [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="36">
-                            <mat-icon
-                                svgIcon="px-icons:moisture"
-                                pxb-primary
-                                [style.color]="colors.blue[300]"
-                            ></mat-icon>
+                            <mat-icon svgIcon="px-icons:moisture" pxb-primary [style.color]="colors.blue[300]">
+                            </mat-icon>
                         </pxb-hero>
                     </pxb-hero-banner>
                     <pxb-info-list-item hidePadding="true" dense="true" pxb-action-row>
@@ -100,11 +150,8 @@
                             style="cursor: pointer"
                             [iconSize]="36"
                         >
-                            <mat-icon
-                                svgIcon="px-icons:grade_a"
-                                pxb-primary
-                                [style.color]="colors.green[500]"
-                            ></mat-icon>
+                            <mat-icon svgIcon="px-icons:grade_a" pxb-primary [style.color]="colors.green[500]">
+                            </mat-icon>
                         </pxb-hero>
 
                         <pxb-hero label="Load">
@@ -121,12 +168,8 @@
                         </pxb-hero>
 
                         <pxb-hero label="Battery" value="Full">
-                            <battery-progress
-                                class="progress-icon"
-                                percent="90"
-                                size="36"
-                                pxb-primary
-                            ></battery-progress>
+                            <battery-progress class="progress-icon" percent="90" size="36" pxb-primary>
+                            </battery-progress>
                         </pxb-hero>
                     </pxb-hero-banner>
                 </mat-list>

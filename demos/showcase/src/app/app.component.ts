@@ -16,6 +16,7 @@ const iconSet = require('@pxblue/icons-svg/icons.svg');
 export class AppComponent {
     colors: Record<string, any>;
     variant: DrawerLayoutVariantType = 'persistent';
+    selectionToolbarSubtitle: string = 'Test Subtitle';
 
     constructor(
         private readonly _stateService: StateService,
@@ -56,5 +57,9 @@ export class AppComponent {
 
     openDrawer(): void {
         this._stateService.setDrawerOpen(true);
+    }
+
+    updateSelectionToolbarSubtitle(string: string): void {
+        this.selectionToolbarSubtitle = string;
     }
 }

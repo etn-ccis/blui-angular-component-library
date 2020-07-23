@@ -9,4 +9,5 @@ We currently have the following components available for Angular applications:
 -   [Info List Item](https://github.com/pxblue/angular-component-library/blob/dev/docs/InfoListItem.md)
 -   [List Item Tag](https://github.com/pxblue/angular-component-library/blob/dev/docs/ListItemTag.md)
 -   [Score Card](https://github.com/pxblue/angular-component-library/blob/dev/docs/ScoreCard.md)
+-   [Selection Toolbar](https://github.com/pxblue/angular-component-library/blob/dev/docs/SelectionToolbar.md)
 -   [Spacer](https://github.com/pxblue/angular-component-library/blob/dev/docs/Spacer.md)
