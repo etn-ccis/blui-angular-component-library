@@ -18,7 +18,7 @@ const setDirection = (dir: string) => {
     if (body) {
         body.setAttribute('dir', dir);
     }
-}
+};
 
 // Listen for RTL/LTR events.
 const channel = addons.getChannel();
@@ -152,7 +152,7 @@ export class StoryComponent {
             this.setTheme();
         };
     }
-    
+
     ngOnDestroy(): void {
         ignoreDirectionChange = true;
     }
