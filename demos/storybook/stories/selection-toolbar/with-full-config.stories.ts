@@ -27,8 +27,8 @@ export const withFullConfig = (): any => ({
        </pxb-selection-toolbar>
     `,
     props: {
-       title: text('title', 'Title'),
-       subtitle: text('subtitle', 'Subtitle'),
-       showIcon: boolean('show icon', true)
+        title: text('title', 'Title'),
+        subtitle: text('subtitle', 'Subtitle'),
+        showIcon: boolean('show icon', true),
     },
 });

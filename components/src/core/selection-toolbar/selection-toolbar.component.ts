@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input, ViewChild, ElementRef } from '@angular/core';
 import { isEmptyView } from '../../utils/utils';
+import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
     selector: 'pxb-selection-toolbar',
@@ -18,11 +19,12 @@ import { isEmptyView } from '../../utils/utils';
                 <div class="pxb-selection-toolbar-title">{{ title }}</div>
                 <div
                     *ngIf="subtitle"
-                    class="pxb-selection-toolbar-subtitle mat-subheading-2"
+                    class="pxb-selection-toolbar-subtitle-wrapper mat-subheading-2"
                     [matMenuTriggerFor]="selectionToolbarMenu"
+                    #menuTrigger="matMenuTrigger"
                     style="cursor: pointer;"
                 >
-                    {{ subtitle }}
+                    <span class="pxb-selection-toolbar-subtitle">{{ subtitle }}</span>
                     <mat-icon>arrow_drop_down</mat-icon>
                 </div>
             </div>
@@ -41,6 +43,7 @@ export class SelectionToolbarComponent {
     @Input() title: string;
     @Input() subtitle: string;
     @ViewChild('icon', { static: true }) iconEl: ElementRef;
+    @ViewChild('menuTrigger', { static: true }) menuTrigger: MatMenuTrigger;
 
     isIconEmpty = (el: ElementRef): boolean => isEmptyView(el);
 }
