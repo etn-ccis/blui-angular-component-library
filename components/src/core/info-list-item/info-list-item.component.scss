@@ -14,7 +14,6 @@ $denseHeight: 52px;
             border-right-color: inherit;
             padding-right: $contentPaddingLeft - $statusWidth;
             border-left: unset;
-            padding-left: unset;
         }
         .mat-list-item-content .mat-list-text {
             padding-right: 0;
@@ -26,7 +25,7 @@ $denseHeight: 52px;
             margin-left: 16px;
             margin-right: 0;
         }
-        .pxb-rtl .pxb-info-list-item-right-content {
+        .pxb-info-list-item-right-content {
             margin-right: 16px;
             margin-left: 0;
         }
@@ -147,13 +146,11 @@ $denseHeight: 52px;
     .pxb-info-list-item-right-content {
         order: 5;
         white-space: nowrap;
+        margin-left: 16px;
         .pxb-info-list-item-right-content-wrapper > * {
             display: flex;
             align-items: center;
         }
-    }
-    .pxb-info-list-item-right-content {
-        margin-left: 16px;
     }
 }
 
