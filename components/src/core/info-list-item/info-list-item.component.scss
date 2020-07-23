@@ -5,12 +5,31 @@ $contentPaddingLeft: 16px;
 $normalHeight: 72px;
 $denseHeight: 52px;
 
-[dir=rtl] .pxb-info-list-item,
-.mat-list-base .mat-list-item.pxb-info-list-item {
-    &.pxb-info-list-item-status .mat-list-item-content {
-        border-right: solid $statusWidth;
-        border-right-color: inherit;
-        padding-right: $contentPaddingLeft - $statusWidth;
+/* RTL */
+[dir=rtl] {
+    .pxb-info-list-item,
+    .mat-list-base .mat-list-item.pxb-info-list-item {
+        &.pxb-info-list-item-status .mat-list-item-content {
+            border-right: solid $statusWidth;
+            border-right-color: inherit;
+            padding-right: $contentPaddingLeft - $statusWidth;
+            border-left: unset;
+            padding-left: unset;
+        }
+        .mat-list-item-content .mat-list-text {
+            padding-right: 0;
+        }
+        .pxb-info-list-item-icon-wrapper > * {
+            @include invert();
+        }
+        .pxb-info-list-item-left-content-wrapper > * {
+            margin-left: 16px;
+            margin-right: 0;
+        }
+        .pxb-rtl .pxb-info-list-item-right-content {
+            margin-right: 16px;
+            margin-left: 0;
+        }
     }
 }
 
@@ -33,7 +52,7 @@ $denseHeight: 52px;
         }
     }
 
-    &:not(.pxb-rtl).pxb-info-list-item-status .mat-list-item-content {
+    .pxb-info-list-item-status .mat-list-item-content {
         border-left: solid $statusWidth;
         border-left-color: inherit;
         padding-left: $contentPaddingLeft - $statusWidth;
@@ -105,9 +124,6 @@ $denseHeight: 52px;
             border-radius: 50%;
         }
     }
-    &.pxb-rtl .pxb-info-list-item-icon-wrapper > * {
-        @include invert();
-    }
 
     .pxb-info-list-item-left-content-wrapper {
         order: 2;
@@ -115,11 +131,8 @@ $denseHeight: 52px;
             display: flex;
         }
     }
-    &:not(.pxb-rtl) .pxb-info-list-item-left-content-wrapper > * {
+    .pxb-info-list-item-left-content-wrapper > * {
         margin-right: 16px;
-    }
-    &.pxb-rtl .pxb-info-list-item-left-content-wrapper > * {
-        margin-left: 16px;
     }
 
     .mat-list-text {
@@ -140,11 +153,8 @@ $denseHeight: 52px;
             align-items: center;
         }
     }
-    &:not(.pxb-rtl) .pxb-info-list-item-right-content {
+    .pxb-info-list-item-right-content {
         margin-left: 16px;
-    }
-    .pxb-rtl .pxb-info-list-item-right-content {
-        margin-right: 16px;
     }
 }
 
