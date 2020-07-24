@@ -1,5 +1,5 @@
-import {ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild, ViewEncapsulation,} from '@angular/core';
-import {isEmptyView, requireContent} from '../../utils/utils';
+import { ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild, ViewEncapsulation } from '@angular/core';
+import { isEmptyView, requireContent } from '../../utils/utils';
 
 @Component({
     selector: 'pxb-info-list-item',

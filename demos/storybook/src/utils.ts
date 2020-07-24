@@ -8,7 +8,6 @@ import * as Colors from '@pxblue/colors';
 import addons from '@storybook/addons';
 import { Direction_MODE_EVENT_NAME } from 'storybook-rtl-addon';
 
-
 const setDirection = (dir: string) => {
     const body = document.querySelector('body') as HTMLElement;
     if (body) {
