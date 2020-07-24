@@ -1,6 +1,6 @@
 import { text } from '@storybook/addon-knobs';
 
-export const withFullConfig = (): any => ({
+export const withBasicUsage = (): any => ({
     styles: [
         `
        ::ng-deep .pxb-selection-toolbar {
@@ -10,9 +10,6 @@ export const withFullConfig = (): any => ({
     ],
     template: `
        <pxb-selection-toolbar [title]="title" [subtitle]="subtitle">
-            <button mat-icon-button pxb-icon>
-                <mat-icon>menu</mat-icon>
-            </button>
         <ng-container pxb-menu>
             <button mat-menu-item>
                 <span>Test Item 1</span>
@@ -24,9 +21,6 @@ export const withFullConfig = (): any => ({
                 <span>Test Item 3</span>
             </button>
         </ng-container>
-        <button mat-icon-button pxb-right-content>
-                <mat-icon>home</mat-icon>
-            </button>
        </pxb-selection-toolbar>
     `,
     props: {

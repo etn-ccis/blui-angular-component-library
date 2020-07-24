@@ -17,7 +17,7 @@ const iconSet = require('@pxblue/icons-svg/icons.svg');
 export class AppComponent {
     colors: Record<string, any>;
     variant: DrawerLayoutVariantType = 'persistent';
-    selectionToolbarSubtitle = 'Test Subtitle';
+    selectionToolbarSubtitle = 'Language';
 
     userMenuOpen = false;
     menuGroups = [

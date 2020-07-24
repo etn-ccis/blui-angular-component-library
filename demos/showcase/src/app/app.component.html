@@ -1,13 +1,12 @@
 <pxb-drawer-layout [variant]="getVariant()" (backdropClick)="closeDrawer()">
     <showcase-drawer pxb-drawer></showcase-drawer>
     <div pxb-content>
-        <mat-toolbar class="toolbar">
-            <button *ngIf="isMobile()" mat-icon-button style="margin-right: 16px" (click)="openDrawer()">
+        <pxb-selection-toolbar class="toolbar" title="Showcase" [subtitle]="selectionToolbarSubtitle">
+            <button *ngIf="isMobile()" mat-icon-button pxb-icon (click)="openDrawer()">
                 <mat-icon>menu</mat-icon>
             </button>
-            <h2>Showcase</h2>
-            <pxb-spacer></pxb-spacer>
             <pxb-user-menu
+                pxb-right-content
                 avatarValue="MS"
                 menuTitle="Marshall Sutter"
                 menuSubtitle="msutter@acmesteel.com"
@@ -31,58 +30,15 @@
                     </div>
                 </mat-nav-list>
             </pxb-user-menu>
-        </mat-toolbar>
-        <pxb-selection-toolbar title="Test Title" [subtitle]="selectionToolbarSubtitle">
             <ng-container pxb-menu>
-                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Test Item 1')">
-                    <span>Test Item 1</span>
+                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('English')">
+                    <span>English</span>
                 </button>
-                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Test Item 2')">
-                    <span>Test Item 2</span>
+                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('French')">
+                    <span>French</span>
                 </button>
-                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Test Item 3')">
-                    <span>Test Item 3</span>
-                </button>
-            </ng-container>
-            <button mat-icon-button pxb-right-content>
-                <mat-icon>menu</mat-icon>
-            </button>
-        </pxb-selection-toolbar>
-        <pxb-selection-toolbar title="Test Title" [subtitle]="selectionToolbarSubtitle">
-            <mat-icon pxb-icon>menu</mat-icon>
-            <ng-container pxb-menu>
-                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Test Item 1')">
-                    <span>Test Item 1</span>
-                </button>
-                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Test Item 2')">
-                    <span>Test Item 2</span>
-                </button>
-                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Test Item 3')">
-                    <span>Test Item 3</span>
-                </button>
-            </ng-container>
-            <div pxb-right-content>
-                <button mat-icon-button>
-                    <mat-icon>menu</mat-icon>
-                </button>
-                <button mat-icon-button>
-                    <mat-icon>home</mat-icon>
-                </button>
-            </div>
-        </pxb-selection-toolbar>
-        <pxb-selection-toolbar title="Test Title" [subtitle]="selectionToolbarSubtitle">
-            <button mat-icon-button pxb-icon>
-                <mat-icon>menu</mat-icon>
-            </button>
-            <ng-container pxb-menu>
-                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Test Item 1')">
-                    <span>Test Item 1</span>
-                </button>
-                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Test Item 2')">
-                    <span>Test Item 2</span>
-                </button>
-                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Test Item 3')">
-                    <span>Test Item 3</span>
+                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Arabic')">
+                    <span>Arabic</span>
                 </button>
             </ng-container>
         </pxb-selection-toolbar>

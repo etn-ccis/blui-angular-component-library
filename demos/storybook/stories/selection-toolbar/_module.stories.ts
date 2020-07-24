@@ -8,6 +8,9 @@ import { withFullConfig } from './with-full-config.stories';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatButtonModule } from '@angular/material/button';
+import { withBasicUsage } from './with-basic-usage.stories';
+import { withNavIcon } from './with-nav-icon.stories';
+import { withCustomMenu } from './with-custom-menu.stories';
 
 storiesOf(`${COMPONENT_SECTION_NAME}/Selection Toolbar`, module)
     .addDecorator(
@@ -24,4 +27,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Selection Toolbar`, module)
         notes: { markdown: getReadMe('SelectionToolbar.md') },
     })
     .add(README_STORY_NAME, getReadMeStory)
+    .add('with basic usage', withBasicUsage)
+    .add('with nav icon', withNavIcon)
+    .add('with custom menu', withCustomMenu)
     .add('with full config', withFullConfig);
