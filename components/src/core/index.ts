@@ -7,3 +7,4 @@ export * from './info-list-item/public-api';
 export * from './list-item-tag/public-api';
 export * from './utility/public-api';
 export * from './selection-toolbar/public-api';
+export * from './user-menu/public-api';

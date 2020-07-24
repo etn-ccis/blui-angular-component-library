@@ -14,6 +14,7 @@ import {
     DrawerModule,
     ListItemTagModule,
     SelectionToolbarModule,
+    UserMenuModule,
 } from '@pxblue/angular-components';
 
 //material modules
@@ -42,6 +43,7 @@ import { MatMenuModule } from '@angular/material/menu';
         MatToolbarModule,
         MatMenuModule,
         //pxblue
+        UserMenuModule,
         NgProgressIconsModule,
         ChannelValueModule,
         EmptyStateModule,
