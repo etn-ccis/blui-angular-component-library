@@ -28,6 +28,6 @@ export const withNavIcon = (): any => ({
     `,
     props: {
         title: text('title', 'Title'),
-        subtitle: text('subtitle', 'Subtitle')
+        subtitle: text('subtitle', 'Subtitle'),
     },
 });

@@ -25,6 +25,6 @@ export const withBasicUsage = (): any => ({
     `,
     props: {
         title: text('title', 'Title'),
-        subtitle: text('subtitle', 'Subtitle')
+        subtitle: text('subtitle', 'Subtitle'),
     },
 });

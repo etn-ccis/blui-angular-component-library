@@ -1,10 +1,9 @@
-import { ChangeDetectionStrategy, Component, ViewEncapsulation, Input, ViewChild, ElementRef } from '@angular/core';
+import { Component, ViewEncapsulation, Input, ViewChild, ElementRef } from '@angular/core';
 import { isEmptyView } from '../../utils/utils';
 import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
     selector: 'pxb-selection-toolbar',
-    changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
         <mat-toolbar fxLayout="row" class="pxb-selection-toolbar">
