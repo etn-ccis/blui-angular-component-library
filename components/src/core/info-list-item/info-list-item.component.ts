@@ -1,4 +1,12 @@
-import { ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild, ViewEncapsulation } from '@angular/core';
+import {
+    AfterViewInit,
+    ChangeDetectionStrategy,
+    Component,
+    ElementRef,
+    Input,
+    ViewChild,
+    ViewEncapsulation,
+} from '@angular/core';
 import { isEmptyView, requireContent } from '../../utils/utils';
 
 @Component({
@@ -64,7 +72,7 @@ import { isEmptyView, requireContent } from '../../utils/utils';
     `,
     styleUrls: ['./info-list-item.component.scss'],
 })
-export class InfoListItemComponent {
+export class InfoListItemComponent implements AfterViewInit {
     @Input() statusColor: string;
     @Input() chevron = false;
     @Input() dense = false;
