@@ -1,17 +1,5 @@
-import {
-    AfterViewInit,
-    ChangeDetectionStrategy,
-    ChangeDetectorRef,
-    Component,
-    ElementRef,
-    Input,
-    OnDestroy,
-    ViewChild,
-    ViewEncapsulation,
-} from '@angular/core';
-import { requireContent, isEmptyView } from '../../utils/utils';
-import { Directionality } from '@angular/cdk/bidi';
-import { BidiComponent } from '../utility/bidi.component';
+import {ChangeDetectionStrategy, Component, ElementRef, Input, ViewChild, ViewEncapsulation,} from '@angular/core';
+import {isEmptyView, requireContent} from '../../utils/utils';
 
 @Component({
     selector: 'pxb-info-list-item',
@@ -23,7 +11,8 @@ import { BidiComponent } from '../utility/bidi.component';
             [class.pxb-info-list-item-wrap]="wrapSubtitle || wrapTitle"
             [class.pxb-info-list-item-dense]="dense"
             [class.pxb-info-list-item-status]="statusColor"
-            [ngStyle]="getBorderStyle()"
+            [style.border-left-color]="statusColor"
+            [style.border-right-color]="statusColor"
         >
             <div
                 mat-list-icon
@@ -75,7 +64,7 @@ import { BidiComponent } from '../utility/bidi.component';
     `,
     styleUrls: ['./info-list-item.component.scss'],
 })
-export class InfoListItemComponent extends BidiComponent implements AfterViewInit, OnDestroy {
+export class InfoListItemComponent {
     @Input() statusColor: string;
     @Input() chevron = false;
     @Input() dense = false;
@@ -87,19 +76,12 @@ export class InfoListItemComponent extends BidiComponent implements AfterViewIni
 
     @ViewChild('title', { static: false }) titleEl: ElementRef;
     @ViewChild('right', { static: false }) rightEl: ElementRef;
-    isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 
-    constructor(dir: Directionality, changeDetector: ChangeDetectorRef) {
-        super(dir, changeDetector);
-    }
+    isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 
     ngAfterViewInit(): void {
         const required = { selector: 'title', ref: this.titleEl };
         requireContent([required], this);
-    }
-
-    getBorderStyle(): any {
-        return this.isRtl ? { 'border-right-color': this.statusColor } : { 'border-left-color': this.statusColor };
     }
 }
 
