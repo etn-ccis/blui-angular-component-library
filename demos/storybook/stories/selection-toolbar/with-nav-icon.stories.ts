@@ -3,7 +3,7 @@ import { text } from '@storybook/addon-knobs';
 export const withNavIcon = (): any => ({
     template: `
        <pxb-selection-toolbar [title]="title" [subtitle]="state.selected || subtitle">
-            <button mat-icon-button pxb-icon (click)="clickPXBIcon()">
+            <button mat-icon-button pxb-icon (click)="clickPXBIcon()" aria-label="menu icon">
                 <mat-icon>menu</mat-icon>
             </button>
         <ng-container pxb-menu>
@@ -16,13 +16,14 @@ export const withNavIcon = (): any => ({
     props: {
         title: text('title', 'Title'),
         subtitle: text('subtitle', 'Subtitle'),
-        updateSubtitle: (text: string, state) => {
+        updateSubtitle: (text: string, state): void => {
             state.selected = text;
         },
         state: {
             selected: undefined,
         },
-        clickPXBIcon: () => {
+        clickPXBIcon: (): void => {
+            // eslint-disable-next-line no-console
             console.log('pxb icon clicked...');
         },
     },
