@@ -4,9 +4,6 @@ const Trex = require('../../assets/trex.png');
 export const withCustomMenu = (): any => ({
     styles: [
         `
-       ::ng-deep .pxb-selection-toolbar {
-           width: 600px !important;
-       }
        .header1 {
         margin: 0; 
         font-size: 18px;
@@ -32,11 +29,11 @@ export const withCustomMenu = (): any => ({
     template: `
        <pxb-selection-toolbar [title]="title" [subtitle]="subtitle">
         <ng-container pxb-menu>
-        <div style="padding: 16px 8px 8px 8px; position: relative; cursor: pointer;">
-        <div class="header1">Welcome,</div>
-        <div class="header2">T-Rex</div>
-        <div [style.backgroundImage]="trex" class="overlay"></div>
-    </div>
+            <div style="padding: 16px 8px 8px 8px; position: relative; cursor: pointer;">
+                <div class="header1">Welcome,</div>
+                <div class="header2">T-Rex</div>
+                <div [style.backgroundImage]="trex" class="overlay"></div>
+            </div>
         </ng-container>
        </pxb-selection-toolbar>
     `,

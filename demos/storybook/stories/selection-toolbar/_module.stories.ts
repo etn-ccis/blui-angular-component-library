@@ -12,6 +12,22 @@ import { withBasicUsage } from './with-basic-usage.stories';
 import { withNavIcon } from './with-nav-icon.stories';
 import { withCustomMenu } from './with-custom-menu.stories';
 
+export const selectionToolbarWrapper = () => (storyFn: any): any => {
+    const story = storyFn();
+    return {
+        ...story,
+        styles: [
+            `
+        ::ng-deep .pxb-selection-toolbar {
+            width: 80vw !important;
+        }`,
+        ],
+        props: {
+            ...story.props,
+        },
+    };
+};
+
 storiesOf(`${COMPONENT_SECTION_NAME}/Selection Toolbar`, module)
     .addDecorator(
         moduleMetadata({
@@ -22,6 +38,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Selection Toolbar`, module)
     // @accessibility
     .addDecorator(withA11y)
     .addDecorator(storyWrapper())
+    .addDecorator(selectionToolbarWrapper())
     .addParameters({
         ...STORY_PARAMS,
         notes: { markdown: getReadMe('SelectionToolbar.md') },
