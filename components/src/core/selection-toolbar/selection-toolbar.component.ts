@@ -14,11 +14,11 @@ import { MatMenuTrigger } from '@angular/material/menu';
             >
                 <ng-content select="[pxb-icon]"></ng-content>
             </div>
-            <div *ngIf="title" class="pxb-selection-toolbar-title-wrapper">
+            <div *ngIf="title" class="pxb-selection-toolbar-title-container">
                 <div class="pxb-selection-toolbar-title">{{ title }}</div>
                 <div
                     *ngIf="subtitle"
-                    class="pxb-selection-toolbar-subtitle-wrapper mat-subheading-2"
+                    class="pxb-selection-toolbar-subtitle-container mat-subheading-2"
                     [matMenuTriggerFor]="selectionToolbarMenu"
                     #menuTrigger="matMenuTrigger"
                     style="cursor: pointer;"
