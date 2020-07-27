@@ -5,7 +5,7 @@ import {
     EventEmitter,
     Input,
     Output,
-    ViewEncapsulation
+    ViewEncapsulation,
 } from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
@@ -50,7 +50,11 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     isRtl = false;
     dirChangeSubscription = Subscription.EMPTY;
 
-    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef, private readonly _dir: Directionality) {
+    constructor(
+        drawerService: DrawerService,
+        changeDetectorRef: ChangeDetectorRef,
+        private readonly _dir: Directionality
+    ) {
         super(drawerService, changeDetectorRef);
         this.dirChangeSubscription = _dir.change.subscribe((direction: Direction) => {
             this.isRtl = direction === 'rtl';
