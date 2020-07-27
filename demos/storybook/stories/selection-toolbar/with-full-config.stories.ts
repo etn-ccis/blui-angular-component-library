@@ -1,4 +1,4 @@
-import { text } from '@storybook/addon-knobs';
+import { text, number } from '@storybook/addon-knobs';
 
 export const withFullConfig = (): any => ({
     template: `
@@ -11,13 +11,16 @@ export const withFullConfig = (): any => ({
             <button mat-menu-item>Test Item 2</button>
             <button mat-menu-item>Test Item 3</button>
         </ng-container>
-        <button mat-icon-button pxb-right-content>
-                <mat-icon>home</mat-icon>
-            </button>
+        <div pxb-right-content>
+            <button mat-icon-button *ngIf="count > 0"><mat-icon>home</mat-icon></button>
+            <button mat-icon-button *ngIf="count > 1"><mat-icon>work</mat-icon></button>
+            <button mat-icon-button *ngIf="count > 2"><mat-icon>settings</mat-icon></button>
+        </div>
        </pxb-selection-toolbar>
     `,
     props: {
         title: text('title', 'Title'),
         subtitle: text('subtitle', 'Subtitle'),
+        count: number('right content icon count', 3, { range: true, min: 0, max: 3, step: 1 }),
     },
 });
