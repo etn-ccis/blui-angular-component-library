@@ -4,13 +4,6 @@
     color: map-get($pxb-gray, 800) !important;
     white-space: nowrap;
 }
-.menu-icon {
-    margin-right: 16px;
-}
-.rtl .menu-icon {
-    margin-right: 0;
-    margin-left: 16px;
-}
 
 .rtl {
     button mat-icon,
@@ -32,6 +25,22 @@
 .toolbar {
     background-color: map-get($pxb-blue, 500) !important;
     color: map-get($pxb-white, 50) !important;
+    .menu-icon {
+        margin-right: 16px;
+        margin-left: -8px;
+        &.rtl {
+            margin-right: -8px;
+            margin-left: 16px;
+        }
+    }
+    .user-menu {
+        margin-left: 8px;
+
+        &.rtl {
+            margin-right: 8px;
+            margin-left: 0;
+        }
+    }
 }
 
 .mat-card.container-card {
