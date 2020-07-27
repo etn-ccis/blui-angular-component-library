@@ -6,105 +6,106 @@
 }
 
 .rtl {
-  button mat-icon, .scorecard-chevron {
-    transform: scaleX(-1);
-  }
+    button mat-icon,
+    .scorecard-chevron {
+        transform: scaleX(-1);
+    }
 }
 
 .scorecards {
-  display: flex;
-  padding: 8px 8px 0px 8px;
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  > * {
-    margin-bottom: 8px;
-  }
+    display: flex;
+    padding: 8px 8px 0px 8px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    > * {
+        margin-bottom: 8px;
+    }
 }
 
 .toolbar {
-  background-color: map-get($pxb-blue, 500) !important;
-  color: map-get($pxb-white, 50) !important;
-  .menu-icon {
-    margin-right: 16px;
-    margin-left: -8px;
-    &.rtl {
-      margin-right: -8px;
-      margin-left: 16px;
+    background-color: map-get($pxb-blue, 500) !important;
+    color: map-get($pxb-white, 50) !important;
+    .menu-icon {
+        margin-right: 16px;
+        margin-left: -8px;
+        &.rtl {
+            margin-right: -8px;
+            margin-left: 16px;
+        }
     }
-  }
-  .user-menu {
-    margin-left: 8px;
+    .user-menu {
+        margin-left: 8px;
 
-    &.rtl {
-      margin-right: 8px;
-      margin-left: 0;
+        &.rtl {
+            margin-right: 8px;
+            margin-left: 0;
+        }
     }
-  }
 }
 
 .mat-card.container-card {
-  margin: 0px 8px;
-  padding: 0;
+    margin: 0px 8px;
+    padding: 0;
 }
 
 .error {
-  mat-list-item {
-    color: map-get($pxb-red, 500) !important;
-  }
+    mat-list-item {
+        color: map-get($pxb-red, 500) !important;
+    }
 }
 
 .progress-icon {
-  color: map-get($pxb-blue, 500);
+    color: map-get($pxb-blue, 500);
 }
 
 pxb-score-card {
-  width: 400px;
+    width: 400px;
 
-  .pxb-score-card-header-background {
-    background-image: url('../assets/topology_40.png');
-  }
-  .mat-list-base {
-    padding: 16px 0px !important;
-  }
-  .mat-list-item,
-  .card-body-item .pxb-info-list-item.pxb-info-list-item-dense .mat-list-item-content {
-    height: 36px !important;
-  }
-  .mat-list-text {
-    padding-left: 0px !important;
-  }
-  .mat-list-base .mat-list-item .mat-list-icon {
-    min-width: 56px;
-  }
-  .pxb-info-list-item-title {
-    font-weight: 600 !important;
-  }
+    .pxb-score-card-header-background {
+        background-image: url('../assets/topology_40.png');
+    }
+    .mat-list-base {
+        padding: 16px 0px !important;
+    }
+    .mat-list-item,
+    .card-body-item .pxb-info-list-item.pxb-info-list-item-dense .mat-list-item-content {
+        height: 36px !important;
+    }
+    .mat-list-text {
+        padding-left: 0px !important;
+    }
+    .mat-list-base .mat-list-item .mat-list-icon {
+        min-width: 56px;
+    }
+    .pxb-info-list-item-title {
+        font-weight: 600 !important;
+    }
 }
 .red-score-card {
-  margin-right: 16px;
-  .pxb-score-card .pxb-score-card-header {
-    background-color: map-get($pxb-red, 500);
-  }
+    margin-right: 16px;
+    .pxb-score-card .pxb-score-card-header {
+        background-color: map-get($pxb-red, 500);
+    }
 }
 .rtl .red-score-card {
-  margin-left: 16px;
-  margin-right: 0;
+    margin-left: 16px;
+    margin-right: 0;
 }
 
 .test-background-image mat-toolbar.pxb-drawer-header {
-  background-color: map-get($pxb-blue, 500);
-  background-size: cover;
-  color: white;
+    background-color: map-get($pxb-blue, 500);
+    background-size: cover;
+    color: white;
 }
 
 .test-background-image .pxb-drawer-header-background {
-  background-image: url('../assets/topology_40.png');
+    background-image: url('../assets/topology_40.png');
 }
 
 .tag-label {
-  margin-right: 8px;
+    margin-right: 8px;
 }
 .rtl .tag-label {
-  margin-right: 0;
-  margin-left: 8px;
+    margin-right: 0;
+    margin-left: 8px;
 }

@@ -7,9 +7,7 @@
     <showcase-drawer pxb-drawer></showcase-drawer>
     <div pxb-content>
         <mat-toolbar class="toolbar">
-            <button *ngIf="isMobile()" mat-icon-button
-                    class="menu-icon"
-                    [class.rtl]="isRtl" (click)="openDrawer()">
+            <button *ngIf="isMobile()" mat-icon-button class="menu-icon" [class.rtl]="isRtl" (click)="openDrawer()">
                 <mat-icon>menu</mat-icon>
             </button>
             <h2>Showcase</h2>
