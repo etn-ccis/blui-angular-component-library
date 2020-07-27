@@ -10,6 +10,10 @@
     .pxb-info-list-item-active.square:after {
         border-radius: 0;
     }
+    .pxb-drawer-nav-item-depth-3 {
+        padding-left: 0;
+        padding-right: 32px;
+    }
 }
 
 pxb-drawer-nav-item {
