@@ -7,7 +7,9 @@
     <showcase-drawer pxb-drawer></showcase-drawer>
     <div pxb-content>
         <mat-toolbar class="toolbar">
-            <button *ngIf="isMobile()" mat-icon-button class="menu-icon" (click)="openDrawer()">
+            <button *ngIf="isMobile()" mat-icon-button
+                    class="menu-icon"
+                    [class.rtl]="isRtl" (click)="openDrawer()">
                 <mat-icon>menu</mat-icon>
             </button>
             <h2>Showcase</h2>
@@ -19,7 +21,8 @@
                 <mat-icon>compare_arrows</mat-icon>
             </button>
             <pxb-user-menu
-                style="margin: 0px 8px"
+                class="user-menu"
+                [class.rtl]="isRtl"
                 avatarValue="MS"
                 menuTitle="Marshall Sutter"
                 menuSubtitle="msutter@acmesteel.com"
