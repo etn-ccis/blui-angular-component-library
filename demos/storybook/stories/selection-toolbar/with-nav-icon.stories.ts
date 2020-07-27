@@ -16,8 +16,8 @@ export const withNavIcon = (): any => ({
     props: {
         title: text('title', 'Title'),
         subtitle: text('subtitle', 'Subtitle'),
-        updateSubtitle: (text: string, state): void => {
-            state.selected = text;
+        updateSubtitle: (str: string, state): void => {
+            state.selected = str;
         },
         state: {
             selected: undefined,

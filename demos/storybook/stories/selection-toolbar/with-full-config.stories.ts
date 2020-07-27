@@ -22,8 +22,8 @@ export const withFullConfig = (): any => ({
         title: text('title', 'Title'),
         subtitle: text('subtitle', 'Subtitle'),
         count: number('right content icon count', 3, { range: true, min: 0, max: 3, step: 1 }),
-        updateSubtitle: (text: string, state): void => {
-            state.selected = text;
+        updateSubtitle: (str: string, state): void => {
+            state.selected = str;
         },
         state: {
             selected: undefined,
@@ -32,9 +32,9 @@ export const withFullConfig = (): any => ({
             // eslint-disable-next-line no-console
             console.log('pxb icon clicked...');
         },
-        clickRightContentIcon: (text: string): void => {
+        clickRightContentIcon: (str: string): void => {
             // eslint-disable-next-line no-console
-            console.log(text, 'icon clicked...');
+            console.log(str, 'icon clicked...');
         },
     },
 });
