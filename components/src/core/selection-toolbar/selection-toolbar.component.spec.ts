@@ -14,7 +14,7 @@ import { count } from '../../utils/test-utils';
                 <mat-icon>menu</mat-icon>
             </button>
             <div pxb-menu id="test-menu">menu text</div>
-            <div pxb-right-content id="test-right-content">right content</div>
+            <div id="test-right-content">right content</div>
         </pxb-selection-toolbar>
     `,
 })

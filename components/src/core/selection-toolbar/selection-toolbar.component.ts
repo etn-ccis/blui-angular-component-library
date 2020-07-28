@@ -28,9 +28,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
                 </div>
             </div>
             <pxb-spacer></pxb-spacer>
-            <div class="pxb-selection-toolbar-right-content-wrapper">
-                <ng-content select="[pxb-right-content]"></ng-content>
-            </div>
+                <ng-content></ng-content>
             <mat-menu #selectionToolbarMenu="matMenu" [overlapTrigger]="false" class="pxb-selection-toolbar-menu">
                 <ng-content select="[pxb-menu]"></ng-content>
             </mat-menu>
