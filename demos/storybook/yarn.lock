@@ -1582,6 +1582,11 @@
   resolved "https://registry.yarnpkg.com/@pxblue/prettier-config/-/prettier-config-1.0.2.tgz#fb00503df6557b66c3d91d43c9101e614c35d2ec"
   integrity sha512-/3cLBoTjZs3kV1ATPA/Sp0tsL7XmlV/b8HW/qt0jqR/uP5+cdXL2YIhMXQngLRa7PhpSkEiRIYK5sl0rKsXTUg==
 
+"@pxblue/storybook-rtl-addon@^1.0.0-alpha.0":
+  version "1.0.0-alpha.0"
+  resolved "https://registry.yarnpkg.com/@pxblue/storybook-rtl-addon/-/storybook-rtl-addon-1.0.0-alpha.0.tgz#b8abd266784c2c422b1e21198db690b1569c0758"
+  integrity sha512-+WSOGPJKr3UaJgLsgujT21L9Yxzoa2pMwuWtEc+YAfmnyllDaU8AsQh+KU60jCdiLUKSl96IJHmLg6zClOzU6g==
+
 "@pxblue/storybook-themes@^1.1.0":
   version "1.1.0"
   resolved "https://registry.yarnpkg.com/@pxblue/storybook-themes/-/storybook-themes-1.1.0.tgz#60bfbc6670142c4be0f4a21d5ec7523f5b26662c"
