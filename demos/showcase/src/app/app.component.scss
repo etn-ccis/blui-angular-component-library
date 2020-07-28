@@ -5,10 +5,18 @@
     white-space: nowrap;
 }
 
-.rtl {
+[dir='rtl'] {
     button mat-icon,
     .scorecard-chevron {
         transform: scaleX(-1);
+    }
+    .tag-label {
+        margin-right: 0;
+        margin-left: 8px;
+    }
+    .red-score-card {
+        margin-left: 16px;
+        margin-right: 0;
     }
 }
 
@@ -87,10 +95,6 @@ pxb-score-card {
         background-color: map-get($pxb-red, 500);
     }
 }
-.rtl .red-score-card {
-    margin-left: 16px;
-    margin-right: 0;
-}
 
 .test-background-image mat-toolbar.pxb-drawer-header {
     background-color: map-get($pxb-blue, 500);
@@ -104,8 +108,4 @@ pxb-score-card {
 
 .tag-label {
     margin-right: 8px;
-}
-.rtl .tag-label {
-    margin-right: 0;
-    margin-left: 8px;
 }

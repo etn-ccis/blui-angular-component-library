@@ -31,6 +31,10 @@ $denseHeight: 52px;
             margin-left: 0;
         }
     }
+    mat-divider.mat-divider.pxb-info-list-item-partial-divider {
+        left: 0;
+        right: 72px;
+    }
 }
 
 .pxb-info-list-item,
@@ -159,7 +163,7 @@ mat-divider {
     &.pxb-info-list-item-divider {
         margin-top: -1px;
     }
-    &.pxb-info-list-item-partial-divider {
+    &.mat-divider.pxb-info-list-item-partial-divider {
         position: relative;
         bottom: 0;
         right: 0;

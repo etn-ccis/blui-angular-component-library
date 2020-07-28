@@ -1,4 +1,12 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import {
+    AfterViewInit,
+    ChangeDetectorRef,
+    Component,
+    EventEmitter,
+    Input,
+    Output,
+    ViewEncapsulation,
+} from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 import { Direction, Directionality } from '@angular/cdk/bidi';
@@ -33,7 +41,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
         </mat-sidenav-container>
     `,
 })
-export class DrawerLayoutComponent extends StateListener {
+export class DrawerLayoutComponent extends StateListener implements AfterViewInit {
     @Input() variant: DrawerLayoutVariantType;
     @Input() width = 350;
     @Output() backdropClick: EventEmitter<void> = new EventEmitter();
@@ -42,13 +50,20 @@ export class DrawerLayoutComponent extends StateListener {
     isRtl = false;
     dirChangeSubscription = Subscription.EMPTY;
 
-    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef, dir: Directionality) {
+    constructor(
+        drawerService: DrawerService,
+        changeDetectorRef: ChangeDetectorRef,
+        private readonly _dir: Directionality
+    ) {
         super(drawerService, changeDetectorRef);
-        this.isRtl = dir.value === 'rtl';
-        this.dirChangeSubscription = dir.change.subscribe((direction: Direction) => {
+        this.dirChangeSubscription = _dir.change.subscribe((direction: Direction) => {
             this.isRtl = direction === 'rtl';
             changeDetectorRef.detectChanges();
         });
+    }
+
+    ngAfterViewInit(): void {
+        this.isRtl = this._dir.value === 'rtl';
     }
 
     ngOnChanges(): void {
