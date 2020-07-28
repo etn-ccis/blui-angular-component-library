@@ -15,7 +15,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
                 <ng-content select="[pxb-icon]"></ng-content>
             </div>
             <div *ngIf="title" class="pxb-selection-toolbar-title-container">
-                <div class="pxb-selection-toolbar-title">{{ title }}</div>
+                <div class="pxb-selection-toolbar-title mat-title">{{ title }}</div>
                 <div
                     *ngIf="subtitle"
                     class="pxb-selection-toolbar-subtitle-container mat-subheading-2"
@@ -23,7 +23,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
                     #menuTrigger="matMenuTrigger"
                     style="cursor: pointer;"
                 >
-                    <span class="pxb-selection-toolbar-subtitle">{{ subtitle }}</span>
+                    <span class="pxb-selection-toolbar-subtitle mat-subheading-2">{{ subtitle }}</span>
                     <mat-icon>arrow_drop_down</mat-icon>
                 </div>
             </div>

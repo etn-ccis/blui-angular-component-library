@@ -19,20 +19,22 @@
     z-index: 1;
 
     .pxb-selection-toolbar-title {
-        font-weight: 600;
         line-height: 1.6rem;
         overflow: hidden;
         text-overflow: ellipsis;
     }
 
     .pxb-selection-toolbar-subtitle-container {
-        font-weight: 300;
-        line-height: 1.3rem;
         margin-top: -2px;
         overflow: hidden;
         text-overflow: ellipsis;
         display: flex;
         align-items: center;
         width: fit-content;
+
+        .pxb-selection-toolbar-subtitle{
+            font-weight: 300;
+            line-height: 1.3rem;
+        }
     }
 }
