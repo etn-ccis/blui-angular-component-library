@@ -5,7 +5,7 @@ import { SelectionToolbarComponent } from './selection-toolbar.component';
 import { SelectionToolbarModule } from './selection-toolbar.module';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import {count} from "../../utils/test-utils";
+import { count } from '../../utils/test-utils';
 
 @Component({
     template: `
@@ -76,32 +76,32 @@ describe('SelectionToolbarComponent', () => {
         customFixture.detectChanges();
     };
 
-     it('should render menu', () => {
-         const customFixture = TestBed.createComponent(TestSelectionToolbar);
-         customFixture.detectChanges();
-         clickMenu(customFixture);
-         const menu = document.getElementById('test-menu');
-         void expect(menu.innerText).toBe('menu text');
-     });
+    it('should render menu', () => {
+        const customFixture = TestBed.createComponent(TestSelectionToolbar);
+        customFixture.detectChanges();
+        clickMenu(customFixture);
+        const menu = document.getElementById('test-menu');
+        void expect(menu.innerText).toBe('menu text');
+    });
 
-     it('should enforce class naming conventions', () => {
-         const customFixture = TestBed.createComponent(TestSelectionToolbar);
-         clickMenu(customFixture);
+    it('should enforce class naming conventions', () => {
+        const customFixture = TestBed.createComponent(TestSelectionToolbar);
+        clickMenu(customFixture);
 
-         // Non-overlay classes
-         const classList = [
-             '.pxb-selection-toolbar',
-             '.pxb-selection-toolbar-icon-wrapper',
-             '.pxb-selection-toolbar-title',
-             '.pxb-selection-toolbar-subtitle',
-             '.pxb-selection-toolbar-right-content-wrapper',
-         ];
+        // Non-overlay classes
+        const classList = [
+            '.pxb-selection-toolbar',
+            '.pxb-selection-toolbar-icon-wrapper',
+            '.pxb-selection-toolbar-title',
+            '.pxb-selection-toolbar-subtitle',
+            '.pxb-selection-toolbar-right-content-wrapper',
+        ];
 
-         for (const className of classList) {
-             count(customFixture, className);
-         }
+        for (const className of classList) {
+            count(customFixture, className);
+        }
 
-         // Overlay classes
-         void expect(document.getElementsByClassName('pxb-selection-toolbar-menu').length).toBe(1);
-     });
+        // Overlay classes
+        void expect(document.getElementsByClassName('pxb-selection-toolbar-menu').length).toBe(1);
+    });
 });
