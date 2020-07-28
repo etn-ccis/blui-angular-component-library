@@ -1,6 +1,6 @@
 # Selection Toolbar
 
-The `<pxb-selection-toolbar>` component is used to display a a toolbar with a selection list.
+The `<pxb-selection-toolbar>` component is used to display a toolbar with a selection list.
 
 <div style="text-align:center">
 <img width="100%" style="max-width:600px" alt="Selection Toolbar" src="./images/selectionToolbar.png">
