@@ -9,7 +9,7 @@ export const navItems: DrawerNavItem[] = [
         onSelect: action('Selected: Identity Management'),
     },
     {
-        title: 'Calender',
+        title: 'Calendar',
         icon: 'today',
         onSelect: action('Selected: Calendar'),
     },
