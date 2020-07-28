@@ -5,6 +5,7 @@ import { SelectionToolbarComponent } from './selection-toolbar.component';
 import { SelectionToolbarModule } from './selection-toolbar.module';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
+import {count} from "../../utils/test-utils";
 
 @Component({
     template: `
@@ -68,29 +69,39 @@ describe('SelectionToolbarComponent', () => {
         void expect(rightContent.innerHTML).toBe('right content');
     });
 
-    // it('should render menu', () => {
-    //     const customFixture = TestBed.createComponent(TestSelectionToolbar);
-    //     customFixture.menuTrigger.openMenu();  // @TODO: should be able to do this if i can to the following
-    //     component.menuTrigger.openMenu();
-    //     customFixture.detectChanges();
-    //     const content: HTMLElement = customFixture.nativeElement.querySelector('#test-menu');
-    //     void expect(content.innerHTML).toBe('menu text');
-    // });
+    const clickMenu = (customFixture): void => {
+        customFixture.detectChanges();
+        const menuTrigger = document.getElementsByClassName('pxb-selection-toolbar-subtitle-container')[0];
+        menuTrigger.dispatchEvent(new Event('click'));
+        customFixture.detectChanges();
+    };
 
-    // it('should enforce class naming conventions', () => {
-    //     const customFixture = TestBed.createComponent(TestSelectionToolbar);
-    //     const classList = [
-    //         '.pxb-selection-toolbar',
-    //         '.pxb-selection-toolbar-icon-wrapper',
-    //         '.pxb-selection-toolbar-title-wrapper',
-    //         '.pxb-selection-toolbar-title',
-    //         '.pxb-selection-toolbar-subtitle-wrapper',
-    //         '.pxb-selection-toolbar-subtitle',
-    //         '.pxb-selection-toolbar-right-content-wrapper',
-    //         '.pxb-selection-toolbar-menu'
-    //     ];
-    //     for (const className of classList) {
-    //         count(customFixture, className);
-    //     }
-    // });
+     it('should render menu', () => {
+         const customFixture = TestBed.createComponent(TestSelectionToolbar);
+         customFixture.detectChanges();
+         clickMenu(customFixture);
+         const menu = document.getElementById('test-menu');
+         void expect(menu.innerText).toBe('menu text');
+     });
+
+     it('should enforce class naming conventions', () => {
+         const customFixture = TestBed.createComponent(TestSelectionToolbar);
+         clickMenu(customFixture);
+
+         // Non-overlay classes
+         const classList = [
+             '.pxb-selection-toolbar',
+             '.pxb-selection-toolbar-icon-wrapper',
+             '.pxb-selection-toolbar-title',
+             '.pxb-selection-toolbar-subtitle',
+             '.pxb-selection-toolbar-right-content-wrapper',
+         ];
+
+         for (const className of classList) {
+             count(customFixture, className);
+         }
+
+         // Overlay classes
+         void expect(document.getElementsByClassName('pxb-selection-toolbar-menu').length).toBe(1);
+     });
 });
