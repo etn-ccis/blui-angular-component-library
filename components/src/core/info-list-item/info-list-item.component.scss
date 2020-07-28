@@ -1,7 +1,41 @@
+@import '../utility/utility';
+
 $statusWidth: 6px;
 $contentPaddingLeft: 16px;
 $normalHeight: 72px;
 $denseHeight: 52px;
+
+/* RTL */
+[dir='rtl'] {
+    .pxb-info-list-item,
+    .mat-list-base .mat-list-item.pxb-info-list-item {
+        &.pxb-info-list-item-status .mat-list-item-content {
+            border-right: solid $statusWidth;
+            border-right-color: inherit;
+            padding-right: $contentPaddingLeft - $statusWidth;
+            padding-left: $contentPaddingLeft;
+            border-left: unset;
+        }
+        .mat-list-item-content .mat-list-text {
+            padding-right: 0;
+        }
+        .pxb-info-list-item-icon-wrapper > * {
+            @include invert();
+        }
+        .pxb-info-list-item-left-content-wrapper > * {
+            margin-left: 16px;
+            margin-right: 0;
+        }
+        .pxb-info-list-item-right-content {
+            margin-right: 16px;
+            margin-left: 0;
+        }
+    }
+    mat-divider.mat-divider.pxb-info-list-item-partial-divider {
+        left: 0;
+        right: 72px;
+    }
+}
 
 .pxb-info-list-item,
 .mat-list-base .mat-list-item.pxb-info-list-item {
@@ -18,6 +52,7 @@ $denseHeight: 52px;
         // Needed for ng v9
         .mat-list-text {
             padding-left: 0;
+            padding-right: 0;
         }
     }
 
@@ -96,9 +131,11 @@ $denseHeight: 52px;
     .pxb-info-list-item-left-content-wrapper {
         order: 2;
         > * {
-            margin-right: 16px;
             display: flex;
         }
+    }
+    .pxb-info-list-item-left-content-wrapper > * {
+        margin-right: 16px;
     }
 
     .mat-list-text {
@@ -113,8 +150,8 @@ $denseHeight: 52px;
 
     .pxb-info-list-item-right-content {
         order: 5;
-        margin-left: 16px;
         white-space: nowrap;
+        margin-left: 16px;
         .pxb-info-list-item-right-content-wrapper > * {
             display: flex;
             align-items: center;
@@ -126,7 +163,7 @@ mat-divider {
     &.pxb-info-list-item-divider {
         margin-top: -1px;
     }
-    &.pxb-info-list-item-partial-divider {
+    &.mat-divider.pxb-info-list-item-partial-divider {
         position: relative;
         bottom: 0;
         right: 0;

@@ -1,3 +1,21 @@
+/* RTL */
+[dir='rtl'] .pxb-drawer-nav-item {
+    .pxb-info-list-item-active.round:after,
+    .pxb-info-list-item-active.square:after {
+        right: 0;
+    }
+    .pxb-info-list-item-active.round:after {
+        border-radius: 24px 0 0 24px;
+    }
+    .pxb-info-list-item-active.square:after {
+        border-radius: 0;
+    }
+    .pxb-drawer-nav-item-depth-3 {
+        padding-left: 0;
+        padding-right: 32px;
+    }
+}
+
 pxb-drawer-nav-item {
     outline: none;
 }
@@ -37,13 +55,14 @@ pxb-drawer-nav-item {
         z-index: 0;
         position: absolute;
         height: 100%;
-        width: calc(100% - 8px);
         left: 0;
         top: 0;
-        border-radius: 0px 24px 24px 0px;
         opacity: 0.9;
     }
-
+    .pxb-info-list-item-active.round:after {
+        width: calc(100% - 8px);
+        border-radius: 0 24px 24px 0;
+    }
     .pxb-info-list-item-active.square:after {
         border-radius: 0;
         width: 100%;

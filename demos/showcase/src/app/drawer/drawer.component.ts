@@ -38,14 +38,12 @@ import { StateService } from '../services/state.service';
                             [selected]="selectedItemId === nestedItem.title"
                             [hasChildren]="nestedItem.items"
                             (select)="testClick('sub nav item', $event); setActive(nestedItem.title)"
-                            [hidePadding]="nestedItem.hidePadding"
                         ></pxb-drawer-nav-item>
                     </pxb-drawer-nav-item>
                 </pxb-drawer-nav-group>
             </pxb-drawer-body>
 
             <pxb-drawer-footer>
-                <mat-divider></mat-divider>
                 <img src="../assets/EatonLogo.svg" width="170" style="align-self: center; padding: 16px" />
             </pxb-drawer-footer>
         </pxb-drawer>
@@ -62,10 +60,7 @@ export class DrawerComponent {
 
     nestedItems2: DrawerNavItem[] = [{ title: 'Sub 3' }, { title: 'Sub 4' }];
 
-    nestedItems3: DrawerNavItem[] = [
-        { title: 'Sub 5', hidePadding: true },
-        { title: 'Sub 6', hidePadding: true },
-    ];
+    nestedItems3: DrawerNavItem[] = [{ title: 'Sub 5' }, { title: 'Sub 6' }];
 
     navGroup1: DrawerNavItem[] = [
         {

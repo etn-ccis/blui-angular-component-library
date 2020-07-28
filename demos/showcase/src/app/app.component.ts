@@ -15,6 +15,8 @@ const iconSet = require('@pxblue/icons-svg/icons.svg');
     encapsulation: ViewEncapsulation.None,
 })
 export class AppComponent {
+    isDarkMode = false;
+    isRtl = false;
     colors: Record<string, any>;
     variant: DrawerLayoutVariantType = 'persistent';
     userMenuOpen = false;
@@ -84,5 +86,21 @@ export class AppComponent {
 
     openDrawer(): void {
         this._stateService.setDrawerOpen(true);
+    }
+
+    toggleTheme(): void {
+        const body = document.querySelector('body') as HTMLElement;
+        if (this.isDarkMode) {
+            body.classList.remove('pxb-blue-dark');
+            body.classList.add('pxb-blue');
+        } else {
+            body.classList.remove('pxb-blue');
+            body.classList.add('pxb-blue-dark');
+        }
+        this.isDarkMode = !this.isDarkMode;
+    }
+
+    toggleDirectionality(): void {
+        this.isRtl = !this.isRtl;
     }
 }
