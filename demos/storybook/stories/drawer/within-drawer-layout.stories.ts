@@ -2,12 +2,13 @@ import { number, select } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
 import { nestedNavGroup } from './with-nested-nav-items.stories';
 import { DrawerNavItem } from '@pxblue/angular-components';
+import { getDirection } from '@pxblue/storybook-rtl-addon';
 
 const items = [...nestedNavGroup];
 
 export const withinDrawerLayout = (): any => ({
     template: `
-        <pxb-drawer-layout [width]="width" [variant]="variant" (backdropClick)="state.open = false">
+        <pxb-drawer-layout [dir]="direction()" [width]="width" [variant]="variant" (backdropClick)="state.open = false">
             <pxb-drawer pxb-drawer [open]="state.open">
                <pxb-drawer-header title="PX Blue Drawer" subtitle="in a PX Blue Drawer Layout">
                  <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
@@ -49,6 +50,7 @@ export const withinDrawerLayout = (): any => ({
         </pxb-drawer-layout>
       `,
     props: {
+        direction: getDirection,
         blue: Colors.blue[500],
         white: Colors.white[50],
         navItems: items,
