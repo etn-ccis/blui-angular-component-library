@@ -10,11 +10,8 @@
 }
 
 .pxb-selection-toolbar-title-container {
-    display: flex;
+    display: block;
     padding-right: 16px;
-    justify-content: center;
-    align-self: stretch;
-    flex-direction: column;
 
     .pxb-selection-toolbar-title {
         line-height: 1.6rem;
@@ -29,6 +26,7 @@
         display: flex;
         align-items: center;
         width: fit-content;
+        cursor: pointer;
 
         .pxb-selection-toolbar-subtitle {
             font-weight: 300;

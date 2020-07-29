@@ -1,6 +1,5 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatIconModule } from '@angular/material/icon';
-// import { count } from '../../utils/test-utils';
 import { SelectionToolbarComponent } from './selection-toolbar.component';
 import { SelectionToolbarModule } from './selection-toolbar.module';
 import { Component } from '@angular/core';

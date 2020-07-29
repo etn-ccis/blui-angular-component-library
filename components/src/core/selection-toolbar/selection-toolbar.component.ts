@@ -21,7 +21,6 @@ import { MatMenuTrigger } from '@angular/material/menu';
                     class="pxb-selection-toolbar-subtitle-container mat-subheading-2"
                     [matMenuTriggerFor]="selectionToolbarMenu"
                     #menuTrigger="matMenuTrigger"
-                    style="cursor: pointer;"
                 >
                     <span class="pxb-selection-toolbar-subtitle mat-subheading-2">{{ subtitle }}</span>
                     <mat-icon>arrow_drop_down</mat-icon>
