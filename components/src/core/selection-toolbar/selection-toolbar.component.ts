@@ -14,7 +14,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
             >
                 <ng-content select="[pxb-nav-icon]"></ng-content>
             </div>
-            <div *ngIf="title" class="pxb-selection-toolbar-title-container">
+            <div *ngIf="title" class="pxb-selection-toolbar-text-content-container">
                 <div class="pxb-selection-toolbar-title mat-title">{{ title }}</div>
                 <div
                     *ngIf="subtitle"
@@ -28,7 +28,11 @@ import { MatMenuTrigger } from '@angular/material/menu';
             </div>
             <pxb-spacer></pxb-spacer>
             <ng-content></ng-content>
-            <mat-menu #selectionToolbarMenu="matMenu" [overlapTrigger]="false" class="pxb-selection-toolbar-menu">
+            <mat-menu
+                #selectionToolbarMenu="matMenu"
+                [overlapTrigger]="false"
+                class="pxb-selection-toolbar-menu-wrapper"
+            >
                 <ng-content select="[pxb-toolbar-menu]"></ng-content>
             </mat-menu>
         </mat-toolbar>

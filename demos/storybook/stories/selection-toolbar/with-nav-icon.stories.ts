@@ -1,4 +1,5 @@
 import { text, select } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 
 export const withNavIcon = (): any => ({
     template: `
@@ -25,8 +26,7 @@ export const withNavIcon = (): any => ({
             selected: undefined,
         },
         clickPXBIcon: (): void => {
-            // eslint-disable-next-line no-console
-            console.log('pxb icon clicked...');
+            action('pxb icon clicked...');
         },
     },
 });

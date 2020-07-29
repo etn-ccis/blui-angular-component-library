@@ -92,6 +92,6 @@ describe('SelectionToolbarComponent', () => {
         }
 
         // Overlay classes
-        void expect(document.getElementsByClassName('pxb-selection-toolbar-menu').length).toBe(1);
+        void expect(document.getElementsByClassName('pxb-selection-toolbar-menu-wrapper').length).toBe(1);
     });
 });

@@ -1,4 +1,5 @@
 import { text, number, select } from '@storybook/addon-knobs';
+import { action } from '@storybook/addon-actions';
 
 export const withFullConfig = (): any => ({
     template: `
@@ -31,12 +32,10 @@ export const withFullConfig = (): any => ({
             selected: undefined,
         },
         clickPXBIcon: (): void => {
-            // eslint-disable-next-line no-console
-            console.log('pxb icon clicked...');
+            action('pxb icon clicked...');
         },
         clickRightContentIcon: (str: string): void => {
-            // eslint-disable-next-line no-console
-            console.log(str, 'icon clicked...');
+            action(`${str} icon clicked...`);
         },
     },
 });
