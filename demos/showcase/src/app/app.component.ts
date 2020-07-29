@@ -93,7 +93,7 @@ export class AppComponent {
     updateSelectionToolbarSubtitle(string: string): void {
         this.selectionToolbarSubtitle = string;
     }
-    
+
     toggleTheme(): void {
         const body = document.querySelector('body') as HTMLElement;
         if (this.isDarkMode) {
