@@ -28,7 +28,7 @@ export const withCustomMenu = (): any => ({
     ],
     template: `
        <pxb-selection-toolbar [title]="title" [subtitle]="subtitle">
-        <ng-container pxb-menu>
+        <ng-container pxb-toolbar-menu>
             <div style="padding: 16px 8px 8px 8px; position: relative; cursor: pointer;">
                 <div class="header1">Welcome,</div>
                 <div class="header2">T-Rex</div>

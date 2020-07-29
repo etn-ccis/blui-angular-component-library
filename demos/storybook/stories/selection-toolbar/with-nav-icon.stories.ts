@@ -3,10 +3,10 @@ import { text } from '@storybook/addon-knobs';
 export const withNavIcon = (): any => ({
     template: `
        <pxb-selection-toolbar [title]="title" [subtitle]="state.selected || subtitle">
-            <button mat-icon-button pxb-icon (click)="clickPXBIcon()" aria-label="menu icon">
+            <button mat-icon-button pxb-nav-icon (click)="clickPXBIcon()" aria-label="menu icon">
                 <mat-icon>menu</mat-icon>
             </button>
-        <ng-container pxb-menu>
+        <ng-container pxb-toolbar-menu>
             <button mat-menu-item (click)="updateSubtitle('Test Item 1', state)">Test Item 1</button>
             <button mat-menu-item (click)="updateSubtitle('Test Item 2', state)">Test Item 2</button>
             <button mat-menu-item (click)="updateSubtitle('Test Item 3', state)">Test Item 3</button>

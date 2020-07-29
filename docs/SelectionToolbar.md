@@ -23,8 +23,8 @@ The following child elements are projected into `<pxb-selection-toolbar>`:
 
 | Selector          | Description                                  | Required | Default |
 | ----------------- | -------------------------------------------- | -------- | ------- |
-| pxb-icon          | Icon shown on the left                       | no       |         |
-| pxb-menu          | Content to be shown within dropdown menu     | no       |         |
+| pxb-nav-icon      | Icon shown on the left                       | no       |         |
+| pxb-toolbar-menu  | Content to be shown within dropdown menu     | no       |         |
 
 ### Classes
 

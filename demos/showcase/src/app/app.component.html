@@ -2,7 +2,7 @@
     <showcase-drawer pxb-drawer></showcase-drawer>
     <div pxb-content>
         <pxb-selection-toolbar class="toolbar" title="Showcase" [subtitle]="selectionToolbarSubtitle">
-            <button *ngIf="isMobile()" mat-icon-button pxb-icon (click)="openDrawer()">
+            <button *ngIf="isMobile()" mat-icon-button pxb-nav-icon (click)="openDrawer()">
                 <mat-icon>menu</mat-icon>
             </button>
             <pxb-user-menu                
@@ -29,7 +29,7 @@
                     </div>
                 </mat-nav-list>
             </pxb-user-menu>
-            <ng-container pxb-menu>
+            <ng-container pxb-toolbar-menu>
                 <button mat-menu-item (click)="updateSelectionToolbarSubtitle('English')">
                     <span>English</span>
                 </button>
