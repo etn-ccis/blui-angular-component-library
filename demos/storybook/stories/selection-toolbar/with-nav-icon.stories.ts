@@ -25,8 +25,6 @@ export const withNavIcon = (): any => ({
         state: {
             selected: undefined,
         },
-        clickPXBIcon: (): void => {
-            action('pxb icon clicked...');
-        },
+        clickPXBIcon: action('pxb nav icon clicked'),
     },
 });
