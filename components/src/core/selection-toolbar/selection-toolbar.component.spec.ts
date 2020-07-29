@@ -13,7 +13,6 @@ import { count } from '../../utils/test-utils';
                 <mat-icon>menu</mat-icon>
             </button>
             <div pxb-menu id="test-menu">menu text</div>
-            <div id="test-right-content">right content</div>
         </pxb-selection-toolbar>
     `,
 })
@@ -61,13 +60,6 @@ describe('SelectionToolbarComponent', () => {
         );
     });
 
-    it('should render right content', () => {
-        const customFixture = TestBed.createComponent(TestSelectionToolbar);
-        customFixture.detectChanges();
-        const rightContent: HTMLElement = customFixture.nativeElement.querySelector('#test-right-content');
-        void expect(rightContent.innerHTML).toBe('right content');
-    });
-
     const clickMenu = (customFixture): void => {
         customFixture.detectChanges();
         const menuTrigger = document.getElementsByClassName('pxb-selection-toolbar-subtitle-container')[0];
@@ -93,7 +85,6 @@ describe('SelectionToolbarComponent', () => {
             '.pxb-selection-toolbar-icon-wrapper',
             '.pxb-selection-toolbar-title',
             '.pxb-selection-toolbar-subtitle',
-            '.pxb-selection-toolbar-right-content-wrapper',
         ];
 
         for (const className of classList) {
