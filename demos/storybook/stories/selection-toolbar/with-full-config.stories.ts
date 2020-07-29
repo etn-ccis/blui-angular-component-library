@@ -1,10 +1,11 @@
-import { text, number } from '@storybook/addon-knobs';
+import { text, number, select } from '@storybook/addon-knobs';
 
 export const withFullConfig = (): any => ({
     template: `
        <pxb-selection-toolbar [title]="title" [subtitle]="state.selected || subtitle">
             <button mat-icon-button pxb-nav-icon (click)="clickPXBIcon()" aria-label="menu icon">
-                <mat-icon>menu</mat-icon>
+            <mat-icon *ngIf="navIcon === 'menu'">menu</mat-icon>
+            <mat-icon *ngIf="navIcon === 'arrow_back'">arrow_back</mat-icon>
             </button>
         <ng-container pxb-toolbar-menu>
             <button mat-menu-item (click)="updateSubtitle('Test Item 1', state)">Test Item 1</button>
@@ -19,6 +20,7 @@ export const withFullConfig = (): any => ({
        </pxb-selection-toolbar>
     `,
     props: {
+        navIcon: select('nav icon', ['menu', 'arrow_back'], 'menu'),
         title: text('title', 'Title'),
         subtitle: text('subtitle', 'Subtitle'),
         count: number('right content icon count', 3, { range: true, min: 0, max: 3, step: 1 }),
