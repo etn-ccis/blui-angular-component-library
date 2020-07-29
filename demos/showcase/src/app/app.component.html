@@ -1,11 +1,24 @@
-<pxb-drawer-layout [variant]="getVariant()" (backdropClick)="closeDrawer()">
+<pxb-drawer-layout
+    [variant]="getVariant()"
+    (backdropClick)="closeDrawer()"
+    [dir]="isRtl ? 'rtl' : 'ltr'"
+    [class.rtl]="isRtl"
+>
     <showcase-drawer pxb-drawer></showcase-drawer>
     <div pxb-content>
         <pxb-selection-toolbar class="toolbar" title="Showcase" [subtitle]="selectionToolbarSubtitle">
-            <button *ngIf="isMobile()" mat-icon-button pxb-nav-icon (click)="openDrawer()">
+            <button *ngIf="isMobile()" mat-icon-button pxb-nav-icon class="menu-icon" [class.rtl]="isRtl" (click)="openDrawer()">
                 <mat-icon>menu</mat-icon>
             </button>
+            <button mat-icon-button style="margin: 0px 4px" (click)="toggleTheme()">
+                <mat-icon>invert_colors</mat-icon>
+            </button>
+            <button mat-icon-button style="margin: 0px 4px" (click)="toggleDirectionality()">
+                <mat-icon>compare_arrows</mat-icon>
+            </button>
             <pxb-user-menu
+                class="user-menu"
+                [class.rtl]="isRtl"
                 avatarValue="MS"
                 menuTitle="Marshall Sutter"
                 menuSubtitle="msutter@acmesteel.com"
@@ -41,8 +54,8 @@
                 </button>
             </ng-container>
         </pxb-selection-toolbar>
-        <div style="padding: 24px">
-            <div style="display: flex; padding: 8px;  justify-content: flex-start">
+        <div>
+            <div class="scorecards">
                 <pxb-score-card
                     class="red-score-card"
                     [headerTitle]="'Substation 3'"
@@ -75,7 +88,7 @@
                     </pxb-hero-banner>
                     <pxb-info-list-item hidePadding="true" dense="true" pxb-action-row>
                         <div pxb-title>More</div>
-                        <mat-icon mat-list-icon pxb-right-content>chevron_right</mat-icon>
+                        <mat-icon mat-list-icon pxb-right-content class="scorecard-chevron">chevron_right</mat-icon>
                     </pxb-info-list-item>
                 </pxb-score-card>
 
@@ -114,7 +127,7 @@
                     </pxb-hero>
                     <pxb-info-list-item hidePadding="true" dense="true" pxb-action-row>
                         <div pxb-title>View Location</div>
-                        <mat-icon mat-list-icon pxb-right-content>chevron_right</mat-icon>
+                        <mat-icon mat-list-icon pxb-right-content class="scorecard-chevron">chevron_right</mat-icon>
                     </pxb-info-list-item>
                 </pxb-score-card>
             </div>

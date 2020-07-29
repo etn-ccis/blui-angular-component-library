@@ -5,6 +5,21 @@ import 'typeface-open-sans';
 import { BrowserModule } from '@angular/platform-browser';
 import { COMPONENT_SECTION_NAME, README_STORY_NAME } from './constants';
 import * as Colors from '@pxblue/colors';
+import addons from '@storybook/addons';
+import { Direction_MODE_EVENT_NAME } from 'storybook-rtl-addon';
+
+const setDirection = (dir: string) => {
+    const body = document.querySelector('body') as HTMLElement;
+    if (body) {
+        body.setAttribute('dir', dir);
+    }
+};
+
+// Listen for RTL/LTR events.
+const channel = addons.getChannel();
+channel.on(Direction_MODE_EVENT_NAME, (dir) => {
+    setDirection(dir);
+});
 
 let banner: HTMLElement;
 let prevUrl = '';

@@ -1,3 +1,11 @@
+/* RTL */
+[dir='rtl'] .pxb-drawer-header {
+    .pxb-drawer-header-icon-wrapper {
+        margin-right: 0;
+        margin-left: 16px;
+    }
+}
+
 $height: 64px;
 .pxb-drawer-header {
     width: 100%;
@@ -44,7 +52,7 @@ $height: 64px;
     .pxb-drawer-header-title-wrapper {
         display: flex;
         padding-left: 8px;
-        padding-right: 16px;
+        padding-right: 8px;
         justify-content: center;
         align-self: stretch;
         flex-direction: column;

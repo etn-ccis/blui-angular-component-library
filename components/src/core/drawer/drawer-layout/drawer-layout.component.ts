@@ -1,6 +1,16 @@
-import { ChangeDetectorRef, Component, EventEmitter, Input, Output, ViewEncapsulation } from '@angular/core';
+import {
+    AfterViewInit,
+    ChangeDetectorRef,
+    Component,
+    EventEmitter,
+    Input,
+    Output,
+    ViewEncapsulation,
+} from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
+import { Direction, Directionality } from '@angular/cdk/bidi';
+import { Subscription } from 'rxjs';
 
 export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
 
@@ -23,22 +33,37 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
             <mat-sidenav-content
                 class="pxb-drawer-layout-nav-content"
                 [class.smooth]="variant !== 'temporary' && transition"
-                [style.marginLeft.px]="getContentMarginLeft()"
+                [style.marginRight.px]="isRtl ? getContentMargin() : 0"
+                [style.marginLeft.px]="isRtl ? 0 : getContentMargin()"
             >
                 <ng-content select="[pxb-content]"></ng-content>
             </mat-sidenav-content>
         </mat-sidenav-container>
     `,
 })
-export class DrawerLayoutComponent extends StateListener {
+export class DrawerLayoutComponent extends StateListener implements AfterViewInit {
     @Input() variant: DrawerLayoutVariantType;
     @Input() width = 350;
     @Output() backdropClick: EventEmitter<void> = new EventEmitter();
 
     transition = true;
+    isRtl = false;
+    dirChangeSubscription = Subscription.EMPTY;
 
-    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+    constructor(
+        drawerService: DrawerService,
+        changeDetectorRef: ChangeDetectorRef,
+        private readonly _dir: Directionality
+    ) {
         super(drawerService, changeDetectorRef);
+        this.dirChangeSubscription = _dir.change.subscribe((direction: Direction) => {
+            this.isRtl = direction === 'rtl';
+            changeDetectorRef.detectChanges();
+        });
+    }
+
+    ngAfterViewInit(): void {
+        this.isRtl = this._dir.value === 'rtl';
     }
 
     ngOnChanges(): void {
@@ -51,6 +76,11 @@ export class DrawerLayoutComponent extends StateListener {
             this.drawerService.setDrawerOpen(true);
         }
         this.changeDetector.detectChanges();
+    }
+
+    ngOnDestroy(): void {
+        this.unsubscribeListeners();
+        this.dirChangeSubscription.unsubscribe();
     }
 
     getMode(): string {
@@ -68,7 +98,7 @@ export class DrawerLayoutComponent extends StateListener {
         return true;
     }
 
-    getContentMarginLeft(): number {
+    getContentMargin(): number {
         if (this.variant === 'temporary') {
             return 0;
         }

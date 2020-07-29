@@ -7,7 +7,7 @@ import {
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
-import { requireContent, isEmptyView } from '../../utils/utils';
+import { isEmptyView, requireContent } from '../../utils/utils';
 
 @Component({
     selector: 'pxb-info-list-item',
@@ -19,7 +19,8 @@ import { requireContent, isEmptyView } from '../../utils/utils';
             [class.pxb-info-list-item-wrap]="wrapSubtitle || wrapTitle"
             [class.pxb-info-list-item-dense]="dense"
             [class.pxb-info-list-item-status]="statusColor"
-            [style.borderLeftColor]="statusColor"
+            [style.border-left-color]="statusColor"
+            [style.border-right-color]="statusColor"
         >
             <div
                 mat-list-icon
@@ -83,6 +84,7 @@ export class InfoListItemComponent implements AfterViewInit {
 
     @ViewChild('title', { static: false }) titleEl: ElementRef;
     @ViewChild('right', { static: false }) rightEl: ElementRef;
+
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 
     ngAfterViewInit(): void {

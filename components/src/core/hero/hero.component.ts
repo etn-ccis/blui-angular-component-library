@@ -1,13 +1,13 @@
 import {
     AfterContentChecked,
     AfterViewInit,
+    ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
     ElementRef,
     Input,
     OnChanges,
     ViewChild,
-    ChangeDetectionStrategy,
     ViewEncapsulation,
 } from '@angular/core';
 import { requireInput } from '../../utils/utils';
