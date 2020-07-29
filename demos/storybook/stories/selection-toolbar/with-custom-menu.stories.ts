@@ -1,45 +1,23 @@
 import { text } from '@storybook/addon-knobs';
-const Trex = require('../../assets/trex.png');
+import * as Colors from '@pxblue/colors';
+import { action } from '@storybook/addon-actions';
 
 export const withCustomMenu = (): any => ({
-    styles: [
-        `
-       .header1 {
-        margin: 0; 
-        font-size: 18px;
-        font-weight: 600;
-        }
-        .header2 {
-            margin: 0;
-            margin-top: -8px;
-            font-size: 42px;
-            font-weight: 600;
-        }
-        .overlay {
-            position: absolute;
-            right: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            opacity: 0.2;
-        }
-    `,
-    ],
     template: `
        <pxb-selection-toolbar [title]="title" [subtitle]="subtitle">
         <ng-container pxb-toolbar-menu>
-            <div style="padding: 16px 8px 8px 8px; position: relative; cursor: pointer;">
-                <div class="header1">Welcome,</div>
-                <div class="header2">T-Rex</div>
-                <div [style.backgroundImage]="trex" class="overlay"></div>
-            </div>
+            <mat-nav-list>
+                <pxb-info-list-item (click)="click()"><mat-icon [style.color]="colors.blue[500]" pxb-icon>business</mat-icon><span pxb-title>Atlanta</span></pxb-info-list-item>
+                <pxb-info-list-item (click)="click()" [statusColor]="colors.red[500]"><mat-icon [style.color]="colors.red[500]" pxb-icon>house</mat-icon><span pxb-title>Pittsburgh</span></pxb-info-list-item>
+                <pxb-info-list-item (click)="click()"><mat-icon [style.color]="colors.blue[500]" pxb-icon>apartment</mat-icon><span pxb-title>New York</span></pxb-info-list-item>
+            </mat-nav-list>
         </ng-container>
        </pxb-selection-toolbar>
     `,
     props: {
         title: text('title', 'Title'),
         subtitle: text('subtitle', 'Subtitle'),
-        trex: `url(${Trex})`,
+        colors: Colors,
+        click: action('Info list item clicked'),
     },
 });

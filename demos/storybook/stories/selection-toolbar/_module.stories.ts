@@ -2,7 +2,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { COMPONENT_SECTION_NAME, README_STORY_NAME, STORY_PARAMS } from '../../src/constants';
 import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/utils';
-import { SelectionToolbarModule } from '@pxblue/angular-components';
+import { SelectionToolbarModule, InfoListItemModule } from '@pxblue/angular-components';
 import { withA11y } from '@storybook/addon-a11y';
 import { withFullConfig } from './with-full-config.stories';
 import { MatIconModule } from '@angular/material/icon';
@@ -11,6 +11,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { withBasicUsage } from './with-basic-usage.stories';
 import { withNavIcon } from './with-nav-icon.stories';
 import { withCustomMenu } from './with-custom-menu.stories';
+import { MatListModule } from '@angular/material/list';
 
 export const selectionToolbarWrapper = () => (storyFn: any): any => {
     const story = storyFn();
@@ -31,7 +32,15 @@ export const selectionToolbarWrapper = () => (storyFn: any): any => {
 storiesOf(`${COMPONENT_SECTION_NAME}/Selection Toolbar`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [SelectionToolbarModule, UtilModule, MatIconModule, MatMenuModule, MatButtonModule],
+            imports: [
+                SelectionToolbarModule,
+                UtilModule,
+                MatIconModule,
+                MatMenuModule,
+                MatButtonModule,
+                InfoListItemModule,
+                MatListModule,
+            ],
         })
     )
     .addDecorator(withKnobs)
