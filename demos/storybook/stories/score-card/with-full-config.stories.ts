@@ -3,6 +3,7 @@ import * as Colors from '@pxblue/colors';
 import { action } from '@storybook/addon-actions';
 import { demoActions } from './with-actions.stories';
 import { withCustomHeaderStyles } from './with-custom-header.stories';
+import { getDirection } from '@pxblue/storybook-rtl-addon';
 
 export const withFullConfig = (): any => ({
     styles: [
@@ -13,6 +14,13 @@ export const withFullConfig = (): any => ({
         }
         .sb-score-card-content mat-icon {
             margin-right: 32px;
+        }
+        .rtl.sb-score-card-content mat-icon {
+            margin-left: 32px;
+            margin-right: 0;
+        }
+        ::ng-deep .rtl .mat-list-text { 
+            padding-right: 0!important;
         }
         .sb-score-card-content .mat-line {
             font-weight: 600!important;
@@ -33,7 +41,7 @@ export const withFullConfig = (): any => ({
                     </mat-icon>
                 </ng-container>
             </ng-container>
-            <mat-list pxb-body class="sb-score-card-content">
+            <mat-list pxb-body class="sb-score-card-content" [class.rtl]="direction() === 'rtl'">
                 <mat-list-item>
                     <p mat-line>0 Alarms</p>
                     <mat-icon mat-list-icon>notifications</mat-icon>
@@ -57,7 +65,7 @@ export const withFullConfig = (): any => ({
                     <i pxb-primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
                 </pxb-hero>
             </pxb-hero-banner>
-            <pxb-info-list-item hidePadding="true" dense="true" actionRow (click)="actionRowClick()">
+            <pxb-info-list-item hidePadding="true" dense="true" pxb-action-row (click)="actionRowClick()">
                 <div pxb-title>View Location</div>
                 <mat-icon mat-list-icon pxb-right-content>chevron_right</mat-icon>
             </pxb-info-list-item>
@@ -84,5 +92,6 @@ export const withFullConfig = (): any => ({
         actionClick: (iconName: string): any => action(`${iconName} clicked`)(),
         actions: demoActions,
         colors: Colors,
+        direction: getDirection,
     },
 });

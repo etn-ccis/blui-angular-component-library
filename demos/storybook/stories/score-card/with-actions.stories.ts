@@ -30,7 +30,7 @@ export const withActions = (): any => ({
                     <p mat-line>Body Content</p>
                 </mat-list-item>
             </mat-list>
-            <pxb-info-list-item hidePadding="true" dense="true" actionRow (click)="actionRowClick()">
+            <pxb-info-list-item hidePadding="true" dense="true" pxb-action-row (click)="actionRowClick()">
                 <div pxb-title>View Location</div>
                 <mat-icon mat-list-icon pxb-right-content>chevron_right</mat-icon>
             </pxb-info-list-item>
