@@ -43,7 +43,7 @@ Parent element (`<pxb-dropdown-toolbar>`) attributes:
 | @Input   | Description                                    | Type                 | Required | Default |
 | -------- | ---------------------------------------------- | -------------------- | -------- | ------- |
 | title    | The text to display for title                  | `string`             | no       |         |
-| subtitle | The text to display selection                  | `string`             | no       |         |
+| subtitle | The text to display subtitle                   | `string`             | no       |         |
 
 </div>
 
