@@ -23,7 +23,9 @@ import { MatMenuTrigger } from '@angular/material/menu';
                     #menuTrigger="matMenuTrigger"
                 >
                     <span class="pxb-selection-toolbar-subtitle mat-subheading-2">{{ subtitle }}</span>
-                    <mat-icon>arrow_drop_down</mat-icon>
+                    <mat-icon class="dropdown-arrow" [class.rotated-dropdown-arrow]="menuTrigger.menuOpen"
+                        >arrow_drop_down</mat-icon
+                    >
                 </div>
             </div>
             <pxb-spacer></pxb-spacer>
