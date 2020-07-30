@@ -16,7 +16,7 @@ export const withNavIcon = (): any => ({
        </pxb-selection-toolbar>
     `,
     props: {
-        navIcon: select('nav icon', ['menu', 'arrow_back'], 'menu'),
+        navIcon: select('pxb-nav-icon', ['menu', 'arrow_back'], 'menu'),
         title: text('title', 'Title'),
         subtitle: text('subtitle', 'Subtitle'),
         updateSubtitle: (str: string, state): void => {

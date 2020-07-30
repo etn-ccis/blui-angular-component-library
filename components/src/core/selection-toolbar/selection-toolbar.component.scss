@@ -1,3 +1,13 @@
+[dir='rtl'] .pxb-selection-toolbar {
+    .pxb-selection-toolbar-icon-wrapper {
+        margin-right: -8px;
+        margin-left: 16px;
+    }
+    .pxb-selection-toolbar-text-content-container {
+        padding-right: 0;
+    }
+}
+
 .pxb-selection-toolbar-icon-wrapper {
     display: flex;
     align-items: center;

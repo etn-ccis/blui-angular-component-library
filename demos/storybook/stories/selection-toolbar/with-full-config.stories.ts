@@ -2,6 +2,18 @@ import { text, number, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 export const withFullConfig = (): any => ({
+    styles: [
+        `
+            [dir='rtl'] .settings-icon {
+                margin-right: 0;
+                margin-left: -8px;
+            }
+
+            .settings-icon {
+                margin-right: -8px;
+            }
+        `,
+    ],
     template: `
        <pxb-selection-toolbar [title]="title" [subtitle]="state.selected || subtitle">
             <button mat-icon-button pxb-nav-icon (click)="clickPXBIcon()" aria-label="menu icon">
@@ -16,12 +28,12 @@ export const withFullConfig = (): any => ({
         <div>
             <button mat-icon-button *ngIf="count > 0" (click)="clickRightContentIcon()" aria-label="home icon"><mat-icon>home</mat-icon></button>
             <button mat-icon-button *ngIf="count > 1" (click)="clickRightContentIcon()" aria-label="work icon"><mat-icon>work</mat-icon></button>
-            <button mat-icon-button *ngIf="count > 2" (click)="clickRightContentIcon()" aria-label="settings icon" style="margin-right: -8px;"><mat-icon>settings</mat-icon></button>
+            <button mat-icon-button class="settings-icon" *ngIf="count > 2" (click)="clickRightContentIcon()" aria-label="settings icon"><mat-icon>settings</mat-icon></button>
         </div>
        </pxb-selection-toolbar>
     `,
     props: {
-        navIcon: select('nav icon', ['menu', 'arrow_back'], 'menu'),
+        navIcon: select('pxb-nav-icon', ['menu', 'arrow_back'], 'menu'),
         title: text('title', 'Title'),
         subtitle: text('subtitle', 'Subtitle'),
         count: number('right content icon count', 3, { range: true, min: 0, max: 3, step: 1 }),
