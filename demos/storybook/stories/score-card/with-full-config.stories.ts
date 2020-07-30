@@ -18,6 +18,7 @@ export const withFullConfig = (): any => ({
         .rtl.sb-score-card-content mat-icon {
             margin-left: 32px;
             margin-right: 0;
+            transform: scaleX(-1);
         }
         ::ng-deep .rtl .mat-list-text { 
             padding-right: 0!important;
