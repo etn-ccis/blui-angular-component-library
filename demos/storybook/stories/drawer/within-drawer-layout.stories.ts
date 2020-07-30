@@ -38,9 +38,11 @@ export const withinDrawerLayout = (): any => ({
             </pxb-drawer>
             <div pxb-content>
                 <mat-toolbar [style.backgroundColor]="blue" [style.color]="white" 
-                    style="border-left: 1px solid white; padding-left: 24px">
-                    <button *ngIf="variant === 'temporary'" 
-                        mat-icon-button style="margin-right: 16px" (click)="state.open = true">
+                    style="border-left: 1px solid white; padding: 0 24px">
+                    <button *ngIf="variant === 'temporary'" mat-icon-button 
+                        [style.marginRight.px]="direction() === 'rtl' ? -16 : 16"
+                        [style.marginLeft.px]="direction() === 'rtl' ? 16 : -16"
+                        (click)="state.open = true">
                         <mat-icon>menu</mat-icon>
                     </button>
                     <h2>Drawer Layout Demo</h2>
