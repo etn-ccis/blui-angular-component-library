@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 
 export const withNavIcon = (): any => ({
     template: `
-       <pxb-selection-toolbar [title]="title" [subtitle]="state.selected || subtitle">
+       <pxb-dropdown-toolbar [title]="title" [subtitle]="state.selected || subtitle">
             <button mat-icon-button pxb-nav-icon (click)="clickPXBIcon()" aria-label="menu icon">
                 <mat-icon *ngIf="navIcon === 'menu'">menu</mat-icon>
                 <mat-icon *ngIf="navIcon === 'arrow_back'">arrow_back</mat-icon>
@@ -13,7 +13,7 @@ export const withNavIcon = (): any => ({
             <button mat-menu-item (click)="updateSubtitle('Test Item 2', state)">Test Item 2</button>
             <button mat-menu-item (click)="updateSubtitle('Test Item 3', state)">Test Item 3</button>
         </ng-container>
-       </pxb-selection-toolbar>
+       </pxb-dropdown-toolbar>
     `,
     props: {
         navIcon: select('pxb-nav-icon', ['menu', 'arrow_back'], 'menu'),

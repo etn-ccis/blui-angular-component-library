@@ -2,7 +2,7 @@
 
 ## v2.1.0
 -   Add new component for `<pxb-user-menu>` (use @pxblue/angular-themes v5.1.0+ to get PX Blue themes for this component).
--   Add new component for `<pxb-selection-toolbar>`.
+-   Add new component for `<pxb-dropdown-toolbar>`.
 
 
 ## v2.0.0

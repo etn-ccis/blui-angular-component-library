@@ -2,7 +2,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { COMPONENT_SECTION_NAME, README_STORY_NAME, STORY_PARAMS } from '../../src/constants';
 import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/utils';
-import { SelectionToolbarModule, InfoListItemModule } from '@pxblue/angular-components';
+import { DropdownToolbarModule, InfoListItemModule } from '@pxblue/angular-components';
 import { withA11y } from '@storybook/addon-a11y';
 import { withFullConfig } from './with-full-config.stories';
 import { MatIconModule } from '@angular/material/icon';
@@ -13,13 +13,13 @@ import { withNavIcon } from './with-nav-icon.stories';
 import { withCustomMenu } from './with-custom-menu.stories';
 import { MatListModule } from '@angular/material/list';
 
-export const selectionToolbarWrapper = () => (storyFn: any): any => {
+export const dropdownToolbarWrapper = () => (storyFn: any): any => {
     const story = storyFn();
     return {
         ...story,
         styles: [
             `
-        ::ng-deep .pxb-selection-toolbar {
+        ::ng-deep .pxb-dropdown-toolbar {
             width: 80vw !important;
         }`,
         ],
@@ -29,11 +29,11 @@ export const selectionToolbarWrapper = () => (storyFn: any): any => {
     };
 };
 
-storiesOf(`${COMPONENT_SECTION_NAME}/Selection Toolbar`, module)
+storiesOf(`${COMPONENT_SECTION_NAME}/Dropdown Toolbar`, module)
     .addDecorator(
         moduleMetadata({
             imports: [
-                SelectionToolbarModule,
+                DropdownToolbarModule,
                 UtilModule,
                 MatIconModule,
                 MatMenuModule,
@@ -47,10 +47,10 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Selection Toolbar`, module)
     // @accessibility
     .addDecorator(withA11y)
     .addDecorator(storyWrapper())
-    .addDecorator(selectionToolbarWrapper())
+    .addDecorator(dropdownToolbarWrapper())
     .addParameters({
         ...STORY_PARAMS,
-        notes: { markdown: getReadMe('SelectionToolbar.md') },
+        notes: { markdown: getReadMe('DropdownToolbar.md') },
     })
     .add(README_STORY_NAME, getReadMeStory)
     .add('with basic usage', withBasicUsage)

@@ -1,33 +1,33 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatIconModule } from '@angular/material/icon';
-import { SelectionToolbarComponent } from './selection-toolbar.component';
-import { SelectionToolbarModule } from './selection-toolbar.module';
+import { DropdownToolbarComponent } from './dropdown-toolbar.component';
+import { DropdownToolbarModule } from './dropdown-toolbar.module';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { count } from '../../utils/test-utils';
 
 @Component({
     template: `
-        <pxb-selection-toolbar title="title" subtitle="subtitle">
+        <pxb-dropdown-toolbar title="title" subtitle="subtitle">
             <button id="test-icon" mat-icon-button pxb-icon>
                 <mat-icon>menu</mat-icon>
             </button>
             <div pxb-menu id="test-menu">menu text</div>
-        </pxb-selection-toolbar>
+        </pxb-dropdown-toolbar>
     `,
 })
-class TestSelectionToolbar {}
+class TestDropdownToolbar {}
 
-describe('SelectionToolbarComponent', () => {
-    let component: SelectionToolbarComponent;
-    let fixture: ComponentFixture<SelectionToolbarComponent>;
+describe('DropdownToolbarComponent', () => {
+    let component: DropdownToolbarComponent;
+    let fixture: ComponentFixture<DropdownToolbarComponent>;
 
     beforeEach(() => {
         void TestBed.configureTestingModule({
-            declarations: [TestSelectionToolbar],
-            imports: [SelectionToolbarModule, MatIconModule],
+            declarations: [TestDropdownToolbar],
+            imports: [DropdownToolbarModule, MatIconModule],
         }).compileComponents();
-        fixture = TestBed.createComponent(SelectionToolbarComponent);
+        fixture = TestBed.createComponent(DropdownToolbarComponent);
         component = fixture.componentInstance;
     });
 
@@ -39,7 +39,7 @@ describe('SelectionToolbarComponent', () => {
     it('should render title', () => {
         component.title = 'test title';
         fixture.detectChanges();
-        const title = fixture.debugElement.query(By.css('.pxb-selection-toolbar-title'));
+        const title = fixture.debugElement.query(By.css('.pxb-dropdown-toolbar-title'));
         void expect(title.nativeElement.innerHTML.trim()).toBe('test title');
     });
 
@@ -47,12 +47,12 @@ describe('SelectionToolbarComponent', () => {
         component.title = 'test title';
         component.subtitle = 'test subtitle';
         fixture.detectChanges();
-        const subtitle = fixture.debugElement.query(By.css('.pxb-selection-toolbar-subtitle'));
+        const subtitle = fixture.debugElement.query(By.css('.pxb-dropdown-toolbar-subtitle'));
         void expect(subtitle.nativeElement.innerHTML.trim()).toBe('test subtitle');
     });
 
     it('should render icon', () => {
-        const customFixture = TestBed.createComponent(TestSelectionToolbar);
+        const customFixture = TestBed.createComponent(TestDropdownToolbar);
         customFixture.detectChanges();
         const icon: HTMLElement = customFixture.nativeElement.querySelector('#test-icon');
         void expect(icon.innerHTML).toBe(
@@ -62,13 +62,13 @@ describe('SelectionToolbarComponent', () => {
 
     const clickMenu = (customFixture): void => {
         customFixture.detectChanges();
-        const menuTrigger = document.getElementsByClassName('pxb-selection-toolbar-subtitle-container')[0];
+        const menuTrigger = document.getElementsByClassName('pxb-dropdown-toolbar-subtitle-container')[0];
         menuTrigger.dispatchEvent(new Event('click'));
         customFixture.detectChanges();
     };
 
     it('should render menu', () => {
-        const customFixture = TestBed.createComponent(TestSelectionToolbar);
+        const customFixture = TestBed.createComponent(TestDropdownToolbar);
         customFixture.detectChanges();
         clickMenu(customFixture);
         const menu = document.getElementById('test-menu');
@@ -76,15 +76,15 @@ describe('SelectionToolbarComponent', () => {
     });
 
     it('should enforce class naming conventions', () => {
-        const customFixture = TestBed.createComponent(TestSelectionToolbar);
+        const customFixture = TestBed.createComponent(TestDropdownToolbar);
         clickMenu(customFixture);
 
         // Non-overlay classes
         const classList = [
-            '.pxb-selection-toolbar',
-            '.pxb-selection-toolbar-icon-wrapper',
-            '.pxb-selection-toolbar-title',
-            '.pxb-selection-toolbar-subtitle',
+            '.pxb-dropdown-toolbar',
+            '.pxb-dropdown-toolbar-icon-wrapper',
+            '.pxb-dropdown-toolbar-title',
+            '.pxb-dropdown-toolbar-subtitle',
         ];
 
         for (const className of classList) {
@@ -92,6 +92,6 @@ describe('SelectionToolbarComponent', () => {
         }
 
         // Overlay classes
-        void expect(document.getElementsByClassName('pxb-selection-toolbar-menu-wrapper').length).toBe(1);
+        void expect(document.getElementsByClassName('pxb-dropdown-toolbar-menu-wrapper').length).toBe(1);
     });
 });

@@ -6,7 +6,7 @@
 >
     <showcase-drawer pxb-drawer></showcase-drawer>
     <div pxb-content>
-        <pxb-selection-toolbar class="toolbar" title="Showcase" [subtitle]="selectionToolbarSubtitle">
+        <pxb-dropdown-toolbar class="toolbar" title="Showcase" [subtitle]="dropdownToolbarSubtitle">
             <button
                 *ngIf="isMobile()"
                 mat-icon-button
@@ -50,17 +50,17 @@
                 </mat-nav-list>
             </pxb-user-menu>
             <ng-container pxb-toolbar-menu>
-                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('English')">
+                <button mat-menu-item (click)="updateDropdownToolbarSubtitle('English')">
                     <span>English</span>
                 </button>
-                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('French')">
+                <button mat-menu-item (click)="updateDropdownToolbarSubtitle('French')">
                     <span>French</span>
                 </button>
-                <button mat-menu-item (click)="updateSelectionToolbarSubtitle('Arabic')">
+                <button mat-menu-item (click)="updateDropdownToolbarSubtitle('Arabic')">
                     <span>Arabic</span>
                 </button>
             </ng-container>
-        </pxb-selection-toolbar>
+        </pxb-dropdown-toolbar>
         <div>
             <div class="scorecards">
                 <pxb-score-card

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SelectionToolbarComponent } from './selection-toolbar.component';
+import { DropdownToolbarComponent } from './dropdown-toolbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -10,7 +10,7 @@ import { SpacerModule } from '../utility/public-api';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
-    declarations: [SelectionToolbarComponent],
+    declarations: [DropdownToolbarComponent],
     imports: [
         CommonModule,
         BrowserAnimationsModule,
@@ -21,6 +21,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         MatMenuModule,
         SpacerModule,
     ],
-    exports: [SelectionToolbarComponent],
+    exports: [DropdownToolbarComponent],
 })
-export class SelectionToolbarModule {}
+export class DropdownToolbarModule {}

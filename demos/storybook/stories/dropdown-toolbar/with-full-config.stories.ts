@@ -15,7 +15,7 @@ export const withFullConfig = (): any => ({
         `,
     ],
     template: `
-       <pxb-selection-toolbar [title]="title" [subtitle]="state.selected || subtitle">
+       <pxb-dropdown-toolbar [title]="title" [subtitle]="state.selected || subtitle">
             <button mat-icon-button pxb-nav-icon (click)="clickPXBIcon()" aria-label="menu icon">
             <mat-icon *ngIf="navIcon === 'menu'">menu</mat-icon>
             <mat-icon *ngIf="navIcon === 'arrow_back'">arrow_back</mat-icon>
@@ -30,7 +30,7 @@ export const withFullConfig = (): any => ({
             <button mat-icon-button *ngIf="count > 1" (click)="clickRightContentIcon()" aria-label="work icon"><mat-icon>work</mat-icon></button>
             <button mat-icon-button class="settings-icon" *ngIf="count > 2" (click)="clickRightContentIcon()" aria-label="settings icon"><mat-icon>settings</mat-icon></button>
         </div>
-       </pxb-selection-toolbar>
+       </pxb-dropdown-toolbar>
     `,
     props: {
         navIcon: select('pxb-nav-icon', ['menu', 'arrow_back'], 'menu'),

@@ -1,35 +1,35 @@
-[dir='rtl'] .pxb-selection-toolbar {
-    .pxb-selection-toolbar-icon-wrapper {
+[dir='rtl'] .pxb-dropdown-toolbar {
+    .pxb-dropdown-toolbar-icon-wrapper {
         margin-right: -8px;
         margin-left: 16px;
     }
-    .pxb-selection-toolbar-text-content-container {
+    .pxb-dropdown-toolbar-text-content-container {
         padding-right: 0;
     }
 }
 
-.pxb-selection-toolbar-icon-wrapper {
+.pxb-dropdown-toolbar-icon-wrapper {
     display: flex;
     align-items: center;
     z-index: 1;
     margin-right: 24px;
     margin-left: -8px;
-    &.pxb-selection-toolbar-no-icon {
+    &.pxb-dropdown-toolbar-no-icon {
         margin-right: 8px;
     }
 }
 
-.pxb-selection-toolbar-text-content-container {
+.pxb-dropdown-toolbar-text-content-container {
     display: block;
     padding-right: 16px;
 
-    .pxb-selection-toolbar-title {
+    .pxb-dropdown-toolbar-title {
         line-height: 1.6rem;
         overflow: hidden;
         text-overflow: ellipsis;
     }
 
-    .pxb-selection-toolbar-subtitle-container {
+    .pxb-dropdown-toolbar-subtitle-container {
         margin-top: -2px;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -46,7 +46,7 @@
             transform: rotate(180deg);
         }
 
-        .pxb-selection-toolbar-subtitle {
+        .pxb-dropdown-toolbar-subtitle {
             line-height: 1.3rem;
         }
     }

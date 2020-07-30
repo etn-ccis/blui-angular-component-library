@@ -1,25 +1,25 @@
-# Selection Toolbar
+# Dropdown Toolbar
 
-The `<pxb-selection-toolbar>` component is used to display a toolbar with a selection list.
+The `<pxb-dropdown-toolbar>` component is used to display a toolbar with a dropdown.
 
 <div style="text-align:center">
-<img width="100%" style="max-width:600px" alt="Selection Toolbar" src="./images/selectionToolbar.png">
+<img width="100%" style="max-width:600px" alt="Dropdown Toolbar" src="./images/dropdownToolbar.png">
 </div>
 
 ## Usage
 
 ```typescript
 // app.module.ts
-import { SelectionToolbarModule } from '@pxblue/angular-components';
+import { DropdownToolbarModule } from '@pxblue/angular-components';
 ...
 imports: [
-    SelectionToolbarModule
+    DropdownToolbarModule
   ],
 ```
 
 ```html
 // your-component.html
-<pxb-selection-toolbar [title]="title" [subtitle]="subtitle">
+<pxb-dropdown-toolbar [title]="title" [subtitle]="subtitle">
   <button mat-icon-button pxb-nav-icon >
     <mat-icon>menu</mat-icon>
   </button>
@@ -31,12 +31,12 @@ imports: [
   <div>
     <button mat-icon-button><mat-icon>home</mat-icon></button>
   </div>
-</pxb-selection-toolbar>
+</pxb-dropdown-toolbar>
 ```
 
 ## API
 
-Parent element (`<pxb-selection-toolbar>`) attributes:
+Parent element (`<pxb-dropdown-toolbar>`) attributes:
 
 <div style="overflow: auto;">
 
@@ -47,7 +47,7 @@ Parent element (`<pxb-selection-toolbar>`) attributes:
 
 </div>
 
-The following child elements are projected into `<pxb-selection-toolbar>`:
+The following child elements are projected into `<pxb-dropdown-toolbar>`:
 
 | Selector          | Description                                  | Required | Default |
 | ----------------- | -------------------------------------------- | -------- | ------- |
@@ -60,10 +60,10 @@ Each PX Blue component has classes which can be used to override component style
 
 | Name                                         | Description                            |
 | -------------------------------------------- | -------------------------------------- |
-| pxb-selection-toolbar                        | Styles applied to the root element     |
-| pxb-selection-toolbar-icon-wrapper           | Styles applied to the left icon        |
-| pxb-selection-toolbar-text-content-container | Styles applied to the text content     |
-| pxb-selection-toolbar-title                  | Styles applied to the title            |
-| pxb-selection-toolbar-subtitle-container     | Styles applied to the subtitle wrapper |
-| pxb-selection-toolbar-subtitle               | Styles applied to the subtitle         |
-| pxb-selection-toolbar-menu-wrapper           | Styles applied to the menu             |
+| pxb-dropdown-toolbar                        | Styles applied to the root element     |
+| pxb-dropdown-toolbar-icon-wrapper           | Styles applied to the left icon        |
+| pxb-dropdown-toolbar-text-content-container | Styles applied to the text content     |
+| pxb-dropdown-toolbar-title                  | Styles applied to the title            |
+| pxb-dropdown-toolbar-subtitle-container     | Styles applied to the subtitle wrapper |
+| pxb-dropdown-toolbar-subtitle               | Styles applied to the subtitle         |
+| pxb-dropdown-toolbar-menu-wrapper           | Styles applied to the menu             |

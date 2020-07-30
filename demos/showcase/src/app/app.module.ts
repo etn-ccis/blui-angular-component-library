@@ -13,7 +13,7 @@ import {
     InfoListItemModule,
     DrawerModule,
     ListItemTagModule,
-    SelectionToolbarModule,
+    DropdownToolbarModule,
     UserMenuModule,
 } from '@pxblue/angular-components';
 
@@ -52,7 +52,7 @@ import { MatMenuModule } from '@angular/material/menu';
         InfoListItemModule,
         DrawerModule,
         ListItemTagModule,
-        SelectionToolbarModule,
+        DropdownToolbarModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
