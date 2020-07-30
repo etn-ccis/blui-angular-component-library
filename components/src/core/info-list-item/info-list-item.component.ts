@@ -60,7 +60,7 @@ import { isEmptyView, requireContent } from '../../utils/utils';
                 <div #right class="pxb-info-list-item-right-content-wrapper">
                     <ng-content select="[pxb-right-content]"></ng-content>
                 </div>
-                <mat-icon *ngIf="chevron && isEmpty(rightEl)">chevron_right</mat-icon>
+                <mat-icon *ngIf="chevron && isEmpty(rightEl)" class="pxb-chevron">chevron_right</mat-icon>
             </div>
         </mat-list-item>
         <mat-divider

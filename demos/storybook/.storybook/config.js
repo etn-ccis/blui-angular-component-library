@@ -2,10 +2,6 @@ import { addParameters } from '@storybook/angular';
 require('@pxblue/icons/iconfont/PXBlueIcons.css');
 import { pxblueTheme } from '@pxblue/storybook-themes';
 
-addParameters({
-    defaultDirection: 'ltr',
-});
-
 const newViewports = {
     iPhone5: {
         name: 'iPhone 5',
