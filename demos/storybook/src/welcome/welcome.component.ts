@@ -21,7 +21,7 @@ const packageJSON = require('@pxblue/angular-components/package.json');
             [style.color]="pxbColors.white[50]"
             [style.backgroundImage]="background"
         >
-            <div class="container">
+            <div class="container" dir="ltr">
                 <div class="img-container">
                     <img [src]="pxbIcon" alt="pxb-icon" class="rotate" />
                 </div>

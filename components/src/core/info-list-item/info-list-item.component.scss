@@ -19,7 +19,8 @@ $denseHeight: 52px;
         .mat-list-item-content .mat-list-text {
             padding-right: 0;
         }
-        .pxb-info-list-item-icon-wrapper > * {
+        .pxb-info-list-item-icon-wrapper > *,
+        .pxb-chevron {
             @include invert();
         }
         .pxb-info-list-item-left-content-wrapper > * {

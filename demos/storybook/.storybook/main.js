@@ -1,7 +1,6 @@
 var path = require('path');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-
 const options = {
     transpileOnly: true,
     configFile: path.resolve(__dirname, '../tsconfig.json')
@@ -19,7 +18,7 @@ module.exports = {
         '@storybook/addon-google-analytics/register',
         // @accessibility remove the following line and all other lines following @accessibility in the app to hide the a11y addon
         '@storybook/addon-a11y/register',
-        'storybook-rtl-addon/register'
+        '@pxblue/storybook-rtl-addon/register',
     ],
     webpackFinal: async (config, { configType })=> {
         config.module.rules.push({
