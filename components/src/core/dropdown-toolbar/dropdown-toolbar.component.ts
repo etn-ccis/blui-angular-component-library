@@ -26,7 +26,6 @@ import { MatMenuTrigger } from '@angular/material/menu';
                     <mat-icon [class.rotated-dropdown-arrow]="menuTrigger.menuOpen">arrow_drop_down</mat-icon>
                 </div>
             </div>
-            <pxb-spacer></pxb-spacer>
             <ng-content></ng-content>
             <mat-menu #dropdownToolbarMenu="matMenu" [overlapTrigger]="false" class="pxb-dropdown-toolbar-menu-wrapper">
                 <ng-content select="[pxb-toolbar-menu]"></ng-content>

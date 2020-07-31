@@ -25,6 +25,7 @@ export const withFullConfig = (): any => ({
             <button mat-menu-item (click)="updateSubtitle('Test Item 2', state)">Test Item 2</button>
             <button mat-menu-item (click)="updateSubtitle('Test Item 3', state)">Test Item 3</button>
         </ng-container>
+        <pxb-spacer></pxb-spacer>
         <div>
             <button mat-icon-button *ngIf="count > 0" (click)="clickRightContentIcon()" aria-label="home icon"><mat-icon>home</mat-icon></button>
             <button mat-icon-button *ngIf="count > 1" (click)="clickRightContentIcon()" aria-label="work icon"><mat-icon>work</mat-icon></button>
