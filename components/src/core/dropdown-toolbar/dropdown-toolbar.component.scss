@@ -37,12 +37,7 @@
         align-items: center;
         cursor: pointer;
 
-        .dropdown-arrow {
-            transition: 300ms;
-        }
-
         .rotated-dropdown-arrow {
-            transition: 300ms;
             transform: rotate(180deg);
         }
 
