@@ -21,6 +21,7 @@
 
 .pxb-dropdown-toolbar-text-content-container {
     display: block;
+    max-width: 100%;
 
     .pxb-dropdown-toolbar-title {
         line-height: 1.6rem;
@@ -30,8 +31,6 @@
 
     .pxb-dropdown-toolbar-subtitle-container {
         margin-top: -2px;
-        overflow: hidden;
-        text-overflow: ellipsis;
         display: flex;
         align-items: center;
         cursor: pointer;
@@ -42,6 +41,8 @@
 
         .pxb-dropdown-toolbar-subtitle {
             line-height: 1.3rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
         }
     }
 }
