@@ -19,6 +19,8 @@ export class AppComponent {
     isRtl = false;
     colors: Record<string, any>;
     variant: DrawerLayoutVariantType = 'persistent';
+    dropdownToolbarSubtitle = 'Language';
+
     userMenuOpen = false;
     menuGroups = [
         {
@@ -86,6 +88,10 @@ export class AppComponent {
 
     openDrawer(): void {
         this._stateService.setDrawerOpen(true);
+    }
+
+    updateDropdownToolbarSubtitle(string: string): void {
+        this.dropdownToolbarSubtitle = string;
     }
 
     toggleTheme(): void {

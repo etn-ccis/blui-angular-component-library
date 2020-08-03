@@ -33,14 +33,6 @@
 .toolbar {
     background-color: map-get($pxb-blue, 500) !important;
     color: map-get($pxb-white, 50) !important;
-    .menu-icon {
-        margin-right: 16px;
-        margin-left: -8px;
-        &.rtl {
-            margin-right: -8px;
-            margin-left: 16px;
-        }
-    }
     .user-menu {
         margin-left: 8px;
 

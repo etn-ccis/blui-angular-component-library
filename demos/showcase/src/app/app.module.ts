@@ -13,6 +13,7 @@ import {
     InfoListItemModule,
     DrawerModule,
     ListItemTagModule,
+    DropdownToolbarModule,
     UserMenuModule,
 } from '@pxblue/angular-components';
 
@@ -25,6 +26,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { DrawerComponent } from './drawer/drawer.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatMenuModule } from '@angular/material/menu';
 
 @NgModule({
     declarations: [AppComponent, DrawerComponent],
@@ -39,6 +41,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
         MatButtonModule,
         HttpClientModule,
         MatToolbarModule,
+        MatMenuModule,
         //pxblue
         UserMenuModule,
         NgProgressIconsModule,
@@ -49,6 +52,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
         InfoListItemModule,
         DrawerModule,
         ListItemTagModule,
+        DropdownToolbarModule,
     ],
     providers: [],
     bootstrap: [AppComponent],
