@@ -21,7 +21,7 @@
 
 .pxb-dropdown-toolbar-text-content-container {
     display: block;
-    max-width: 50%;
+    overflow: hidden;
 
     .pxb-dropdown-toolbar-title {
         line-height: 1.6rem;
