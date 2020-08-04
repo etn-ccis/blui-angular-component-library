@@ -34,7 +34,8 @@
         display: flex;
         align-items: center;
         cursor: pointer;
-        width: fit-content;
+        float: left; // for IE11 compatibility
+        /* width: fit-content; */
 
         .rotated-dropdown-arrow {
             transform: rotate(180deg);
