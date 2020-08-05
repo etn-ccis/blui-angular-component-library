@@ -11,7 +11,8 @@ export const withinToolbar = (): any => ({
                     <mat-icon pxb-menu-avatar>person</mat-icon>
                     <div pxb-menu-body>
                          <mat-nav-list [style.paddingTop.px]="0">
-                            <pxb-info-list-item *ngFor="let item of items" [dense]="true" (click)="open=false">
+                            <pxb-info-list-item *ngFor="let item of items" [dense]="true" 
+                                (click)="open=false; item.onSelect();">
                                 <mat-icon pxb-icon>{{item.icon}}</mat-icon>
                                 <div pxb-title>{{item.title}}</div>
                             </pxb-info-list-item>

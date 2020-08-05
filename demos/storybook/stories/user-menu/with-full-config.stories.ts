@@ -1,20 +1,6 @@
 import { select, text } from '@storybook/addon-knobs';
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
-
-const items = [
-    {
-        title: 'Account',
-        icon: 'settings',
-    },
-    {
-        title: 'Contact Us',
-        icon: 'mail',
-    },
-    {
-        title: 'Log Out',
-        icon: 'logout',
-    },
-];
+import { items } from './with-basic-config.stories';
 
 export const withFullConfig = (): any => ({
     template: `
@@ -25,7 +11,8 @@ export const withFullConfig = (): any => ({
             [menuSubtitle]="menuSubtitle"
             [positions]="createPositions(originX, originY, overlayX, overlayY)">>
             <mat-nav-list pxb-menu-body [style.paddingTop.px]="0">
-                <pxb-info-list-item *ngFor="let item of items" [dense]="true" (click)="open=false">
+                <pxb-info-list-item *ngFor="let item of items" [dense]="true" 
+                    (click)="open=false; item.onSelect();">
                     <mat-icon pxb-icon>{{item.icon}}</mat-icon>
                     <div pxb-title>{{item.title}}</div>
                 </pxb-info-list-item>
