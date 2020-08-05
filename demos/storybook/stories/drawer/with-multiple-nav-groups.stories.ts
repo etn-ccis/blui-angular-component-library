@@ -35,7 +35,7 @@ export const withMultiNavGroups = (): any => ({
               <pxb-spacer *ngIf="spacer"></pxb-spacer> 
               <pxb-drawer-nav-group [title]="groupTitle2" [divider]="true">
                  <pxb-drawer-nav-item *ngFor="let navItem of navItems2"
-                    [title]="navItem.title"
+                    [title]="state.open ? navItem.title : ''"
                     [hidePadding]="true"
                     [selected]="state.selected === navItem.title"
                     (select)="navItem.onSelect(); setActive(navItem.title, state);">
