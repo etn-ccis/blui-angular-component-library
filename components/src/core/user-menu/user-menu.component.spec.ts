@@ -3,6 +3,7 @@ import { UserMenuModule } from './user-menu.module';
 import { UserMenuComponent } from './user-menu.component';
 import { Component } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
+import { count } from '../../utils/test-utils';
 
 /** Test component that contains an MatButton. */
 @Component({
@@ -94,5 +95,25 @@ describe('UserMenuComponent', () => {
         listFixture.detectChanges();
         const listItem = document.getElementById('list-item-test');
         void expect(listItem).toBeTruthy();
+    });
+
+    it('should enforce class naming conventions', () => {
+        component.avatarValue = 'EM';
+        component.open = true;
+        component.menuTitle = 'Title';
+        fixture.detectChanges();
+        const fixtureClassList = ['.pxb-user-menu-avatar', '.pxb-user-menu-text-avatar'];
+        const overlayClassList = [
+            'pxb-user-menu-overlay-backdrop',
+            'pxb-user-menu-overlay',
+            'pxb-user-menu-header',
+            'pxb-user-menu-header-avatar',
+        ];
+        for (const className of fixtureClassList) {
+            count(fixture, className);
+        }
+        for (const className of overlayClassList) {
+            void expect(document.getElementsByClassName(className).length).toBe(1);
+        }
     });
 });
