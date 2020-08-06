@@ -107,7 +107,6 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
     isNestedItem: boolean;
-    drawerOpen: boolean;
     hasChildren = false;
     depth: number;
     id: number;
@@ -135,8 +134,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     }
 
     listenForDrawerChanges(): void {
-        this.drawerOpenListener = this.drawerService.drawerOpenChanges().subscribe((res: boolean) => {
-            this.drawerOpen = res;
+        this.drawerOpenListener = this.drawerService.drawerOpenChanges().subscribe(() => {
             // Two detections are required to get the custom icons to work.
             // First tick causes the icons to container to reappear.
             // Second tick handles isEmpty function calls.
