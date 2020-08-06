@@ -7,7 +7,7 @@ import { StateListener } from '../state-listener.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="pxb-drawer-subheader" [class.pxb-drawer-subheader-closed]="!drawerOpen">
+        <div class="pxb-drawer-subheader" [class.pxb-drawer-subheader-closed]="!isOpen()">
             <ng-content></ng-content>
         </div>
         <mat-divider *ngIf="divider"></mat-divider>
