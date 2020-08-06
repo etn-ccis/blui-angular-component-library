@@ -6,11 +6,13 @@ export const navItems2 = [
     {
         title: 'Contact',
         itemID: 'group2_item1',
+        icon: 'contact_page',
         onSelect: action('Contact'),
     },
     {
         title: 'Favorites',
         itemID: 'group2_item2',
+        icon: 'favorite',
         onSelect: action('Selected: Favorites'),
     },
 ];
@@ -35,7 +37,7 @@ export const withMultiNavGroups = (): any => ({
               <pxb-spacer *ngIf="spacer"></pxb-spacer> 
               <pxb-drawer-nav-group [title]="groupTitle2" [divider]="true">
                  <pxb-drawer-nav-item *ngFor="let navItem of navItems2"
-                    [title]="state.open ? navItem.title : ''"
+                    [title]="navItem.title"
                     [hidePadding]="true"
                     [selected]="state.selected === navItem.title"
                     (select)="navItem.onSelect(); setActive(navItem.title, state);">
@@ -47,8 +49,8 @@ export const withMultiNavGroups = (): any => ({
     props: {
         navItems1: navItems,
         navItems2: navItems2,
-        groupTitle1: text('NavGroup 1 title', 'Group 1 (with icons)'),
-        groupTitle2: text('NavGroup 2 title', 'Group 2 (no icons)'),
+        groupTitle1: text('NavGroup 1 title', 'Group 1'),
+        groupTitle2: text('NavGroup 2 title', 'Group 2'),
         spacer: boolean('Add Spacer', false),
     },
 });
