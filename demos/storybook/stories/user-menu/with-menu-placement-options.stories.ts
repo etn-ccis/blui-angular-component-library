@@ -11,7 +11,8 @@ export const withMenuPlacement = (): any => ({
             menuSubtitle="Sample subtitle"
             [positions]="createPositions(originX, originY, overlayX, overlayY)">
             <mat-nav-list pxb-menu-body [style.paddingTop.px]="0">
-                <pxb-info-list-item *ngFor="let item of items" [dense]="true" (click)="open=false">
+                <pxb-info-list-item *ngFor="let item of items" [dense]="true" 
+                    (click)="open=false; item.onSelect();">
                     <mat-icon pxb-icon>{{item.icon}}</mat-icon>
                     <div pxb-title>{{item.title}}</div>
                 </pxb-info-list-item>
