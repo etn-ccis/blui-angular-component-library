@@ -48,6 +48,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 [class.pxb-info-list-item-active]="selected"
                 [class.round]="activeItemBackgroundShape === 'round'"
                 [class.square]="activeItemBackgroundShape === 'square' || !drawerOpen"
+                [class.no-icon-closed]="isEmpty(iconEl) && !drawerOpen"
                 [matRippleDisabled]="!ripple"
                 matRipple
             >
@@ -102,6 +103,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
 
     @ContentChildren(DrawerNavItemComponent, { descendants: false }) nestedNavItems;
+    @ViewChild('icon', { static: false }) iconEl: ElementRef;
     @ViewChild('expandIcon', { static: false }) expandIconEl: ElementRef;
     @ViewChild('collapseIcon', { static: false }) collapseIconEl: ElementRef;
 
