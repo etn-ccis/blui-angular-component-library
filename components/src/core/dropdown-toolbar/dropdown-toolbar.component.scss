@@ -8,14 +8,10 @@
     }
 }
 
-.pxb-dropdown-toolbar-icon-wrapper {
-    display: flex;
-    align-items: center;
-    z-index: 1;
-    margin-right: 24px;
-    margin-left: -8px;
-    &.pxb-dropdown-toolbar-no-icon {
-        margin-right: 8px;
+.pxb-dropdown-toolbar {
+    .pxb-dropdown-toolbar-icon-wrapper > * {
+        margin-right: 24px;
+        margin-left: -8px;
     }
 }
 
