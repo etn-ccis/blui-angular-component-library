@@ -6,7 +6,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
     encapsulation: ViewEncapsulation.None,
     template: `
         <mat-toolbar fxLayout="row" class="pxb-dropdown-toolbar">
-            <div #icon class="pxb-dropdown-toolbar-icon-wrapper">
+            <div class="pxb-dropdown-toolbar-icon-wrapper">
                 <ng-content select="[pxb-nav-icon]"></ng-content>
             </div>
             <div *ngIf="title" class="pxb-dropdown-toolbar-text-content-container">
