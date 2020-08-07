@@ -9,24 +9,35 @@ export class DrawerService {
     private drawerOpen: boolean;
     private variant: DrawerLayoutVariantType;
     private navItemCount = 0;
+    private tempOpen = false;
     drawerOpenObs = new Subject<boolean>();
     drawerSelectObs = new Subject<boolean>();
 
+    setDrawerTempOpen(open: boolean): void {
+        this.tempOpen = open;
+        this.drawerOpenObs.next(this.isDrawerOpen());
+    }
+
     setDrawerOpen(drawerOpen: boolean): void {
-        this.drawerOpen = drawerOpen || this.getDrawerVariant() === 'permanent';
-        this.drawerOpenObs.next(this.drawerOpen);
+        this.drawerOpen = drawerOpen;
+        this.drawerOpenObs.next(this.isDrawerOpen());
+    }
+
+    setDrawerVariant(variant: DrawerLayoutVariantType): void {
+        this.variant = variant;
+        this.drawerOpenObs.next(this.isDrawerOpen());
     }
 
     getDrawerVariant(): DrawerLayoutVariantType {
         return this.variant;
     }
 
-    setDrawerVariant(variant: DrawerLayoutVariantType): void {
-        this.variant = variant;
+    isDrawerOpen(): boolean {
+        return this.drawerOpen || this.getDrawerVariant() === 'permanent' || this.tempOpen;
     }
 
-    isDrawerOpen(): boolean {
-        return this.drawerOpen;
+    isTempOpen(): boolean {
+        return this.tempOpen;
     }
 
     drawerOpenChanges(): Observable<boolean> {

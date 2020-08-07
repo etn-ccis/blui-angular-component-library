@@ -29,21 +29,21 @@ describe('DrawerNavGroupComponent', () => {
 
     it('should render the title if the drawer is open', () => {
         component.title = 'test';
-        component.drawerOpen = true;
+        spyOn(component, 'isOpen').and.returnValue(true);
         fixture.detectChanges();
         void expect(fixture.nativeElement.querySelector('.pxb-drawer-nav-group-title').innerHTML).toContain('test');
     });
 
     it('should hide the group title if the drawer is not open', () => {
         component.title = 'test';
-        component.drawerOpen = false;
+        spyOn(component, 'isOpen').and.returnValue(false);
         fixture.detectChanges();
         void expect(fixture.nativeElement.querySelector('.pxb-drawer-nav-group-title-closed')).toBeTruthy();
     });
 
     it('should enforce class naming conventions', () => {
         component.title = 'test';
-        component.drawerOpen = true;
+        spyOn(component, 'isOpen').and.returnValue(true);
         fixture.detectChanges();
         const classList = ['.pxb-drawer-nav-group', '.pxb-drawer-nav-group-title'];
         for (const className of classList) {

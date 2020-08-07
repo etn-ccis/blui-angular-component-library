@@ -58,7 +58,6 @@ describe('DrawerHeaderComponent', () => {
     });
 
     it('should render title', () => {
-        component.drawerOpen = true;
         component.title = 'test title';
         fixture.detectChanges();
         const title = fixture.debugElement.query(By.css('.pxb-drawer-header-title'));
@@ -66,7 +65,6 @@ describe('DrawerHeaderComponent', () => {
     });
 
     it('should render subtitle', () => {
-        component.drawerOpen = true;
         component.title = 'test title';
         component.subtitle = 'test subtitle';
         fixture.detectChanges();
@@ -93,7 +91,6 @@ describe('DrawerHeaderComponent', () => {
     it('should enforce class naming conventions', () => {
         component.title = 'test title';
         component.subtitle = 'test subtitle';
-        component.drawerOpen = true;
         fixture.detectChanges();
         const classList = [
             '.pxb-drawer-header',

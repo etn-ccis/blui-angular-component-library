@@ -26,7 +26,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
                 [class.smooth]="variant !== 'temporary' && transition"
                 [style.width.px]="isCollapsed() ? 56 : width"
                 [mode]="getMode()"
-                [opened]="isOpen()"
+                [opened]="isDrawerVisible()"
             >
                 <ng-content select="[pxb-drawer]"></ng-content>
             </mat-sidenav>
@@ -72,10 +72,6 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
             this.transition = true;
         }, 400);
         this.drawerService.setDrawerVariant(this.variant);
-        if (this.variant === 'permanent') {
-            this.drawerService.setDrawerOpen(true);
-        }
-        this.changeDetector.detectChanges();
     }
 
     ngOnDestroy(): void {
@@ -93,8 +89,8 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     }
 
     // Is the drawer seen on the screen and expanded.
-    isOpen(): boolean {
-        if (this.variant === 'temporary') return this.drawerOpen;
+    isDrawerVisible(): boolean {
+        if (this.variant === 'temporary') return this.isOpen();
         return true;
     }
 
@@ -107,7 +103,7 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
 
     // Is the drawer condensed.
     isCollapsed(): boolean {
-        if (this.variant === 'persistent') return !this.drawerOpen;
+        if (this.variant === 'persistent') return !this.isOpen();
         return false;
     }
 }

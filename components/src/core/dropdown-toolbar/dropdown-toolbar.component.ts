@@ -1,5 +1,4 @@
-import { Component, ViewEncapsulation, Input, ViewChild, ElementRef } from '@angular/core';
-import { isEmptyView } from '../../utils/utils';
+import { Component, Input, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 
 @Component({
@@ -7,11 +6,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
     encapsulation: ViewEncapsulation.None,
     template: `
         <mat-toolbar fxLayout="row" class="pxb-dropdown-toolbar">
-            <div
-                #icon
-                class="pxb-dropdown-toolbar-icon-wrapper"
-                [class.pxb-dropdown-toolbar-no-icon]="isIconEmpty(iconEl)"
-            >
+            <div class="pxb-dropdown-toolbar-icon-wrapper">
                 <ng-content select="[pxb-nav-icon]"></ng-content>
             </div>
             <div *ngIf="title" class="pxb-dropdown-toolbar-text-content-container">
@@ -37,8 +32,5 @@ import { MatMenuTrigger } from '@angular/material/menu';
 export class DropdownToolbarComponent {
     @Input() title: string;
     @Input() subtitle: string;
-    @ViewChild('icon', { static: true }) iconEl: ElementRef;
-    @ViewChild('menuTrigger', { static: true }) menuTrigger: MatMenuTrigger;
-
-    isIconEmpty = (el: ElementRef): boolean => isEmptyView(el);
+    @ViewChild('menuTrigger', { static: false }) menuTrigger: MatMenuTrigger;
 }

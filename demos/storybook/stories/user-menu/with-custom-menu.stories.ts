@@ -1,3 +1,5 @@
+import { action } from '@storybook/addon-actions';
+
 const Trex = require('../../assets/trex.png');
 const eatonLogo = require('../../assets/EatonLogo.svg');
 
@@ -43,7 +45,7 @@ export const withCustomMenu = (): any => ({
             </div>
             <div pxb-menu-body>
                 <mat-nav-list [style.paddingTop.px]="0">
-                    <mat-list-item *ngFor="let item of items" (click)="open=false">
+                    <mat-list-item *ngFor="let item of items" (click)="open=false; onSelect()">
                         {{item}}
                     </mat-list-item>
                 </mat-nav-list>
@@ -61,5 +63,6 @@ export const withCustomMenu = (): any => ({
         items: ['My Account', 'Logout'],
         avatarImage: Trex,
         eatonLogo: eatonLogo,
+        onSelect: action('custom list-item selected'),
     },
 });
