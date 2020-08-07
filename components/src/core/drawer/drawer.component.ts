@@ -16,6 +16,7 @@ import { Subscription } from 'rxjs';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
+        <div class="pxb-drawer" [class.collapse]="!open && !tempOpen" [class.temp-variant]="isTemporaryVariant()">
         <div class="pxb-drawer" [class.collapse]="!isOpen()">
             <!-- Drawer is responsible for managing the styles between the 4 subsections -->
             <ng-content select="pxb-drawer-header"></ng-content>
@@ -75,5 +76,9 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
                 this.changeDetector.detectChanges();
             }
         });
+    }
+
+    isTemporaryVariant(): boolean {
+        return this.drawerService.getDrawerVariant() === 'temporary';
     }
 }
