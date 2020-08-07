@@ -75,7 +75,7 @@ export class AppComponent {
         if (this.variant === 'persistent' && this._viewportService.isSmall()) {
             this._stateService.setDrawerOpen(false);
         } else if (this.variant === 'temporary' && !this._viewportService.isSmall()) {
-            this._stateService.setDrawerOpen(false);
+            this._stateService.setDrawerOpen(true);
         }
 
         this.variant = this._viewportService.isSmall() ? 'temporary' : 'persistent';

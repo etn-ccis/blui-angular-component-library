@@ -42,12 +42,12 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 (click)="selectItem()"
                 [dense]="true"
                 [statusColor]="statusColor"
-                [chevron]="chevron && drawerOpen"
+                [chevron]="chevron && isOpen()"
                 [hidePadding]="hidePadding"
                 [divider]="divider ? 'full' : undefined"
                 [class.pxb-info-list-item-active]="selected"
                 [class.round]="activeItemBackgroundShape === 'round'"
-                [class.square]="activeItemBackgroundShape === 'square' || !drawerOpen"
+                [class.square]="activeItemBackgroundShape === 'square' || !isOpen()"
                 [matRippleDisabled]="!ripple"
                 matRipple
             >
@@ -63,7 +63,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                     {{ title }}
                 </div>
                 <div pxb-subtitle>{{ subtitle }}</div>
-                <div pxb-right-content *ngIf="hasChildren && drawerOpen">
+                <div pxb-right-content *ngIf="hasChildren && isOpen()">
                     <div #expandIcon *ngIf="!expanded">
                         <ng-content select="[pxb-expand-icon]"></ng-content>
                     </div>
@@ -81,7 +81,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
         </div>
         <!-- Nested Nav Items -->
         <mat-accordion displayMode="flat" class="pxb-drawer-nested-nav-item">
-            <mat-expansion-panel [expanded]="expanded && drawerOpen">
+            <mat-expansion-panel [expanded]="expanded && isOpen()">
                 <ng-content select="pxb-drawer-nav-item"></ng-content>
             </mat-expansion-panel>
         </mat-accordion>
@@ -107,7 +107,6 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
     isNestedItem: boolean;
-    drawerOpen: boolean;
     hasChildren = false;
     depth: number;
     id: number;
@@ -135,8 +134,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     }
 
     listenForDrawerChanges(): void {
-        this.drawerOpenListener = this.drawerService.drawerOpenChanges().subscribe((res: boolean) => {
-            this.drawerOpen = res;
+        this.drawerOpenListener = this.drawerService.drawerOpenChanges().subscribe(() => {
             // Two detections are required to get the custom icons to work.
             // First tick causes the icons to container to reappear.
             // Second tick handles isEmpty function calls.

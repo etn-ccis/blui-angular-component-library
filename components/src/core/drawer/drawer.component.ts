@@ -16,7 +16,7 @@ import { Subscription } from 'rxjs';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="pxb-drawer" [class.collapse]="!open && !tempOpen" [class.temp-variant]="isTemporaryVariant()">
+        <div class="pxb-drawer" [class.collapse]="!isOpen()" [class.temp-variant]="isTemporaryVariant()">
             <!-- Drawer is responsible for managing the styles between the 4 subsections -->
             <ng-content select="pxb-drawer-header"></ng-content>
             <div class="pxb-drawer-hover-area" (mouseenter)="hoverDrawer()" (mouseleave)="unhoverDrawer()">
@@ -32,7 +32,6 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
     @Input() open: boolean;
 
     hoverDelay: any;
-    tempOpen = false; // Is the drawer being hovered and needs opened?
     drawerSelectionListener: Subscription;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
@@ -53,8 +52,7 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
     hoverDrawer(): void {
         if (!this.open) {
             this.hoverDelay = setTimeout(() => {
-                this.tempOpen = true;
-                this.drawerService.setDrawerOpen(true);
+                this.drawerService.setDrawerTempOpen(true);
                 this.changeDetector.detectChanges();
             }, 500);
         }
@@ -62,9 +60,8 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
 
     unhoverDrawer(): void {
         clearTimeout(this.hoverDelay);
-        if (this.tempOpen) {
-            this.tempOpen = false;
-            this.drawerService.setDrawerOpen(false);
+        if (this.drawerService.isTempOpen()) {
+            this.drawerService.setDrawerTempOpen(false);
             this.changeDetector.detectChanges();
         }
     }
@@ -73,9 +70,8 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
     // Expanding nested navitems when temporarily opened will not close the drawer.
     listenForDrawerSelection(): void {
         this.drawerSelectionListener = this.drawerService.drawerSelectionChanges().subscribe((hasChildren) => {
-            if (this.tempOpen && !hasChildren) {
-                this.drawerService.setDrawerOpen(false);
-                this.tempOpen = false;
+            if (this.drawerService.isTempOpen() && !hasChildren) {
+                this.drawerService.setDrawerTempOpen(false);
                 this.changeDetector.detectChanges();
             }
         });
