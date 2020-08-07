@@ -43,6 +43,11 @@ pxb-drawer-nav-item {
         .mat-list-text {
             padding-left: 0px !important; //TODO: Remove the !important, use higher specificity.
         }
+
+        // This class is used to hide a nav-item's clipped title when collapsed with no icon.
+        &.no-icon-closed .pxb-info-list-item .mat-list-item-content {
+            padding-right: 24px;
+        }
     }
 
     .pxb-info-list-item .pxb-info-list-item-icon-wrapper {
