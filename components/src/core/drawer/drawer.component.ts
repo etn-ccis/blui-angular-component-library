@@ -16,8 +16,7 @@ import { Subscription } from 'rxjs';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="pxb-drawer" [class.collapse]="!open && !tempOpen" [class.temp-variant]="isTemporaryVariant()">
-        <div class="pxb-drawer" [class.collapse]="!isOpen()">
+        <div class="pxb-drawer" [class.collapse]="!isOpen()" [class.temp-variant]="isTemporaryVariant()">
             <!-- Drawer is responsible for managing the styles between the 4 subsections -->
             <ng-content select="pxb-drawer-header"></ng-content>
             <div class="pxb-drawer-hover-area" (mouseenter)="hoverDrawer()" (mouseleave)="unhoverDrawer()">
