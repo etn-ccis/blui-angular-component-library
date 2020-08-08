@@ -180,14 +180,16 @@
                     dense="true"
                     [style.color]="colors.green[500]"
                     [statusColor]="colors.green[500]"
+                    iconAlign="center"
                 >
                     <div pxb-title>Status</div>
                     <mat-icon pxb-icon svgIcon="px-icons:leaf" [style.color]="colors.green[500]"></mat-icon>
                     <pxb-channel-value pxb-right-content value="Online, ESS+"></pxb-channel-value>
                 </pxb-info-list-item>
 
-                <pxb-info-list-item divider="full" [subtitle]="['Phase A', 'Phase B', 'Phase C']" [avatar]="true">
+                <pxb-info-list-item divider="full" [avatar]="true">
                     <div pxb-title>Input Voltage</div>
+                    <div pxb-subtitle>Phase A · Phase B · Phase C</div>
                     <mat-icon
                         pxb-icon
                         svgIcon="px-icons:voltage_circled"
@@ -202,13 +204,9 @@
                 </pxb-info-list-item>
 
                 <div class="error">
-                    <pxb-info-list-item
-                        divider="full"
-                        [avatar]="true"
-                        [subtitle]="['Phase A', 'Phase B', 'Phase C']"
-                        [statusColor]="colors.red[500]"
-                    >
+                    <pxb-info-list-item divider="full" [avatar]="true" [statusColor]="colors.red[500]">
                         <div pxb-title>Output Voltage</div>
+                        <div pxb-subtitle>Phase A · Phase B · Phase C</div>
                         <mat-icon
                             pxb-icon
                             svgIcon="px-icons:voltage_circled"
@@ -225,7 +223,7 @@
                     </pxb-info-list-item>
                 </div>
 
-                <pxb-info-list-item divider="full" dense="true">
+                <pxb-info-list-item divider="full" dense="true" iconAlign="center">
                     <div pxb-title>Output Voltage</div>
                     <mat-icon pxb-icon svgIcon="px-icons:current_circled"></mat-icon>
                     <div pxb-right-content>
@@ -235,7 +233,7 @@
                     </div>
                 </pxb-info-list-item>
 
-                <pxb-info-list-item dense="true">
+                <pxb-info-list-item dense="true" iconAlign="center">
                     <div pxb-title>Temperature</div>
                     <mat-icon pxb-icon svgIcon="px-icons:temp"></mat-icon>
                     <div pxb-right-content>

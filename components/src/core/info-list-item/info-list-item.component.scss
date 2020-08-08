@@ -19,6 +19,12 @@ $denseHeight: 52px;
         .mat-list-item-content .mat-list-text {
             padding-right: 0;
         }
+
+        .pxb-info-list-item-icon-wrapper {
+            margin-right: 0;
+            margin-left: 16px;
+        }
+
         .pxb-info-list-item-icon-wrapper > *,
         .pxb-chevron {
             @include invert();
@@ -114,12 +120,14 @@ $denseHeight: 52px;
 
     .pxb-info-list-item-icon-wrapper {
         order: 1;
-        width: 56px;
+        width: 40px;
+        min-width: 40px;
         height: auto; /* Used to override height applied when wrapped in a mat-list. */
-        min-width: 56px;
+        margin-right: 16px;
         &.pxb-info-list-item-hide-padding:empty {
             padding: 0;
             width: 0;
+            margin: 0;
             min-width: unset;
         }
         &.pxb-info-list-item-avatar > * {

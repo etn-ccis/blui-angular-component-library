@@ -4,7 +4,7 @@ import { select } from '@storybook/addon-knobs';
 export const withinList = (): any => ({
     template: `
         <mat-nav-list [style.paddingTop.px]="0">
-            <pxb-info-list-item [statusColor]="colors.green[700]" [divider]="divider" class="test">
+            <pxb-info-list-item dense="true" [statusColor]="colors.green[700]" [divider]="divider" class="test" [iconAlign]="'center'">
                 <div pxb-title>Status</div>
                 <mat-icon pxb-icon [style.color]="colors.green[700]">eco</mat-icon>
                 <pxb-channel-value pxb-right-content value="Online, ESS+"></pxb-channel-value>
@@ -34,7 +34,7 @@ export const withinList = (): any => ({
                 </span>
             </pxb-info-list-item>
     
-            <pxb-info-list-item [divider]="divider">
+            <pxb-info-list-item dense="true" [divider]="divider" [iconAlign]="'center'">
                 <div pxb-title>Output Current</div>
                 <mat-icon pxb-icon>battery_charging_full</mat-icon>
                 <span pxb-right-content>
@@ -44,7 +44,7 @@ export const withinList = (): any => ({
                 </span>
             </pxb-info-list-item>
     
-            <pxb-info-list-item [divider]="divider">
+            <pxb-info-list-item dense="true" [divider]="divider" [iconAlign]="'center'">
                 <div pxb-title>Temperature</div>
                 <mat-icon pxb-icon>home</mat-icon>
                 <span pxb-right-content style="display: flex; align-items: center">

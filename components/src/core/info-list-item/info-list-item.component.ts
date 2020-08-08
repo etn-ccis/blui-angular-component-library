@@ -27,6 +27,9 @@ import { isEmptyView, requireContent } from '../../utils/utils';
                 class="pxb-info-list-item-icon-wrapper"
                 [class.pxb-info-list-item-hide-padding]="hidePadding"
                 [class.pxb-info-list-item-avatar]="avatar"
+                [style.justify-content]="
+                    iconAlign === 'right' ? 'flex-end' : iconAlign === 'center' ? 'center' : 'flex-start'
+                "
             >
                 <ng-content select="[pxb-icon]"></ng-content>
             </div>
@@ -78,6 +81,7 @@ export class InfoListItemComponent implements AfterViewInit {
     @Input() dense = false;
     @Input() avatar = false;
     @Input() hidePadding = false;
+    @Input() iconAlign: IconAlignType = 'left';
     @Input() wrapSubtitle = false;
     @Input() wrapTitle = false;
     @Input() divider: DividerType;
@@ -93,4 +97,5 @@ export class InfoListItemComponent implements AfterViewInit {
     }
 }
 
+type IconAlignType = 'left' | 'center' | 'right' | undefined;
 type DividerType = 'full' | 'partial' | undefined;
