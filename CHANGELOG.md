@@ -1,29 +1,31 @@
 # Change Log
 
 ## v2.1.0
--   Add new component for `<pxb-user-menu>` (use @pxblue/angular-themes v5.1.0+ to get PX Blue themes for this component).
--   Add new component for `<pxb-dropdown-toolbar>`.
 
+-   Adds new component for `<pxb-user-menu>` (use @pxblue/angular-themes v5.1.0+ to get PX Blue themes for this component).
+-   Adds new component for `<pxb-dropdown-toolbar>`.
+-   Adds `iconAlign` attribute to `<pxb-info-list-item>` to align icons left (default), center or right.
 
 ## v2.0.0
 
--   Add new components for `<pxb-score-card>`, `<pxb-info-list-item>`, `<pxb-list-item-tag>`, and `<pxb-spacer>`.
+-   Adds new components for `<pxb-score-card>`, `<pxb-info-list-item>`, `<pxb-list-item-tag>`, and `<pxb-spacer>`.
 -   `<pxb-channel-value>`'s value attribute now accepts both `string` type and `number` type.
--   Enable support for Angular 9+.
--   Colors updated for accessibility
+-   Enables support for Angular 9+.
+-   Updates colors for accessibility
 
     _Breaking Changes_
+
 -   We now switched to use `@pxblue/angular-themes` for our application's default style.
 -   Deep imports are deprecated; access modules by importing `@pxblue/angular-components`.
--   `<pxb-empty-state>`'s attribute `empty-icon` has been renamed to `emptyIcon` to reflect the Angular convention. 
--   fontSize attributes have been removed from `<pxb-hero>` and `<pxb-channel-value>`
-components. Font size can be set directly through the style attribute: `[fontSize]="20"` => `style="font-size: 20px"`
--   iconSize attribute for `<pxb-hero>` now takes only numeric values
+-   `<pxb-empty-state>`'s attribute `empty-icon` has been renamed to `emptyIcon` to reflect the Angular convention.
+-   `fontSize` attributes have been removed from `<pxb-hero>` and `<pxb-channel-value>`
+    components. Font size can be set directly through the style attribute: `[fontSize]="20"` => `style="font-size: 20px"`
+-   `iconSize` attribute for `<pxb-hero>` now takes only numeric values
 
 ## v1.3.0
 
--   Create a storybook demo application
--   Fix bug in `<pxb-channel-value>` where font size input was not being used
+-   Creates a storybook demo application
+-   Fixes bug in `<pxb-channel-value>` where font size input was not being used
 
 ## v1.2.1
 
@@ -33,12 +35,12 @@ components. Font size can be set directly through the style attribute: `[fontSiz
 
 ## v1.1.0
 
-Enable support for Angular 7+
+-   Enables support for Angular 7+
 
 ## v1.0.0
 
-Angular 7-compatible components
-Minor styling fixes
+-   Angular 7-compatible components
+-   Minor styling fixes
 
 ## v0.0.1
 

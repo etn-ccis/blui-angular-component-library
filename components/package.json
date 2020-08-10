@@ -1,6 +1,6 @@
 {
     "name": "@pxblue/angular-components",
-    "version": "2.0.0",
+    "version": "2.1.0",
     "description": "Angular components for PX Blue applications",
     "scripts": {
         "ng": "ng",
