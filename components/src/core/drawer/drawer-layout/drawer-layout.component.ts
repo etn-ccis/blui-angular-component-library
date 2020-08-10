@@ -23,7 +23,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
             <mat-sidenav
                 class="pxb-drawer-layout-sidenav"
                 [fixedInViewport]="true"
-                [class.smooth]="variant !== 'temporary' && transition"
+                [class.smooth]="variant !== 'temporary'"
                 [style.width.px]="isCollapsed() ? 56 : width"
                 [mode]="getMode()"
                 [opened]="isDrawerVisible()"
@@ -32,7 +32,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
             </mat-sidenav>
             <mat-sidenav-content
                 class="pxb-drawer-layout-nav-content"
-                [class.smooth]="variant !== 'temporary' && transition"
+                [class.smooth]="variant !== 'temporary'"
                 [style.marginRight.px]="isRtl ? getContentMargin() : 0"
                 [style.marginLeft.px]="isRtl ? 0 : getContentMargin()"
             >
@@ -46,7 +46,6 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     @Input() width = 350;
     @Output() backdropClick: EventEmitter<void> = new EventEmitter();
 
-    transition = true;
     isRtl = false;
     dirChangeSubscription = Subscription.EMPTY;
 
@@ -67,10 +66,6 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     }
 
     ngOnChanges(): void {
-        this.transition = false;
-        setTimeout(() => {
-            this.transition = true;
-        }, 400);
         this.drawerService.setDrawerVariant(this.variant);
     }
 
