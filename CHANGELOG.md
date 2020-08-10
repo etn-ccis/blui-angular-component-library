@@ -1,13 +1,10 @@
 # Change Log
 
-## v2.1.1
-
--   Adds `iconAlign` attribute to `<pxb-info-list-item>` to align icons left (default), center or right.
-
 ## v2.1.0
 
 -   Adds new component for `<pxb-user-menu>` (use @pxblue/angular-themes v5.1.0+ to get PX Blue themes for this component).
 -   Adds new component for `<pxb-dropdown-toolbar>`.
+-   Adds `iconAlign` attribute to `<pxb-info-list-item>` to align icons left (default), center or right.
 
 ## v2.0.0
 
