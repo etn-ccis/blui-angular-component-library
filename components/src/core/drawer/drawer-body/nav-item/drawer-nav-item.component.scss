@@ -40,9 +40,6 @@ pxb-drawer-nav-item {
         mat-list-item {
             z-index: 1; // Used to keep text and icon above on-select highlight.
         }
-        .mat-list-text {
-            padding-left: 0px !important; //TODO: Remove the !important, use higher specificity.
-        }
 
         // This class is used to hide a nav-item's clipped title when collapsed with no icon.
         &.no-icon-closed .pxb-info-list-item .mat-list-item-content {
