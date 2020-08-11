@@ -2,11 +2,8 @@
 
 /* RTL */
 [dir='rtl'] .pxb-hero {
-    .pxb-hero-primary-wrapper.pxb-hero-svgIcon svg {
-        transform-origin: top right;
-    }
     .pxb-hero-primary-wrapper {
-        &:not(.pxb-hero-svgIcon) > * {
+        > * {
             @include invert();
         }
     }
