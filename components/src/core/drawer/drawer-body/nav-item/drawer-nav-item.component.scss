@@ -14,6 +14,10 @@
         padding-left: 0;
         padding-right: 32px;
     }
+    pxb-info-list-item.no-icon-closed .pxb-info-list-item .mat-list-item-content {
+        padding-right: 16px;
+        padding-left: 24px;
+    }
 }
 
 pxb-drawer-nav-item {

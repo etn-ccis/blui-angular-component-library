@@ -118,6 +118,11 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         this.id = drawerService.createNavItemID();
     }
 
+    ngAfterViewInit(): void {
+        console.log(this.iconEl);
+        console.log(this.isEmpty(this.iconEl));
+    }
+
     ngAfterContentInit(): void {
         if (!this.nestedNavItems) {
             return;
