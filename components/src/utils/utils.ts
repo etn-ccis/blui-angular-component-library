@@ -20,8 +20,15 @@ export function requireContent(contentPairs: ContentPair[], component: any): voi
     });
 }
 
+function hasChildren(el: ElementRef): boolean {
+    return el.nativeElement.children && el.nativeElement.children.length > 0;
+}
+
 export function isEmptyView(el: ElementRef): boolean {
-    return !el || !el.nativeElement || !el.nativeElement.children || el.nativeElement.children.length === 0;
+    if (!el || !el.nativeElement) {
+        return true;
+    }
+    return !hasChildren(el);
 }
 
 export type ContentPair = {
