@@ -18,8 +18,8 @@ imports: [
 ```html
 // your-component.html
 <pxb-info-list-item divider="full" [statusColor]="colors.green[500]">
-    <div title>Info List Item</div>
-    <mat-icon [style.color]="colors.green[500]" icon>eco</mat-icon>
+    <div pxb-title>Info List Item</div>
+    <mat-icon [style.color]="colors.green[500]" pxb-icon>eco</mat-icon>
 </pxb-info-list-item>
 ```
 
