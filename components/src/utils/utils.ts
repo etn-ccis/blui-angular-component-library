@@ -24,17 +24,11 @@ function hasChildren(el: ElementRef): boolean {
     return el.nativeElement.children && el.nativeElement.children.length > 0;
 }
 
-// Sibling could be a comment? 
-function hasSibling(el: ElementRef): boolean {
-    return el.nativeElement.nextSibling !== null;
-}
-
 export function isEmptyView(el: ElementRef): boolean {
-
     if (!el || !el.nativeElement) {
         return true;
     }
-    return !(hasChildren(el) || hasSibling(el));
+    return !hasChildren(el);
 }
 
 export type ContentPair = {
