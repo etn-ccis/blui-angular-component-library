@@ -28,8 +28,8 @@ imports: [
 ```html
 // your-component.html
 <pxb-empty-state title="No Devices Found">
-    <mat-icon emptyIcon>notifications_none</mat-icon>
-    <button mat-raised-button color="primary" actions>
+    <mat-icon pxb-empty-icon>notifications_none</mat-icon>
+    <button mat-raised-button color="primary" pxb-actions>
         <mat-icon>add_circle</mat-icon>
         ADD DEVICE
     </button>

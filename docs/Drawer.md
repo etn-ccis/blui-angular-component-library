@@ -63,8 +63,8 @@ The `<pxb-drawer-layout>` component is a wrapper around the [Angular Material Si
 
 ```html
 <pxb-drawer-layout>
-    <pxb-drawer drawer>Drawer goes here</pxb-drawer>
-    <div content>Content goes here</div>
+    <pxb-drawer pxb-drawer>Drawer goes here</pxb-drawer>
+    <div pxb-content>Content goes here</div>
 </pxb-drawer-layout>
 ```
 

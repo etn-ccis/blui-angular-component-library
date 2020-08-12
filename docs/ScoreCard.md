@@ -32,24 +32,24 @@ imports: [
     [headerInfo]="'4 Devices'"
     [badgeOffset]="-76"
 >
-    <ng-container action-items>
+    <ng-container pxb-action-items>
         <mat-icon>search</mat-icon>
         <mat-icon>more_vert</mat-icon>
     </ng-container>
 
-    <mat-list body>
+    <mat-list pxb-body>
         <mat-list-item>Body Content</mat-list-item>
     </mat-list>
 
     <pxb-hero
-        badge
+        pxb-badge
         [label]="'Grade'"
         [value]="'98'"
         [units]="'/100'"
         [iconSize]="'large'"
         [iconBackgroundColor]="'white'"
     >
-        <i primary class="pxb-grade_a"></i>
+        <i pxb-primary class="pxb-grade_a"></i>
     </pxb-hero>
 </pxb-score-card>
 ```
