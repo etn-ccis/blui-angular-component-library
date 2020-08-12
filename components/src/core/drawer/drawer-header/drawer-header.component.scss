@@ -79,15 +79,3 @@ $height: 64px;
         }
     }
 }
-
-pxb-drawer-header .mat-divider-horizontal {
-    position: static !important;
-}
-
-@media screen and (max-width: 600px) {
-    .pxb-drawer-header-title-wrapper {
-    }
-
-    .pxb-drawer-header-icon-wrapper {
-    }
-}

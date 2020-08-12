@@ -44,9 +44,6 @@ pxb-drawer-nav-item {
         mat-list-item {
             z-index: 1; // Used to keep text and icon above on-select highlight.
         }
-        .mat-list-text {
-            padding-left: 0px !important; //TODO: Remove the !important, use higher specificity.
-        }
 
         // This class is used to hide a nav-item's clipped title when collapsed with no icon.
         &.no-icon-closed .pxb-info-list-item .mat-list-item-content {
@@ -98,8 +95,8 @@ pxb-drawer-nav-item {
     .mat-expansion-panel:not([class*='mat-elevation-z']) {
         box-shadow: unset;
     }
-}
-
-mat-accordion.pxb-drawer-nested-nav-item mat-expansion-panel.mat-expansion-panel {
-    border-radius: 0 !important;
+    &.mat-accordion .mat-expansion-panel:last-of-type,
+    &.mat-accordion .mat-expansion-panel:first-of-type {
+        border-radius: 0;
+    }
 }
