@@ -38,7 +38,7 @@ describe('Empty State Component', () => {
     let component: EmptyStateBasicUsageComponent;
 
     beforeEach(async(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             imports: [EmptyStateModule],
             declarations: [EmptyStateBasicUsageComponent, TestEmpty],
         }).compileComponents();
@@ -51,21 +51,21 @@ describe('Empty State Component', () => {
 
     it('should initialize', () => {
         fixture.detectChanges();
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 
     it('should show title when supplied', () => {
         component.title = 'title';
         fixture.detectChanges();
         const titleElement = fixture.debugElement.query(By.css('h2'));
-        expect(titleElement.nativeElement.innerHTML).toBe('title');
+        void expect(titleElement.nativeElement.innerHTML).toBe('title');
     });
 
     it('should throw a warning when the title is not supplied', () => {
         component.title = undefined;
         const warnSpy = spyOn(console, 'warn').and.stub();
         fixture.detectChanges();
-        expect(warnSpy).toHaveBeenCalledTimes(1);
+        void expect(warnSpy).toHaveBeenCalledTimes(1);
     });
 
     it('should not show empty title', () => {
@@ -73,41 +73,41 @@ describe('Empty State Component', () => {
         spyOn(console, 'warn').and.stub();
         fixture.detectChanges();
         const titleElement = fixture.debugElement.query(By.css('h2'));
-        expect(titleElement.nativeElement.innerHTML).toBeFalsy();
+        void expect(titleElement.nativeElement.innerHTML).toBeFalsy();
     });
 
     it('should show description when supplied', () => {
         component.description = 'description';
         fixture.detectChanges();
         const descriptionElement = fixture.debugElement.query(By.css('p'));
-        expect(descriptionElement.nativeElement.innerHTML).toBe('description');
+        void expect(descriptionElement.nativeElement.innerHTML).toBe('description');
     });
 
     it('should not show empty description', () => {
         component.description = '';
         fixture.detectChanges();
         const descriptionElement = fixture.debugElement.query(By.css('p'));
-        expect(descriptionElement).toBeFalsy();
+        void expect(descriptionElement).toBeFalsy();
     });
 
     // Action Check
     it('should show actions when supplied', () => {
         const actionFixture = TestBed.createComponent(TestEmpty);
         let actionElement = actionFixture.debugElement.query(By.css('.withActions [pxb-actions]'));
-        expect(actionElement).not.toBeNull();
+        void expect(actionElement).not.toBeNull();
 
         actionElement = actionFixture.debugElement.query(By.css('.empty [pxb-actions]'));
-        expect(actionElement).toBeNull();
+        void expect(actionElement).toBeNull();
     });
 
     // Icon Check
     it('should show icon when supplied', () => {
         const iconFixture = TestBed.createComponent(TestEmpty);
         let actionElement = iconFixture.debugElement.query(By.css('.withIcon [pxb-empty-icon]'));
-        expect(actionElement).not.toBeNull();
+        void expect(actionElement).not.toBeNull();
 
         actionElement = iconFixture.debugElement.query(By.css('.empty [pxb-empty-icon]'));
-        expect(actionElement).toBeNull();
+        void expect(actionElement).toBeNull();
     });
 
     it('should enforce class naming conventions', () => {

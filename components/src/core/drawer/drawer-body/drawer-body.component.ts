@@ -7,7 +7,7 @@ import { DrawerService } from '../service/drawer.service';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="pxb-drawer-body" [class.pxb-drawer-body-closed]="!drawerOpen">
+        <div class="pxb-drawer-body" [class.pxb-drawer-body-closed]="!isOpen()">
             <ng-content></ng-content>
         </div>
     `,

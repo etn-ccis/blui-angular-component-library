@@ -27,9 +27,9 @@ import { withinDrawerLayout } from './within-drawer-layout.stories';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
 
-export const drawerWrapper = () => (storyFn): any => {
+export const drawerWrapper = () => (storyFn: any): any => {
     const story = storyFn();
-    const storyStyles = story.styles ? story.styles[0] : '';
+    const storyStyles: string = story.styles ? story.styles[0] : '';
     return {
         ...story,
         template: `<div style="box-sizing: border-box; height: 100%;">${story.template}</div>`,
@@ -56,7 +56,7 @@ export const drawerWrapper = () => (storyFn): any => {
     };
 };
 
-export const drawerLayoutWrapper = () => (storyFn): any => {
+export const drawerLayoutWrapper = () => (storyFn: any): any => {
     const story = storyFn();
     return {
         ...story,

@@ -16,7 +16,7 @@ describe('DrawerNavItemComponent', () => {
     let fixture: ComponentFixture<DrawerNavItemComponent>;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [TestDrawerNavItem],
             imports: [DrawerNavItemModule],
         }).compileComponents();
@@ -32,12 +32,12 @@ describe('DrawerNavItemComponent', () => {
 
     it('should create', () => {
         fixture.detectChanges();
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 
     it('should enforce class naming conventions', () => {
         component.hasChildren = true;
-        component.drawerOpen = true;
+        spyOn(component, 'isOpen').and.returnValue(true);
         spyOn(component, 'ngAfterContentInit').and.stub();
         fixture.detectChanges();
         const classList = ['.pxb-drawer-nav-item', '.pxb-drawer-nav-item-expand-icon', '.pxb-drawer-nested-nav-item'];

@@ -30,9 +30,8 @@ export const withHeroes = (): any => ({
                     <i pxb-primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
                 </pxb-hero>
             </pxb-hero-banner>
-            <pxb-info-list-item hidePadding="true" dense="true" actionRow (click)="actionRowClick()">
+            <pxb-info-list-item pxb-action-row chevron="true" hidePadding="true" dense="true" (click)="actionRowClick()">
                 <div pxb-title>View Location</div>
-                <mat-icon mat-list-icon pxb-right-content>chevron_right</mat-icon>
             </pxb-info-list-item>
         </pxb-score-card>
     `,

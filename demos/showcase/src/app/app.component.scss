@@ -5,9 +5,42 @@
     white-space: nowrap;
 }
 
+[dir='rtl'] {
+    button mat-icon,
+    .scorecard-chevron {
+        transform: scaleX(-1);
+    }
+    .tag-label {
+        margin-right: 0;
+        margin-left: 8px;
+    }
+    .red-score-card {
+        margin-left: 16px;
+        margin-right: 0;
+    }
+}
+
+.scorecards {
+    display: flex;
+    padding: 8px 8px 0px 8px;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    > * {
+        margin-bottom: 8px;
+    }
+}
+
 .toolbar {
     background-color: map-get($pxb-blue, 500) !important;
     color: map-get($pxb-white, 50) !important;
+    .user-menu {
+        margin-left: 8px;
+
+        &.rtl {
+            margin-right: 8px;
+            margin-left: 0;
+        }
+    }
 }
 
 .mat-card.container-card {
@@ -49,10 +82,10 @@ pxb-score-card {
     }
 }
 .red-score-card {
+    margin-right: 16px;
     .pxb-score-card .pxb-score-card-header {
         background-color: map-get($pxb-red, 500);
     }
-    margin-right: 8px;
 }
 
 .test-background-image mat-toolbar.pxb-drawer-header {

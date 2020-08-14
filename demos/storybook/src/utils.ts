@@ -101,11 +101,7 @@ export class ReadMeComponent {
 @Component({
     selector: 'story',
     template: `
-        <div
-            class="mat-typography"
-            [ngClass]="useDarkMode ? 'pxb-blue-dark' : 'pxb-blue'"
-            style="height: 100%; width: 100%"
-        >
+        <div class="mat-typography" style="height: 100%; width: 100%">
             <ng-content></ng-content>
         </div>
     `,
@@ -135,7 +131,15 @@ export class StoryComponent {
     }
 
     setTheme(): void {
+        const body = document.querySelector('body') as HTMLElement;
         this.useDarkMode = isDarkMode();
+        if (this.useDarkMode) {
+            body.classList.remove('pxb-blue');
+            body.classList.add('pxb-blue-dark');
+        } else {
+            body.classList.remove('pxb-blue-dark');
+            body.classList.add('pxb-blue');
+        }
         const canvas = document.querySelector('.sb-show-main') as HTMLElement;
         if (canvas && canvas.style) {
             canvas.style.backgroundColor = this.useDarkMode ? Colors.darkBlack[100] : Colors.gray[50];

@@ -1,3 +1,14 @@
+@import '../utility/utility';
+
+/* RTL */
+[dir='rtl'] .pxb-hero {
+    .pxb-hero-primary-wrapper {
+        > * {
+            @include invert();
+        }
+    }
+}
+
 .pxb-hero {
     display: flex;
     flex: 1 1 0px;
@@ -9,7 +20,6 @@
     padding: 16px 8px;
 
     .pxb-hero-primary-wrapper {
-        padding: 4px;
         $normal: 32px;
         $large: 72px;
         border-radius: 50%;
@@ -42,9 +52,13 @@
             justify-content: center;
             font-size: 100%;
         }
-        &:not(.pxb-hero-svgIcon) * {
+        &:not(.pxb-hero-svgIcon) > * {
             width: 100%;
             height: 100%;
+            svg {
+                width: 100%;
+                height: 100%;
+            }
         }
         &.pxb-hero-svgIcon svg {
             transform-origin: top left;

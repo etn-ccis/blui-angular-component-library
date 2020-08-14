@@ -3,25 +3,30 @@ import { DrawerService } from './service/drawer.service';
 import { Subscription } from 'rxjs';
 
 export class StateListener implements OnInit, OnDestroy {
-    drawerOpen: boolean;
     drawerOpenListener: Subscription;
 
-    constructor(public readonly drawerService: DrawerService, public readonly changeDetector: ChangeDetectorRef) {}
+    constructor(protected drawerService: DrawerService, protected changeDetector: ChangeDetectorRef) {}
 
     public ngOnInit(): void {
-        this.drawerOpen = this.drawerService.isDrawerOpen();
         this.listenForDrawerChanges();
     }
 
     public ngOnDestroy(): void {
+        this.unsubscribeListeners();
+    }
+
+    public isOpen(): boolean {
+        return this.drawerService.isDrawerOpen();
+    }
+
+    public unsubscribeListeners(): void {
         if (this.drawerOpenListener) {
             this.drawerOpenListener.unsubscribe();
         }
     }
 
     listenForDrawerChanges(): void {
-        this.drawerOpenListener = this.drawerService.drawerOpenChanges().subscribe((res: boolean) => {
-            this.drawerOpen = res;
+        this.drawerOpenListener = this.drawerService.drawerOpenChanges().subscribe(() => {
             this.changeDetector.detectChanges();
         });
     }

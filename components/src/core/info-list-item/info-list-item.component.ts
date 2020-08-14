@@ -7,7 +7,7 @@ import {
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
-import { requireContent, isEmptyView } from '../../utils/utils';
+import { isEmptyView, requireContent } from '../../utils/utils';
 
 @Component({
     selector: 'pxb-info-list-item',
@@ -19,13 +19,17 @@ import { requireContent, isEmptyView } from '../../utils/utils';
             [class.pxb-info-list-item-wrap]="wrapSubtitle || wrapTitle"
             [class.pxb-info-list-item-dense]="dense"
             [class.pxb-info-list-item-status]="statusColor"
-            [style.borderLeftColor]="statusColor"
+            [style.border-left-color]="statusColor"
+            [style.border-right-color]="statusColor"
         >
             <div
                 mat-list-icon
                 class="pxb-info-list-item-icon-wrapper"
                 [class.pxb-info-list-item-hide-padding]="hidePadding"
                 [class.pxb-info-list-item-avatar]="avatar"
+                [style.justify-content]="
+                    iconAlign === 'right' ? 'flex-end' : iconAlign === 'center' ? 'center' : 'flex-start'
+                "
             >
                 <ng-content select="[pxb-icon]"></ng-content>
             </div>
@@ -59,7 +63,7 @@ import { requireContent, isEmptyView } from '../../utils/utils';
                 <div #right class="pxb-info-list-item-right-content-wrapper">
                     <ng-content select="[pxb-right-content]"></ng-content>
                 </div>
-                <mat-icon *ngIf="chevron && isEmpty(rightEl)">chevron_right</mat-icon>
+                <mat-icon *ngIf="chevron && isEmpty(rightEl)" class="pxb-chevron">chevron_right</mat-icon>
             </div>
         </mat-list-item>
         <mat-divider
@@ -77,13 +81,15 @@ export class InfoListItemComponent implements AfterViewInit {
     @Input() dense = false;
     @Input() avatar = false;
     @Input() hidePadding = false;
+    @Input() iconAlign: IconAlignType = 'left';
     @Input() wrapSubtitle = false;
     @Input() wrapTitle = false;
     @Input() divider: DividerType;
 
     @ViewChild('title', { static: false }) titleEl: ElementRef;
     @ViewChild('right', { static: false }) rightEl: ElementRef;
-    isEmpty = (el): boolean => isEmptyView(el);
+
+    isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 
     ngAfterViewInit(): void {
         const required = { selector: 'title', ref: this.titleEl };
@@ -91,4 +97,5 @@ export class InfoListItemComponent implements AfterViewInit {
     }
 }
 
+type IconAlignType = 'left' | 'center' | 'right' | undefined;
 type DividerType = 'full' | 'partial' | undefined;

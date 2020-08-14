@@ -1,19 +1,69 @@
-<pxb-drawer-layout [variant]="getVariant()" (backdropClick)="stateService.setDrawerOpen(false)">
+<pxb-drawer-layout
+    [variant]="getVariant()"
+    (backdropClick)="closeDrawer()"
+    [dir]="isRtl ? 'rtl' : 'ltr'"
+    [class.rtl]="isRtl"
+>
     <showcase-drawer pxb-drawer></showcase-drawer>
     <div pxb-content>
-        <mat-toolbar class="toolbar">
+        <pxb-dropdown-toolbar class="toolbar" title="Showcase" [subtitle]="dropdownToolbarSubtitle">
             <button
                 *ngIf="isMobile()"
                 mat-icon-button
-                style="margin-right: 16px"
-                (click)="stateService.setDrawerOpen(true)"
+                pxb-nav-icon
+                class="menu-icon"
+                [class.rtl]="isRtl"
+                (click)="openDrawer()"
             >
                 <mat-icon>menu</mat-icon>
             </button>
-            <h2>Showcase</h2>
-        </mat-toolbar>
-        <div style="padding: 24px">
-            <div style="display: flex; padding: 8px;  justify-content: flex-start">
+            <pxb-spacer></pxb-spacer>
+            <button mat-icon-button style="margin: 0px 4px" (click)="toggleTheme()">
+                <mat-icon>invert_colors</mat-icon>
+            </button>
+            <button mat-icon-button style="margin: 0px 4px" (click)="toggleDirectionality()">
+                <mat-icon>compare_arrows</mat-icon>
+            </button>
+            <pxb-user-menu
+                class="user-menu"
+                [class.rtl]="isRtl"
+                avatarValue="MS"
+                menuTitle="Marshall Sutter"
+                menuSubtitle="msutter@acmesteel.com"
+                [(open)]="userMenuOpen"
+            >
+                <mat-nav-list pxb-menu-body [style.paddingTop.px]="0">
+                    <div *ngFor="let group of menuGroups">
+                        <ng-container *ngIf="group.title">
+                            <mat-divider></mat-divider>
+                            <div style="padding: 8px 24px 8px 24px; font-weight: 600">{{ group.title }}</div>
+                            <mat-divider></mat-divider>
+                        </ng-container>
+                        <pxb-info-list-item
+                            *ngFor="let item of group.items"
+                            [dense]="true"
+                            (click)="userMenuOpen = false"
+                        >
+                            <mat-icon pxb-icon>{{ item.icon }}</mat-icon>
+                            <div pxb-title>{{ item.title }}</div>
+                        </pxb-info-list-item>
+                    </div>
+                </mat-nav-list>
+            </pxb-user-menu>
+            <ng-container pxb-toolbar-menu>
+                <button mat-menu-item (click)="updateDropdownToolbarSubtitle('English')">
+                    <span>English</span>
+                </button>
+                <button mat-menu-item (click)="updateDropdownToolbarSubtitle('French')">
+                    <span>French</span>
+                </button>
+                <button mat-menu-item (click)="updateDropdownToolbarSubtitle('Arabic')">
+                    <span>Arabic</span>
+                </button>
+            </ng-container>
+        </pxb-dropdown-toolbar>
+        <div>
+            <div class="scorecards">
                 <pxb-score-card
                     class="red-score-card"
                     [headerTitle]="'Substation 3'"
@@ -40,16 +90,13 @@
                             <mat-icon svgIcon="px-icons:temp" pxb-primary></mat-icon>
                         </pxb-hero>
                         <pxb-hero [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="36">
-                            <mat-icon
-                                svgIcon="px-icons:moisture"
-                                pxb-primary
-                                [style.color]="colors.blue[300]"
-                            ></mat-icon>
+                            <mat-icon svgIcon="px-icons:moisture" pxb-primary [style.color]="colors.blue[300]">
+                            </mat-icon>
                         </pxb-hero>
                     </pxb-hero-banner>
                     <pxb-info-list-item hidePadding="true" dense="true" pxb-action-row>
                         <div pxb-title>More</div>
-                        <mat-icon mat-list-icon pxb-right-content>chevron_right</mat-icon>
+                        <mat-icon mat-list-icon pxb-right-content class="scorecard-chevron">chevron_right</mat-icon>
                     </pxb-info-list-item>
                 </pxb-score-card>
 
@@ -88,7 +135,7 @@
                     </pxb-hero>
                     <pxb-info-list-item hidePadding="true" dense="true" pxb-action-row>
                         <div pxb-title>View Location</div>
-                        <mat-icon mat-list-icon pxb-right-content>chevron_right</mat-icon>
+                        <mat-icon mat-list-icon pxb-right-content class="scorecard-chevron">chevron_right</mat-icon>
                     </pxb-info-list-item>
                 </pxb-score-card>
             </div>
@@ -104,11 +151,8 @@
                             style="cursor: pointer"
                             [iconSize]="36"
                         >
-                            <mat-icon
-                                svgIcon="px-icons:grade_a"
-                                pxb-primary
-                                [style.color]="colors.green[500]"
-                            ></mat-icon>
+                            <mat-icon svgIcon="px-icons:grade_a" pxb-primary [style.color]="colors.green[500]">
+                            </mat-icon>
                         </pxb-hero>
 
                         <pxb-hero label="Load">
@@ -125,12 +169,8 @@
                         </pxb-hero>
 
                         <pxb-hero label="Battery" value="Full">
-                            <battery-progress
-                                class="progress-icon"
-                                percent="90"
-                                size="36"
-                                pxb-primary
-                            ></battery-progress>
+                            <battery-progress class="progress-icon" percent="90" size="36" pxb-primary>
+                            </battery-progress>
                         </pxb-hero>
                     </pxb-hero-banner>
                 </mat-list>
@@ -140,14 +180,16 @@
                     dense="true"
                     [style.color]="colors.green[500]"
                     [statusColor]="colors.green[500]"
+                    iconAlign="center"
                 >
                     <div pxb-title>Status</div>
                     <mat-icon pxb-icon svgIcon="px-icons:leaf" [style.color]="colors.green[500]"></mat-icon>
                     <pxb-channel-value pxb-right-content value="Online, ESS+"></pxb-channel-value>
                 </pxb-info-list-item>
 
-                <pxb-info-list-item divider="full" [subtitle]="['Phase A', 'Phase B', 'Phase C']" [avatar]="true">
+                <pxb-info-list-item divider="full" [avatar]="true">
                     <div pxb-title>Input Voltage</div>
+                    <div pxb-subtitle>Phase A · Phase B · Phase C</div>
                     <mat-icon
                         pxb-icon
                         svgIcon="px-icons:voltage_circled"
@@ -162,13 +204,9 @@
                 </pxb-info-list-item>
 
                 <div class="error">
-                    <pxb-info-list-item
-                        divider="full"
-                        [avatar]="true"
-                        [subtitle]="['Phase A', 'Phase B', 'Phase C']"
-                        [statusColor]="colors.red[500]"
-                    >
+                    <pxb-info-list-item divider="full" [avatar]="true" [statusColor]="colors.red[500]">
                         <div pxb-title>Output Voltage</div>
+                        <div pxb-subtitle>Phase A · Phase B · Phase C</div>
                         <mat-icon
                             pxb-icon
                             svgIcon="px-icons:voltage_circled"
@@ -185,7 +223,7 @@
                     </pxb-info-list-item>
                 </div>
 
-                <pxb-info-list-item divider="full" dense="true">
+                <pxb-info-list-item divider="full" dense="true" iconAlign="center">
                     <div pxb-title>Output Voltage</div>
                     <mat-icon pxb-icon svgIcon="px-icons:current_circled"></mat-icon>
                     <div pxb-right-content>
@@ -195,7 +233,7 @@
                     </div>
                 </pxb-info-list-item>
 
-                <pxb-info-list-item dense="true">
+                <pxb-info-list-item dense="true" iconAlign="center">
                     <div pxb-title>Temperature</div>
                     <mat-icon pxb-icon svgIcon="px-icons:temp"></mat-icon>
                     <div pxb-right-content>

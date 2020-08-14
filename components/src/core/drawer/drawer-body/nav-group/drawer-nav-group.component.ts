@@ -37,11 +37,7 @@ import { StateListener } from '../../state-listener.component';
     ],
     template: `
         <div class="pxb-drawer-nav-group">
-            <div
-                *ngIf="title"
-                class="pxb-drawer-nav-group-title"
-                [class.pxb-drawer-nav-group-title-closed]="!drawerOpen"
-            >
+            <div *ngIf="title" class="pxb-drawer-nav-group-title" [class.pxb-drawer-nav-group-title-closed]="!isOpen()">
                 {{ title }}
             </div>
             <ng-content select="pxb-title-content"></ng-content>

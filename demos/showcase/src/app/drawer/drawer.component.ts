@@ -38,14 +38,12 @@ import { StateService } from '../services/state.service';
                             [selected]="selectedItemId === nestedItem.title"
                             [hasChildren]="nestedItem.items"
                             (select)="testClick('sub nav item', $event); setActive(nestedItem.title)"
-                            [hidePadding]="nestedItem.hidePadding"
                         ></pxb-drawer-nav-item>
                     </pxb-drawer-nav-item>
                 </pxb-drawer-nav-group>
             </pxb-drawer-body>
 
             <pxb-drawer-footer>
-                <mat-divider></mat-divider>
                 <img src="../assets/EatonLogo.svg" width="170" style="align-self: center; padding: 16px" />
             </pxb-drawer-footer>
         </pxb-drawer>
@@ -56,16 +54,13 @@ export class DrawerComponent {
     colors = PXBColors;
     selectedItemId: string;
 
-    constructor(public readonly stateService: StateService, private readonly viewportService: ViewportService) {}
+    constructor(private readonly _stateService: StateService, private readonly _viewportService: ViewportService) {}
 
     nestedItems1: DrawerNavItem[] = [{ title: 'Sub 1' }, { title: 'Sub 2' }];
 
     nestedItems2: DrawerNavItem[] = [{ title: 'Sub 3' }, { title: 'Sub 4' }];
 
-    nestedItems3: DrawerNavItem[] = [
-        { title: 'Sub 5', hidePadding: true },
-        { title: 'Sub 6', hidePadding: true },
-    ];
+    nestedItems3: DrawerNavItem[] = [{ title: 'Sub 5' }, { title: 'Sub 6' }];
 
     navGroup1: DrawerNavItem[] = [
         {
@@ -135,7 +130,7 @@ export class DrawerComponent {
     }
 
     isOpen(): boolean {
-        return this.stateService.getDrawerOpen();
+        return this._stateService.getDrawerOpen();
     }
 
     setActive(id: string): void {
@@ -143,6 +138,6 @@ export class DrawerComponent {
     }
 
     clickMenuButton(): void {
-        this.stateService.setDrawerOpen(!this.stateService.getDrawerOpen());
+        this._stateService.setDrawerOpen(!this._stateService.getDrawerOpen());
     }
 }

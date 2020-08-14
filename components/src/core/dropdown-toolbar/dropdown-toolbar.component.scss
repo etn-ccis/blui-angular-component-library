@@ -1,0 +1,46 @@
+[dir='rtl'] .pxb-dropdown-toolbar {
+    .pxb-dropdown-toolbar-icon-wrapper {
+        margin-right: -8px;
+        margin-left: 16px;
+    }
+    .pxb-dropdown-toolbar-text-content-container {
+        padding-right: 0;
+    }
+}
+
+.pxb-dropdown-toolbar {
+    .pxb-dropdown-toolbar-icon-wrapper > * {
+        margin-right: 24px;
+        margin-left: -8px;
+    }
+}
+
+.pxb-dropdown-toolbar-text-content-container {
+    display: block;
+    overflow: hidden;
+
+    .pxb-dropdown-toolbar-title {
+        line-height: 1.6rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .pxb-dropdown-toolbar-subtitle-container {
+        margin-top: -2px;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+        float: left; // for IE11 compatibility
+        /* width: fit-content; */
+
+        .rotated-dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .pxb-dropdown-toolbar-subtitle {
+            line-height: 1.3rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    }
+}

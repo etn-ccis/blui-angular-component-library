@@ -1,3 +1,25 @@
+/* RTL */
+[dir='rtl'] .pxb-drawer-nav-item {
+    .pxb-info-list-item-active.round:after,
+    .pxb-info-list-item-active.square:after {
+        right: 0;
+    }
+    .pxb-info-list-item-active.round:after {
+        border-radius: 24px 0 0 24px;
+    }
+    .pxb-info-list-item-active.square:after {
+        border-radius: 0;
+    }
+    .pxb-drawer-nav-item-depth-3 {
+        padding-left: 0;
+        padding-right: 32px;
+    }
+    pxb-info-list-item.no-icon-closed .pxb-info-list-item .mat-list-item-content {
+        padding-right: 16px;
+        padding-left: 24px;
+    }
+}
+
 pxb-drawer-nav-item {
     outline: none;
 }
@@ -22,8 +44,10 @@ pxb-drawer-nav-item {
         mat-list-item {
             z-index: 1; // Used to keep text and icon above on-select highlight.
         }
-        .mat-list-text {
-            padding-left: 0px !important; //TODO: Remove the !important, use higher specificity.
+
+        // This class is used to hide a nav-item's clipped title when collapsed with no icon.
+        &.no-icon-closed .pxb-info-list-item .mat-list-item-content {
+            padding-right: 24px;
         }
     }
 
@@ -37,13 +61,14 @@ pxb-drawer-nav-item {
         z-index: 0;
         position: absolute;
         height: 100%;
-        width: calc(100% - 8px);
         left: 0;
         top: 0;
-        border-radius: 0px 24px 24px 0px;
         opacity: 0.9;
     }
-
+    .pxb-info-list-item-active.round:after {
+        width: calc(100% - 8px);
+        border-radius: 0 24px 24px 0;
+    }
     .pxb-info-list-item-active.square:after {
         border-radius: 0;
         width: 100%;
@@ -70,8 +95,8 @@ pxb-drawer-nav-item {
     .mat-expansion-panel:not([class*='mat-elevation-z']) {
         box-shadow: unset;
     }
-}
-
-mat-accordion.pxb-drawer-nested-nav-item mat-expansion-panel.mat-expansion-panel {
-    border-radius: 0 !important;
+    &.mat-accordion .mat-expansion-panel:last-of-type,
+    &.mat-accordion .mat-expansion-panel:first-of-type {
+        border-radius: 0;
+    }
 }

@@ -1,5 +1,5 @@
 import * as Colors from '@pxblue/colors';
-import { boolean, color, text } from '@storybook/addon-knobs';
+import { boolean, color, text, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 export const withFullConfig = (): any => ({
@@ -8,6 +8,7 @@ export const withFullConfig = (): any => ({
             [style.color]="colors.blue[500]"
             matRipple
             style="display:flex; cursor: pointer"
+            [iconAlign]="iconAlign"
             [wrapSubtitle]="wrapSubtitle"
             [wrapTitle]="wrapTitle"
             [avatar]="avatar"
@@ -34,6 +35,7 @@ export const withFullConfig = (): any => ({
         dense: boolean('dense', false),
         wrapTitle: boolean('wrapTitle', false),
         wrapSubtitle: boolean('wrapSubtitle', false),
+        iconAlign: select('iconAlign', ['left', 'center', 'right'], 'left'),
         iconColor: color('icon color', Colors.blue[500]),
         avatar: boolean('avatar', false),
         action: action('InfoListItem clicked'),

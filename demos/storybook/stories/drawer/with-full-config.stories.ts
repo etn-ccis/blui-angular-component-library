@@ -29,7 +29,7 @@ export const navItems1: DrawerNavItem[] = [
         ],
     },
     {
-        title: 'Calender',
+        title: 'Calendar',
         icon: 'today',
         onSelect: action('Selected: Calendar'),
     },

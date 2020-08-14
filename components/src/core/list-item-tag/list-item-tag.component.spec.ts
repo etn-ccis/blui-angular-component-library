@@ -8,7 +8,7 @@ describe('ListItemTagComponent', () => {
     let fixture: ComponentFixture<ListItemTagComponent>;
 
     beforeEach(async(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             imports: [ListItemTagModule],
         }).compileComponents();
     }));
@@ -20,12 +20,12 @@ describe('ListItemTagComponent', () => {
     });
 
     it('should create', () => {
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 
     it('should initialize', () => {
         fixture.detectChanges();
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 
     it('should enforce class naming conventions', () => {

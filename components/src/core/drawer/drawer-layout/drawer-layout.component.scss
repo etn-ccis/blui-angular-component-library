@@ -1,30 +1,35 @@
 $transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
+/* RTL */
+[dir='rtl'] .pxb-drawer-layout .mat-drawer-side {
+    border-left: 0; // Border-left is provided by the Drawer component.
+}
+
 .pxb-drawer-layout {
     height: 100%;
     width: 100%;
-    transition: none !important;
+    transition: none;
 
     .mat-drawer-side {
         border-right: none;
     }
 
     .pxb-drawer {
-        transition: none !important;
+        transition: none;
         width: 100%;
         &.collapse {
             width: 100%;
         }
         &.smooth {
-            transition: $transition !important;
+            transition: $transition;
         }
     }
 
     .pxb-drawer-layout-sidenav,
     .pxb-drawer-layout-nav-content {
-        transition: none !important;
+        transition: none;
         &.smooth {
-            transition: $transition !important;
+            transition: $transition;
         }
     }
 }

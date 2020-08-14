@@ -37,7 +37,7 @@ describe('HeroComponent', () => {
     let component: HeroComponent;
 
     beforeEach(async(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [TestChannelValue, TestPrimaryIcon, TestSecondaryIcon],
             imports: [HeroModule, ChannelValueModule],
         }).compileComponents();
@@ -50,14 +50,14 @@ describe('HeroComponent', () => {
 
     it('should initialize', () => {
         fixture.detectChanges();
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 
     it('should render a label', () => {
         component.label = 'Test Label';
         fixture.detectChanges();
         const label = fixture.nativeElement.querySelector('.pxb-hero-label');
-        expect(label.innerHTML).toBe('Test Label');
+        void expect(label.innerHTML).toBe('Test Label');
     });
 
     it('should create and render a pxb-channel-value', () => {
@@ -67,8 +67,8 @@ describe('HeroComponent', () => {
         fixture.detectChanges();
         const value = fixture.nativeElement.querySelector('.pxb-channel-value-value');
         const units = fixture.nativeElement.querySelector('.pxb-channel-value-units');
-        expect(value.innerHTML).toBe('80');
-        expect(units.innerHTML).toBe('C');
+        void expect(value.innerHTML).toBe('80');
+        void expect(units.innerHTML).toBe('C');
     });
 
     it('should accept and project a pxb-channel-value', () => {
@@ -76,22 +76,22 @@ describe('HeroComponent', () => {
         channelValueFixture.detectChanges();
         const value = channelValueFixture.nativeElement.querySelector('.pxb-channel-value-value');
         const units = channelValueFixture.nativeElement.querySelector('.pxb-channel-value-units');
-        expect(value.innerHTML).toBe('60');
-        expect(units.innerHTML).toBe('hours');
+        void expect(value.innerHTML).toBe('60');
+        void expect(units.innerHTML).toBe('hours');
     });
 
     it('should render an icon', () => {
         const iconFixture = TestBed.createComponent(TestPrimaryIcon);
         iconFixture.detectChanges();
         const icon = iconFixture.nativeElement.querySelector('#test-primary-icon');
-        expect(icon).toBeTruthy();
+        void expect(icon).toBeTruthy();
     });
 
     it('should render a secondary icon', () => {
         const iconFixture = TestBed.createComponent(TestSecondaryIcon);
         iconFixture.detectChanges();
         const icon = iconFixture.nativeElement.querySelector('#test-secondary-icon');
-        expect(icon).toBeTruthy();
+        void expect(icon).toBeTruthy();
     });
 
     it('should enforce class naming conventions', () => {

@@ -18,7 +18,7 @@ describe('DrawerSubheaderComponent', () => {
     let fixture: ComponentFixture<DrawerSubheaderComponent>;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({
+        void TestBed.configureTestingModule({
             declarations: [TestDrawerSubheader],
             imports: [DrawerSubheaderModule],
         }).compileComponents();
@@ -34,14 +34,14 @@ describe('DrawerSubheaderComponent', () => {
 
     it('should create', () => {
         fixture.detectChanges();
-        expect(component).toBeTruthy();
+        void expect(component).toBeTruthy();
     });
 
     it('should render subheaderContent', () => {
         const customFixture = TestBed.createComponent(TestDrawerSubheader);
         customFixture.detectChanges();
         const content: HTMLElement = customFixture.nativeElement.querySelector('#test-subheader-content');
-        expect(content.innerHTML).toBe('test subheader content');
+        void expect(content.innerHTML).toBe('test subheader content');
     });
 
     it('should enforce class naming conventions', () => {

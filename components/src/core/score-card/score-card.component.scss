@@ -1,10 +1,18 @@
+@import '../utility/utility';
+
+/* RTL */
+[dir='rtl'] .pxb-score-card-action-items-wrapper > * {
+    @include invert();
+}
+
 .pxb-score-card.mat-card {
     padding: 0;
 }
 
-// Styles applied to supplied action items.pxb-score-card-
+// Styles applied to supplied action items.
 .pxb-score-card-action-items > * {
     margin-left: 12px;
+    margin-right: 12px;
     cursor: pointer;
 }
 

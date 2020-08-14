@@ -1,3 +1,10 @@
+@import '../utility/utility';
+
+/* RTL */
+[dir='rtl'] .pxb-empty-state .pxb-empty-state-empty-icon-wrapper > * {
+    @include invert();
+}
+
 .pxb-empty-state {
     height: 100%;
     display: flex;
