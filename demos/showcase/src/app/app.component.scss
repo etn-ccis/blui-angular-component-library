@@ -1,6 +1,8 @@
 @import '~@pxblue/colors/palette.scss';
 
-* { box-sizing: border-box; }
+* {
+    box-sizing: border-box;
+}
 
 .list {
     color: map-get($pxb-gray, 800) !important;
