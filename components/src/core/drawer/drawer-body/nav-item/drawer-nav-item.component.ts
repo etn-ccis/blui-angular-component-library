@@ -47,6 +47,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 [divider]="divider ? 'full' : undefined"
                 [class.pxb-info-list-item-active]="selected"
                 [class.round]="activeItemBackgroundShape === 'round'"
+                [class.rail]="isRail()"
                 [class.square]="activeItemBackgroundShape === 'square' || !isOpen()"
                 [class.no-icon-closed]="isEmpty(iconEl) && !isOpen()"
                 [matRippleDisabled]="!ripple"
@@ -54,6 +55,9 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
             >
                 <ng-container pxb-icon #icon>
                     <ng-content select="[pxb-icon]"></ng-content>
+                    <div *ngIf="!isOpen() && isRail() && depth === 1" class="pxb-drawer-nav-item-rail-text">
+                        {{ title }}
+                    </div>
                 </ng-container>
                 <div
                     pxb-title
@@ -133,6 +137,10 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         for (const nestedItem of this.nestedNavItems) {
             nestedItem.setNestedDrawerDefaults();
         }
+    }
+
+    isRail(): boolean {
+        return this.drawerService.getDrawerVariant() === 'rail';
     }
 
     listenForDrawerChanges(): void {

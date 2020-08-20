@@ -12,7 +12,7 @@ import { StateListener } from '../state-listener.component';
 import { Direction, Directionality } from '@angular/cdk/bidi';
 import { Subscription } from 'rxjs';
 
-export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
+export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' | 'rail';
 
 @Component({
     selector: 'pxb-drawer-layout',
@@ -98,7 +98,7 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
 
     // Is the drawer condensed.
     isCollapsed(): boolean {
-        if (this.variant === 'persistent') return !this.isOpen();
+        if (this.variant === 'persistent' || this.variant === 'rail') return !this.isOpen();
         return false;
     }
 }

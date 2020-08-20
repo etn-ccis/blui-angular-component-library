@@ -38,6 +38,18 @@ pxb-drawer-nav-item {
         padding-left: 32px;
     }
 
+    .rail {
+        .mat-list-item-content {
+            height: 56px !important;  // TODO: Should all drawer nav items have 56 height, or just rails?
+        }
+        .pxb-drawer-nav-item-rail-text {
+            margin-left: -16px;
+            text-align: center;
+            font-size: 8px;
+            margin-top: 4px;
+        }
+    }
+
     pxb-info-list-item {
         display: flex;
         flex-direction: column;
@@ -45,6 +57,9 @@ pxb-drawer-nav-item {
             z-index: 1; // Used to keep text and icon above on-select highlight.
         }
 
+        .pxb-info-list-item-icon-wrapper {
+            flex-direction: column;
+        }
         // This class is used to hide a nav-item's clipped title when collapsed with no icon.
         &.no-icon-closed .pxb-info-list-item .mat-list-item-content {
             padding-right: 24px;
