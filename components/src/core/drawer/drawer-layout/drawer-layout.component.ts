@@ -25,7 +25,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
                 class="pxb-drawer-layout-sidenav"
                 [fixedInViewport]="false"
                 [class.smooth]="variant !== 'temporary'"
-                [style.width.px]="isCollapsed() ? 56 : width"
+                [style.width.px]="isCollapsed() ? getCollapsedWidth() : width"
                 [mode]="getMode()"
                 [opened]="isDrawerVisible()"
             >
@@ -115,12 +115,16 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
         if (this.variant === 'temporary') {
             return 0;
         }
-        return this.isCollapsed() ? 56 : this.width;
+        return this.isCollapsed() ? this.getCollapsedWidth() : this.width;
+    }
+
+    getCollapsedWidth(): number {
+        return this.variant === 'rail' ? 72 : 56;
     }
 
     // Is the drawer condensed.
     isCollapsed(): boolean {
-        if (this.variant === 'rail') return true;
+        if (this.variant === 'rail') return true; // Rail is always collapsed.
         if (this.variant === 'persistent') return !this.isOpen();
         return false;
     }
