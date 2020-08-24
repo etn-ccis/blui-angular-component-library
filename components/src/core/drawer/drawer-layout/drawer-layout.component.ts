@@ -8,10 +8,10 @@ import {
     Output,
     ViewEncapsulation,
 } from '@angular/core';
-import {DrawerService} from '../service/drawer.service';
-import {StateListener} from '../state-listener.component';
-import {Direction, Directionality} from '@angular/cdk/bidi';
-import {Subscription} from 'rxjs';
+import { DrawerService } from '../service/drawer.service';
+import { StateListener } from '../state-listener.component';
+import { Direction, Directionality } from '@angular/cdk/bidi';
+import { Subscription } from 'rxjs';
 
 export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' | 'rail';
 
@@ -34,7 +34,8 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
             <mat-sidenav-content
                 id="pxb-side-nav-content"
                 class="pxb-drawer-layout-nav-content"
-                [class.smooth]="variant !== 'temporary'">
+                [class.smooth]="variant !== 'temporary'"
+            >
                 <ng-content select="[pxb-content]"></ng-content>
             </mat-sidenav-content>
         </mat-sidenav-container>
@@ -63,7 +64,6 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
         this.drawerOpenListener = this.drawerService.drawerOpenChanges().subscribe(() => {
             this.adjustContentMargin();
         });
-
     }
 
     ngAfterViewInit(): void {
