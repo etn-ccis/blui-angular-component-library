@@ -48,14 +48,14 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 [class.pxb-info-list-item-active]="selected"
                 [class.round]="activeItemBackgroundShape === 'round'"
                 [class.rail]="isRail()"
-                [class.square]="activeItemBackgroundShape === 'square' || !isOpen()"
+                [class.square]="activeItemBackgroundShape === 'square' || isRail() || !isOpen()"
                 [class.no-icon-closed]="isEmpty(iconEl) && !isOpen()"
                 [matRippleDisabled]="!ripple"
                 matRipple
             >
                 <ng-container pxb-icon #icon>
                     <ng-content select="[pxb-icon]"></ng-content>
-                    <div *ngIf="!isOpen() && isRail() && depth === 1" class="pxb-drawer-nav-item-rail-text">
+                    <div *ngIf="isRail() && depth === 1" class="pxb-drawer-nav-item-rail-text">
                         {{ title }}
                     </div>
                 </ng-container>
@@ -85,7 +85,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
             </pxb-info-list-item>
         </div>
         <!-- Nested Nav Items -->
-        <mat-accordion displayMode="flat" class="pxb-drawer-nested-nav-item">
+        <mat-accordion displayMode="flat" class="pxb-drawer-nested-nav-item" *ngIf="!isRail()">
             <mat-expansion-panel [expanded]="expanded && isOpen()">
                 <ng-content select="pxb-drawer-nav-item"></ng-content>
             </mat-expansion-panel>

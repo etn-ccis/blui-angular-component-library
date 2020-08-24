@@ -18,6 +18,11 @@
         padding-right: 16px;
         padding-left: 24px;
     }
+    .rail .pxb-drawer-nav-item-rail-text {
+        margin-left: 0;
+        margin-right: -16px;
+        transform: scaleX(1)!important; // Do not invert the text.
+    }
 }
 
 pxb-drawer-nav-item {
@@ -45,7 +50,7 @@ pxb-drawer-nav-item {
         .pxb-drawer-nav-item-rail-text {
             margin-left: -16px;
             text-align: center;
-            font-size: 8px;
+            font-size: 10px;
             margin-top: 4px;
         }
     }
