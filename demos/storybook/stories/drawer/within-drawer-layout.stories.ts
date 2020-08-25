@@ -10,7 +10,7 @@ export const withinDrawerLayout = (): any => ({
     template: `
         <pxb-drawer-layout [dir]="direction()" [width]="width" [variant]="variant" (backdropClick)="state.open = false">
             <pxb-drawer pxb-drawer [open]="state.open">
-               <pxb-drawer-header title="PX Blue Drawer" subtitle="in a PX Blue Drawer Layout">
+               <pxb-drawer-header [style.display]="variant === 'rail' ? 'none' : ''" title="PX Blue Drawer" subtitle="in a PX Blue Drawer Layout">
                  <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                    <mat-icon>menu</mat-icon>
                  </button>

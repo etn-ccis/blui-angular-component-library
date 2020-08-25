@@ -34,11 +34,12 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
 @Component({
     selector: 'pxb-drawer-nav-item',
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush,
+   // changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['./drawer-nav-item.component.scss'],
     template: `
+        <ng-template #navIcon><ng-content select="[pxb-icon]"></ng-content></ng-template>
         <div class="pxb-drawer-nav-item">
-            <pxb-info-list-item
+            <pxb-info-list-item *ngIf="!isRail()"
                 (click)="selectItem()"
                 [dense]="true"
                 [statusColor]="statusColor"
@@ -47,17 +48,13 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 [divider]="divider ? 'full' : undefined"
                 [class.pxb-info-list-item-active]="selected"
                 [class.round]="activeItemBackgroundShape === 'round'"
-                [class.rail]="isRail()"
-                [class.square]="activeItemBackgroundShape === 'square' || isRail() || !isOpen()"
+                [class.square]="activeItemBackgroundShape === 'square' || !isOpen()"
                 [class.no-icon-closed]="isEmpty(iconEl) && !isOpen()"
                 [matRippleDisabled]="!ripple"
                 matRipple
             >
                 <ng-container pxb-icon #icon>
-                    <ng-content select="[pxb-icon]"></ng-content>
-                    <div *ngIf="isRail() && depth === 1" class="pxb-drawer-nav-item-rail-text">
-                        {{ title }}
-                    </div>
+                    <ng-container *ngTemplateOutlet="navIcon"></ng-container>
                 </ng-container>
                 <div
                     pxb-title
@@ -83,6 +80,13 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                     >
                 </div>
             </pxb-info-list-item>
+            <ng-container *ngIf="isRail()">
+                <div class="pxb-drawer-nav-item-rail square"  [class.pxb-info-list-item-active]="selected" (click)="selectItem()" matRipple>
+                    <ng-container *ngTemplateOutlet="navIcon"></ng-container>
+                    <div class="pxb-drawer-nav-item-rail-text">{{ title }}</div>
+                </div>
+                <mat-divider *ngIf="divider"></mat-divider>
+            </ng-container>
         </div>
         <!-- Nested Nav Items -->
         <mat-accordion displayMode="flat" class="pxb-drawer-nested-nav-item" *ngIf="!isRail()">
@@ -179,6 +183,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         this.select.emit();
         if (this.hasChildren) {
             this.toggleNestedNavItems();
+            this.changeDetector.detectChanges();
         }
     }
 

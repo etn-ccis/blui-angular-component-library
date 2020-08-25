@@ -31,13 +31,13 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
             >
                 <ng-content select="[pxb-drawer]"></ng-content>
             </mat-sidenav>
-            <mat-sidenav-content
+            <div
                 id="pxb-side-nav-content"
                 class="pxb-drawer-layout-nav-content"
                 [class.smooth]="variant !== 'temporary'"
             >
                 <ng-content select="[pxb-content]"></ng-content>
-            </mat-sidenav-content>
+            </div>
         </mat-sidenav-container>
     `,
 })
@@ -62,6 +62,7 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
             changeDetectorRef.detectChanges();
         });
         this.drawerOpenListener = this.drawerService.drawerOpenChanges().subscribe(() => {
+            console.log('go open change!~!!!!');
             this.adjustContentMargin();
         });
     }
