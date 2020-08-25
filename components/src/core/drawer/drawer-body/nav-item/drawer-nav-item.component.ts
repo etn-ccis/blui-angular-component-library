@@ -1,5 +1,4 @@
 import {
-    ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
     ContentChildren,
@@ -34,12 +33,13 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
 @Component({
     selector: 'pxb-drawer-nav-item',
     encapsulation: ViewEncapsulation.None,
-   // changeDetection: ChangeDetectionStrategy.OnPush,
+    // changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['./drawer-nav-item.component.scss'],
     template: `
         <ng-template #navIcon><ng-content select="[pxb-icon]"></ng-content></ng-template>
         <div class="pxb-drawer-nav-item">
-            <pxb-info-list-item *ngIf="!isRail()"
+            <pxb-info-list-item
+                *ngIf="!isRail()"
                 (click)="selectItem()"
                 [dense]="true"
                 [statusColor]="statusColor"
@@ -81,7 +81,12 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 </div>
             </pxb-info-list-item>
             <ng-container *ngIf="isRail()">
-                <div class="pxb-drawer-nav-item-rail square"  [class.pxb-info-list-item-active]="selected" (click)="selectItem()" matRipple>
+                <div
+                    class="pxb-drawer-nav-item-rail square"
+                    [class.pxb-info-list-item-active]="selected"
+                    (click)="selectItem()"
+                    matRipple
+                >
                     <ng-container *ngTemplateOutlet="navIcon"></ng-container>
                     <div class="pxb-drawer-nav-item-rail-text">{{ title }}</div>
                 </div>
