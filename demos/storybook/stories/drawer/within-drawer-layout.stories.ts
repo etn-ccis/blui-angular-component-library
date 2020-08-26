@@ -3,15 +3,28 @@ import * as Colors from '@pxblue/colors';
 import { nestedNavGroup } from './with-nested-nav-items.stories';
 import { DrawerNavItem } from '@pxblue/angular-components';
 import { getDirection } from '@pxblue/storybook-rtl-addon';
+const headerImage = require('../../assets/topology_40.png');
 
 const items = [...nestedNavGroup];
 
 export const withinDrawerLayout = (): any => ({
+    styles: [
+        `
+        :host { 
+            height: 100%; 
+            width: 100%;
+        }
+        ::ng-deep .pxb-drawer-header-background {
+            background-image: url(${headerImage});
+            width: 360px;
+        }
+        `,
+    ],
     template: `
         <pxb-drawer-layout [dir]="direction()" [width]="width" [variant]="variant" (backdropClick)="state.open = false">
             <pxb-drawer pxb-drawer [open]="state.open">
-               <pxb-drawer-header [style.display]="variant === 'rail' ? 'none' : ''" title="PX Blue Drawer" subtitle="in a PX Blue Drawer Layout">
-                 <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
+               <pxb-drawer-header title="PX Blue Drawer" subtitle="in a PX Blue Drawer Layout">
+                 <button *ngIf="variant !== 'rail'" pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                    <mat-icon>menu</mat-icon>
                  </button>
                </pxb-drawer-header>
@@ -63,6 +76,7 @@ export const withinDrawerLayout = (): any => ({
             max: 600,
             step: 5,
         }),
+        headerImage: headerImage,
         variant: select('variant', ['persistent', 'temporary', 'permanent', 'rail'], 'persistent'),
         toggleDrawer: (state): void => {
             state.open = !state.open;
