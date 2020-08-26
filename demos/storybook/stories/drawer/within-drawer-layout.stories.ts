@@ -32,16 +32,13 @@ export const withinDrawerLayout = (): any => ({
                   <pxb-drawer-nav-group>
                        <pxb-drawer-nav-item *ngFor="let navItem of navItems"
                          [title]="navItem.title"
-                         [selected]="state.selected === navItem.title"
                          (select)="navItem.onSelect(); setActive(navItem, state);">
                          <mat-icon pxb-icon>{{ navItem.icon }}</mat-icon>
                          <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items"
                            [title]="nestedItem.title"
-                           [selected]="state.selected === nestedItem.title"
                            (select)="nestedItem.onSelect(); setActive(nestedItem, state);">
                             <pxb-drawer-nav-item *ngFor="let deepItem of nestedItem.items"
                                [title]="deepItem.title"
-                               [selected]="state.selected === deepItem.title"
                                (select)="deepItem.onSelect(); setActive(deepItem, state);">
                             </pxb-drawer-nav-item>
                         </pxb-drawer-nav-item>
@@ -69,7 +66,7 @@ export const withinDrawerLayout = (): any => ({
         blue: Colors.blue[500],
         white: Colors.white[50],
         navItems: items,
-        state: { selected: undefined, open: true },
+        state: { open: true },
         width: number('width', 350, {
             range: true,
             min: 200,

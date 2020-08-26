@@ -32,9 +32,10 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
                 <ng-content select="[pxb-drawer]"></ng-content>
             </mat-sidenav>
             <div
-                id="pxb-side-nav-content"
                 class="pxb-drawer-layout-nav-content"
                 [class.smooth]="variant !== 'temporary'"
+                [style.marginRight.px]="isRtl ? getContentMargin() : 0"
+                [style.marginLeft.px]="isRtl ? 0 : getContentMargin()"
             >
                 <ng-content select="[pxb-content]"></ng-content>
             </div>
@@ -61,9 +62,6 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
             this.isRtl = direction === 'rtl';
             changeDetectorRef.detectChanges();
         });
-        this.drawerOpenListener = this.drawerService.drawerOpenChanges().subscribe(() => {
-            this.adjustContentMargin();
-        });
     }
 
     ngAfterViewInit(): void {
@@ -73,27 +71,11 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     ngOnChanges(): void {
         this.drawerService.setDrawerVariant(this.variant);
         this.changeDetector.detectChanges();
-        this.adjustContentMargin();
     }
 
     ngOnDestroy(): void {
         this.unsubscribeListeners();
         this.dirChangeSubscription.unsubscribe();
-    }
-
-    // mat-side-nav-content has some auto-margin logic baked into the component which I cannot disable.
-    // Whenever the drawer `open` state or `variant` @Input changes, run detectChanges & then manually update the marginLeft.
-    adjustContentMargin(): void {
-        if (!this.content) {
-            this.content = document.getElementById('pxb-side-nav-content');
-        }
-        if (this.content) {
-            const marginLeft = this.isRtl ? 0 : this.getContentMargin();
-            const marginRight = this.isRtl ? this.getContentMargin() : 0;
-            this.content.style.marginLeft = `${marginLeft}px`;
-            this.content.style.marginRight = `${marginRight}px`;
-        }
-        this.changeDetector.detectChanges();
     }
 
     getMode(): string {
