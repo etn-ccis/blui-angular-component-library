@@ -63,7 +63,7 @@ export const withinDrawerLayout = (): any => ({
             max: 600,
             step: 5,
         }),
-        variant: select('variant', ['persistent', 'temporary', 'permanent', 'rail'], 'persistent'),
+        variant: select('variant', ['persistent', 'temporary', 'permanent'], 'persistent'),
         toggleDrawer: (state): void => {
             state.open = !state.open;
         },
