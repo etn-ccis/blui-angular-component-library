@@ -10,6 +10,7 @@ import {
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
+import {DrawerLayoutVariantType} from "../../drawer-layout/drawer-layout.component";
 import { DrawerService } from '../../service/drawer.service';
 import { StateListener } from '../../state-listener.component';
 import { isEmptyView } from '../../../../utils/utils';
@@ -53,7 +54,8 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 matRipple
             >
                 <ng-container pxb-icon #icon>
-                    <ng-content select="[pxb-icon]"></ng-content>
+                        <ng-content select="[pxb-icon]"></ng-content>
+                        <span *ngIf="getVariant() === 'rail'">{{title}}</span>
                 </ng-container>
                 <div
                     pxb-title
@@ -133,6 +135,10 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         for (const nestedItem of this.nestedNavItems) {
             nestedItem.setNestedDrawerDefaults();
         }
+    }
+
+    getVariant(): DrawerLayoutVariantType {
+        return this.drawerService.getDrawerVariant();
     }
 
     listenForDrawerChanges(): void {
