@@ -130,16 +130,6 @@ jobs:
             - attach_workspace:
                   at: .
             - run:
-                  name: Prettier Check
-                  command: |
-                      cd demos/showcase
-                      yarn prettier:check
-            - run:
-                  name: Lint
-                  command: |
-                      cd demos/showcase
-                      yarn lint
-            - run:
                   name: Build Showcase
                   command: |
                       cp -r ./dist/. ./demos/showcase/node_modules/@pxblue/angular-components
