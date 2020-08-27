@@ -4,6 +4,7 @@ import { nestedNavGroup } from './with-nested-nav-items.stories';
 import { DrawerNavItem } from '@pxblue/angular-components';
 import { getDirection } from '@pxblue/storybook-rtl-addon';
 const headerImage = require('../../assets/topology_40.png');
+const railImage = require('../../assets/touchscreen_large.svg');
 
 const items = [...nestedNavGroup];
 
@@ -23,10 +24,13 @@ export const withinDrawerLayout = (): any => ({
     template: `
         <pxb-drawer-layout [dir]="direction()" [width]="width" [variant]="variant" (backdropClick)="state.open = false">
             <pxb-drawer pxb-drawer [open]="state.open">
-               <pxb-drawer-header title="PX Blue Drawer" subtitle="in a PX Blue Drawer Layout">
-                 <button *ngIf="variant !== 'rail'" pxb-icon mat-icon-button (click)="toggleDrawer(state)">
+               <pxb-drawer-header *ngIf="variant !== 'rail'" title="PX Blue Drawer" subtitle="in a PX Blue Drawer Layout">
+                 <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                    <mat-icon>menu</mat-icon>
                  </button>
+               </pxb-drawer-header>
+               <pxb-drawer-header *ngIf="variant === 'rail'">
+                    <img pxb-title-content [src]="railImage" style="height: 68px; width: 72px" />
                </pxb-drawer-header>
                <pxb-drawer-body>
                   <pxb-drawer-nav-group>
@@ -74,6 +78,7 @@ export const withinDrawerLayout = (): any => ({
             step: 5,
         }),
         headerImage: headerImage,
+        railImage: railImage,
         variant: select('variant', ['persistent', 'temporary', 'permanent', 'rail'], 'persistent'),
         toggleDrawer: (state): void => {
             state.open = !state.open;
