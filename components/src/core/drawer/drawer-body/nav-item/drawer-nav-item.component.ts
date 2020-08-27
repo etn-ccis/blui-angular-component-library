@@ -45,9 +45,8 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                  [class.round]="activeItemBackgroundShape === 'round'"
                  [class.square]="activeItemBackgroundShape === 'square' || !isOpen()"></div>
             <pxb-info-list-item
-               #trigger 
                 *ngIf="!isRail()"
-                (click)="selectItem()"
+                (click)="selectItem($event)"
                 [dense]="true"
                 [statusColor]="statusColor"
                 [chevron]="chevron && isOpen()"
@@ -86,7 +85,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 <div
                     class="pxb-drawer-nav-item-rail square"
                     [class.pxb-info-list-item-active]="selected"
-                    (click)="selectItem()"
+                    (click)="selectItem($event)"
                     matRipple
                 >
                     <ng-container *ngTemplateOutlet="navIcon"></ng-container>
@@ -186,21 +185,17 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         if (this.hidePadding === undefined) this.hidePadding = false;
     }
 
-    selectItem(): void {
+    selectItem(e: any): void {
         this.drawerService.select(this.hasChildren);
         this.select.emit();
         if (this.hasChildren) {
             this.toggleNestedNavItems();
             this.changeDetector.detectChanges();
         }
-        this.triggerRipple();
+        this.rippleEl.launch(e.x,  e.y);
     }
 
     toggleNestedNavItems(): void {
         this.expanded = !this.expanded;
-    }
-
-    triggerRipple() {
-        this.rippleEl.launch({centered: true});
     }
 }
