@@ -10,6 +10,7 @@ import {
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
+import {MatRipple} from "@angular/material/core";
 import { DrawerService } from '../../service/drawer.service';
 import { StateListener } from '../../state-listener.component';
 import { isEmptyView } from '../../../../utils/utils';
@@ -39,7 +40,12 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
     template: `
         <ng-template #navIcon><ng-content select="[pxb-icon]"></ng-content></ng-template>
         <div class="pxb-drawer-nav-item">
+            <div class="pxb-drawer-nav-item-active"
+                 matRipple
+                 [class.round]="activeItemBackgroundShape === 'round'"
+                 [class.square]="activeItemBackgroundShape === 'square' || !isOpen()"></div>
             <pxb-info-list-item
+               #trigger 
                 *ngIf="!isRail()"
                 (click)="selectItem()"
                 [dense]="true"
@@ -47,12 +53,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 [chevron]="chevron && isOpen()"
                 [hidePadding]="hidePadding"
                 [divider]="divider ? 'full' : undefined"
-                [class.pxb-info-list-item-active]="selected"
-                [class.round]="activeItemBackgroundShape === 'round'"
-                [class.square]="activeItemBackgroundShape === 'square' || !isOpen()"
                 [class.no-icon-closed]="isEmpty(iconEl) && !isOpen()"
-                [matRippleDisabled]="!ripple"
-                matRipple
             >
                 <ng-container pxb-icon #icon>
                     <ng-container *ngTemplateOutlet="navIcon"></ng-container>
@@ -120,6 +121,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @ViewChild('expandIcon', { static: false }) expandIconEl: ElementRef;
     @ViewChild('icon', { static: false }) iconEl: ElementRef;
     @ViewChild('collapseIcon', { static: false }) collapseIconEl: ElementRef;
+    @ViewChild(MatRipple, { static: false }) rippleEl: MatRipple;
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
     isNestedItem: boolean;
@@ -191,9 +193,14 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
             this.toggleNestedNavItems();
             this.changeDetector.detectChanges();
         }
+        this.triggerRipple();
     }
 
     toggleNestedNavItems(): void {
         this.expanded = !this.expanded;
+    }
+
+    triggerRipple() {
+        this.rippleEl.launch({centered: true});
     }
 }
