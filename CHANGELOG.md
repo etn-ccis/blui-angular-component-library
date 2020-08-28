@@ -1,5 +1,8 @@
 # Change Log
 
+## v2.2.0
+-   Adds a new `rail` variant to the `<pxb-drawer-layout>`. 
+
 ## v2.1.0
 
 -   Adds new component for `<pxb-user-menu>` (use @pxblue/angular-themes v5.1.0+ to get PX Blue themes for this component).
