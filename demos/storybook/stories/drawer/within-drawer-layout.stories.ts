@@ -36,13 +36,16 @@ export const withinDrawerLayout = (): any => ({
                   <pxb-drawer-nav-group>
                        <pxb-drawer-nav-item *ngFor="let navItem of navItems"
                          [title]="navItem.title"
-                         (select)="navItem.onSelect(); setActive(navItem, state);">
+                         [selected]="state.selected === navItem.title"
+                         (select)="navItem.onSelect(); setActive(navItem, state, variant);">
                          <mat-icon pxb-icon>{{ navItem.icon }}</mat-icon>
                          <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items"
                            [title]="nestedItem.title"
+                           [selected]="state.selected === nestedItem.title"
                            (select)="nestedItem.onSelect(); setActive(nestedItem, state);">
                             <pxb-drawer-nav-item *ngFor="let deepItem of nestedItem.items"
                                [title]="deepItem.title"
+                               [selected]="state.selected === deepItem.title"
                                (select)="deepItem.onSelect(); setActive(deepItem, state);">
                             </pxb-drawer-nav-item>
                         </pxb-drawer-nav-item>
@@ -83,7 +86,10 @@ export const withinDrawerLayout = (): any => ({
         toggleDrawer: (state): void => {
             state.open = !state.open;
         },
-        setActive: (item: DrawerNavItem, state: { selected: string }): void => {
+        setActive: (item: DrawerNavItem, state: { selected: string }, variant: string): void => {
+            if (variant === 'rail') {
+                state.selected = item.title;
+            }
             if (!item.items) {
                 // Only selects items that do not have nested nav items.
                 state.selected = item.title;

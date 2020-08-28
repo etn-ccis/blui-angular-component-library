@@ -1,11 +1,11 @@
 /* RTL */
 [dir='rtl'] .pxb-drawer-nav-item {
-     .pxb-drawer-nav-item-active-highlight {
-         right: 0;
-         &.round {
-             border-radius: 24px 0 0 24px;
-         }
-     }
+    .pxb-drawer-nav-item-active-highlight {
+        right: 0;
+        &.round {
+            border-radius: 24px 0 0 24px;
+        }
+    }
     .pxb-drawer-nav-item-depth-3 {
         padding-left: 0;
         padding-right: 32px;
@@ -61,7 +61,7 @@ pxb-drawer-nav-item {
         top: 0;
         opacity: 0.9;
         min-width: 120px;
-        transition: all 300ms;
+        transition: width 300ms;
         &.round {
             width: calc(100% - 8px);
             border-radius: 0 24px 24px 0;
@@ -78,7 +78,13 @@ pxb-drawer-nav-item {
             transform: rotate(180deg);
         }
     }
+    .pxb-drawer-nav-item-rail-container {
+       z-index: 1;
+        display: flex;
+        flex-direction: column;
+    }
     .pxb-drawer-nav-item-rail {
+        z-index: 1;
         display: flex;
         flex-direction: column;
         height: 72px;
