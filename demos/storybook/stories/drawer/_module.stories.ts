@@ -56,21 +56,6 @@ export const drawerWrapper = () => (storyFn: any): any => {
     };
 };
 
-export const drawerLayoutWrapper = () => (storyFn: any): any => {
-    const story = storyFn();
-    return {
-        ...story,
-        styles: [
-            `
-            :host { 
-                height: 100%; 
-                width: 100%;
-            }
-            `,
-        ],
-    };
-};
-
 storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     .addDecorator(
         moduleMetadata({
@@ -123,7 +108,6 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     // @accessibility
     .addDecorator(withA11y)
     .addDecorator(storyWrapper())
-    .addDecorator(drawerLayoutWrapper())
     .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('Drawer.md') } })
     .add(README_STORY_NAME, getReadMeStory)
     .add('within a Drawer Layout', withinDrawerLayout);

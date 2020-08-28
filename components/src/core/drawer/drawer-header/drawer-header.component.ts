@@ -16,10 +16,14 @@ import { isEmptyView } from '../../../utils/utils';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <mat-toolbar class="pxb-drawer-header">
+        <mat-toolbar
+            class="pxb-drawer-header"
+            [class.rail]="isRail()"
+            [class.pxb-drawer-header-no-icon]="isEmpty(iconEl)"
+        >
             <div class="pxb-drawer-header-background"></div>
             <div class="pxb-drawer-header-content">
-                <div #icon class="pxb-drawer-header-icon-wrapper" [class.pxb-drawer-header-no-icon]="isEmpty(iconEl)">
+                <div #icon class="pxb-drawer-header-icon-wrapper">
                     <ng-content select="[pxb-icon]"></ng-content>
                 </div>
                 <div *ngIf="title" class="pxb-drawer-header-title-wrapper">
@@ -42,5 +46,9 @@ export class DrawerHeaderComponent extends StateListener {
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
+    }
+
+    isRail(): boolean {
+        return this.drawerService.getDrawerVariant() === 'rail';
     }
 }
