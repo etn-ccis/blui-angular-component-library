@@ -40,9 +40,10 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
     template: `
         <ng-template #navIcon><ng-content select="[pxb-icon]"></ng-content></ng-template>
         <div class="pxb-drawer-nav-item">
-            <div class="pxb-drawer-nav-item-active"
-                 matRipple
-                 [class.round]="activeItemBackgroundShape === 'round'"
+            <div
+                matRipple
+                [class.pxb-drawer-nav-item-active-highlight]="selected"
+                 [class.round]="activeItemBackgroundShape === 'round' && isOpen()"
                  [class.square]="activeItemBackgroundShape === 'square' || !isOpen()"></div>
             <pxb-info-list-item
                 *ngIf="!isRail()"
@@ -82,12 +83,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 </div>
             </pxb-info-list-item>
             <ng-container *ngIf="isRail()">
-                <div
-                    class="pxb-drawer-nav-item-rail square"
-                    [class.pxb-info-list-item-active]="selected"
-                    (click)="selectItem($event)"
-                    matRipple
-                >
+                <div (click)="selectItem($event)">
                     <ng-container *ngTemplateOutlet="navIcon"></ng-container>
                     <div class="pxb-drawer-nav-item-rail-text">{{ title }}</div>
                 </div>
