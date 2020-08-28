@@ -74,10 +74,10 @@ Parent element (`<pxb-drawer-layout>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input  | Description             | Type                                       | Required | Default |
-| ------- | ----------------------- | ------------------------------------------ | -------- | ------- |
-| variant | Sets the drawer variant | `'permanent' | 'persistent' | 'temporary'` | yes      |         |
-| width   | Drawer pixel width      | `number`                                   | no       | 350     |
+| @Input  | Description             | Type                                                 | Required | Default |
+| ------- | ----------------------- | ---------------------------------------------------- | -------- | ------- |
+| variant | Sets the drawer variant | `'permanent' | 'persistent' | 'temporary' | 'rail'`  | yes      |         |
+| width   | Drawer pixel width      | `number`                                             | no       | 350     |
 
 </div>
 
@@ -344,6 +344,8 @@ Each PX Blue component has classes which can be used to override component style
 | pxb-drawer-nav-item-depth-1      | Styles applied to top-level nav items        |
 | pxb-drawer-nav-item-depth-2      | Styles applied to nested nav items           |
 | pxb-drawer-nav-item-depth-3      | Styles applied to nav items 3 levels deep    |
+| pxb-drawer-nav-item-rail         | Styles applied to navigation rail items      |
+| pxb-drawer-nav-item-rail-text    | Styles applied to navigation rail text       |
 
 </div>
 

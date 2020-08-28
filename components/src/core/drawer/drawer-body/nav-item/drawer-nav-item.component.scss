@@ -80,6 +80,22 @@ pxb-drawer-nav-item {
             transform: rotate(180deg);
         }
     }
+    .pxb-drawer-nav-item-rail {
+        display: flex;
+        flex-direction: column;
+        height: 72px;
+        width: 71px;
+        justify-content: center;
+        align-items: center;
+        padding: 14px 8px 16px 8px;
+        box-sizing: border-box;
+        cursor: pointer;
+        text-align: center;
+        .pxb-drawer-nav-item-rail-text {
+            font-size: 14px;
+            line-height: 14px;
+        }
+    }
 }
 
 .pxb-drawer-nested-nav-item {
