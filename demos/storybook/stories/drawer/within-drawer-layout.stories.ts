@@ -36,7 +36,6 @@ export const withinDrawerLayout = (): any => ({
                   <pxb-drawer-nav-group>
                        <pxb-drawer-nav-item *ngFor="let navItem of navItems"
                          [title]="navItem.title"
-                         [selected]="true"
                          (select)="navItem.onSelect(); setActive(navItem, state);">
                          <mat-icon pxb-icon>{{ navItem.icon }}</mat-icon>
                          <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items"
