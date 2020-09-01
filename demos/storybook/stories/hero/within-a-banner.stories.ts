@@ -21,7 +21,7 @@ export const withinBanner = (): any => ({
     `,
     props: {
         count: number('count', 4, { range: true, min: 1, max: 4, step: 1 }),
-        bannerWidth: number('width', 400, { range: true, min: 300, max: 600, step: 50 }),
+        bannerWidth: number('width', 400, { range: true, min: 350, max: 600, step: 50 }),
         green: Colors.green[500],
         yellow: Colors.yellow[500],
         borderColor: Colors.gray[200],
