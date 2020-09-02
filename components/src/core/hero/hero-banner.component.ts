@@ -11,6 +11,9 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
         <mat-divider class="pxb-hero-banner-divider" *ngIf="divider"></mat-divider>
     `,
     styleUrls: ['./hero-banner.component.scss'],
+    host: {
+        class: 'pxb-hero-banner-root', // TODO: Follow ng mat naming conventions
+    },
 })
 export class HeroBannerComponent {
     @Input() divider = false;

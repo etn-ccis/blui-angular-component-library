@@ -3,7 +3,8 @@ import * as Colors from '@pxblue/colors';
 
 export const withinBanner = (): any => ({
     template: `
-        <pxb-hero-banner>
+        <pxb-hero-banner [style.borderColor]="borderColor" [style.width.px]="bannerWidth" 
+            style="border: solid 1px; border-radius: 4px">
             <pxb-hero *ngIf="count > 0" [label]="'Health'" [value]="96" [units]="'/100'">
                 <i pxb-primary [style.color]="green" class="pxb-grade_a"></i>
             </pxb-hero>
@@ -19,8 +20,10 @@ export const withinBanner = (): any => ({
         </pxb-hero-banner>
     `,
     props: {
-        count: number('count', 4, { range: true, min: 0, max: 4, step: 1 }),
+        count: number('count', 4, { range: true, min: 1, max: 4, step: 1 }),
+        bannerWidth: number('width', 400, { range: true, min: 350, max: 600, step: 50 }),
         green: Colors.green[500],
         yellow: Colors.yellow[500],
+        borderColor: Colors.gray[200],
     },
 });
