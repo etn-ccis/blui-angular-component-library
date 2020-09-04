@@ -1,11 +1,8 @@
-@import '../utility/utility';
-
 /* RTL */
 [dir='rtl'] .pxb-hero {
     .pxb-hero-primary-wrapper {
-        > * {
-            @include invert();
-        }
+        display: flex;
+        justify-content: flex-end;
     }
 }
 
