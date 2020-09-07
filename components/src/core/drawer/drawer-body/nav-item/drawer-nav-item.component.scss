@@ -60,8 +60,7 @@ pxb-drawer-nav-item {
         left: 0;
         top: 0;
         opacity: 0.9;
-        min-width: 120px;
-        transition: width 300ms;
+        transition: 300ms;
         &.round {
             width: calc(100% - 8px);
             border-radius: 0 24px 24px 0;
