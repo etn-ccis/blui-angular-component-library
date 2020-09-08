@@ -10,6 +10,7 @@ import {
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
+import { MatRipple } from '@angular/material/core';
 import { DrawerService } from '../../service/drawer.service';
 import { StateListener } from '../../state-listener.component';
 import { isEmptyView } from '../../../../utils/utils';
@@ -38,21 +39,22 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
     styleUrls: ['./drawer-nav-item.component.scss'],
     template: `
         <ng-template #navIcon><ng-content select="[pxb-icon]"></ng-content></ng-template>
-        <div class="pxb-drawer-nav-item">
+        <div class="pxb-drawer-nav-item" [class.pxb-drawer-nav-item-active]="selected">
+            <div
+                matRipple
+                [class.pxb-drawer-nav-item-active-highlight]="selected"
+                [class.round]="activeItemBackgroundShape === 'round' && isOpen()"
+                [class.square]="activeItemBackgroundShape === 'square' || !isOpen()"
+            ></div>
             <pxb-info-list-item
                 *ngIf="!isRail()"
-                (click)="selectItem()"
+                (click)="selectItem($event)"
                 [dense]="true"
                 [statusColor]="statusColor"
                 [chevron]="chevron && isOpen()"
                 [hidePadding]="hidePadding"
                 [divider]="divider ? 'full' : undefined"
-                [class.pxb-info-list-item-active]="selected"
-                [class.round]="activeItemBackgroundShape === 'round'"
-                [class.square]="activeItemBackgroundShape === 'square' || !isOpen()"
                 [class.no-icon-closed]="isEmpty(iconEl) && !isOpen()"
-                [matRippleDisabled]="!ripple"
-                matRipple
             >
                 <ng-container pxb-icon #icon>
                     <ng-container *ngTemplateOutlet="navIcon"></ng-container>
@@ -81,18 +83,13 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                     >
                 </div>
             </pxb-info-list-item>
-            <ng-container *ngIf="isRail()">
-                <div
-                    class="pxb-drawer-nav-item-rail square"
-                    [class.pxb-info-list-item-active]="selected"
-                    (click)="selectItem()"
-                    matRipple
-                >
+            <div class="pxb-drawer-nav-item-rail-container" *ngIf="isRail()">
+                <div (click)="selectItem($event)" class="pxb-drawer-nav-item-rail square">
                     <ng-container *ngTemplateOutlet="navIcon"></ng-container>
                     <div class="pxb-drawer-nav-item-rail-text">{{ title }}</div>
                 </div>
                 <mat-divider *ngIf="divider"></mat-divider>
-            </ng-container>
+            </div>
         </div>
         <!-- Nested Nav Items -->
         <mat-accordion displayMode="flat" class="pxb-drawer-nested-nav-item" *ngIf="!isRail()">
@@ -120,6 +117,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @ViewChild('expandIcon', { static: false }) expandIconEl: ElementRef;
     @ViewChild('icon', { static: false }) iconEl: ElementRef;
     @ViewChild('collapseIcon', { static: false }) collapseIconEl: ElementRef;
+    @ViewChild(MatRipple, { static: false }) rippleEl: MatRipple;
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
     isNestedItem: boolean;
@@ -184,13 +182,14 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         if (this.hidePadding === undefined) this.hidePadding = false;
     }
 
-    selectItem(): void {
+    selectItem(e: any): void {
         this.drawerService.select(this.hasChildren);
         this.select.emit();
         if (this.hasChildren) {
             this.toggleNestedNavItems();
             this.changeDetector.detectChanges();
         }
+        this.rippleEl.launch(e.x, e.y);
     }
 
     toggleNestedNavItems(): void {

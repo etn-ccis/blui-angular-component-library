@@ -333,19 +333,21 @@ Each PX Blue component has classes which can be used to override component style
 
 <div style="overflow: auto;">
 
-| Name                             | Description                                  |
-| -------------------------------- | -------------------------------------------- |
-| pxb-drawer-nav-item              | Styles applied to the root element           |
-| pxb-info-list-item-active:after  | Styles applied to 'selected' nav item        |
-| pxb-info-list-item-active.round  | Styles applied to round 'selected' nav item  |
-| pxb-info-list-item-active.square | Styles applied to square 'selected' nav item |
-| pxb-drawer-nav-item-expand-icon  | Styles applied to expand icon                |
-| pxb-drawer-nested-nav-item       | Styles applied to nested nav items           |
-| pxb-drawer-nav-item-depth-1      | Styles applied to top-level nav items        |
-| pxb-drawer-nav-item-depth-2      | Styles applied to nested nav items           |
-| pxb-drawer-nav-item-depth-3      | Styles applied to nav items 3 levels deep    |
-| pxb-drawer-nav-item-rail         | Styles applied to navigation rail items      |
-| pxb-drawer-nav-item-rail-text    | Styles applied to navigation rail text       |
+| Name                                        | Description                                  |
+| ------------------------------------------- | -------------------------------------------- |
+| pxb-drawer-nav-item                         | Styles applied to the root element           |
+| pxb-drawer-nav-item-active                  | Style applied when the nav item is selected  |
+| pxb-drawer-nav-item-active-highlight        | Styles applied to 'selected' nav item        |
+| pxb-drawer-nav-item-active-highlight.round  | Styles applied to round 'selected' nav item  |
+| pxb-drawer-nav-item-active-highlight.square | Styles applied to square 'selected' nav item |
+| pxb-drawer-nav-item-expand-icon             | Styles applied to expand icon                |
+| pxb-drawer-nested-nav-item                  | Styles applied to nested nav items           |
+| pxb-drawer-nav-item-depth-1                 | Styles applied to top-level nav items        |
+| pxb-drawer-nav-item-depth-2                 | Styles applied to nested nav items           |
+| pxb-drawer-nav-item-depth-3                 | Styles applied to nav items 3 levels deep    |
+| pxb-drawer-nav-item-rail                    | Styles applied to navigation rail items      |
+| pxb-drawer-nav-item-rail-text               | Styles applied to navigation rail text       |
+| pxb-drawer-nav-item-rail-container          | Wrapper around the navigation rail content   |
 
 </div>
 
