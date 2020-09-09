@@ -64,7 +64,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
         </ng-template>
     `,
     host: {
-        class: 'pxb-user-menu'
+        class: 'pxb-user-menu',
     },
 })
 export class UserMenuComponent {

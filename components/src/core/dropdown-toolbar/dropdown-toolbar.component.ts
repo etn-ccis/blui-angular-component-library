@@ -29,7 +29,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
     `,
     styleUrls: ['./dropdown-toolbar.component.scss'],
     host: {
-        class: 'pxb-dropdown-toolbar'
+        class: 'pxb-dropdown-toolbar',
     },
 })
 export class DropdownToolbarComponent {

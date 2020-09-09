@@ -12,7 +12,7 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
         </div>
     `,
     host: {
-        class: 'pxb-user-menu-avatar'
+        class: 'pxb-user-menu-avatar',
     },
 })
 export class UserMenuAvatarComponent {

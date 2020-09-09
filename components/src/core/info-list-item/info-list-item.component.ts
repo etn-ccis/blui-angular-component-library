@@ -75,7 +75,7 @@ import { isEmptyView, requireContent } from '../../utils/utils';
     `,
     styleUrls: ['./info-list-item.component.scss'],
     host: {
-        class: 'pxb-info-list-item'
+        class: 'pxb-info-list-item',
     },
 })
 export class InfoListItemComponent implements AfterViewInit {

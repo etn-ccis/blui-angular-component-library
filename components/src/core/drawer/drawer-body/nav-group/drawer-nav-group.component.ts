@@ -15,7 +15,7 @@ import { StateListener } from '../../state-listener.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     styles: [
-        `            
+        `
             .pxb-drawer-nav-group-content .mat-list-base {
                 font-weight: 600;
                 padding-top: 0;
@@ -48,7 +48,7 @@ import { StateListener } from '../../state-listener.component';
         </div>
     `,
     host: {
-        class: 'pxb-drawer-nav-group'
+        class: 'pxb-drawer-nav-group',
     },
 })
 export class DrawerNavGroupComponent extends StateListener implements Omit<DrawerNavGroup, 'items'> {

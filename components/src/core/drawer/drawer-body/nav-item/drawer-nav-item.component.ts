@@ -99,7 +99,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
         </mat-accordion>
     `,
     host: {
-        class: 'pxb-drawer-nav-item'
+        class: 'pxb-drawer-nav-item',
     },
 })
 export class DrawerNavItemComponent extends StateListener implements Omit<DrawerNavItem, 'items'> {

@@ -41,7 +41,7 @@ import { requireInput } from '../../utils/utils';
         </div>
     `,
     host: {
-        class: 'pxb-hero'
+        class: 'pxb-hero',
     },
 })
 export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChecked {

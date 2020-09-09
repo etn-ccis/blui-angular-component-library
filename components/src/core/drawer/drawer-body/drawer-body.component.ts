@@ -24,7 +24,7 @@ import { DrawerService } from '../service/drawer.service';
         `,
     ],
     host: {
-        class: 'pxb-drawer-body'
+        class: 'pxb-drawer-body',
     },
 })
 export class DrawerBodyComponent extends StateListener {

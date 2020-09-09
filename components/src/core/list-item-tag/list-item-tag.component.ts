@@ -8,7 +8,7 @@ import { requireInput } from '../../utils/utils';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     host: {
-        class: 'pxb-list-item-tag'
+        class: 'pxb-list-item-tag',
     },
 })
 export class ListItemTagComponent implements OnChanges {

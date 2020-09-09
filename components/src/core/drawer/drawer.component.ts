@@ -28,7 +28,7 @@ import { Subscription } from 'rxjs';
     `,
     styleUrls: ['./drawer.component.scss'],
     host: {
-        class: 'pxb-drawer'
+        class: 'pxb-drawer',
     },
 })
 export class DrawerComponent extends StateListener implements OnInit, OnChanges {

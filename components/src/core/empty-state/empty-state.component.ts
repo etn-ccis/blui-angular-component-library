@@ -17,7 +17,7 @@ import { requireContent, requireInput } from '../../utils/utils';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     host: {
-        class: 'pxb-empty-state'
+        class: 'pxb-empty-state',
     },
 })
 export class EmptyStateComponent implements OnChanges, AfterViewInit {

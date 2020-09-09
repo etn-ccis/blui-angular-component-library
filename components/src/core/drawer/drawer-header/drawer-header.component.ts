@@ -37,7 +37,7 @@ import { isEmptyView } from '../../../utils/utils';
     `,
     styleUrls: ['./drawer-header.component.scss'],
     host: {
-        class: 'pxb-drawer-header'
+        class: 'pxb-drawer-header',
     },
 })
 export class DrawerHeaderComponent extends StateListener {

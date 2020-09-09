@@ -36,7 +36,7 @@ import { requireInput } from '../../utils/utils';
     `,
     styleUrls: ['./score-card.component.scss'],
     host: {
-        class: 'pxb-score-card'
+        class: 'pxb-score-card',
     },
 })
 export class ScoreCardComponent {

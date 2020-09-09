@@ -42,7 +42,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
         </mat-sidenav-container>
     `,
     host: {
-        class: 'pxb-drawer-layout'
+        class: 'pxb-drawer-layout',
     },
 })
 export class DrawerLayoutComponent extends StateListener implements AfterViewInit, OnChanges {

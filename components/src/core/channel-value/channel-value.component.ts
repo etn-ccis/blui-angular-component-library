@@ -17,7 +17,7 @@ import { requireInput } from '../../utils/utils';
     `,
     styleUrls: ['./channel-value.component.scss'],
     host: {
-        class: 'pxb-channel-value'
+        class: 'pxb-channel-value',
     },
 })
 export class ChannelValueComponent implements OnChanges {

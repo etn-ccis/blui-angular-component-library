@@ -14,7 +14,7 @@ import { StateListener } from '../state-listener.component';
     `,
     styleUrls: ['./drawer-footer.component.scss'],
     host: {
-        class: 'pxb-drawer-footer'
+        class: 'pxb-drawer-footer',
     },
 })
 export class DrawerFooterComponent extends StateListener {
