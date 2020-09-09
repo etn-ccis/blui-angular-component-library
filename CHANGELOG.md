@@ -4,6 +4,7 @@
 
 -   Adds a new `rail` variant to the `<pxb-drawer-layout>`.
 -   Removed right-to-left icon inverting logic per [Material Design's bidirectionality guideline](https://material.io/design/usability/bidirectionality.html#mirroring-layout).
+-   Adds a host class to each PX Blue component tag
 
 ## v2.1.0
 
