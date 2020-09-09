@@ -94,7 +94,7 @@ describe('ScoreCardComponent', () => {
 
     it('should enforce class naming conventions', () => {
         const classList = [
-            '.pxb-score-card',
+            '.pxb-score-card-content',
             '.pxb-score-card-header',
             '.pxb-score-card-header-background',
             '.pxb-score-card-header-wrapper',

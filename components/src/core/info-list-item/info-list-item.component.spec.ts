@@ -149,7 +149,7 @@ describe('InfoListItemComponent', () => {
         component.hidePadding = true;
         fixture.detectChanges();
         const classList = [
-            '.pxb-info-list-item',
+            '.pxb-info-list-item-content',
             '.pxb-info-list-item-icon-wrapper',
             '.pxb-info-list-item-left-content-wrapper',
             '.pxb-info-list-item-title-wrapper',

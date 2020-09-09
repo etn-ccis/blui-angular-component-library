@@ -81,7 +81,7 @@ describe('DropdownToolbarComponent', () => {
 
         // Non-overlay classes
         const classList = [
-            '.pxb-dropdown-toolbar',
+            '.pxb-dropdown-toolbar-content',
             '.pxb-dropdown-toolbar-icon-wrapper',
             '.pxb-dropdown-toolbar-title',
             '.pxb-dropdown-toolbar-subtitle',

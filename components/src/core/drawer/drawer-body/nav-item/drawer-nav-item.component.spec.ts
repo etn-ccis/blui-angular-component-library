@@ -40,7 +40,7 @@ describe('DrawerNavItemComponent', () => {
         spyOn(component, 'isOpen').and.returnValue(true);
         spyOn(component, 'ngAfterContentInit').and.stub();
         fixture.detectChanges();
-        const classList = ['.pxb-drawer-nav-item', '.pxb-drawer-nav-item-expand-icon', '.pxb-drawer-nested-nav-item'];
+        const classList = ['.pxb-drawer-nav-item-content', '.pxb-drawer-nav-item-expand-icon', '.pxb-drawer-nested-nav-item'];
         for (const className of classList) {
             count(fixture, className);
         }
