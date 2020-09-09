@@ -15,7 +15,7 @@ import { isEmptyView, requireContent } from '../../utils/utils';
     encapsulation: ViewEncapsulation.None,
     template: `
         <mat-list-item
-            class="pxb-info-list-item"
+            class="pxb-info-list-item-content"
             [class.pxb-info-list-item-wrap]="wrapSubtitle || wrapTitle"
             [class.pxb-info-list-item-dense]="dense"
             [class.pxb-info-list-item-status]="statusColor"
@@ -74,6 +74,9 @@ import { isEmptyView, requireContent } from '../../utils/utils';
         </mat-divider>
     `,
     styleUrls: ['./info-list-item.component.scss'],
+    host: {
+        class: 'pxb-info-list-item'
+    },
 })
 export class InfoListItemComponent implements AfterViewInit {
     @Input() statusColor: string;

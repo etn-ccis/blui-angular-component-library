@@ -7,12 +7,15 @@ import { StateListener } from '../state-listener.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="pxb-drawer-subheader" [class.pxb-drawer-subheader-closed]="!isOpen()">
+        <div class="pxb-drawer-subheader-content" [class.pxb-drawer-subheader-closed]="!isOpen()">
             <ng-content></ng-content>
         </div>
         <mat-divider *ngIf="divider"></mat-divider>
     `,
     styleUrls: ['./drawer-subheader.component.scss'],
+    host: {
+        class: 'pxb-drawer-subheader'
+    },
 })
 export class DrawerSubheaderComponent extends StateListener {
     @Input() divider = true;

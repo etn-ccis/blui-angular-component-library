@@ -1,4 +1,5 @@
-.pxb-drawer-subheader {
+.pxb-drawer-subheader-content {
+    display: flex;
     box-sizing: border-box;
     overflow: hidden;
     &.pxb-drawer-subheader-closed {

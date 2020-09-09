@@ -1,4 +1,4 @@
-[dir='rtl'] .pxb-dropdown-toolbar {
+[dir='rtl'] .pxb-dropdown-toolbar-content {
     .pxb-dropdown-toolbar-icon-wrapper {
         margin-right: -8px;
         margin-left: 16px;
@@ -9,6 +9,10 @@
 }
 
 .pxb-dropdown-toolbar {
+    display: flex;
+}
+
+.pxb-dropdown-toolbar-content {
     .pxb-dropdown-toolbar-icon-wrapper > * {
         margin-right: 24px;
         margin-left: -8px;

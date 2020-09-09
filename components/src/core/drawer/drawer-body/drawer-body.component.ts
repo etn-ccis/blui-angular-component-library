@@ -7,13 +7,13 @@ import { DrawerService } from '../service/drawer.service';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="pxb-drawer-body" [class.pxb-drawer-body-closed]="!isOpen()">
+        <div class="pxb-drawer-body-content" [class.pxb-drawer-body-closed]="!isOpen()">
             <ng-content></ng-content>
         </div>
     `,
     styles: [
         `
-            .pxb-drawer-body {
+            .pxb-drawer-body-content {
                 height: 100%;
                 display: flex;
                 flex-direction: column;
@@ -23,6 +23,9 @@ import { DrawerService } from '../service/drawer.service';
             }
         `,
     ],
+    host: {
+        class: 'pxb-drawer-body'
+    },
 })
 export class DrawerBodyComponent extends StateListener {
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {

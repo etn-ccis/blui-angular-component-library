@@ -17,12 +17,12 @@ import { isEmptyView } from '../../../utils/utils';
     encapsulation: ViewEncapsulation.None,
     template: `
         <mat-toolbar
-            class="pxb-drawer-header"
+            class="pxb-drawer-header-content"
             [class.rail]="isRail()"
             [class.pxb-drawer-header-no-icon]="isEmpty(iconEl)"
         >
             <div class="pxb-drawer-header-background"></div>
-            <div class="pxb-drawer-header-content">
+            <div class="pxb-drawer-header-text">
                 <div #icon class="pxb-drawer-header-icon-wrapper">
                     <ng-content select="[pxb-icon]"></ng-content>
                 </div>
@@ -36,6 +36,9 @@ import { isEmptyView } from '../../../utils/utils';
         <mat-divider></mat-divider>
     `,
     styleUrls: ['./drawer-header.component.scss'],
+    host: {
+        class: 'pxb-drawer-header'
+    },
 })
 export class DrawerHeaderComponent extends StateListener {
     @Input() subtitle: string;

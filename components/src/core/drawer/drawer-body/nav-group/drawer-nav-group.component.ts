@@ -15,12 +15,12 @@ import { StateListener } from '../../state-listener.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     styles: [
-        `
-            .pxb-drawer-nav-group .mat-list-base {
+        `            
+            .pxb-drawer-nav-group-content .mat-list-base {
                 font-weight: 600;
                 padding-top: 0;
             }
-            .pxb-drawer-nav-group .pxb-drawer-nav-group-title {
+            .pxb-drawer-nav-group-content .pxb-drawer-nav-group-title {
                 font-weight: 600;
                 height: 48px;
                 line-height: 48px;
@@ -30,13 +30,13 @@ import { StateListener } from '../../state-listener.component';
                 text-overflow: ellipsis;
                 display: block;
             }
-            .pxb-drawer-nav-group .pxb-drawer-nav-group-title-closed {
+            .pxb-drawer-nav-group-content .pxb-drawer-nav-group-title-closed {
                 visibility: hidden;
             }
         `,
     ],
     template: `
-        <div class="pxb-drawer-nav-group">
+        <div class="pxb-drawer-nav-group-content">
             <div *ngIf="title" class="pxb-drawer-nav-group-title" [class.pxb-drawer-nav-group-title-closed]="!isOpen()">
                 {{ title }}
             </div>
@@ -47,6 +47,9 @@ import { StateListener } from '../../state-listener.component';
             </mat-nav-list>
         </div>
     `,
+    host: {
+        class: 'pxb-drawer-nav-group'
+    },
 })
 export class DrawerNavGroupComponent extends StateListener implements Omit<DrawerNavGroup, 'items'> {
     @Input() title: string;

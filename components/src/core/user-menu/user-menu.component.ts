@@ -63,6 +63,9 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
             </mat-card>
         </ng-template>
     `,
+    host: {
+        class: 'pxb-user-menu'
+    },
 })
 export class UserMenuComponent {
     @Input() avatarValue: string;

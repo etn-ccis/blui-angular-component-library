@@ -16,6 +16,9 @@ import { requireContent, requireInput } from '../../utils/utils';
     styleUrls: ['./empty-state.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
+    host: {
+        class: 'pxb-empty-state'
+    },
 })
 export class EmptyStateComponent implements OnChanges, AfterViewInit {
     @Input() title: string;
