@@ -39,7 +39,8 @@ Parent element (`pxb-list-item-tag`) attributes:
 
 Each PX Blue component has classes which can be used to override component styles:
 
-| Name                    | Description                        |
-| ----------------------- | ---------------------------------- |
-| pxb-list-item-tag       | Styles applied to the root element |
-| pxb-list-item-tag-label | Styles applied to the label @Input |
+| Name                      | Description                        |
+| ------------------------- | ---------------------------------- |
+| pxb-list-item-tag         | Styles applied to the tag          |
+| pxb-list-item-tag-content | Styles applied to the root element |
+| pxb-list-item-tag-label   | Styles applied to the label @Input |

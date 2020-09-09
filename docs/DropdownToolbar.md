@@ -60,10 +60,11 @@ Each PX Blue component has classes which can be used to override component style
 
 | Name                                         | Description                            |
 | -------------------------------------------- | -------------------------------------- |
-| pxb-dropdown-toolbar                        | Styles applied to the root element     |
-| pxb-dropdown-toolbar-icon-wrapper           | Styles applied to the left icon        |
-| pxb-dropdown-toolbar-text-content-container | Styles applied to the text content     |
-| pxb-dropdown-toolbar-title                  | Styles applied to the title            |
-| pxb-dropdown-toolbar-subtitle-container     | Styles applied to the subtitle wrapper |
-| pxb-dropdown-toolbar-subtitle               | Styles applied to the subtitle         |
-| pxb-dropdown-toolbar-menu-wrapper           | Styles applied to the menu             |
+| pxb-dropdown-toolbar                         | Styles applied to the tag              |
+| pxb-dropdown-toolbar-content                 | Styles applied to the root element     |
+| pxb-dropdown-toolbar-icon-wrapper            | Styles applied to the left icon        |
+| pxb-dropdown-toolbar-text-content-container  | Styles applied to the text content     |
+| pxb-dropdown-toolbar-title                   | Styles applied to the title            |
+| pxb-dropdown-toolbar-subtitle-container      | Styles applied to the subtitle wrapper |
+| pxb-dropdown-toolbar-subtitle                | Styles applied to the subtitle         |
+| pxb-dropdown-toolbar-menu-wrapper            | Styles applied to the menu             |
