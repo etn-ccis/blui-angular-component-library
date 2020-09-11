@@ -1,6 +1,6 @@
 # Change Log
 
-## v2.2.0 (to be published)
+## v3.0.0 (to be published)
 
 -   Adds a new `rail` variant to the `<pxb-drawer-layout>`.
 -   Removed right-to-left icon inverting logic per [Material Design's bidirectionality guideline](https://material.io/design/usability/bidirectionality.html#mirroring-layout).
