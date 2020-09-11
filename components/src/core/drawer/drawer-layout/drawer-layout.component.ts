@@ -20,7 +20,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./drawer-layout.component.scss'],
     template: `
-        <mat-sidenav-container class="pxb-drawer-layout" (backdropClick)="closeDrawer()" autosize="false">
+        <mat-sidenav-container class="pxb-drawer-layout-content" (backdropClick)="closeDrawer()" autosize="false">
             <mat-sidenav
                 class="pxb-drawer-layout-sidenav"
                 [fixedInViewport]="false"
@@ -41,6 +41,9 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
             </div>
         </mat-sidenav-container>
     `,
+    host: {
+        class: 'pxb-drawer-layout',
+    },
 })
 export class DrawerLayoutComponent extends StateListener implements AfterViewInit, OnChanges {
     @Input() variant: DrawerLayoutVariantType;

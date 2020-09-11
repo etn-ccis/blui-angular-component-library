@@ -18,7 +18,7 @@ import { requireInput } from '../../utils/utils';
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./hero.component.scss'],
     template: `
-        <div class="pxb-hero">
+        <div class="pxb-hero-content">
             <div
                 class="pxb-hero-primary-wrapper"
                 #primaryContainer
@@ -40,6 +40,9 @@ import { requireInput } from '../../utils/utils';
             <h5 class="pxb-hero-label">{{ label }}</h5>
         </div>
     `,
+    host: {
+        class: 'pxb-hero',
+    },
 })
 export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChecked {
     @Input() color: string;

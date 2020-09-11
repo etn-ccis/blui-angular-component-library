@@ -5,14 +5,14 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="pxb-hero-banner">
+        <div class="pxb-hero-banner-content">
             <ng-content select="pxb-hero"></ng-content>
         </div>
         <mat-divider class="pxb-hero-banner-divider" *ngIf="divider"></mat-divider>
     `,
     styleUrls: ['./hero-banner.component.scss'],
     host: {
-        class: 'pxb-hero-banner-root', // TODO: Follow ng mat naming conventions
+        class: 'pxb-hero-banner',
     },
 })
 export class HeroBannerComponent {

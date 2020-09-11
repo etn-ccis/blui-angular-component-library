@@ -23,7 +23,7 @@ describe('DrawerBodyComponent', () => {
 
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
-        const classList = ['.pxb-drawer-body'];
+        const classList = ['.pxb-drawer-body-content'];
         for (const className of classList) {
             count(fixture, className);
         }

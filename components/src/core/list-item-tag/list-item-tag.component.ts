@@ -7,6 +7,9 @@ import { requireInput } from '../../utils/utils';
     styleUrls: ['./list-item-tag.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
+    host: {
+        class: 'pxb-list-item-tag',
+    },
 })
 export class ListItemTagComponent implements OnChanges {
     @Input() backgroundColor: string;

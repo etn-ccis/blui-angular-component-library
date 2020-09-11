@@ -1,5 +1,5 @@
 /* RTL */
-[dir='rtl'] .pxb-drawer-header {
+[dir='rtl'] .pxb-drawer-header-content {
     .pxb-drawer-header-icon-wrapper {
         margin-right: 0;
         margin-left: 16px;
@@ -11,13 +11,14 @@
 }
 
 $height: 64px;
-.pxb-drawer-header {
+.pxb-drawer-header-content {
     width: 100%;
     align-items: flex-start;
     box-sizing: border-box;
     position: relative;
     height: $height;
     overflow: hidden;
+    display: flex;
 
     &.mat-toolbar-single-row.mat-toolbar {
         padding-right: 8px;
@@ -44,7 +45,7 @@ $height: 64px;
         bottom: 0;
     }
 
-    .pxb-drawer-header-content {
+    .pxb-drawer-header-text {
         z-index: 2;
         display: flex;
         width: 100%;

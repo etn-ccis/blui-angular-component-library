@@ -45,7 +45,7 @@ describe('DrawerNavGroupComponent', () => {
         component.title = 'test';
         spyOn(component, 'isOpen').and.returnValue(true);
         fixture.detectChanges();
-        const classList = ['.pxb-drawer-nav-group', '.pxb-drawer-nav-group-title'];
+        const classList = ['.pxb-drawer-nav-group-content', '.pxb-drawer-nav-group-title'];
         for (const className of classList) {
             count(fixture, className);
         }

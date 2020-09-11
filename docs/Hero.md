@@ -76,7 +76,8 @@ Each PX Blue component has classes which can be used to override component style
 
 | Name                           | Description                                  |
 | ------------------------------ | -------------------------------------------- |
-| pxb-hero                       | Styles applied to the root element           |
+| pxb-hero                       | Styles applied to the tag                    |
+| pxb-hero-content               | Styles applied to the root element           |
 | pxb-hero-primary-wrapper       | Styles applied to the primary icon container |
 | pxb-hero-channel-value-wrapper | Styles applied to channel-value              |
 | pxb-hero-label                 | Styles applied to label @Input               |

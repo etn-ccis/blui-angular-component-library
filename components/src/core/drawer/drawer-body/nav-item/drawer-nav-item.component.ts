@@ -39,7 +39,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
     styleUrls: ['./drawer-nav-item.component.scss'],
     template: `
         <ng-template #navIcon><ng-content select="[pxb-icon]"></ng-content></ng-template>
-        <div class="pxb-drawer-nav-item" [class.pxb-drawer-nav-item-active]="selected">
+        <div class="pxb-drawer-nav-item-content" [class.pxb-drawer-nav-item-active]="selected">
             <div
                 matRipple
                 [class.pxb-drawer-nav-item-active-highlight]="selected"
@@ -98,6 +98,9 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
             </mat-expansion-panel>
         </mat-accordion>
     `,
+    host: {
+        class: 'pxb-drawer-nav-item',
+    },
 })
 export class DrawerNavItemComponent extends StateListener implements Omit<DrawerNavItem, 'items'> {
     @Input() activeItemBackgroundShape: ActiveItemBackgroundShape = 'round';

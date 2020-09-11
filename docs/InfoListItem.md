@@ -64,7 +64,8 @@ Each PX Blue component has classes which can be used to override component style
 
 | Name                                     | Description                                  |
 | ---------------------------------------- | -------------------------------------------- |
-| pxb-info-list-item                       | Styles applied to the root element           |
+| pxb-info-list-item                       | Styles applied to the tag                    |
+| pxb-info-list-item-content               | Styles applied to the root element           |
 | pxb-info-list-item-icon-wrapper          | Styles applied to the icon container         |
 | pxb-info-list-item-info-wrapper          | Styles applied to the info container         |
 | pxb-info-list-item-left-content-wrapper  | Styles applied to the leftContent container  |

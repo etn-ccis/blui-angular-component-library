@@ -5,7 +5,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
     selector: 'pxb-dropdown-toolbar',
     encapsulation: ViewEncapsulation.None,
     template: `
-        <mat-toolbar fxLayout="row" class="pxb-dropdown-toolbar">
+        <mat-toolbar fxLayout="row" class="pxb-dropdown-toolbar-content">
             <div class="pxb-dropdown-toolbar-icon-wrapper">
                 <ng-content select="[pxb-nav-icon]"></ng-content>
             </div>
@@ -28,6 +28,9 @@ import { MatMenuTrigger } from '@angular/material/menu';
         </mat-toolbar>
     `,
     styleUrls: ['./dropdown-toolbar.component.scss'],
+    host: {
+        class: 'pxb-dropdown-toolbar',
+    },
 })
 export class DropdownToolbarComponent {
     @Input() title: string;

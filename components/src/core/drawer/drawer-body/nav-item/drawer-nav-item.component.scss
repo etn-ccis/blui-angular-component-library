@@ -1,5 +1,5 @@
 /* RTL */
-[dir='rtl'] .pxb-drawer-nav-item {
+[dir='rtl'] .pxb-drawer-nav-item-content {
     .pxb-drawer-nav-item-active-highlight {
         right: 0;
         &.round {
@@ -20,7 +20,7 @@ pxb-drawer-nav-item {
     outline: none;
 }
 
-.pxb-drawer-nav-item {
+.pxb-drawer-nav-item-content {
     overflow: hidden;
     position: relative;
     user-select: none;

@@ -1,12 +1,16 @@
+.pxb-hero {
+    display: flex;
+}
+
 /* RTL */
-[dir='rtl'] .pxb-hero {
+[dir='rtl'] .pxb-hero-content {
     .pxb-hero-primary-wrapper {
         display: flex;
         justify-content: flex-end;
     }
 }
 
-.pxb-hero {
+.pxb-hero-content {
     display: flex;
     flex: 1 1 0px;
     flex-direction: column;

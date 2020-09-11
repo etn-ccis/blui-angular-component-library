@@ -5,10 +5,15 @@ $contentPaddingLeft: 16px;
 $normalHeight: 72px;
 $denseHeight: 52px;
 
+.pxb-info-list-item {
+    display: flex;
+    width: 100%;
+}
+
 /* RTL */
 [dir='rtl'] {
-    .pxb-info-list-item,
-    .mat-list-base .mat-list-item.pxb-info-list-item {
+    .pxb-info-list-item-content,
+    .mat-list-base .mat-list-item.pxb-info-list-item-content {
         &.pxb-info-list-item-status .mat-list-item-content {
             border-right: solid $statusWidth;
             border-right-color: inherit;
@@ -44,8 +49,8 @@ $denseHeight: 52px;
     }
 }
 
-.pxb-info-list-item,
-.mat-list-base .mat-list-item.pxb-info-list-item {
+.pxb-info-list-item-content,
+.mat-list-base .mat-list-item.pxb-info-list-item-content {
     width: 100%;
     height: inherit; /* Used to override height applied when wrapped in a mat-list. */
     .mat-list-item-content {

@@ -1,4 +1,11 @@
-.pxb-score-card.mat-card {
+.pxb-score-card {
+    display: flex;
+}
+
+.pxb-score-card-content.mat-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     padding: 0;
 }
 

@@ -1,4 +1,8 @@
 .pxb-empty-state {
+    display: flex;
+}
+
+.pxb-empty-state-content {
     height: 100%;
     width: 100%;
     display: flex;

@@ -47,7 +47,7 @@ describe('DrawerFooterComponent', () => {
     it('should enforce class naming conventions', () => {
         const customFixture = TestBed.createComponent(TestDrawerFooter);
         customFixture.detectChanges();
-        const classList = ['.pxb-drawer-footer', '.pxb-drawer-footer-closed'];
+        const classList = ['.pxb-drawer-footer-content', '.pxb-drawer-footer-closed'];
         for (const className of classList) {
             count(customFixture, className);
         }

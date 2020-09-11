@@ -47,7 +47,7 @@ describe('DrawerSubheaderComponent', () => {
     it('should enforce class naming conventions', () => {
         const customFixture = TestBed.createComponent(TestDrawerSubheader);
         customFixture.detectChanges();
-        const classList = ['.pxb-drawer-subheader'];
+        const classList = ['.pxb-drawer-subheader', '.pxb-drawer-subheader-content'];
         for (const className of classList) {
             count(customFixture, className);
         }

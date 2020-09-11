@@ -6,7 +6,7 @@ import { requireInput } from '../../utils/utils';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <mat-card class="pxb-score-card">
+        <mat-card class="pxb-score-card-content">
             <div class="pxb-score-card-header">
                 <div class="pxb-score-card-header-background"></div>
                 <div class="pxb-score-card-header-wrapper">
@@ -35,6 +35,9 @@ import { requireInput } from '../../utils/utils';
         </mat-card>
     `,
     styleUrls: ['./score-card.component.scss'],
+    host: {
+        class: 'pxb-score-card',
+    },
 })
 export class ScoreCardComponent {
     @Input() headerTitle: string;

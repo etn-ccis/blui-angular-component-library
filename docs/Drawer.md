@@ -50,7 +50,8 @@ Each PX Blue component has classes which can be used to override component style
 
 | Name                  | Description                                  |
 | --------------------- | -------------------------------------------- |
-| pxb-drawer            | Styles applied to the root element           |
+| pxb-drawer            | Styles applied to the tag                    |
+| pxb-drawer-content    | Styles applied to the root element           |
 | pxb-drawer-hover-area | Hoverable area that temporarily opens drawer |
 
 </div>
@@ -108,7 +109,8 @@ Each PX Blue component has classes which can be used to override component style
 
 | Name                          | Description                             |
 | ----------------------------- | --------------------------------------- |
-| pxb-drawer-layout             | Styles applied to the root element      |
+| pxb-drawer-layout             | Styles applied to the tag               |
+| pxb-drawer-layout-content     | Styles applied to the root element      |
 | pxb-drawer-layout-sidenav     | Styles applied to mat-sidenav-container |
 | pxb-drawer-layout-nav-content | Styles applied to mat-sidenav-content   |
 

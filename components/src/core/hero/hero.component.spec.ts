@@ -96,7 +96,7 @@ describe('HeroComponent', () => {
 
     it('should enforce class naming conventions', () => {
         const classList = [
-            '.pxb-hero',
+            '.pxb-hero-content',
             '.pxb-hero-primary-wrapper',
             '.pxb-hero-channel-value-wrapper',
             '.pxb-hero-label',
