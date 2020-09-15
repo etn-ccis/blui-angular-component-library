@@ -26,6 +26,7 @@ import { withFullConfig } from './with-full-config.stories';
 import { withinDrawerLayout } from './within-drawer-layout.stories';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { withNavRail } from './with-nav-rail.stories';
 
 export const drawerWrapper = () => (storyFn: any): any => {
     const story = storyFn();
@@ -85,6 +86,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     .add('with multiple nav groups', withMultiNavGroups)
     .add('with nested nav items', withNestedNavItems)
     .add('with a footer', withFooter)
+    .add('with a nav rail', withNavRail)
     .add('with full config', withFullConfig)
     .add('within a Drawer Layout', withinDrawerLayout);
 

@@ -7,10 +7,12 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatRippleModule } from '@angular/material/core';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTooltipModule } from '@angular/material/tooltip';
 
 @NgModule({
     declarations: [DrawerNavItemComponent],
     imports: [
+        MatTooltipModule,
         CommonModule,
         InfoListItemModule,
         MatIconModule,

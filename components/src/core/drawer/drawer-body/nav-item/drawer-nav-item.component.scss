@@ -20,6 +20,14 @@ pxb-drawer-nav-item {
     outline: none;
 }
 
+.condensed .pxb-drawer-nav-item-content .pxb-drawer-nav-item-rail {
+    width: 56px;
+    height: 56px;
+    .pxb-drawer-nav-item-rail-text {
+        display: none;
+    }
+}
+
 .pxb-drawer-nav-item-content {
     overflow: hidden;
     position: relative;
@@ -87,7 +95,7 @@ pxb-drawer-nav-item {
         display: flex;
         flex-direction: column;
         height: 72px;
-        width: 71px;
+        width: 72px;
         justify-content: center;
         align-items: center;
         padding: 14px 8px 16px 8px;
@@ -98,8 +106,8 @@ pxb-drawer-nav-item {
             z-index: 1; // Keep items above the highlight.
         }
         .pxb-drawer-nav-item-rail-text {
-            font-size: 14px;
-            line-height: 14px;
+            font-size: 12px;
+            line-height: 16px;
         }
     }
 }
