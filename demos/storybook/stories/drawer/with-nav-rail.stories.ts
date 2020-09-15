@@ -27,6 +27,11 @@ export const navItems: DrawerNavItem[] = [
 ];
 
 export const withNavRail = (): any => ({
+    styles: [
+        `::ng-deep .pxb-drawer .pxb-drawer-header {
+          background-color: unset!important;
+       }`,
+    ],
     template: `
         <pxb-drawer-layout variant="rail">
             <pxb-drawer pxb-drawer [condensed]="condensed">
