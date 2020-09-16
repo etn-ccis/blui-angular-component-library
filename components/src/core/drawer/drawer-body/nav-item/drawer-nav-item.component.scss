@@ -22,7 +22,7 @@ pxb-drawer-nav-item {
 
 .condensed .pxb-drawer-nav-item-content .pxb-drawer-nav-item-rail {
     width: 56px;
-    height: 56px;
+    min-height: 56px;
     .pxb-drawer-nav-item-rail-text {
         display: none;
     }
@@ -94,7 +94,7 @@ pxb-drawer-nav-item {
         z-index: 1;
         display: flex;
         flex-direction: column;
-        height: 72px;
+        min-height: 72px;
         width: 72px;
         justify-content: center;
         align-items: center;
