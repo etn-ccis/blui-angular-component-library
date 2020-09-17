@@ -1,5 +1,4 @@
 import {
-    ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
     ContentChildren,
@@ -35,7 +34,6 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
 @Component({
     selector: 'pxb-drawer-nav-item',
     encapsulation: ViewEncapsulation.None,
-    changeDetection: ChangeDetectionStrategy.OnPush,
     styleUrls: ['./drawer-nav-item.component.scss'],
     template: `
         <ng-template #navIcon><ng-content select="[pxb-icon]"></ng-content></ng-template>
@@ -43,8 +41,8 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
             <div
                 matRipple
                 [class.pxb-drawer-nav-item-active-highlight]="selected"
-                [class.round]="activeItemBackgroundShape === 'round' && isOpen()"
-                [class.square]="activeItemBackgroundShape === 'square' || !isOpen()"
+                [class.round]="activeItemBackgroundShape === 'round' && isOpen() && !isRail()"
+                [class.square]="activeItemBackgroundShape === 'square' || !isOpen() || isRail()"
             ></div>
             <pxb-info-list-item
                 *ngIf="!isRail()"
@@ -84,7 +82,13 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 </div>
             </pxb-info-list-item>
             <div class="pxb-drawer-nav-item-rail-container" *ngIf="isRail()">
-                <div (click)="selectItem($event)" class="pxb-drawer-nav-item-rail square">
+                <div
+                    (click)="selectItem($event)"
+                    class="pxb-drawer-nav-item-rail square"
+                    [matTooltip]="title"
+                    [matTooltipDisabled]="!isRailCondensed()"
+                    matTooltipPosition="right"
+                >
                     <ng-container *ngTemplateOutlet="navIcon"></ng-container>
                     <div class="pxb-drawer-nav-item-rail-text">{{ title }}</div>
                 </div>
@@ -152,6 +156,10 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
 
     isRail(): boolean {
         return this.drawerService.getDrawerVariant() === 'rail';
+    }
+
+    isRailCondensed(): boolean {
+        return this.drawerService.isRailCondensed();
     }
 
     listenForDrawerChanges(): void {

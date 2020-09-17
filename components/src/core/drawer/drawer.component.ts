@@ -16,7 +16,12 @@ import { Subscription } from 'rxjs';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="pxb-drawer-content" [class.collapse]="!isOpen()" [class.temp-variant]="isTemporaryVariant()">
+        <div
+            class="pxb-drawer-content"
+            [class.condensed]="condensed"
+            [class.collapse]="!isOpen()"
+            [class.temp-variant]="isTemporaryVariant()"
+        >
             <!-- Drawer is responsible for managing the styles between the 4 subsections -->
             <ng-content select="pxb-drawer-header"></ng-content>
             <div class="pxb-drawer-hover-area" (mouseenter)="hoverDrawer()" (mouseleave)="unhoverDrawer()">
@@ -33,6 +38,7 @@ import { Subscription } from 'rxjs';
 })
 export class DrawerComponent extends StateListener implements OnInit, OnChanges {
     @Input() open: boolean;
+    @Input() condensed = false;
 
     hoverDelay: any;
     drawerSelectionListener: Subscription;
@@ -50,6 +56,7 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
     // This broadcasts changes to all of the drawer state listeners.
     ngOnChanges(): void {
         this.drawerService.setDrawerOpen(this.open);
+        this.drawerService.setIsCondensed(this.condensed);
     }
 
     hoverDrawer(): void {

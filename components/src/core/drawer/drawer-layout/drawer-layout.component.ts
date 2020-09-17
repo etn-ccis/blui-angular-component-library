@@ -104,7 +104,7 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     }
 
     getCollapsedWidth(): number {
-        return this.variant === 'rail' ? 72 : 56;
+        return this.variant === 'rail' && !this.drawerService.isRailCondensed() ? 72 : 56;
     }
 
     // Is the drawer condensed.
