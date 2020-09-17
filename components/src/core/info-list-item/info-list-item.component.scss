@@ -95,13 +95,16 @@ $denseHeight: 52px;
         margin-bottom: 0;
     }
 
-    .pxb-info-list-item-subtitle-wrapper {
+    .pxb-info-list-item-subtitle-wrapper,
+    .pxb-info-list-item-info-wrapper {
         font-weight: 400;
         line-height: 1.3;
+        font-size: 14px;
     }
 
     .pxb-info-list-item-title-wrapper,
-    .pxb-info-list-item-subtitle-wrapper {
+    .pxb-info-list-item-subtitle-wrapper,
+    .pxb-info-list-item-info-wrapper {
         * {
             white-space: nowrap;
             overflow: hidden;
