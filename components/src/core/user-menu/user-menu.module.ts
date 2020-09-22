@@ -9,13 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 
 @NgModule({
     declarations: [UserMenuComponent, UserMenuAvatarComponent],
-    imports: [
-        CommonModule,
-        MatCardModule,
-        InfoListItemModule,
-        OverlayModule,
-        DrawerHeaderModule,
-    ],
+    imports: [CommonModule, MatCardModule, InfoListItemModule, OverlayModule, DrawerHeaderModule],
     exports: [UserMenuComponent, UserMenuAvatarComponent],
 })
 export class UserMenuModule {}
