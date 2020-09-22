@@ -5,6 +5,7 @@ import { DropdownToolbarModule } from './dropdown-toolbar.module';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { count } from '../../utils/test-utils';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
     template: `
@@ -25,7 +26,7 @@ describe('DropdownToolbarComponent', () => {
     beforeEach(() => {
         void TestBed.configureTestingModule({
             declarations: [TestDropdownToolbar],
-            imports: [DropdownToolbarModule, MatIconModule],
+            imports: [DropdownToolbarModule, MatIconModule, BrowserAnimationsModule],
         }).compileComponents();
         fixture = TestBed.createComponent(DropdownToolbarComponent);
         component = fixture.componentInstance;

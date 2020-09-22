@@ -4,6 +4,7 @@ import { UserMenuComponent } from './user-menu.component';
 import { Component } from '@angular/core';
 import { MatListModule } from '@angular/material/list';
 import { count } from '../../utils/test-utils';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /** Test component that contains an MatButton. */
 @Component({
@@ -38,7 +39,7 @@ describe('UserMenuComponent', () => {
     beforeEach(() => {
         void TestBed.configureTestingModule({
             declarations: [UserMenuNavItemsTest, UserMenuCustomHeaderTest],
-            imports: [UserMenuModule, MatListModule],
+            imports: [UserMenuModule, MatListModule, BrowserAnimationsModule],
         }).compileComponents();
         fixture = TestBed.createComponent(UserMenuComponent);
         component = fixture.componentInstance;
