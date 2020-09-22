@@ -3,9 +3,7 @@ import * as Colors from '@pxblue/colors';
 import { nestedNavGroup } from './with-nested-nav-items.stories';
 import { DrawerNavItem } from '@pxblue/angular-components';
 import { getDirection } from '@pxblue/storybook-rtl-addon';
-const headerImage = require('../../assets/topology_40.png');
-const railImage = require('../../assets/touchscreen_large.svg');
-
+const headerImg = require('../../assets/eaton-condensed.png');
 const items = [...nestedNavGroup];
 
 export const withinDrawerLayout = (): any => ({
@@ -14,12 +12,7 @@ export const withinDrawerLayout = (): any => ({
         :host { 
             height: 100%; 
             width: 100%;
-        }
-        ::ng-deep .pxb-drawer-header-background {
-            background-image: url(${headerImage});
-            width: 360px;
-        }
-        `,
+        }`
     ],
     template: `
         <pxb-drawer-layout [dir]="direction()" [width]="width" [variant]="variant" (backdropClick)="state.open = false">
@@ -30,7 +23,9 @@ export const withinDrawerLayout = (): any => ({
                  </button>
                </pxb-drawer-header>
                <pxb-drawer-header *ngIf="variant === 'rail'">
-                    <img pxb-title-content [src]="railImage" style="height: 68px; width: 72px" />
+                  <div pxb-title-content style="height: 100%; display: flex; align-items: center; background: white">
+                    <img [src]="headerImg" width="100%"/>
+                  </div>               
                </pxb-drawer-header>
                <pxb-drawer-body>
                   <pxb-drawer-nav-group>
@@ -80,8 +75,7 @@ export const withinDrawerLayout = (): any => ({
             max: 600,
             step: 5,
         }),
-        headerImage: headerImage,
-        railImage: railImage,
+        headerImg: headerImg,
         variant: select('variant', ['persistent', 'temporary', 'permanent', 'rail'], 'persistent'),
         toggleDrawer: (state): void => {
             state.open = !state.open;
