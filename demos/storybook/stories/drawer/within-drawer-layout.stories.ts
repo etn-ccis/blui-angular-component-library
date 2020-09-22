@@ -9,6 +9,9 @@ const items = [...nestedNavGroup];
 export const withinDrawerLayout = (): any => ({
     styles: [
         `
+        ::ng-deep .pxb-drawer .pxb-drawer-header.rail-header {
+          background-color: unset;
+        }
         :host { 
             height: 100%; 
             width: 100%;
@@ -22,7 +25,7 @@ export const withinDrawerLayout = (): any => ({
                    <mat-icon>menu</mat-icon>
                  </button>
                </pxb-drawer-header>
-               <pxb-drawer-header *ngIf="variant === 'rail'">
+               <pxb-drawer-header *ngIf="variant === 'rail'" class="rail-header">
                   <div pxb-title-content style="height: 100%; display: flex; align-items: center; background: white">
                     <img [src]="headerImg" width="100%"/>
                   </div>               
