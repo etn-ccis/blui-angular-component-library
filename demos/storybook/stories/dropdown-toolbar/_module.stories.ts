@@ -12,6 +12,7 @@ import { withBasicUsage } from './with-basic-usage.stories';
 import { withNavIcon } from './with-nav-icon.stories';
 import { withCustomMenu } from './with-custom-menu.stories';
 import { MatListModule } from '@angular/material/list';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 
 export const dropdownToolbarWrapper = () => (storyFn: any): any => {
     const story = storyFn();
@@ -33,6 +34,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Dropdown Toolbar`, module)
     .addDecorator(
         moduleMetadata({
             imports: [
+                BrowserAnimationsModule,
                 DropdownToolbarModule,
                 UtilModule,
                 MatIconModule,

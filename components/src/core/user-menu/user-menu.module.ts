@@ -6,13 +6,11 @@ import { InfoListItemModule } from '../info-list-item/info-list-item.module';
 import { UserMenuAvatarComponent } from './user-menu-avatar.component';
 import { DrawerHeaderModule } from '../drawer/drawer-header/drawer-header.module';
 import { MatCardModule } from '@angular/material/card';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [UserMenuComponent, UserMenuAvatarComponent],
     imports: [
         CommonModule,
-        BrowserAnimationsModule,
         MatCardModule,
         InfoListItemModule,
         OverlayModule,
