@@ -108,6 +108,8 @@ pxb-drawer-nav-item {
         .pxb-drawer-nav-item-rail-text {
             font-size: 12px;
             line-height: 16px;
+            word-break: break-word;
+            hyphens: auto;
         }
     }
 }

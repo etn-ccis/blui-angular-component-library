@@ -5,9 +5,9 @@ const headerImg = require('../../assets/eaton-condensed.png');
 
 export const navItems: DrawerNavItem[] = [
     {
-        title: 'Identity',
+        title: 'Self-Identity',
         icon: 'perm_identity',
-        onSelect: action('Selected: Identity'),
+        onSelect: action('Selected: Self-Identity'),
     },
     {
         title: 'Calendar',
@@ -15,9 +15,9 @@ export const navItems: DrawerNavItem[] = [
         onSelect: action('Selected: Calendar'),
     },
     {
-        title: 'Accessible',
+        title: 'Access Panel',
         icon: 'accessibility',
-        onSelect: action('Selected: Accessible'),
+        onSelect: action('Selected: Access Panel'),
     },
     {
         title: 'Alarms',

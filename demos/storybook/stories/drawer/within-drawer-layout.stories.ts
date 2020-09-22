@@ -12,7 +12,7 @@ export const withinDrawerLayout = (): any => ({
         :host { 
             height: 100%; 
             width: 100%;
-        }`
+        }`,
     ],
     template: `
         <pxb-drawer-layout [dir]="direction()" [width]="width" [variant]="variant" (backdropClick)="state.open = false">
