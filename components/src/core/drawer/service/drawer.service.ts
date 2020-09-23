@@ -38,7 +38,7 @@ export class DrawerService {
     }
 
     isDrawerOpen(): boolean {
-        return this.drawerOpen || this.getDrawerVariant() === 'permanent' || this.tempOpen;
+        return this.drawerOpen || this.getDrawerVariant() === 'permanent' || this.tempOpen || this.getDrawerVariant() === 'rail';
     }
 
     isTempOpen(): boolean {
