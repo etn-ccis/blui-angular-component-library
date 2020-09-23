@@ -5,24 +5,24 @@ const headerImg = require('../../assets/eaton-condensed.png');
 
 export const navItems: DrawerNavItem[] = [
     {
-        title: 'Self-Identity',
-        icon: 'perm_identity',
-        onSelect: action('Selected: Self-Identity'),
-    },
-    {
-        title: 'Calendar',
-        icon: 'today',
-        onSelect: action('Selected: Calendar'),
-    },
-    {
-        title: 'Access Panel',
-        icon: 'accessibility',
-        onSelect: action('Selected: Access Panel'),
+        title: 'Overview',
+        icon: 'home',
+        onSelect: action('Selected: Overview'),
     },
     {
         title: 'Alarms',
         icon: 'notifications_active',
         onSelect: action('Selected: Alarms'),
+    },
+    {
+        title: 'Settings',
+        icon: 'settings',
+        onSelect: action('Selected: Settings'),
+    },
+    {
+        title: 'Device Settings',
+        icon: 'settings_applications',
+        onSelect: action('Selected: Device Settings'),
     },
 ];
 
