@@ -98,7 +98,7 @@ pxb-drawer-nav-item {
         width: 72px;
         justify-content: center;
         align-items: center;
-        padding: 14px 8px 16px 8px;
+        padding: 16px 8px;
         box-sizing: border-box;
         cursor: pointer;
         text-align: center;
@@ -108,6 +108,8 @@ pxb-drawer-nav-item {
         .pxb-drawer-nav-item-rail-text {
             font-size: 12px;
             line-height: 16px;
+            word-break: break-word;
+            hyphens: auto;
         }
     }
 }

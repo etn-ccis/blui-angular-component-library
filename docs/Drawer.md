@@ -23,9 +23,13 @@ Parent element (`<pxb-drawer>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input | Description          | Type      | Required | Default |
-| ------ | -------------------- | --------- | -------- | ------- |
-| open   | State for the drawer | `boolean` | yes      |         |
+| @Input    | Description                            | Type      | Required | Default |
+| --------- | -------------------------------------- | --------- | -------- | ------- |
+| open      | State for the drawer                   | `boolean` | yes      |         |
+| condensed | Skinny view for `rail` variant         | `boolean` | no       | false   |
+
+> ** The `condensed` attribute won't have any effect on the `<pxb-drawer>` unless the `rail` variant is set on the `<pxb-drawer-layout>` component.  Each item in a navigation rail will be sized 72 x 72px.  When using a `condensed` rail, each item will be sized 56 x 56px.
+
 
 </div>
 

@@ -109,7 +109,7 @@ export const withFullConfig = (): any => ({
         `::ng-deep .pxb-drawer .pxb-drawer-header {
           background-color: ${Colors.orange[500]};
        }
-       ::ng-deep .show-header-image .pxb-drawer .pxb-drawer-header-background {
+       ::ng-deep .show-header-image .pxb-drawer-header-background {
           background-image: url(${headerImage});
           width: 360px;
         }
