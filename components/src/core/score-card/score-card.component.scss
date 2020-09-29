@@ -1,11 +1,11 @@
-@import '../utility/utility';
-
-/* RTL */
-[dir='rtl'] .pxb-score-card-action-items-wrapper > * {
-    @include invert();
+.pxb-score-card {
+    display: flex;
 }
 
-.pxb-score-card.mat-card {
+.pxb-score-card-content.mat-card {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
     padding: 0;
 }
 

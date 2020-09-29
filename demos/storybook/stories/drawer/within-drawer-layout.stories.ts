@@ -3,14 +3,21 @@ import * as Colors from '@pxblue/colors';
 import { nestedNavGroup } from './with-nested-nav-items.stories';
 import { DrawerNavItem } from '@pxblue/angular-components';
 import { getDirection } from '@pxblue/storybook-rtl-addon';
-
+const headerImg = require('../../assets/eaton-condensed.png');
 const items = [...nestedNavGroup];
 
 export const withinDrawerLayout = (): any => ({
+    styles: [
+        `
+        :host { 
+            height: 100%; 
+            width: 100%;
+        }`,
+    ],
     template: `
         <pxb-drawer-layout [dir]="direction()" [width]="width" [variant]="variant" (backdropClick)="state.open = false">
             <pxb-drawer pxb-drawer [open]="state.open">
-               <pxb-drawer-header title="PX Blue Drawer" subtitle="in a PX Blue Drawer Layout">
+               <pxb-drawer-header *ngIf="variant !== 'rail'" title="PX Blue Drawer" subtitle="in a PX Blue Drawer Layout">
                  <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                    <mat-icon>menu</mat-icon>
                  </button>
@@ -20,7 +27,7 @@ export const withinDrawerLayout = (): any => ({
                        <pxb-drawer-nav-item *ngFor="let navItem of navItems"
                          [title]="navItem.title"
                          [selected]="state.selected === navItem.title"
-                         (select)="navItem.onSelect(); setActive(navItem, state);">
+                         (select)="navItem.onSelect(); setActive(navItem, state, variant);">
                          <mat-icon pxb-icon>{{ navItem.icon }}</mat-icon>
                          <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items"
                            [title]="nestedItem.title"
@@ -35,6 +42,11 @@ export const withinDrawerLayout = (): any => ({
                      </pxb-drawer-nav-item>
                   </pxb-drawer-nav-group>
                </pxb-drawer-body>
+               <pxb-drawer-footer *ngIf="variant === 'rail'">
+                  <div style="height: 56px; display: flex; align-items: center; justify-content: center">
+                    <img [src]="headerImg" width="56px"/>
+                  </div>               
+               </pxb-drawer-footer>
             </pxb-drawer>
             <div pxb-content>
                 <mat-toolbar [style.backgroundColor]="blue" [style.color]="white" 
@@ -56,18 +68,22 @@ export const withinDrawerLayout = (): any => ({
         blue: Colors.blue[500],
         white: Colors.white[50],
         navItems: items,
-        state: { selected: undefined, open: true },
+        state: { open: true },
         width: number('width', 350, {
             range: true,
             min: 200,
             max: 600,
             step: 5,
         }),
-        variant: select('variant', ['persistent', 'temporary', 'permanent'], 'persistent'),
+        headerImg: headerImg,
+        variant: select('variant', ['persistent', 'temporary', 'permanent', 'rail'], 'persistent'),
         toggleDrawer: (state): void => {
             state.open = !state.open;
         },
-        setActive: (item: DrawerNavItem, state: { selected: string }): void => {
+        setActive: (item: DrawerNavItem, state: { selected: string }, variant: string): void => {
+            if (variant === 'rail') {
+                state.selected = item.title;
+            }
             if (!item.items) {
                 // Only selects items that do not have nested nav items.
                 state.selected = item.title;

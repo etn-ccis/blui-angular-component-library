@@ -10,12 +10,17 @@ export class DrawerService {
     private variant: DrawerLayoutVariantType;
     private navItemCount = 0;
     private tempOpen = false;
+    private isCondensed: boolean;
     drawerOpenObs = new Subject<boolean>();
     drawerSelectObs = new Subject<boolean>();
 
     setDrawerTempOpen(open: boolean): void {
         this.tempOpen = open;
         this.drawerOpenObs.next(this.isDrawerOpen());
+    }
+
+    setIsCondensed(condensed: boolean): void {
+        this.isCondensed = condensed;
     }
 
     setDrawerOpen(drawerOpen: boolean): void {
@@ -33,11 +38,20 @@ export class DrawerService {
     }
 
     isDrawerOpen(): boolean {
-        return this.drawerOpen || this.getDrawerVariant() === 'permanent' || this.tempOpen;
+        return (
+            this.drawerOpen ||
+            this.getDrawerVariant() === 'permanent' ||
+            this.tempOpen ||
+            this.getDrawerVariant() === 'rail'
+        );
     }
 
     isTempOpen(): boolean {
         return this.tempOpen;
+    }
+
+    isRailCondensed(): boolean {
+        return this.isCondensed;
     }
 
     drawerOpenChanges(): Observable<boolean> {

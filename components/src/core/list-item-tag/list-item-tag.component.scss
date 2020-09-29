@@ -1,8 +1,16 @@
 .pxb-list-item-tag {
+    display: flex;
+}
+
+.pxb-list-item-tag,
+.pxb-list-item-tag-content {
+    border-radius: 2px;
+}
+
+.pxb-list-item-tag-content {
+    padding: 0 4px;
     overflow: hidden;
     line-height: inherit;
-    padding: 0 4px;
-    border-radius: 2px;
     letter-spacing: 1px;
 
     .pxb-list-item-tag-label {

@@ -9,13 +9,20 @@ $size: 40px;
     }
 }
 
+.pxb-user-menu {
+    display: flex;
+}
+
 .pxb-user-menu-avatar {
+    display: flex;
+    border-radius: 50%;
+}
+.pxb-user-menu-avatar-content {
     height: $size;
     width: $size;
     line-height: $size;
     cursor: pointer;
     text-align: center;
-    border-radius: 50%;
     display: flex;
     justify-content: center;
     align-content: center;

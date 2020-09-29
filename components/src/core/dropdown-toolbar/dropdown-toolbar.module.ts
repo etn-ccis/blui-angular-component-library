@@ -7,13 +7,11 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
 import { SpacerModule } from '../utility/public-api';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [DropdownToolbarComponent],
     imports: [
         CommonModule,
-        BrowserAnimationsModule,
         MatToolbarModule,
         MatSelectModule,
         MatFormFieldModule,

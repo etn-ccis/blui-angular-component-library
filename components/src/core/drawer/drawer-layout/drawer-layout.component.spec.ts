@@ -53,7 +53,7 @@ describe('DrawerLayoutComponent', () => {
     it('should enforce class naming conventions', () => {
         const customFixture = TestBed.createComponent(DrawerRenderTest);
         customFixture.detectChanges();
-        const classList = ['.pxb-drawer-layout', '.pxb-drawer-layout-sidenav'];
+        const classList = ['.pxb-drawer-layout-content', '.pxb-drawer-layout-sidenav'];
         for (const className of classList) {
             count(customFixture, className);
         }

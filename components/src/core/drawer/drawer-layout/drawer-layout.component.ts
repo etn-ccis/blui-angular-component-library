@@ -4,6 +4,7 @@ import {
     Component,
     EventEmitter,
     Input,
+    OnChanges,
     Output,
     ViewEncapsulation,
 } from '@angular/core';
@@ -12,42 +13,47 @@ import { StateListener } from '../state-listener.component';
 import { Direction, Directionality } from '@angular/cdk/bidi';
 import { Subscription } from 'rxjs';
 
-export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary';
+export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' | 'rail';
 
 @Component({
     selector: 'pxb-drawer-layout',
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./drawer-layout.component.scss'],
     template: `
-        <mat-sidenav-container class="pxb-drawer-layout" (backdropClick)="closeDrawer()">
+        <mat-sidenav-container class="pxb-drawer-layout-content" (backdropClick)="closeDrawer()" autosize="false">
             <mat-sidenav
                 class="pxb-drawer-layout-sidenav"
-                [fixedInViewport]="true"
+                [fixedInViewport]="false"
                 [class.smooth]="variant !== 'temporary'"
-                [style.width.px]="isCollapsed() ? 56 : width"
+                [style.width.px]="isCollapsed() ? getCollapsedWidth() : width"
                 [mode]="getMode()"
                 [opened]="isDrawerVisible()"
             >
                 <ng-content select="[pxb-drawer]"></ng-content>
             </mat-sidenav>
-            <mat-sidenav-content
+            <div
                 class="pxb-drawer-layout-nav-content"
                 [class.smooth]="variant !== 'temporary'"
                 [style.marginRight.px]="isRtl ? getContentMargin() : 0"
                 [style.marginLeft.px]="isRtl ? 0 : getContentMargin()"
             >
                 <ng-content select="[pxb-content]"></ng-content>
-            </mat-sidenav-content>
+            </div>
         </mat-sidenav-container>
     `,
+    host: {
+        class: 'pxb-drawer-layout',
+    },
 })
-export class DrawerLayoutComponent extends StateListener implements AfterViewInit {
+export class DrawerLayoutComponent extends StateListener implements AfterViewInit, OnChanges {
     @Input() variant: DrawerLayoutVariantType;
     @Input() width = 350;
     @Output() backdropClick: EventEmitter<void> = new EventEmitter();
 
     isRtl = false;
     dirChangeSubscription = Subscription.EMPTY;
+
+    content: HTMLElement;
 
     constructor(
         drawerService: DrawerService,
@@ -67,6 +73,7 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
 
     ngOnChanges(): void {
         this.drawerService.setDrawerVariant(this.variant);
+        this.changeDetector.detectChanges();
     }
 
     ngOnDestroy(): void {
@@ -93,11 +100,16 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
         if (this.variant === 'temporary') {
             return 0;
         }
-        return this.isCollapsed() ? 56 : this.width;
+        return this.isCollapsed() ? this.getCollapsedWidth() : this.width;
+    }
+
+    getCollapsedWidth(): number {
+        return this.variant === 'rail' && !this.drawerService.isRailCondensed() ? 72 : 56;
     }
 
     // Is the drawer condensed.
     isCollapsed(): boolean {
+        if (this.variant === 'rail') return true; // Rail is always collapsed.
         if (this.variant === 'persistent') return !this.isOpen();
         return false;
     }

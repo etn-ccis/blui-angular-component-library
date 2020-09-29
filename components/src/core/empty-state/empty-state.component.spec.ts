@@ -115,7 +115,7 @@ describe('Empty State Component', () => {
         component.description = 'description';
         fixture.detectChanges();
         const classList = [
-            '.pxb-empty-state',
+            '.pxb-empty-state-content',
             '.pxb-empty-state-empty-icon-wrapper',
             '.pxb-empty-state-title',
             '.pxb-empty-state-description',

@@ -95,7 +95,7 @@ describe('DrawerComponent', () => {
 
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
-        const classList = ['.pxb-drawer', '.pxb-drawer-hover-area'];
+        const classList = ['.pxb-drawer-content', '.pxb-drawer-hover-area'];
         for (const className of classList) {
             count(fixture, className);
         }

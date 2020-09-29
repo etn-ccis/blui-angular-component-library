@@ -22,6 +22,7 @@ import { withinToolbar } from './within-a-toolbar.stories';
 import { withFullConfig } from './with-full-config.stories';
 import { withCustomMenu } from './with-custom-menu.stories';
 import { withMenuPlacement } from './with-menu-placement-options.stories';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 export const withinToolbarWrapper = () => (storyFn: any): any => {
     const story = storyFn();
@@ -42,6 +43,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/User Menu`, module)
     .addDecorator(
         moduleMetadata({
             imports: [
+                BrowserAnimationsModule,
                 MatToolbarModule,
                 UserMenuModule,
                 InfoListItemModule,

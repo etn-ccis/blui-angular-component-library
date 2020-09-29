@@ -1,13 +1,18 @@
 .pxb-hero-banner {
     display: flex;
+}
+
+.pxb-hero-banner-content {
+    display: flex;
+    flex: 1 1 0;
     align-items: center;
     justify-content: center;
-}
 
-:host ::ng-deep pxb-hero:nth-child(n + 5) {
-    display: none;
-}
+    pxb-hero {
+        flex: 1 1 0;
+    }
 
-::ng-deep pxb-hero {
-    flex: 1 1 0px;
+    pxb-hero:nth-child(n + 5) {
+        display: none;
+    }
 }

@@ -93,7 +93,7 @@ describe('DrawerHeaderComponent', () => {
         component.subtitle = 'test subtitle';
         fixture.detectChanges();
         const classList = [
-            '.pxb-drawer-header',
+            '.pxb-drawer-header-content',
             '.pxb-drawer-header-background',
             '.pxb-drawer-header-content',
             '.pxb-drawer-header-icon-wrapper',

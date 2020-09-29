@@ -1,15 +1,16 @@
-@import '../utility/utility';
+.pxb-hero {
+    display: flex;
+}
 
 /* RTL */
-[dir='rtl'] .pxb-hero {
+[dir='rtl'] .pxb-hero-content {
     .pxb-hero-primary-wrapper {
-        > * {
-            @include invert();
-        }
+        display: flex;
+        justify-content: flex-end;
     }
 }
 
-.pxb-hero {
+.pxb-hero-content {
     display: flex;
     flex: 1 1 0px;
     flex-direction: column;
@@ -20,8 +21,6 @@
     padding: 16px 8px;
 
     .pxb-hero-primary-wrapper {
-        $normal: 32px;
-        $large: 72px;
         border-radius: 50%;
         margin-bottom: 5px;
         text-align: center;

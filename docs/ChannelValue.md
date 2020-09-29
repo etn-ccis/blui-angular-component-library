@@ -58,7 +58,8 @@ Each PX Blue component has classes which can be used to override component style
 
 | Name                           | Description                          |
 | ------------------------------ | ------------------------------------ |
-| pxb-channel-value              | Styles applied to the root element   |
+| pxb-channel-value              | Styles applied to the tag            |
+| pxb-channel-value-content      | Styles applied to the root element   |
 | pxb-channel-value-icon-wrapper | Styles applied to the icon container |
 | pxb-channel-value-units        | Styles applied to the units @Input   |
 | pxb-channel-value-value        | Styles applied to the value @Input   |

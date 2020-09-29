@@ -1,23 +1,36 @@
 /* RTL */
-[dir='rtl'] .pxb-drawer-header {
+[dir='rtl'] .pxb-drawer-header-content {
     .pxb-drawer-header-icon-wrapper {
         margin-right: 0;
         margin-left: 16px;
     }
+    &.pxb-drawer-header-no-icon .pxb-drawer-header-icon-wrapper {
+        margin-right: 0;
+        margin-left: 0;
+    }
 }
 
 $height: 64px;
-.pxb-drawer-header {
+.pxb-drawer-header-content {
     width: 100%;
     align-items: flex-start;
     box-sizing: border-box;
     position: relative;
     height: $height;
     overflow: hidden;
+    display: flex;
 
     &.mat-toolbar-single-row.mat-toolbar {
         padding-right: 8px;
         padding-left: 8px;
+    }
+    &.rail.mat-toolbar-single-row.mat-toolbar {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+    &.rail.pxb-drawer-header-no-icon.mat-toolbar-single-row.mat-toolbar {
+        padding-right: 0;
+        padding-left: 0;
     }
 
     .pxb-drawer-header-background {
@@ -32,7 +45,7 @@ $height: 64px;
         bottom: 0;
     }
 
-    .pxb-drawer-header-content {
+    .pxb-drawer-header-text {
         z-index: 2;
         display: flex;
         width: 100%;
@@ -44,9 +57,9 @@ $height: 64px;
         align-items: center;
         z-index: 1;
         margin-right: 16px;
-        &.pxb-drawer-header-no-icon {
-            margin-right: 0;
-        }
+    }
+    &.pxb-drawer-header-no-icon .pxb-drawer-header-icon-wrapper {
+        margin-right: 0;
     }
 
     .pxb-drawer-header-title-wrapper {

@@ -1,5 +1,11 @@
 # Change Log
 
+## v3.0.0
+
+-   Adds a new `rail` variant to the `<pxb-drawer-layout>`.
+-   Removed right-to-left icon inverting logic per [Material Design's bidirectionality guideline](https://material.io/design/usability/bidirectionality.html#mirroring-layout).
+-   Adds a host class to each PX Blue component tag
+
 ## v2.1.0
 
 -   Adds new component for `<pxb-user-menu>` (use @pxblue/angular-themes v5.1.0+ to get PX Blue themes for this component).

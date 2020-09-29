@@ -59,7 +59,7 @@ describe('HeroBannerComponent', () => {
     it('should enforce class naming conventions', () => {
         component.divider = true;
         fixture.detectChanges();
-        const classList = ['.pxb-hero-banner', '.pxb-hero-banner-divider'];
+        const classList = ['.pxb-hero-banner-content', '.pxb-hero-banner-divider'];
         for (const className of classList) {
             count(fixture, className);
         }

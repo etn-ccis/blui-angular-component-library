@@ -26,6 +26,7 @@ import { withFullConfig } from './with-full-config.stories';
 import { withinDrawerLayout } from './within-drawer-layout.stories';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatCardModule } from '@angular/material/card';
+import { withNavRail } from './with-nav-rail.stories';
 
 export const drawerWrapper = () => (storyFn: any): any => {
     const story = storyFn();
@@ -53,21 +54,6 @@ export const drawerWrapper = () => (storyFn: any): any => {
             },
             ...story.props,
         },
-    };
-};
-
-export const drawerLayoutWrapper = () => (storyFn: any): any => {
-    const story = storyFn();
-    return {
-        ...story,
-        styles: [
-            `
-            :host { 
-                height: 100%; 
-                width: 100%;
-            }
-            `,
-        ],
     };
 };
 
@@ -100,6 +86,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     .add('with multiple nav groups', withMultiNavGroups)
     .add('with nested nav items', withNestedNavItems)
     .add('with a footer', withFooter)
+    .add('with a nav rail', withNavRail)
     .add('with full config', withFullConfig)
     .add('within a Drawer Layout', withinDrawerLayout);
 
@@ -123,7 +110,6 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     // @accessibility
     .addDecorator(withA11y)
     .addDecorator(storyWrapper())
-    .addDecorator(drawerLayoutWrapper())
     .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('Drawer.md') } })
     .add(README_STORY_NAME, getReadMeStory)
     .add('within a Drawer Layout', withinDrawerLayout);

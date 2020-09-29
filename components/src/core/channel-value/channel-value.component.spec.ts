@@ -46,7 +46,7 @@ describe('ChannelValueComponent', () => {
         component.units = 'hz';
         component.prefix = false;
         fixture.detectChanges();
-        const container = fixture.nativeElement.querySelector('.pxb-channel-value');
+        const container = fixture.nativeElement.querySelector('.pxb-channel-value-content');
         const units = fixture.nativeElement.querySelector('.pxb-channel-value-units');
         void expect(units.innerHTML).toBe('hz');
         void expect(container.children[2]).toBe(units);
@@ -57,7 +57,7 @@ describe('ChannelValueComponent', () => {
         component.units = 'C';
         component.prefix = true;
         fixture.detectChanges();
-        const container = fixture.nativeElement.querySelector('.pxb-channel-value');
+        const container = fixture.nativeElement.querySelector('.pxb-channel-value-content');
         const units = fixture.nativeElement.querySelector('.pxb-channel-value-units');
         void expect(units.innerHTML).toBe('C');
         void expect(container.children[1]).toBe(units);
@@ -75,7 +75,7 @@ describe('ChannelValueComponent', () => {
         component.units = 'hz';
         fixture.detectChanges();
         const classList = [
-            '.pxb-channel-value',
+            '.pxb-channel-value-content',
             '.pxb-channel-value-units',
             '.pxb-channel-value-icon-wrapper',
             '.pxb-channel-value-value',

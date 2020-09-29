@@ -6,7 +6,7 @@ import { requireInput } from '../../utils/utils';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <span class="pxb-channel-value" [style.color]="color">
+        <span class="pxb-channel-value-content" [style.color]="color">
             <span class="pxb-channel-value-icon-wrapper">
                 <ng-content></ng-content>
             </span>
@@ -16,6 +16,9 @@ import { requireInput } from '../../utils/utils';
         </span>
     `,
     styleUrls: ['./channel-value.component.scss'],
+    host: {
+        class: 'pxb-channel-value',
+    },
 })
 export class ChannelValueComponent implements OnChanges {
     @Input() value: string | number;

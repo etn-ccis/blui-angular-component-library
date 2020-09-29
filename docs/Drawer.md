@@ -23,9 +23,13 @@ Parent element (`<pxb-drawer>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input | Description          | Type      | Required | Default |
-| ------ | -------------------- | --------- | -------- | ------- |
-| open   | State for the drawer | `boolean` | yes      |         |
+| @Input    | Description                            | Type      | Required | Default |
+| --------- | -------------------------------------- | --------- | -------- | ------- |
+| open      | State for the drawer                   | `boolean` | yes      |         |
+| condensed | Skinny view for `rail` variant         | `boolean` | no       | false   |
+
+> ** The `condensed` attribute won't have any effect on the `<pxb-drawer>` unless the `rail` variant is set on the `<pxb-drawer-layout>` component.  Each item in a navigation rail will be sized 72 x 72px.  When using a `condensed` rail, each item will be sized 56 x 56px.
+
 
 </div>
 
@@ -50,7 +54,8 @@ Each PX Blue component has classes which can be used to override component style
 
 | Name                  | Description                                  |
 | --------------------- | -------------------------------------------- |
-| pxb-drawer            | Styles applied to the root element           |
+| pxb-drawer            | Styles applied to the tag                    |
+| pxb-drawer-content    | Styles applied to the root element           |
 | pxb-drawer-hover-area | Hoverable area that temporarily opens drawer |
 
 </div>
@@ -74,10 +79,10 @@ Parent element (`<pxb-drawer-layout>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input  | Description             | Type                                       | Required | Default |
-| ------- | ----------------------- | ------------------------------------------ | -------- | ------- |
-| variant | Sets the drawer variant | `'permanent' | 'persistent' | 'temporary'` | yes      |         |
-| width   | Drawer pixel width      | `number`                                   | no       | 350     |
+| @Input  | Description             | Type                                                 | Required | Default |
+| ------- | ----------------------- | ---------------------------------------------------- | -------- | ------- |
+| variant | Sets the drawer variant | `'permanent' | 'persistent' | 'temporary' | 'rail'`  | yes      |         |
+| width   | Drawer pixel width      | `number`                                             | no       | 350     |
 
 </div>
 
@@ -108,7 +113,8 @@ Each PX Blue component has classes which can be used to override component style
 
 | Name                          | Description                             |
 | ----------------------------- | --------------------------------------- |
-| pxb-drawer-layout             | Styles applied to the root element      |
+| pxb-drawer-layout             | Styles applied to the tag               |
+| pxb-drawer-layout-content     | Styles applied to the root element      |
 | pxb-drawer-layout-sidenav     | Styles applied to mat-sidenav-container |
 | pxb-drawer-layout-nav-content | Styles applied to mat-sidenav-content   |
 
@@ -333,17 +339,21 @@ Each PX Blue component has classes which can be used to override component style
 
 <div style="overflow: auto;">
 
-| Name                             | Description                                  |
-| -------------------------------- | -------------------------------------------- |
-| pxb-drawer-nav-item              | Styles applied to the root element           |
-| pxb-info-list-item-active:after  | Styles applied to 'selected' nav item        |
-| pxb-info-list-item-active.round  | Styles applied to round 'selected' nav item  |
-| pxb-info-list-item-active.square | Styles applied to square 'selected' nav item |
-| pxb-drawer-nav-item-expand-icon  | Styles applied to expand icon                |
-| pxb-drawer-nested-nav-item       | Styles applied to nested nav items           |
-| pxb-drawer-nav-item-depth-1      | Styles applied to top-level nav items        |
-| pxb-drawer-nav-item-depth-2      | Styles applied to nested nav items           |
-| pxb-drawer-nav-item-depth-3      | Styles applied to nav items 3 levels deep    |
+| Name                                        | Description                                  |
+| ------------------------------------------- | -------------------------------------------- |
+| pxb-drawer-nav-item                         | Styles applied to the root element           |
+| pxb-drawer-nav-item-active                  | Style applied when the nav item is selected  |
+| pxb-drawer-nav-item-active-highlight        | Styles applied to 'selected' nav item        |
+| pxb-drawer-nav-item-active-highlight.round  | Styles applied to round 'selected' nav item  |
+| pxb-drawer-nav-item-active-highlight.square | Styles applied to square 'selected' nav item |
+| pxb-drawer-nav-item-expand-icon             | Styles applied to expand icon                |
+| pxb-drawer-nested-nav-item                  | Styles applied to nested nav items           |
+| pxb-drawer-nav-item-depth-1                 | Styles applied to top-level nav items        |
+| pxb-drawer-nav-item-depth-2                 | Styles applied to nested nav items           |
+| pxb-drawer-nav-item-depth-3                 | Styles applied to nav items 3 levels deep    |
+| pxb-drawer-nav-item-rail                    | Styles applied to navigation rail items      |
+| pxb-drawer-nav-item-rail-text               | Styles applied to navigation rail text       |
+| pxb-drawer-nav-item-rail-container          | Wrapper around the navigation rail content   |
 
 </div>
 

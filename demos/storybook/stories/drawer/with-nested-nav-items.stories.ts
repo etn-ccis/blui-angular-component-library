@@ -4,9 +4,9 @@ import { boolean } from '@storybook/addon-knobs';
 
 export const nestedNavGroup: DrawerNavItem[] = [
     {
-        title: 'Identity Management',
+        title: 'Identity',
         icon: 'perm_identity',
-        onSelect: action('Selected: Identity Management'),
+        onSelect: action('Selected: Identity'),
         items: [
             {
                 title: 'History',
@@ -33,9 +33,9 @@ export const nestedNavGroup: DrawerNavItem[] = [
         ],
     },
     {
-        title: 'Notifications',
+        title: 'Alerts',
         icon: 'notifications_active',
-        onSelect: action('Selected: Notifications'),
+        onSelect: action('Selected: Alerts'),
     },
 ];
 

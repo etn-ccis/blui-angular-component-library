@@ -88,7 +88,8 @@ Each PX Blue component has classes which can be used to override component style
 
 | Name                                | Description                                       |
 | ----------------------------------- | ------------------------------------------------- |
-| pxb-score-card                      | Styles applied to the root element                |
+| pxb-score-card                      | Styles applied to the tag                         |
+| pxb-score-card-content              | Styles applied to the root element                |
 | pxb-score-card-header               | Styles applied to the scorecard header            |
 | pxb-score-card-header-background    | Hidden overlay used to provide a background image |
 | pxb-score-card-header-wrapper       | Styles used to align header text and actions      |
