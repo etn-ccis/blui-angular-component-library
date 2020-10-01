@@ -24,7 +24,7 @@ export class EmptyStateComponent implements OnChanges, AfterViewInit {
     @Input() title: string;
     @Input() description: string;
 
-    @ViewChild('emptyIcon', { static: false }) emptyIcon: ElementRef;
+    @ViewChild('emptyIcon') emptyIcon: ElementRef;
 
     ngOnChanges(): void {
         requireInput<EmptyStateComponent>(['title'], this);

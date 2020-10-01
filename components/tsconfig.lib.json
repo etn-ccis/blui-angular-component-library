@@ -17,12 +17,14 @@
     ]
   },
   "angularCompilerOptions": {
-    "annotateForClosureCompiler": true,
     "skipTemplateCodegen": true,
     "strictMetadataEmit": true,
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
-    "enableResourceInlining": true
+    "enableResourceInlining": true,
+    "angularCompilerOptions": {
+      "enableIvy": false
+    }
   },
   "exclude": [
     "test.ts",

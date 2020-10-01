@@ -15,6 +15,9 @@
             "project": "ng-package.json"
           },
           "configurations": {
+            "production": {
+              "tsConfig": "tsconfig.lib.json"
+            },
             "storybook": {
               "project": "ng-package-storybook.json",
               "watch": true

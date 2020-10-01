@@ -121,10 +121,10 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
 
     @ContentChildren(DrawerNavItemComponent, { descendants: false }) nestedNavItems;
-    @ViewChild('expandIcon', { static: false }) expandIconEl: ElementRef;
-    @ViewChild('icon', { static: false }) iconEl: ElementRef;
-    @ViewChild('collapseIcon', { static: false }) collapseIconEl: ElementRef;
-    @ViewChild(MatRipple, { static: false }) rippleEl: MatRipple;
+    @ViewChild('expandIcon') expandIconEl: ElementRef;
+    @ViewChild('icon') iconEl: ElementRef;
+    @ViewChild('collapseIcon') collapseIconEl: ElementRef;
+    @ViewChild(MatRipple) rippleEl: MatRipple;
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
     isNestedItem: boolean;

@@ -29,13 +29,13 @@ if [ ! -f ./demos/showcase/node_modules/@pxblue/angular-components/package.json 
 if [ ! -f ./demos/storybook/node_modules/@pxblue/angular-components/package.json ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
 if [ ! -s ./demos/showcase/node_modules/@pxblue/angular-components ];
     then
-        if [ ! -f ./demos/showcase/node_modules/@pxblue/angular-components/esm5/index.js ];
+        if [ ! -f ./demos/showcase/node_modules/@pxblue/angular-components/esm2015/index.js ];
         then echo -e "${BRED}Not Linked${NC}" && exit 1;
         fi;
 fi
 if [ ! -s ./demos/storybook/node_modules/@pxblue/angular-components ];
     then
-        if [ ! -f ./demos/showcase/node_modules/@pxblue/angular-components/esm5/index.js ];
+        if [ ! -f ./demos/showcase/node_modules/@pxblue/angular-components/esm2015/index.js ];
         then echo -e "${BRED}Not Linked${NC}" && exit 1;
         fi;
 fi
