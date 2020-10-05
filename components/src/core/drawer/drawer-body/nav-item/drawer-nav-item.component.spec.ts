@@ -36,7 +36,7 @@ describe('DrawerNavItemComponent', () => {
         void expect(component).toBeTruthy();
     });
 
-    it('should enforce class naming conventions', () => {
+    fit('should enforce class naming conventions', () => {
         component.hasChildren = true;
         spyOn(component, 'isOpen').and.returnValue(true);
         spyOn(component, 'ngAfterContentInit').and.stub();
