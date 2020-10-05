@@ -132,14 +132,14 @@ describe('InfoListItemComponent', () => {
 
     it('should have a default height of 72px', () => {
         fixture.detectChanges();
-        const root = fixture.debugElement.query(By.css('.pxb-info-list-item'));
+        const root = fixture.debugElement.query(By.css('.pxb-info-list-item-content'));
         void expect(root.nativeElement.children[0].offsetHeight).toBe(72);
     });
 
     it('should have a dense height of 52px', () => {
         component.dense = true;
         fixture.detectChanges();
-        const root = fixture.debugElement.query(By.css('.pxb-info-list-item'));
+        const root = fixture.debugElement.query(By.css('.pxb-info-list-item-content'));
         void expect(root.nativeElement.children[0].offsetHeight).toBe(52);
     });
 
