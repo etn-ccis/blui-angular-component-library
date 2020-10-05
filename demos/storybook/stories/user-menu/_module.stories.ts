@@ -74,6 +74,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/User Menu`, module)
     .addDecorator(
         moduleMetadata({
             imports: [
+                BrowserAnimationsModule,
                 MatToolbarModule,
                 InfoListItemModule,
                 UserMenuModule,
