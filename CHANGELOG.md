@@ -1,6 +1,6 @@
 # Change Log
 
-## v3.0.1
+## v3.0.1 (Not published)
 
 -   Fixes bug in InfoListItem where divider was not working with `mat-ripple`.
 -   Changes default display setting of ListItemTag so it doesn't take up 100% width in non-flex containers.
