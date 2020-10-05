@@ -9,6 +9,9 @@ import {
 } from '@angular/core';
 import { isEmptyView, requireContent } from '../../utils/utils';
 
+type IconAlignType = 'left' | 'center' | 'right' | undefined;
+type DividerType = 'full' | 'partial' | undefined;
+
 @Component({
     selector: 'pxb-info-list-item',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -99,6 +102,3 @@ export class InfoListItemComponent implements AfterViewInit {
         requireContent([required], this);
     }
 }
-
-type IconAlignType = 'left' | 'center' | 'right' | undefined;
-type DividerType = 'full' | 'partial' | undefined;
