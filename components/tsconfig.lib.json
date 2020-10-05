@@ -22,9 +22,7 @@
     "fullTemplateTypeCheck": true,
     "strictInjectionParameters": true,
     "enableResourceInlining": true,
-    "angularCompilerOptions": {
-      "enableIvy": false
-    }
+    "enableIvy": false
   },
   "exclude": [
     "test.ts",
