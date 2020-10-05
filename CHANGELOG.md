@@ -1,5 +1,10 @@
 # Change Log
 
+## v3.0.1
+
+-   Fixes bug in InfoListItem where divider was working with `mat-ripple`.
+-   Changes default display setting of ListItemTag so it works in non-flex containers.
+
 ## v3.0.0
 
 -   Adds a new `rail` variant to the `<pxb-drawer-layout>`.
