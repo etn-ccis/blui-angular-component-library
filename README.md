@@ -40,6 +40,15 @@ There is also a demo project (/component-demo) in this repository that shows the
 yarn link:components
 ```
 
+## Compatibility
+
+The following table outlines which versions of Angular and PX Blue resources will work together.
+
+|  @pxblue/angular-components   |  @pxblue/angular-themes     | @angular + @angular/material |
+| ----------------------------- | --------------------------- | ---------------------------- |
+| `^2.0.0`                      | `^5.0.0`                    | `^8.0.0`                     |
+| `^3.0.0`                      | `^5.1.0`                    | `8.x - 9.x`                  |
+
 ## Running the demo projects
 
 This repository comes with two demo projects found within the `/demos` folder.
