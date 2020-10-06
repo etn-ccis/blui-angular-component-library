@@ -1,4 +1,4 @@
 [submodule "demos/showcase"]
 	path = demos/showcase
 	url = https://github.com/pxblue/angular-showcase-demo
-	branch = dev
+	branch = release/angular-8-demo
