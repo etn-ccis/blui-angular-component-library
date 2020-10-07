@@ -1,5 +1,5 @@
 .pxb-list-item-tag {
-    display: flex;
+    display: inline-block;
 }
 
 .pxb-list-item-tag,
@@ -10,11 +10,12 @@
 .pxb-list-item-tag-content {
     padding: 0 4px;
     overflow: hidden;
-    line-height: inherit;
-    letter-spacing: 1px;
 
     .pxb-list-item-tag-label {
         font-weight: 700;
         text-transform: uppercase;
+        letter-spacing: 1px;
+        line-height: 16px;
+        font-size: 10px;
     }
 }
