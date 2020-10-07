@@ -1,5 +1,9 @@
 # Change Log
 
+## v4.0.0 (not published)
+
+-   Migrate to Angular 10
+
 ## v3.0.1
 
 -   Fixes bug in InfoListItem where divider was not working with `mat-ripple`.

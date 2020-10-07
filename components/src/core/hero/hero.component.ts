@@ -52,7 +52,7 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
     @Input() iconSize = 36;
     @Input() scaleSvgIcon = true;
     @Input() iconBackgroundColor: string;
-    @ViewChild('primaryContainer', { static: false }) primaryContainer: ElementRef;
+    @ViewChild('primaryContainer') primaryContainer: ElementRef;
 
     iSize: number;
     iconString: string;

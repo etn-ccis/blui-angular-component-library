@@ -10,6 +10,12 @@ import { DrawerNavItem, DrawerNavItemComponent } from '../nav-item/drawer-nav-it
 import { DrawerService } from '../../service/drawer.service';
 import { StateListener } from '../../state-listener.component';
 
+export type DrawerNavGroup = {
+    divider?: boolean;
+    title?: string;
+    items: DrawerNavItem[];
+};
+
 @Component({
     selector: 'pxb-drawer-nav-group',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -66,9 +72,3 @@ export class DrawerNavGroupComponent extends StateListener implements Omit<Drawe
         }
     }
 }
-
-export type DrawerNavGroup = {
-    divider?: boolean;
-    title?: string;
-    items: DrawerNavItem[];
-};
