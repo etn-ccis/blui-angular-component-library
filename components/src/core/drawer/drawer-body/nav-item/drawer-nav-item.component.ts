@@ -27,7 +27,7 @@ export type DrawerNavItem = {
     ripple?: boolean;
     expanded?: boolean;
     hidePadding?: boolean;
-    isHidden?: boolean;
+    hidden?: boolean;
 };
 
 export type ActiveItemBackgroundShape = 'round' | 'square';
@@ -37,7 +37,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./drawer-nav-item.component.scss'],
     template: `
-        <ng-container *ngIf="!isHidden">
+        <ng-container *ngIf="!hidden">
             <ng-template #navIcon><ng-content select="[pxb-icon]"></ng-content></ng-template>
             <div class="pxb-drawer-nav-item-content" [class.pxb-drawer-nav-item-active]="selected">
                 <div
@@ -120,7 +120,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @Input() statusColor: string;
     @Input() subtitle: string;
     @Input() title: string;
-    @Input() isHidden = false;
+    @Input() hidden = false;
 
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
 
