@@ -4,11 +4,10 @@ import {
     Component,
     ElementRef,
     Input,
-    OnChanges,
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
-import { requireContent, requireInput } from '../../utils/utils';
+import { requireContent } from '../../utils/utils';
 
 @Component({
     selector: 'pxb-empty-state',
