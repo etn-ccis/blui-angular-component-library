@@ -27,6 +27,7 @@ export type DrawerNavItem = {
     ripple?: boolean;
     expanded?: boolean;
     hidePadding?: boolean;
+    isVisible?: boolean;
 };
 
 export type ActiveItemBackgroundShape = 'round' | 'square';
