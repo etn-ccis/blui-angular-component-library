@@ -41,29 +41,29 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
             <ng-template #navIcon><ng-content select="[pxb-icon]"></ng-content></ng-template>
             <div class="pxb-drawer-nav-item-content" [class.pxb-drawer-nav-item-active]="selected">
                 <div
-                        matRipple
-                        [class.pxb-drawer-nav-item-active-highlight]="selected"
-                        [class.round]="activeItemBackgroundShape === 'round' && isOpen() && !isRail()"
-                        [class.square]="activeItemBackgroundShape === 'square' || !isOpen() || isRail()"
+                    matRipple
+                    [class.pxb-drawer-nav-item-active-highlight]="selected"
+                    [class.round]="activeItemBackgroundShape === 'round' && isOpen() && !isRail()"
+                    [class.square]="activeItemBackgroundShape === 'square' || !isOpen() || isRail()"
                 ></div>
                 <pxb-info-list-item
-                        *ngIf="!isRail()"
-                        (click)="selectItem($event)"
-                        [dense]="true"
-                        [statusColor]="statusColor"
-                        [chevron]="chevron && isOpen()"
-                        [hidePadding]="hidePadding"
-                        [divider]="divider ? 'full' : undefined"
-                        [class.no-icon-closed]="isEmpty(iconEl) && !isOpen()"
+                    *ngIf="!isRail()"
+                    (click)="selectItem($event)"
+                    [dense]="true"
+                    [statusColor]="statusColor"
+                    [chevron]="chevron && isOpen()"
+                    [hidePadding]="hidePadding"
+                    [divider]="divider ? 'full' : undefined"
+                    [class.no-icon-closed]="isEmpty(iconEl) && !isOpen()"
                 >
                     <ng-container pxb-icon #icon>
                         <ng-container *ngTemplateOutlet="navIcon"></ng-container>
                     </ng-container>
                     <div
-                            pxb-title
-                            [class.pxb-drawer-nav-item-depth-1]="depth === 1"
-                            [class.pxb-drawer-nav-item-depth-2]="depth === 2"
-                            [class.pxb-drawer-nav-item-depth-3]="depth === 3"
+                        pxb-title
+                        [class.pxb-drawer-nav-item-depth-1]="depth === 1"
+                        [class.pxb-drawer-nav-item-depth-2]="depth === 2"
+                        [class.pxb-drawer-nav-item-depth-3]="depth === 3"
                     >
                         {{ title }}
                     </div>
@@ -76,20 +76,20 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                             <ng-content select="[pxb-collapse-icon]"></ng-content>
                         </div>
                         <mat-icon
-                                *ngIf="isEmpty(collapseIconEl) && isEmpty(expandIconEl)"
-                                class="pxb-drawer-nav-item-expand-icon"
-                                [class.expanded]="expanded"
-                        >{{ depth > 1 ? 'arrow_drop_down' : 'expand_more' }}</mat-icon
+                            *ngIf="isEmpty(collapseIconEl) && isEmpty(expandIconEl)"
+                            class="pxb-drawer-nav-item-expand-icon"
+                            [class.expanded]="expanded"
+                            >{{ depth > 1 ? 'arrow_drop_down' : 'expand_more' }}</mat-icon
                         >
                     </div>
                 </pxb-info-list-item>
                 <div class="pxb-drawer-nav-item-rail-container" *ngIf="isRail()">
                     <div
-                            (click)="selectItem($event)"
-                            class="pxb-drawer-nav-item-rail square"
-                            [matTooltip]="title"
-                            [matTooltipDisabled]="!isRailCondensed()"
-                            matTooltipPosition="right"
+                        (click)="selectItem($event)"
+                        class="pxb-drawer-nav-item-rail square"
+                        [matTooltip]="title"
+                        [matTooltipDisabled]="!isRailCondensed()"
+                        matTooltipPosition="right"
                     >
                         <ng-container *ngTemplateOutlet="navIcon"></ng-container>
                         <div class="pxb-drawer-nav-item-rail-text">{{ title }}</div>
@@ -120,7 +120,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @Input() statusColor: string;
     @Input() subtitle: string;
     @Input() title: string;
-    @Input() isVisible: boolean = true;
+    @Input() isVisible = true;
 
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
 
