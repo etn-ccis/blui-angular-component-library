@@ -304,7 +304,7 @@ Parent element (`<pxb-drawer-nav-item>`) attributes:
 | divider                   | Sets whether to show divider          | `boolean`            | no       | true    |
 | expanded                  | Sets whether to show nested nav items | `boolean`            | no       | false   |
 | hidePadding               | Sets whether to show/hide padding     | `boolean`            | no       |         |
-| isHidden                  | Sets whether to show the nav item     | `boolean`            | no       | false   |
+| hidden                  | Sets whether to hide the nav item     | `boolean`            | no       | false   |
 | ripple                    | Sets whether to show/hide ripple      | `boolean`            | no       | true    |
 | selected                  | Sets whether an item is selected      | `boolean`            | no       |         |
 | statusColor               | Status stripe color                   | `string`             | no       |         |
