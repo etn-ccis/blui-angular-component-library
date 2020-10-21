@@ -2,8 +2,14 @@
     <div class="pxb-empty-state-empty-icon-wrapper" #emptyIcon>
         <ng-content select="[pxb-empty-icon]"></ng-content>
     </div>
-    <h2 class="pxb-empty-state-title">{{ title }}</h2>
-    <p *ngIf="description" class="pxb-empty-state-description mat-subheading-1">{{ description }}</p>
+    <h2 class="pxb-empty-state-title">
+        <ng-content select="[pxb-title]" *ngIf="!title"></ng-content>
+        {{ title }}
+    </h2>
+    <p class="pxb-empty-state-description mat-subheading-1">
+        <ng-content select="[pxb-description]" *ngIf="!description"></ng-content>
+        {{ description }}
+    </p>
     <div class="pxb-empty-state-actions-wrapper">
         <ng-content select="[pxb-actions]"></ng-content>
     </div>
