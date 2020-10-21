@@ -7,10 +7,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
     template: `
-        <pxb-drawer-nav-item></pxb-drawer-nav-item>
+        <pxb-drawer-nav-item [hidden]="true"></pxb-drawer-nav-item>
     `,
 })
-class TestDrawerNavItem {}
+class DrawerHiddenNavItem {}
 
 describe('DrawerNavItemComponent', () => {
     let component: DrawerNavItemComponent;
@@ -18,7 +18,7 @@ describe('DrawerNavItemComponent', () => {
 
     beforeEach(() => {
         void TestBed.configureTestingModule({
-            declarations: [TestDrawerNavItem],
+            declarations: [DrawerHiddenNavItem],
             imports: [DrawerNavItemModule, BrowserAnimationsModule],
         }).compileComponents();
         fixture = TestBed.createComponent(DrawerNavItemComponent);
@@ -34,6 +34,13 @@ describe('DrawerNavItemComponent', () => {
     it('should create', () => {
         fixture.detectChanges();
         void expect(component).toBeTruthy();
+    });
+
+    it('should not render the nav item if hidden is true', () => {
+        const hiddenFixture = TestBed.createComponent(DrawerHiddenNavItem);
+        hiddenFixture.detectChanges();
+        const navItem = hiddenFixture.nativeElement.querySelector('.pxb-drawer-nav-item-content');
+        void expect(navItem).toBeFalsy();
     });
 
     it('should enforce class naming conventions', () => {
