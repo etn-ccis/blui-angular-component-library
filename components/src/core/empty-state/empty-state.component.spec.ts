@@ -58,36 +58,14 @@ describe('Empty State Component', () => {
         component.title = 'title';
         fixture.detectChanges();
         const titleElement = fixture.debugElement.query(By.css('h2'));
-        void expect(titleElement.nativeElement.innerHTML).toBe('title');
-    });
-
-    it('should throw a warning when the title is not supplied', () => {
-        component.title = undefined;
-        const warnSpy = spyOn(console, 'warn').and.stub();
-        fixture.detectChanges();
-        void expect(warnSpy).toHaveBeenCalledTimes(1);
-    });
-
-    it('should not show empty title', () => {
-        component.title = undefined;
-        spyOn(console, 'warn').and.stub();
-        fixture.detectChanges();
-        const titleElement = fixture.debugElement.query(By.css('h2'));
-        void expect(titleElement.nativeElement.innerHTML).toBeFalsy();
+        void expect(titleElement.nativeElement.innerHTML).toContain('title');
     });
 
     it('should show description when supplied', () => {
         component.description = 'description';
         fixture.detectChanges();
         const descriptionElement = fixture.debugElement.query(By.css('p'));
-        void expect(descriptionElement.nativeElement.innerHTML).toBe('description');
-    });
-
-    it('should not show empty description', () => {
-        component.description = '';
-        fixture.detectChanges();
-        const descriptionElement = fixture.debugElement.query(By.css('p'));
-        void expect(descriptionElement).toBeFalsy();
+        void expect(descriptionElement.nativeElement.innerHTML).toContain('description');
     });
 
     // Action Check
