@@ -32,7 +32,6 @@ class EmptyStateBasicUsageComponent {
 })
 class TestIconActions {}
 
-
 @Component({
     selector: 'test-description-content',
     template: `
@@ -62,12 +61,7 @@ describe('Empty State Component', () => {
     beforeEach(async(() => {
         void TestBed.configureTestingModule({
             imports: [EmptyStateModule],
-            declarations: [
-                EmptyStateBasicUsageComponent, 
-                TestIconActions, 
-                TestDescriptionContent,
-                TestTitleContent
-            ],
+            declarations: [EmptyStateBasicUsageComponent, TestIconActions, TestDescriptionContent, TestTitleContent],
         }).compileComponents();
     }));
 
