@@ -17,7 +17,6 @@ class EmptyStateBasicUsageComponent {
     @Input() description: string;
 }
 
-/** Test component that contains an MatButton. */
 @Component({
     selector: 'test-app',
     template: `
@@ -31,7 +30,30 @@ class EmptyStateBasicUsageComponent {
         </pxb-empty-state>
     `,
 })
-class TestEmpty {}
+class TestIconActions {}
+
+
+@Component({
+    selector: 'test-description-content',
+    template: `
+        <pxb-empty-state>
+            <span pxb-empty-icon></span>
+            <div pxb-description>description</div>
+        </pxb-empty-state>
+    `,
+})
+class TestDescriptionContent {}
+
+@Component({
+    selector: 'test-title-content',
+    template: `
+        <pxb-empty-state>
+            <span pxb-empty-icon></span>
+            <div pxb-title>title</div>
+        </pxb-empty-state>
+    `,
+})
+class TestTitleContent {}
 
 describe('Empty State Component', () => {
     let fixture: ComponentFixture<EmptyStateBasicUsageComponent>;
@@ -40,7 +62,12 @@ describe('Empty State Component', () => {
     beforeEach(async(() => {
         void TestBed.configureTestingModule({
             imports: [EmptyStateModule],
-            declarations: [EmptyStateBasicUsageComponent, TestEmpty],
+            declarations: [
+                EmptyStateBasicUsageComponent, 
+                TestIconActions, 
+                TestDescriptionContent,
+                TestTitleContent
+            ],
         }).compileComponents();
     }));
 
@@ -54,23 +81,37 @@ describe('Empty State Component', () => {
         void expect(component).toBeTruthy();
     });
 
-    it('should show title when supplied', () => {
+    it('should show title when input supplied', () => {
         component.title = 'title';
         fixture.detectChanges();
         const titleElement = fixture.debugElement.query(By.css('h2'));
         void expect(titleElement.nativeElement.innerHTML).toContain('title');
     });
 
-    it('should show description when supplied', () => {
+    it('should show title when ng-content supplied', () => {
+        const testFixture = TestBed.createComponent(TestTitleContent);
+        testFixture.detectChanges();
+        const titleElement = testFixture.debugElement.query(By.css('h2'));
+        void expect(titleElement.nativeElement.innerHTML).toContain('title');
+    });
+
+    it('should show description when input supplied', () => {
         component.description = 'description';
         fixture.detectChanges();
         const descriptionElement = fixture.debugElement.query(By.css('p'));
         void expect(descriptionElement.nativeElement.innerHTML).toContain('description');
     });
 
+    it('should show description when ng-content supplied', () => {
+        const testFixture = TestBed.createComponent(TestDescriptionContent);
+        testFixture.detectChanges();
+        const descriptionElement = testFixture.debugElement.query(By.css('p'));
+        void expect(descriptionElement.nativeElement.innerHTML).toContain('description');
+    });
+
     // Action Check
     it('should show actions when supplied', () => {
-        const actionFixture = TestBed.createComponent(TestEmpty);
+        const actionFixture = TestBed.createComponent(TestIconActions);
         let actionElement = actionFixture.debugElement.query(By.css('.withActions [pxb-actions]'));
         void expect(actionElement).not.toBeNull();
 
@@ -80,7 +121,7 @@ describe('Empty State Component', () => {
 
     // Icon Check
     it('should show icon when supplied', () => {
-        const iconFixture = TestBed.createComponent(TestEmpty);
+        const iconFixture = TestBed.createComponent(TestIconActions);
         let actionElement = iconFixture.debugElement.query(By.css('.withIcon [pxb-empty-icon]'));
         void expect(actionElement).not.toBeNull();
 
