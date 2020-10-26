@@ -13,11 +13,11 @@ import { requireInput } from '../../utils/utils';
 })
 export class DotStepperComponent implements OnChanges {
     @Input() steps: number;
-    @Input() activeStepId: number;
+    @Input() activeIndex: number;
     stepsArray: number[] = [];
 
     ngOnChanges(): void {
-        requireInput<DotStepperComponent>(['steps', 'activeStepId'], this);
+        requireInput<DotStepperComponent>(['steps', 'activeIndex'], this);
         this.stepsArray = Array(this.steps)
             .fill(0)
             .map((i) => i);

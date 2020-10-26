@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
 
 @Component({
     template: `
-        <pxb-dot-stepper [steps]="4" [activeStepId]="0"></pxb-dot-stepper>
+        <pxb-dot-stepper [steps]="4" [activeIndex]="0"></pxb-dot-stepper>
     `,
 })
 class TestDotStepper {}
