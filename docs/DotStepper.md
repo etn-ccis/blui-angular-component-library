@@ -42,7 +42,6 @@ Each PX Blue component has classes which can be used to override component style
 | Name                           | Description                                             |
 | ------------------------------ | ------------------------------------------------------- |
 | pxb-dot-stepper                | Styles applied to the tag                               |
-| pxb-dot-stepper-content        | Styles applied to the dots container                    |
 | pxb-dot-stepper-dot            | Styles applied to each dot in the stepper               |
 | pxb-dot-stepper-active         | Styles applied to the dot representing the active step  |
 | pxb-dot-stepper-visited        | Styles applied to the visited dots                      |
