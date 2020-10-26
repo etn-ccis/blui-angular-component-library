@@ -1,7 +1,7 @@
 <div
-        *ngFor="let step of stepsArray; let index = index"
-        class="pxb-dot-stepper-dot"
-        [class.pxb-dot-stepper-visited]="step < activeIndex"
-        [class.pxb-dot-stepper-active]="index === activeIndex"
-        [class.pxb-dot-stepper-unvisited]="step > activeIndex"
+    *ngFor="let step of stepsArray; let index = index"
+    class="pxb-dot-stepper-dot"
+    [class.pxb-dot-stepper-visited]="step < activeIndex"
+    [class.pxb-dot-stepper-active]="index === activeIndex"
+    [class.pxb-dot-stepper-unvisited]="step > activeIndex"
 ></div>
