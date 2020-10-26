@@ -15,15 +15,15 @@ export const withStepwiseButtons = (): any => ({
      <div>
          <div class="step-content">Step #{{activeStepId + 1}}</div>
          <mat-divider></mat-divider>
-         <div style="display: flex; padding: 16px;">
+         <div style="display: flex">
              <button mat-stroked-button color="primary" 
                 (click)="activeStepId = activeStepId - 1"
-                style="margin-right: 16px;"
+                style="margin:16px;"
                 [disabled]="activeStepId===0">Back</button>
              <pxb-dot-stepper [steps]="steps" [activeStepId]="activeStepId"></pxb-dot-stepper>
              <button mat-flat-button color="primary"  
                 (click)="activeStepId = activeStepId + 1"
-                style="margin-left: 16px;"
+                style="margin: 16px;"
                 [disabled]="activeStepId===steps-1">Next</button>
          </div>
      </div>
