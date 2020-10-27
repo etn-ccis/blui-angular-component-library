@@ -19,7 +19,7 @@ imports: [
 
 ```html
 // your-component.html
-<pxb-mobile-stepper [steps]="4" [activeIndex]="0"></pxb-mobile-stepper>
+<pxb-mobile-stepper [steps]="4" [(activeIndex)]="0"></pxb-mobile-stepper>
 ```
 
 ## API
