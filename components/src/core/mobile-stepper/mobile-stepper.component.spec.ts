@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
 
 @Component({
     template: `
-        <pxb-dot-stepper [steps]="4" [activeIndex]="0"></pxb-dot-stepper>
+        <pxb-mobile-stepper [steps]="4" [activeIndex]="0"></pxb-mobile-stepper>
     `,
 })
 class TestMobileStepper {}
@@ -33,16 +33,16 @@ describe('DotStepperComponent', () => {
 
     it('should render the correct number of steps', () => {
         fixture.detectChanges();
-        const dots = fixture.nativeElement.querySelectorAll('.pxb-dot-stepper-dot');
+        const dots = fixture.nativeElement.querySelectorAll('.pxb-mobile-stepper-dot');
         void expect(dots.length).toBe(4);
     });
 
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
-        const classList = ['.pxb-dot-stepper', '.pxb-dot-stepper-active'];
+        const classList = ['.pxb-mobile-stepper', '.pxb-mobile-stepper-content', '.pxb-mobile-stepper-dots', '.pxb-mobile-stepper-active'];
         for (const className of classList) {
             count(fixture, className);
         }
-        count(fixture, '.pxb-dot-stepper-dot', 4);
+        count(fixture, '.pxb-mobile-stepper-dot', 4);
     });
 });
