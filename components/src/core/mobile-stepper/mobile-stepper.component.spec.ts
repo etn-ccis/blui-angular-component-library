@@ -39,7 +39,12 @@ describe('DotStepperComponent', () => {
 
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
-        const classList = ['.pxb-mobile-stepper', '.pxb-mobile-stepper-content', '.pxb-mobile-stepper-dots', '.pxb-mobile-stepper-active'];
+        const classList = [
+            '.pxb-mobile-stepper',
+            '.pxb-mobile-stepper-content',
+            '.pxb-mobile-stepper-dots',
+            '.pxb-mobile-stepper-active',
+        ];
         for (const className of classList) {
             count(fixture, className);
         }
