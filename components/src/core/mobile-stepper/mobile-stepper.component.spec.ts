@@ -1,6 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { count } from '../../utils/test-utils';
-import { DotStepperModule } from './dot-stepper.module';
+import { MobileStepperModule } from './mobile-stepper.module';
 import { Component } from '@angular/core';
 
 @Component({
@@ -8,21 +8,21 @@ import { Component } from '@angular/core';
         <pxb-dot-stepper [steps]="4" [activeIndex]="0"></pxb-dot-stepper>
     `,
 })
-class TestDotStepper {}
+class TestMobileStepper {}
 
 describe('DotStepperComponent', () => {
-    let component: TestDotStepper;
-    let fixture: ComponentFixture<TestDotStepper>;
+    let component: TestMobileStepper;
+    let fixture: ComponentFixture<TestMobileStepper>;
 
     beforeEach(() => {
         void TestBed.configureTestingModule({
-            declarations: [TestDotStepper],
-            imports: [DotStepperModule],
+            declarations: [TestMobileStepper],
+            imports: [MobileStepperModule],
         }).compileComponents();
     });
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(TestDotStepper);
+        fixture = TestBed.createComponent(TestMobileStepper);
         component = fixture.componentInstance;
     });
 

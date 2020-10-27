@@ -1,5 +1,5 @@
 import { MatIconModule } from '@angular/material/icon';
-import { DotStepperModule } from '@pxblue/angular-components';
+import { MobileStepperModule } from '@pxblue/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { getReadMe, getReadMeStory, isDarkMode, storyWrapper, UtilModule } from '../../src/utils';
@@ -12,11 +12,10 @@ import {
 import { withBasicConfig } from './basic-config.stories';
 import { withA11y } from '@storybook/addon-a11y';
 import * as Colors from '@pxblue/colors';
-import { withStepwiseButtons } from './with-stepwise-buttons.stories';
-import { MatButtonModule } from '@angular/material/button';
 import { MatDividerModule } from '@angular/material/divider';
+import { withFullConfig } from './with-full-config.stories';
 
-export const dotStepperWrapper = () => (storyFn: any): any => {
+export const mobileStepperWrapper = () => (storyFn: any): any => {
     const story = storyFn();
     return {
         ...story,
@@ -28,21 +27,21 @@ export const dotStepperWrapper = () => (storyFn: any): any => {
     };
 };
 
-storiesOf(`${COMPONENT_SECTION_NAME}/Dot Stepper`, module)
+storiesOf(`${COMPONENT_SECTION_NAME}/Mobile Stepper`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [DotStepperModule, MatButtonModule, MatDividerModule, MatIconModule, UtilModule],
+            imports: [MobileStepperModule, MatDividerModule, MatIconModule, UtilModule],
         })
     )
     .addDecorator(withKnobs)
     // @accessibility
     .addDecorator(withA11y)
     .addDecorator(storyWrapper())
-    .addDecorator(dotStepperWrapper())
+    .addDecorator(mobileStepperWrapper())
     .addParameters({
         ...STORY_PARAMS,
-        notes: { markdown: getReadMe('DotStepper.md') },
+        notes: { markdown: getReadMe('MobileStepper.md') },
     })
     .add(README_STORY_NAME, getReadMeStory)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
-    .add('with stepwise buttons', withStepwiseButtons);
+    .add('with full config', withFullConfig);

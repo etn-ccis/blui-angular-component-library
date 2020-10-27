@@ -1,0 +1,17 @@
+<div class="pxb-mobile-stepper-content">
+    <button mat-stroked-button color="primary" (click)="goBack()" [disabled]="activeIndex === 0">Back</button>
+    <div *ngIf="variant === 'dots'" class="pxb-mobile-stepper-dots">
+        <div
+            *ngFor="let step of stepsArray; let index = index"
+            class="pxb-mobile-stepper-dot"
+            [class.pxb-mobile-stepper-visited]="step < activeIndex"
+            [class.pxb-mobile-stepper-active]="index === activeIndex"
+            [class.pxb-mobile-stepper-unvisited]="step > activeIndex"
+        ></div>
+    </div>
+    <div *ngIf="variant === 'text'" class="mat-subheading-2">{{ activeIndex + 1 }} / {{ stepsArray.length }}</div>
+    <mat-progress-bar *ngIf="variant === 'progress'" mode="determinate" [value]="getProgressFill()"></mat-progress-bar>
+    <button mat-flat-button color="primary" (click)="goNext()" [disabled]="activeIndex === stepsArray.length - 1">
+        Next
+    </button>
+</div>
