@@ -14,6 +14,7 @@ import { withA11y } from '@storybook/addon-a11y';
 import * as Colors from '@pxblue/colors';
 import { MatDividerModule } from '@angular/material/divider';
 import { withFullConfig } from './with-full-config.stories';
+import { MatButtonModule } from '@angular/material/button';
 
 export const mobileStepperWrapper = () => (storyFn: any): any => {
     const story = storyFn();
@@ -30,7 +31,7 @@ export const mobileStepperWrapper = () => (storyFn: any): any => {
 storiesOf(`${COMPONENT_SECTION_NAME}/Mobile Stepper`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [MobileStepperModule, MatDividerModule, MatIconModule, UtilModule],
+            imports: [MatIconModule, MobileStepperModule, MatButtonModule, MatDividerModule, MatIconModule, UtilModule],
         })
     )
     .addDecorator(withKnobs)

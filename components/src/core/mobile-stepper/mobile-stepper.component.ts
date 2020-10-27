@@ -1,12 +1,4 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    EventEmitter,
-    Input,
-    OnChanges,
-    Output,
-    ViewEncapsulation,
-} from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, OnChanges, ViewEncapsulation } from '@angular/core';
 import { requireInput } from '../../utils/utils';
 
 export type MobileStepperVariant = 'dots' | 'text' | 'progress';
@@ -25,9 +17,7 @@ export class MobileStepperComponent implements OnChanges {
     @Input() steps: number;
     @Input() activeIndex: number;
     @Input() variant: MobileStepperVariant = 'dots';
-    @Output() activeIndexChange: EventEmitter<number> = new EventEmitter<number>();
-    @Output() back: EventEmitter<void> = new EventEmitter<void>();
-    @Output() next: EventEmitter<void> = new EventEmitter<void>();
+
     stepsArray: number[] = [];
 
     ngOnChanges(): void {
@@ -35,16 +25,6 @@ export class MobileStepperComponent implements OnChanges {
         this.stepsArray = Array(this.steps)
             .fill(0)
             .map((i) => i);
-    }
-
-    goBack(): void {
-        this.activeIndexChange.emit(--this.activeIndex);
-        this.back.emit();
-    }
-
-    goNext(): void {
-        this.activeIndexChange.emit(++this.activeIndex);
-        this.next.emit();
     }
 
     getProgressFill(): number {

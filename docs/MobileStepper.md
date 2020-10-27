@@ -18,8 +18,21 @@ imports: [
 ```
 
 ```html
+// your-component.ts
+activeIndex = 0;
+steps = 4;
+```
+
+```html
 // your-component.html
-<pxb-mobile-stepper [steps]="4" [(activeIndex)]="0"></pxb-mobile-stepper>
+<pxb-mobile-stepper [steps]="steps" [activeIndex]="activeIndex">
+    <button pxb-back-button mat-stroked-button color="primary" 
+        [disabled]="activeIndex === 0" 
+        (click)="activeIndex = activeIndex - 1;">Back</button>
+    <button pxb-next-button mat-flat-button color="primary" 
+        [disabled]="activeIndex === steps - 1" 
+        (click)="activeIndex = activeIndex + 1;">Next</button>
+</pxb-mobile-stepper>
 ```
 
 ## API
@@ -36,12 +49,14 @@ Parent element (`<pxb-mobile-stepper`) attributes:
 
 </div>
 
+The following child elements are projected into `<pxb-mobile-stepper>`:
+
 <div style="overflow: auto;">
 
-| @Output | Description                               | Type                 |
-| ------- | ----------------------------------------- | -------------------- |
-| back    | Event triggered on back button click      | `EventEmitter<void>` |
-| next    | Event triggered on next button click      | `EventEmitter<void>` |
+| Selector            | Description                            | Required | Default |
+| ------------------- | -------------------------------------- | -------- | ------- |
+| [pxb-back-button]   | Stepper back button                    | no       |         |
+| [pxb-next-button]   | Stepper next button                    | no       |         |
 
 ### Classes
 
