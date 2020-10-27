@@ -51,8 +51,8 @@ Each PX Blue component has classes which can be used to override component style
 | --------------------------------- | ------------------------------------------------------- |
 | pxb-mobile-stepper                | Styles applied to the tag                               |
 | pxb-mobile-stepper-content        | Styles applied to the mobile stepper container          |
-| pxb-mobile-stepper-dot            | Styles applied to each dot in the stepper               |
 | pxb-mobile-stepper-dots           | Styles applied to the mobile stepper dots container     |
-| pxb-mobile-stepper-active         | Styles applied to the dot representing the active step  |
-| pxb-mobile-stepper-visited        | Styles applied to the visited dots                      |
-| pxb-mobile-stepper-unvisited      | Styles applied to the dots that were not visited yet    |
+| pxb-mobile-stepper-dot            | Styles applied to each dot in the stepper               |
+| pxb-mobile-stepper-dot-active     | Styles applied to the dot representing the active step  |
+| pxb-mobile-stepper-dot-visited    | Styles applied to the visited dots                      |
+| pxb-mobile-stepper-dot-unvisited  | Styles applied to the dots that were not visited yet    |
