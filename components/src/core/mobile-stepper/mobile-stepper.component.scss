@@ -1,0 +1,34 @@
+.pxb-mobile-stepper {
+    display: flex;
+}
+
+.pxb-mobile-stepper-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-grow: 1;
+    button {
+        margin: 16px;
+    }
+}
+
+.pxb-mobile-stepper-dots {
+    display: flex;
+    flex-direction: row;
+}
+
+.pxb-mobile-stepper-dot {
+    height: 8px;
+    width: 8px;
+    background-color: gray;
+    border-radius: 100%;
+    margin: 0 4px;
+}
+
+.pxb-mobile-stepper-dot-active {
+    background-color: blue;
+}
+
+.pxb-mobile-stepper-display-none {
+    display: none;
+}

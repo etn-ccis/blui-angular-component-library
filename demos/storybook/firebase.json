@@ -1,0 +1,6 @@
+{
+    "hosting": {
+        "public": "storybook-static",
+        "ignore": ["firebase.json", "**/.*", "**/node_modules/**"]
+    }
+}
