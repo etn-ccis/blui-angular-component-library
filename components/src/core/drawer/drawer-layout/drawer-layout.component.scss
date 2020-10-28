@@ -28,11 +28,8 @@ $transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
     .pxb-drawer-content {
         transition: none;
         width: 100%;
-        &.collapse {
+        &.pxb-drawer-collapse {
             width: 100%;
-        }
-        &.smooth {
-            transition: $transition;
         }
     }
 
@@ -40,7 +37,7 @@ $transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
     .pxb-drawer-layout-nav-content {
         min-height: 100%;
         transition: none;
-        &.smooth {
+        &.pxb-drawer-layout-smooth {
             transition: $transition;
         }
     }
