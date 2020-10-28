@@ -101,7 +101,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
             </div>
             <!-- Nested Nav Items -->
             <mat-accordion displayMode="flat" class="pxb-drawer-nested-nav-item" *ngIf="!isRail()">
-                <mat-expansion-panel [class.pxb-drawer-nav-item-expanded]="expanded && isOpen()">
+                <mat-expansion-panel [expanded]="expanded && isOpen()">
                     <ng-content select="pxb-drawer-nav-item"></ng-content>
                 </mat-expansion-panel>
             </mat-accordion>

@@ -202,11 +202,11 @@ export const withFullConfig = (): any => ({
         chevron: boolean('chevron', false, navItem),
         hidePadding: boolean('hidePadding', true, navItem),
         hidePaddingNested: boolean('hidePadding (nested)', false, navItem),
-        itemDivider: boolean('divider', true, navItem),
+        itemDivider: boolean('divider', false, navItem),
         showNavItemIcon: boolean('Show Icon', true, navItem),
         compact: boolean('compact', false, navItem),
         customExpandIcon: boolean('Custom Expand/Collapse Icons', false, navItem),
-        activeItemBackgroundShape: select('activeItemBackgroundShape', ['round', 'square'], 'round', navItem),
+        activeItemBackgroundShape: select('activeItemBackgroundShape', ['round', 'square'], 'square', navItem),
         showFooter: boolean('Show Footer', true, footer),
         footerDivider: boolean('divider', true, footer),
         setActive: (item: DrawerNavItem, state: { selected: string }): void => {

@@ -18,9 +18,12 @@
 
 pxb-drawer-nav-item {
     outline: none;
+    .pxb-drawer-nav-item-active .mat-list-item:hover {
+        background: unset;
+    }
 }
 
-.pxb--drawer-condensed-rail .pxb-drawer-nav-item-content .pxb-drawer-nav-item-rail {
+.pxb-drawer-condensed-rail .pxb-drawer-nav-item-content .pxb-drawer-nav-item-rail {
     width: 56px;
     min-height: 56px;
     .pxb-drawer-nav-item-rail-text {
@@ -35,8 +38,8 @@ pxb-drawer-nav-item {
     user-select: none;
 
     &.pxb-drawer-nav-item-compact .pxb-info-list-item-content {
-        &.pxb-info-list-item-dense,  .mat-list-item-content {
-            height: 40px;
+        &.pxb-info-list-item-dense, .mat-list-item-content {
+            height: 40px!important;
         }
     }
 
