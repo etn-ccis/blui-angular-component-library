@@ -7,7 +7,8 @@ import { StateListener } from '../state-listener.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="pxb-drawer-subheader-content" [class.pxb-drawer-subheader-closed]="!isOpen()">
+        <div class="pxb-drawer-subheader-content"
+             [style.visibility]="hideOnCollapse ? (isOpen() ? 'visible' : 'hidden') : 'visible'">
             <ng-content></ng-content>
         </div>
         <mat-divider *ngIf="divider"></mat-divider>
@@ -19,6 +20,7 @@ import { StateListener } from '../state-listener.component';
 })
 export class DrawerSubheaderComponent extends StateListener {
     @Input() divider = true;
+    @Input() hideOnCollapse = true;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);

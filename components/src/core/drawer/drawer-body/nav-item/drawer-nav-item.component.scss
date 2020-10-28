@@ -20,13 +20,14 @@ pxb-drawer-nav-item {
     outline: none;
 }
 
-.condensed .pxb-drawer-nav-item-content .pxb-drawer-nav-item-rail {
+.pxb--drawer-condensed-rail .pxb-drawer-nav-item-content .pxb-drawer-nav-item-rail {
     width: 56px;
     min-height: 56px;
     .pxb-drawer-nav-item-rail-text {
         display: none;
     }
 }
+
 
 .pxb-drawer-nav-item-content {
     overflow: hidden;
@@ -41,6 +42,13 @@ pxb-drawer-nav-item {
     }
     .pxb-drawer-nav-item-depth-3 {
         padding-left: 32px;
+    }
+
+    .pxb-info-list-item .mat-list-item.pxb-info-list-item-content .mat-list-text .pxb-info-list-item-title-wrapper {
+        font-weight: 400; // Default font-weight for nav items.
+    }
+    &.pxb-drawer-nav-item-active .pxb-info-list-item .mat-list-item.pxb-info-list-item-content .mat-list-text .pxb-info-list-item-title-wrapper {
+        font-weight: 600; // Default font-weight for nav items.
     }
 
     pxb-info-list-item {
@@ -118,9 +126,9 @@ pxb-drawer-nav-item {
     .pxb-info-list-item .mat-list-item-content {
         padding-left: 16px;
     }
-    pxb-info-list-item .pxb-info-list-item .mat-list-text .pxb-info-list-item-title-wrapper {
+    /*pxb-info-list-item .pxb-info-list-item .mat-list-text .pxb-info-list-item-title-wrapper {
         font-weight: 400;
-    }
+    }*/
     .mat-expansion-panel-body {
         padding: 0;
     }

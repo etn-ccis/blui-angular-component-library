@@ -39,7 +39,9 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
     template: `
         <ng-container *ngIf="!hidden">
             <ng-template #navIcon><ng-content select="[pxb-icon]"></ng-content></ng-template>
-            <div class="pxb-drawer-nav-item-content" [class.pxb-drawer-nav-item-active]="selected">
+            <div class="pxb-drawer-nav-item-content" 
+                 [class.pxb-drawer-nav-item-active]="selected"
+                 [class.pxb-drawer-nav-item-compact]="compact">
                 <div
                     matRipple
                     [class.pxb-drawer-nav-item-active-highlight]="selected"
@@ -110,9 +112,9 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
     },
 })
 export class DrawerNavItemComponent extends StateListener implements Omit<DrawerNavItem, 'items'> {
-    @Input() activeItemBackgroundShape: ActiveItemBackgroundShape = 'round';
+    @Input() activeItemBackgroundShape: ActiveItemBackgroundShape = 'square';
     @Input() chevron: boolean;
-    @Input() divider: boolean;
+    @Input() divider = false;
     @Input() expanded = false;
     @Input() hidePadding: boolean;
     @Input() ripple = true;
@@ -121,6 +123,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @Input() subtitle: string;
     @Input() title: string;
     @Input() hidden = false;
+    @Input() compact = false;
 
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
 

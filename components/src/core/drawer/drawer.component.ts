@@ -18,9 +18,9 @@ import { Subscription } from 'rxjs';
     template: `
         <div
             class="pxb-drawer-content"
-            [class.condensed]="condensed"
-            [class.collapse]="!isOpen()"
-            [class.temp-variant]="isTemporaryVariant()"
+            [class.pxb-drawer-condensed-rail]="condensed"
+            [class.pxb-drawer-collapse]="!isOpen()"
+            [class.pxb-drawer-temp-variant]="isTemporaryVariant()"
         >
             <!-- Drawer is responsible for managing the styles between the 4 subsections -->
             <ng-content select="pxb-drawer-header"></ng-content>
