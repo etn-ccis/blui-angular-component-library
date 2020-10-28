@@ -132,7 +132,6 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @ViewChild('expandIcon') expandIconEl: ElementRef;
     @ViewChild('icon') iconEl: ElementRef;
     @ViewChild('collapseIcon') collapseIconEl: ElementRef;
-    @ViewChild(MatRipple) rippleEl: MatRipple;
     @ViewChild('navItem') navItemEl: ElementRef;
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
