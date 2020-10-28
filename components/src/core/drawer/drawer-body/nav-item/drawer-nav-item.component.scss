@@ -87,7 +87,6 @@ pxb-drawer-nav-item {
         left: 0;
         top: 0;
         opacity: 0.05;
-        transition: 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         &.pxb-drawer-nav-item-round {
             width: calc(100% - 8px);
             border-radius: 0 24px 24px 0;

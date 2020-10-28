@@ -41,17 +41,17 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
             <ng-template #navIcon><ng-content select="[pxb-icon]"></ng-content></ng-template>
             <div class="pxb-drawer-nav-item-content" 
                  #navItem
+                 matRipple
                  [class.pxb-drawer-nav-item-active]="selected"
                  [class.pxb-drawer-nav-item-compact]="compact">
                 <div
-                    matRipple
                     [class.pxb-drawer-nav-item-active-highlight]="selected"
                     [class.pxb-drawer-nav-item-round]="activeItemBackgroundShape === 'round' && isOpen() && !isRail()"
                     [class.pxb-drawer-nav-item-square]="activeItemBackgroundShape === 'square' || !isOpen() || isRail()"
                 ></div>
                 <pxb-info-list-item
                     *ngIf="!isRail()"
-                    (click)="selectItem($event)"
+                    (click)="selectItem()"
                     [dense]="true"
                     [statusColor]="statusColor"
                     [chevron]="chevron && isOpen()"
@@ -88,7 +88,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 </pxb-info-list-item>
                 <div class="pxb-drawer-nav-item-rail-container" *ngIf="isRail()">
                     <div
-                        (click)="selectItem($event)"
+                        (click)="selectItem()"
                         class="pxb-drawer-nav-item-rail square"
                         [matTooltip]="title"
                         [matTooltipDisabled]="!isRailCondensed()"
@@ -234,14 +234,13 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         if (this.hidePadding === undefined) this.hidePadding = false;
     }
 
-    selectItem(e: any): void {
+    selectItem(): void {
         this.drawerService.select(this.hasChildren);
         this.select.emit();
         if (this.hasChildren) {
             this.toggleNestedNavItems();
             this.changeDetector.detectChanges();
         }
-        this.rippleEl.launch(e.x, e.y);
     }
 
     toggleNestedNavItems(): void {
