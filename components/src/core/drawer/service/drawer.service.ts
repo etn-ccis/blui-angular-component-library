@@ -13,6 +13,7 @@ export class DrawerService {
     private isCondensed: boolean;
     drawerOpenObs = new Subject<boolean>();
     drawerSelectObs = new Subject<boolean>();
+    drawerActiveItemChangeObs = new Subject<boolean>();
 
     setDrawerTempOpen(open: boolean): void {
         this.tempOpen = open;
@@ -64,6 +65,14 @@ export class DrawerService {
 
     drawerSelectionChanges(): Observable<boolean> {
         return this.drawerSelectObs;
+    }
+    
+    emitChangeActiveItemEvent(): void {
+        this.drawerActiveItemChangeObs.next();
+    }
+
+    drawerActiveItemChanges(): Observable<boolean> {
+        return this.drawerActiveItemChangeObs;
     }
 
     createNavItemID(): number {

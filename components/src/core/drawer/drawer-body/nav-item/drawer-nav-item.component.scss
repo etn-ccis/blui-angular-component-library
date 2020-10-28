@@ -56,8 +56,10 @@ pxb-drawer-nav-item {
     .pxb-info-list-item .mat-list-item.pxb-info-list-item-content .mat-list-text .pxb-info-list-item-title-wrapper {
         font-weight: 400; // Default font-weight for nav items.
     }
-    &.pxb-drawer-nav-item-active .pxb-info-list-item .mat-list-item.pxb-info-list-item-content .mat-list-text .pxb-info-list-item-title-wrapper {
-        font-weight: 600; // Default font-weight for nav items.
+    &.pxb-drawer-nav-item-active, &.pxb-drawer-nav-item-active-tree {
+        .pxb-info-list-item .mat-list-item.pxb-info-list-item-content .mat-list-text .pxb-info-list-item-title-wrapper {
+            font-weight: 600; // Default font-weight for nav items.
+        }
     }
 
     pxb-info-list-item {

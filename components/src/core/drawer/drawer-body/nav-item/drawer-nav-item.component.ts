@@ -5,7 +5,7 @@ import {
     ElementRef,
     EventEmitter,
     Input,
-    Output,
+    Output, SimpleChanges,
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
@@ -40,6 +40,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
         <ng-container *ngIf="!hidden">
             <ng-template #navIcon><ng-content select="[pxb-icon]"></ng-content></ng-template>
             <div class="pxb-drawer-nav-item-content" 
+                 #navItem
                  [class.pxb-drawer-nav-item-active]="selected"
                  [class.pxb-drawer-nav-item-compact]="compact">
                 <div
@@ -132,6 +133,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @ViewChild('icon') iconEl: ElementRef;
     @ViewChild('collapseIcon') collapseIconEl: ElementRef;
     @ViewChild(MatRipple) rippleEl: MatRipple;
+    @ViewChild('navItem') navItemEl: ElementRef;
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
     isNestedItem: boolean;
@@ -142,6 +144,11 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
         this.id = drawerService.createNavItemID();
+        this.drawerService.drawerActiveItemChanges().subscribe(() => {
+            if (this.navItemEl) {
+                this.manageActiveItemTreeHighlight();
+            }
+        });
     }
 
     ngAfterContentInit(): void {
@@ -161,12 +168,38 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         }
     }
 
+    ngOnChanges(changes: SimpleChanges): void {
+        if (changes.selected) {
+            this.drawerService.emitChangeActiveItemEvent();
+        }
+    }
+
     isRail(): boolean {
         return this.drawerService.getDrawerVariant() === 'rail';
     }
 
     isRailCondensed(): boolean {
         return this.drawerService.isRailCondensed();
+    }
+
+    manageActiveItemTreeHighlight(): void {
+        this.navItemEl.nativeElement.classList.remove('pxb-drawer-nav-item-active-tree');
+
+        if (!this.navItemEl) {
+            return;
+        }
+
+        // Add tree highlighting for selected items
+        if (this.selected && this.depth > 1) {
+            let parent = this.navItemEl.nativeElement.parentNode;
+            while (parent.parentNode) {
+                parent = parent.parentNode;
+                const navItem = parent.firstElementChild;
+                if (navItem.classList.contains('pxb-drawer-nav-item-content')) {
+                    navItem.classList.add('pxb-drawer-nav-item-active-tree');
+                }
+            }
+        }
     }
 
     listenForDrawerChanges(): void {
