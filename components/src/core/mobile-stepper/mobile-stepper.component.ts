@@ -15,19 +15,19 @@ export type MobileStepperVariant = 'dots' | 'text' | 'progress';
 })
 export class MobileStepperComponent implements OnChanges {
     @Input() steps: number;
-    @Input() activeIndex: number;
+    @Input() activeStep: number;
     @Input() variant: MobileStepperVariant = 'dots';
 
     stepsArray: number[] = [];
 
     ngOnChanges(): void {
-        requireInput<MobileStepperComponent>(['steps', 'activeIndex'], this);
+        requireInput<MobileStepperComponent>(['steps', 'activeStep'], this);
         this.stepsArray = Array(this.steps)
             .fill(0)
             .map((i) => i);
     }
 
     getProgressFill(): number {
-        return this.activeIndex === 0 ? 0 : (this.activeIndex / (this.stepsArray.length - 1)) * 100;
+        return this.activeStep === 0 ? 0 : (this.activeStep / (this.stepsArray.length - 1)) * 100;
     }
 }

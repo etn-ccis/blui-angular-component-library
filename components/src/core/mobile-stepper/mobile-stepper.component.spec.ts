@@ -5,14 +5,14 @@ import { Component } from '@angular/core';
 
 @Component({
     template: `
-        <pxb-mobile-stepper [steps]="4" [activeIndex]="0"></pxb-mobile-stepper>
+        <pxb-mobile-stepper [steps]="4" [activeStep]="0"></pxb-mobile-stepper>
     `,
 })
 class TestMobileStepperDot {}
 
 @Component({
     template: `
-        <pxb-mobile-stepper [steps]="4" [activeIndex]="0" variant="progress"></pxb-mobile-stepper>
+        <pxb-mobile-stepper [steps]="4" [activeStep]="0" variant="progress"></pxb-mobile-stepper>
     `,
 })
 class TestMobileStepperProgress {}

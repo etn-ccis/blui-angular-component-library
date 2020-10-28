@@ -19,19 +19,19 @@ imports: [
 
 ```html
 // your-component.ts
-activeIndex = 0;
+activeStep = 0;
 steps = 4;
 ```
 
 ```html
 // your-component.html
-<pxb-mobile-stepper [steps]="steps" [activeIndex]="activeIndex">
+<pxb-mobile-stepper [steps]="steps" [activeStep]="activeStep">
     <button pxb-back-button mat-stroked-button color="primary" 
-        [disabled]="activeIndex === 0" 
-        (click)="activeIndex = activeIndex - 1;">Back</button>
+        [disabled]="activeStep === 0" 
+        (click)="activeStep = activeStep - 1;">Back</button>
     <button pxb-next-button mat-flat-button color="primary" 
-        [disabled]="activeIndex === steps - 1" 
-        (click)="activeIndex = activeIndex + 1;">Next</button>
+        [disabled]="activeStep === steps - 1" 
+        (click)="activeStep = activeStep + 1;">Next</button>
 </pxb-mobile-stepper>
 ```
 
@@ -43,7 +43,7 @@ Parent element (`<pxb-mobile-stepper`) attributes:
 
 | @Input       | Description                                    | Type                      | Required | Default |
 | ------------ | ---------------------------------------------- | ------------------------- | -------- | ------- |
-| activeIndex  | The index of the active step                   | `number`                  | yes      |         |
+| activeStep  | The index of the active step                   | `number`                  | yes      |         |
 | steps        | How many steps the to display                  | `number`                  | yes      |         |
 | variant      | Which type of indicator to use                 | `dots | text | progress ` | no       | `dots`  |
 

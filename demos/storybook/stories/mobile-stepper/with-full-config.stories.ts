@@ -14,24 +14,24 @@ export const withFullConfig = (): any => ({
     ],
     template: ` 
      <div>
-         <div class="step-content">Step #{{activeIndex + 1}}</div>
+         <div class="step-content">Step #{{activeStep + 1}}</div>
          <mat-divider></mat-divider>
          <pxb-mobile-stepper [variant]="variant" [steps]="steps" 
-            [activeIndex]="activeIndex" 
+            [activeStep]="activeStep" 
             [style.width.px]="width">
             <button pxb-back-button mat-stroked-button color="primary" 
                 [style.visibility]="showBackButton ? 'visible' : 'hidden' "
-                [disabled]="activeIndex === 0" 
-                (click)="activeIndex = activeIndex - 1; goBack();">Back</button>
+                [disabled]="activeStep === 0" 
+                (click)="activeStep = activeStep - 1; goBack();">Back</button>
             <button pxb-next-button mat-flat-button color="primary" 
                 [style.visibility]="showNextButton ? 'visible' : 'hidden' "
-                [disabled]="activeIndex === steps - 1" 
-                (click)="activeIndex = activeIndex + 1; goNext();"> Next</button>
+                [disabled]="activeStep === steps - 1" 
+                (click)="activeStep = activeStep + 1; goNext();"> Next</button>
          </pxb-mobile-stepper>
      </div>
     `,
     props: {
-        activeIndex: 0,
+        activeStep: 0,
         variant: select('variant', ['dots', 'text', 'progress'], 'dots'),
         steps: number('steps', 4, { range: true, min: 2, max: 6, step: 1 }),
         width: number('Container Width', 300, { range: true, min: 250, max: 400, step: 10 }),
