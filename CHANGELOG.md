@@ -4,7 +4,7 @@
 
 -   Migrate to Angular 10
 -   Enhance `<pxb-empty-state>` to allow ng-content as `title` or `description`.
--   Add `isVisible` prop to the `<pxb-drawer-nav-item>`.
+-   Add `hidden` prop to the `<pxb-drawer-nav-item>`.
 
 ## v3.0.1
 
