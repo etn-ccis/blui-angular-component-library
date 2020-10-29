@@ -95,7 +95,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 <div class="pxb-drawer-nav-item-rail-container" *ngIf="isRail()">
                     <div
                         (click)="selectItem()"
-                        class="pxb-drawer-nav-item-rail square"
+                        class="pxb-drawer-nav-item-rail"
                         [matTooltip]="title"
                         [matTooltipDisabled]="!isRailCondensed()"
                         matTooltipPosition="right"
@@ -104,7 +104,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                         <div class="pxb-drawer-nav-item-rail-text">{{ title }}</div>
                     </div>
                     <mat-divider *ngIf="divider"></mat-divider>
-                </div>
+                </div> 
             </div>
             <!-- Nested Nav Items -->
             <mat-accordion displayMode="flat" class="pxb-drawer-nested-nav-item" *ngIf="!isRail()">

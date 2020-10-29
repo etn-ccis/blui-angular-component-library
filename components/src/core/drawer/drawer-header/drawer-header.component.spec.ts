@@ -89,10 +89,10 @@ describe('DrawerHeaderComponent', () => {
     });
 
     it('should enforce class naming conventions', () => {
-        component.title = 'test title';
-        component.subtitle = 'test subtitle';
-        fixture.detectChanges();
+        const customFixture = TestBed.createComponent(TestDrawerHeader);
+        customFixture.detectChanges();
         const classList = [
+            '.pxb-drawer-header',
             '.pxb-drawer-header-content',
             '.pxb-drawer-header-background',
             '.pxb-drawer-header-content',
@@ -102,7 +102,7 @@ describe('DrawerHeaderComponent', () => {
             '.pxb-drawer-header-subtitle',
         ];
         for (const className of classList) {
-            count(fixture, className);
+            count(customFixture, className);
         }
     });
 });
