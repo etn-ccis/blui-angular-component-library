@@ -58,17 +58,14 @@ describe('DrawerNavItemComponent', () => {
             '.pxb-drawer-nav-item-active-square',
             '.pxb-drawer-nav-item-active',
             '.pxb-drawer-nav-item-compact',
-            '.pxb-drawer-nav-item-active-highlight'
+            '.pxb-drawer-nav-item-active-highlight',
         ];
         for (const className of classList) {
             count(fixture, className);
         }
         spyOn(component, 'isRail').and.returnValue(true);
         fixture.detectChanges();
-        classList = [
-            '.pxb-drawer-nav-item-rail',
-            '.pxb-drawer-nav-item-rail-text'
-        ];
+        classList = ['.pxb-drawer-nav-item-rail', '.pxb-drawer-nav-item-rail-text'];
         for (const className of classList) {
             count(fixture, className);
         }
