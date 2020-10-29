@@ -66,7 +66,7 @@ export class DrawerService {
     drawerSelectionChanges(): Observable<boolean> {
         return this.drawerSelectObs;
     }
-    
+
     emitChangeActiveItemEvent(): void {
         this.drawerActiveItemChangeObs.next();
     }

@@ -5,11 +5,11 @@ import {
     ElementRef,
     EventEmitter,
     Input,
-    Output, SimpleChanges,
+    Output,
+    SimpleChanges,
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
-import { MatRipple } from '@angular/material/core';
 import { DrawerService } from '../../service/drawer.service';
 import { StateListener } from '../../state-listener.component';
 import { isEmptyView } from '../../../../utils/utils';
@@ -39,15 +39,21 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
     template: `
         <ng-container *ngIf="!hidden">
             <ng-template #navIcon><ng-content select="[pxb-icon]"></ng-content></ng-template>
-            <div class="pxb-drawer-nav-item-content" 
-                 #navItem
-                 matRipple
-                 [class.pxb-drawer-nav-item-active]="selected"
-                 [class.pxb-drawer-nav-item-compact]="compact">
+            <div
+                class="pxb-drawer-nav-item-content"
+                #navItem
+                matRipple
+                [class.pxb-drawer-nav-item-active]="selected"
+                [class.pxb-drawer-nav-item-compact]="compact"
+            >
                 <div
                     [class.pxb-drawer-nav-item-active-highlight]="selected"
-                    [class.pxb-drawer-nav-item-active-round]="activeItemBackgroundShape === 'round' && isOpen() && !isRail()"
-                    [class.pxb-drawer-nav-item-active-square]="activeItemBackgroundShape === 'square' || !isOpen() || isRail()"
+                    [class.pxb-drawer-nav-item-active-round]="
+                        activeItemBackgroundShape === 'round' && isOpen() && !isRail()
+                    "
+                    [class.pxb-drawer-nav-item-active-square]="
+                        activeItemBackgroundShape === 'square' || !isOpen() || isRail()
+                    "
                 ></div>
                 <pxb-info-list-item
                     *ngIf="!isRail()"

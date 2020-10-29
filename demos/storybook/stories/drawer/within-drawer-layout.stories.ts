@@ -1,4 +1,4 @@
-import {boolean, number, select} from '@storybook/addon-knobs';
+import { boolean, number, select } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
 import { nestedNavGroup } from './with-nested-nav-items.stories';
 import { DrawerNavItem } from '@pxblue/angular-components';

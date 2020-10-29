@@ -31,15 +31,15 @@ pxb-drawer-nav-item {
     }
 }
 
-
 .pxb-drawer-nav-item-content {
     overflow: hidden;
     position: relative;
     user-select: none;
 
     &.pxb-drawer-nav-item-compact .pxb-info-list-item-content {
-        &.pxb-info-list-item-dense, .mat-list-item-content {
-            height: 40px!important;
+        &.pxb-info-list-item-dense,
+        .mat-list-item-content {
+            height: 40px !important;
         }
     }
 
@@ -56,7 +56,8 @@ pxb-drawer-nav-item {
     .pxb-info-list-item .mat-list-item.pxb-info-list-item-content .mat-list-text .pxb-info-list-item-title-wrapper {
         font-weight: 400; // Default font-weight for nav items.
     }
-    &.pxb-drawer-nav-item-active, &.pxb-drawer-nav-item-active-tree {
+    &.pxb-drawer-nav-item-active,
+    &.pxb-drawer-nav-item-active-tree {
         .pxb-info-list-item .mat-list-item.pxb-info-list-item-content .mat-list-text .pxb-info-list-item-title-wrapper {
             font-weight: 600; // Default font-weight for nav items.
         }

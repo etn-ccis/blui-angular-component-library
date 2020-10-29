@@ -7,8 +7,10 @@ import { StateListener } from '../state-listener.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="pxb-drawer-footer-content" 
-             [style.visibility]="hideOnCollapse ? (isOpen() ? 'visible' : 'hidden') : 'visible'">
+        <div
+            class="pxb-drawer-footer-content"
+            [style.visibility]="hideOnCollapse ? (isOpen() ? 'visible' : 'hidden') : 'visible'"
+        >
             <mat-divider *ngIf="divider"></mat-divider>
             <ng-content></ng-content>
         </div>
