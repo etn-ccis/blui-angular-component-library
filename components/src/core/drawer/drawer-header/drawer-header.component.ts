@@ -42,6 +42,7 @@ import { isEmptyView } from '../../../utils/utils';
 export class DrawerHeaderComponent extends StateListener {
     @Input() subtitle: string;
     @Input() title: string;
+    @Input() divider = false;
     @ViewChild('icon', { static: true }) iconEl: ElementRef;
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);

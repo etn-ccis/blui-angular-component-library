@@ -106,10 +106,7 @@ export const navItems2 = [
 
 export const withFullConfig = (): any => ({
     styles: [
-        `::ng-deep .pxb-drawer .pxb-drawer-header {
-          background-color: ${Colors.orange[500]};
-       }
-       ::ng-deep .show-header-image .pxb-drawer-header-background {
+        `::ng-deep .show-header-image .pxb-drawer-header-background {
           background-image: url(${headerImage});
           width: 360px;
         }
@@ -117,7 +114,7 @@ export const withFullConfig = (): any => ({
     ],
     template: `
         <pxb-drawer [open]="state.open" [class.show-header-image]="showHeaderImage">
-           <pxb-drawer-header [title]="title" [subtitle]="subtitle">
+           <pxb-drawer-header [title]="title" [subtitle]="subtitle" [divider]="showHeaderDivider">
              <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                <mat-icon>menu</mat-icon>
              </button>
@@ -173,6 +170,7 @@ export const withFullConfig = (): any => ({
         title: text('title', 'PX Blue Drawer', header),
         subtitle: text('subtitle', 'with full config', header),
         showHeaderImage: boolean('Show Background Image', true, header),
+        showHeaderDivider: boolean('divider', true, header),
         groupTitle1: text('NavGroup 1 title', 'Group 1', navGroup),
         groupTitle2: text('NavGroup 2 title', 'Group 2', navGroup),
         groupDivider: boolean('divider', true, navGroup),
