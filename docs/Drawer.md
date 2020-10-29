@@ -83,10 +83,10 @@ Parent element (`<pxb-drawer-layout>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input  | Description             | Type                                                 | Required | Default |
-| ------- | ----------------------- | ---------------------------------------------------- | -------- | ------- |
-| variant | Sets the drawer variant | `'permanent' | 'persistent' | 'temporary' | 'rail'`  | yes      |         |
-| width   | Drawer pixel width      | `number`                                             | no       | 350     |
+| @Input  | Description                 | Type                                                 | Required | Default |
+| ------- | --------------------------- | ---------------------------------------------------- | -------- | ------- |
+| variant | Sets the drawer variant     | `'permanent' | 'persistent' | 'temporary' | 'rail'`  | yes      |         |
+| width   | Drawer pixel width          | `number`                                             | no       | 350     |
 
 </div>
 
@@ -144,10 +144,11 @@ Parent element (`<pxb-drawer-header>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input   | Description                         | Type     | Required | Default |
-| -------- | ----------------------------------- | -------- | -------- | ------- |
-| subtitle | The text to show on the second line | `string` | no       |         |
-| title    | The text to show on the first line  | `string` | no       |         |
+| @Input   | Description                         | Type      | Required | Default |
+| -------- | ----------------------------------- | --------- | -------- | ------- |
+| divider  | Show a divider below footer         | `boolean` | no       | false   |
+| subtitle | The text to show on the second line | `string`  | no       |         |
+| title    | The text to show on the first line  | `string`  | no       |         |
 
 </div>
 
