@@ -188,11 +188,11 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     }
 
     manageActiveItemTreeHighlight(): void {
-        this.navItemEl.nativeElement.classList.remove('pxb-drawer-nav-item-active-tree');
-
         if (!this.navItemEl) {
             return;
         }
+
+        this.navItemEl.nativeElement.classList.remove('pxb-drawer-nav-item-active-tree');
 
         // Add tree highlighting for selected items
         if (this.selected && this.depth > 1) {
