@@ -167,15 +167,17 @@ Each PX Blue component has classes which can be used to override component style
 
 <div style="overflow: auto;">
 
-| Name                                    | Description                              |
-| --------------------------------------- | ---------------------------------------- |
-| pxb-drawer-header                       | Styles applied to the root element       |
-| pxb-drawer-header-background            | Styles applied to the header background  |
-| pxb-drawer-header-icon-wrapper          | Styles applied to the header icon        |
-| pxb-drawer-header-title-wrapper         | Styles applied to title/subtitle wrapper |
-| pxb-drawer-header-title                 | Styles applied to the title              |
-| pxb-drawer-header-subtitle              | Styles applied to the subtitle           |
-| pxb-drawer-header-title-content-wrapper | Styles applied to custom titleContent    |
+| Name                                    | Description                               |
+| --------------------------------------- | ----------------------------------------- |
+| pxb-drawer-header                       | Styles applied to the tag                 |
+| pxb-drawer-header-content               | Styles applied to the root element        |
+| pxb-drawer-header-no-icon               | Styles applied when no header icon exists |
+| pxb-drawer-header-background            | Styles applied to the header background   |
+| pxb-drawer-header-icon-wrapper          | Styles applied to the header icon         |
+| pxb-drawer-header-title-wrapper         | Styles applied to title/subtitle wrapper  |
+| pxb-drawer-header-title                 | Styles applied to the title               |
+| pxb-drawer-header-subtitle              | Styles applied to the subtitle            |
+| pxb-drawer-header-title-content-wrapper | Styles applied to custom titleContent     |
 
 </div>
 
@@ -210,9 +212,10 @@ Each PX Blue component has classes which can be used to override component style
 
 <div style="overflow: auto;">
 
-| Name                        | Description                                       |
-| --------------------------- | ------------------------------------------------- |
-| pxb-drawer-subheader        | Styles applied to the root element                |
+| Name                          | Description                                       |
+| ----------------------------- | ------------------------------------------------- |
+| pxb-drawer-subheader          | Styles applied to the tag                         |
+| pxb-drawer-subheader-content  | Styles applied to the root element                |
 
 </div>
 
@@ -234,10 +237,11 @@ Each PX Blue component has classes which can be used to override component style
 
 <div style="overflow: auto;">
 
-| Name                   | Description                                  |
-| ---------------------- | -------------------------------------------- |
-| pxb-drawer-body        | Styles applied to the root element           |
-| pxb-drawer-body-closed | Styles applied to body when drawer is closed |
+| Name                     | Description                                  |
+| ------------------------ | -------------------------------------------- |
+| pxb-drawer-body          | Styles applied to the tag                    |
+| pxb-drawer-body-content  | Styles applied to the root element           |
+| pxb-drawer-body-closed   | Styles applied to body when drawer is closed |
 
 </div>
 
@@ -283,10 +287,11 @@ Each PX Blue component has classes which can be used to override component style
 
 <div style="overflow: auto;">
 
-| Name                       | Description                           |
-| -------------------------- | ------------------------------------- |
-| pxb-drawer-nav-group       | Styles applied to the root element    |
-| pxb-drawer-nav-group-title | Styles applied to the nav group title |
+| Name                          | Description                           |
+| ----------------------------- | ------------------------------------- |
+| pxb-drawer-nav-group          | Styles applied to the tag             |
+| pxb-drawer-nav-group-content  | Styles applied to the root element    |
+| pxb-drawer-nav-group-title    | Styles applied to the nav group title |
 
 </div>
 
@@ -346,19 +351,21 @@ Each PX Blue component has classes which can be used to override component style
 
 | Name                                        | Description                                  |
 | ------------------------------------------- | -------------------------------------------- |
-| pxb-drawer-nav-item                         | Styles applied to the root element           |
+| pxb-drawer-nav-item                         | Styles applied to the tag                    |
+| pxb-drawer-nav-item-content                 | Styles applied to the root element           |
 | pxb-drawer-nav-item-active                  | Style applied when the nav item is selected  |
 | pxb-drawer-nav-item-active-highlight        | Styles applied to 'selected' nav item        |
-| pxb-drawer-nav-item-active-highlight.round  | Styles applied to round 'selected' nav item  |
-| pxb-drawer-nav-item-active-highlight.square | Styles applied to square 'selected' nav item |
+| pxb-drawer-nav-item-active-round            | Styles applied to round 'selected' nav item  |
+| pxb-drawer-nav-item-active-square           | Styles applied to square 'selected' nav item |
+| pxb-drawer-nav-item-compact                 | Class used to toggle narrow nav items        |
 | pxb-drawer-nav-item-expand-icon             | Styles applied to expand icon                |
-| pxb-drawer-nested-nav-item                  | Styles applied to nested nav items           |
 | pxb-drawer-nav-item-depth-1                 | Styles applied to top-level nav items        |
 | pxb-drawer-nav-item-depth-2                 | Styles applied to nested nav items           |
 | pxb-drawer-nav-item-depth-3                 | Styles applied to nav items 3 levels deep    |
 | pxb-drawer-nav-item-rail                    | Styles applied to navigation rail items      |
 | pxb-drawer-nav-item-rail-text               | Styles applied to navigation rail text       |
 | pxb-drawer-nav-item-rail-container          | Wrapper around the navigation rail content   |
+| pxb-drawer-nested-nav-item                  | Styles applied to nested nav items           |
 
 </div>
 
@@ -393,8 +400,9 @@ Each PX Blue component has classes which can be used to override component style
 
 <div style="overflow: auto;">
 
-| Name                     | Description                                    |
-| ------------------------ | ---------------------------------------------- |
-| pxb-drawer-footer        | Styles applied to the root element             |
+| Name                       | Description                                    |
+| -------------------------- | ---------------------------------------------- |
+| pxb-drawer-footer          | Styles applied to the tag                      |
+| pxb-drawer-footer-content  | Styles applied to the root element             |
 
 </div>

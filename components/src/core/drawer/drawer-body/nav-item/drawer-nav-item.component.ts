@@ -46,8 +46,8 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                  [class.pxb-drawer-nav-item-compact]="compact">
                 <div
                     [class.pxb-drawer-nav-item-active-highlight]="selected"
-                    [class.pxb-drawer-nav-item-round]="activeItemBackgroundShape === 'round' && isOpen() && !isRail()"
-                    [class.pxb-drawer-nav-item-square]="activeItemBackgroundShape === 'square' || !isOpen() || isRail()"
+                    [class.pxb-drawer-nav-item-active-round]="activeItemBackgroundShape === 'round' && isOpen() && !isRail()"
+                    [class.pxb-drawer-nav-item-active-square]="activeItemBackgroundShape === 'square' || !isOpen() || isRail()"
                 ></div>
                 <pxb-info-list-item
                     *ngIf="!isRail()"
