@@ -39,6 +39,7 @@ export const withNavRail = (): any => ({
                   <pxb-drawer-nav-group>
                        <pxb-drawer-nav-item *ngFor="let navItem of navItems"
                         [title]="navItem.title"
+                        [divider]="divider"
                         [selected]="state.selected === navItem.title"
                         (select)="navItem.onSelect(); setActive(navItem.title, state);">
                         <mat-icon pxb-icon>{{ navItem.icon }}</mat-icon>
@@ -57,5 +58,6 @@ export const withNavRail = (): any => ({
         navItems: navItems,
         headerImg: headerImg,
         condensed: boolean('condensed', false),
+        divider: boolean('divider', false)
     },
 });
