@@ -160,7 +160,7 @@ export const withFullConfig = (): any => ({
                 <pxb-spacer *ngIf="first && spacer"></pxb-spacer>
               </ng-container>
            </pxb-drawer-body>
-           <pxb-drawer-footer *ngIf="showFooter" [divider]="footerDivider">
+           <pxb-drawer-footer *ngIf="showFooter" [divider]="footerDivider" [hideOnCollapse]="hideOnCollapse">
              <img [src]="footerImage" width="170" style="align-self: center; padding: 16px" />
            </pxb-drawer-footer>
         </pxb-drawer>
@@ -209,6 +209,7 @@ export const withFullConfig = (): any => ({
         activeItemBackgroundShape: select('activeItemBackgroundShape', ['round', 'square'], 'square', navItem),
         showFooter: boolean('Show Footer', true, footer),
         footerDivider: boolean('divider', true, footer),
+        hideOnCollapse: boolean('hideOnCollapse', true, footer),
         setActive: (item: DrawerNavItem, state: { selected: string }): void => {
             if (!item.items) {
                 // Only selects items that do not have nested nav items.
