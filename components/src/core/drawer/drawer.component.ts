@@ -18,6 +18,7 @@ import { Subscription } from 'rxjs';
     template: `
         <div
             class="pxb-drawer-content"
+            [class.pxb-drawer-side-border]="sideBorder"
             [class.pxb-drawer-condensed-rail]="condensed"
             [class.pxb-drawer-collapse]="!isOpen()"
             [class.pxb-drawer-temp-variant]="isTemporaryVariant()"
@@ -39,6 +40,7 @@ import { Subscription } from 'rxjs';
 export class DrawerComponent extends StateListener implements OnInit, OnChanges {
     @Input() open: boolean;
     @Input() condensed = false;
+    @Input() sideBorder = false;
 
     hoverDelay: any;
     drawerSelectionListener: Subscription;

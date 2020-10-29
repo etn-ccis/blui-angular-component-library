@@ -1,4 +1,4 @@
-import { number, select } from '@storybook/addon-knobs';
+import {boolean, number, select} from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
 import { nestedNavGroup } from './with-nested-nav-items.stories';
 import { DrawerNavItem } from '@pxblue/angular-components';
@@ -16,7 +16,7 @@ export const withinDrawerLayout = (): any => ({
     ],
     template: `
         <pxb-drawer-layout [dir]="direction()" [width]="width" [variant]="variant" (backdropClick)="state.open = false">
-            <pxb-drawer pxb-drawer [open]="state.open">
+            <pxb-drawer pxb-drawer [open]="state.open" [sideBorder]="sideBorder">
                <pxb-drawer-header *ngIf="variant !== 'rail'" title="PX Blue Drawer" subtitle="in a PX Blue Drawer Layout">
                  <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                    <mat-icon>menu</mat-icon>
@@ -50,7 +50,7 @@ export const withinDrawerLayout = (): any => ({
             </pxb-drawer>
             <div pxb-content>
                 <mat-toolbar [style.backgroundColor]="blue" [style.color]="white" 
-                    style="border-left: 1px solid white; padding: 0 24px">
+                    style="padding: 0 24px">
                     <button *ngIf="variant === 'temporary'" mat-icon-button 
                         [style.marginRight.px]="direction() === 'rtl' ? -16 : 16"
                         [style.marginLeft.px]="direction() === 'rtl' ? 16 : -16"
@@ -80,6 +80,7 @@ export const withinDrawerLayout = (): any => ({
         toggleDrawer: (state): void => {
             state.open = !state.open;
         },
+        sideBorder: boolean('sideBorder', true),
         setActive: (item: DrawerNavItem, state: { selected: string }, variant: string): void => {
             if (variant === 'rail') {
                 state.selected = item.title;

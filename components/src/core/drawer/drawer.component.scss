@@ -10,7 +10,9 @@ $transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 /* RTL */
 [dir='rtl'] .pxb-drawer-content {
     border-right: 0;
-    border-left: 1px solid rgba(0, 0, 0, 0.12);
+    &.pxb-drawer-side-border {
+        border-left: 1px solid rgba(0, 0, 0, 0.12);
+    }
     &.temp-variant {
         border-left: 0;
     }
@@ -23,7 +25,9 @@ $transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     width: $width-open;
     transition: $transition;
     box-sizing: border-box;
-    border-right: 1px solid rgba(0, 0, 0, 0.12);
+    &.pxb-drawer-side-border {
+        border-right: 1px solid rgba(0, 0, 0, 0.12);
+    }
     &.pxb-drawer-temp-variant {
         border-right: 0;
     }

@@ -7,16 +7,15 @@
     &.pxb-drawer-header-no-icon .pxb-drawer-header-icon-wrapper {
         margin-right: 0;
         margin-left: 0;
+        margin-left: 0;
     }
 }
 
-$height: 64px;
 .pxb-drawer-header-content {
     width: 100%;
     align-items: flex-start;
     box-sizing: border-box;
     position: relative;
-    height: $height;
     overflow: hidden;
     display: flex;
 

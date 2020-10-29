@@ -33,7 +33,6 @@ import { isEmptyView } from '../../../utils/utils';
                 <ng-content select="[pxb-title-content]"></ng-content>
             </div>
         </mat-toolbar>
-        <mat-divider></mat-divider>
     `,
     styleUrls: ['./drawer-header.component.scss'],
     host: {
