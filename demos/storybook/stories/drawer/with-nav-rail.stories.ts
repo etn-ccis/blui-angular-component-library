@@ -58,6 +58,6 @@ export const withNavRail = (): any => ({
         navItems: navItems,
         headerImg: headerImg,
         condensed: boolean('condensed', false),
-        divider: boolean('divider', false)
+        divider: boolean('divider', false),
     },
 });
