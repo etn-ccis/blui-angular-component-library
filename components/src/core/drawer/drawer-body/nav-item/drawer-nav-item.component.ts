@@ -87,7 +87,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                         <mat-icon
                             *ngIf="isEmpty(collapseIconEl) && isEmpty(expandIconEl)"
                             class="pxb-drawer-nav-item-expand-icon"
-                            [class.expanded]="expanded"
+                            [class.pxb-drawer-nav-item-expanded]="expanded"
                             >{{ depth > 1 ? 'arrow_drop_down' : 'expand_more' }}</mat-icon
                         >
                     </div>
