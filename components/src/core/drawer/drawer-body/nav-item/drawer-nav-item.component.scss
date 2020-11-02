@@ -59,7 +59,7 @@ pxb-drawer-nav-item {
     &.pxb-drawer-nav-item-active,
     &.pxb-drawer-nav-item-active-tree {
         .pxb-info-list-item .mat-list-item.pxb-info-list-item-content .mat-list-text .pxb-info-list-item-title-wrapper {
-            font-weight: 600; // Default font-weight for nav items.
+            font-weight: 600; // Default font-weight for active nav item parents.
         }
     }
 
