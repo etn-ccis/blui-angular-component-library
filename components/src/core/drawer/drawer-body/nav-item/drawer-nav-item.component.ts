@@ -131,6 +131,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @Input() title: string;
     @Input() hidden = false;
     @Input() compact = false;
+    @Input() enableSelectionHierarchy = false;
 
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
 
@@ -193,6 +194,10 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         }
 
         this.navItemEl.nativeElement.classList.remove('pxb-drawer-nav-item-active-tree');
+
+        if (!this.enableSelectionHierarchy) {
+            return;
+        }
 
         // Add tree highlighting for selected items
         if (this.selected && this.depth > 1) {

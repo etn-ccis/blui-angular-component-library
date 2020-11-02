@@ -130,6 +130,7 @@ export const withFullConfig = (): any => ({
                       [statusColor]="navItem.statusColor"
                       [hidePadding]="hidePadding"
                       [divider]="itemDivider"
+                      [enableSelectionHierarchy]="enableSelectionHierarchy"
                       [activeItemBackgroundShape]="activeItemBackgroundShape"
                       [compact]="compact"
                       (select)="navItem.onSelect(); setActive(navItem, state);">
@@ -141,12 +142,14 @@ export const withFullConfig = (): any => ({
                            [hidePadding]="hidePaddingNested"
                            [selected]="state.selected === nestedItem.title"
                            [activeItemBackgroundShape]="activeItemBackgroundShape"
+                           [enableSelectionHierarchy]="enableSelectionHierarchy"
                            [compact]="compact"
                            (select)="nestedItem.onSelect(); setActive(nestedItem, state);">       
                             <pxb-drawer-nav-item *ngFor="let deep of nestedItem.items"
                                [title]="deep.title"
                                [hidePadding]="hidePaddingNested"
                                [selected]="state.selected === deep.title"
+                               [enableSelectionHierarchy]="enableSelectionHierarchy"
                                [activeItemBackgroundShape]="activeItemBackgroundShape"
                                [compact]="compact"
                                (select)="deep.onSelect(); setActive(deep, state);">       
@@ -197,6 +200,7 @@ export const withFullConfig = (): any => ({
             },
             navGroup
         ),
+        enableSelectionHierarchy: boolean('enableSelectionHierarchy', false, navItem),
         chevron: boolean('chevron', false, navItem),
         hidePadding: boolean('hidePadding', true, navItem),
         hidePaddingNested: boolean('hidePadding (nested)', false, navItem),
