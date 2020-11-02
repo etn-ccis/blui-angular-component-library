@@ -19,7 +19,7 @@ export const withSubheader = (): any => ({
                <mat-icon>menu</mat-icon>
              </button>
           </pxb-drawer-header>
-           <pxb-drawer-subheader [divider]="divider" [hideOnCollapse]="hideOnCollapse">
+           <pxb-drawer-subheader [divider]="divider" [hideContentOnCollapse]="hideContentOnCollapse">
               <mat-form-field *ngIf="content === 'Filter'"
                 style="width: 100%; padding: 8px 16px; box-sizing: border-box">
                 <mat-label>Search</mat-label>
@@ -48,7 +48,7 @@ export const withSubheader = (): any => ({
         colors: Colors,
         navItems: navItems,
         divider: boolean('divider', true),
-        hideOnCollapse: boolean('hideOnCollapse', true),
+        hideContentOnCollapse: boolean('hideContentOnCollapse', true),
         content: optionsKnob('Subheader Content', valuesObj, 'Filter', optionsObj),
     },
 });

@@ -201,10 +201,10 @@ Parent element (`<pxb-drawer-subheader>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input          | Description                     | Type      | Required | Default |
-| --------------- | ------------------------------- | --------- | -------- | ------- |
-| divider         | Show a divider below subheader  | `boolean` | no       | true    |
-| hideOnCollapse  | Hide footer content when closed | `boolean` | no       | true    |
+| @Input                    | Description                     | Type      | Required | Default |
+| ------------------------- | ------------------------------- | --------- | -------- | ------- |
+| divider                   | Show a divider below subheader  | `boolean` | no       | true    |
+| hideContentOnCollapse     | Hide footer content when closed | `boolean` | no       | true    |
 
 </div>
 
@@ -389,10 +389,10 @@ Parent element (`<pxb-drawer-footer>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input         | Description                     | Type      | Required | Default |
-| -------------- | ------------------------------- | --------- | -------- | ------- |
-| divider        | Show a divider above footer     | `boolean` | no       | true    |
-| hideOnCollapse | Hide footer content when closed | `boolean` | no       | true    |
+| @Input                  | Description                     | Type      | Required | Default |
+| ----------------------- | ------------------------------- | --------- | -------- | ------- |
+| divider                 | Show a divider above footer     | `boolean` | no       | true    |
+| hideContentOnCollapse   | Hide footer content when closed | `boolean` | no       | true    |
 
 </div>
 

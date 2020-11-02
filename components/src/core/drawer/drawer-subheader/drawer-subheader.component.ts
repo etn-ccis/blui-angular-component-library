@@ -9,7 +9,7 @@ import { StateListener } from '../state-listener.component';
     template: `
         <div
             class="pxb-drawer-subheader-content"
-            [style.visibility]="hideOnCollapse ? (isOpen() ? 'visible' : 'hidden') : 'visible'"
+            [style.visibility]="hideContentOnCollapse ? (isOpen() ? 'visible' : 'hidden') : 'visible'"
         >
             <ng-content></ng-content>
         </div>
@@ -22,7 +22,7 @@ import { StateListener } from '../state-listener.component';
 })
 export class DrawerSubheaderComponent extends StateListener {
     @Input() divider = true;
-    @Input() hideOnCollapse = true;
+    @Input() hideContentOnCollapse = true;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
