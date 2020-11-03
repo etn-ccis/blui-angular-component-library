@@ -27,7 +27,7 @@ Parent element (`<pxb-drawer>`) attributes:
 | ---------- | -------------------------------------- | --------- | -------- | ------- |
 | condensed  | Skinny view for `rail` variant         | `boolean` | no       | false   |
 | open       | State for the drawer                   | `boolean` | yes      |         |
-| sideBorder | Toggle a side border                   | `boolean` | no       | false   |
+| sideBorder | Toggle a side border instead of shadow | `boolean` | no       | false   |
 
 > ** The `condensed` attribute won't have any effect on the `<pxb-drawer>` unless the `rail` variant is set on the `<pxb-drawer-layout>` component.  Each item in a navigation rail will be sized 72 x 72px.  When using a `condensed` rail, each item will be sized 56 x 56px.
 
@@ -310,7 +310,7 @@ Parent element (`<pxb-drawer-nav-item>`) attributes:
 | @input                    | Description                           | Type                 | Required | Default  |
 | ------------------------- | ------------------------------------- | -------------------- | -------- | -------- |
 | activeItemBackgroundShape | Sets the active item background shape | `'round' | 'square'` | no       | 'square' |
-| compact                   | Sets whether to use narrow nav items  | `boolean`            | no       | false    |
+| compact                   | Sets whether to use compact nav items  | `boolean`            | no       | false    |
 | chevron                   | Sets whether to show chevron          | `boolean`            | no       | false    |
 | divider                   | Sets whether to show divider          | `boolean`            | no       | false    |
 | expanded                  | Sets whether to show nested nav items | `boolean`            | no       | false    |
