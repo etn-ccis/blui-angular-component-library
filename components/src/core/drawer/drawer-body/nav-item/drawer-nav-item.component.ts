@@ -76,7 +76,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                     >
                         {{ title }}
                     </div>
-                    <div pxb-subtitle>{{ subtitle }}</div>
+                    <div pxb-subtitle *ngIf="!compact">{{ subtitle }}</div>
                     <div pxb-right-content *ngIf="hasChildren && isOpen()">
                         <div #expandIcon *ngIf="!expanded">
                             <ng-content select="[pxb-expand-icon]"></ng-content>
