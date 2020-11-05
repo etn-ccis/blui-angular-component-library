@@ -36,13 +36,16 @@ pxb-drawer-nav-item {
     position: relative;
     user-select: none;
 
-    &.pxb-drawer-nav-item-compact .pxb-info-list-item-content {
-        &.pxb-info-list-item-dense,
-        .mat-list-item-content {
-            height: 40px !important;
+    &.pxb-drawer-nav-item-compact {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        .pxb-info-list-item-content {
+            &.pxb-info-list-item-dense,
+            .mat-list-item-content {
+                height: 40px !important;
+            }
         }
     }
-
     .pxb-drawer-nav-item-depth-1 {
         padding-left: 0;
     }
