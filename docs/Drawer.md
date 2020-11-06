@@ -310,7 +310,6 @@ Parent element (`<pxb-drawer-nav-item>`) attributes:
 | @input                    | Description                           | Type                 | Required | Default  |
 | ------------------------- | ------------------------------------- | -------------------- | -------- | -------- |
 | activeItemBackgroundShape | Sets the active item background shape | `'round' | 'square'` | no       | 'square' |
-| compact                   | Sets whether to use compact nav items  | `boolean`            | no       | false    |
 | chevron                   | Sets whether to show chevron          | `boolean`            | no       | false    |
 | divider                   | Sets whether to show divider          | `boolean`            | no       | false    |
 | expanded                  | Sets whether to show nested nav items | `boolean`            | no       | false    |

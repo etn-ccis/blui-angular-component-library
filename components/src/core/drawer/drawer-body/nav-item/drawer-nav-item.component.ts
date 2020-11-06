@@ -44,7 +44,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 #navItem
                 matRipple
                 [class.pxb-drawer-nav-item-active]="selected"
-                [class.pxb-drawer-nav-item-compact]="compact"
+                [class.pxb-drawer-nav-item-compact]="false"
             >
                 <div
                     [class.pxb-drawer-nav-item-active-highlight]="selected"
@@ -76,7 +76,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                     >
                         {{ title }}
                     </div>
-                    <div pxb-subtitle *ngIf="!compact">{{ subtitle }}</div>
+                    <div pxb-subtitle>{{ subtitle }}</div>
                     <div pxb-right-content *ngIf="hasChildren && isOpen()">
                         <div #expandIcon *ngIf="!expanded">
                             <ng-content select="[pxb-expand-icon]"></ng-content>
@@ -130,7 +130,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @Input() subtitle: string;
     @Input() title: string;
     @Input() hidden = false;
-    @Input() compact = false;
+//    @Input() compact = false;
     @Input() enableSelectionHierarchy = false;
 
     @Output() select: EventEmitter<string> = new EventEmitter<string>();

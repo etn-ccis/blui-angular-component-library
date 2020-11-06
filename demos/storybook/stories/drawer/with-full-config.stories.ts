@@ -132,7 +132,6 @@ export const withFullConfig = (): any => ({
                       [divider]="itemDivider"
                       [enableSelectionHierarchy]="enableSelectionHierarchy"
                       [activeItemBackgroundShape]="activeItemBackgroundShape"
-                      [compact]="compact"
                       (select)="navItem.onSelect(); setActive(navItem, state);">
                         <mat-icon *ngIf="showNavItemIcon" pxb-icon>{{ navItem.icon }}</mat-icon>
                         <mat-icon *ngIf="customExpandIcon" pxb-expand-icon>add</mat-icon>
@@ -143,7 +142,6 @@ export const withFullConfig = (): any => ({
                            [selected]="state.selected === nestedItem.title"
                            [activeItemBackgroundShape]="activeItemBackgroundShape"
                            [enableSelectionHierarchy]="enableSelectionHierarchy"
-                           [compact]="compact"
                            (select)="nestedItem.onSelect(); setActive(nestedItem, state);">       
                             <pxb-drawer-nav-item *ngFor="let deep of nestedItem.items"
                                [title]="deep.title"
@@ -151,7 +149,6 @@ export const withFullConfig = (): any => ({
                                [selected]="state.selected === deep.title"
                                [enableSelectionHierarchy]="enableSelectionHierarchy"
                                [activeItemBackgroundShape]="activeItemBackgroundShape"
-                               [compact]="compact"
                                (select)="deep.onSelect(); setActive(deep, state);">       
                            </pxb-drawer-nav-item>                    
                         </pxb-drawer-nav-item>
@@ -206,7 +203,6 @@ export const withFullConfig = (): any => ({
         hidePaddingNested: boolean('hidePadding (nested)', false, navItem),
         itemDivider: boolean('divider', false, navItem),
         showNavItemIcon: boolean('Show Icon', true, navItem),
-        compact: boolean('compact', false, navItem),
         customExpandIcon: boolean('Custom Expand/Collapse Icons', false, navItem),
         activeItemBackgroundShape: select('activeItemBackgroundShape', ['round', 'square'], 'square', navItem),
         showFooter: boolean('Show Footer', true, footer),
