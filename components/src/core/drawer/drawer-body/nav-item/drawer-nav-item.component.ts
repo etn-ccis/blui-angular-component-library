@@ -130,7 +130,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @Input() subtitle: string;
     @Input() title: string;
     @Input() hidden = false;
-//    @Input() compact = false;
+    //    @Input() compact = false;
     @Input() enableSelectionHierarchy = false;
 
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
