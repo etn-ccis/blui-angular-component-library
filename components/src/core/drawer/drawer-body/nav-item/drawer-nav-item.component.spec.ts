@@ -46,7 +46,6 @@ describe('DrawerNavItemComponent', () => {
     it('should enforce class naming conventions', () => {
         component.hasChildren = true;
         component.selected = true;
-        component.compact = true;
         spyOn(component, 'isOpen').and.returnValue(true);
         spyOn(component, 'ngAfterContentInit').and.stub();
         spyOn(component, 'isEmpty').and.returnValue(true);
@@ -57,7 +56,6 @@ describe('DrawerNavItemComponent', () => {
             '.pxb-drawer-nested-nav-item',
             '.pxb-drawer-nav-item-active-square',
             '.pxb-drawer-nav-item-active',
-            '.pxb-drawer-nav-item-compact',
             '.pxb-drawer-nav-item-active-highlight',
         ];
         for (const className of classList) {
