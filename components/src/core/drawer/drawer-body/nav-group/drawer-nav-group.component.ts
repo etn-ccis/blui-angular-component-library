@@ -43,7 +43,11 @@ export type DrawerNavGroup = {
     ],
     template: `
         <div class="pxb-drawer-nav-group-content">
-            <div *ngIf="title" class="pxb-drawer-nav-group-title" [class.pxb-drawer-nav-group-title-closed]="!isOpen()">
+            <div
+                *ngIf="title"
+                class="pxb-drawer-nav-group-title mat-overline"
+                [class.pxb-drawer-nav-group-title-closed]="!isOpen()"
+            >
                 {{ title }}
             </div>
             <ng-content select="pxb-title-content"></ng-content>

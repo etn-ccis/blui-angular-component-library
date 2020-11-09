@@ -45,15 +45,25 @@ describe('DrawerNavItemComponent', () => {
 
     it('should enforce class naming conventions', () => {
         component.hasChildren = true;
+        component.selected = true;
         spyOn(component, 'isOpen').and.returnValue(true);
         spyOn(component, 'ngAfterContentInit').and.stub();
         spyOn(component, 'isEmpty').and.returnValue(true);
         fixture.detectChanges();
-        const classList = [
+        let classList = [
             '.pxb-drawer-nav-item-content',
             //       '.pxb-drawer-nav-item-expand-icon', // TODO: Fix me.
             '.pxb-drawer-nested-nav-item',
+            '.pxb-drawer-nav-item-active-square',
+            '.pxb-drawer-nav-item-active',
+            '.pxb-drawer-nav-item-active-highlight',
         ];
+        for (const className of classList) {
+            count(fixture, className);
+        }
+        spyOn(component, 'isRail').and.returnValue(true);
+        fixture.detectChanges();
+        classList = ['.pxb-drawer-nav-item-rail', '.pxb-drawer-nav-item-rail-text'];
         for (const className of classList) {
             count(fixture, className);
         }

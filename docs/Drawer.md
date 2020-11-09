@@ -23,10 +23,11 @@ Parent element (`<pxb-drawer>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input    | Description                            | Type      | Required | Default |
-| --------- | -------------------------------------- | --------- | -------- | ------- |
-| open      | State for the drawer                   | `boolean` | yes      |         |
-| condensed | Skinny view for `rail` variant         | `boolean` | no       | false   |
+| @Input     | Description                            | Type      | Required | Default |
+| ---------- | -------------------------------------- | --------- | -------- | ------- |
+| condensed  | Skinny view for `rail` variant         | `boolean` | no       | false   |
+| open       | State for the drawer                   | `boolean` | yes      |         |
+| sideBorder | Toggle a side border instead of shadow | `boolean` | no       | false   |
 
 > ** The `condensed` attribute won't have any effect on the `<pxb-drawer>` unless the `rail` variant is set on the `<pxb-drawer-layout>` component.  Each item in a navigation rail will be sized 72 x 72px.  When using a `condensed` rail, each item will be sized 56 x 56px.
 
@@ -52,11 +53,14 @@ Each PX Blue component has classes which can be used to override component style
 
 <div style="overflow: auto;">
 
-| Name                  | Description                                  |
-| --------------------- | -------------------------------------------- |
-| pxb-drawer            | Styles applied to the tag                    |
-| pxb-drawer-content    | Styles applied to the root element           |
-| pxb-drawer-hover-area | Hoverable area that temporarily opens drawer |
+| Name                        | Description                                               |
+| --------------------------- | --------------------------------------------------------- |
+| pxb-drawer                  | Styles applied to the tag                                 |
+| pxb-drawer-content          | Styles applied to the root element                        |
+| pxb-drawer-hover-area       | Hoverable area that temporarily opens drawer              |
+| pxb-drawer-collapse         | Styles applied when the drawer is collapsed               |
+| pxb-drawer-temp-variant     | Styles applied to `temporary` drawer variant              |
+| pxb-drawer-condensed-rail   | Styles applied to `rail` variant with `condensed` setting |
 
 </div>
 
@@ -79,10 +83,10 @@ Parent element (`<pxb-drawer-layout>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input  | Description             | Type                                                 | Required | Default |
-| ------- | ----------------------- | ---------------------------------------------------- | -------- | ------- |
-| variant | Sets the drawer variant | `'permanent' | 'persistent' | 'temporary' | 'rail'`  | yes      |         |
-| width   | Drawer pixel width      | `number`                                             | no       | 350     |
+| @Input  | Description                 | Type                                                 | Required | Default |
+| ------- | --------------------------- | ---------------------------------------------------- | -------- | ------- |
+| variant | Sets the drawer variant     | `'permanent' | 'persistent' | 'temporary' | 'rail'`  | yes      |         |
+| width   | Drawer pixel width          | `number`                                             | no       | 350     |
 
 </div>
 
@@ -140,10 +144,11 @@ Parent element (`<pxb-drawer-header>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input   | Description                         | Type     | Required | Default |
-| -------- | ----------------------------------- | -------- | -------- | ------- |
-| subtitle | The text to show on the second line | `string` | no       |         |
-| title    | The text to show on the first line  | `string` | no       |         |
+| @Input   | Description                         | Type      | Required | Default |
+| -------- | ----------------------------------- | --------- | -------- | ------- |
+| divider  | Show a divider below footer         | `boolean` | no       | false   |
+| subtitle | The text to show on the second line | `string`  | no       |         |
+| title    | The text to show on the first line  | `string`  | no       |         |
 
 </div>
 
@@ -164,15 +169,17 @@ Each PX Blue component has classes which can be used to override component style
 
 <div style="overflow: auto;">
 
-| Name                                    | Description                              |
-| --------------------------------------- | ---------------------------------------- |
-| pxb-drawer-header                       | Styles applied to the root element       |
-| pxb-drawer-header-background            | Styles applied to the header background  |
-| pxb-drawer-header-icon-wrapper          | Styles applied to the header icon        |
-| pxb-drawer-header-title-wrapper         | Styles applied to title/subtitle wrapper |
-| pxb-drawer-header-title                 | Styles applied to the title              |
-| pxb-drawer-header-subtitle              | Styles applied to the subtitle           |
-| pxb-drawer-header-title-content-wrapper | Styles applied to custom titleContent    |
+| Name                                    | Description                               |
+| --------------------------------------- | ----------------------------------------- |
+| pxb-drawer-header                       | Styles applied to the tag                 |
+| pxb-drawer-header-content               | Styles applied to the root element        |
+| pxb-drawer-header-no-icon               | Styles applied when no header icon exists |
+| pxb-drawer-header-background            | Styles applied to the header background   |
+| pxb-drawer-header-icon-wrapper          | Styles applied to the header icon         |
+| pxb-drawer-header-title-wrapper         | Styles applied to title/subtitle wrapper  |
+| pxb-drawer-header-title                 | Styles applied to the title               |
+| pxb-drawer-header-subtitle              | Styles applied to the subtitle            |
+| pxb-drawer-header-title-content-wrapper | Styles applied to custom titleContent     |
 
 </div>
 
@@ -194,9 +201,10 @@ Parent element (`<pxb-drawer-subheader>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input  | Description                    | Type      | Required | Default |
-| ------- | ------------------------------ | --------- | -------- | ------- |
-| divider | Show a divider below subheader | `boolean` | no       | true    |
+| @Input                    | Description                     | Type      | Required | Default |
+| ------------------------- | ------------------------------- | --------- | -------- | ------- |
+| divider                   | Show a divider below subheader  | `boolean` | no       | true    |
+| hideContentOnCollapse     | Hide footer content when closed | `boolean` | no       | true    |
 
 </div>
 
@@ -206,10 +214,10 @@ Each PX Blue component has classes which can be used to override component style
 
 <div style="overflow: auto;">
 
-| Name                        | Description                                       |
-| --------------------------- | ------------------------------------------------- |
-| pxb-drawer-subheader        | Styles applied to the root element                |
-| pxb-drawer-subheader-closed | Styles applied to subheader when drawer is closed |
+| Name                          | Description                                       |
+| ----------------------------- | ------------------------------------------------- |
+| pxb-drawer-subheader          | Styles applied to the tag                         |
+| pxb-drawer-subheader-content  | Styles applied to the root element                |
 
 </div>
 
@@ -231,10 +239,11 @@ Each PX Blue component has classes which can be used to override component style
 
 <div style="overflow: auto;">
 
-| Name                   | Description                                  |
-| ---------------------- | -------------------------------------------- |
-| pxb-drawer-body        | Styles applied to the root element           |
-| pxb-drawer-body-closed | Styles applied to body when drawer is closed |
+| Name                     | Description                                  |
+| ------------------------ | -------------------------------------------- |
+| pxb-drawer-body          | Styles applied to the tag                    |
+| pxb-drawer-body-content  | Styles applied to the root element           |
+| pxb-drawer-body-closed   | Styles applied to body when drawer is closed |
 
 </div>
 
@@ -280,10 +289,11 @@ Each PX Blue component has classes which can be used to override component style
 
 <div style="overflow: auto;">
 
-| Name                       | Description                           |
-| -------------------------- | ------------------------------------- |
-| pxb-drawer-nav-group       | Styles applied to the root element    |
-| pxb-drawer-nav-group-title | Styles applied to the nav group title |
+| Name                          | Description                           |
+| ----------------------------- | ------------------------------------- |
+| pxb-drawer-nav-group          | Styles applied to the tag             |
+| pxb-drawer-nav-group-content  | Styles applied to the root element    |
+| pxb-drawer-nav-group-title    | Styles applied to the nav group title |
 
 </div>
 
@@ -297,19 +307,19 @@ Parent element (`<pxb-drawer-nav-item>`) attributes:
 
 <div style="overflow: auto;">
 
-| @input                    | Description                           | Type                 | Required | Default |
-| ------------------------- | ------------------------------------- | -------------------- | -------- | ------- |
-| activeItemBackgroundShape | Sets the active item background shape | `'round' | 'square'` | no       | 'round' |
-| chevron                   | Sets whether to show chevron          | `boolean`            | no       | false   |
-| divider                   | Sets whether to show divider          | `boolean`            | no       | true    |
-| expanded                  | Sets whether to show nested nav items | `boolean`            | no       | false   |
-| hidePadding               | Sets whether to show/hide padding     | `boolean`            | no       |         |
-| hidden                  | Sets whether to hide the nav item     | `boolean`            | no       | false   |
-| ripple                    | Sets whether to show/hide ripple      | `boolean`            | no       | true    |
-| selected                  | Sets whether an item is selected      | `boolean`            | no       |         |
-| statusColor               | Status stripe color                   | `string`             | no       |         |
-| subtitle                  | Text to display as a subtitle         | `string`             | no       |         |
-| title                     | Text to display as a title            | `string`             | no       |         |
+| @input                    | Description                           | Type                 | Required | Default  |
+| ------------------------- | ------------------------------------- | -------------------- | -------- | -------- |
+| activeItemBackgroundShape | Sets the active item background shape | `'round' | 'square'` | no       | 'square' |
+| chevron                   | Sets whether to show chevron          | `boolean`            | no       | false    |
+| divider                   | Sets whether to show divider          | `boolean`            | no       | false    |
+| expanded                  | Sets whether to show nested nav items | `boolean`            | no       | false    |
+| hidePadding               | Sets whether to show/hide padding     | `boolean`            | no       |          |
+| hidden                    | Sets whether to hide the nav item     | `boolean`            | no       | false    |
+| ripple                    | Sets whether to show/hide ripple      | `boolean`            | no       | true     |
+| selected                  | Sets whether an item is selected      | `boolean`            | no       |          |
+| statusColor               | Status stripe color                   | `string`             | no       |          |
+| subtitle                  | Text to display as a subtitle         | `string`             | no       |          |
+| title                     | Text to display as a title            | `string`             | no       |          |
 
 </div>
 
@@ -342,19 +352,21 @@ Each PX Blue component has classes which can be used to override component style
 
 | Name                                        | Description                                  |
 | ------------------------------------------- | -------------------------------------------- |
-| pxb-drawer-nav-item                         | Styles applied to the root element           |
+| pxb-drawer-nav-item                         | Styles applied to the tag                    |
+| pxb-drawer-nav-item-content                 | Styles applied to the root element           |
 | pxb-drawer-nav-item-active                  | Style applied when the nav item is selected  |
 | pxb-drawer-nav-item-active-highlight        | Styles applied to 'selected' nav item        |
-| pxb-drawer-nav-item-active-highlight.round  | Styles applied to round 'selected' nav item  |
-| pxb-drawer-nav-item-active-highlight.square | Styles applied to square 'selected' nav item |
+| pxb-drawer-nav-item-active-round            | Styles applied to round 'selected' nav item  |
+| pxb-drawer-nav-item-active-square           | Styles applied to square 'selected' nav item |
+| pxb-drawer-nav-item-compact                 | Class used to toggle narrow nav items        |
 | pxb-drawer-nav-item-expand-icon             | Styles applied to expand icon                |
-| pxb-drawer-nested-nav-item                  | Styles applied to nested nav items           |
 | pxb-drawer-nav-item-depth-1                 | Styles applied to top-level nav items        |
 | pxb-drawer-nav-item-depth-2                 | Styles applied to nested nav items           |
 | pxb-drawer-nav-item-depth-3                 | Styles applied to nav items 3 levels deep    |
 | pxb-drawer-nav-item-rail                    | Styles applied to navigation rail items      |
 | pxb-drawer-nav-item-rail-text               | Styles applied to navigation rail text       |
 | pxb-drawer-nav-item-rail-container          | Wrapper around the navigation rail content   |
+| pxb-drawer-nested-nav-item                  | Styles applied to nested nav items           |
 
 </div>
 
@@ -376,9 +388,10 @@ Parent element (`<pxb-drawer-footer>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input  | Description                 | Type      | Required | Default |
-| ------- | --------------------------- | --------- | -------- | ------- |
-| divider | Show a divider above footer | `boolean` | no       | true    |
+| @Input                  | Description                     | Type      | Required | Default |
+| ----------------------- | ------------------------------- | --------- | -------- | ------- |
+| divider                 | Show a divider above footer     | `boolean` | no       | true    |
+| hideContentOnCollapse   | Hide footer content when closed | `boolean` | no       | true    |
 
 </div>
 
@@ -388,9 +401,9 @@ Each PX Blue component has classes which can be used to override component style
 
 <div style="overflow: auto;">
 
-| Name                     | Description                                    |
-| ------------------------ | ---------------------------------------------- |
-| pxb-drawer-footer        | Styles applied to the root element             |
-| pxb-drawer-footer-closed | Styles applied to footer when drawer is closed |
+| Name                       | Description                                    |
+| -------------------------- | ---------------------------------------------- |
+| pxb-drawer-footer          | Styles applied to the tag                      |
+| pxb-drawer-footer-content  | Styles applied to the root element             |
 
 </div>

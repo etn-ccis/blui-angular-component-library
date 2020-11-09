@@ -22,7 +22,7 @@ export const withFooter = (): any => ({
                   </pxb-drawer-nav-item>
               </pxb-drawer-nav-group>
            </pxb-drawer-body>
-           <pxb-drawer-footer *ngIf="showFooter" [divider]="divider">
+           <pxb-drawer-footer *ngIf="showFooter" [divider]="divider" [hideContentOnCollapse]="hideContentOnCollapse">
              <img [src]="bgImage" width="170" style="align-self: center; padding: 16px" />
            </pxb-drawer-footer>
         </pxb-drawer>
@@ -31,6 +31,7 @@ export const withFooter = (): any => ({
         navItems: navItems,
         bgImage: bgImage,
         showFooter: boolean('Show Footer', true),
+        hideContentOnCollapse: boolean('hideContentOnCollapse', true),
         divider: boolean('divider', true),
     },
 });

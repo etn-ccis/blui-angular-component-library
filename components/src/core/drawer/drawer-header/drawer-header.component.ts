@@ -33,7 +33,7 @@ import { isEmptyView } from '../../../utils/utils';
                 <ng-content select="[pxb-title-content]"></ng-content>
             </div>
         </mat-toolbar>
-        <mat-divider></mat-divider>
+        <mat-divider *ngIf="divider"></mat-divider>
     `,
     styleUrls: ['./drawer-header.component.scss'],
     host: {
@@ -43,6 +43,7 @@ import { isEmptyView } from '../../../utils/utils';
 export class DrawerHeaderComponent extends StateListener {
     @Input() subtitle: string;
     @Input() title: string;
+    @Input() divider = false;
     @ViewChild('icon', { static: true }) iconEl: ElementRef;
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
