@@ -58,6 +58,7 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
 
     // This broadcasts changes to all of the drawer state listeners.
     ngOnChanges(): void {
+        this.drawerService.setSideBorder(this.sideBorder);
         this.drawerService.setDrawerOpen(this.open);
         this.drawerService.setIsCondensed(this.condensed);
         this.drawerService.setEnableSelectionHierarchy(this.enableSelectionHierarchy);

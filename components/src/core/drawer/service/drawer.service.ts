@@ -12,10 +12,19 @@ export class DrawerService {
     private navItemCount = 0;
     private tempOpen = false;
     private isCondensed: boolean;
+    private sideBorder: boolean;
 
     drawerOpenObs = new Subject<boolean>();
     drawerSelectObs = new Subject<boolean>();
     drawerActiveItemChangeObs = new Subject<boolean>();
+
+    hasSideBorder(): boolean {
+        return this.sideBorder;
+    }
+
+    setSideBorder(sideBorder: boolean): void {
+        this.sideBorder = sideBorder;
+    }
 
     setEnableSelectionHierarchy(enableSelectionHierarchy: boolean): void {
         this.enableSelectionHierarchy = enableSelectionHierarchy;
