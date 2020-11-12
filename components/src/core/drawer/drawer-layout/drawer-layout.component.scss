@@ -8,6 +8,9 @@ $transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 /* RTL */
 [dir='rtl'] .pxb-drawer-layout-content .mat-drawer-side {
     border-left: 0; // Border-left is provided by the Drawer component.
+    .pxb-drawer-layout-sidenav {
+        box-shadow: 0 0 -4px 0 #424e54;
+    }
 }
 
 .pxb-drawer-layout-content {
@@ -31,6 +34,10 @@ $transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
         &.pxb-drawer-collapse {
             width: 100%;
         }
+    }
+
+    .pxb-drawer-layout-sidenav {
+        box-shadow: 0 0 4px 0 #424e54;
     }
 
     .pxb-drawer-layout-sidenav,
