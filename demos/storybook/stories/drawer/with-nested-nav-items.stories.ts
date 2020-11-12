@@ -41,7 +41,7 @@ export const nestedNavGroup: DrawerNavItem[] = [
 
 export const withNestedNavItems = (): any => ({
     template: `
-        <pxb-drawer [open]="state.open">
+        <pxb-drawer [open]="state.open" [enableSelectionHierarchy]="enableSelectionHierarchy">
            <pxb-drawer-header title="PX Blue Drawer" subtitle="with nested nav items">
              <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                <mat-icon>menu</mat-icon>
@@ -54,19 +54,16 @@ export const withNestedNavItems = (): any => ({
                      [divider]="divider"
                      [hidePadding]="hidePadding"
                      [selected]="state.selected === navItem.title"
-                     [enableSelectionHierarchy]="enableSelectionHierarchy"
                      (select)="navItem.onSelect(); setActive(navItem, state);">
                      <mat-icon *ngIf="showIcon" pxb-icon>{{ navItem.icon }}</mat-icon>
                      <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items"
                        [title]="nestedItem.title"
                        [divider]="dividerNested"
                        [hidePadding]="hidePaddingNested"
-                       [enableSelectionHierarchy]="enableSelectionHierarchy"
                        [selected]="state.selected === nestedItem.title"
                        (select)="nestedItem.onSelect(); setActive(nestedItem, state);">
                         <pxb-drawer-nav-item *ngFor="let deepItem of nestedItem.items"
                            [title]="deepItem.title"                    
-                           [enableSelectionHierarchy]="enableSelectionHierarchy"
                            [divider]="dividerNested"
                            [hidePadding]="hidePaddingNested"
                            [selected]="state.selected === deepItem.title"

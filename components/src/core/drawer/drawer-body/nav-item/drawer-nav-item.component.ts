@@ -130,8 +130,6 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @Input() subtitle: string;
     @Input() title: string;
     @Input() hidden = false;
-    //    @Input() compact = false;
-    @Input() enableSelectionHierarchy = false;
 
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
 
@@ -147,7 +145,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     depth: number;
     id: number;
 
-    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+    constructor(public drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
         this.id = drawerService.createNavItemID();
         this.drawerService.drawerActiveItemChanges().subscribe(() => {
@@ -195,7 +193,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
 
         this.navItemEl.nativeElement.classList.remove('pxb-drawer-nav-item-active-tree');
 
-        if (!this.enableSelectionHierarchy) {
+        if (!this.drawerService.isEnableSelectionHierarchy()) {
             return;
         }
 

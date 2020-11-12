@@ -7,13 +7,23 @@ import { DrawerLayoutVariantType } from '../..';
 })
 export class DrawerService {
     private drawerOpen: boolean;
+    private enableSelectionHierarchy: boolean;
     private variant: DrawerLayoutVariantType;
     private navItemCount = 0;
     private tempOpen = false;
     private isCondensed: boolean;
+
     drawerOpenObs = new Subject<boolean>();
     drawerSelectObs = new Subject<boolean>();
     drawerActiveItemChangeObs = new Subject<boolean>();
+
+    setEnableSelectionHierarchy(enableSelectionHierarchy: boolean): void {
+        this.enableSelectionHierarchy = enableSelectionHierarchy;
+    }
+
+    isEnableSelectionHierarchy(): boolean {
+        return this.enableSelectionHierarchy;
+    }
 
     setDrawerTempOpen(open: boolean): void {
         this.tempOpen = open;
