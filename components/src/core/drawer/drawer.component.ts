@@ -41,7 +41,7 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
     @Input() open: boolean;
     @Input() condensed = false;
     @Input() sideBorder = false;
-    @Input() enableSelectionHierarchy = false;
+    @Input() enableSelectionHierarchy = true;
 
     hoverDelay: any;
     drawerSelectionListener: Subscription;

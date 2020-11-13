@@ -82,7 +82,7 @@ export const withNestedNavItems = (): any => ({
         dividerNested: boolean('divider (nested)', false),
         hidePadding: boolean('hidePadding (top)', false),
         hidePaddingNested: boolean('hidePadding (nested)', false),
-        enableSelectionHierarchy: boolean('enableSelectionHierarchy', false),
+        enableSelectionHierarchy: boolean('enableSelectionHierarchy', true),
         setActive: (item: DrawerNavItem, state: { selected: string }): void => {
             if (!item.items) {
                 // Only selects items that do not have nested nav items.

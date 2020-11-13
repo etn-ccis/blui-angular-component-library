@@ -170,7 +170,7 @@ export const withFullConfig = (): any => ({
         footerImage: footerImage,
         headerImage: headerImage,
         sideBorder: boolean('sideBorder', true, drawer),
-        enableSelectionHierarchy: boolean('enableSelectionHierarchy', false, drawer),
+        enableSelectionHierarchy: boolean('enableSelectionHierarchy', true, drawer),
         title: text('title', 'PX Blue Drawer', header),
         subtitle: text('subtitle', 'with full config', header),
         showHeaderImage: boolean('Show Background Image', true, header),
