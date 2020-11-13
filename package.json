@@ -16,7 +16,8 @@
         "lint:fix": "cd components && yarn lint:fix && cd ../demos/showcase && yarn lint:fix && cd ../storybook && yarn lint:fix",
         "prettier": "cd components && yarn prettier && cd ../demos/showcase && yarn prettier && cd ../storybook && yarn prettier",
         "prettier:check": "cd components && yarn prettier:check && cd ../demos/showcase && yarn prettier:check && cd ../storybook && yarn prettier:check",
-        "precommit": "yarn initialize && yarn install:dependencies && yarn prettier && yarn lint && yarn test && yarn build && yarn test:artifacts"
+        "precommit": "yarn initialize && yarn install:dependencies && yarn prettier && yarn lint && yarn test && yarn build && yarn test:artifacts",
+        "update:submodule": "git submodule update --remote"
     },
     "private": true,
     "repository": {
