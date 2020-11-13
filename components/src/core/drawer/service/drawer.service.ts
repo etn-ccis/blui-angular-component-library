@@ -30,7 +30,7 @@ export class DrawerService {
         this.enableSelectionHierarchy = enableSelectionHierarchy;
     }
 
-    isEnableSelectionHierarchy(): boolean {
+    hasEnableSelectionHierarchy(): boolean {
         return this.enableSelectionHierarchy;
     }
 
