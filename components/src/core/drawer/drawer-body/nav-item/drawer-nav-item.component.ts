@@ -193,7 +193,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
 
         this.navItemEl.nativeElement.classList.remove('pxb-drawer-nav-item-active-tree');
 
-        if (!this.drawerService.hasEnableSelectionHierarchy()) {
+        if (this.drawerService.hasDisableActiveItemParentStyles()) {
             return;
         }
 

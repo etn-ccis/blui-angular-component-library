@@ -7,7 +7,7 @@ import { DrawerLayoutVariantType } from '../..';
 })
 export class DrawerService {
     private drawerOpen: boolean;
-    private enableSelectionHierarchy: boolean;
+    private disableActiveItemParentStyles: boolean;
     private variant: DrawerLayoutVariantType;
     private navItemCount = 0;
     private tempOpen = false;
@@ -26,12 +26,12 @@ export class DrawerService {
         this.sideBorder = sideBorder;
     }
 
-    setEnableSelectionHierarchy(enableSelectionHierarchy: boolean): void {
-        this.enableSelectionHierarchy = enableSelectionHierarchy;
+    setDisableActiveItemParentStyles(disableActiveItemParentStyles: boolean): void {
+        this.disableActiveItemParentStyles = disableActiveItemParentStyles;
     }
 
-    hasEnableSelectionHierarchy(): boolean {
-        return this.enableSelectionHierarchy;
+    hasDisableActiveItemParentStyles(): boolean {
+        return this.disableActiveItemParentStyles;
     }
 
     setDrawerTempOpen(open: boolean): void {

@@ -41,7 +41,7 @@ export const nestedNavGroup: DrawerNavItem[] = [
 
 export const withNestedNavItems = (): any => ({
     template: `
-        <pxb-drawer [open]="state.open" [enableSelectionHierarchy]="enableSelectionHierarchy">
+        <pxb-drawer [open]="state.open" [disableActiveItemParentStyles]="disableActiveItemParentStyles">
            <pxb-drawer-header title="PX Blue Drawer" subtitle="with nested nav items">
              <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                <mat-icon>menu</mat-icon>
@@ -82,7 +82,7 @@ export const withNestedNavItems = (): any => ({
         dividerNested: boolean('divider (nested)', false),
         hidePadding: boolean('hidePadding (top)', false),
         hidePaddingNested: boolean('hidePadding (nested)', false),
-        enableSelectionHierarchy: boolean('enableSelectionHierarchy', true),
+        disableActiveItemParentStyles: boolean('disableActiveItemParentStyles', false),
         setActive: (item: DrawerNavItem, state: { selected: string }): void => {
             if (!item.items) {
                 // Only selects items that do not have nested nav items.

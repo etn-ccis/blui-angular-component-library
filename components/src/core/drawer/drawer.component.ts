@@ -41,7 +41,7 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
     @Input() open: boolean;
     @Input() condensed = false;
     @Input() sideBorder = false;
-    @Input() enableSelectionHierarchy = true;
+    @Input() disableActiveItemParentStyles = false;
 
     hoverDelay: any;
     drawerSelectionListener: Subscription;
@@ -61,7 +61,7 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
         this.drawerService.setSideBorder(this.sideBorder);
         this.drawerService.setDrawerOpen(this.open);
         this.drawerService.setIsCondensed(this.condensed);
-        this.drawerService.setEnableSelectionHierarchy(this.enableSelectionHierarchy);
+        this.drawerService.setDisableActiveItemParentStyles(this.disableActiveItemParentStyles);
     }
 
     hoverDrawer(): void {

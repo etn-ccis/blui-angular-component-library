@@ -117,7 +117,7 @@ export const withFullConfig = (): any => ({
         <pxb-drawer 
             [open]="state.open" 
             [sideBorder]="sideBorder"
-            [enableSelectionHierarchy]="enableSelectionHierarchy" 
+            [disableActiveItemParentStyles]="disableActiveItemParentStyles" 
             [class.show-header-image]="showHeaderImage">
            <pxb-drawer-header [title]="title" [subtitle]="subtitle" [divider]="showHeaderDivider">
              <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
@@ -170,7 +170,7 @@ export const withFullConfig = (): any => ({
         footerImage: footerImage,
         headerImage: headerImage,
         sideBorder: boolean('sideBorder', true, drawer),
-        enableSelectionHierarchy: boolean('enableSelectionHierarchy', true, drawer),
+        disableActiveItemParentStyles: boolean('disableActiveItemParentStyles', false, drawer),
         title: text('title', 'PX Blue Drawer', header),
         subtitle: text('subtitle', 'with full config', header),
         showHeaderImage: boolean('Show Background Image', true, header),
