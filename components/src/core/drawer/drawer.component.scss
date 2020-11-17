@@ -16,6 +16,8 @@ $transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     border-right: 0;
     &.pxb-drawer-side-border {
         border-left: 1px solid rgba(0, 0, 0, 0.12);
+    }
+    &:not(.pxb-drawer-side-border) {
         box-shadow: 0 0 -4px 0 #424e54;
     }
     &.temp-variant {
@@ -31,8 +33,10 @@ $transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     transition: $transition;
     box-sizing: border-box;
     &.pxb-drawer-side-border {
-        box-shadow: 0 0 4px 0 #424e54;
         border-right: 1px solid rgba(0, 0, 0, 0.12);
+    }
+    &:not(.pxb-drawer-side-border) {
+        box-shadow: 0 0 4px 0 #424e54;
     }
     &.pxb-drawer-temp-variant {
         border-right: 0;
