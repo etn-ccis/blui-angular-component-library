@@ -5,6 +5,7 @@ import * as Colors from '@pxblue/colors';
 const footerImage = require('../../assets/EatonLogo.svg');
 const headerImage = require('../../assets/topology_40.png');
 
+const drawer = 'Drawer';
 const header = 'DrawerHeader';
 const navGroup = 'DrawerNavGroup';
 const navItem = 'DrawerNavItem';
@@ -113,7 +114,11 @@ export const withFullConfig = (): any => ({
        `,
     ],
     template: `
-        <pxb-drawer [open]="state.open" [class.show-header-image]="showHeaderImage">
+        <pxb-drawer 
+            [open]="state.open" 
+            [sideBorder]="sideBorder"
+            [disableActiveItemParentStyles]="disableActiveItemParentStyles" 
+            [class.show-header-image]="showHeaderImage">
            <pxb-drawer-header [title]="title" [subtitle]="subtitle" [divider]="showHeaderDivider">
              <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                <mat-icon>menu</mat-icon>
@@ -130,7 +135,6 @@ export const withFullConfig = (): any => ({
                       [statusColor]="navItem.statusColor"
                       [hidePadding]="hidePadding"
                       [divider]="itemDivider"
-                      [enableSelectionHierarchy]="enableSelectionHierarchy"
                       [activeItemBackgroundShape]="activeItemBackgroundShape"
                       (select)="navItem.onSelect(); setActive(navItem, state);">
                         <mat-icon *ngIf="showNavItemIcon" pxb-icon>{{ navItem.icon }}</mat-icon>
@@ -141,13 +145,11 @@ export const withFullConfig = (): any => ({
                            [hidePadding]="hidePaddingNested"
                            [selected]="state.selected === nestedItem.title"
                            [activeItemBackgroundShape]="activeItemBackgroundShape"
-                           [enableSelectionHierarchy]="enableSelectionHierarchy"
                            (select)="nestedItem.onSelect(); setActive(nestedItem, state);">       
                             <pxb-drawer-nav-item *ngFor="let deep of nestedItem.items"
                                [title]="deep.title"
                                [hidePadding]="hidePaddingNested"
                                [selected]="state.selected === deep.title"
-                               [enableSelectionHierarchy]="enableSelectionHierarchy"
                                [activeItemBackgroundShape]="activeItemBackgroundShape"
                                (select)="deep.onSelect(); setActive(deep, state);">       
                            </pxb-drawer-nav-item>                    
@@ -167,6 +169,8 @@ export const withFullConfig = (): any => ({
         navItems2: navItems2,
         footerImage: footerImage,
         headerImage: headerImage,
+        sideBorder: boolean('sideBorder', true, drawer),
+        disableActiveItemParentStyles: boolean('disableActiveItemParentStyles', false, drawer),
         title: text('title', 'PX Blue Drawer', header),
         subtitle: text('subtitle', 'with full config', header),
         showHeaderImage: boolean('Show Background Image', true, header),
@@ -197,7 +201,6 @@ export const withFullConfig = (): any => ({
             },
             navGroup
         ),
-        enableSelectionHierarchy: boolean('enableSelectionHierarchy', false, navItem),
         chevron: boolean('chevron', false, navItem),
         hidePadding: boolean('hidePadding', true, navItem),
         hidePaddingNested: boolean('hidePadding (nested)', false, navItem),

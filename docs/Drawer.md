@@ -23,11 +23,12 @@ Parent element (`<pxb-drawer>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input     | Description                            | Type      | Required | Default |
-| ---------- | -------------------------------------- | --------- | -------- | ------- |
-| condensed  | Skinny view for `rail` variant         | `boolean` | no       | false   |
-| open       | State for the drawer                   | `boolean` | yes      |         |
-| sideBorder | Toggle a side border instead of shadow | `boolean` | no       | false   |
+| @Input                        | Description                                                   | Type      | Required | Default |
+| ----------------------------- | ------------------------------------------------------------- | --------- | -------- | ------- |
+| condensed                     | Skinny view for `rail` variant                                | `boolean` | no       | false   |
+| disableActiveItemParentStyles | If true, NavItems will not have a bold title when a child NavItem is selected | `boolean` | no       | false   |
+| open                          | State for the drawer                                          | `boolean` | yes      |         |
+| sideBorder                    | Toggle a side border instead of shadow                        | `boolean` | no       | false   |
 
 > ** The `condensed` attribute won't have any effect on the `<pxb-drawer>` unless the `rail` variant is set on the `<pxb-drawer-layout>` component.  Each item in a navigation rail will be sized 72 x 72px.  When using a `condensed` rail, each item will be sized 56 x 56px.
 

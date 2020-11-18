@@ -41,7 +41,7 @@ export const nestedNavGroup: DrawerNavItem[] = [
 
 export const withNestedNavItems = (): any => ({
     template: `
-        <pxb-drawer [open]="state.open">
+        <pxb-drawer [open]="state.open" [disableActiveItemParentStyles]="disableActiveItemParentStyles">
            <pxb-drawer-header title="PX Blue Drawer" subtitle="with nested nav items">
              <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                <mat-icon>menu</mat-icon>
@@ -54,19 +54,16 @@ export const withNestedNavItems = (): any => ({
                      [divider]="divider"
                      [hidePadding]="hidePadding"
                      [selected]="state.selected === navItem.title"
-                     [enableSelectionHierarchy]="enableSelectionHierarchy"
                      (select)="navItem.onSelect(); setActive(navItem, state);">
                      <mat-icon *ngIf="showIcon" pxb-icon>{{ navItem.icon }}</mat-icon>
                      <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items"
                        [title]="nestedItem.title"
                        [divider]="dividerNested"
                        [hidePadding]="hidePaddingNested"
-                       [enableSelectionHierarchy]="enableSelectionHierarchy"
                        [selected]="state.selected === nestedItem.title"
                        (select)="nestedItem.onSelect(); setActive(nestedItem, state);">
                         <pxb-drawer-nav-item *ngFor="let deepItem of nestedItem.items"
                            [title]="deepItem.title"                    
-                           [enableSelectionHierarchy]="enableSelectionHierarchy"
                            [divider]="dividerNested"
                            [hidePadding]="hidePaddingNested"
                            [selected]="state.selected === deepItem.title"
@@ -85,7 +82,7 @@ export const withNestedNavItems = (): any => ({
         dividerNested: boolean('divider (nested)', false),
         hidePadding: boolean('hidePadding (top)', false),
         hidePaddingNested: boolean('hidePadding (nested)', false),
-        enableSelectionHierarchy: boolean('enableSelectionHierarchy', false),
+        disableActiveItemParentStyles: boolean('disableActiveItemParentStyles', false),
         setActive: (item: DrawerNavItem, state: { selected: string }): void => {
             if (!item.items) {
                 // Only selects items that do not have nested nav items.

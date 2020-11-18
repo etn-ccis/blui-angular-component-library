@@ -25,6 +25,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
                 class="pxb-drawer-layout-sidenav"
                 [fixedInViewport]="false"
                 [class.pxb-drawer-layout-smooth]="variant !== 'temporary'"
+                [class.pxb-drawer-layout-shadow]="!hasSideBorder()"
                 [style.width.px]="isCollapsed() ? getCollapsedWidth() : width"
                 [mode]="getMode()"
                 [opened]="isDrawerVisible()"
@@ -83,6 +84,10 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
 
     getMode(): string {
         return this.variant === 'temporary' ? 'over' : 'side';
+    }
+
+    hasSideBorder(): boolean {
+        return this.drawerService.hasSideBorder();
     }
 
     closeDrawer(): void {
