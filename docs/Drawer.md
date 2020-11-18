@@ -26,7 +26,7 @@ Parent element (`<pxb-drawer>`) attributes:
 | @Input                        | Description                                                   | Type      | Required | Default |
 | ----------------------------- | ------------------------------------------------------------- | --------- | -------- | ------- |
 | condensed                     | Skinny view for `rail` variant                                | `boolean` | no       | false   |
-| disableActiveItemParentStyles | Bold nav item group title when a nested item is selected      | `boolean` | no       | false   |
+| disableActiveItemParentStyles | If true, NavItems will not have a bold title when a child NavItem is selected | `boolean` | no       | false   |
 | open                          | State for the drawer                                          | `boolean` | yes      |         |
 | sideBorder                    | Toggle a side border instead of shadow                        | `boolean` | no       | false   |
 
