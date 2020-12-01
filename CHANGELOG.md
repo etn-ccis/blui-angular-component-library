@@ -2,10 +2,11 @@
 
 ## v4.0.0 (not published)
 
--   Migrate to Angular 10
--   Enhance `<pxb-empty-state>` to allow ng-content as `title` or `description`.
--   Add `hidden` prop to the `<pxb-drawer-nav-item>`.
--   Rename several classes and updated styles for the `<pxb-drawer>`
+-   Migrated to Angular 10
+-   Enhanced `<pxb-empty-state>` to allow ng-content as `title` or `description`.
+-   Added `hidden` prop to the `<pxb-drawer-nav-item>`.
+-   Renamed several classes and updated styles for the `<pxb-drawer>`
+-   Updated default style of the `<pxb-hero>`
 
 ## v3.0.1
 
