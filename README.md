@@ -48,6 +48,7 @@ The following table outlines which versions of Angular and PX Blue resources wil
 | ----------------------------- | --------------------------- | ---------------------------- |
 | `^2.0.0`                      | `^5.0.0`                    | `^8.0.0`                     |
 | `^3.0.0`                      | `^5.1.0`                    | `8.x - 9.x`                  |
+| `^4.0.0`                      | `^5.2.0`                    | `10.x`                       |
 
 ## Running the demo projects
 
