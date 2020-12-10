@@ -1,6 +1,6 @@
 # Change Log
 
-## v4.0.0 (not published)
+## v4.0.0
 
 -   Migrated to Angular 10
 -   Enhanced `<pxb-empty-state>` to allow ng-content as `title` or `description`.
