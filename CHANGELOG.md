@@ -1,9 +1,18 @@
 # Change Log
 
-## v3.0.1 (Not published)
+## v4.0.0
+
+-   Migrated to Angular 10
+-   Enhanced `<pxb-empty-state>` to allow ng-content as `title` or `description`.
+-   Added `hidden` prop to the `<pxb-drawer-nav-item>`.
+-   Renamed several classes and updated styles for the `<pxb-drawer>`
+-   Updated default style of the `<pxb-hero>`
+
+## v3.0.1
 
 -   Fixes bug in InfoListItem where divider was not working with `mat-ripple`.
 -   Changes default display setting of ListItemTag so it doesn't take up 100% width in non-flex containers.
+-   Updates the ListItemTag styles to match our DSM recommendations.
 
 ## v3.0.0
 

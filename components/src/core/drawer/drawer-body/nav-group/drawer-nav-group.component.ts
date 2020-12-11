@@ -10,6 +10,12 @@ import { DrawerNavItem, DrawerNavItemComponent } from '../nav-item/drawer-nav-it
 import { DrawerService } from '../../service/drawer.service';
 import { StateListener } from '../../state-listener.component';
 
+export type DrawerNavGroup = {
+    divider?: boolean;
+    title?: string;
+    items: DrawerNavItem[];
+};
+
 @Component({
     selector: 'pxb-drawer-nav-group',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -37,7 +43,11 @@ import { StateListener } from '../../state-listener.component';
     ],
     template: `
         <div class="pxb-drawer-nav-group-content">
-            <div *ngIf="title" class="pxb-drawer-nav-group-title" [class.pxb-drawer-nav-group-title-closed]="!isOpen()">
+            <div
+                *ngIf="title"
+                class="pxb-drawer-nav-group-title mat-overline"
+                [class.pxb-drawer-nav-group-title-closed]="!isOpen()"
+            >
                 {{ title }}
             </div>
             <ng-content select="pxb-title-content"></ng-content>
@@ -66,9 +76,3 @@ export class DrawerNavGroupComponent extends StateListener implements Omit<Drawe
         }
     }
 }
-
-export type DrawerNavGroup = {
-    divider?: boolean;
-    title?: string;
-    items: DrawerNavItem[];
-};

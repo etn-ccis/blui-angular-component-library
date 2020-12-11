@@ -9,6 +9,9 @@ import {
 } from '@angular/core';
 import { isEmptyView, requireContent } from '../../utils/utils';
 
+type IconAlignType = 'left' | 'center' | 'right' | undefined;
+type DividerType = 'full' | 'partial' | undefined;
+
 @Component({
     selector: 'pxb-info-list-item',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -89,8 +92,8 @@ export class InfoListItemComponent implements AfterViewInit {
     @Input() wrapTitle = false;
     @Input() divider: DividerType;
 
-    @ViewChild('title', { static: false }) titleEl: ElementRef;
-    @ViewChild('right', { static: false }) rightEl: ElementRef;
+    @ViewChild('title') titleEl: ElementRef;
+    @ViewChild('right') rightEl: ElementRef;
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 
@@ -99,6 +102,3 @@ export class InfoListItemComponent implements AfterViewInit {
         requireContent([required], this);
     }
 }
-
-type IconAlignType = 'left' | 'center' | 'right' | undefined;
-type DividerType = 'full' | 'partial' | undefined;

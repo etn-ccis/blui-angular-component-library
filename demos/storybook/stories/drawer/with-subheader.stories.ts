@@ -19,7 +19,7 @@ export const withSubheader = (): any => ({
                <mat-icon>menu</mat-icon>
              </button>
           </pxb-drawer-header>
-           <pxb-drawer-subheader [divider]="divider">
+           <pxb-drawer-subheader [divider]="divider" [hideContentOnCollapse]="hideContentOnCollapse">
               <mat-form-field *ngIf="content === 'Filter'"
                 style="width: 100%; padding: 8px 16px; box-sizing: border-box">
                 <mat-label>Search</mat-label>
@@ -27,7 +27,8 @@ export const withSubheader = (): any => ({
                 <mat-icon matSuffix>search</mat-icon>
                 <mat-hint>The subheader can be used for custom content.</mat-hint>
               </mat-form-field>
-              <mat-card *ngIf="content === 'Card'" style="font-weight: 500" [style.backgroundColor]="colors.gray[50]">
+              <mat-card *ngIf="content === 'Card'" style="font-weight: 500; width: 100%; min-width: 350px;" 
+                [style.backgroundColor]="colors.gray[50]">
                 Sample Content Goes Here
               </mat-card>
           </pxb-drawer-subheader>
@@ -47,6 +48,7 @@ export const withSubheader = (): any => ({
         colors: Colors,
         navItems: navItems,
         divider: boolean('divider', true),
+        hideContentOnCollapse: boolean('hideContentOnCollapse', true),
         content: optionsKnob('Subheader Content', valuesObj, 'Filter', optionsObj),
     },
 });

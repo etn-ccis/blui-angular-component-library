@@ -45,7 +45,7 @@ Parent element (`<pxb-empty-state>`) attributes:
 | @Input      | Description                   | Type     | Required | Default |
 | ----------- | ----------------------------- | -------- | -------- | ------- |
 | description | The secondary text to display | `string` | no       |         |
-| title       | The main text to display      | `string` | yes      |         |
+| title       | The main text to display      | `string` | no       |         |
 
 </div>
 
@@ -53,10 +53,12 @@ The following child elements are projected into `<pxb-empty-state>`:
 
 <div style="overflow: auto;">
 
-| Selector         | Description                    | Required | Default |
-| ---------------- | ------------------------------ | -------- | ------- |
-| [pxb-actions]    | action elements below the text | no       |         |
-| [pxb-empty-icon] | The large icon to display      | yes      |         |
+| Selector          | Description                    | Required | Default |
+| ----------------- | ------------------------------ | -------- | ------- |
+| [pxb-actions]     | action elements below the text | no       |         |
+| [pxb-empty-icon]  | The large icon to display      | yes      |         |
+| [pxb-description] | The secondary text to display  | no       |         |
+| [pxb-title]       | The main text to display       | no       |         |
 
 </div>
 

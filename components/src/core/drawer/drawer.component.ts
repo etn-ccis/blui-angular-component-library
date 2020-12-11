@@ -18,9 +18,10 @@ import { Subscription } from 'rxjs';
     template: `
         <div
             class="pxb-drawer-content"
-            [class.condensed]="condensed"
-            [class.collapse]="!isOpen()"
-            [class.temp-variant]="isTemporaryVariant()"
+            [class.pxb-drawer-side-border]="sideBorder"
+            [class.pxb-drawer-condensed-rail]="condensed"
+            [class.pxb-drawer-collapse]="!isOpen()"
+            [class.pxb-drawer-temp-variant]="isTemporaryVariant()"
         >
             <!-- Drawer is responsible for managing the styles between the 4 subsections -->
             <ng-content select="pxb-drawer-header"></ng-content>
@@ -39,6 +40,8 @@ import { Subscription } from 'rxjs';
 export class DrawerComponent extends StateListener implements OnInit, OnChanges {
     @Input() open: boolean;
     @Input() condensed = false;
+    @Input() sideBorder = false;
+    @Input() disableActiveItemParentStyles = false;
 
     hoverDelay: any;
     drawerSelectionListener: Subscription;
@@ -55,8 +58,10 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
 
     // This broadcasts changes to all of the drawer state listeners.
     ngOnChanges(): void {
+        this.drawerService.setSideBorder(this.sideBorder);
         this.drawerService.setDrawerOpen(this.open);
         this.drawerService.setIsCondensed(this.condensed);
+        this.drawerService.setDisableActiveItemParentStyles(this.disableActiveItemParentStyles);
     }
 
     hoverDrawer(): void {

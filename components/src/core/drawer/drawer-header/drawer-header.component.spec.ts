@@ -84,15 +84,15 @@ describe('DrawerHeaderComponent', () => {
         customFixture.detectChanges();
         const icon: HTMLElement = customFixture.nativeElement.querySelector('#test-icon');
         void expect(icon.innerHTML).toBe(
-            '<mat-icon class="mat-icon notranslate material-icons mat-icon-no-color" role="img" aria-hidden="true">menu</mat-icon>'
+            '<mat-icon role="img" class="mat-icon notranslate material-icons mat-icon-no-color" aria-hidden="true" data-mat-icon-type="font">menu</mat-icon>'
         );
     });
 
     it('should enforce class naming conventions', () => {
-        component.title = 'test title';
-        component.subtitle = 'test subtitle';
-        fixture.detectChanges();
+        const customFixture = TestBed.createComponent(TestDrawerHeader);
+        customFixture.detectChanges();
         const classList = [
+            '.pxb-drawer-header',
             '.pxb-drawer-header-content',
             '.pxb-drawer-header-background',
             '.pxb-drawer-header-content',
@@ -102,7 +102,7 @@ describe('DrawerHeaderComponent', () => {
             '.pxb-drawer-header-subtitle',
         ];
         for (const className of classList) {
-            count(fixture, className);
+            count(customFixture, className);
         }
     });
 });

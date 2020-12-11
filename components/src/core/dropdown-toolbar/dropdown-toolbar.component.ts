@@ -35,5 +35,5 @@ import { MatMenuTrigger } from '@angular/material/menu';
 export class DropdownToolbarComponent {
     @Input() title: string;
     @Input() subtitle: string;
-    @ViewChild('menuTrigger', { static: false }) menuTrigger: MatMenuTrigger;
+    @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger;
 }

@@ -7,12 +7,32 @@ import { DrawerLayoutVariantType } from '../..';
 })
 export class DrawerService {
     private drawerOpen: boolean;
+    private disableActiveItemParentStyles: boolean;
     private variant: DrawerLayoutVariantType;
     private navItemCount = 0;
     private tempOpen = false;
     private isCondensed: boolean;
+    private sideBorder: boolean;
+
     drawerOpenObs = new Subject<boolean>();
     drawerSelectObs = new Subject<boolean>();
+    drawerActiveItemChangeObs = new Subject<boolean>();
+
+    hasSideBorder(): boolean {
+        return this.sideBorder;
+    }
+
+    setSideBorder(sideBorder: boolean): void {
+        this.sideBorder = sideBorder;
+    }
+
+    setDisableActiveItemParentStyles(disableActiveItemParentStyles: boolean): void {
+        this.disableActiveItemParentStyles = disableActiveItemParentStyles;
+    }
+
+    hasDisableActiveItemParentStyles(): boolean {
+        return this.disableActiveItemParentStyles;
+    }
 
     setDrawerTempOpen(open: boolean): void {
         this.tempOpen = open;
@@ -64,6 +84,14 @@ export class DrawerService {
 
     drawerSelectionChanges(): Observable<boolean> {
         return this.drawerSelectObs;
+    }
+
+    emitChangeActiveItemEvent(): void {
+        this.drawerActiveItemChangeObs.next();
+    }
+
+    drawerActiveItemChanges(): Observable<boolean> {
+        return this.drawerActiveItemChangeObs;
     }
 
     createNavItemID(): number {

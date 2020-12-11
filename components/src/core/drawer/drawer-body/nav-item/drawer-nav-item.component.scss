@@ -2,7 +2,7 @@
 [dir='rtl'] .pxb-drawer-nav-item-content {
     .pxb-drawer-nav-item-active-highlight {
         right: 0;
-        &.round {
+        &.pxb-drawer-nav-item-active-round {
             border-radius: 24px 0 0 24px;
         }
     }
@@ -10,7 +10,7 @@
         padding-left: 0;
         padding-right: 32px;
     }
-    pxb-info-list-item.no-icon-closed .pxb-info-list-item .mat-list-item-content {
+    pxb-info-list-item.pxb-drawer-nav-item-no-icon-closed .pxb-info-list-item .mat-list-item-content {
         padding-right: 16px;
         padding-left: 24px;
     }
@@ -18,9 +18,12 @@
 
 pxb-drawer-nav-item {
     outline: none;
+    .pxb-drawer-nav-item-active .mat-list-item:hover {
+        background: unset;
+    }
 }
 
-.condensed .pxb-drawer-nav-item-content .pxb-drawer-nav-item-rail {
+.pxb-drawer-condensed-rail .pxb-drawer-nav-item-content .pxb-drawer-nav-item-rail {
     width: 56px;
     min-height: 56px;
     .pxb-drawer-nav-item-rail-text {
@@ -33,6 +36,16 @@ pxb-drawer-nav-item {
     position: relative;
     user-select: none;
 
+    &.pxb-drawer-nav-item-compact {
+        margin-top: 8px;
+        margin-bottom: 8px;
+        .pxb-info-list-item-content {
+            &.pxb-info-list-item-dense,
+            .mat-list-item-content {
+                height: 40px !important;
+            }
+        }
+    }
     .pxb-drawer-nav-item-depth-1 {
         padding-left: 0;
     }
@@ -43,6 +56,16 @@ pxb-drawer-nav-item {
         padding-left: 32px;
     }
 
+    .pxb-info-list-item .mat-list-item.pxb-info-list-item-content .mat-list-text .pxb-info-list-item-title-wrapper {
+        font-weight: 400; // Default font-weight for nav items.
+    }
+    &.pxb-drawer-nav-item-active,
+    &.pxb-drawer-nav-item-active-tree {
+        .pxb-info-list-item .mat-list-item.pxb-info-list-item-content .mat-list-text .pxb-info-list-item-title-wrapper {
+            font-weight: 600; // Default font-weight for active nav item parents.
+        }
+    }
+
     pxb-info-list-item {
         display: flex;
         flex-direction: column;
@@ -51,7 +74,7 @@ pxb-drawer-nav-item {
         }
 
         // This class is used to hide a nav-item's clipped title when collapsed with no icon.
-        &.no-icon-closed .pxb-info-list-item .mat-list-item-content {
+        &.pxb-drawer-nav-item-no-icon-closed .pxb-info-list-item .mat-list-item-content {
             padding-right: 24px;
         }
     }
@@ -67,13 +90,11 @@ pxb-drawer-nav-item {
         height: 100%;
         left: 0;
         top: 0;
-        opacity: 0.9;
-        transition: 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
-        &.round {
+        &.pxb-drawer-nav-item-active-round {
             width: calc(100% - 8px);
             border-radius: 0 24px 24px 0;
         }
-        &.square {
+        &.pxb-drawer-nav-item-active-square {
             border-radius: 0;
             width: 100%;
         }
@@ -81,7 +102,7 @@ pxb-drawer-nav-item {
 
     .pxb-drawer-nav-item-expand-icon {
         transition: 300ms;
-        &.expanded {
+        &.pxb-drawer-nav-item-expanded {
             transform: rotate(180deg);
         }
     }
@@ -118,9 +139,9 @@ pxb-drawer-nav-item {
     .pxb-info-list-item .mat-list-item-content {
         padding-left: 16px;
     }
-    pxb-info-list-item .pxb-info-list-item .mat-list-text .pxb-info-list-item-title-wrapper {
+    /*pxb-info-list-item .pxb-info-list-item .mat-list-text .pxb-info-list-item-title-wrapper {
         font-weight: 400;
-    }
+    }*/
     .mat-expansion-panel-body {
         padding: 0;
     }

@@ -1,5 +1,10 @@
 import { ElementRef } from '@angular/core';
 
+export type ContentPair = {
+    selector: string;
+    ref: ElementRef;
+};
+
 export function requireInput<T>(inputs: Array<keyof T>, component: any): void {
     inputs.forEach((input: any) => {
         if (component[input] === undefined || component[input] === null || component[input] === '') {
@@ -30,8 +35,3 @@ export function isEmptyView(el: ElementRef): boolean {
     }
     return !hasChildren(el);
 }
-
-export type ContentPair = {
-    selector: string;
-    ref: ElementRef;
-};

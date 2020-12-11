@@ -5,6 +5,7 @@ import * as Colors from '@pxblue/colors';
 const footerImage = require('../../assets/EatonLogo.svg');
 const headerImage = require('../../assets/topology_40.png');
 
+const drawer = 'Drawer';
 const header = 'DrawerHeader';
 const navGroup = 'DrawerNavGroup';
 const navItem = 'DrawerNavItem';
@@ -106,18 +107,19 @@ export const navItems2 = [
 
 export const withFullConfig = (): any => ({
     styles: [
-        `::ng-deep .pxb-drawer .pxb-drawer-header {
-          background-color: ${Colors.orange[500]};
-       }
-       ::ng-deep .show-header-image .pxb-drawer-header-background {
+        `::ng-deep .show-header-image .pxb-drawer-header-background {
           background-image: url(${headerImage});
           width: 360px;
         }
        `,
     ],
     template: `
-        <pxb-drawer [open]="state.open" [class.show-header-image]="showHeaderImage">
-           <pxb-drawer-header [title]="title" [subtitle]="subtitle">
+        <pxb-drawer 
+            [open]="state.open" 
+            [sideBorder]="sideBorder"
+            [disableActiveItemParentStyles]="disableActiveItemParentStyles" 
+            [class.show-header-image]="showHeaderImage">
+           <pxb-drawer-header [title]="title" [subtitle]="subtitle" [divider]="showHeaderDivider">
              <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                <mat-icon>menu</mat-icon>
              </button>
@@ -157,7 +159,7 @@ export const withFullConfig = (): any => ({
                 <pxb-spacer *ngIf="first && spacer"></pxb-spacer>
               </ng-container>
            </pxb-drawer-body>
-           <pxb-drawer-footer *ngIf="showFooter" [divider]="footerDivider">
+           <pxb-drawer-footer *ngIf="showFooter" [divider]="footerDivider" [hideContentOnCollapse]="hideContentOnCollapse">
              <img [src]="footerImage" width="170" style="align-self: center; padding: 16px" />
            </pxb-drawer-footer>
         </pxb-drawer>
@@ -167,9 +169,12 @@ export const withFullConfig = (): any => ({
         navItems2: navItems2,
         footerImage: footerImage,
         headerImage: headerImage,
+        sideBorder: boolean('sideBorder', true, drawer),
+        disableActiveItemParentStyles: boolean('disableActiveItemParentStyles', false, drawer),
         title: text('title', 'PX Blue Drawer', header),
         subtitle: text('subtitle', 'with full config', header),
         showHeaderImage: boolean('Show Background Image', true, header),
+        showHeaderDivider: boolean('divider', true, header),
         groupTitle1: text('NavGroup 1 title', 'Group 1', navGroup),
         groupTitle2: text('NavGroup 2 title', 'Group 2', navGroup),
         groupDivider: boolean('divider', true, navGroup),
@@ -199,12 +204,13 @@ export const withFullConfig = (): any => ({
         chevron: boolean('chevron', false, navItem),
         hidePadding: boolean('hidePadding', true, navItem),
         hidePaddingNested: boolean('hidePadding (nested)', false, navItem),
-        itemDivider: boolean('divider', true, navItem),
+        itemDivider: boolean('divider', false, navItem),
         showNavItemIcon: boolean('Show Icon', true, navItem),
         customExpandIcon: boolean('Custom Expand/Collapse Icons', false, navItem),
-        activeItemBackgroundShape: select('activeItemBackgroundShape', ['round', 'square'], 'round', navItem),
+        activeItemBackgroundShape: select('activeItemBackgroundShape', ['round', 'square'], 'square', navItem),
         showFooter: boolean('Show Footer', true, footer),
         footerDivider: boolean('divider', true, footer),
+        hideContentOnCollapse: boolean('hideContentOnCollapse', true, footer),
         setActive: (item: DrawerNavItem, state: { selected: string }): void => {
             if (!item.items) {
                 // Only selects items that do not have nested nav items.

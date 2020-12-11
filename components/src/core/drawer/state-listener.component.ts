@@ -1,7 +1,8 @@
-import { ChangeDetectorRef, OnDestroy, OnInit } from '@angular/core';
+import { ChangeDetectorRef, OnDestroy, OnInit, Directive } from '@angular/core';
 import { DrawerService } from './service/drawer.service';
 import { Subscription } from 'rxjs';
 
+@Directive()
 export class StateListener implements OnInit, OnDestroy {
     drawerOpenListener: Subscription;
 

@@ -4,11 +4,10 @@ import {
     Component,
     ElementRef,
     Input,
-    OnChanges,
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
-import { requireContent, requireInput } from '../../utils/utils';
+import { requireContent } from '../../utils/utils';
 
 @Component({
     selector: 'pxb-empty-state',
@@ -20,15 +19,11 @@ import { requireContent, requireInput } from '../../utils/utils';
         class: 'pxb-empty-state',
     },
 })
-export class EmptyStateComponent implements OnChanges, AfterViewInit {
-    @Input() title: string;
+export class EmptyStateComponent implements AfterViewInit {
     @Input() description: string;
+    @Input() title: string;
 
-    @ViewChild('emptyIcon', { static: false }) emptyIcon: ElementRef;
-
-    ngOnChanges(): void {
-        requireInput<EmptyStateComponent>(['title'], this);
-    }
+    @ViewChild('emptyIcon') emptyIcon: ElementRef;
 
     ngAfterViewInit(): void {
         const required = { selector: 'emptyIcon', ref: this.emptyIcon };
