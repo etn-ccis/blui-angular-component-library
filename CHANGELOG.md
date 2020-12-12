@@ -1,5 +1,9 @@
 # Change Log
 
+## v4.0.1 (Not Published Yet)
+
+-   Style change in `<pxb-mobile-stepper>` to span full width of parent element.
+
 ## v4.0.0
 
 -   Migrated to Angular 10
