@@ -57,7 +57,7 @@ export const withNavRail = (): any => ({
     props: {
         navItems: navItems,
         headerImg: headerImg,
-        condensed: boolean('condensed', false),
+        condensed: boolean('condensed', true),
         divider: boolean('divider', false),
     },
 });
