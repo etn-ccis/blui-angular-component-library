@@ -27,7 +27,7 @@ Parent element (`<pxb-drawer>`) attributes:
 | ----------------------------- | ------------------------------------------------------------------------------------ | --------- | -------- | ------- |
 | condensed                     | Skinny view for `rail` variant                                                       | `boolean` | no       | false   |
 | disableActiveItemParentStyles | If true, NavItems will not have a bold title when a child NavItem is selected        | `boolean` | no       | false   |
-| openOnHover                   | Automatically open the drawer on hover when closed (persistent variant only)                                  | `boolean` | no       | true    |
+| openOnHover                   | Automatically open the drawer on hover when closed (persistent variant only)         | `boolean` | no       | true    |
 | open                          | State for the drawer                                                                 | `boolean` | yes      |         |
 | sideBorder                    | Toggle a side border instead of shadow                                               | `boolean` | no       | false   |
 
