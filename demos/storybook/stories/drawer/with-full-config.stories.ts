@@ -118,6 +118,7 @@ export const withFullConfig = (): any => ({
             [open]="state.open" 
             [sideBorder]="sideBorder"
             [disableActiveItemParentStyles]="disableActiveItemParentStyles" 
+            [openOnHover]="openOnHover"
             [class.show-header-image]="showHeaderImage">
            <pxb-drawer-header [title]="title" [subtitle]="subtitle" [divider]="showHeaderDivider">
              <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
@@ -169,6 +170,7 @@ export const withFullConfig = (): any => ({
         navItems2: navItems2,
         footerImage: footerImage,
         headerImage: headerImage,
+        openOnHover: boolean('openOnHover', true, drawer),
         sideBorder: boolean('sideBorder', true, drawer),
         disableActiveItemParentStyles: boolean('disableActiveItemParentStyles', false, drawer),
         title: text('title', 'PX Blue Drawer', header),
