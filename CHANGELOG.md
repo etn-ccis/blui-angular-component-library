@@ -7,6 +7,7 @@
 
 ### Fixed
 -   Fixed bug in `<pxb-mobile-stepper>` which makes component span 100% of parent width. 
+-   Fixed header height bug which affected `<pxb-drawer-header>` in Safari. 
 
 ## v4.0.0
 
