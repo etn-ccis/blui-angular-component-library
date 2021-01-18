@@ -203,10 +203,10 @@ Parent element (`<pxb-drawer-subheader>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input                    | Description                     | Type      | Required | Default |
-| ------------------------- | ------------------------------- | --------- | -------- | ------- |
-| divider                   | Show a divider below subheader  | `boolean` | no       | true    |
-| hideContentOnCollapse     | Hide footer content when closed | `boolean` | no       | true    |
+| @Input                    | Description                        | Type      | Required | Default |
+| ------------------------- | ---------------------------------- | --------- | -------- | ------- |
+| divider                   | Show a divider below subheader     | `boolean` | no       | true    |
+| hideContentOnCollapse     | Hide subheader content when closed | `boolean` | no       | true    |
 
 </div>
 
