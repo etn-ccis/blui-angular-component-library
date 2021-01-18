@@ -12,7 +12,7 @@ export const withFullConfig = (): any => ({
         units: text('units', 'hz'),
         iconColor: color('icon.color', Colors.red[500]),
         showIcon: boolean('Show Icon', true),
-        color: color('color', 'blue'),
+        color: color('color', Colors.black[500]),
         prefix: boolean('prefix', false),
     },
 });

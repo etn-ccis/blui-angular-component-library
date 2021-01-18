@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 export const withFullConfig = (): any => ({
     template: `
         <pxb-info-list-item
-            [style.color]="colors.blue[500]"
+            [style.color]="colors.black[500]"
             matRipple
             style="display:flex; cursor: pointer"
             [iconAlign]="iconAlign"
@@ -36,7 +36,7 @@ export const withFullConfig = (): any => ({
         wrapTitle: boolean('wrapTitle', false),
         wrapSubtitle: boolean('wrapSubtitle', false),
         iconAlign: select('iconAlign', ['left', 'center', 'right'], 'left'),
-        iconColor: color('icon color', Colors.blue[500]),
+        iconColor: color('icon color', Colors.black[500]),
         avatar: boolean('avatar', false),
         action: action('InfoListItem clicked'),
         getBgColor: (avatar: boolean, statusColor: string): string => (avatar ? statusColor : 'unset'),

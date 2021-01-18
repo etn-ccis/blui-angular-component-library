@@ -9,7 +9,7 @@ export const withActions = (): any => ({
     styles: [
         `${withCustomHeaderStyles}
         ::ng-deep .pxb-score-card-header {
-            background-color: ${Colors.red[500]}!important;
+            background-color: ${Colors.blue[500]}!important;
         }`,
     ],
     template: `

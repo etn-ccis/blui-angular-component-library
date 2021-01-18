@@ -7,7 +7,7 @@ export const withHeroes = (): any => ({
     styles: [
         `${withCustomHeaderStyles}
         ::ng-deep pxb-score-card .pxb-score-card .pxb-score-card-header {
-            background-color: ${Colors.red[500]};
+            background-color: ${Colors.blue[500]};
         }`,
     ],
     template: `

@@ -6,8 +6,7 @@ export const withFullConfig = (): any => ({
     template: `
         <pxb-empty-state [title]="title" [description]="description">
             <mat-icon pxb-empty-icon [style.color]="color" [style.fontSize.px]="fontSize">trending_up</mat-icon>
-            <button pxb-actions mat-raised-button color="primary" (click)="click()">
-                <mat-icon>add_circle</mat-icon>
+            <button pxb-actions mat-stroked-button color="primary" (click)="click()">
                 {{actionText}}
             </button>
         </pxb-empty-state>
