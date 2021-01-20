@@ -51,6 +51,6 @@ export const withMultiNavGroups = (): any => ({
         navItems2: navItems2,
         groupTitle1: text('NavGroup 1 title', 'Group 1'),
         groupTitle2: text('NavGroup 2 title', 'Group 2'),
-        spacer: boolean('Add Spacer', false),
+        spacer: boolean('Add Spacer', true),
     },
 });
