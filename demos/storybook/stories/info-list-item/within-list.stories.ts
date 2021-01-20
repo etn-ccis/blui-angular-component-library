@@ -6,7 +6,7 @@ export const withinList = (): any => ({
         <mat-nav-list [style.paddingTop.px]="0">
             <pxb-info-list-item dense="true" [statusColor]="colors.green[700]" [divider]="divider" class="test" [iconAlign]="'center'">
                 <div pxb-title>Status</div>
-                <mat-icon pxb-icon [style.color]="colors.green[700]">eco</mat-icon>
+                <mat-icon pxb-icon [style.color]="colors.green[700]">alarm</mat-icon>
                 <pxb-channel-value pxb-right-content value="Online, ESS+"></pxb-channel-value>
             </pxb-info-list-item>
     

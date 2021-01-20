@@ -28,7 +28,7 @@ export const withFullConfig = (): any => ({
         title: text('title', 'Info List Item'),
         subtitle: text('subtitle', 'this is a subtitle within an InfoListItem'),
         info: text('info', 'this is a third line of text'),
-        statusColor: color('statusColor', Colors.yellow[500]),
+        statusColor: color('statusColor', Colors.blue[500]),
         showIcon: boolean('Show Icon', true),
         hidePadding: boolean('hidePadding', false),
         chevron: boolean('chevron', true),
