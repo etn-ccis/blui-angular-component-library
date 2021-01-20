@@ -14,6 +14,7 @@ export const withFullConfig = (): any => ({
         }
         .sb-score-card-content mat-icon {
             margin-right: 32px;
+            padding: 0;
         }
         .rtl.sb-score-card-content mat-icon {
             margin-left: 32px;

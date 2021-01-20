@@ -12,6 +12,10 @@ export const withScoreBadge = (): any => ({
         .sb-score-card-content mat-list-item {
             height: 36px!important;
         }
+        .sb-score-card-content mat-icon {
+            margin-right: 32px;
+            padding: 0;
+        }
         .rtl.sb-score-card-content mat-icon {
             margin-left: 32px;
             margin-right: 0;
@@ -19,9 +23,6 @@ export const withScoreBadge = (): any => ({
         }
         ::ng-deep .rtl .mat-list-text { 
             padding-right: 0!important;
-        }
-        .sb-score-card-content mat-icon {
-            margin-right: 32px;
         }
     `,
     ],
