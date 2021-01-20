@@ -6,7 +6,7 @@ export const withActions = (): any => ({
         <pxb-empty-state [title]="title" [description]="description">
             <mat-icon pxb-empty-icon>devices</mat-icon>
             <button pxb-actions mat-stroked-button color="primary" (click)="click()">
-                <mat-icon>add_circle</mat-icon>
+                <mat-icon>add</mat-icon>
                 {{actionText}}
             </button>
         </pxb-empty-state>
