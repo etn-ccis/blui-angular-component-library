@@ -6,7 +6,7 @@ export const withLeftContent = (): any => ({
             <div pxb-title>Info List Item</div>
             <div pxb-subtitle>with a ChannelValue component to the left</div>
             <mat-icon [style.color]="colors.blue[500]" pxb-icon>battery_charging_full</mat-icon>
-            <div pxb-left-content style="display: flex; flex-direction: column; margin-right: 32px">
+            <div pxb-left-content style="display: flex; flex-direction: column; margin-right: 48px">
                 <div class="mat-body-2">
                     8:32 <strong>AM</strong>
                 </div>
