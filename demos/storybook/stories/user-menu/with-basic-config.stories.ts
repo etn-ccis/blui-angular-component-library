@@ -3,9 +3,9 @@ import { action } from '@storybook/addon-actions';
 
 export const items = [
     {
-        title: 'Account',
+        title: 'Settings',
         icon: 'settings',
-        onSelect: action('Selected: Account'),
+        onSelect: action('Selected: Settings'),
     },
     {
         title: 'Contact Us',
