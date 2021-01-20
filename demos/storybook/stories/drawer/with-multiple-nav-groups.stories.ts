@@ -4,16 +4,16 @@ import { action } from '@storybook/addon-actions';
 
 export const navItems2 = [
     {
-        title: 'Contact',
+        title: 'Settings',
         itemID: 'group2_item1',
-        icon: 'contact_page',
-        onSelect: action('Contact'),
+        icon: 'settings',
+        onSelect: action('Settings'),
     },
     {
-        title: 'Favorites',
+        title: 'Legal',
         itemID: 'group2_item2',
-        icon: 'favorite',
-        onSelect: action('Selected: Favorites'),
+        icon: 'gavel',
+        onSelect: action('Selected: Legal'),
     },
 ];
 
@@ -41,6 +41,7 @@ export const withMultiNavGroups = (): any => ({
                     [hidePadding]="true"
                     [selected]="state.selected === navItem.title"
                     (select)="navItem.onSelect(); setActive(navItem.title, state);">
+                    <mat-icon pxb-icon>{{ navItem.icon }}</mat-icon>
                  </pxb-drawer-nav-item>
               </pxb-drawer-nav-group>
            </pxb-drawer-body>
