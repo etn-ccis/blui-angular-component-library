@@ -1,11 +1,15 @@
 import { color, number, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import * as Colors from '@pxblue/colors';
+import {invertRTL} from "../../src/utils";
 
 export const withFullConfig = (): any => ({
     template: `
         <pxb-empty-state [title]="title" [description]="description">
-            <mat-icon pxb-empty-icon [style.color]="color" [style.fontSize.px]="fontSize">trending_up</mat-icon>
+            <mat-icon pxb-empty-icon 
+                [style.color]="color" 
+                [style.fontSize.px]="fontSize" 
+                [style.transform]="invertRTL()">trending_up</mat-icon>
             <button pxb-actions mat-stroked-button color="primary" (click)="click()">
                 {{actionText}}
             </button>
@@ -18,5 +22,6 @@ export const withFullConfig = (): any => ({
         actionText: text('Action Text', 'Learn More'),
         color: color('emptyIcon.color', Colors.black[300]),
         fontSize: number('emptyIcon.fontSize.px', 90),
+        invertRTL: invertRTL,
     },
 });
