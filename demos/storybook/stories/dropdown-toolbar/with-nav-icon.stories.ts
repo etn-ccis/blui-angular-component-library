@@ -1,12 +1,13 @@
 import { text, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+import { invertRTL } from '../../src/utils';
 
 export const withNavIcon = (): any => ({
     template: `
        <pxb-dropdown-toolbar [title]="title" [subtitle]="state.selected || subtitle">
             <button mat-icon-button pxb-nav-icon (click)="clickPXBIcon()" aria-label="menu icon">
                 <mat-icon *ngIf="navIcon === 'menu'">menu</mat-icon>
-                <mat-icon *ngIf="navIcon === 'arrow_back'">arrow_back</mat-icon>
+                <mat-icon *ngIf="navIcon === 'arrow_back'" [style.transform]="invertRTL()">arrow_back</mat-icon>
             </button>
         <ng-container pxb-toolbar-menu>
             <button mat-menu-item (click)="updateSubtitle('Test Item 1', state)">Test Item 1</button>
@@ -26,5 +27,6 @@ export const withNavIcon = (): any => ({
             selected: undefined,
         },
         clickPXBIcon: action('pxb nav icon clicked'),
+        invertRTL: invertRTL,
     },
 });
