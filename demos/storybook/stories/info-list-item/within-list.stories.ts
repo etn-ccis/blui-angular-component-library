@@ -48,7 +48,6 @@ export const withinList = (): any => ({
                 <div pxb-title>Temperature</div>
                 <mat-icon pxb-icon>home</mat-icon>
                 <span pxb-right-content style="display: flex; align-items: center">
-                    <mat-icon [style.color]="colors.green[700]">eco</mat-icon>
                     <pxb-channel-value value="68" units="°F"></pxb-channel-value>
                 </span>
             </pxb-info-list-item>
