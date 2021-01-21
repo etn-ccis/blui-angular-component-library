@@ -1,4 +1,5 @@
 import * as Colors from '@pxblue/colors';
+import { getDirection } from "@pxblue/storybook-rtl-addon";
 
 export const withLeftContent = (): any => ({
     template: `
@@ -6,7 +7,9 @@ export const withLeftContent = (): any => ({
             <div pxb-title>Info List Item</div>
             <div pxb-subtitle>with a ChannelValue component to the left</div>
             <mat-icon [style.color]="colors.blue[500]" pxb-icon>battery_charging_full</mat-icon>
-            <div pxb-left-content style="display: flex; flex-direction: column; margin-right: 48px">
+            <div pxb-left-content style="display: flex; flex-direction: column"
+                [style.marginRight.px]="direction() === 'rtl' ? 0 : 48"
+                [style.marginLeft.px]="direction() === 'rtl' ? 48 : 0">
                 <div class="mat-body-2">
                     8:32 <strong>AM</strong>
                 </div>
@@ -16,5 +19,6 @@ export const withLeftContent = (): any => ({
       `,
     props: {
         colors: Colors,
+        direction: getDirection,
     },
 });
