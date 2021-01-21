@@ -1,6 +1,6 @@
 import { text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { getDirection } from "@pxblue/storybook-rtl-addon";
+import { getDirection } from '@pxblue/storybook-rtl-addon';
 
 export const withActions = (): any => ({
     template: `
@@ -21,6 +21,6 @@ export const withActions = (): any => ({
         description: text('description', 'Check your network connection or add a new device'),
         click: action('button clicked'),
         actionText: text('Action Text', 'Add Device'),
-        direction: getDirection
+        direction: getDirection,
     },
 });

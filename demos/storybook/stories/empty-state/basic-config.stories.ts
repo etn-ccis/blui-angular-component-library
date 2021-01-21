@@ -1,5 +1,5 @@
 import { text } from '@storybook/addon-knobs';
-import {invertRTL} from "../../src/utils";
+import { invertRTL } from '../../src/utils';
 
 export const withBasicConfig = (): any => ({
     template: `

@@ -7,7 +7,6 @@ import { COMPONENT_SECTION_NAME, README_STORY_NAME } from './constants';
 import * as Colors from '@pxblue/colors';
 import { getDirection } from '@pxblue/storybook-rtl-addon';
 
-
 let banner: HTMLElement;
 let prevUrl = '';
 
@@ -23,7 +22,7 @@ const setBannerStyle = (display: string): void => getBanner().setAttribute('styl
 
 export const showTopBanner = (): void => setBannerStyle('unset');
 export const hideTopBanner = (): void => setBannerStyle('none');
-export const invertRTL = (): string => getDirection() === 'rtl' ? 'scaleX(-1)' : '';
+export const invertRTL = (): string => (getDirection() === 'rtl' ? 'scaleX(-1)' : '');
 
 export const selectCanvasTab = (): void => {
     window.top.history.replaceState(null, '', window.top.location.href.replace(NOTES_PATH, STORY_PATH));
