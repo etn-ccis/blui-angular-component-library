@@ -16,8 +16,8 @@ export const withinList = (): any => ({
                 <mat-icon pxb-icon [style.backgroundColor]="colors.blue[500]"
                     style="color: white;">check_circle</mat-icon>
                 <span pxb-right-content>
-                    <pxb-channel-value value="478" units="V"></pxb-channel-value>,
-                    <pxb-channel-value value="479" units="V"></pxb-channel-value>,
+                    <pxb-channel-value value="478" units="V"></pxb-channel-value>,&nbsp;
+                    <pxb-channel-value value="479" units="V"></pxb-channel-value>,&nbsp;
                     <pxb-channel-value value="473" units="V"></pxb-channel-value>
                 </span>
             </pxb-info-list-item>
@@ -28,8 +28,8 @@ export const withinList = (): any => ({
                 <mat-icon pxb-icon [style.backgroundColor]="colors.red[500]"
                     style="color: white">check_circle</mat-icon>
                 <span pxb-right-content>
-                    <pxb-channel-value value="478" units="V"></pxb-channel-value>,
-                    <pxb-channel-value value="479" units="V"></pxb-channel-value>,
+                    <pxb-channel-value value="478" units="V"></pxb-channel-value>,&nbsp;
+                    <pxb-channel-value value="479" units="V"></pxb-channel-value>,&nbsp;
                     <pxb-channel-value value="473" units="V"></pxb-channel-value>
                 </span>
             </pxb-info-list-item>
@@ -38,8 +38,8 @@ export const withinList = (): any => ({
                 <div pxb-title>Output Current</div>
                 <mat-icon pxb-icon>battery_charging_full</mat-icon>
                 <span pxb-right-content>
-                    <pxb-channel-value value="15" units="A"></pxb-channel-value>,
-                    <pxb-channel-value value="14.9" units="A"></pxb-channel-value>,
+                    <pxb-channel-value value="15" units="A"></pxb-channel-value>,&nbsp;
+                    <pxb-channel-value value="14.9" units="A"></pxb-channel-value>,&nbsp;
                     <pxb-channel-value value="15" units="A"></pxb-channel-value>
                 </span>
             </pxb-info-list-item>
