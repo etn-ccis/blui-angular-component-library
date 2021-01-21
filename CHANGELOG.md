@@ -11,8 +11,10 @@
 -   Fixed bug in `<pxb-mobile-stepper>` which makes component span 100% of parent width.
 -   Fixed header height bug which affected `<pxb-drawer-header>` in Safari.
 -   Fixed misalignment of `<pxb-info-list-item>`'s right content.
+-   Fixed RTL styles in `<pxb-dropdown-toolbar>`.
 
 ### Removed
+
 -   Removed icon inversion logic from `<pxb-info-list-item>` when viewing right-to-left directionality.
 
 ## v4.0.0
