@@ -1,10 +1,10 @@
 import { boolean, number, select } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
-import { nestedNavGroup } from './with-nested-nav-items.stories';
+import { navItems } from './basic-config.stories';
 import { DrawerNavItem } from '@pxblue/angular-components';
 import { getDirection } from '@pxblue/storybook-rtl-addon';
 const headerImg = require('../../assets/eaton-condensed.png');
-const items = [...nestedNavGroup];
+const items = [...navItems];
 
 export const withinDrawerLayout = (): any => ({
     styles: [
@@ -24,21 +24,11 @@ export const withinDrawerLayout = (): any => ({
                </pxb-drawer-header>
                <pxb-drawer-body>
                   <pxb-drawer-nav-group>
-                       <pxb-drawer-nav-item *ngFor="let navItem of navItems"
-                         [title]="navItem.title"
-                         [selected]="state.selected === navItem.title"
-                         (select)="navItem.onSelect(); setActive(navItem, state, variant);">
-                         <mat-icon pxb-icon>{{ navItem.icon }}</mat-icon>
-                         <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items"
-                           [title]="nestedItem.title"
-                           [selected]="state.selected === nestedItem.title"
-                           (select)="nestedItem.onSelect(); setActive(nestedItem, state);">
-                            <pxb-drawer-nav-item *ngFor="let deepItem of nestedItem.items"
-                               [title]="deepItem.title"
-                               [selected]="state.selected === deepItem.title"
-                               (select)="deepItem.onSelect(); setActive(deepItem, state);">
-                            </pxb-drawer-nav-item>
-                        </pxb-drawer-nav-item>
+                     <pxb-drawer-nav-item *ngFor="let navItem of navItems"
+                       [title]="navItem.title"
+                       [selected]="state.selected === navItem.title"
+                       (select)="navItem.onSelect(); setActive(navItem, state, variant);">
+                       <mat-icon pxb-icon>{{ navItem.icon }}</mat-icon>
                      </pxb-drawer-nav-item>
                   </pxb-drawer-nav-group>
                </pxb-drawer-body>
