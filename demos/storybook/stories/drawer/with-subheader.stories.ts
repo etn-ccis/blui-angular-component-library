@@ -20,12 +20,12 @@ export const withSubheader = (): any => ({
              </button>
           </pxb-drawer-header>
            <pxb-drawer-subheader [divider]="divider" [hideContentOnCollapse]="hideContentOnCollapse">
-              <mat-form-field *ngIf="content === 'Filter'"
+              <mat-form-field *ngIf="content === 'Filter'" appearance="outline"
                 style="width: 100%; padding: 8px 16px; box-sizing: border-box">
                 <mat-label>Search</mat-label>
                 <input matInput placeholder="Search criteria">
                 <mat-icon matSuffix>search</mat-icon>
-                <mat-hint>The subheader can be used for custom content.</mat-hint>
+                <mat-hint style="min-width: 360px">The subheader can be used for custom content.</mat-hint>
               </mat-form-field>
               <mat-card *ngIf="content === 'Card'" style="font-weight: 500; width: 100%; min-width: 350px;" 
                 [style.backgroundColor]="colors.gray[50]">
