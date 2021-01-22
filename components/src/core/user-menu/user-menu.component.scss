@@ -56,3 +56,9 @@ mat-card.pxb-user-menu-overlay {
 .pxb-user-menu-overlay-backdrop {
     background-color: unset;
 }
+
+.pxb-user-menu-overlay {
+    .mat-list-base .mat-list-item.pxb-info-list-item-content .pxb-info-list-item-title-wrapper {
+        font-weight: 400;
+    }
+}

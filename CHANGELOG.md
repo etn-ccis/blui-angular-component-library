@@ -5,6 +5,7 @@
 ### Added
 
 -   Added new property `openOnHover` to `<pxb-drawer>`.
+-   Added lighter font weight to `<pxb-info-list-item>` placed inside `<pxb-user-menu>`.
 
 ### Fixed
 
