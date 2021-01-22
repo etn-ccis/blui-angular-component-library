@@ -37,14 +37,18 @@
         float: left; // for IE11 compatibility
         /* width: fit-content; */
 
-        .rotated-dropdown-arrow {
-            transform: rotate(180deg);
-        }
-
         .pxb-dropdown-toolbar-subtitle {
             line-height: 1.3rem;
             overflow: hidden;
             text-overflow: ellipsis;
+        }
+
+        .pxb-dropdown-toolbar-subtitle-icon {
+            margin: 0 4px;
+        }
+
+        .rotated-dropdown-arrow {
+            transform: rotate(180deg);
         }
     }
 }
