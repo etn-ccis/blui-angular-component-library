@@ -1,6 +1,7 @@
 import { select, text } from '@storybook/addon-knobs';
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
 import { items } from './with-basic-config.stories';
+import {invertRTL} from "../../src/utils";
 
 export const withFullConfig = (): any => ({
     template: `
@@ -13,7 +14,7 @@ export const withFullConfig = (): any => ({
             <mat-nav-list pxb-menu-body [style.paddingTop.px]="0">
                 <pxb-info-list-item *ngFor="let item of items" [dense]="true" 
                     (click)="open=false; item.onSelect();">
-                    <mat-icon pxb-icon>{{item.icon}}</mat-icon>
+                    <mat-icon pxb-icon [style.transform]="invertRTL()">{{item.icon}}</mat-icon>
                     <div pxb-title>{{item.title}}</div>
                 </pxb-info-list-item>
             </mat-nav-list>
@@ -29,6 +30,7 @@ export const withFullConfig = (): any => ({
         originY: select('positions.originY', ['top', 'center', 'bottom'], 'top'),
         overlayX: select('positions.overlayX', ['start', 'center', 'end'], 'start'),
         overlayY: select('positions.overlayY', ['top', 'center', 'bottom'], 'top'),
+        invertRTL: invertRTL,
         createPositions: (originX, originY, overlayX, overlayY): ConnectionPositionPair[] => [
             new ConnectionPositionPair({ originX, originY }, { overlayX, overlayY }),
         ],

@@ -1,10 +1,11 @@
 import { boolean, color, text } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
+import {invertRTL} from "../../src/utils";
 
 export const withFullConfig = (): any => ({
     template: `
         <pxb-channel-value [value]="value" [units]="units" [color]="color" [prefix]="prefix">
-            <mat-icon *ngIf="showIcon" [style.color]="iconColor">trending_up</mat-icon>
+            <mat-icon *ngIf="showIcon" [style.color]="iconColor" [style.transform]="invertRTL()">trending_up</mat-icon>
         </pxb-channel-value> 
     `,
     props: {
@@ -14,5 +15,6 @@ export const withFullConfig = (): any => ({
         showIcon: boolean('Show Icon', true),
         color: color('color', Colors.black[500]),
         prefix: boolean('prefix', false),
+        invertRTL: invertRTL,
     },
 });
