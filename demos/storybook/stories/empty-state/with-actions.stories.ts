@@ -8,6 +8,7 @@ export const withActions = (): any => ({
             <mat-icon pxb-empty-icon>devices</mat-icon>
             <button pxb-actions mat-stroked-button color="primary" (click)="click()">
                 <mat-icon 
+                    style="height: 20px; width: 20px; font-size: 20px;"
                     [style.marginRight.px]="direction() === 'rtl' ? -4 : 8"
                     [style.marginLeft.px]="direction() === 'rtl' ? 8 : -4">
                     add
