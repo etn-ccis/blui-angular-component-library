@@ -16,7 +16,7 @@ export const navItems1: DrawerNavItem[] = [
         title: 'Overview',
         subtitle: 'Learn more about us',
         statusColor: Colors.green[500],
-        icon: 'perm_identity',
+        icon: 'person',
         onSelect: action('Selected: Overview'),
         items: [
             {

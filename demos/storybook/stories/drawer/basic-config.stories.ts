@@ -5,7 +5,7 @@ import { DrawerNavItem } from '@pxblue/angular-components';
 export const navItems: DrawerNavItem[] = [
     {
         title: 'Identity Management',
-        icon: 'perm_identity',
+        icon: 'person',
         onSelect: action('Selected: Identity Management'),
     },
     {
