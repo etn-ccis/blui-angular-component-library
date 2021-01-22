@@ -35,4 +35,9 @@
             text-align: center;
         }
     }
+
+    .pxb-empty-state-actions-wrapper .mat-button-wrapper {
+        display: flex;
+        align-items: center;
+    }
 }

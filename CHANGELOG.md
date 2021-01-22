@@ -13,6 +13,7 @@
 -   Fixed header height bug which affected `<pxb-drawer-header>` in Safari.
 -   Fixed misalignment of `<pxb-info-list-item>`'s right content.
 -   Fixed RTL styles in `<pxb-dropdown-toolbar>`.
+-   Fixed uneven vertical alignment of icon and text in `<pxb-empty-state>` action buttons. 
 
 ### Removed
 
