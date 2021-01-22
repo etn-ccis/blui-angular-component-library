@@ -12,6 +12,9 @@
 -   Fixed header height bug which affected `<pxb-drawer-header>` in Safari.
 -   Fixed misalignment of `<pxb-info-list-item>`'s right content.
 
+### Removed
+-   Removed automatic RTL flip logic from user-provided icons to `<pxb-info-list-item>`.
+
 ## v4.0.0
 
 ### Added
