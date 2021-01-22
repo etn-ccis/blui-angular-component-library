@@ -1,6 +1,6 @@
 import { text } from '@storybook/addon-knobs';
 import { items } from './with-basic-config.stories';
-import {invertRTL} from "../../src/utils";
+import { invertRTL } from '../../src/utils';
 
 export const withMenuHeader = (): any => ({
     template: `

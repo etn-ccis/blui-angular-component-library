@@ -1,7 +1,7 @@
 import { select } from '@storybook/addon-knobs';
 import { items } from './with-basic-config.stories';
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
-import {invertRTL} from "../../src/utils";
+import { invertRTL } from '../../src/utils';
 
 export const withMenuPlacement = (): any => ({
     template: `

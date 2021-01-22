@@ -1,5 +1,5 @@
 import { items } from './with-basic-config.stories';
-import {invertRTL} from "../../src/utils";
+import { invertRTL } from '../../src/utils';
 
 const Trex = require('../../assets/trex.png');
 

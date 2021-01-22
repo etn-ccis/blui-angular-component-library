@@ -1,6 +1,6 @@
 import { text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import {invertRTL} from "../../src/utils";
+import { invertRTL } from '../../src/utils';
 
 export const items = [
     {

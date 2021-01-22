@@ -1,6 +1,6 @@
 import { boolean, color, text } from '@storybook/addon-knobs';
 import * as Colors from '@pxblue/colors';
-import {invertRTL} from "../../src/utils";
+import { invertRTL } from '../../src/utils';
 
 export const withFullConfig = (): any => ({
     template: `

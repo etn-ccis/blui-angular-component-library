@@ -1,7 +1,7 @@
 import { select, text } from '@storybook/addon-knobs';
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
 import { items } from './with-basic-config.stories';
-import {invertRTL} from "../../src/utils";
+import { invertRTL } from '../../src/utils';
 
 export const withFullConfig = (): any => ({
     template: `

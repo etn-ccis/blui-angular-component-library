@@ -1,6 +1,6 @@
 import { items } from './with-basic-config.stories';
-import {getDirection} from "@pxblue/storybook-rtl-addon";
-import {invertRTL} from "../../src/utils";
+import { getDirection } from '@pxblue/storybook-rtl-addon';
+import { invertRTL } from '../../src/utils';
 
 export const withinToolbar = (): any => ({
     template: `
