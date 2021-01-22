@@ -13,7 +13,11 @@ const Trex = require('../../assets/trex.png');
     template: `
         <pxb-hero-banner>
             <pxb-hero label="SVG" value="36px" [iconBackgroundColor]="colors.white[50]">
-                <mat-icon svgIcon="px-icons:voltage_circled_outline" pxb-primary [style.color]="colors.blue[500]"></mat-icon>
+                <mat-icon
+                    svgIcon="px-icons:voltage_circled_outline"
+                    pxb-primary
+                    [style.color]="colors.blue[500]"
+                ></mat-icon>
             </pxb-hero>
             <pxb-hero label="mat icon" value="36px" [iconBackgroundColor]="colors.white[50]">
                 <mat-icon pxb-primary>schedule</mat-icon>
@@ -31,7 +35,11 @@ const Trex = require('../../assets/trex.png');
 
         <pxb-hero-banner>
             <pxb-hero label="SVG" units="px" value="48" iconSize="48" [iconBackgroundColor]="colors.white[50]">
-                <mat-icon svgIcon="px-icons:voltage_circled_outline" pxb-primary [style.color]="colors.blue[500]"></mat-icon>
+                <mat-icon
+                    svgIcon="px-icons:voltage_circled_outline"
+                    pxb-primary
+                    [style.color]="colors.blue[500]"
+                ></mat-icon>
             </pxb-hero>
             <pxb-hero label="mat icon" units="px" value="48" iconSize="48" [iconBackgroundColor]="colors.white[50]">
                 <mat-icon pxb-primary>schedule</mat-icon>
@@ -49,7 +57,11 @@ const Trex = require('../../assets/trex.png');
 
         <pxb-hero-banner>
             <pxb-hero label="SVG" value="72px" iconSize="72" [iconBackgroundColor]="colors.white[50]">
-                <mat-icon svgIcon="px-icons:voltage_circled_outline" pxb-primary [style.color]="colors.blue[500]"></mat-icon>
+                <mat-icon
+                    svgIcon="px-icons:voltage_circled_outline"
+                    pxb-primary
+                    [style.color]="colors.blue[500]"
+                ></mat-icon>
             </pxb-hero>
             <pxb-hero label="mat icon" value="72px" iconSize="72" [iconBackgroundColor]="colors.white[50]">
                 <mat-icon pxb-primary>schedule</mat-icon>
