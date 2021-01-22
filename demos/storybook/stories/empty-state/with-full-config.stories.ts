@@ -20,7 +20,7 @@ export const withFullConfig = (): any => ({
         description: text('description', 'A fully redesigned predictions page is coming in our next release!'),
         click: action('button clicked'),
         actionText: text('Action Text', 'Learn More'),
-        color: color('emptyIcon.color', Colors.black[300]),
+        color: color('emptyIcon.color', Colors.black[500]),
         fontSize: number('emptyIcon.fontSize.px', 90),
         invertRTL: invertRTL,
     },
