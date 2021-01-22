@@ -13,7 +13,7 @@
 -   Fixed misalignment of `<pxb-info-list-item>`'s right content.
 
 ### Removed
--   Removed icon inversion logic from `<pxb-info-list-item>` when viewing right-to-left directionality.
+-   Removed automatic RTL flip logic from user-provided icons to `<pxb-info-list-item>`.
 
 ## v4.0.0
 
