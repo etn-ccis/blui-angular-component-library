@@ -4,16 +4,22 @@
 
 ### Added
 
--   Added new property `openOnHover` to `<pxb-drawer>`.
+-   Adds new property `openOnHover` to `<pxb-drawer>`.
+-   Adds new class `pxb-dropdown-toolbar-subtitle-icon` to `<pxb-dropdown-toolbar>`
 
 ### Fixed
 
--   Fixed bug in `<pxb-mobile-stepper>` which makes component span 100% of parent width.
--   Fixed header height bug which affected `<pxb-drawer-header>` in Safari.
--   Fixed misalignment of `<pxb-info-list-item>`'s right content.
+-   Fixes bug in `<pxb-mobile-stepper>` which makes component span 100% of parent width.
+-   Fixes header height bug which affected `<pxb-drawer-header>` in Safari.
+-   Fixes misalignment of `<pxb-info-list-item>`'s right content.
 
 ### Removed
--   Removed automatic RTL flip logic from user-provided icons to `<pxb-info-list-item>`.
+
+-   Removes automatic RTL flip logic from user-provided icons to `<pxb-info-list-item>`.
+
+### Changed
+
+-   Default styles for `<pxb-dropdown-toolbar>` to for more paddings around the dropdown arrow.
 
 ## v4.0.0
 
