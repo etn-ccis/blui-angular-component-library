@@ -19,7 +19,7 @@
 
 ### Changed
 
--   Default styles for `<pxb-dropdown-toolbar>` to for more paddings around the dropdown arrow.
+-   Default styles of `<pxb-dropdown-toolbar>` for more paddings around the dropdown arrow.
 
 ## v4.0.0
 
