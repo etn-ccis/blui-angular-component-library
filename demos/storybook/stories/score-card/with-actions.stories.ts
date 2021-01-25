@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { withCustomHeaderStyles } from './with-custom-header.stories';
 import * as Colors from '@pxblue/colors';
 
-export const demoActions = ['search', 'mail', 'notifications', 'list_alt', 'cloud', 'more_vert'];
+export const demoActions = ['search', 'mail', 'notifications', 'favorite', 'cloud', 'more_vert'];
 
 export const withActions = (): any => ({
     styles: [
