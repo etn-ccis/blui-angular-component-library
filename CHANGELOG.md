@@ -6,6 +6,7 @@
 
 -   Added new property `openOnHover` to `<pxb-drawer>`.
 -   Added lighter font weight to `<pxb-info-list-item>` placed inside `<pxb-user-menu>`.
+-   Added a shadow to the `<pxb-user-menu>` when opened.
 
 ### Fixed
 
@@ -14,6 +15,7 @@
 -   Fixed misalignment of `<pxb-info-list-item>`'s right content.
 -   Fixed RTL styles in `<pxb-dropdown-toolbar>`.
 -   Fixed uneven vertical alignment of icon and text in `<pxb-empty-state>` action buttons. 
+-   Fixed `<pxb-user-menu>` menu header avatar offset.
 
 ### Removed
 -   Removed automatic RTL flip logic from user-provided icons to `<pxb-info-list-item>`.
