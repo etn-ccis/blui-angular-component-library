@@ -20,7 +20,7 @@ export const withinToolbar = (): any => ({
                             </pxb-info-list-item>
                         </mat-nav-list>
                         <mat-divider></mat-divider>
-                        <div style="padding: 16px; font-size: 12px" 
+                        <div style="padding: 0 16px; font-size: 12px; line-height: 40px; height: 40px" 
                             [style.textAlign]="direction() === 'rtl' ? 'left' : 'right'">
                             v1.03.54
                         </div>
