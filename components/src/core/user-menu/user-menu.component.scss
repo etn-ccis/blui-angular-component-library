@@ -1,13 +1,5 @@
 $size: 40px;
 
-/* RTL */
-[dir='rtl'] {
-    .pxb-user-menu-header-avatar {
-        margin-left: 0;
-        margin-right: 4px;
-    }
-}
-
 .pxb-user-menu {
     display: flex;
 }
@@ -36,10 +28,6 @@ $size: 40px;
 
 mat-card.pxb-user-menu-overlay {
     padding: 0;
-}
-
-.pxb-user-menu-header-avatar {
-    margin-left: 4px;
 }
 
 .pxb-user-menu-text-avatar {
