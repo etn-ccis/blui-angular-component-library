@@ -19,6 +19,7 @@ import { Subscription } from 'rxjs';
         <div
             class="pxb-drawer-content"
             [class.pxb-drawer-side-border]="sideBorder"
+            [class.mat-elevation-z4]="!sideBorder"
             [class.pxb-drawer-condensed-rail]="condensed"
             [class.pxb-drawer-collapse]="!isOpen()"
             [class.pxb-drawer-temp-variant]="isTemporaryVariant()"

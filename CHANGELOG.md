@@ -16,6 +16,7 @@
 -   Fixed RTL styles in `<pxb-dropdown-toolbar>`.
 -   Fixed uneven vertical alignment of icon and text in `<pxb-empty-state>` action buttons. 
 -   Fixed `<pxb-user-menu>` menu header avatar offset.
+-   Fixed `<pxb-drawer>` `sideBorder` prop to use `mat-elevation` class.  
 
 ### Removed
 -   Removed automatic RTL flip logic from user-provided icons to `<pxb-info-list-item>`.
