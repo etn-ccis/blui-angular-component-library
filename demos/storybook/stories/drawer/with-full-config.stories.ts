@@ -16,7 +16,7 @@ export const navItems1: DrawerNavItem[] = [
         title: 'Overview',
         subtitle: 'Learn more about us',
         statusColor: Colors.green[500],
-        icon: 'person',
+        icon: 'dashboard',
         onSelect: action('Selected: Overview'),
         items: [
             {
@@ -30,68 +30,65 @@ export const navItems1: DrawerNavItem[] = [
         ],
     },
     {
-        title: 'Calendar',
-        icon: 'today',
-        onSelect: action('Selected: Calendar'),
+        title: 'Timeline',
+        icon: 'toc',
+        onSelect: action('Selected: Timeline'),
     },
     {
-        title: 'Alarms',
+        title: 'Locations',
+        icon: 'pin_drop',
+        onSelect: action('Selected: Locations'),
+    },
+    {
+        title: 'Devices',
         subtitle: '4 new warnings',
         statusColor: Colors.yellow[500],
-        icon: 'notifications_active',
-        onSelect: action('Selected: Alarms'),
+        icon: 'devices',
+        onSelect: action('Selected: Devices'),
     },
     {
-        title: 'Accessibility',
-        icon: 'accessibility',
-        onSelect: action('Selected: Accessibility'),
+        title: 'Photos',
+        icon: 'add_a_photo',
+        onSelect: action('Selected: Photos'),
     },
     {
-        title: 'Backups',
-        icon: 'backup',
-        onSelect: action('Selected: Backups'),
+        title: 'Schedule',
+        icon: 'airport_shuttle',
+        onSelect: action('Selected: Schedule'),
     },
 ];
 
 export const navItems2 = [
     {
-        title: 'Contacts',
-        icon: 'account_circle',
-        onSelect: action('Contact'),
+        title: 'User Guide',
+        icon: 'move_to_inbox',
+        onSelect: action('User Guide'),
     },
     {
-        title: 'Account',
-        icon: 'history',
-        onSelect: action('Selected: History'),
+        title: 'License Agreement',
+        subtitle: 'For Eaton employees only',
+        icon: 'send',
+        onSelect: action('License Agreement'),
+    },
+    {
+        title: 'Accessibility',
+        icon: 'accessibility',
+        onSelect: action('Selected: Accessibility'),
         items: [
             {
-                title: 'History',
-                onSelect: action('Selected: History'),
+                title: 'Color Contrast Guide',
+                onSelect: action('Selected: Color Contrast Guide'),
             },
             {
-                title: 'Permissions',
-                onSelect: action('Selected: Permissions'),
-                items: [
-                    {
-                        title: 'View',
-                        onSelect: action('Selected: View'),
-                    },
-                    {
-                        title: 'Request',
-                        onSelect: action('Selected: Request'),
-                    },
-                ],
-            },
-            {
-                title: 'Settings',
-                onSelect: action('Selected: Settings'),
+                title: 'Screen Reader',
+                onSelect: action('Selected: Screen Reader'),
             },
         ],
     },
     {
-        title: 'Favorites',
-        icon: 'star',
-        onSelect: action('Selected: Favorites'),
+        title: 'Notifications',
+        icon: 'notifications',
+        onSelect: action('Selected: Notifications'),
     },
     {
         title: 'Events',
@@ -147,13 +144,6 @@ export const withFullConfig = (): any => ({
                            [selected]="state.selected === nestedItem.title"
                            [activeItemBackgroundShape]="activeItemBackgroundShape"
                            (select)="nestedItem.onSelect(); setActive(nestedItem, state);">       
-                            <pxb-drawer-nav-item *ngFor="let deep of nestedItem.items"
-                               [title]="deep.title"
-                               [hidePadding]="hidePaddingNested"
-                               [selected]="state.selected === deep.title"
-                               [activeItemBackgroundShape]="activeItemBackgroundShape"
-                               (select)="deep.onSelect(); setActive(deep, state);">       
-                           </pxb-drawer-nav-item>                    
                         </pxb-drawer-nav-item>
                     </pxb-drawer-nav-item>
                  </pxb-drawer-nav-group>
@@ -183,7 +173,7 @@ export const withFullConfig = (): any => ({
         spacer: boolean('Add Spacer', false, navGroup),
         itemsLength1: number(
             'Group 1 Items',
-            3,
+            4,
             {
                 range: true,
                 min: 0,
@@ -194,7 +184,7 @@ export const withFullConfig = (): any => ({
         ),
         itemsLength2: number(
             'Group 2 Items',
-            3,
+            4,
             {
                 range: true,
                 min: 0,
