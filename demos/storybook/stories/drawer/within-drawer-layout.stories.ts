@@ -33,9 +33,9 @@ export const withinDrawerLayout = (): any => ({
                   </pxb-drawer-nav-group>
                </pxb-drawer-body>
                <pxb-drawer-footer *ngIf="variant === 'rail'">
-                  <div style="height: 56px; display: flex; align-items: center; justify-content: center">
-                    <img [src]="headerImg" width="56px"/>
-                  </div>               
+                    <div style="height: 56px; display: flex; align-items: center; justify-content: center">
+                        <i class="pxb-eaton" style="font-size: 14px;"></i>
+                    </div>             
                </pxb-drawer-footer>
             </pxb-drawer>
             <div pxb-content>
