@@ -20,12 +20,13 @@ export const withFullConfig = (): any => ({
             <div pxb-title>{{title}}</div>
             <div pxb-subtitle>{{subtitle}}</div>
             <div pxb-info>{{info}}</div>
-            <i  pxb-icon *ngIf="showIcon" 
+            <mat-icon  pxb-icon *ngIf="showIcon" 
                 [style.color]="iconColor"
                 [style.lineHeight.px]="24"
                 [style.fontSize.px]="24"
-                [style.backgroundColor]="getBgColor(avatar, statusColor)" 
-                class="pxb-device"></i>
+                [style.backgroundColor]="getBgColor(avatar, statusColor)">
+                devices
+            </mat-icon>
         </pxb-info-list-item>
       `,
     props: {
