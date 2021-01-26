@@ -46,7 +46,7 @@ export const withinList = (): any => ({
     
             <pxb-info-list-item dense="true" [divider]="divider" [iconAlign]="'center'">
                 <div pxb-title>Temperature</div>
-                <mat-icon pxb-icon>home</mat-icon>
+                <i pxb-icon class="pxb-temp"></i>
                 <span pxb-right-content style="display: flex; align-items: center">
                     <pxb-channel-value value="68" units="°F"></pxb-channel-value>
                 </span>
