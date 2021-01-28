@@ -6,7 +6,7 @@ export const withinList = (): any => ({
         <mat-nav-list [style.paddingTop.px]="0">
             <pxb-info-list-item dense="true" [statusColor]="colors.green[700]" [divider]="divider" class="test" [iconAlign]="'center'">
                 <div pxb-title>Status</div>
-                <mat-icon pxb-icon [style.color]="colors.green[700]">eco</mat-icon>
+                <mat-icon pxb-icon>devices</mat-icon>
                 <pxb-channel-value pxb-right-content value="Online, ESS+"></pxb-channel-value>
             </pxb-info-list-item>
     
@@ -46,9 +46,8 @@ export const withinList = (): any => ({
     
             <pxb-info-list-item dense="true" [divider]="divider" [iconAlign]="'center'">
                 <div pxb-title>Temperature</div>
-                <mat-icon pxb-icon>home</mat-icon>
+                <i pxb-icon class="pxb-temp"></i>
                 <span pxb-right-content style="display: flex; align-items: center">
-                    <mat-icon [style.color]="colors.green[700]">eco</mat-icon>
                     <pxb-channel-value value="68" units="°F"></pxb-channel-value>
                 </span>
             </pxb-info-list-item>

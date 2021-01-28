@@ -13,7 +13,7 @@ export const withCustomHeader = (): any => ({
     styles: [
         `${withCustomHeaderStyles}
         ::ng-deep pxb-score-card .pxb-root .pxb-header {
-            background-color: ${Colors.red[500]};
+            background-color: ${Colors.blue[500]};
             color: ${Colors.white[50]};
         }`,
     ],

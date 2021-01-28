@@ -1,5 +1,5 @@
 import { MatIconModule } from '@angular/material/icon';
-import { DrawerModule } from '@pxblue/angular-components';
+import { DrawerModule, ListItemTagModule } from '@pxblue/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import {
@@ -62,6 +62,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
         moduleMetadata({
             imports: [
                 DrawerModule,
+                ListItemTagModule,
                 UtilModule,
                 MatFormFieldModule,
                 MatDividerModule,

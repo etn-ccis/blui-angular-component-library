@@ -1,13 +1,5 @@
 $size: 40px;
 
-/* RTL */
-[dir='rtl'] {
-    .pxb-user-menu-header-avatar {
-        margin-left: 0;
-        margin-right: 4px;
-    }
-}
-
 .pxb-user-menu {
     display: flex;
 }
@@ -38,10 +30,6 @@ mat-card.pxb-user-menu-overlay {
     padding: 0;
 }
 
-.pxb-user-menu-header-avatar {
-    margin-left: 4px;
-}
-
 .pxb-user-menu-text-avatar {
     margin-bottom: 0;
     font-weight: 400;
@@ -55,4 +43,10 @@ mat-card.pxb-user-menu-overlay {
 
 .pxb-user-menu-overlay-backdrop {
     background-color: unset;
+}
+
+.pxb-user-menu-overlay {
+    .mat-list-base .mat-list-item.pxb-info-list-item-content .pxb-info-list-item-title-wrapper {
+        font-weight: 400;
+    }
 }

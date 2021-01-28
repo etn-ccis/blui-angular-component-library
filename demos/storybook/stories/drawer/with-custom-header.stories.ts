@@ -10,6 +10,13 @@ export const withCustomHeader = (): any => ({
        ::ng-deep .pxb-drawer .pxb-drawer-header-background {
           background-image: url(${bgImage});
         }
+        .header-content {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          margin: 0 8px;
+          width: 100%;
+        }
        `,
     ],
     template: `
@@ -18,9 +25,12 @@ export const withCustomHeader = (): any => ({
             <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                 <mat-icon>menu</mat-icon>
             </button>
-            <div pxb-title-content *ngIf="state.open">
-                <div class="mat-h4" style="margin-bottom: -8px; margin-top: 12px">Customizable</div>
-                <div class="mat-h2" style="margin-top: 0">Header Content</div>
+            <div pxb-title-content *ngIf="state.open" class="header-content">
+                <div>
+                   <div class="mat-h4" style="margin-bottom: -8px; margin-top: 8px">Customizable</div>
+                   <div class="mat-h2" style="margin: 0">Header Content</div>
+                </div>
+                <pxb-list-item-tag label="V1.0.3" style="margin-bottom: 16px"></pxb-list-item-tag>
             </div>
           </pxb-drawer-header>
           <pxb-drawer-body>

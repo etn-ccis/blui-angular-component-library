@@ -6,12 +6,18 @@
 
 -   Adds new property `openOnHover` to `<pxb-drawer>`.
 -   Adds new class `pxb-dropdown-toolbar-subtitle-icon` to `<pxb-dropdown-toolbar>`
+-   Adds lighter font weight to `<pxb-info-list-item>` placed inside `<pxb-user-menu>`.
+-   Adds a shadow to the `<pxb-user-menu>` when opened.
 
 ### Fixed
 
 -   Fixes bug in `<pxb-mobile-stepper>` which makes component span 100% of parent width.
 -   Fixes header height bug which affected `<pxb-drawer-header>` in Safari.
 -   Fixes misalignment of `<pxb-info-list-item>`'s right content.
+-   Fixes RTL styles in `<pxb-dropdown-toolbar>`.
+-   Fixes uneven vertical alignment of icon and text in `<pxb-empty-state>` action buttons. 
+-   Fixes `<pxb-user-menu>` menu header avatar offset.
+-   Fixes `<pxb-drawer>` `sideBorder` prop to use `mat-elevation` class.  
 
 ### Removed
 
@@ -19,7 +25,7 @@
 
 ### Changed
 
--   Default styles of `<pxb-dropdown-toolbar>` for more paddings around the dropdown arrow.
+-   Default styles of `<pxb-dropdown-toolbar>` for more padding around the dropdown arrow.
 
 ## v4.0.0
 

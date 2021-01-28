@@ -1,4 +1,5 @@
 import { items } from './with-basic-config.stories';
+import { invertRTL } from '../../src/utils';
 
 const Trex = require('../../assets/trex.png');
 
@@ -17,7 +18,7 @@ export const withNonTextAvatar = (): any => ({
             <pxb-user-menu [avatarImage]="trex" [(open)]="open1">
                 <mat-nav-list pxb-menu-body [style.paddingTop.px]="0">
                     <pxb-info-list-item *ngFor="let item of items" [dense]="true" (click)="open1=false; item.onSelect();">
-                        <mat-icon pxb-icon>{{item.icon}}</mat-icon>
+                        <mat-icon pxb-icon [style.transform]="invertRTL()">{{item.icon}}</mat-icon>
                         <div pxb-title>{{item.title}}</div>
                     </pxb-info-list-item>
                 </mat-nav-list>
@@ -28,7 +29,7 @@ export const withNonTextAvatar = (): any => ({
                 <mat-nav-list pxb-menu-body [style.paddingTop.px]="0">
                     <pxb-info-list-item *ngFor="let item of items" [dense]="true" 
                         (click)="open2=false; item.onSelect();">
-                        <mat-icon pxb-icon>{{item.icon}}</mat-icon>
+                        <mat-icon pxb-icon [style.transform]="invertRTL()">{{item.icon}}</mat-icon>
                         <div pxb-title>{{item.title}}</div>
                     </pxb-info-list-item>
                 </mat-nav-list>
@@ -40,5 +41,6 @@ export const withNonTextAvatar = (): any => ({
         open2: false,
         items: items,
         trex: Trex,
+        invertRTL: invertRTL,
     },
 });
