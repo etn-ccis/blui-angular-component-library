@@ -67,7 +67,7 @@ export const navItems2 = [
     {
         title: 'License Agreement',
         subtitle: 'For Eaton employees only',
-        icon: 'send',
+        icon: 'fact_check',
         onSelect: action('License Agreement'),
     },
     {
