@@ -58,6 +58,8 @@ jobs:
             - DEV_BRANCH: dev
         steps:
             - checkout
+            - attach_workspace:
+                  at: .
             - restore_cache:
                   keys:
                       - v2-dependencies-angular-{{ checksum "demos/storybook/yarn.lock" }}
@@ -116,6 +118,8 @@ jobs:
             - MASTER_BRANCH: master
         steps:
             - checkout
+            - attach_workspace:
+                  at: .
             - run:
                   name: Initialize Submodule
                   command: |
