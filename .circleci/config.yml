@@ -39,6 +39,10 @@ jobs:
                   name: Test Artifacts
                   command: |
                       yarn test:artifacts
+            - run:
+                name: NPM Package
+                command: |
+                      cd dist && npm pack
             # Save the dist folder for use in future jobs.
             - persist_to_workspace:
                   root: .
@@ -62,6 +66,10 @@ jobs:
                   command: |
                       cd demos/storybook
                       yarn install --frozen-lockfile
+
+                      # Install the packed version of @pxblue/angular-components
+                      PACKAGED_VERSION=`node -p "require('../../dist/package.json').version"`
+                      yarn add ../../dist/pxblue-angular-components-$PACKAGED_VERSION.tgz
             - save_cache:
                   name: Save Cache
                   paths:
@@ -82,13 +90,7 @@ jobs:
             - run:
                   name: Build Storybook
                   command: |
-                      cp -r ./dist/. ./demos/storybook/node_modules/@pxblue/angular-components
                       cd demos/storybook
-
-                      # If we are building the master branch, use the published component library.
-                      if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
-                        yarn add @pxblue/angular-components
-                      fi
 
                       # master and dev branches should configure Google Analytics IDs before the build.
                       if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
@@ -126,6 +128,10 @@ jobs:
                   command: |
                       cd demos/showcase
                       yarn install --frozen-lockfile
+
+                      # Install the packed version of @pxblue/angular-components
+                      PACKAGED_VERSION=`node -p "require('../../dist/package.json').version"`
+                      yarn add ../../dist/pxblue-angular-components-$PACKAGED_VERSION.tgz
             - save_cache:
                   name: Save Cache
                   paths:
@@ -136,14 +142,7 @@ jobs:
             - run:
                   name: Build Showcase
                   command: |
-                      cp -r ./dist/. ./demos/showcase/node_modules/@pxblue/angular-components
                       cd demos/showcase
-
-                      # If we are building the master branch, use the published component library.
-                      if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
-                        yarn add @pxblue/angular-components
-                      fi
-
                       yarn build
 
     deploy_storybook:
@@ -189,22 +188,53 @@ jobs:
                       git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
                       git push
 
+    publish:
+      docker:
+        - image: circleci/node:12.9.1-browsers
+      steps:
+        - checkout
+        - attach_workspace:
+            at: .
+        - run:
+            name: Authenticate with registry
+            command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+        - run:
+            name: Publish @pxblue/angular-components
+            command:  |
+              cd dist
+              MASTER_VERSION=`node -p "require('./package.json').version"`
+              NPM_LATEST_VERSION=`npm show @pxblue/angular-components version`
+              if ! [ $MASTER_VERSION == $NPM_LATEST_VERSION ];
+              then
+                  npm publish
+              else
+                  echo "Latest version is already published."
+              fi
+
 workflows:
     version: 2
     angular_library:
         jobs:
             - build_library
             - build_showcase:
-                  requires:
-                      - build_library
+                requires:
+                    - build_library
             - build_storybook:
-                  requires:
-                      - build_library
+                requires:
+                    - build_library
             - deploy_storybook:
-                  requires:
-                      - build_storybook
-                  filters:
-                      branches:
-                          only:
-                              - master
-                              - dev
+                requires:
+                    - build_storybook
+                filters:
+                    branches:
+                        only:
+                          - master
+                          - dev
+            - publish:
+                requires:
+                    - build_storybook
+                    - build_showcase
+                filters:
+                    branches:
+                        only:
+                            - master
