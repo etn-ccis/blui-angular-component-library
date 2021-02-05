@@ -8,6 +8,7 @@
 -   Adds new class `pxb-dropdown-toolbar-subtitle-icon` to `<pxb-dropdown-toolbar>`
 -   Adds lighter font weight to `<pxb-info-list-item>` placed inside `<pxb-user-menu>`.
 -   Adds a shadow to the `<pxb-user-menu>` when opened.
+-   Adds new property `openOnHoverDelay` to `<pxb-drawer>` to alter open-on-hover delay for closed persistent drawers. 
 
 ### Fixed
 
