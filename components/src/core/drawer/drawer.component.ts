@@ -44,8 +44,9 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
     @Input() sideBorder = false;
     @Input() disableActiveItemParentStyles = false;
     @Input() openOnHover = true;
+    @Input() openOnHoverDelay = 500;
 
-    hoverDelay: any;
+    hoverDelayTimeout: any;
     drawerSelectionListener: Subscription;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
@@ -68,16 +69,16 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
 
     hoverDrawer(): void {
         if (!this.open && this.openOnHover) {
-            this.hoverDelay = setTimeout(() => {
+            this.hoverDelayTimeout = setTimeout(() => {
                 this.drawerService.setDrawerTempOpen(true);
                 this.changeDetector.detectChanges();
-            }, 500);
+            }, this.openOnHoverDelay);
         }
     }
 
     unhoverDrawer(): void {
         if (this.openOnHover) {
-            clearTimeout(this.hoverDelay);
+            clearTimeout(this.hoverDelayTimeout);
             if (this.drawerService.isTempOpen()) {
                 this.drawerService.setDrawerTempOpen(false);
                 this.changeDetector.detectChanges();

@@ -113,6 +113,7 @@ export const withFullConfig = (): any => ({
     template: `
         <pxb-drawer 
             [open]="state.open" 
+            [openOnHoverDelay]="openOnHoverDelay"
             [sideBorder]="sideBorder"
             [disableActiveItemParentStyles]="disableActiveItemParentStyles" 
             [openOnHover]="openOnHover"
@@ -161,6 +162,17 @@ export const withFullConfig = (): any => ({
         footerImage: footerImage,
         headerImage: headerImage,
         openOnHover: boolean('openOnHover', true, drawer),
+        openOnHoverDelay: number(
+            'openOnHoverDelay',
+            500,
+            {
+                range: true,
+                min: 100,
+                max: 2000,
+                step: 100,
+            },
+            drawer
+        ),
         sideBorder: boolean('sideBorder', true, drawer),
         disableActiveItemParentStyles: boolean('disableActiveItemParentStyles', false, drawer),
         title: text('title', 'PX Blue Drawer', header),
