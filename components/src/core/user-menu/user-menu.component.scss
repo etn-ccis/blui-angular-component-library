@@ -39,6 +39,9 @@ mat-card.pxb-user-menu-overlay {
 .pxb-user-menu-header mat-toolbar {
     border-top-left-radius: 4px !important;
     border-top-right-radius: 4px !important;
+    .pxb-drawer-header-title {
+        font-size: 16px;
+    }
 }
 
 .pxb-user-menu-overlay-backdrop {
