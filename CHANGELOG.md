@@ -1,6 +1,6 @@
 # Change Log
 
-## v4.0.1 (Not Published Yet)
+## v4.1.0 (Not Published Yet)
 
 ### Added
 
@@ -27,6 +27,7 @@
 ### Changed
 
 -   Default styles of `<pxb-dropdown-toolbar>` for more padding around the dropdown arrow.
+-   Changed `<pxb-user-menu>` menu title default font size to 16px.
 
 ## v4.0.0
 
