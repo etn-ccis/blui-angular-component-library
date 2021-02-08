@@ -55,12 +55,10 @@ export const withFullConfig = (): any => ({
                 </mat-list-item>
             </mat-list>
             <pxb-hero-banner pxb-badge>
-                <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'"
-                    [units]="'°F'" [iconSize]="72" [iconBackgroundColor]="colors.white[50]">
+                <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'" [units]="'°F'" [iconSize]="72">
                     <i pxb-primary class="pxb-temp"></i>
                 </pxb-hero>
-                <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'"
-                    [units]="'%'" [iconSize]="72" [iconBackgroundColor]="colors.white[50]">
+                <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="72">
                     <i pxb-primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
                 </pxb-hero>
             </pxb-hero-banner>
