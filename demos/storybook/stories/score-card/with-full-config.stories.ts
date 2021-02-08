@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 import { demoActions } from './with-actions.stories';
 import { withCustomHeaderStyles } from './with-custom-header.stories';
 import { getDirection } from '@pxblue/storybook-rtl-addon';
+import { isDarkMode } from '../../src/utils';
 
 export const withFullConfig = (): any => ({
     styles: [
@@ -56,11 +57,11 @@ export const withFullConfig = (): any => ({
             </mat-list>
             <pxb-hero-banner pxb-badge>
                 <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'"
-                    [units]="'°F'" [iconSize]="72" [iconBackgroundColor]="colors.white[50]">
+                    [units]="'°F'" [iconSize]="72" [iconBackgroundColor]="getBadgeBgColor()">
                     <i pxb-primary class="pxb-temp"></i>
                 </pxb-hero>
                 <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'"
-                    [units]="'%'" [iconSize]="72" [iconBackgroundColor]="colors.white[50]">
+                    [units]="'%'" [iconSize]="72" [iconBackgroundColor]="getBadgeBgColor()">
                     <i pxb-primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
                 </pxb-hero>
             </pxb-hero-banner>
@@ -91,5 +92,6 @@ export const withFullConfig = (): any => ({
         actions: demoActions,
         colors: Colors,
         direction: getDirection,
+        getBadgeBgColor: (): string => (isDarkMode() ? Colors.black[900] : Colors.white[50]),
     },
 });

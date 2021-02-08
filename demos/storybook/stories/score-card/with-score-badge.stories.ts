@@ -5,6 +5,7 @@ import { withCustomHeaderStyles } from './with-custom-header.stories';
 import { demoActions } from './with-actions.stories';
 import { ViewEncapsulation } from '@angular/core';
 import { getDirection } from '@pxblue/storybook-rtl-addon';
+import { isDarkMode } from '../../src/utils';
 
 export const withScoreBadge = (): any => ({
     styles: [
@@ -49,7 +50,7 @@ export const withScoreBadge = (): any => ({
                     <mat-icon mat-list-icon>cloud</mat-icon>
                 </mat-list-item>
             </mat-list>
-            <pxb-hero pxb-badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="72" [iconBackgroundColor]="colors.white[50]">
+            <pxb-hero pxb-badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="72" [iconBackgroundColor]="getBadgeBgColor()">
                 <i pxb-primary [style.color]="colors.green[500]" class="pxb-grade_a"></i>
             </pxb-hero>
             <pxb-info-list-item pxb-action-row chevron="true" hidePadding="true" dense="true"(click)="actionRowClick()">
@@ -64,5 +65,6 @@ export const withScoreBadge = (): any => ({
         badgeOffset: number('badgeOffset', -74),
         colors: Colors,
         direction: getDirection,
+        getBadgeBgColor: (): string => (isDarkMode() ? Colors.black[900] : Colors.white[50]),
     },
 });
