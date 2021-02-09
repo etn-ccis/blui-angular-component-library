@@ -28,6 +28,7 @@
 
 -   Default styles of `<pxb-dropdown-toolbar>` for more padding around the dropdown arrow.
 -   Changed `<pxb-user-menu>` menu title default font size to 16px.
+-   Changed default `<pxb-empty-state>` button icon default margin. 
 
 ## v4.0.0
 

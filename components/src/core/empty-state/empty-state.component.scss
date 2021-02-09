@@ -1,3 +1,8 @@
+[dir='rtl'] .pxb-empty-state .pxb-empty-state-actions-wrapper mat-icon {
+    margin-right: -4px;
+    margin-left: 8px;
+}
+
 .pxb-empty-state {
     display: flex;
 }
@@ -36,8 +41,17 @@
         }
     }
 
-    .pxb-empty-state-actions-wrapper .mat-button-wrapper {
-        display: flex;
-        align-items: center;
+    .pxb-empty-state-actions-wrapper {
+        .mat-button-wrapper {
+            display: flex;
+            align-items: center;
+        }
+        mat-icon {
+            margin-right: 8px;
+            margin-left: -4px;
+            height: 20px;
+            width: 20px;
+            font-size: 20px;
+        }
     }
 }
