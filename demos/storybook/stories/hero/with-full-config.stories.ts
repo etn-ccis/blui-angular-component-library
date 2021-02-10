@@ -18,8 +18,8 @@ export const withFullConfig = (): any => ({
         units: text('units', 'RPM'),
         showSecondary: boolean('Show Secondary Icon', true),
         iconSize: number('iconSize', 36),
+        iconBg: color('iconBackgroundColor', Colors.blue[500]),
         iconColor: color('primary.style.color', Colors.white[50]),
-        iconBg: color('primary.style.backgroundColor', Colors.blue[500]),
         invertRTL: invertRTL,
     },
 });
