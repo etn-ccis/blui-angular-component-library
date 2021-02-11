@@ -4,8 +4,7 @@ import * as Colors from '@pxblue/colors';
 
 export const withFullConfig = (): any => ({
     template: `
-        <pxb-hero [label]="label" [value]="value" [units]="units"
-            [iconBackgroundColor]="iconBg" [iconSize]="iconSize">
+        <pxb-hero [label]="label" [value]="value" [units]="units" [iconSize]="iconSize">
             <i pxb-primary [style.color]="iconColor" class="pxb-fan"></i>
             <mat-icon pxb-secondary *ngIf="showSecondary" [style.transform]="invertRTL()">
                 trending_up
@@ -18,7 +17,6 @@ export const withFullConfig = (): any => ({
         units: text('units', 'RPM'),
         showSecondary: boolean('Show Secondary Icon', true),
         iconSize: number('iconSize', 36),
-        iconBg: color('iconBackgroundColor', Colors.blue[500]),
         iconColor: color('primary.style.color', Colors.white[50]),
         invertRTL: invertRTL,
     },
