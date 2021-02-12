@@ -1647,10 +1647,10 @@
   dependencies:
     mkdirp "^1.0.4"
 
-"@pxblue/angular-themes@^6.0.0-beta.0":
-  version "6.0.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/angular-themes/-/angular-themes-6.0.0-beta.0.tgz#1d91d3474a9cf1836656ab924445f4fd72531b1b"
-  integrity sha512-TvystZrlSh/owoyegIV020ausl8578uHpetxB185dFGcYHjBajIO/3lu2AallJXdJI6thfKKoJzZPfHymxoDGg==
+"@pxblue/angular-themes@^6.0.0-beta.1":
+  version "6.0.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@pxblue/angular-themes/-/angular-themes-6.0.0-beta.1.tgz#1b65901e0be902e13e2feeaf1d50bcd487ff7990"
+  integrity sha512-1Z/7A6fMyxGmfaYzFFKjytSP5o7/rJqnvR9O/7Mcc1S3OJgGOlY+NUnAy8DQoWXT8THuL3qKWdeEJwKkI1ooAA==
   dependencies:
     "@fontsource/open-sans" "^4.1.0"
     "@pxblue/colors" "^3.0.0"
