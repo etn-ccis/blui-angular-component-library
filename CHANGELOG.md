@@ -28,6 +28,7 @@
 
 -   Default styles of `<pxb-dropdown-toolbar>` for more padding around the dropdown arrow.
 -   Changed `<pxb-user-menu>` menu title default font size to 16px.
+-   Changed `<pxb-user-menu>` menu subtitle default font size to 14px.
 
 ## v4.0.0
 
