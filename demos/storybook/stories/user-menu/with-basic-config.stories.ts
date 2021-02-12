@@ -1,11 +1,12 @@
 import { text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
+import { invertRTL } from '../../src/utils';
 
 export const items = [
     {
-        title: 'Account',
+        title: 'Settings',
         icon: 'settings',
-        onSelect: action('Selected: Account'),
+        onSelect: action('Selected: Settings'),
     },
     {
         title: 'Contact Us',
@@ -25,7 +26,7 @@ export const withBasicConfig = (): any => ({
             <mat-nav-list pxb-menu-body [style.paddingTop.px]="0">
                 <pxb-info-list-item *ngFor="let item of items" [dense]="true" 
                     (click)="open=false; item.onSelect();">
-                    <mat-icon pxb-icon>{{item.icon}}</mat-icon>
+                    <mat-icon pxb-icon [style.transform]="invertRTL()">{{item.icon}}</mat-icon>
                     <div pxb-title>{{item.title}}</div>
                 </pxb-info-list-item>
             </mat-nav-list>
@@ -35,5 +36,6 @@ export const withBasicConfig = (): any => ({
         open: false,
         items: items,
         avatarValue: text('avatarValue', 'AV'),
+        invertRTL: invertRTL,
     },
 });

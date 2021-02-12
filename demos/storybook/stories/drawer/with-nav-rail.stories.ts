@@ -1,7 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { DrawerNavItem } from '@pxblue/angular-components';
 import { boolean } from '@storybook/addon-knobs';
-const headerImg = require('../../assets/eaton-condensed.png');
 
 export const navItems: DrawerNavItem[] = [
     {
@@ -47,8 +46,8 @@ export const withNavRail = (): any => ({
                   </pxb-drawer-nav-group>
                </pxb-drawer-body>
                 <pxb-drawer-footer>
-                    <div style="height: 56px; display: flex; align-items: center;">
-                        <img [src]="headerImg" width="100%"/>
+                    <div style="height: 56px; display: flex; align-items: center; justify-content: center">
+                        <i class="pxb-eaton" style="font-size: 14px;"></i>
                     </div>
                 </pxb-drawer-footer>
             </pxb-drawer>
@@ -56,8 +55,7 @@ export const withNavRail = (): any => ({
       `,
     props: {
         navItems: navItems,
-        headerImg: headerImg,
-        condensed: boolean('condensed', false),
+        condensed: boolean('condensed', true),
         divider: boolean('divider', false),
     },
 });

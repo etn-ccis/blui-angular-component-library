@@ -7,7 +7,7 @@ export const withFullConfig = (): any => ({
     `,
     props: {
         label: text('label', 'Label'),
-        backgroundColor: color('backgroundColor', Colors.green[500]),
-        fontColor: color('fontColor', Colors.black[900]),
+        backgroundColor: color('backgroundColor', Colors.red[500]),
+        fontColor: color('fontColor', Colors.white[50]),
     },
 });

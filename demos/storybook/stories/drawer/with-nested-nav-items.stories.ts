@@ -5,7 +5,7 @@ import { boolean } from '@storybook/addon-knobs';
 export const nestedNavGroup: DrawerNavItem[] = [
     {
         title: 'Identity',
-        icon: 'perm_identity',
+        icon: 'person',
         onSelect: action('Selected: Identity'),
         items: [
             {
@@ -78,7 +78,7 @@ export const withNestedNavItems = (): any => ({
     props: {
         navItems: nestedNavGroup,
         showIcon: boolean('Show Icon', true),
-        divider: boolean('divider (top)', false),
+        divider: boolean('divider (top)', true),
         dividerNested: boolean('divider (nested)', false),
         hidePadding: boolean('hidePadding (top)', false),
         hidePaddingNested: boolean('hidePadding (nested)', false),

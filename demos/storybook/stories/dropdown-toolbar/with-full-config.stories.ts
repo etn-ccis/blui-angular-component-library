@@ -1,13 +1,14 @@
 import { text, number, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import { getDirection } from '@pxblue/storybook-rtl-addon';
+import { invertRTL } from '../../src/utils';
 
 export const withFullConfig = (): any => ({
     template: `
        <pxb-dropdown-toolbar [title]="title" [subtitle]="state.selected || subtitle">
             <button mat-icon-button pxb-nav-icon (click)="clickPXBIcon()" aria-label="menu icon">
             <mat-icon *ngIf="navIcon === 'menu'">menu</mat-icon>
-            <mat-icon *ngIf="navIcon === 'arrow_back'">arrow_back</mat-icon>
+            <mat-icon *ngIf="navIcon === 'arrow_back'" [style.transform]="invertRTL()">arrow_back</mat-icon>
             </button>
         <ng-container pxb-toolbar-menu>
             <button mat-menu-item (click)="updateSubtitle('Test Item 1', state)">Test Item 1</button>
@@ -43,5 +44,6 @@ export const withFullConfig = (): any => ({
         },
         clickPXBIcon: action('pxb nav icon clicked'),
         clickRightContentIcon: action('icon clicked'),
+        invertRTL: invertRTL,
     },
 });

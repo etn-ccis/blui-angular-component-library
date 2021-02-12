@@ -42,7 +42,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
             [cdkConnectedOverlayViewportMargin]="16"
             [cdkConnectedOverlayBackdropClass]="'pxb-user-menu-overlay-backdrop'"
         >
-            <mat-card class="pxb-user-menu-overlay" [@fade-in-out]>
+            <mat-card class="pxb-user-menu-overlay mat-elevation-z8" [@fade-in-out]>
                 <pxb-drawer-header
                     *ngIf="menuTitle"
                     class="pxb-user-menu-header"

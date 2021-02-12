@@ -14,6 +14,7 @@ export const withFullConfig = (): any => ({
         }
         .sb-score-card-content mat-icon {
             margin-right: 32px;
+            padding: 0;
         }
         .rtl.sb-score-card-content mat-icon {
             margin-left: 32px;
@@ -22,9 +23,6 @@ export const withFullConfig = (): any => ({
         }
         ::ng-deep .rtl .mat-list-text { 
             padding-right: 0!important;
-        }
-        .sb-score-card-content .mat-line {
-            font-weight: 600!important;
         }
     `,
     ],
@@ -44,25 +42,23 @@ export const withFullConfig = (): any => ({
             </ng-container>
             <mat-list pxb-body class="sb-score-card-content" [class.rtl]="direction() === 'rtl'">
                 <mat-list-item>
-                    <p mat-line>0 Alarms</p>
+                    <p mat-line style="font-weight: 400">0 Alarms</p>
                     <mat-icon mat-list-icon>notifications</mat-icon>
                 </mat-list-item>
                 <mat-list-item [style.color]="colors.blue[500]">
-                    <p mat-line>1 Event</p>
+                    <p mat-line style="font-weight: 600">1 Event</p>
                     <mat-icon mat-list-icon>list_alt</mat-icon>
                 </mat-list-item>
                 <mat-list-item>
-                    <p mat-line>Online</p>
+                    <p mat-line style="font-weight: 400">Online</p>
                     <mat-icon mat-list-icon>cloud</mat-icon>
                 </mat-list-item>
             </mat-list>
             <pxb-hero-banner pxb-badge>
-                <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'"
-                    [units]="'°F'" [iconSize]="72" [iconBackgroundColor]="colors.white[50]">
+                <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'" [units]="'°F'" [iconSize]="72">
                     <i pxb-primary class="pxb-temp"></i>
                 </pxb-hero>
-                <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'"
-                    [units]="'%'" [iconSize]="72" [iconBackgroundColor]="colors.white[50]">
+                <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="72">
                     <i pxb-primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
                 </pxb-hero>
             </pxb-hero-banner>

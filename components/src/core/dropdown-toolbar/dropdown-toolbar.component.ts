@@ -18,7 +18,11 @@ import { MatMenuTrigger } from '@angular/material/menu';
                     #menuTrigger="matMenuTrigger"
                 >
                     <span class="pxb-dropdown-toolbar-subtitle mat-subheading-2">{{ subtitle }}</span>
-                    <mat-icon [class.rotated-dropdown-arrow]="menuTrigger.menuOpen">arrow_drop_down</mat-icon>
+                    <mat-icon
+                        class="pxb-dropdown-toolbar-subtitle-icon"
+                        [class.rotated-dropdown-arrow]="menuTrigger.menuOpen"
+                        >arrow_drop_down</mat-icon
+                    >
                 </div>
             </div>
             <ng-content></ng-content>

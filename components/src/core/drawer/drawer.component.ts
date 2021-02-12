@@ -19,6 +19,7 @@ import { Subscription } from 'rxjs';
         <div
             class="pxb-drawer-content"
             [class.pxb-drawer-side-border]="sideBorder"
+            [class.mat-elevation-z4]="!sideBorder"
             [class.pxb-drawer-condensed-rail]="condensed"
             [class.pxb-drawer-collapse]="!isOpen()"
             [class.pxb-drawer-temp-variant]="isTemporaryVariant()"
@@ -42,8 +43,10 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
     @Input() condensed = false;
     @Input() sideBorder = false;
     @Input() disableActiveItemParentStyles = false;
+    @Input() openOnHover = true;
+    @Input() openOnHoverDelay = 500;
 
-    hoverDelay: any;
+    hoverDelayTimeout: any;
     drawerSelectionListener: Subscription;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
@@ -65,19 +68,21 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
     }
 
     hoverDrawer(): void {
-        if (!this.open) {
-            this.hoverDelay = setTimeout(() => {
+        if (!this.open && this.openOnHover) {
+            this.hoverDelayTimeout = setTimeout(() => {
                 this.drawerService.setDrawerTempOpen(true);
                 this.changeDetector.detectChanges();
-            }, 500);
+            }, this.openOnHoverDelay);
         }
     }
 
     unhoverDrawer(): void {
-        clearTimeout(this.hoverDelay);
-        if (this.drawerService.isTempOpen()) {
-            this.drawerService.setDrawerTempOpen(false);
-            this.changeDetector.detectChanges();
+        if (this.openOnHover) {
+            clearTimeout(this.hoverDelayTimeout);
+            if (this.drawerService.isTempOpen()) {
+                this.drawerService.setDrawerTempOpen(false);
+                this.changeDetector.detectChanges();
+            }
         }
     }
 

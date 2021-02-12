@@ -5,7 +5,7 @@ import { action } from '@storybook/addon-actions';
 export const withFullConfig = (): any => ({
     template: `
         <pxb-info-list-item
-            [style.color]="colors.blue[500]"
+            [style.color]="colors.black[500]"
             matRipple
             style="display:flex; cursor: pointer"
             [iconAlign]="iconAlign"
@@ -20,15 +20,20 @@ export const withFullConfig = (): any => ({
             <div pxb-title>{{title}}</div>
             <div pxb-subtitle>{{subtitle}}</div>
             <div pxb-info>{{info}}</div>
-            <mat-icon *ngIf="showIcon" [style.color]="iconColor"
-                [style.backgroundColor]="getBgColor(avatar, statusColor)" pxb-icon>assignment</mat-icon>
+            <mat-icon  pxb-icon *ngIf="showIcon" 
+                [style.color]="iconColor"
+                [style.lineHeight.px]="24"
+                [style.fontSize.px]="24"
+                [style.backgroundColor]="getBgColor(avatar, statusColor)">
+                devices
+            </mat-icon>
         </pxb-info-list-item>
       `,
     props: {
         title: text('title', 'Info List Item'),
         subtitle: text('subtitle', 'this is a subtitle within an InfoListItem'),
         info: text('info', 'this is a third line of text'),
-        statusColor: color('statusColor', Colors.yellow[500]),
+        statusColor: color('statusColor', Colors.blue[500]),
         showIcon: boolean('Show Icon', true),
         hidePadding: boolean('hidePadding', false),
         chevron: boolean('chevron', true),
@@ -36,7 +41,7 @@ export const withFullConfig = (): any => ({
         wrapTitle: boolean('wrapTitle', false),
         wrapSubtitle: boolean('wrapSubtitle', false),
         iconAlign: select('iconAlign', ['left', 'center', 'right'], 'left'),
-        iconColor: color('icon color', Colors.blue[500]),
+        iconColor: color('icon color', Colors.black[500]),
         avatar: boolean('avatar', false),
         action: action('InfoListItem clicked'),
         getBgColor: (avatar: boolean, statusColor: string): string => (avatar ? statusColor : 'unset'),

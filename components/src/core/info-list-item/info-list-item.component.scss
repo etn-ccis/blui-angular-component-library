@@ -30,7 +30,6 @@ $denseHeight: 52px;
             margin-left: 16px;
         }
 
-        .pxb-info-list-item-icon-wrapper > *,
         .pxb-chevron {
             @include invert();
         }
@@ -171,6 +170,7 @@ $denseHeight: 52px;
     .pxb-info-list-item-right-content {
         order: 5;
         white-space: nowrap;
+        align-items: center;
         margin-left: 16px;
         .pxb-info-list-item-right-content-wrapper > * {
             display: flex;

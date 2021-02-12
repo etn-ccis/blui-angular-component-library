@@ -23,12 +23,14 @@ Parent element (`<pxb-drawer>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input                        | Description                                                   | Type      | Required | Default |
-| ----------------------------- | ------------------------------------------------------------- | --------- | -------- | ------- |
-| condensed                     | Skinny view for `rail` variant                                | `boolean` | no       | false   |
-| disableActiveItemParentStyles | If true, NavItems will not have a bold title when a child NavItem is selected | `boolean` | no       | false   |
-| open                          | State for the drawer                                          | `boolean` | yes      |         |
-| sideBorder                    | Toggle a side border instead of shadow                        | `boolean` | no       | false   |
+| @Input                        | Description                                                                            | Type      | Required | Default |
+| ----------------------------- | -------------------------------------------------------------------------------------- | --------- | -------- | ------- |
+| condensed                     | Skinny view for `rail` variant                                                         | `boolean` | no       | false   |
+| disableActiveItemParentStyles | If true, NavItems will not have a bold title when a child NavItem is selected          | `boolean` | no       | false   |
+| openOnHover                   | Automatically open the drawer on hover when closed (persistent variant only)           | `boolean` | no       | true    |
+| open                          | State for the drawer                                                                   | `boolean` | yes      |         |
+| openOnHoverDelay              | Delay in milliseconds before a hover event opens the drawer (persistent variant only)  | `number`  | no       | 500     |
+| sideBorder                    | Toggle a side border instead of shadow                                                 | `boolean` | no       | false   |
 
 > ** The `condensed` attribute won't have any effect on the `<pxb-drawer>` unless the `rail` variant is set on the `<pxb-drawer-layout>` component.  Each item in a navigation rail will be sized 72 x 72px.  When using a `condensed` rail, each item will be sized 56 x 56px.
 
@@ -202,10 +204,10 @@ Parent element (`<pxb-drawer-subheader>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input                    | Description                     | Type      | Required | Default |
-| ------------------------- | ------------------------------- | --------- | -------- | ------- |
-| divider                   | Show a divider below subheader  | `boolean` | no       | true    |
-| hideContentOnCollapse     | Hide footer content when closed | `boolean` | no       | true    |
+| @Input                    | Description                        | Type      | Required | Default |
+| ------------------------- | ---------------------------------- | --------- | -------- | ------- |
+| divider                   | Show a divider below subheader     | `boolean` | no       | true    |
+| hideContentOnCollapse     | Hide subheader content when closed | `boolean` | no       | true    |
 
 </div>
 

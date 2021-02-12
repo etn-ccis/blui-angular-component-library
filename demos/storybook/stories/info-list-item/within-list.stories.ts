@@ -6,7 +6,7 @@ export const withinList = (): any => ({
         <mat-nav-list [style.paddingTop.px]="0">
             <pxb-info-list-item dense="true" [statusColor]="colors.green[700]" [divider]="divider" class="test" [iconAlign]="'center'">
                 <div pxb-title>Status</div>
-                <mat-icon pxb-icon [style.color]="colors.green[700]">eco</mat-icon>
+                <i pxb-icon class="pxb-device_activating" [style.color]="colors.green[500]"></i>
                 <pxb-channel-value pxb-right-content value="Online, ESS+"></pxb-channel-value>
             </pxb-info-list-item>
     
@@ -16,8 +16,8 @@ export const withinList = (): any => ({
                 <mat-icon pxb-icon [style.backgroundColor]="colors.blue[500]"
                     style="color: white;">check_circle</mat-icon>
                 <span pxb-right-content>
-                    <pxb-channel-value value="478" units="V"></pxb-channel-value>,
-                    <pxb-channel-value value="479" units="V"></pxb-channel-value>,
+                    <pxb-channel-value value="478" units="V"></pxb-channel-value>,&nbsp;
+                    <pxb-channel-value value="479" units="V"></pxb-channel-value>,&nbsp;
                     <pxb-channel-value value="473" units="V"></pxb-channel-value>
                 </span>
             </pxb-info-list-item>
@@ -28,8 +28,8 @@ export const withinList = (): any => ({
                 <mat-icon pxb-icon [style.backgroundColor]="colors.red[500]"
                     style="color: white">check_circle</mat-icon>
                 <span pxb-right-content>
-                    <pxb-channel-value value="478" units="V"></pxb-channel-value>,
-                    <pxb-channel-value value="479" units="V"></pxb-channel-value>,
+                    <pxb-channel-value value="478" units="V"></pxb-channel-value>,&nbsp;
+                    <pxb-channel-value value="479" units="V"></pxb-channel-value>,&nbsp;
                     <pxb-channel-value value="473" units="V"></pxb-channel-value>
                 </span>
             </pxb-info-list-item>
@@ -38,17 +38,16 @@ export const withinList = (): any => ({
                 <div pxb-title>Output Current</div>
                 <mat-icon pxb-icon>battery_charging_full</mat-icon>
                 <span pxb-right-content>
-                    <pxb-channel-value value="15" units="A"></pxb-channel-value>,
-                    <pxb-channel-value value="14.9" units="A"></pxb-channel-value>,
+                    <pxb-channel-value value="15" units="A"></pxb-channel-value>,&nbsp;
+                    <pxb-channel-value value="14.9" units="A"></pxb-channel-value>,&nbsp;
                     <pxb-channel-value value="15" units="A"></pxb-channel-value>
                 </span>
             </pxb-info-list-item>
     
             <pxb-info-list-item dense="true" [divider]="divider" [iconAlign]="'center'">
                 <div pxb-title>Temperature</div>
-                <mat-icon pxb-icon>home</mat-icon>
+                <i pxb-icon class="pxb-temp"></i>
                 <span pxb-right-content style="display: flex; align-items: center">
-                    <mat-icon [style.color]="colors.green[700]">eco</mat-icon>
                     <pxb-channel-value value="68" units="°F"></pxb-channel-value>
                 </span>
             </pxb-info-list-item>

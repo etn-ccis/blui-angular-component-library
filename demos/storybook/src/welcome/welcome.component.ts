@@ -1,6 +1,15 @@
 import '@pxblue/angular-themes/theme.scss';
 import { Component, NgModule, OnInit, OnDestroy } from '@angular/core';
-import 'typeface-open-sans';
+import '@fontsource/open-sans/300.css';
+import '@fontsource/open-sans/300-italic.css';
+import '@fontsource/open-sans/400.css';
+import '@fontsource/open-sans/400-italic.css';
+import '@fontsource/open-sans/600.css';
+import '@fontsource/open-sans/600-italic.css';
+import '@fontsource/open-sans/700.css';
+import '@fontsource/open-sans/700-italic.css';
+import '@fontsource/open-sans/800.css';
+import '@fontsource/open-sans/800-italic.css';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
