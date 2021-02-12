@@ -1,6 +1,6 @@
 # Change Log
 
-## v4.1.0 (Not Published Yet)
+## v4.1.0
 
 ### Added
 
