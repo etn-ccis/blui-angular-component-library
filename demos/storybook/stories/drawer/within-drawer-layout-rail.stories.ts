@@ -17,7 +17,7 @@ export const withinDrawerLayoutRail = (): any => ({
         <pxb-drawer-layout [dir]="direction()" variant="rail" (backdropClick)="state.open = false">
             <pxb-drawer pxb-drawer [open]="state.open" [sideBorder]="sideBorder" [condensed]="condensed">
                <pxb-drawer-body>
-                  <pxb-drawer-nav-group>d
+                  <pxb-drawer-nav-group>
                      <pxb-drawer-nav-item *ngFor="let navItem of navItems"
                        [divider]="divider"
                        [title]="navItem.title"
