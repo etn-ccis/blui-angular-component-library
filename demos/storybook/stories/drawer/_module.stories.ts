@@ -20,6 +20,7 @@ import { withMultiNavGroups } from './with-multiple-nav-groups.stories';
 import { withFooter } from './with-footer.stories';
 import { MatDividerModule } from '@angular/material/divider';
 import { withNestedNavItems } from './with-nested-nav-items.stories';
+import { withinDrawerLayoutRail } from './within-drawer-layout-rail.stories';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { withFullConfig } from './with-full-config.stories';
@@ -88,8 +89,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     .add('with nested nav items', withNestedNavItems)
     .add('with a footer', withFooter)
     .add('with a nav rail', withNavRail)
-    .add('with full config', withFullConfig)
-    .add('within a Drawer Layout', withinDrawerLayout);
+    .add('with full config', withFullConfig);
 
 storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     .addDecorator(
@@ -113,4 +113,5 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     .addDecorator(storyWrapper())
     .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('Drawer.md') } })
     .add(README_STORY_NAME, getReadMeStory)
-    .add('within a Drawer Layout', withinDrawerLayout);
+    .add('within a Drawer Layout', withinDrawerLayout)
+    .add('within a Drawer Layout as rail', withinDrawerLayoutRail);
