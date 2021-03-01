@@ -42,7 +42,7 @@ export const withinDrawerLayout = (): any => ({
                         (click)="state.open = true">
                         <mat-icon>menu</mat-icon>
                     </button>
-                    <h2>Drawer Layout Demo</h2>
+                    <h2 class="mat-display-3">Drawer Layout Demo</h2>
                 </mat-toolbar>
                 <div style="font-size: 60px; padding: 24px">App content goes here.</div>
             </div>

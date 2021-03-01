@@ -7,7 +7,6 @@
     &.pxb-drawer-header-no-icon .pxb-drawer-header-icon-wrapper {
         margin-right: 0;
         margin-left: 0;
-        margin-left: 0;
     }
 }
 
@@ -18,6 +17,7 @@
     position: relative;
     overflow: hidden;
     display: flex;
+    height: 4rem;
 
     &.mat-toolbar-single-row.mat-toolbar {
         padding-right: 8px;
@@ -56,6 +56,10 @@
         align-items: center;
         z-index: 1;
         margin-right: 16px;
+        width: 2.5rem;
+        mat-icon {
+            font-size: 1.5rem;
+        }
     }
     &.pxb-drawer-header-no-icon .pxb-drawer-header-icon-wrapper {
         margin-right: 0;
@@ -68,7 +72,7 @@
         justify-content: center;
         align-self: stretch;
         flex-direction: column;
-        width: calc(100% - 56px);
+        width: calc(100% - 3.5rem);
         box-sizing: border-box;
         z-index: 1;
 
@@ -82,12 +86,18 @@
         .pxb-drawer-header-subtitle {
             font-weight: 300;
             line-height: 1.3rem;
-            margin-top: -2px;
+            margin-top: -.125rem;
             overflow: hidden;
             text-overflow: ellipsis;
             &.mat-subheading-2 {
                 margin-bottom: 0;
             }
         }
+    }
+}
+
+@media (max-width: 599px) {
+    .pxb-drawer-header-content {
+        height: 3.5rem;
     }
 }

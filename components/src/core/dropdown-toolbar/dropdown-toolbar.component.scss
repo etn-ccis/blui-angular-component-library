@@ -1,7 +1,7 @@
 [dir='rtl'] .pxb-dropdown-toolbar-content {
     .pxb-dropdown-toolbar-icon-wrapper > * {
-        margin-right: -8px;
-        margin-left: 24px;
+        margin-right: -.5rem;
+        margin-left: 2rem;
     }
     .pxb-dropdown-toolbar-text-content-container {
         padding-right: 0;
@@ -14,8 +14,8 @@
 
 .pxb-dropdown-toolbar-content {
     .pxb-dropdown-toolbar-icon-wrapper > * {
-        margin-right: 24px;
-        margin-left: -8px;
+        margin-right: 2rem;
+        margin-left: -.5rem;
     }
 }
 
@@ -30,7 +30,7 @@
     }
 
     .pxb-dropdown-toolbar-subtitle-container {
-        margin-top: -2px;
+        margin-top: -.125rem;
         display: flex;
         align-items: center;
         cursor: pointer;
@@ -44,7 +44,7 @@
         }
 
         .pxb-dropdown-toolbar-subtitle-icon {
-            margin: 0 4px;
+            margin: 0 .25rem;
         }
 
         .rotated-dropdown-arrow {

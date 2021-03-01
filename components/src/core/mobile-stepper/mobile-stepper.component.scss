@@ -9,7 +9,7 @@
     align-items: center;
     flex-grow: 1;
     button {
-        margin: 16px;
+        margin: 1rem;
     }
 }
 
@@ -19,15 +19,15 @@
 }
 
 .pxb-mobile-stepper-dot {
-    height: 8px;
-    width: 8px;
+    height: .5rem;
+    width: .5rem;
     background-color: gray;
     border-radius: 100%;
-    margin: 0 4px;
+    margin: 0 .25rem;
 }
 
 .pxb-mobile-stepper-dot-active {
-    background-color: blue;
+    background-color: blue; /* Default color */
 }
 
 .pxb-mobile-stepper-display-none {

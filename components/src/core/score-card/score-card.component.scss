@@ -11,15 +11,16 @@
 
 // Styles applied to supplied action items.
 .pxb-score-card-action-items > * {
-    margin-left: 12px;
-    margin-right: 12px;
+    margin-left: .75rem;
+    margin-right: .75rem;
     cursor: pointer;
+    font-size: 1.5rem;
 }
 
 .pxb-score-card-header {
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
-    height: 100px;
+    height: 6rem;
     box-sizing: border-box;
     position: relative;
     * {
@@ -38,7 +39,7 @@
         pointer-events: none;
     }
     .pxb-score-card-header-wrapper {
-        padding: 16px;
+        padding: 1rem;
         padding-bottom: 0;
         display: flex;
         justify-content: space-between;
@@ -46,10 +47,10 @@
     .pxb-score-card-action-items-wrapper {
         text-overflow: unset;
         overflow: unset;
-        margin-right: -12px;
+        margin-right: -.75rem;
         > * {
             cursor: pointer;
-            margin-right: 12px;
+            margin-right: .75rem;
             text-align: center;
         }
     }
@@ -76,8 +77,8 @@
     align-items: center;
     .pxb-score-card-badge-wrapper {
         z-index: 1;
-        margin-left: 16px;
-        margin-right: 16px;
+        margin-left: 1rem;
+        margin-right: 1rem;
     }
 }
 

@@ -22,8 +22,6 @@ export const withFullConfig = (): any => ({
             <div pxb-info>{{info}}</div>
             <mat-icon  pxb-icon *ngIf="showIcon" 
                 [style.color]="iconColor"
-                [style.lineHeight.px]="24"
-                [style.fontSize.px]="24"
                 [style.backgroundColor]="getBgColor(avatar, statusColor)">
                 devices
             </mat-icon>
