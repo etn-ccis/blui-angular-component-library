@@ -26,7 +26,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
                 [fixedInViewport]="false"
                 [class.pxb-drawer-layout-smooth]="variant !== 'temporary'"
                 [class.pxb-drawer-layout-shadow]="!hasSideBorder()"
-                [style.width.px]="isCollapsed() ? getCollapsedWidth() : width"
+                [style.width.rem]="isCollapsed() ? getCollapsedWidth() : width"
                 [mode]="getMode()"
                 [opened]="isDrawerVisible()"
             >
@@ -35,8 +35,8 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
             <div
                 class="pxb-drawer-layout-nav-content"
                 [class.pxb-drawer-layout-smooth]="variant !== 'temporary'"
-                [style.marginRight.px]="isRtl ? getContentMargin() : 0"
-                [style.marginLeft.px]="isRtl ? 0 : getContentMargin()"
+                [style.marginRight.rem]="isRtl ? getContentMargin() : 0"
+                [style.marginLeft.rem]="isRtl ? 0 : getContentMargin()"
             >
                 <ng-content select="[pxb-content]"></ng-content>
             </div>
@@ -48,7 +48,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
 })
 export class DrawerLayoutComponent extends StateListener implements AfterViewInit, OnChanges {
     @Input() variant: DrawerLayoutVariantType;
-    @Input() width = 350;
+    @Input() width = 22;
     @Output() backdropClick: EventEmitter<void> = new EventEmitter();
 
     isRtl = false;
@@ -109,7 +109,7 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     }
 
     getCollapsedWidth(): number {
-        return this.variant === 'rail' && !this.drawerService.isRailCondensed() ? 72 : 56;
+        return this.variant === 'rail' && !this.drawerService.isRailCondensed() ? 4.5 : 3.5;
     }
 
     // Is the drawer condensed.

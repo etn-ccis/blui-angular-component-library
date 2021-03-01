@@ -1,7 +1,7 @@
 @import '../utility/utility';
 
-$statusWidth: 6px;
-$contentPaddingLeft: 16px;
+$statusWidth: .375rem;
+$contentPaddingLeft: 1rem;
 $normalHeight: 4.5rem;
 $denseHeight: 3.25rem;
 
@@ -57,7 +57,7 @@ $denseHeight: 3.25rem;
         align-items: center;
         box-sizing: border-box;
         height: $normalHeight;
-        padding: .5rem 16px .5rem $contentPaddingLeft;
+        padding: .5rem $contentPaddingLeft .5rem $contentPaddingLeft;
         width: 100%;
 
         // Needed for ng v9
@@ -129,6 +129,7 @@ $denseHeight: 3.25rem;
         order: 1;
         width: 2.5rem;
         min-width: 2.5rem;
+        max-width: 40px;
         height: auto; /* Used to override height applied when wrapped in a mat-list. */
         margin-right: 16px;
         padding: 0;
@@ -181,6 +182,11 @@ $denseHeight: 3.25rem;
             display: flex;
             align-items: center;
         }
+    }
+    .pxb-chevron {
+        font-size: 1.5rem;
+        height: 1.5rem;
+        width: 1.5rem;
     }
 }
 

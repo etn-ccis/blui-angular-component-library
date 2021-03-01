@@ -56,17 +56,20 @@
     }
     .pxb-score-card-title {
         font-weight: 600;
-        line-height: 1.6;
-        font-size: 1.125rem;
-        margin-bottom: 0;
+        line-height: 1;
+        font-size: 1.25rem;
+        margin-bottom: .6rem;
     }
     .pxb-score-card-subtitle {
+        font-size: .875rem;
         font-weight: 400;
         margin: 0;
+        margin-bottom: .125rem;
         line-height: 1.25;
     }
     .pxb-score-card-info {
-        font-weight: 200;
+        font-size: .875rem;
+        font-weight: 300;
         line-height: 2;
     }
 }

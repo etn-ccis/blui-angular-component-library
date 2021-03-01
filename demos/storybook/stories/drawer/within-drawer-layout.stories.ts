@@ -54,11 +54,11 @@ export const withinDrawerLayout = (): any => ({
         white: Colors.white[50],
         navItems: items,
         state: { open: true },
-        width: number('width', 350, {
+        width: number('width', 22, {
             range: true,
-            min: 200,
-            max: 600,
-            step: 5,
+            min: 10,
+            max: 30,
+            step: 1,
         }),
         headerImg: headerImg,
         variant: select('variant', ['persistent', 'temporary', 'permanent'], 'persistent'),

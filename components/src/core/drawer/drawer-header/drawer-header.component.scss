@@ -20,12 +20,12 @@
     height: 4rem;
 
     &.mat-toolbar-single-row.mat-toolbar {
-        padding-right: 8px;
-        padding-left: 8px;
+        padding-right: .5rem;
+        padding-left: .5rem;
     }
     &.rail.mat-toolbar-single-row.mat-toolbar {
-        padding-right: 16px;
-        padding-left: 16px;
+        padding-right: 1rem;
+        padding-left: 1rem;
     }
     &.rail.pxb-drawer-header-no-icon.mat-toolbar-single-row.mat-toolbar {
         padding-right: 0;
@@ -57,8 +57,14 @@
         z-index: 1;
         margin-right: 16px;
         width: 2.5rem;
-        mat-icon {
-            font-size: 1.5rem;
+        .mat-icon-button {
+            height: 2.5rem;
+            width: 2.5rem;
+            line-height: 2.5rem;
+            mat-icon {
+                font-size: 1.5rem;
+                width: 1.5rem;
+            }
         }
     }
     &.pxb-drawer-header-no-icon .pxb-drawer-header-icon-wrapper {
@@ -67,8 +73,8 @@
 
     .pxb-drawer-header-title-wrapper {
         display: flex;
-        padding-left: 8px;
-        padding-right: 8px;
+        padding-left: .5rem;
+        padding-right: .5rem;
         justify-content: center;
         align-self: stretch;
         flex-direction: column;

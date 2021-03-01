@@ -106,7 +106,7 @@ export const withFullConfig = (): any => ({
     styles: [
         `::ng-deep .show-header-image .pxb-drawer-header-background {
           background-image: url(${headerImage});
-          width: 360px;
+          width: 25rem;
         }
        `,
     ],

@@ -89,7 +89,7 @@ Parent element (`<pxb-drawer-layout>`) attributes:
 | @Input  | Description                 | Type                                                 | Required | Default |
 | ------- | --------------------------- | ---------------------------------------------------- | -------- | ------- |
 | variant | Sets the drawer variant     | `'permanent' | 'persistent' | 'temporary' | 'rail'`  | yes      |         |
-| width   | Drawer pixel width          | `number`                                             | no       | 350     |
+| width   | Drawer rem width            | `number`                                             | no       | 22      |
 
 </div>
 
