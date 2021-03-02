@@ -9,14 +9,6 @@
     padding: 0;
 }
 
-// Styles applied to supplied action items.
-.pxb-score-card-action-items > * {
-    margin-left: .75rem;
-    margin-right: .75rem;
-    cursor: pointer;
-    font-size: 1.5rem;
-}
-
 .pxb-score-card-header {
     border-top-left-radius: inherit;
     border-top-right-radius: inherit;
@@ -47,28 +39,32 @@
     .pxb-score-card-action-items-wrapper {
         text-overflow: unset;
         overflow: unset;
-        margin-right: -.75rem;
+        margin-right: -0.75rem;
         > * {
             cursor: pointer;
-            margin-right: .75rem;
+            margin-right: 0.75rem;
             text-align: center;
+            /* mat-icon, font-icon, etc */
+            font-size: 1.5rem;
+            height: 1.5rem;
+            width: 1.5rem;
         }
     }
     .pxb-score-card-title {
         font-weight: 600;
         line-height: 1;
         font-size: 1.25rem;
-        margin-bottom: .6rem;
+        margin-bottom: 0.6rem;
     }
     .pxb-score-card-subtitle {
-        font-size: .875rem;
+        font-size: 0.875rem;
         font-weight: 400;
         margin: 0;
-        margin-bottom: .125rem;
+        margin-bottom: 0.125rem;
         line-height: 1.25;
     }
     .pxb-score-card-info {
-        font-size: .875rem;
+        font-size: 0.875rem;
         font-weight: 300;
         line-height: 2;
     }
@@ -88,3 +84,4 @@
 .pxb-score-card-action-row-wrapper {
     cursor: pointer;
 }
+

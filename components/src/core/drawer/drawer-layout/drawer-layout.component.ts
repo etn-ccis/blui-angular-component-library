@@ -1,11 +1,13 @@
 import {
     AfterViewInit,
     ChangeDetectorRef,
-    Component, ElementRef,
+    Component,
+    ElementRef,
     EventEmitter,
     Input,
     OnChanges,
-    Output, ViewChild,
+    Output,
+    ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
@@ -95,7 +97,7 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
             const style = getComputedStyle(this.remElement.nativeElement);
             this.remSizePx = Number(style.fontSize.split('px')[0]);
         }
-        return px/(this.remSizePx || 16);
+        return px / (this.remSizePx || 16);
     }
 
     hasSideBorder(): boolean {

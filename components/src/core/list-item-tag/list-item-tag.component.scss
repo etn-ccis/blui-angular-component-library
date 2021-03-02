@@ -4,11 +4,11 @@
 
 .pxb-list-item-tag,
 .pxb-list-item-tag-content {
-    border-radius: .125rem;
+    border-radius: 0.125rem;
 }
 
 .pxb-list-item-tag-content {
-    padding: 0 .25rem;
+    padding: 0 0.25rem;
     overflow: hidden;
 
     .pxb-list-item-tag-label {
@@ -16,6 +16,6 @@
         text-transform: uppercase;
         letter-spacing: 1px;
         line-height: 1rem;
-        font-size: .625rem;
+        font-size: 0.625rem;
     }
 }

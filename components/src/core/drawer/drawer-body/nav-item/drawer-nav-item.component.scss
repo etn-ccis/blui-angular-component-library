@@ -3,7 +3,7 @@
     .pxb-drawer-nav-item-active-highlight {
         right: 0;
         &.pxb-drawer-nav-item-active-round {
-            border-radius: 1.5rem 0 0  1.5rem;
+            border-radius: 1.5rem 0 0 1.5rem;
         }
     }
     .pxb-drawer-nav-item-depth-3 {
@@ -37,8 +37,8 @@ pxb-drawer-nav-item {
     user-select: none;
 
     &.pxb-drawer-nav-item-compact {
-        margin-top: .5rem;
-        margin-bottom: .5rem;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
         .pxb-info-list-item-content {
             &.pxb-info-list-item-dense,
             .mat-list-item-content {
@@ -91,7 +91,7 @@ pxb-drawer-nav-item {
         left: 0;
         top: 0;
         &.pxb-drawer-nav-item-active-round {
-            width: calc(100% - .5rem);
+            width: calc(100% - 0.5rem);
             border-radius: 0 1.5rem 1.5rem 0;
         }
         &.pxb-drawer-nav-item-active-square {
@@ -127,7 +127,7 @@ pxb-drawer-nav-item {
         width: 4.5rem;
         justify-content: center;
         align-items: center;
-        padding: 1rem .5rem;
+        padding: 1rem 0.5rem;
         box-sizing: border-box;
         cursor: pointer;
         text-align: center;
@@ -135,7 +135,7 @@ pxb-drawer-nav-item {
             z-index: 1; // Keep items above the highlight.
         }
         .pxb-drawer-nav-item-rail-text {
-            font-size: .75rem;
+            font-size: 0.75rem;
             line-height: 1rem;
             word-break: break-word;
             hyphens: auto;

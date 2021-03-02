@@ -20,8 +20,8 @@
     height: 4rem;
 
     &.mat-toolbar-single-row.mat-toolbar {
-        padding-right: .5rem;
-        padding-left: .5rem;
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
     }
     &.rail.mat-toolbar-single-row.mat-toolbar {
         padding-right: 1rem;
@@ -73,8 +73,8 @@
 
     .pxb-drawer-header-title-wrapper {
         display: flex;
-        padding-left: .5rem;
-        padding-right: .5rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
         justify-content: center;
         align-self: stretch;
         flex-direction: column;
@@ -92,7 +92,7 @@
         .pxb-drawer-header-subtitle {
             font-weight: 300;
             line-height: 1.3rem;
-            margin-top: -.125rem;
+            margin-top: -0.125rem;
             overflow: hidden;
             text-overflow: ellipsis;
             &.mat-subheading-2 {
