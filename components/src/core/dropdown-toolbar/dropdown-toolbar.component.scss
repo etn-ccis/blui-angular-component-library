@@ -1,7 +1,7 @@
 [dir='rtl'] .pxb-dropdown-toolbar-content {
     .pxb-dropdown-toolbar-icon-wrapper > * {
-        margin-right: -.5rem;
-        margin-left: 2rem;
+        margin-right: -8px;
+        margin-left: 32px;
     }
     .pxb-dropdown-toolbar-text-content-container {
         padding-right: 0;
@@ -11,13 +11,28 @@
 .pxb-dropdown-toolbar {
     display: flex;
 }
-
 .pxb-dropdown-toolbar-content {
+    height: 4.5rem;
     .pxb-dropdown-toolbar-icon-wrapper > * {
-        margin-right: 2rem;
-        margin-left: -.5rem;
+        margin-right: 32px;
+        margin-left: -8px;
+    }
+    .mat-icon-button {
+        height: 2.5rem;
+        width: 2.5rem;
+        line-height: 2.5rem;
+        mat-icon {
+            font-size: 1.5rem;
+            width: 1.5rem;
+        }
     }
 }
+@media (max-width: 599px) {
+    .pxb-dropdown-toolbar-content {
+        height: 3.5rem;
+    }
+}
+
 
 .pxb-dropdown-toolbar-text-content-container {
     display: block;
