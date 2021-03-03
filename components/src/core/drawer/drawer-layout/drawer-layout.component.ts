@@ -51,7 +51,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
 })
 export class DrawerLayoutComponent extends StateListener implements AfterViewInit, OnChanges {
     @Input() variant: DrawerLayoutVariantType;
-    @Input() width = 360;
+    @Input() width = 350;
     @Output() backdropClick: EventEmitter<void> = new EventEmitter();
     @ViewChild('remElement') remElement: ElementRef;
 
@@ -122,7 +122,9 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     }
 
     getCollapsedWidth(): number {
-        return this.variant === 'rail' && !this.drawerService.isRailCondensed() ? 4.5 : 1.5 + this.toRem(32);
+        return this.variant === 'rail' && !this.drawerService.isRailCondensed() ?
+            3.5 + this.toRem(16) : // Rail (default)
+            1.5 + this.toRem(32); //  Rail (condensed) || closed persistent
     }
 
     // Is the drawer condensed.
