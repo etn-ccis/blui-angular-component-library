@@ -48,8 +48,6 @@
         display: flex;
         align-items: center;
         cursor: pointer;
-        float: left; // for IE11 compatibility
-        /* width: fit-content; */
 
         .pxb-dropdown-toolbar-subtitle {
             line-height: 1.3rem;
