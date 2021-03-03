@@ -6,12 +6,7 @@ export const withinToolbar = (): any => ({
     template: `
         <div>
             <ng-template #avatar>
-                    <mat-icon 
-                        [style.fontSize.rem]="1.5"
-                        [style.height.rem]="1.5"
-                        [style.width.rem]="1.5">
-                        person
-                    </mat-icon>
+                    <mat-icon>person</mat-icon>
             </ng-template>
             <mat-toolbar style="padding: 0 16px; height: 4rem;">
                 <h2 class="mat-display-1">Toolbar Title</h2>
