@@ -91,7 +91,6 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
         return this.variant === 'temporary' ? 'over' : 'side';
     }
 
-    // This assumes a standard
     toRem(px: number): number {
         if (this.remElement && this.remElement.nativeElement) {
             const style = getComputedStyle(this.remElement.nativeElement);
@@ -123,7 +122,7 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     }
 
     getCollapsedWidth(): number {
-        return this.variant === 'rail' && !this.drawerService.isRailCondensed() ? 4.5 : 3.5;
+        return this.variant === 'rail' && !this.drawerService.isRailCondensed() ? 4.5 : (1.5 + this.toRem(32));
     }
 
     // Is the drawer condensed.

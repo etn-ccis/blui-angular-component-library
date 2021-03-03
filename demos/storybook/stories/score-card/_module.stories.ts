@@ -25,7 +25,7 @@ export const scorecardContainer = () => (storyFn: any): any => {
     const story = storyFn();
     return {
         ...story,
-        template: `<div style="width: 25rem">${story.template}</div>`,
+        template: `<div style="width: 400px">${story.template}</div>`,
     };
 };
 

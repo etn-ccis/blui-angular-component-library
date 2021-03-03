@@ -10,7 +10,12 @@ export const withScoreBadge = (): any => ({
     styles: [
         `${withCustomHeaderStyles}
         .sb-score-card-content mat-list-item {
-            height: 36px!important;
+            height: 2.25rem!important;
+        }
+        ::ng-deep .sb-score-card-content.mat-list-base .mat-list-item .mat-list-icon {
+            height: 1.5rem;
+            width: 1.5rem;
+            font-size: 1.5rem;
         }
         .sb-score-card-content mat-icon {
             margin-right: 32px;

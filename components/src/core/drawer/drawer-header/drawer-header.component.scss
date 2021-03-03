@@ -20,12 +20,12 @@
     height: 4rem;
 
     &.mat-toolbar-single-row.mat-toolbar {
-        padding-right: 0.5rem;
-        padding-left: 0.5rem;
+        padding-right: 8px;
+        padding-left: 8px;
     }
     &.rail.mat-toolbar-single-row.mat-toolbar {
-        padding-right: 1rem;
-        padding-left: 1rem;
+        padding-right: 16px;
+        padding-left: 16px;
     }
     &.rail.pxb-drawer-header-no-icon.mat-toolbar-single-row.mat-toolbar {
         padding-right: 0;
@@ -73,8 +73,8 @@
 
     .pxb-drawer-header-title-wrapper {
         display: flex;
-        padding-left: 0.5rem;
-        padding-right: 0.5rem;
+        padding-left: 8px;
+        padding-right: 8px;
         justify-content: center;
         align-self: stretch;
         flex-direction: column;

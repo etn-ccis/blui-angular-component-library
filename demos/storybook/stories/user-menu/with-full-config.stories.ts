@@ -11,7 +11,7 @@ export const withFullConfig = (): any => ({
             [menuTitle]="menuTitle" 
             [menuSubtitle]="menuSubtitle"
             [positions]="createPositions(originX, originY, overlayX, overlayY)">>
-            <mat-nav-list pxb-menu-body [style.paddingTop.px]="0">
+            <mat-nav-list pxb-menu-body [style.paddingTop.px]="0" [style.width.rem]="12">
                 <pxb-info-list-item *ngFor="let item of items" [dense]="true" 
                     (click)="open=false; item.onSelect();">
                     <mat-icon pxb-icon [style.transform]="invertRTL()">{{item.icon}}</mat-icon>

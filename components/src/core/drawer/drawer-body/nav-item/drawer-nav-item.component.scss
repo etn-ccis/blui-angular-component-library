@@ -1,3 +1,4 @@
+
 /* RTL */
 [dir='rtl'] .pxb-drawer-nav-item-content {
     .pxb-drawer-nav-item-active-highlight {
@@ -24,7 +25,6 @@ pxb-drawer-nav-item {
 }
 
 .pxb-drawer-condensed-rail .pxb-drawer-nav-item-content .pxb-drawer-nav-item-rail {
-    width: 3.5rem;
     min-height: 3.5rem;
     .pxb-drawer-nav-item-rail-text {
         display: none;
@@ -147,9 +147,6 @@ pxb-drawer-nav-item {
     .pxb-info-list-item .mat-list-item-content {
         padding-left: 16px;
     }
-    /*pxb-info-list-item .pxb-info-list-item .mat-list-text .pxb-info-list-item-title-wrapper {
-        font-weight: 400;
-    }*/
     .mat-expansion-panel-body {
         padding: 0;
     }
