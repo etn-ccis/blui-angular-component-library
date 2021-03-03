@@ -135,7 +135,7 @@ $denseHeight: 3.25rem;
         padding: 0;
         > * {
             /* mat-icon, font-icon, etc */
-            @include scale-icon();
+            @include scale-icon-content();
         }
         &.pxb-info-list-item-hide-padding:empty {
             width: 0;
@@ -194,10 +194,11 @@ mat-divider {
         margin-top: -1px;
     }
     &.mat-divider.pxb-info-list-item-partial-divider {
+        $partial-start: calc(2.5rem + 32px);
         position: relative;
         bottom: 0;
         right: 0;
-        left: 4.5rem;
-        width: calc(100% - 4.5rem);
+        left: calc(2.5rem + 32px);
+        width: calc(100% - calc(2.5rem + 32px));
     }
 }
