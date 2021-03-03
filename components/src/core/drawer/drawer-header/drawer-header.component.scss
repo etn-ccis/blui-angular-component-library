@@ -4,7 +4,7 @@
 [dir='rtl'] .pxb-drawer-header-content {
     .pxb-drawer-header-icon-wrapper {
         margin-right: -0.5rem;
-        margin-left: 24px;
+        margin-left: calc(24px + (1rem - 16px) / 2);
     }
     &.pxb-drawer-header-no-icon .pxb-drawer-header-icon-wrapper {
         margin-right: 0;
@@ -53,7 +53,7 @@
         display: flex;
         align-items: center;
         z-index: 1;
-        margin-right: 24px;
+        margin-right: calc(24px + (1rem - 16px) / 2); // Intense math: default needs 24, xLarge needs 28
         margin-left: -0.5rem;
         width: 2.5rem;
         @include scale-icon-button();

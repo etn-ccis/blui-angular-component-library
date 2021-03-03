@@ -51,6 +51,7 @@
 
         .pxb-dropdown-toolbar-subtitle-icon {
             margin: 0 0.25rem;
+            @include scale-icon-content();
         }
 
         .rotated-dropdown-arrow {
