@@ -19,6 +19,6 @@ export const withFullConfig = (): any => ({
         iconSize: number('iconSize', 36),
         iconColor: color('primary.style.color', Colors.white[50]),
         invertRTL: invertRTL,
-        colors: Colors
+        colors: Colors,
     },
 });
