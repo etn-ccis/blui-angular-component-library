@@ -135,9 +135,7 @@ $denseHeight: 3.25rem;
         padding: 0;
         > * {
             /* mat-icon, font-icon, etc */
-            font-size: 1.5rem;
-            height: 1.5rem;
-            width: 1.5rem;
+            @include scale-icon();
         }
         &.pxb-info-list-item-hide-padding:empty {
             width: 0;

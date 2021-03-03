@@ -1,3 +1,5 @@
+@import '../utility/utility';
+
 .pxb-score-card {
     display: flex;
 }
@@ -42,12 +44,9 @@
         margin-right: -0.75rem;
         > * {
             cursor: pointer;
-            margin-right: 0.75rem;
+            margin-right: 12px;
             text-align: center;
-            /* mat-icon, font-icon, etc */
-            font-size: 1.5rem;
-            height: 1.5rem;
-            width: 1.5rem;
+            @include scale-icon-content();
         }
     }
     .pxb-score-card-title {

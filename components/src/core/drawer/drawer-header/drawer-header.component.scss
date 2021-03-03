@@ -1,3 +1,5 @@
+@import '../../utility/utility';
+
 /* RTL */
 [dir='rtl'] .pxb-drawer-header-content {
     .pxb-drawer-header-icon-wrapper {
@@ -57,15 +59,7 @@
         z-index: 1;
         margin-right: 16px;
         width: 2.5rem;
-        .mat-icon-button {
-            height: 2.5rem;
-            width: 2.5rem;
-            line-height: 2.5rem;
-            mat-icon {
-                font-size: 1.5rem;
-                width: 1.5rem;
-            }
-        }
+        @include scale-icon-button();
     }
     &.pxb-drawer-header-no-icon .pxb-drawer-header-icon-wrapper {
         margin-right: 0;

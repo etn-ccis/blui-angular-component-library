@@ -1,3 +1,5 @@
+@import '../../../utility/utility';
+
 /* RTL */
 [dir='rtl'] .pxb-drawer-nav-item-content {
     .pxb-drawer-nav-item-active-highlight {
@@ -101,9 +103,7 @@ pxb-drawer-nav-item {
 
     .pxb-drawer-nav-item-expand-icon {
         transition: 300ms;
-        font-size: 1.5rem;
-        height: 1.5rem;
-        width: 1.5rem;
+        @include scale-icon-content();
         &.pxb-drawer-nav-item-expanded {
             transform: rotate(180deg);
         }
@@ -113,9 +113,7 @@ pxb-drawer-nav-item {
         display: flex;
         flex-direction: column;
         .mat-icon {
-            font-size: 1.5rem;
-            height: 1.5rem;
-            width: 1.5rem;
+            @include scale-icon-content();
         }
     }
     .pxb-drawer-nav-item-rail {

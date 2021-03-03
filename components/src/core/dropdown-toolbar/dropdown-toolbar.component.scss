@@ -1,3 +1,5 @@
+@import '../utility/utility';
+
 [dir='rtl'] .pxb-dropdown-toolbar-content {
     .pxb-dropdown-toolbar-icon-wrapper > * {
         margin-right: -8px;
@@ -17,15 +19,7 @@
         margin-right: 32px;
         margin-left: -8px;
     }
-    .mat-icon-button {
-        height: 2.5rem;
-        width: 2.5rem;
-        line-height: 2.5rem;
-        mat-icon {
-            font-size: 1.5rem;
-            width: 1.5rem;
-        }
-    }
+    @include scale-icon-button();
 }
 @media (max-width: 599px) {
     .pxb-dropdown-toolbar-content {
