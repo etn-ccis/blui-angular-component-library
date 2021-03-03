@@ -9,7 +9,7 @@ export const withinToolbar = (): any => ({
                     <mat-icon>person</mat-icon>
             </ng-template>
             <mat-toolbar style="padding: 0 16px; height: 4rem;">
-                <h2 class="mat-display-1">Toolbar Title</h2>
+                <div class="mat-title">Toolbar Title</div>
                 <pxb-spacer></pxb-spacer>
                 <pxb-user-menu menuTitle="Jane Doe" menuSubtitle="Account Manager" [(open)]="open">
                     <template pxb-avatar [ngTemplateOutlet]="avatar"></template>
