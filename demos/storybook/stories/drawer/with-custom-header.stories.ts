@@ -14,7 +14,7 @@ export const withCustomHeader = (): any => ({
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin: 0 8px;
+          margin: 0;
           width: 100%;
         }
        `,
