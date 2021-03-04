@@ -56,6 +56,6 @@ export const withNavRail = (): any => ({
     props: {
         navItems: navItems,
         condensed: boolean('condensed', true),
-        divider: boolean('divider', false)
+        divider: boolean('divider', false),
     },
 });
