@@ -13,6 +13,15 @@ export const withinDrawerLayout = (): any => ({
             height: 100%; 
             width: 100%;
         }
+        .scale-button {
+            height: 2.5rem;
+            width: 2.5rem;
+            line-height: 2.5rem;
+        }
+        .scale-icon {
+            font-size: 1.5rem;
+            width: 1.5rem;
+        }
         .app-bar {
             padding: 0 24px;
             height: 4rem;
@@ -46,10 +55,11 @@ export const withinDrawerLayout = (): any => ({
             <div pxb-content>
                 <mat-toolbar [style.backgroundColor]="blue" [style.color]="white" class="app-bar">
                     <button *ngIf="variant === 'temporary'" mat-icon-button 
+                        class="scale-button"
                         [style.marginRight.px]="direction() === 'rtl' ? -16 : 16"
                         [style.marginLeft.px]="direction() === 'rtl' ? 16 : -16"
                         (click)="state.open = true">
-                        <mat-icon>menu</mat-icon>
+                        <mat-icon class="scale-icon">menu</mat-icon>
                     </button>
                     <div class="mat-title">Drawer Layout Demo</div>
                 </mat-toolbar>

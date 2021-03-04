@@ -30,7 +30,7 @@ export const withinToolbar = (): any => ({
                     </div>
                 </pxb-user-menu> 
             </mat-toolbar>
-            <div style="font-size: 16px; padding: 16px; height: 100px;">Body Content Goes Here</div>
+            <div style="padding: 16px; height: 100px;" class="mat-body-1">Body Content Goes Here</div>
         </div>
     `,
     props: {

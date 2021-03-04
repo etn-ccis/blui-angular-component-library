@@ -1,5 +1,16 @@
 @import '../utility/utility';
 
+/* RTL */
+[dir='rtl'] .pxb-score-card-header .pxb-score-card-action-items-wrapper {
+    > * {
+        margin-right: 0;
+        margin-left: 16px;
+    }
+    > :last-child {
+        margin-left: 0;
+    }
+}
+
 .pxb-score-card {
     display: flex;
 }
@@ -40,12 +51,14 @@
     .pxb-score-card-action-items-wrapper {
         text-overflow: unset;
         overflow: unset;
-        margin-right: -0.75rem;
         > * {
             cursor: pointer;
-            margin-right: 12px;
+            margin-right: 16px;
             text-align: center;
             @include scale-icon-content();
+        }
+        > :last-child {
+            margin-right: 0;
         }
     }
     .pxb-score-card-title {
@@ -74,8 +87,8 @@
     align-items: center;
     .pxb-score-card-badge-wrapper {
         z-index: 1;
-        margin-left: 1rem;
-        margin-right: 1rem;
+        margin-left: 16px;
+        margin-right: 16px;
     }
 }
 

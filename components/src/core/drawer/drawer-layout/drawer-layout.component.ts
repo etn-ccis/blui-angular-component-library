@@ -27,7 +27,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
                 class="pxb-drawer-layout-sidenav"
                 [fixedInViewport]="false"
                 [class.pxb-drawer-layout-smooth]="variant !== 'temporary'"
-                [class.pxb-drawer-layout-shadow]="!hasSideBorder()"
+                [class.mat-elevation-z6]="!hasSideBorder()"
                 [style.width.rem]="isCollapsed() ? getCollapsedWidth() : toRem(width)"
                 [mode]="getMode()"
                 [opened]="isDrawerVisible()"
