@@ -12,7 +12,26 @@ export const withinDrawerLayout = (): any => ({
         :host { 
             height: 100%; 
             width: 100%;
-        }`,
+        }
+        .scale-button {
+            height: 2.5rem;
+            width: 2.5rem;
+            line-height: 2.5rem;
+        }
+        .scale-icon {
+            font-size: 1.5rem;
+            width: 1.5rem;
+        }
+        .app-bar {
+            padding: 0 24px;
+            height: 4rem;
+        }
+        @media (max-width: 599px) {
+            .app-bar {
+                height: 3.5rem;
+            }
+        }
+`,
     ],
     template: `
         <pxb-drawer-layout [dir]="direction()" [width]="width" [variant]="variant" (backdropClick)="state.open = false">
@@ -34,17 +53,17 @@ export const withinDrawerLayout = (): any => ({
                </pxb-drawer-body>
             </pxb-drawer>
             <div pxb-content>
-                <mat-toolbar [style.backgroundColor]="blue" [style.color]="white" 
-                    style="padding: 0 24px">
+                <mat-toolbar [style.backgroundColor]="blue" [style.color]="white" class="app-bar">
                     <button *ngIf="variant === 'temporary'" mat-icon-button 
+                        class="scale-button"
                         [style.marginRight.px]="direction() === 'rtl' ? -16 : 16"
                         [style.marginLeft.px]="direction() === 'rtl' ? 16 : -16"
                         (click)="state.open = true">
-                        <mat-icon>menu</mat-icon>
+                        <mat-icon class="scale-icon">menu</mat-icon>
                     </button>
-                    <h2>Drawer Layout Demo</h2>
+                    <div class="mat-title">Drawer Layout Demo</div>
                 </mat-toolbar>
-                <div style="font-size: 60px; padding: 24px">App content goes here.</div>
+                <div class="mat-body-1" style="padding: 24px">App content goes here.</div>
             </div>
         </pxb-drawer-layout>
       `,

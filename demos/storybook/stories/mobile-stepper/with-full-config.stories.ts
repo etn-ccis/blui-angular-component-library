@@ -34,7 +34,7 @@ export const withFullConfig = (): any => ({
         activeStep: 0,
         variant: select('variant', ['dots', 'text', 'progress'], 'dots'),
         steps: number('steps', 4, { range: true, min: 2, max: 6, step: 1 }),
-        width: number('Container Width', 300, { range: true, min: 250, max: 400, step: 10 }),
+        width: number('Container Width', 320, { range: true, min: 250, max: 400, step: 10 }),
         goBack: action('Back Button Clicked'),
         goNext: action('Next Button Clicked'),
         showBackButton: boolean('Show Back Button', true),

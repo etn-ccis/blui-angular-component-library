@@ -2,10 +2,12 @@ import {
     AfterViewInit,
     ChangeDetectorRef,
     Component,
+    ElementRef,
     EventEmitter,
     Input,
     OnChanges,
     Output,
+    ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
@@ -25,8 +27,8 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
                 class="pxb-drawer-layout-sidenav"
                 [fixedInViewport]="false"
                 [class.pxb-drawer-layout-smooth]="variant !== 'temporary'"
-                [class.pxb-drawer-layout-shadow]="!hasSideBorder()"
-                [style.width.px]="isCollapsed() ? getCollapsedWidth() : width"
+                [class.mat-elevation-z6]="!hasSideBorder()"
+                [style.width.rem]="isCollapsed() ? getCollapsedWidth() : toRem(width)"
                 [mode]="getMode()"
                 [opened]="isDrawerVisible()"
             >
@@ -35,11 +37,12 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
             <div
                 class="pxb-drawer-layout-nav-content"
                 [class.pxb-drawer-layout-smooth]="variant !== 'temporary'"
-                [style.marginRight.px]="isRtl ? getContentMargin() : 0"
-                [style.marginLeft.px]="isRtl ? 0 : getContentMargin()"
+                [style.marginRight.rem]="isRtl ? getContentMargin() : 0"
+                [style.marginLeft.rem]="isRtl ? 0 : getContentMargin()"
             >
                 <ng-content select="[pxb-content]"></ng-content>
             </div>
+            <div style="display:none; font-size: 1rem" #remElement></div>
         </mat-sidenav-container>
     `,
     host: {
@@ -50,8 +53,10 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     @Input() variant: DrawerLayoutVariantType;
     @Input() width = 350;
     @Output() backdropClick: EventEmitter<void> = new EventEmitter();
+    @ViewChild('remElement') remElement: ElementRef;
 
     isRtl = false;
+    remSizePx: number;
     dirChangeSubscription = Subscription.EMPTY;
 
     content: HTMLElement;
@@ -86,6 +91,14 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
         return this.variant === 'temporary' ? 'over' : 'side';
     }
 
+    toRem(px: number): number {
+        if (this.remElement && this.remElement.nativeElement) {
+            const style = getComputedStyle(this.remElement.nativeElement);
+            this.remSizePx = Number(style.fontSize.split('px')[0]);
+        }
+        return px / (this.remSizePx || 16);
+    }
+
     hasSideBorder(): boolean {
         return this.drawerService.hasSideBorder();
     }
@@ -105,11 +118,13 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
         if (this.variant === 'temporary') {
             return 0;
         }
-        return this.isCollapsed() ? this.getCollapsedWidth() : this.width;
+        return this.isCollapsed() ? this.getCollapsedWidth() : this.toRem(this.width);
     }
 
     getCollapsedWidth(): number {
-        return this.variant === 'rail' && !this.drawerService.isRailCondensed() ? 72 : 56;
+        return this.variant === 'rail' && !this.drawerService.isRailCondensed()
+            ? 3.5 + this.toRem(16) // Rail (default)
+            : 1.5 + this.toRem(32); //  Rail (condensed) || closed persistent
     }
 
     // Is the drawer condensed.

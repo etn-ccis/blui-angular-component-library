@@ -1,4 +1,5 @@
-$size: 40px;
+@import '../utility/utility';
+$size: 2.5rem;
 
 .pxb-user-menu {
     display: flex;
@@ -21,8 +22,9 @@ $size: 40px;
         width: 100%;
         height: 100%;
     }
-    mat-icon {
+    .mat-icon {
         align-self: center;
+        @include scale-icon-content();
     }
 }
 
@@ -40,10 +42,10 @@ mat-card.pxb-user-menu-overlay {
     border-top-left-radius: 4px !important;
     border-top-right-radius: 4px !important;
     .pxb-drawer-header-title {
-        font-size: 16px;
+        font-size: 1rem;
     }
     .pxb-drawer-header-subtitle {
-        font-size: 14px;
+        font-size: 0.875rem;
     }
 }
 

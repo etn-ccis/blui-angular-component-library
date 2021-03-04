@@ -1,5 +1,5 @@
 $width-open: 360px;
-$width-closed: 56px;
+$width-closed: calc(1.5rem + 16px * 2);
 $transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 
 .pxb-drawer-layout .pxb-drawer-content {
@@ -42,7 +42,9 @@ $transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
         border-right: 0;
     }
 
-    &.pxb-drawer-collapse {
+    /* Drawer condensed-rail & Drawer closed (persistent) are the same width. */
+    &.pxb-drawer-collapse,
+    &.pxb-drawer-condensed-rail .pxb-drawer-nav-item-content .pxb-drawer-nav-item-rail {
         width: $width-closed;
     }
 
