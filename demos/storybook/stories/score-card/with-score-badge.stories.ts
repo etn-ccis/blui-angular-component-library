@@ -57,7 +57,7 @@ export const withScoreBadge = (): any => ({
             <pxb-hero pxb-badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="72">
                 <i pxb-primary [style.color]="colors.green[500]" class="pxb-grade_a"></i>
             </pxb-hero>
-            <pxb-info-list-item pxb-action-row chevron="true" hidePadding="true" dense="true"(click)="actionRowClick()">
+            <pxb-info-list-item pxb-action-row chevron="true" hidePadding="true" dense="true" (click)="actionRowClick()">
                 <div pxb-title>View Location</div>
             </pxb-info-list-item>
         </pxb-score-card>

@@ -1,4 +1,5 @@
 import * as Colors from '@pxblue/colors';
+import {getDirection} from "@pxblue/storybook-rtl-addon";
 
 export const withinAnInfoListItem = (): any => ({
     template: `
@@ -9,7 +10,8 @@ export const withinAnInfoListItem = (): any => ({
             <div pxb-right-content>
                 <pxb-list-item-tag 
                     label="Build Passing" 
-                    [style.marginRight.px]="16"
+                    [style.marginRight.px]="direction() === 'rtl' ? 0 : 16"
+                    [style.marginLeft.px]="direction() === 'rtl' ? 16 : 0"
                     [backgroundColor]="colors.green[300]" 
                     [fontColor]="colors.black[900]">
                 </pxb-list-item-tag>
@@ -23,5 +25,6 @@ export const withinAnInfoListItem = (): any => ({
     `,
     props: {
         colors: Colors,
+        direction: getDirection,
     },
 });
