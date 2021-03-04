@@ -1,5 +1,5 @@
 import * as Colors from '@pxblue/colors';
-import {getDirection} from "@pxblue/storybook-rtl-addon";
+import { getDirection } from '@pxblue/storybook-rtl-addon';
 
 export const withinAnInfoListItem = (): any => ({
     template: `
