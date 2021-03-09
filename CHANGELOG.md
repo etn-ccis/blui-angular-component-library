@@ -1,5 +1,16 @@
 # Change Log
 
+## v4.2.0 (not yet published)
+
+### Added
+
+-   Adds new property `color` to `<pxb-dropdown-toolbar>`.  
+
+### Changed
+
+-   Changed vertical margins to use rem units so they scale with system font-size
+-   Updated `<pxb-score-card>` header and subtitle font size to match DSM.
+
 ## v4.1.0
 
 ### Added
