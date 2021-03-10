@@ -5,7 +5,7 @@ import { invertRTL } from '../../src/utils';
 
 export const withFullConfig = (): any => ({
     template: `
-       <pxb-dropdown-toolbar [title]="title" [subtitle]="state.selected || subtitle">
+       <pxb-dropdown-toolbar [title]="title" [subtitle]="state.selected || subtitle" [color]="color">
             <button mat-icon-button pxb-nav-icon (click)="clickPXBIcon()" aria-label="menu icon">
             <mat-icon *ngIf="navIcon === 'menu'">menu</mat-icon>
             <mat-icon *ngIf="navIcon === 'arrow_back'" [style.transform]="invertRTL()">arrow_back</mat-icon>
@@ -35,6 +35,7 @@ export const withFullConfig = (): any => ({
         navIcon: select('pxb-nav-icon', ['menu', 'arrow_back'], 'menu'),
         title: text('title', 'Title'),
         subtitle: text('subtitle', 'Subtitle'),
+        color: select('color', ['primary', 'accent', 'warn', ''], 'primary'),
         count: number('right content icon count', 3, { range: true, min: 0, max: 3, step: 1 }),
         updateSubtitle: (str: string, state): void => {
             state.selected = str;

@@ -40,10 +40,11 @@ Parent element (`<pxb-dropdown-toolbar>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input   | Description                   | Type     | Required | Default |
-| -------- | ----------------------------- | -------- | -------- | ------- |
-| title    | The text to display for title | `string` | no       |         |
-| subtitle | The text to display subtitle  | `string` | no       |         |
+| @Input   | Description                   | Type                                             | Required | Default   |
+| -------- | ----------------------------- | ------------------------------------------------ | -------- | --------- |
+| title    | The text to display for title | `string`                                         | no       |           |
+| subtitle | The text to display subtitle  | `string`                                         | no       |           |
+| color    | Mat toolbar color variant     | `'primary' | 'accent' | 'warn' | undefined`      | no       | `primary` |
 
 </div>
 

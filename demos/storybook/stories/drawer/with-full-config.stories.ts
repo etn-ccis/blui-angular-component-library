@@ -118,7 +118,7 @@ export const withFullConfig = (): any => ({
             [disableActiveItemParentStyles]="disableActiveItemParentStyles" 
             [openOnHover]="openOnHover"
             [class.show-header-image]="showHeaderImage">
-           <pxb-drawer-header [title]="title" [subtitle]="subtitle" [divider]="showHeaderDivider">
+           <pxb-drawer-header [title]="title" [subtitle]="subtitle" [divider]="showHeaderDivider" [color]="color">
              <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                <mat-icon>menu</mat-icon>
              </button>
@@ -179,6 +179,7 @@ export const withFullConfig = (): any => ({
         subtitle: text('subtitle', 'with full config', header),
         showHeaderImage: boolean('Show Background Image', true, header),
         showHeaderDivider: boolean('divider', true, header),
+        color: select('color', ['primary', 'accent', 'warn', ''], 'primary', header),
         groupTitle1: text('NavGroup 1 title', 'Group 1', navGroup),
         groupTitle2: text('NavGroup 2 title', 'Group 2', navGroup),
         groupDivider: boolean('divider', true, navGroup),
