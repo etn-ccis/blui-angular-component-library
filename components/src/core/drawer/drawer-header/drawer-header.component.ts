@@ -19,6 +19,7 @@ import { isEmptyView } from '../../../utils/utils';
         <mat-toolbar
             class="pxb-drawer-header-content"
             [class.rail]="isRail()"
+            [color]="color"
             [class.pxb-drawer-header-no-icon]="isEmpty(iconEl)"
         >
             <div class="pxb-drawer-header-background"></div>
@@ -44,6 +45,7 @@ export class DrawerHeaderComponent extends StateListener {
     @Input() subtitle: string;
     @Input() title: string;
     @Input() divider = false;
+    @Input() color: 'primary' | 'accent' | 'warn' | undefined = 'primary';
     @ViewChild('icon', { static: true }) iconEl: ElementRef;
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
