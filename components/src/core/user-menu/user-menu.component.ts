@@ -48,6 +48,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
                     class="pxb-user-menu-header"
                     [title]="menuTitle"
                     [subtitle]="menuSubtitle"
+                    [divider]="true"
                 >
                     <pxb-user-menu-avatar
                         pxb-icon
