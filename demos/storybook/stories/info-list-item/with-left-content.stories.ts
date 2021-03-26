@@ -5,7 +5,7 @@ export const withLeftContent = (): any => ({
     template: `
         <pxb-info-list-item>
             <div pxb-title>Info List Item</div>
-            <div pxb-subtitle>with a ChannelValue component to the left</div>
+            <div pxb-subtitle>with a timestamp as a left component</div>
             <mat-icon [style.color]="colors.blue[500]" pxb-icon>battery_charging_full</mat-icon>
             <div pxb-left-content style="display: flex; flex-direction: column"
                 [style.marginRight.px]="direction() === 'rtl' ? 0 : 48"
