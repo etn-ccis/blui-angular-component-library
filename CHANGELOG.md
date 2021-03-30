@@ -1,11 +1,11 @@
 # Change Log
 
-## v4.2.0 (not yet published)
+## v4.2.0
 
 ### Added
 
--   Adds new property `color` to `<pxb-dropdown-toolbar>`.  
--   Adds new property `color` to `<pxb-drawer-header>`.  
+-   Added new property `color` to `<pxb-dropdown-toolbar>`.
+-   Added new property `color` to `<pxb-drawer-header>`.
 
 ### Changed
 
@@ -20,7 +20,7 @@
 -   Adds new class `pxb-dropdown-toolbar-subtitle-icon` to `<pxb-dropdown-toolbar>`
 -   Adds lighter font weight to `<pxb-info-list-item>` placed inside `<pxb-user-menu>`.
 -   Adds a shadow to the `<pxb-user-menu>` when opened.
--   Adds new property `openOnHoverDelay` to `<pxb-drawer>` to alter open-on-hover delay for closed persistent drawers. 
+-   Adds new property `openOnHoverDelay` to `<pxb-drawer>` to alter open-on-hover delay for closed persistent drawers.
 
 ### Fixed
 
@@ -28,9 +28,9 @@
 -   Fixes header height bug which affected `<pxb-drawer-header>` in Safari.
 -   Fixes misalignment of `<pxb-info-list-item>`'s right content.
 -   Fixes RTL styles in `<pxb-dropdown-toolbar>`.
--   Fixes uneven vertical alignment of icon and text in `<pxb-empty-state>` action buttons. 
+-   Fixes uneven vertical alignment of icon and text in `<pxb-empty-state>` action buttons.
 -   Fixes `<pxb-user-menu>` menu header avatar offset.
--   Fixes `<pxb-drawer>` `sideBorder` prop to use `mat-elevation` class.  
+-   Fixes `<pxb-drawer>` `sideBorder` prop to use `mat-elevation` class.
 
 ### Removed
 
