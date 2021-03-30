@@ -4,8 +4,8 @@
 
 ### Added
 
-- Adds new property `color` to `<pxb-dropdown-toolbar>`.
-- Adds new property `color` to `<pxb-drawer-header>`.
+- Added new property `color` to `<pxb-dropdown-toolbar>`.
+- Added new property `color` to `<pxb-drawer-header>`.
 
 ### Changed
 
