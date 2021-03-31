@@ -8,7 +8,7 @@ export const withNonTextAvatar = (): any => ({
         `
         .non-text-avatar-container {
             display: flex; 
-            width: 120px; 
+            width: 8rem; 
             justify-content: space-around;
         }
     `,

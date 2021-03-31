@@ -1,3 +1,23 @@
 @mixin invert {
     transform: scaleX(-1);
 }
+
+/* Used for scaling icon-like content proportional to system font size. */
+@mixin scale-icon-content {
+    font-size: 1.5rem;
+    height: 1.5rem;
+    width: 1.5rem;
+}
+
+/* Used for scaling mat-icons inside of mat-buttons. */
+@mixin scale-icon-button {
+    .mat-icon-button {
+        height: 2.5rem;
+        width: 2.5rem;
+        line-height: 2.5rem;
+        .mat-icon {
+            @include scale-icon-content();
+            height: unset;
+        }
+    }
+}

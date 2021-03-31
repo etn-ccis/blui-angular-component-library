@@ -28,8 +28,8 @@ export type DrawerNavGroup = {
             }
             .pxb-drawer-nav-group-content .pxb-drawer-nav-group-title {
                 font-weight: 600;
-                height: 48px;
-                line-height: 48px;
+                height: 3rem;
+                line-height: 3rem;
                 padding: 0 16px;
                 overflow: hidden;
                 white-space: nowrap;

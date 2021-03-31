@@ -1,9 +1,11 @@
+@import '../../../utility/utility';
+
 /* RTL */
 [dir='rtl'] .pxb-drawer-nav-item-content {
     .pxb-drawer-nav-item-active-highlight {
         right: 0;
         &.pxb-drawer-nav-item-active-round {
-            border-radius: 24px 0 0 24px;
+            border-radius: 1.5rem 0 0 1.5rem;
         }
     }
     .pxb-drawer-nav-item-depth-3 {
@@ -24,8 +26,7 @@ pxb-drawer-nav-item {
 }
 
 .pxb-drawer-condensed-rail .pxb-drawer-nav-item-content .pxb-drawer-nav-item-rail {
-    width: 56px;
-    min-height: 56px;
+    min-height: 3.5rem;
     .pxb-drawer-nav-item-rail-text {
         display: none;
     }
@@ -37,12 +38,12 @@ pxb-drawer-nav-item {
     user-select: none;
 
     &.pxb-drawer-nav-item-compact {
-        margin-top: 8px;
-        margin-bottom: 8px;
+        margin-top: 0.5rem;
+        margin-bottom: 0.5rem;
         .pxb-info-list-item-content {
             &.pxb-info-list-item-dense,
             .mat-list-item-content {
-                height: 40px !important;
+                height: 2.5rem !important;
             }
         }
     }
@@ -91,8 +92,8 @@ pxb-drawer-nav-item {
         left: 0;
         top: 0;
         &.pxb-drawer-nav-item-active-round {
-            width: calc(100% - 8px);
-            border-radius: 0 24px 24px 0;
+            width: calc(100% - 0.5rem);
+            border-radius: 0 1.5rem 1.5rem 0;
         }
         &.pxb-drawer-nav-item-active-square {
             border-radius: 0;
@@ -102,6 +103,7 @@ pxb-drawer-nav-item {
 
     .pxb-drawer-nav-item-expand-icon {
         transition: 300ms;
+        @include scale-icon-content();
         &.pxb-drawer-nav-item-expanded {
             transform: rotate(180deg);
         }
@@ -110,16 +112,19 @@ pxb-drawer-nav-item {
         z-index: 1;
         display: flex;
         flex-direction: column;
+        .mat-icon {
+            @include scale-icon-content();
+        }
     }
     .pxb-drawer-nav-item-rail {
         z-index: 1;
         display: flex;
         flex-direction: column;
-        min-height: 72px;
-        width: 72px;
+        min-height: 4.5rem;
+        width: calc(3.5rem + 16px);
         justify-content: center;
         align-items: center;
-        padding: 16px 8px;
+        padding: 1rem 8px;
         box-sizing: border-box;
         cursor: pointer;
         text-align: center;
@@ -127,8 +132,8 @@ pxb-drawer-nav-item {
             z-index: 1; // Keep items above the highlight.
         }
         .pxb-drawer-nav-item-rail-text {
-            font-size: 12px;
-            line-height: 16px;
+            font-size: 0.75rem;
+            line-height: 1rem;
             word-break: break-word;
             hyphens: auto;
         }
@@ -139,9 +144,6 @@ pxb-drawer-nav-item {
     .pxb-info-list-item .mat-list-item-content {
         padding-left: 16px;
     }
-    /*pxb-info-list-item .pxb-info-list-item .mat-list-text .pxb-info-list-item-title-wrapper {
-        font-weight: 400;
-    }*/
     .mat-expansion-panel-body {
         padding: 0;
     }

@@ -3,6 +3,7 @@
     "version": "0.0.0",
     "description": "Angular components for PX Blue applications",
     "main": "index.js",
+    "prettier": "@pxblue/prettier-config",
     "scripts": {
         "initialize": "bash scripts/initializeSubmodule.sh",
         "test": "cd ./components && yarn test:ci",
@@ -37,5 +38,9 @@
     "homepage": "https://github.com/pxblue/angular-component-library#readme",
     "directories": {
         "doc": "docs"
+    },
+    "devDependencies": {
+        "@pxblue/prettier-config": "^1.0.2",
+        "prettier": "^2.2.1"
     }
 }

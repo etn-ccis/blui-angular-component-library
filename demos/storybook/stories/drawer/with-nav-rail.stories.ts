@@ -33,7 +33,7 @@ export const withNavRail = (): any => ({
     ],
     template: `
         <pxb-drawer-layout variant="rail">
-            <pxb-drawer pxb-drawer [condensed]="condensed">
+            <pxb-drawer pxb-drawer [condensed]="condensed" [sideBorder]="sideBorder">
                <pxb-drawer-body>
                   <pxb-drawer-nav-group>
                        <pxb-drawer-nav-item *ngFor="let navItem of navItems"
@@ -51,11 +51,13 @@ export const withNavRail = (): any => ({
                     </div>
                 </pxb-drawer-footer>
             </pxb-drawer>
+            <div pxb-content [style.width.px]="24"></div>
         </pxb-drawer-layout>
       `,
     props: {
         navItems: navItems,
         condensed: boolean('condensed', true),
         divider: boolean('divider', false),
+        sideBorder: boolean('sideBorder', false),
     },
 });
