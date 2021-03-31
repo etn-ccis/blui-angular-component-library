@@ -44,6 +44,7 @@ const packageJSON = require('@pxblue/angular-components/package.json');
                     <a
                         mat-stroked-button
                         actions
+                        style="color: white; border-color: white"
                         href="https://github.com/pxblue/angular-component-library"
                         target="blank"
                         [style.marginTop.px]="36"
