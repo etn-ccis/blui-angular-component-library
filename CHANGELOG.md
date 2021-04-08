@@ -1,5 +1,11 @@
 # Change Log
 
+## v4.2.1
+
+### Added
+
+-   Added new property `disabled` to `<pxb-info-list-item`>.
+
 ## v4.2.0
 
 ### Added

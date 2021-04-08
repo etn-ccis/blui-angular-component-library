@@ -1,5 +1,5 @@
 import * as Colors from '@pxblue/colors';
-import { select } from '@storybook/addon-knobs';
+import {boolean, select} from '@storybook/addon-knobs';
 
 export const withinList = (): any => ({
     template: `
@@ -34,7 +34,7 @@ export const withinList = (): any => ({
                 </span>
             </pxb-info-list-item>
     
-            <pxb-info-list-item dense="true" [divider]="divider" [iconAlign]="'center'">
+            <pxb-info-list-item dense="true" [divider]="divider" [iconAlign]="'center'" [disabled]="disabled">
                 <div pxb-title>Output Current</div>
                 <mat-icon pxb-icon>battery_charging_full</mat-icon>
                 <span pxb-right-content>
@@ -55,6 +55,7 @@ export const withinList = (): any => ({
     `,
     props: {
         colors: Colors,
+        disabled: boolean('Disable item', false),
         divider: select('divider', ['full', 'partial', ''], 'full'),
     },
 });

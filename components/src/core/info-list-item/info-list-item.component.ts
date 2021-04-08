@@ -24,6 +24,7 @@ type DividerType = 'full' | 'partial' | undefined;
             [class.pxb-info-list-item-status]="statusColor"
             [style.border-left-color]="statusColor"
             [style.border-right-color]="statusColor"
+            [disabled]="disabled"
         >
             <div
                 mat-list-icon
@@ -91,6 +92,7 @@ export class InfoListItemComponent implements AfterViewInit {
     @Input() wrapSubtitle = false;
     @Input() wrapTitle = false;
     @Input() divider: DividerType;
+    @Input() disabled = false;
 
     @ViewChild('title') titleEl: ElementRef;
     @ViewChild('right') rightEl: ElementRef;
