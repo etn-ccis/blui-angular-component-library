@@ -1,5 +1,5 @@
 import * as Colors from '@pxblue/colors';
-import {boolean, select} from '@storybook/addon-knobs';
+import { boolean, select } from '@storybook/addon-knobs';
 
 export const withinList = (): any => ({
     template: `
