@@ -35,6 +35,7 @@ Parent element (`<pxb-info-list-item>`) attributes:
 | chevron      | Add a chevron icon on the right            | `boolean`                           | no       | false   |
 | dense        | Smaller height row with less padding       | `boolean`                           | no       | false   |
 | divider      | Show a row separator below the row         | `'full'` \| `'partial'`             | no       |         |
+| disabled     | Disable the list item                      | `boolean`                           | no       | false   |
 | hidePadding  | Remove left padding if no icon is used     | `boolean`                           | no       | false   |
 | iconAlign    | Icon alignment when avatar is set to false | `'left'` \| `'center'` \| `'right'` | no       | 'left'  |
 | statusColor  | Left border color                          | `string`                            | no       |         |

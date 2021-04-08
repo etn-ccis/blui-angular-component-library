@@ -16,6 +16,7 @@ export const withFullConfig = (): any => ({
             [hidePadding]="hidePadding"
             [dense]="dense"
             [chevron]="chevron"
+            [disabled]="disabled"
             (click)="action()">
             <div pxb-title>{{title}}</div>
             <div pxb-subtitle>{{subtitle}}</div>
@@ -41,6 +42,7 @@ export const withFullConfig = (): any => ({
         iconAlign: select('iconAlign', ['left', 'center', 'right'], 'left'),
         iconColor: color('icon color', Colors.black[500]),
         avatar: boolean('avatar', false),
+        disabled: boolean('disabled', false),
         action: action('InfoListItem clicked'),
         getBgColor: (avatar: boolean, statusColor: string): string => (avatar ? statusColor : 'unset'),
         colors: Colors,
