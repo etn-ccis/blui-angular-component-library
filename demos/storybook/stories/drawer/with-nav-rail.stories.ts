@@ -27,7 +27,13 @@ export const navItems: DrawerNavItem[] = [
 
 export const withNavRail = (): any => ({
     styles: [
-        `::ng-deep .pxb-drawer .pxb-drawer-header {
+        /* Remove content background color for demo. */
+        `::ng-deep .pxb-blue .mat-drawer-content,
+         ::ng-deep .pxb-blue .mat-drawer-container {
+          background-color: unset!important;
+       }
+         ::ng-deep .pxb-blue-dark .mat-drawer-content, 
+         ::ng-deep .pxb-blue-dark .mat-drawer-container {
           background-color: unset!important;
        }`,
     ],
@@ -51,7 +57,7 @@ export const withNavRail = (): any => ({
                     </div>
                 </pxb-drawer-footer>
             </pxb-drawer>
-            <div pxb-content [style.width.px]="24"></div>
+            <div pxb-content class="with-nav-rail-content" [style.width.px]="24"></div>
         </pxb-drawer-layout>
       `,
     props: {
