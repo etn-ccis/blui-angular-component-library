@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { ChannelValueComponent } from './channel-value.component';
 import { count } from '../../utils/test-utils';
 import { ChannelValueModule } from './channel-value.module';
@@ -17,7 +17,7 @@ describe('ChannelValueComponent', () => {
     let component: ChannelValueComponent;
     let fixture: ComponentFixture<ChannelValueComponent>;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         void TestBed.configureTestingModule({
             declarations: [TestIcon],
             imports: [ChannelValueModule],

@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { Component, Input } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { count } from '../../utils/test-utils';
@@ -58,7 +58,7 @@ describe('Empty State Component', () => {
     let fixture: ComponentFixture<EmptyStateBasicUsageComponent>;
     let component: EmptyStateBasicUsageComponent;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         void TestBed.configureTestingModule({
             imports: [EmptyStateModule],
             declarations: [EmptyStateBasicUsageComponent, TestIconActions, TestDescriptionContent, TestTitleContent],

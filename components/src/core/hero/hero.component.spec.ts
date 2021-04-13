@@ -1,4 +1,4 @@
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { TestBed, ComponentFixture, waitForAsync } from '@angular/core/testing';
 import { count } from '../../utils/test-utils';
 import { HeroComponent } from './hero.component';
 import { HeroModule } from './hero.module';
@@ -36,7 +36,7 @@ describe('HeroComponent', () => {
     let fixture: ComponentFixture<HeroComponent>;
     let component: HeroComponent;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         void TestBed.configureTestingModule({
             declarations: [TestChannelValue, TestPrimaryIcon, TestSecondaryIcon],
             imports: [HeroModule, ChannelValueModule],

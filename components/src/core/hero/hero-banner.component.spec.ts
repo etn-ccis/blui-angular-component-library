@@ -1,4 +1,4 @@
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { TestBed, ComponentFixture, waitForAsync } from '@angular/core/testing';
 import { HeroBannerComponent } from './hero-banner.component';
 import { count } from '../../utils/test-utils';
 import { Component } from '@angular/core';
@@ -18,7 +18,7 @@ describe('HeroBannerComponent', () => {
     let fixture: ComponentFixture<HeroBannerComponent>;
     let component: HeroBannerComponent;
 
-    beforeEach(async(() => {
+    beforeEach(waitForAsync(() => {
         void TestBed.configureTestingModule({
             declarations: [TestRenderHeroes],
             imports: [HeroModule],
