@@ -58,12 +58,19 @@ describe('Empty State Component', () => {
     let fixture: ComponentFixture<EmptyStateBasicUsageComponent>;
     let component: EmptyStateBasicUsageComponent;
 
-    beforeEach(waitForAsync(() => {
-        void TestBed.configureTestingModule({
-            imports: [EmptyStateModule],
-            declarations: [EmptyStateBasicUsageComponent, TestIconActions, TestDescriptionContent, TestTitleContent],
-        }).compileComponents();
-    }));
+    beforeEach(
+        waitForAsync(() => {
+            void TestBed.configureTestingModule({
+                imports: [EmptyStateModule],
+                declarations: [
+                    EmptyStateBasicUsageComponent,
+                    TestIconActions,
+                    TestDescriptionContent,
+                    TestTitleContent,
+                ],
+            }).compileComponents();
+        })
+    );
 
     beforeEach(() => {
         fixture = TestBed.createComponent(EmptyStateBasicUsageComponent);

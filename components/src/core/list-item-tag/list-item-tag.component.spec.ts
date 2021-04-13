@@ -7,11 +7,13 @@ describe('ListItemTagComponent', () => {
     let component: ListItemTagComponent;
     let fixture: ComponentFixture<ListItemTagComponent>;
 
-    beforeEach(waitForAsync(() => {
-        void TestBed.configureTestingModule({
-            imports: [ListItemTagModule],
-        }).compileComponents();
-    }));
+    beforeEach(
+        waitForAsync(() => {
+            void TestBed.configureTestingModule({
+                imports: [ListItemTagModule],
+            }).compileComponents();
+        })
+    );
 
     beforeEach(() => {
         fixture = TestBed.createComponent(ListItemTagComponent);

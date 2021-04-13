@@ -18,12 +18,14 @@ describe('HeroBannerComponent', () => {
     let fixture: ComponentFixture<HeroBannerComponent>;
     let component: HeroBannerComponent;
 
-    beforeEach(waitForAsync(() => {
-        void TestBed.configureTestingModule({
-            declarations: [TestRenderHeroes],
-            imports: [HeroModule],
-        }).compileComponents();
-    }));
+    beforeEach(
+        waitForAsync(() => {
+            void TestBed.configureTestingModule({
+                declarations: [TestRenderHeroes],
+                imports: [HeroModule],
+            }).compileComponents();
+        })
+    );
 
     beforeEach(() => {
         fixture = TestBed.createComponent(HeroBannerComponent);
