@@ -8,7 +8,7 @@
 
 ### Changed
 
--   Migrated to Angular 11
+-   Updated to Angular 11 for building the library
 
     _Breaking Changes_
 
