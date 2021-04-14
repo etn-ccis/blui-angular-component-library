@@ -1,6 +1,6 @@
 # Change Log
 
-## v4.2.1 (Not Published Yet)
+## v5.0.0 (Not Published Yet)
 
 ### Added
 
@@ -9,10 +9,6 @@
 ### Changed
 
 -   Updated to Angular 11 for building the library
-
-    _Breaking Changes_
-
--   Dropped support for IE9, IE10, and IE mobile. This was announced in the Angular [v10 Update](https://blog.angular.io/version-10-of-angular-now-available-78960babd41#c357).
 
 ## v4.2.0 (March 31, 2021)
 
