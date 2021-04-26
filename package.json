@@ -9,6 +9,7 @@
         "test": "cd ./components && yarn test:ci",
         "test:artifacts": "bash scripts/buildTest.sh",
         "build": "bash scripts/buildComponents.sh",
+        "publish:package": "cd dist && set npm_config_yes=true && npx -p @pxblue/publish pxb-publish",
         "install:dependencies": "cd demos/showcase && yarn && cd ../storybook && yarn && cd ../../components && yarn",
         "link:components": "bash scripts/linkComponents.sh",
         "start:storybook": "yarn install:dependencies && yarn link:components && cd demos/storybook && yarn start",
