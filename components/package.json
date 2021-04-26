@@ -11,7 +11,6 @@
     "test:ci": "ng test --watch false",
     "prettier": "prettier \"src/**/**.{ts,json,css,scss,html}\" --write",
     "prettier:check": "prettier \"src/**/**.{ts,json,css,scss,html}\" --check",
-    "publish:package": "set npm_config_yes=true && npx -p @pxblue/publish pxb-publish",
     "lint": "eslint \"src/**/**.ts\"",
     "lint:fix": "eslint \"src/**/**.ts\" --fix"
   },

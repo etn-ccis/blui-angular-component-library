@@ -13,7 +13,6 @@ If you need to publish a package manually, you can run the following commands fr
 
 ```sh
 yarn build 
-cd dist
 yarn publish:package
 ```
 
@@ -23,7 +22,6 @@ For this command to work, you must have an NPM token configured in your environm
 
 ```sh
 yarn build 
-cd dist
 npm adduser && yarn publish:package
 ```
 
