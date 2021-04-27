@@ -1,10 +1,14 @@
 # Change Log
 
-## v4.2.1 (Not Published Yet)
+## v4.3.0 (April 27, 2021)
 
 ### Added
 
 -   Added new property `disabled` to `<pxb-info-list-item`>.
+
+### Fixed
+
+-   Fixed non-centered icon alignment in `<pxb-info-list-item>`.
 
 ## v4.2.0 (March 31, 2021)
 
