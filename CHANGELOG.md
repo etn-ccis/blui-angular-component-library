@@ -1,12 +1,16 @@
 # Change Log
 
-## v4.2.1 (Not Published Yet)
-         
+## v4.3.0 (April 27, 2021)
+
 ### Added
 
 -   Added new property `disabled` to `<pxb-info-list-item`>.
 
-## v4.2.0
+### Fixed
+
+-   Fixed non-centered icon alignment in `<pxb-info-list-item>`.
+
+## v4.2.0 (March 31, 2021)
 
 ### Added
 
@@ -18,7 +22,7 @@
 -   Changed vertical margins to use rem units so they scale with system font-size
 -   Updated `<pxb-score-card>` header and subtitle font size to match DSM.
 
-## v4.1.0
+## v4.1.0 (February 12, 2021)
 
 ### Added
 
@@ -48,7 +52,7 @@
 -   Changed `<pxb-user-menu>` menu title default font size to 16px.
 -   Changed `<pxb-user-menu>` menu subtitle default font size to 14px.
 
-## v4.0.0
+## v4.0.0 (December 10, 2020)
 
 ### Added
 
@@ -61,7 +65,7 @@
 -   Renamed several classes and updated styles for the `<pxb-drawer>`
 -   Updated default style of the `<pxb-hero>`
 
-## v3.0.1
+## v3.0.1 (October 7, 2020)
 
 ### Fixed
 
@@ -69,7 +73,7 @@
 -   Changes default display setting of ListItemTag so it doesn't take up 100% width in non-flex containers.
 -   Updates the ListItemTag styles to match our DSM recommendations.
 
-## v3.0.0
+## v3.0.0 (September 29, 2020)
 
 ### Added
 
@@ -80,7 +84,7 @@
 
 -   Removed right-to-left icon inverting logic per [Material Design's bidirectionality guideline](https://material.io/design/usability/bidirectionality.html#mirroring-layout).
 
-## v2.1.0
+## v2.1.0 (August 14, 2020)
 
 ### Added
 
@@ -88,7 +92,7 @@
 -   Adds new component for `<pxb-dropdown-toolbar>`.
 -   Adds `iconAlign` attribute to `<pxb-info-list-item>` to align icons left (default), center or right.
 
-## v2.0.0
+## v2.0.0 (June 30, 2020)
 
 ### Added
 
@@ -109,7 +113,7 @@
     components. Font size can be set directly through the style attribute: `[fontSize]="20"` => `style="font-size: 20px"`
 -   `iconSize` attribute for `<pxb-hero>` now takes only numeric values
 
-## v1.3.0
+## v1.3.0 (February 3, 2020)
 
 ### Added
 
@@ -119,7 +123,7 @@
 
 -   Fixes bug in `<pxb-channel-value>` where font size input was not being used
 
-## v1.2.1
+## v1.2.1 (October 29, 2019)
 
 ### Added
 
@@ -127,13 +131,13 @@
 -   New index file for simpler import syntax
     -   `import {XXX} from '@pxblue/angular-components'`
 
-## v1.1.0
+## v1.1.0 (July 10, 2019)
 
 ### Added
 
 -   Enables support for Angular 7+
 
-## v1.0.0
+## v1.0.0 (June 28, 2019)
 
 ### Added
 
@@ -143,6 +147,6 @@
 
 -   Minor styling fixes
 
-## v0.0.1
+## v0.0.1 (June 17, 2019)
 
 Initial beta release
