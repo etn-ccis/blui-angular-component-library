@@ -1,6 +1,6 @@
 # Change Log
 
-## v4.2.1 (Not Published Yet)
+## v4.3.0 (April 27, 2021)
 
 ### Added
 
