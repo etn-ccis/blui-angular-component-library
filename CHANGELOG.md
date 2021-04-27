@@ -6,6 +6,10 @@
 
 -   Added new property `disabled` to `<pxb-info-list-item`>.
 
+### Fixed
+
+-   Fixed non-centered icon alignment in `<pxb-info-list-item>`.
+
 ## v4.2.0 (March 31, 2021)
 
 ### Added
