@@ -5,7 +5,7 @@
 
 This is a library of custom components for use in PX Blue applications. For the most part, these components are meant to simplify building your application by providing re-usable components that implement common use cases in PX Blue and eliminating the need to multiple teams to build their own components for these.
 
-Refer to the [Component Library](https://pxblue-components.github.io/angular/?path=/story/intro-welcome--to-px-blue) API documentation site for a list of available components or see the repository the [documentation](https://github.com/pxblue/angular-component-library/tree/dev/docs) for each individual component.
+Test to the [Component Library](https://pxblue-components.github.io/angular/?path=/story/intro-welcome--to-px-blue) API documentation site for a list of available components or see the repository the [documentation](https://github.com/pxblue/angular-component-library/tree/dev/docs) for each individual component.
 
 ## Installation
 
