@@ -27,8 +27,7 @@ export const withSubheader = (): any => ({
                 <mat-icon matSuffix>search</mat-icon>
                 <mat-hint style="min-width: 360px">The subheader can be used for custom content.</mat-hint>
               </mat-form-field>
-              <mat-card *ngIf="content === 'Card'" style="font-weight: 500; width: 100%; min-width: 350px;" 
-                [style.backgroundColor]="colors.gray[50]">
+              <mat-card *ngIf="content === 'Card'" style="font-weight: 500; width: 100%; min-width: 350px;">
                 Sample Content Goes Here
               </mat-card>
           </pxb-drawer-subheader>
