@@ -6,7 +6,7 @@ export const withIcon = (): any => ({
         <pxb-info-list-item [iconAlign]="iconAlign">
             <span pxb-title>Info List Item</span>
             <span pxb-subtitle>with an icon</span>
-            <mat-icon [style.color]="colors.black[500]" pxb-icon>alarm</mat-icon>
+            <mat-icon pxb-icon>alarm</mat-icon>
         </pxb-info-list-item>
       `,
     props: {
