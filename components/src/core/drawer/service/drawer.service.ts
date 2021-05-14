@@ -13,6 +13,7 @@ export class DrawerService {
     private tempOpen = false;
     private isCondensed: boolean;
     private sideBorder: boolean;
+    private showTooltipOnRailHover: boolean
 
     drawerOpenObs = new Subject<boolean>();
     drawerSelectObs = new Subject<boolean>();
@@ -46,6 +47,14 @@ export class DrawerService {
     setDrawerOpen(drawerOpen: boolean): void {
         this.drawerOpen = drawerOpen;
         this.drawerOpenObs.next(this.isDrawerOpen());
+    }
+
+    setShowTooltipOnRailHover(showTooltip: boolean): void {
+        this.showTooltipOnRailHover = showTooltip;
+    }
+
+    isShowTooltipOnRailHover(): boolean {
+        return this.showTooltipOnRailHover;
     }
 
     setDrawerVariant(variant: DrawerLayoutVariantType): void {

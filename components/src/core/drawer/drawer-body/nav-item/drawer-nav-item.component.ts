@@ -96,7 +96,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                     <div
                         (click)="selectItem()"
                         class="pxb-drawer-nav-item-rail"
-                        [matTooltip]="title"
+                        [matTooltip]="showTooltipOnRailHover() ? title : ''"
                         [matTooltipDisabled]="!isRailCondensed()"
                         matTooltipPosition="right"
                     >
@@ -184,6 +184,10 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
 
     isRailCondensed(): boolean {
         return this.drawerService.isRailCondensed();
+    }
+
+    showTooltipOnRailHover(): boolean {
+        return this.drawerService.isShowTooltipOnRailHover();
     }
 
     manageActiveItemTreeHighlight(): void {

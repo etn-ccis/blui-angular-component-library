@@ -24,7 +24,8 @@ export const withinDrawerLayoutRail = (): any => ({
     ],
     template: `
         <pxb-drawer-layout [dir]="direction()" variant="rail" (backdropClick)="state.open = false">
-            <pxb-drawer pxb-drawer [open]="state.open" [sideBorder]="sideBorder" [condensed]="condensed">
+            <pxb-drawer pxb-drawer [open]="state.open" [sideBorder]="sideBorder"
+               [condensed]="condensed" [showTooltipOnRailHover]="showTooltipOnRailHover">
                <pxb-drawer-body>
                   <pxb-drawer-nav-group>
                      <pxb-drawer-nav-item *ngFor="let navItem of navItems"
@@ -71,5 +72,6 @@ export const withinDrawerLayoutRail = (): any => ({
         },
         condensed: boolean('condensed', true),
         divider: boolean('divider', false),
+        showTooltipOnRailHover: boolean('showTooltipOnRailHover', true)
     },
 });
