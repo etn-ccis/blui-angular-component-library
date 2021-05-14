@@ -72,6 +72,6 @@ export const withinDrawerLayoutRail = (): any => ({
         },
         condensed: boolean('condensed', true),
         divider: boolean('divider', false),
-        showTooltipOnRailHover: boolean('showTooltipOnRailHover', true)
+        showTooltipOnRailHover: boolean('showTooltipOnRailHover', true),
     },
 });
