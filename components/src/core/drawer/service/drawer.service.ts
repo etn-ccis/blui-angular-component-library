@@ -13,7 +13,7 @@ export class DrawerService {
     private tempOpen = false;
     private isCondensed: boolean;
     private sideBorder: boolean;
-    private showTooltipOnRailHover: boolean
+    private showTooltipOnRailHover: boolean;
 
     drawerOpenObs = new Subject<boolean>();
     drawerSelectObs = new Subject<boolean>();
