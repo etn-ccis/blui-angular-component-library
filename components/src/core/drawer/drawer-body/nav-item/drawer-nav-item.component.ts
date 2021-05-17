@@ -187,7 +187,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     }
 
     showTooltipOnRailHover(): boolean {
-        return this.drawerService.isShowTooltipOnRailHover();
+        return !this.drawerService.isDisableRailTooltip();
     }
 
     manageActiveItemTreeHighlight(): void {
