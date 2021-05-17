@@ -1,5 +1,11 @@
 # Change Log
 
+## v4.3.1 (not published yet)
+
+### Fixed
+
+-   Fixed non-centered `<pxb-list-item-tag>` text.
+
 ## v4.3.0 (April 27, 2021)
 
 ### Added
