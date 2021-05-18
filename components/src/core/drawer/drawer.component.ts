@@ -43,8 +43,9 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
     @Input() condensed = false;
     @Input() sideBorder = false;
     @Input() disableActiveItemParentStyles = false;
-    @Input() openOnHover = true;
-    @Input() openOnHoverDelay = 500;
+    @Input() openOnRailHover = true;
+    @Input() openOnRailHoverDelay = 500;
+    @Input() disableRailTooltip = false;
 
     hoverDelayTimeout: any;
     drawerSelectionListener: Subscription;
@@ -64,20 +65,21 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
         this.drawerService.setSideBorder(this.sideBorder);
         this.drawerService.setDrawerOpen(this.open);
         this.drawerService.setIsCondensed(this.condensed);
+        this.drawerService.setDisableRailTooltip(this.disableRailTooltip);
         this.drawerService.setDisableActiveItemParentStyles(this.disableActiveItemParentStyles);
     }
 
     hoverDrawer(): void {
-        if (!this.open && this.openOnHover) {
+        if (!this.open && this.openOnRailHover) {
             this.hoverDelayTimeout = setTimeout(() => {
                 this.drawerService.setDrawerTempOpen(true);
                 this.changeDetector.detectChanges();
-            }, this.openOnHoverDelay);
+            }, this.openOnRailHoverDelay);
         }
     }
 
     unhoverDrawer(): void {
-        if (this.openOnHover) {
+        if (this.openOnRailHover) {
             clearTimeout(this.hoverDelayTimeout);
             if (this.drawerService.isTempOpen()) {
                 this.drawerService.setDrawerTempOpen(false);

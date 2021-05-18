@@ -2,6 +2,10 @@
 
 ## v4.4.0 (not published yet)
 
+### Added
+
+-   Added `disableRailTooltip` prop to `<pxb-drawer>`.
+
 ### Fixed
 
 -   Fixed non-centered `<pxb-list-item-tag>` text.
