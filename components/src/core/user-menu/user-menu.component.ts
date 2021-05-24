@@ -1,17 +1,19 @@
 import {
-    ChangeDetectionStrategy, ChangeDetectorRef,
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
     Component,
     EventEmitter,
     Input,
-    Output,
-    TemplateRef, ViewChild,
-    ViewEncapsulation
+    Output, SimpleChanges,
+    TemplateRef,
+    ViewChild,
+    ViewEncapsulation,
 } from '@angular/core';
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import {MatBottomSheet} from "@angular/material/bottom-sheet";
-import {fromEvent, Subscription} from "rxjs";
-import {debounceTime, map, startWith} from "rxjs/operators";
+import { MatBottomSheet } from '@angular/material/bottom-sheet';
+import { fromEvent, Subscription } from 'rxjs';
+import { debounceTime, map, startWith } from 'rxjs/operators';
 
 @Component({
     selector: 'pxb-user-menu',
@@ -33,7 +35,7 @@ import {debounceTime, map, startWith} from "rxjs/operators";
     template: `
         <!-- This button triggers the overlay and is it's origin -->
         <pxb-user-menu-avatar
-                cdkOverlayOrigin
+            cdkOverlayOrigin
             [avatarValue]="avatarValue"
             [avatarImage]="avatarImage"
             (click)="openMenu()"
@@ -41,20 +43,20 @@ import {debounceTime, map, startWith} from "rxjs/operators";
         >
             <ng-content select="[pxb-avatar]"></ng-content>
         </pxb-user-menu-avatar>
-        
+
         <ng-template #menu>
             <pxb-drawer-header
-                    *ngIf="menuTitle"
-                    class="pxb-user-menu-header"
-                    [title]="menuTitle"
-                    [subtitle]="menuSubtitle"
-                    [divider]="true"
+                *ngIf="menuTitle"
+                class="pxb-user-menu-header"
+                [title]="menuTitle"
+                [subtitle]="menuSubtitle"
+                [divider]="true"
             >
                 <pxb-user-menu-avatar
-                        pxb-icon
-                        [avatarValue]="avatarValue"
-                        [avatarImage]="avatarImage"
-                        class="pxb-user-menu-header-avatar"
+                    pxb-icon
+                    [avatarValue]="avatarValue"
+                    [avatarImage]="avatarImage"
+                    class="pxb-user-menu-header-avatar"
                 >
                     <ng-content select="[pxb-menu-avatar]"></ng-content>
                 </pxb-user-menu-avatar>
@@ -62,19 +64,18 @@ import {debounceTime, map, startWith} from "rxjs/operators";
             <ng-content select="[pxb-menu-header]"></ng-content>
             <ng-content select="[pxb-menu-body]"></ng-content>
         </ng-template>
-        
+
         <ng-template
             cdkConnectedOverlay
             (backdropClick)="onClickBackdrop()"
             [cdkConnectedOverlayPush]="true"
             [cdkConnectedOverlayHasBackdrop]="true"
             [cdkConnectedOverlayOrigin]="trigger"
-            [cdkConnectedOverlayOpen]="isMenuOverlayOpen"
+            [cdkConnectedOverlayOpen]="isMenuOpen"
             [cdkConnectedOverlayPositions]="positions"
             [cdkConnectedOverlayViewportMargin]="16"
             [cdkConnectedOverlayBackdropClass]="'pxb-user-menu-overlay-backdrop'"
         >
-
             <mat-card class="pxb-user-menu-overlay mat-elevation-z8" [@fade-in-out]>
                 <ng-template [ngTemplateOutlet]="menu"></ng-template>
             </mat-card>
@@ -103,10 +104,10 @@ export class UserMenuComponent {
     constructor(private readonly _bottomSheet: MatBottomSheet, private readonly _ref: ChangeDetectorRef) {}
 
     screenSizeChangeListener: Subscription;
-    useBottomSheet: boolean;
 
+    useBottomSheet: boolean;
     isBottomSheetOpen: boolean;
-    isMenuOverlayOpen: boolean;
+    isMenuOpen: boolean;
 
     checkScreenSize = (): boolean => document.body.offsetWidth < this.useBottomSheetAt;
 
@@ -114,30 +115,31 @@ export class UserMenuComponent {
         // Start off with the initial value use the isScreenSmall$ | async in the
         // view to get both the original value and the new value after resize.
         this.screenSizeChangeListener = fromEvent(window, 'resize')
-            .pipe(debounceTime(100))
             .pipe(map(this.checkScreenSize))
             .pipe(startWith(this.checkScreenSize()))
             .subscribe((isMobile: boolean) => {
-
                 // Transition from Desktop to Mobile
-                if (isMobile && !this.useBottomSheet) {
-                    if (this.open) {
-                        this.useBottomSheet = true;
-                        this._closeDesktopMenu();
-                        this._openBottomSheet();
-                        this._ref.detectChanges();
-                    }
-
+                if (this.open && isMobile && !this.useBottomSheet) {
+                    this.isMenuOpen = false;
+                    this._openBottomSheet();
+                    this._ref.detectChanges();
                 }
                 // Transition from Mobile to Desktop
-                else if (!isMobile && this.useBottomSheet) {
-                    if (this.open) {
-                        this._bottomSheet.dismiss(true)
-                    }
-                } else {
-                    this.useBottomSheet = isMobile;
+                else if (this.open && !isMobile && this.useBottomSheet) {
+                    this._bottomSheet.dismiss(true);
                 }
-        })
+                this.useBottomSheet = isMobile;
+            });
+    }
+
+    ngOnChanges(simpleChanges: SimpleChanges): void {
+        if (simpleChanges && simpleChanges.open) {
+            this.isBottomSheetOpen = this.open && this.useBottomSheet;
+            this.isMenuOpen = this.open && !this.useBottomSheet;
+            if (!this.open) {
+                this._bottomSheet.dismiss(false);
+            }
+        }
     }
 
     ngOnDestroy(): void {
@@ -146,7 +148,7 @@ export class UserMenuComponent {
 
     onClickBackdrop(): void {
         this.open = false;
-        this.isMenuOverlayOpen = false;
+        this.isMenuOpen = false;
         this.openChange.emit(this.open);
         this.backdropClick.emit();
     }
@@ -154,33 +156,28 @@ export class UserMenuComponent {
     openMenu(): void {
         this.open = true;
         this.openChange.emit(this.open);
-        if (this.useBottomSheet && !this.isBottomSheetOpen) {
+        if (this.useBottomSheet) {
             this._openBottomSheet();
-        } else if (!this.useBottomSheet) {
-            this._openDesktopMenu();
+        } else {
+            this.isMenuOpen = true;
         }
-    }
-
-    private _openDesktopMenu(): void {
-        this.isMenuOverlayOpen = true;
-    }
-
-    private _closeDesktopMenu(): void {
-        this.isMenuOverlayOpen = false;
     }
 
     private _openBottomSheet(): void {
         this.isBottomSheetOpen = true;
-        this._bottomSheet.open(this.menu, {
-            backdropClass: 'pxb-user-menu-bottomsheet-overlay',
-            panelClass: 'pxb-user-menu-bottomsheet',
-            hasBackdrop: true,
-        }).afterDismissed().subscribe((open: true) => {
-            this.isBottomSheetOpen = false;
-            if (open) {
-                this._openDesktopMenu();
-                this._ref.detectChanges();
-            }
-        })
+        this._bottomSheet
+            .open(this.menu, {
+                backdropClass: 'pxb-user-menu-bottomsheet-overlay',
+                panelClass: 'pxb-user-menu-bottomsheet',
+                hasBackdrop: true,
+            })
+            .afterDismissed()
+            .subscribe((openMenu: true) => {
+                this.isBottomSheetOpen = false;
+                if (openMenu) {
+                    this.isMenuOpen = true;
+                    this._ref.detectChanges();
+                }
+            });
     }
 }
