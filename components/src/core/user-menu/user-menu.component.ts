@@ -4,7 +4,8 @@ import {
     Component,
     EventEmitter,
     Input,
-    Output, SimpleChanges,
+    Output,
+    SimpleChanges,
     TemplateRef,
     ViewChild,
     ViewEncapsulation,
@@ -13,7 +14,7 @@ import { ConnectionPositionPair } from '@angular/cdk/overlay';
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { fromEvent, Subscription } from 'rxjs';
-import { debounceTime, map, startWith } from 'rxjs/operators';
+import { map, startWith } from 'rxjs/operators';
 
 @Component({
     selector: 'pxb-user-menu',
@@ -67,7 +68,7 @@ import { debounceTime, map, startWith } from 'rxjs/operators';
 
         <ng-template
             cdkConnectedOverlay
-            (backdropClick)="onClickBackdrop()"
+            (backdropClick)="onClickMenuBackdrop()"
             [cdkConnectedOverlayPush]="true"
             [cdkConnectedOverlayHasBackdrop]="true"
             [cdkConnectedOverlayOrigin]="trigger"
@@ -104,7 +105,6 @@ export class UserMenuComponent {
     constructor(private readonly _bottomSheet: MatBottomSheet, private readonly _ref: ChangeDetectorRef) {}
 
     screenSizeChangeListener: Subscription;
-
     useBottomSheet: boolean;
     isBottomSheetOpen: boolean;
     isMenuOpen: boolean;
@@ -112,8 +112,7 @@ export class UserMenuComponent {
     checkScreenSize = (): boolean => document.body.offsetWidth < this.useBottomSheetAt;
 
     ngOnInit(): void {
-        // Start off with the initial value use the isScreenSmall$ | async in the
-        // view to get both the original value and the new value after resize.
+        // Subscribe to resize events and transition from menu to bottomsheet (or vise versa) when open & resizing
         this.screenSizeChangeListener = fromEvent(window, 'resize')
             .pipe(map(this.checkScreenSize))
             .pipe(startWith(this.checkScreenSize()))
@@ -133,12 +132,16 @@ export class UserMenuComponent {
     }
 
     ngOnChanges(simpleChanges: SimpleChanges): void {
-        if (simpleChanges && simpleChanges.open) {
+        // Set state and dismiss bottom sheet when open() changes.
+        if (simpleChanges.open) {
             this.isBottomSheetOpen = this.open && this.useBottomSheet;
             this.isMenuOpen = this.open && !this.useBottomSheet;
             if (!this.open) {
                 this._bottomSheet.dismiss(false);
             }
+        }
+        if (simpleChanges.useBottomSheetAt) {
+            this.useBottomSheet = this.checkScreenSize();
         }
     }
 
@@ -146,7 +149,7 @@ export class UserMenuComponent {
         this.screenSizeChangeListener.unsubscribe();
     }
 
-    onClickBackdrop(): void {
+    onClickMenuBackdrop(): void {
         this.open = false;
         this.isMenuOpen = false;
         this.openChange.emit(this.open);
@@ -167,7 +170,7 @@ export class UserMenuComponent {
         this.isBottomSheetOpen = true;
         this._bottomSheet
             .open(this.menu, {
-                backdropClass: 'pxb-user-menu-bottomsheet-overlay',
+                backdropClass: 'pxb-user-menu-bottomsheet-backdrop',
                 panelClass: 'pxb-user-menu-bottomsheet',
                 hasBackdrop: true,
             })
