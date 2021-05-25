@@ -146,7 +146,9 @@ export class UserMenuComponent {
     }
 
     ngOnDestroy(): void {
-        this.screenSizeChangeListener.unsubscribe();
+        if (this.screenSizeChangeListener) {
+            this.screenSizeChangeListener.unsubscribe();
+        }
     }
 
     onClickMenuBackdrop(): void {
