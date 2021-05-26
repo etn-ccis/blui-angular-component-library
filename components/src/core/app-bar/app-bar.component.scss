@@ -1,0 +1,10 @@
+.pxb-app-bar-content {
+  top: 0;
+  position: fixed;
+  min-height: unset;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 50ms;
+  z-index: 2;
+}
