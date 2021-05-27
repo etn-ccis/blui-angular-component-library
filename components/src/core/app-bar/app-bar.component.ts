@@ -8,7 +8,8 @@ import {debounceTime, throttle} from "rxjs/operators";
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./app-bar.component.scss'],
     template: `
-        <mat-toolbar id="expandMe" class="pxb-app-bar-content" style="background-color: darkcyan">
+        <mat-toolbar id="expandMe" class="pxb-app-bar-content" style="background-color: darkcyan"
+            [style.position.sticky]="minHeight === currentHeight">
             <mat-toolbar-row>{{currentHeight}}</mat-toolbar-row>
         </mat-toolbar>        
     `,
@@ -19,7 +20,7 @@ import {debounceTime, throttle} from "rxjs/operators";
 export class AppBarComponent {
 
     @Input() maxHeight = 200;
-    @Input() minHeight = 56;
+    @Input() minHeight = 64;
     @Input() scrollAnimationEndDistance = 200;
 
     // The thing that scrolls, we listen to this.
@@ -29,8 +30,7 @@ export class AppBarComponent {
     scrollEl;
 
     // The Content below the scroll window, we pad this.
-    @Input() scrollContainerId: string;
-    paddingEl;
+    @Input() scrollContainerId: string; //TODO REMOVE
 
     currentHeight: number;
     defaultPaddingTop: number;
@@ -53,17 +53,12 @@ export class AppBarComponent {
         } else {
             this.scrollEl = document.getElementById(this.scrollContainerId);
         }
-
-        this.paddingEl = document.getElementsByClassName(this.contentContainerClassName.name)[0];
-        this.defaultPaddingTop = this.paddingEl.style.paddingTop || 0;
         this.currentHeight = this.maxHeight;
-        this.setPaddingTopScrollEl();
+        this.toolbar.style.height = `${this.currentHeight}px`;
         fromEvent(this.scrollEl, 'scroll')
             .subscribe(() => {
+                console.log('scroll');
                 this.reheightEl();
-                setTimeout(() => {
-                    this.reheightEl();
-                }, 50)
             });
     }
 
@@ -80,11 +75,11 @@ export class AppBarComponent {
             this.currentHeight =
                 Math.round(this.minHeight + (this.maxHeight - this.minHeight) * (1-scrollPercentage));
         }
-        this.setPaddingTopScrollEl();
-    }
-
-    setPaddingTopScrollEl(): void {
-        this.paddingEl.style.paddingTop = `${this.defaultPaddingTop + this.currentHeight + this.scrollDistance}px`;
+        console.log(this.currentHeight);
         this.toolbar.style.height = `${this.currentHeight}px`;
+        if (this.currentHeight >= this.minHeight) {
+            this.toolbar.style.marginTop = `${scrollDistance}px`;
+        }
+        this._ref.detectChanges();
     }
 }
