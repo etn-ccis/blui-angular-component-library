@@ -1,3 +1,4 @@
+export * from './app-bar/public-api';
 export * from './channel-value/public-api';
 export * from './drawer/public-api';
 export * from './empty-state/public-api';

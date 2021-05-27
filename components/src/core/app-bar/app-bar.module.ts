@@ -2,11 +2,10 @@ import {NgModule} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {AppBarComponent} from "./app-bar.component";
 import {MatToolbarModule} from "@angular/material/toolbar";
-import {ScrollDir} from "./scroll.directive";
 
 @NgModule({
-    declarations: [AppBarComponent, ScrollDir],
+    declarations: [AppBarComponent],
     imports: [CommonModule, MatToolbarModule],
-    exports: [AppBarComponent, ScrollDir],
+    exports: [AppBarComponent],
 })
 export class AppBarModule {}
