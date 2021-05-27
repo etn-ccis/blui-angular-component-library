@@ -43,6 +43,7 @@ describe('UserMenuComponent', () => {
         }).compileComponents();
         fixture = TestBed.createComponent(UserMenuComponent);
         component = fixture.componentInstance;
+        spyOn(component, 'checkScreenSize').and.stub();
     });
 
     it('should initialize', () => {
@@ -62,6 +63,8 @@ describe('UserMenuComponent', () => {
         let menu = document.getElementsByClassName('.pxb-user-menu-overlay');
         void expect(menu).toBeTruthy();
         component.open = true;
+        component.isMenuOpen = true;
+        component.useBottomSheet = false;
         fixture.detectChanges();
         menu = document.getElementsByClassName('.pxb-user-menu-overlay');
         void expect(menu).toBeTruthy();
@@ -70,6 +73,8 @@ describe('UserMenuComponent', () => {
     it('should render the title', () => {
         component.menuTitle = 'Sample Title';
         component.open = true;
+        component.isMenuOpen = true;
+        component.useBottomSheet = false;
         fixture.detectChanges();
         const title = document.getElementsByClassName('pxb-drawer-header-title')[0] as HTMLElement;
         void expect(title.innerText).toBe('Sample Title');
@@ -79,6 +84,8 @@ describe('UserMenuComponent', () => {
         component.menuTitle = 'Sample Title';
         component.menuSubtitle = 'Sample Subtitle';
         component.open = true;
+        component.isMenuOpen = true;
+        component.useBottomSheet = false;
         fixture.detectChanges();
         const title = document.getElementsByClassName('pxb-drawer-header-subtitle')[0] as HTMLElement;
         void expect(title.innerText).toBe('Sample Subtitle');
@@ -101,19 +108,31 @@ describe('UserMenuComponent', () => {
     it('should enforce class naming conventions', () => {
         component.avatarValue = 'EM';
         component.open = true;
+        component.isMenuOpen = true;
+        component.useBottomSheet = false;
         component.menuTitle = 'Title';
         fixture.detectChanges();
         const fixtureClassList = ['.pxb-user-menu-avatar', '.pxb-user-menu-text-avatar'];
-        const overlayClassList = [
+        const menuOverlayClassList = [
             'pxb-user-menu-overlay-backdrop',
             'pxb-user-menu-overlay',
             'pxb-user-menu-header',
             'pxb-user-menu-header-avatar',
         ];
+        const bottomSheetClassList = ['pxb-user-menu-bottomsheet', 'pxb-user-menu-bottomsheet-backdrop'];
         for (const className of fixtureClassList) {
             count(fixture, className);
         }
-        for (const className of overlayClassList) {
+        for (const className of menuOverlayClassList) {
+            void expect(document.getElementsByClassName(className).length).toBe(1);
+        }
+        for (const className of bottomSheetClassList) {
+            void expect(document.getElementsByClassName(className).length).toBe(0);
+        }
+        component.useBottomSheet = true;
+        component.isMenuOpen = false;
+        component.openMenu();
+        for (const className of bottomSheetClassList) {
             void expect(document.getElementsByClassName(className).length).toBe(1);
         }
     });
