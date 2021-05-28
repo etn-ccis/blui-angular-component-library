@@ -1,8 +1,8 @@
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
-    Component, ElementRef,
-    Input,
+    Component, ElementRef, EventEmitter,
+    Input, Output,
     ViewChild,
     ViewEncapsulation
 } from '@angular/core';
@@ -16,7 +16,7 @@ import {fromEvent} from "rxjs";
     template: `
         <mat-toolbar #pxbAppBar style="background-color: mediumpurple"
                      class="pxb-app-bar-content" 
-                     [class.pxb-app-bar-sticky]="minHeight === currentHeight">
+                     [class.pxb-app-bar-sticky]="collapsedHeight === currentHeight">
             <mat-toolbar-row>{{currentHeight}}</mat-toolbar-row>
         </mat-toolbar>        
     `,
@@ -28,15 +28,19 @@ export class AppBarComponent {
 
     @ViewChild('pxbAppBar',  { read: ElementRef, static: false }) bar: ElementRef;
 
-    @Input() maxHeight = 200;
-    @Input() minHeight = 64;
-    @Input() disable: boolean;
+    @Input() expandHeight = 200;
+    @Input() collapsedHeight = 64; // TODO PROVIDE DEFAULTS
+    @Input() disable = false;
+    @Input() collapsible = true;
 
     // The thing that scrolls, we listen to this.
-    @Input() scrollContainer: Element;
+    @Input() scrollContainerElement: Element;
     @Input() scrollContainerClassName: { name: string, index: number };
     @Input() scrollContainerId: string;
     scrollEl;
+
+    @Output() onReachedExpandedHeight: EventEmitter<void> = new EventEmitter();
+    @Output() onReachedCollapsedHeight: EventEmitter<void> = new EventEmitter();
 
     scrollAnimationEndDistance;
     currentHeight: number;
@@ -47,16 +51,24 @@ export class AppBarComponent {
     constructor(private readonly _ref: ChangeDetectorRef) {}
 
     ngOnInit(): void {
-        this.currentHeight = this.maxHeight;
+        this.currentHeight = this.expandHeight;
+    }
+
+    ngOnChanges(): void {
+        if (!this.collapsible) {
+            this.currentHeight = this.collapsedHeight;
+            this.disable = true;
+        }
     }
 
     ngAfterViewInit():  void {
         this.toolbar = this.bar.nativeElement;
-        this.currentHeight = this.maxHeight;
+        this.currentHeight = this.expandHeight;
         this.toolbar.style.height = `${this.currentHeight}px`;
         this._setScrollEl();
         fromEvent(this.scrollEl, 'scroll')
             .subscribe((event: Event) => {
+                console.log(event);
                 this._resizeEl(event);
             });
 
@@ -71,36 +83,25 @@ export class AppBarComponent {
             return;
         }
         const el = this.scrollEl;
-/*
-        const isScrolledBottom = el.scrollHeight - el.scrollTop <= el.clientHeight
-        console.log(el.scrollHeight - el.scrollTop);
-        console.log(el.clientHeight);
-        console.log(isScrolledBottom);
-        if (isScrolledBottom) {
-            this.toolbar.style.height = `${this.minHeight}px`;
-            return;
-        }
-
- */
-
-        this.scrollAnimationEndDistance = Math.min(this.maxHeight, el.scrollHeight - el.offsetHeight);
         const scrollDistance = el.scrollTop;
         if (scrollDistance === 0) {
-            this.currentHeight = this.maxHeight;
+            this.currentHeight = this.expandHeight;
+            this.onReachedExpandedHeight.emit();
         }
-        const scrollPercentage = scrollDistance / this.scrollAnimationEndDistance;
-        if (scrollPercentage >= 1 && this.currentHeight === this.minHeight) {
+        const scrollPercentage = scrollDistance / this.expandHeight;
+        if (scrollPercentage >= 1 && this.currentHeight === this.collapsedHeight) { // Maybe this can be removed?
             return; // Do nothing
         }
         if (scrollPercentage >= 1) {
-            this.currentHeight = this.minHeight;
+            this.currentHeight = this.collapsedHeight;
             this.toolbar.style.height = `${this.currentHeight}px`;
+            this.onReachedCollapsedHeight.emit();
         } else {
             this.scrollDistance = Math.round(scrollDistance);
             this.currentHeight =
-                Math.round(this.minHeight + (this.maxHeight - this.minHeight) * (1-scrollPercentage));
+                Math.round(this.collapsedHeight + (this.expandHeight - this.collapsedHeight) * (1-scrollPercentage));
             this.toolbar.style.height = `${this.currentHeight}px`;
-            if (this.currentHeight >= this.minHeight) {
+            if (this.currentHeight >= this.collapsedHeight) {
                 this.toolbar.style.marginTop = `${scrollDistance}px`;
             }
         }
@@ -109,12 +110,15 @@ export class AppBarComponent {
     }
 
     private _setScrollEl(): void {
-        if (this.scrollContainer) {
-            this.scrollEl = this.scrollContainer;
+        if (this.scrollContainerElement) {
+            this.scrollEl = this.scrollContainerElement;
         } else if (this.scrollContainerId)  {
             this.scrollEl = document.getElementById(this.scrollContainerId);
-        } else {
-            this.scrollEl = document.getElementsByClassName
+        } else if (this.scrollContainerClassName) {
+            this.scrollEl =  document.getElementsByClassName
             (this.scrollContainerClassName.name)[this.scrollContainerClassName.index];
+        } else {
+            this.scrollEl = document.body;
+        }
     }
 }
