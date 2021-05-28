@@ -111,11 +111,10 @@ export class AppBarComponent {
     private _setScrollEl(): void {
         if (this.scrollContainer) {
             this.scrollEl = this.scrollContainer;
-        } else if (this.scrollContainerClassName) {
+        } else if (this.scrollContainerId)  {
+            this.scrollEl = document.getElementById(this.scrollContainerId);
+        } else {
             this.scrollEl = document.getElementsByClassName
             (this.scrollContainerClassName.name)[this.scrollContainerClassName.index];
-        } else {
-            this.scrollEl = document.getElementById(this.scrollContainerId);
-        }
     }
 }
