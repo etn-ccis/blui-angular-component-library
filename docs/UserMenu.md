@@ -64,13 +64,14 @@ Parent element (`<pxb-user-menu>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input       | Description                                     | Type                       | Required | Default                                                                                                                |
-| ------------ | ----------------------------------------------- | -------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- |
-| avatarImage  | Image source for avatar                         | `string`                   | no       |                                                                                                                        |
-| avatarValue  | Text value for avatar                           | `string`                   | no       |                                                                                                                        |
-| menuSubtitle | Subtitle shown when menu is open                | `string`                   | no       |                                                                                                                        |
-| menuTitle    | Title shown when menu is open                   | `string`                   | no       |                                                                                                                        |
-| positions    | Where to render the menu relative to the avatar | `ConnectionPositionPair[]` | no       | `[new ConnectionPositionPair(` `{ originX: 'start',` `originY: 'top' } ,` `{ overlayX: 'start',` `overlayY: 'top' })]` |
+| @Input           | Description                                                                                                         | Type                       | Required | Default                                                                                                                |
+| ---------------- | ------------------------------------------------------------------------------------------------------------------- | -------------------------- | -------- | ---------------------------------------------------------------------------------------------------------------------- |
+| avatarImage      | Image source for avatar                                                                                             | `string`                   | no       |                                                                                                                        |
+| avatarValue      | Text value for avatar                                                                                               | `string`                   | no       |                                                                                                                        |
+| menuSubtitle     | Subtitle shown when menu is open                                                                                    | `string`                   | no       |                                                                                                                        |
+| menuTitle        | Title shown when menu is open                                                                                       | `string`                   | no       |                                                                                                                        |
+| positions        | Where to render the menu relative to the avatar                                                                     | `ConnectionPositionPair[]` | no       | `[new ConnectionPositionPair(` `{ originX: 'start',` `originY: 'top' } ,` `{ overlayX: 'start',` `overlayY: 'top' })]` |
+| useBottomSheetAt | Window pixel width at which the responsive bottom sheet menu is triggered (set to 0 to disable responsive behavior) | `number`                   | no       | `600`                                                                                                                  |
 
 </div>
 
@@ -100,10 +101,12 @@ The following child elements are projected into `<pxb-user-menu>`:
 
 Each PX Blue component has classes which can be used to override component styles:
 
-| Name                           | Description                                 |
-| ------------------------------ | ------------------------------------------- |
-| pxb-user-menu-avatar           | Styles applied to avatar element            |
-| pxb-user-menu-overlay          | Styles applied to the menu overlay          |
-| pxb-user-menu-header           | Styles applied to the generated menu header |
-| pxb-user-menu-header-avatar    | Styles applied to the menu header avatar    |
-| pxb-user-menu-overlay-backdrop | Styles applied to the menu overlay backdrop |
+| Name                                | Description                                 |
+| ----------------------------------- | ------------------------------------------- |
+| pxb-user-menu-avatar                | Styles applied to avatar element            |
+| pxb-user-menu-overlay               | Styles applied to the menu overlay          |
+| pxb-user-menu-header                | Styles applied to the generated menu header |
+| pxb-user-menu-header-avatar         | Styles applied to the menu header avatar    |
+| pxb-user-menu-overlay-backdrop      | Styles applied to the menu overlay backdrop |
+| pxb-user-menu-bottomsheet           | Styles applied to the bottomsheet overlay   |
+| pxb-user-menu-bottomsheet-backdrop  | Styles applied to the bottomsheet backdrop  |

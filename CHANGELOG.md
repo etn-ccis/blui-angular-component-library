@@ -1,5 +1,19 @@
 # Change Log
 
+## v4.4.0 (May 28, 2021)
+
+### Changed
+
+-   Update `<pxb-user-menu>` to responsively display a bottom sheet in place of an overlay menu.
+
+### Added
+
+-   Added `disableRailTooltip` prop to `<pxb-drawer>`.
+
+### Fixed
+
+-   Fixed non-centered `<pxb-list-item-tag>` text.
+
 ## v4.3.0 (April 27, 2021)
 
 ### Added

@@ -39,8 +39,8 @@ mat-card.pxb-user-menu-overlay {
 }
 
 .pxb-user-menu-header mat-toolbar {
-    border-top-left-radius: 4px !important;
-    border-top-right-radius: 4px !important;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     .pxb-drawer-header-title {
         font-size: 1rem;
     }
@@ -48,13 +48,36 @@ mat-card.pxb-user-menu-overlay {
         font-size: 0.875rem;
     }
 }
-
-.pxb-user-menu-overlay-backdrop {
-    background-color: unset;
+.pxb-user-menu-bottomsheet .pxb-user-menu-header mat-toolbar {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
 }
 
-.pxb-user-menu-overlay {
+.cdk-overlay-backdrop-showing {
+    &.pxb-user-menu-overlay-backdrop {
+        background-color: unset;
+    }
+    &.pxb-user-menu-bottomsheet-backdrop {
+        background-color: #424e54;
+        opacity: 0.5;
+    }
+}
+.cdk-overlay-backdrop.pxb-user-menu-bottomsheet-backdrop,
+.cdk-overlay-backdrop.pxb-user-menu-overlay-backdrop {
+    transition: all 400ms cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.pxb-user-menu-overlay,
+.pxb-user-menu-bottomsheet {
     .mat-list-base .mat-list-item.pxb-info-list-item-content .pxb-info-list-item-title-wrapper {
         font-weight: 400;
     }
+}
+
+.pxb-user-menu-bottomsheet.mat-bottom-sheet-container {
+    padding: 0;
+}
+
+.pxb-user-menu-bottomsheet .mat-toolbar-single-row {
+    height: 4rem;
 }
