@@ -1,5 +1,5 @@
 import { MatIconModule } from '@angular/material/icon';
-import { ChannelValueModule } from '@pxblue/angular-components';
+import { AppBarModule } from '@pxblue/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { getReadMe, getReadMeStory, isDarkMode, storyWrapper, UtilModule } from '../../src/utils';
@@ -11,7 +11,6 @@ import {
 } from '../../src/constants';
 import { withA11y } from '@storybook/addon-a11y';
 import { withBasicConfig } from './basic-config.stories';
-import { AppBarModule } from '@pxblue/angular-components';
 import * as Colors from '@pxblue/colors';
 
 export const appBarWrapper = () => (storyFn: any): any => {
@@ -35,7 +34,7 @@ export const appBarWrapper = () => (storyFn: any): any => {
 storiesOf(`${COMPONENT_SECTION_NAME}/App Bar`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [ChannelValueModule, AppBarModule, MatIconModule, UtilModule],
+            imports: [AppBarModule, MatIconModule, UtilModule],
         })
     )
     .addDecorator(withKnobs)
