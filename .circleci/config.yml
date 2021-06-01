@@ -173,8 +173,10 @@ jobs:
 
                       if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
                         git clone $MASTER_TARGET out
-                      else
+                      else if [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
                         git clone $DEV_TARGET out
+                      else
+                        yarn run deploy:feature
                       fi
 
                       cd out
@@ -223,11 +225,6 @@ workflows:
             - deploy_storybook:
                 requires:
                     - build_storybook
-                filters:
-                    branches:
-                        only:
-                          - master
-                          - dev
             - publish:
                 requires:
                     - build_storybook
