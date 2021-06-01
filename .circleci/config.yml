@@ -173,7 +173,7 @@ jobs:
 
                       if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
                         git clone $MASTER_TARGET out
-                      else if [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
+                      elif [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
                         git clone $DEV_TARGET out
                       else
                         yarn run deploy:feature
