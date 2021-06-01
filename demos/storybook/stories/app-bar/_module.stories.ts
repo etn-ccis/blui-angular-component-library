@@ -2,7 +2,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { ChannelValueModule } from '@pxblue/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
-import {getReadMe, getReadMeStory, isDarkMode, storyWrapper, UtilModule} from '../../src/utils';
+import { getReadMe, getReadMeStory, isDarkMode, storyWrapper, UtilModule } from '../../src/utils';
 import {
     COMPONENT_SECTION_NAME,
     README_STORY_NAME,
@@ -10,9 +10,9 @@ import {
     WITH_MIN_PROPS_STORY_NAME,
 } from '../../src/constants';
 import { withA11y } from '@storybook/addon-a11y';
-import {withBasicConfig} from "./basic-config.stories";
-import {AppBarModule} from "@pxblue/angular-components";
-import * as Colors from "@pxblue/colors";
+import { withBasicConfig } from './basic-config.stories';
+import { AppBarModule } from '@pxblue/angular-components';
+import * as Colors from '@pxblue/colors';
 
 export const appBarWrapper = () => (storyFn: any): any => {
     const story = storyFn();
@@ -32,11 +32,10 @@ export const appBarWrapper = () => (storyFn: any): any => {
     };
 };
 
-
 storiesOf(`${COMPONENT_SECTION_NAME}/App Bar`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [ChannelValueModule, AppBarModule,  MatIconModule, UtilModule],
+            imports: [ChannelValueModule, AppBarModule, MatIconModule, UtilModule],
         })
     )
     .addDecorator(withKnobs)
@@ -49,4 +48,4 @@ storiesOf(`${COMPONENT_SECTION_NAME}/App Bar`, module)
         notes: { markdown: getReadMe('ChannelValue.md') },
     })
     .add(README_STORY_NAME, getReadMeStory)
-    .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
+    .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig);
