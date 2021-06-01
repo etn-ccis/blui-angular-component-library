@@ -177,6 +177,7 @@ jobs:
                         git clone $DEV_TARGET out
                       else
                         yarn run deploy:feature
+                        exit 0
                       fi
 
                       cd out
