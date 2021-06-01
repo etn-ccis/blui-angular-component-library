@@ -1,12 +1,20 @@
 import {
+    AfterViewInit,
     ChangeDetectionStrategy,
     ChangeDetectorRef,
-    Component, ElementRef, EventEmitter,
-    Input, Output,
+    Component,
+    ElementRef,
+    EventEmitter,
+    Input,
+    OnChanges,
+    OnInit,
+    Output,
+    SimpleChanges,
     ViewChild,
-    ViewEncapsulation
+    ViewEncapsulation,
 } from '@angular/core';
-import {fromEvent} from "rxjs";
+import { fromEvent, interval, Subject } from 'rxjs';
+import { throttle } from 'rxjs/operators';
 
 @Component({
     selector: 'pxb-app-bar',
@@ -14,111 +22,152 @@ import {fromEvent} from "rxjs";
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./app-bar.component.scss'],
     template: `
-        <mat-toolbar #pxbAppBar style="background-color: mediumpurple"
-                     class="pxb-app-bar-content" 
-                     [class.pxb-app-bar-sticky]="collapsedHeight === currentHeight">
-            <mat-toolbar-row>{{currentHeight}}</mat-toolbar-row>
-        </mat-toolbar>        
+        <mat-toolbar
+            #pxbAppBar
+            style="background-color: mediumpurple"
+            class="pxb-app-bar-content"
+            [style.height.px]="currentHeight"
+            [style.marginTop.px]="scrollDistance"
+            [class.pxb-app-bar-sticky]="collapsedHeight === currentHeight || mode === 'lock-expanded'"
+        >
+            <mat-toolbar-row>{{ currentHeight }}</mat-toolbar-row>
+        </mat-toolbar>
     `,
     host: {
         class: 'pxb-app-bar',
     },
 })
-export class AppBarComponent {
+export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
+    @ViewChild('pxbAppBar', { read: ElementRef, static: false }) bar: ElementRef;
 
-    @ViewChild('pxbAppBar',  { read: ElementRef, static: false }) bar: ElementRef;
-
-    @Input() expandHeight = 200;
+    @Input() expandedHeight = 200;
     @Input() collapsedHeight = 64; // TODO PROVIDE DEFAULTS
-    @Input() disable = false;
-    @Input() collapsible = true;
+    @Input() mode: 'lock-collapsed' | 'lock-expanded' | 'collapsible' = 'lock-collapsed';
 
     // The thing that scrolls, we listen to this.
     @Input() scrollContainerElement: Element;
-    @Input() scrollContainerClassName: { name: string, index: number };
+    @Input() scrollContainerClassName: { name: string; index: number };
     @Input() scrollContainerId: string;
     scrollEl;
+
+    isWindow = false;
 
     @Output() onReachedExpandedHeight: EventEmitter<void> = new EventEmitter();
     @Output() onReachedCollapsedHeight: EventEmitter<void> = new EventEmitter();
 
-    scrollAnimationEndDistance;
     currentHeight: number;
-    defaultPaddingTop: number;
-    scrollDistance = 0;
+    scrollDistance: number;
+    useDefaultCollapsedHeight = false;
     toolbar: HTMLElement;
 
     constructor(private readonly _ref: ChangeDetectorRef) {}
 
     ngOnInit(): void {
-        this.currentHeight = this.expandHeight;
+        this.currentHeight = this.expandedHeight;
     }
 
-    ngOnChanges(): void {
-        if (!this.collapsible) {
-            this.currentHeight = this.collapsedHeight;
-            this.disable = true;
+    ngOnChanges(changes: SimpleChanges): void {
+        this.useDefaultCollapsedHeight = !this.collapsedHeight || this.collapsedHeight === 0;
+        if (changes.collapsedHeight || changes.expandedHeighted) {
+            this.expandedHeight = Number(this.expandedHeight);
+            this.collapsedHeight = Number(this.collapsedHeight);
+        }
+        if (changes.mode) {
+            this._resizeOnModeChange();
         }
     }
 
-    ngAfterViewInit():  void {
-        this.toolbar = this.bar.nativeElement;
-        this.currentHeight = this.expandHeight;
-        this.toolbar.style.height = `${this.currentHeight}px`;
+    ngAfterViewInit(): void {
         this._setScrollEl();
+        this.toolbar = this.bar.nativeElement;
+        this._resizeOnModeChange();
         fromEvent(this.scrollEl, 'scroll')
+            .pipe(throttle(() => interval(10)))
             .subscribe((event: Event) => {
-                console.log(event);
                 this._resizeEl(event);
             });
 
-        fromEvent(window, 'resize')
-            .subscribe((event: Event) => {
-                this._resizeEl(event);
-            });
+        fromEvent(window, 'resize').subscribe((event: Event) => {
+            this._resizeEl(event);
+        });
     }
 
-    private _resizeEl(event: Event): void {
-        if (this.disable) {
+    private _resizeOnModeChange(): void {
+        if (this.mode !== 'collapsible') {
+            return this._handleLockedModes();
+        } else if (this.scrollEl) {
+            this._resizeEl();
+        }
+    }
+
+    private _handleLockedModes(): void {
+        if (this.mode === 'lock-collapsed') {
+            this.currentHeight = this.useDefaultCollapsedHeight
+                ? this._calcDefaultCollapsedHeight()
+                : this.collapsedHeight;
+            this.toolbar.style.marginTop = `0px`;
+            this._ref.detectChanges();
             return;
         }
+        if (this.mode === 'lock-expanded') {
+            this.currentHeight = this.expandedHeight;
+            this.toolbar.style.marginTop = `0px`;
+            this._ref.detectChanges();
+            return;
+        }
+    }
+
+    private _resizeEl(event?: Event): void {
+        if (this.mode !== 'collapsible') {
+            return this._handleLockedModes();
+        }
+
+        const collapsedHeight = this.useDefaultCollapsedHeight
+            ? this._calcDefaultCollapsedHeight()
+            : this.collapsedHeight;
+        this.collapsedHeight = collapsedHeight;
+
         const el = this.scrollEl;
-        const scrollDistance = el.scrollTop;
-        if (scrollDistance === 0) {
-            this.currentHeight = this.expandHeight;
+        this.scrollDistance = this.isWindow ? document.scrollingElement.scrollTop : el.scrollTop;
+        if (this.scrollDistance === 0) {
+            this.currentHeight = this.expandedHeight;
             this.onReachedExpandedHeight.emit();
         }
-        const scrollPercentage = scrollDistance / this.expandHeight;
-        if (scrollPercentage >= 1 && this.currentHeight === this.collapsedHeight) { // Maybe this can be removed?
-            return; // Do nothing
+        const scrollPercentage = this.scrollDistance / this.expandedHeight;
+        if (scrollPercentage >= 1 && this.currentHeight === collapsedHeight) {
+            // Do nothing
+            return;
         }
         if (scrollPercentage >= 1) {
-            this.currentHeight = this.collapsedHeight;
-            this.toolbar.style.height = `${this.currentHeight}px`;
+            this.currentHeight = collapsedHeight;
             this.onReachedCollapsedHeight.emit();
         } else {
-            this.scrollDistance = Math.round(scrollDistance);
-            this.currentHeight =
-                Math.round(this.collapsedHeight + (this.expandHeight - this.collapsedHeight) * (1-scrollPercentage));
-            this.toolbar.style.height = `${this.currentHeight}px`;
-            if (this.currentHeight >= this.collapsedHeight) {
-                this.toolbar.style.marginTop = `${scrollDistance}px`;
-            }
+            this.currentHeight = Math.round(
+                collapsedHeight + (this.expandedHeight - collapsedHeight) * (1 - scrollPercentage)
+            );
         }
-        event.preventDefault();
+        if (event) {
+            event.preventDefault();
+        }
         this._ref.detectChanges();
     }
 
     private _setScrollEl(): void {
         if (this.scrollContainerElement) {
             this.scrollEl = this.scrollContainerElement;
-        } else if (this.scrollContainerId)  {
+        } else if (this.scrollContainerId) {
             this.scrollEl = document.getElementById(this.scrollContainerId);
         } else if (this.scrollContainerClassName) {
-            this.scrollEl =  document.getElementsByClassName
-            (this.scrollContainerClassName.name)[this.scrollContainerClassName.index];
+            this.scrollEl = document.getElementsByClassName(this.scrollContainerClassName.name)[
+                this.scrollContainerClassName.index
+            ];
         } else {
-            this.scrollEl = document.body;
+            this.scrollEl = window;
+            this.isWindow = true;
         }
+    }
+
+    private _calcDefaultCollapsedHeight(): number {
+        return document.documentElement.clientWidth <= 600 ? 56 : 64;
     }
 }
