@@ -163,6 +163,9 @@ jobs:
             - checkout
             - attach_workspace:
                   at: .
+            - restore_cache:
+                keys:
+                  - v2-dependencies-angular-{{ checksum "demos/storybook/yarn.lock" }}
             - run:
                   name: Deploy Storybook
                   command: |
