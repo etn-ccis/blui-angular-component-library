@@ -2,9 +2,6 @@
     top: 0;
     position: static;
     min-height: unset;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     z-index: 2;
     &.pxb-app-bar-sticky {
         position: sticky;

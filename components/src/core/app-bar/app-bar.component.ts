@@ -24,11 +24,11 @@ import { throttle } from 'rxjs/operators';
     template: `
         <mat-toolbar
             #pxbAppBar
-            style="background-color: mediumpurple"
+            color="primary"
             class="pxb-app-bar-content"
             [style.height.px]="currentHeight"
             [style.marginTop.px]="scrollDistance"
-            [class.pxb-app-bar-sticky]="collapsedHeight === currentHeight || mode === 'lock-expanded'"
+            [class.pxb-app-bar-sticky]="collapsedHeight === currentHeight || mode === 'expanded'"
         >
             <mat-toolbar-row>{{ currentHeight }}</mat-toolbar-row>
         </mat-toolbar>
@@ -41,8 +41,8 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
     @ViewChild('pxbAppBar', { read: ElementRef, static: false }) bar: ElementRef;
 
     @Input() expandedHeight = 200;
-    @Input() collapsedHeight = 64; // TODO PROVIDE DEFAULTS
-    @Input() mode: 'lock-collapsed' | 'lock-expanded' | 'collapsible' = 'lock-collapsed';
+    @Input() collapsedHeight: number;
+    @Input() mode: 'collapsed' | 'expanded' | 'dynamic' = 'collapsed';
 
     // The thing that scrolls, we listen to this.
     @Input() scrollContainerElement: Element;
@@ -52,8 +52,8 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
 
     isWindow = false;
 
-    @Output() onReachedExpandedHeight: EventEmitter<void> = new EventEmitter();
-    @Output() onReachedCollapsedHeight: EventEmitter<void> = new EventEmitter();
+    //   @Output() onReachedExpandedHeight: EventEmitter<void> = new EventEmitter();
+    //    @Output() onReachedCollapsedHeight: EventEmitter<void> = new EventEmitter();
 
     currentHeight: number;
     scrollDistance: number;
@@ -93,7 +93,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
     }
 
     private _resizeOnModeChange(): void {
-        if (this.mode !== 'collapsible') {
+        if (this.mode !== 'dynamic') {
             return this._handleLockedModes();
         } else if (this.scrollEl) {
             this._resizeEl();
@@ -101,7 +101,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
     }
 
     private _handleLockedModes(): void {
-        if (this.mode === 'lock-collapsed') {
+        if (this.mode === 'collapsed') {
             this.currentHeight = this.useDefaultCollapsedHeight
                 ? this._calcDefaultCollapsedHeight()
                 : this.collapsedHeight;
@@ -109,7 +109,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
             this._ref.detectChanges();
             return;
         }
-        if (this.mode === 'lock-expanded') {
+        if (this.mode === 'expanded') {
             this.currentHeight = this.expandedHeight;
             this.toolbar.style.marginTop = `0px`;
             this._ref.detectChanges();
@@ -118,7 +118,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
     }
 
     private _resizeEl(event?: Event): void {
-        if (this.mode !== 'collapsible') {
+        if (this.mode !== 'dynamic') {
             return this._handleLockedModes();
         }
 
@@ -131,7 +131,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
         this.scrollDistance = this.isWindow ? document.scrollingElement.scrollTop : el.scrollTop;
         if (this.scrollDistance === 0) {
             this.currentHeight = this.expandedHeight;
-            this.onReachedExpandedHeight.emit();
+            //   this.onReachedExpandedHeight.emit();
         }
         const scrollPercentage = this.scrollDistance / this.expandedHeight;
         if (scrollPercentage >= 1 && this.currentHeight === collapsedHeight) {
@@ -140,7 +140,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
         }
         if (scrollPercentage >= 1) {
             this.currentHeight = collapsedHeight;
-            this.onReachedCollapsedHeight.emit();
+            //   this.onReachedCollapsedHeight.emit();
         } else {
             this.currentHeight = Math.round(
                 collapsedHeight + (this.expandedHeight - collapsedHeight) * (1 - scrollPercentage)
