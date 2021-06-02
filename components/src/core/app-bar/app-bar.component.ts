@@ -11,8 +11,8 @@ import {
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
-import {fromEvent, interval} from 'rxjs';
-import {throttle} from 'rxjs/operators';
+import { fromEvent, interval } from 'rxjs';
+import { throttle } from 'rxjs/operators';
 
 @Component({
     selector: 'pxb-app-bar',
