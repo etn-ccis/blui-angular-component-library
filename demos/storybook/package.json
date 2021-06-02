@@ -11,7 +11,7 @@
         "lint:fix": "eslint \"stories/**/**.ts\" --fix",
         "prettier": "prettier \"**/**.{ts,json,css,scss,html}\" --write",
         "prettier:check": "prettier \"**/**.{ts,json,css,scss,html}\" --check",
-        "deploy:feature": "yarn add firebase-tools && ./node_modules/.bin/firebase deploy --non-interactive --token $FIREBASE_FEATURE_TOKEN"
+        "deploy:feature": "set npm_config_yes=true && npx -p firebase-tools firebase deploy --non-interactive --token $FIREBASE_FEATURE_TOKEN"
     },
     "prettier": "@pxblue/prettier-config",
     "private": true,
