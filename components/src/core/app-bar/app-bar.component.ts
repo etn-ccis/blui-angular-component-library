@@ -4,17 +4,15 @@ import {
     ChangeDetectorRef,
     Component,
     ElementRef,
-    EventEmitter,
     Input,
     OnChanges,
     OnInit,
-    Output,
     SimpleChanges,
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
-import { fromEvent, interval } from 'rxjs';
-import { throttle } from 'rxjs/operators';
+import {fromEvent, interval} from 'rxjs';
+import {throttle} from 'rxjs/operators';
 
 @Component({
     selector: 'pxb-app-bar',
@@ -67,7 +65,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        this.useDefaultCollapsedHeight = !this.collapsedHeight || this.collapsedHeight === 0;
+        this.useDefaultCollapsedHeight = !this.collapsedHeight;
         if (changes.collapsedHeight || changes.expandedHeighted) {
             this.expandedHeight = Number(this.expandedHeight);
             this.collapsedHeight = Number(this.collapsedHeight);

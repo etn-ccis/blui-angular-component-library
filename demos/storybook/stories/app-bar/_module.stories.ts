@@ -44,7 +44,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/App Bar`, module)
     .addDecorator(appBarWrapper())
     .addParameters({
         ...STORY_PARAMS,
-        notes: { markdown: getReadMe('ChannelValue.md') },
+        notes: { markdown: getReadMe('AppBar.md') },
     })
     .add(README_STORY_NAME, getReadMeStory)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig);
