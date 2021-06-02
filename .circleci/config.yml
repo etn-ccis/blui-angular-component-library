@@ -176,6 +176,7 @@ jobs:
                       elif [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
                         git clone $DEV_TARGET out
                       else
+                        echo Deploying feature branch to firebase: https://pxb-storybook-ng-feature.web.app/index.html
                         yarn run deploy:feature
                         exit 0
                       fi
