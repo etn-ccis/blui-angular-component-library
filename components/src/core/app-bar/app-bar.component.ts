@@ -51,7 +51,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
     isWindow = false;
 
     //   @Output() onReachedExpandedHeight: EventEmitter<void> = new EventEmitter();
-    //    @Output() onReachedCollapsedHeight: EventEmitter<void> = new EventEmitter();
+    //   @Output() onReachedCollapsedHeight: EventEmitter<void> = new EventEmitter();
 
     currentHeight: number;
     scrollDistance: number;
