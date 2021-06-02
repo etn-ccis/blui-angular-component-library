@@ -41,7 +41,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
     @ViewChild('pxbAppBar', { read: ElementRef, static: false }) bar: ElementRef;
 
     @Input() expandedHeight = 200;
-    @Input() collapsedHeight: number;
+    @Input() collapsedHeight = this._calcDefaultCollapsedHeight();
     @Input() mode: 'collapsed' | 'expanded' | 'dynamic' = 'collapsed';
 
     // The thing that scrolls, we listen to this.
