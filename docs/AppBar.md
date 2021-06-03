@@ -7,13 +7,9 @@ The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can b
 ```tsx
 // Default: AppBar will resize between collapsedHeight and expandedHeight as the window is scrolled
 <pxb-app-bar mode='dynamic'></pxb-app-bar>
-
 // App Bar will stay fixed at the collapsedHeight size
-// Default: AppBar will resize between collapsedHeight and expandedHeight as the window is scrolled
 <pxb-app-bar mode='collapsed'></pxb-app-bar>
-
 // App Bar will stay fixed at the expandedHeight size
-// Default: AppBar will resize between collapsedHeight and expandedHeight as the window is scrolled
 <pxb-app-bar mode='expanded'></pxb-app-bar>
 ```
 
