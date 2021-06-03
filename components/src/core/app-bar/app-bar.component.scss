@@ -1,9 +1,7 @@
 .pxb-app-bar-content {
     top: 0;
-    position: static;
     min-height: unset;
     z-index: 2;
-    &.pxb-app-bar-sticky {
-        position: sticky;
-    }
+    position: sticky;
+    transition: all 350ms;
 }

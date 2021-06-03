@@ -1,12 +1,13 @@
-import { number } from '@storybook/addon-knobs';
+import { number, select } from '@storybook/addon-knobs';
 
-export const withBasicConfig = (): any => ({
+export const withModes = (): any => ({
     template: `
         <pxb-app-bar
          [expandedHeight]="expandedHeight"
          [collapsedHeight]="collapsedHeight"
          [scrollThreshold]="scrollThreshold"
-         [scrollContainerId]="scrollContainerId" mode="dynamic">
+         [scrollContainerId]="scrollContainerId"
+         [mode]="mode">
          
          <div>Content</div>
 </pxb-app-bar>
@@ -15,5 +16,6 @@ export const withBasicConfig = (): any => ({
         collapsedHeight: number('collapsedHeight', 64),
         expandedHeight: number('expandedHeight', 200),
         scrollThreshold: number('scrollThreshold', 100),
+        mode: select('mode', ['dynamic', 'collapsed', 'expanded'], 'dynamic'),
     },
 });

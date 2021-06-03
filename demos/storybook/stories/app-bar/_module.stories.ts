@@ -12,9 +12,14 @@ import {
 import { withA11y } from '@storybook/addon-a11y';
 import { withBasicConfig } from './basic-config.stories';
 import * as Colors from '@pxblue/colors';
+import { withModes } from './with-modes.stories';
+import { withDynamicContent } from './with-dynamic-content';
+import { withFullConfig } from './with-full-config';
+import { MatButtonModule } from '@angular/material/button';
 
 export const appBarWrapper = () => (storyFn: any): any => {
     const story = storyFn();
+    const storyStyles: string = story.styles ? story.styles[0] : '';
     return {
         ...story,
         template: `
@@ -22,7 +27,17 @@ export const appBarWrapper = () => (storyFn: any): any => {
                     ${story.template}
                     <div [style.height.vh]="100"></div>
                 </div>`,
-        styles: [`:host { display: flex; width: 100%; justify-content: center;}`],
+        styles: [
+            `
+            :host { 
+                display: flex; width: 100%; justify-content: center;
+            } 
+            ::ng-deep #pxb-app-bar-container story > div { 
+                position: absolute;
+            }
+            ${storyStyles}
+            `,
+        ],
         props: {
             ...story.props,
             scrollContainerId: 'pxb-app-bar-container',
@@ -34,7 +49,7 @@ export const appBarWrapper = () => (storyFn: any): any => {
 storiesOf(`${COMPONENT_SECTION_NAME}/App Bar`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [AppBarModule, MatIconModule, UtilModule],
+            imports: [AppBarModule, MatIconModule, UtilModule, MatButtonModule],
         })
     )
     .addDecorator(withKnobs)
@@ -47,4 +62,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/App Bar`, module)
         notes: { markdown: getReadMe('AppBar.md') },
     })
     .add(README_STORY_NAME, getReadMeStory)
-    .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig);
+    .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
+    .add('with modes', withModes)
+    .add('with dynamic content', withDynamicContent)
+    .add('with full config', withFullConfig);

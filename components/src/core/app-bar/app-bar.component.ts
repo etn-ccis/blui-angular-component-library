@@ -2,29 +2,40 @@ import {
     AfterViewInit,
     ChangeDetectionStrategy,
     ChangeDetectorRef,
-    Component, ContentChild,
-    ElementRef,
+    Component,
+    ContentChild,
     Input,
-    OnChanges,
+    OnChanges, OnDestroy,
     OnInit,
-    SimpleChanges, TemplateRef,
-    ViewChild,
+    SimpleChanges,
     ViewEncapsulation,
 } from '@angular/core';
-import { fromEvent, interval } from 'rxjs';
+import {fromEvent, interval, Subscription} from 'rxjs';
 import { throttle } from 'rxjs/operators';
 
 @Component({
-    selector: 'pxb-app-bar-content',
+    selector: 'pxb-app-bar-dynamic-content',
     encapsulation: ViewEncapsulation.None,
-    styleUrls: ['app-bar-three-liner.component.scss'],
     template: `
-        <div #titleVc [style.fontSize.px]="titlePx">{{title}}</div>
-        <div #subtitleVc [style.fontSize.px]="subtitlePx" [style.opacity]="1 - transformPercent">{{subtitle}}</div>
-        <div #infoVc [style.fontSize.px]="infoPx" [style.marginTop.px]="getInfoMarginTop()">{{info}}</div>
-  `,
+        <div class="pxb-app-bar-dynamic-content">
+            <div [style.fontSize.px]="titlePx">{{ title }}</div>
+            <div [style.fontSize.px]="subtitlePx" [style.opacity]="1 - transformPercent">
+                {{ subtitle }}
+            </div>
+            <div [style.fontSize.px]="infoPx" [style.marginTop.px]="infoMargin">
+                {{ info }}
+            </div>
+        </div>
+    `,
+    styles: [
+        `
+            .pxb-app-bar-dynamic-content * {
+                transition: all 350ms;
+            }
+        `,
+    ],
 })
-export class AppBarThreeLiner {
+export class AppBarDynamicContent implements OnInit {
     @Input() title;
     @Input() subtitle;
     @Input() info;
@@ -37,26 +48,21 @@ export class AppBarThreeLiner {
     @Input() subtitleCollapseHeight = 0;
     @Input() infoCollapseHeight = 16;
 
-    titlePx: string;
-    subtitlePx: string;
-    infoPx: string;
-
+    titlePx: number;
+    subtitlePx: number;
+    infoPx: number;
+    infoMargin: number;
     transformPercent: number;
 
-    constructor(private readonly _ref: ChangeDetectorRef) {}
-
-    transform(percent: number): void {
-        this.transformPercent = percent;
-        this.titlePx =  `${this.titleExpandHeight -
-        (this.titleExpandHeight - this.titleCollapseHeight) * percent}`;
-        this.subtitlePx =  `${this.subtitleExpandHeight -
-        (this.subtitleExpandHeight - this.subtitleCollapseHeight) * percent}`;
-        this.infoPx =  `${this.infoExpandHeight -
-        (this.infoExpandHeight - this.infoCollapseHeight) * percent}`;
+    ngOnInit(): void {
+        this.transform(false);
     }
 
-    getInfoMarginTop(): number {
-        return - (this.transformPercent * 8);
+    transform(isCollapsed: boolean): void {
+        this.titlePx = isCollapsed ? this.titleCollapseHeight : this.titleExpandHeight;
+        this.subtitlePx = isCollapsed ? this.subtitleCollapseHeight : this.subtitleExpandHeight;
+        this.infoPx = isCollapsed ? this.infoCollapseHeight : this.infoExpandHeight;
+        this.infoMargin = isCollapsed ? -8 : 0;
     }
 }
 
@@ -66,28 +72,31 @@ export class AppBarThreeLiner {
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./app-bar.component.scss'],
     template: `
-    <mat-toolbar
-      #pxbAppBar
-      color="primary"
-      class="pxb-app-bar-content"
-      [style.height.px]="currentHeight"
-      [style.marginTop.px]="getMarginTop()"
-      [class.pxb-app-bar-sticky]="collapsedHeight === currentHeight || mode !== 'dynamic'"
-    >
-      <ng-content select='pxb-app-bar-content'></ng-content>
-    </mat-toolbar>
-  `,
+        <mat-toolbar
+            color="primary"
+            class="pxb-app-bar-content"
+            [class.collapsed]='isCollapsed'
+            [style.marginBottom.px]="marginBottom"
+            [style.height.px]="currentHeight"
+        >
+            <ng-content select="[pxb-icon]"></ng-content>
+            <ng-content select="pxb-app-bar-dynamic-content"></ng-content>
+            <ng-content></ng-content>
+            <pxb-spacer></pxb-spacer>
+            <ng-content select="[pxb-actions]"></ng-content>
+        </mat-toolbar>
+    `,
     host: {
         class: 'pxb-app-bar',
     },
 })
-export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
-    @ViewChild('pxbAppBar', { read: ElementRef, static: false }) bar: ElementRef;
-    @ContentChild(AppBarThreeLiner) threeLiner: AppBarThreeLiner;
+export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
+    @ContentChild(AppBarDynamicContent) threeLiner: AppBarDynamicContent;
 
     @Input() expandedHeight = 200;
     @Input() collapsedHeight = this._calcDefaultCollapsedHeight();
     @Input() mode: 'collapsed' | 'expanded' | 'dynamic' = 'collapsed';
+    @Input() scrollThreshold = 100;
 
     // The thing that scrolls, we listen to this.
     @Input() scrollContainerElement: Element;
@@ -95,14 +104,14 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
     @Input() scrollContainerId: string;
     scrollEl;
 
-
-    @Input() ref: TemplateRef<AppBarThreeLiner>;
-
     isWindow = false;
     currentHeight: number;
-    scrollDistance: number;
-    useDefaultCollapsedHeight = true;
-    toolbar: HTMLElement;
+    useDefaultCollapsedHeight = false;
+    isCollapsed = true;
+    marginBottom = 0;
+
+    scrollListener: Subscription;
+    resizeListener: Subscription;
 
     constructor(private readonly _ref: ChangeDetectorRef) {}
 
@@ -111,12 +120,12 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        if (changes.collapsedHeight && !isNaN(Number(changes.collapsedHeight))) {
-            this.useDefaultCollapsedHeight = false;
-        }
         if (changes.collapsedHeight || changes.expandedHeighted) {
             this.expandedHeight = Number(this.expandedHeight);
             this.collapsedHeight = Number(this.collapsedHeight);
+        }
+        if (isNaN(this.collapsedHeight) || this.collapsedHeight === 0) {
+            this.useDefaultCollapsedHeight = true;
         }
         if (changes.mode) {
             this._resizeOnModeChange();
@@ -125,17 +134,27 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
 
     ngAfterViewInit(): void {
         this._setScrollEl();
-        this.toolbar = this.bar.nativeElement;
         this._resizeOnModeChange();
-        fromEvent(this.scrollEl, 'scroll')
+        this.scrollListener = fromEvent(this.scrollEl, 'scroll')
             .pipe(throttle(() => interval(10)))
-            .subscribe((event: Event) => {
-                this._resizeEl(event);
+            .subscribe(() => {
+                this._resizeEl();
             });
 
-        fromEvent(window, 'resize').subscribe(() => {
-            this._resizeEl();
-        });
+        this.resizeListener = fromEvent(window, 'resize')
+            .pipe(throttle(() => interval(10)))
+            .subscribe(() => {
+                this._resizeEl();
+            });
+    }
+
+    ngOnDestroy(): void {
+        if (this.scrollListener) {
+            this.scrollListener.unsubscribe();
+        }
+        if (this.resizeListener) {
+            this.scrollListener.unsubscribe();
+        }
     }
 
     private _resizeOnModeChange(): void {
@@ -151,51 +170,43 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
             this.currentHeight = this.useDefaultCollapsedHeight
                 ? this._calcDefaultCollapsedHeight()
                 : this.collapsedHeight;
-            this.scrollDistance = 0;
             this._ref.detectChanges();
             return;
         }
         if (this.mode === 'expanded') {
             this.currentHeight = this.expandedHeight;
-            this.scrollDistance = 0;
             this._ref.detectChanges();
             return;
         }
     }
 
-    private _resizeEl(event?: Event): void {
+    private _resizeEl(): void {
         if (this.mode !== 'dynamic') {
             return this._handleLockedModes();
         }
-
-        const collapsedHeight = this.useDefaultCollapsedHeight
+        this.collapsedHeight = this.useDefaultCollapsedHeight
             ? this._calcDefaultCollapsedHeight()
             : this.collapsedHeight;
-        this.collapsedHeight = collapsedHeight;
-
-        const el = this.scrollEl;
-        this.scrollDistance = this.isWindow ? document.scrollingElement.scrollTop : el.scrollTop;
-        if (this.scrollDistance === 0) {
+        const scrollDistance = this.isWindow ? document.scrollingElement.scrollTop : this.scrollEl.scrollTop;
+        if (scrollDistance > this.scrollThreshold && !this.isCollapsed) {
+            this.isCollapsed = true;
+            this.marginBottom = this.expandedHeight - this.collapsedHeight;
+            this.currentHeight = this.collapsedHeight;
+            this._transformDynamicContent();
+            this._ref.detectChanges();
+        } else if (scrollDistance <= this.collapsedHeight && this.isCollapsed) {
+            this.isCollapsed = false;
             this.currentHeight = this.expandedHeight;
+            this.marginBottom = 0;
+            this._transformDynamicContent();
+            this._ref.detectChanges();
         }
-        const scrollPercentage = this.scrollDistance / this.expandedHeight;
-        if (scrollPercentage >= 1 && this.currentHeight === collapsedHeight) {
-            // Do nothing
-            return;
-        }
-        this.threeLiner.transform(scrollPercentage);
+    }
 
-        if (scrollPercentage >= 1) {
-            this.currentHeight = collapsedHeight;
-        } else {
-            this.currentHeight = Math.round(
-                collapsedHeight + (this.expandedHeight - collapsedHeight) * (1 - scrollPercentage)
-            );
+    private _transformDynamicContent(): void {
+        if (this.threeLiner) {
+            this.threeLiner.transform(this.isCollapsed);
         }
-        if (event) {
-            event.preventDefault();
-        }
-        this._ref.detectChanges();
     }
 
     private _setScrollEl(): void {
@@ -206,7 +217,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
         } else if (this.scrollContainerClassName) {
             this.scrollEl = document.getElementsByClassName(this.scrollContainerClassName.name)[
                 this.scrollContainerClassName.index
-                ];
+            ];
         } else {
             this.scrollEl = window;
             this.isWindow = true;
@@ -215,9 +226,5 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
 
     private _calcDefaultCollapsedHeight(): number {
         return document.documentElement.clientWidth <= 600 ? 56 : 64;
-    }
-
-    getMarginTop(): number {
-        return Math.min(this.expandedHeight, this.scrollDistance);
     }
 }
