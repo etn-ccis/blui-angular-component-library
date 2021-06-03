@@ -25,8 +25,8 @@ import { throttle } from 'rxjs/operators';
             color="primary"
             class="pxb-app-bar-content"
             [style.height.px]="currentHeight"
-            [style.marginTop.px]="scrollDistance"
-            [class.pxb-app-bar-sticky]="collapsedHeight === currentHeight || mode === 'expanded'"
+            [style.marginTop.px]="getMarginTop()"
+            [class.pxb-app-bar-sticky]="collapsedHeight === currentHeight || mode !== 'dynamic'"
         >
             <mat-toolbar-row>{{ currentHeight }}</mat-toolbar-row>
         </mat-toolbar>
@@ -49,10 +49,6 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
     scrollEl;
 
     isWindow = false;
-
-    //   @Output() onReachedExpandedHeight: EventEmitter<void> = new EventEmitter();
-    //   @Output() onReachedCollapsedHeight: EventEmitter<void> = new EventEmitter();
-
     currentHeight: number;
     scrollDistance: number;
     useDefaultCollapsedHeight = false;
@@ -85,8 +81,8 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
                 this._resizeEl(event);
             });
 
-        fromEvent(window, 'resize').subscribe((event: Event) => {
-            this._resizeEl(event);
+        fromEvent(window, 'resize').subscribe(() => {
+            this._resizeEl();
         });
     }
 
@@ -103,13 +99,13 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
             this.currentHeight = this.useDefaultCollapsedHeight
                 ? this._calcDefaultCollapsedHeight()
                 : this.collapsedHeight;
-            this.toolbar.style.marginTop = `0px`;
+            this.scrollDistance = 0;
             this._ref.detectChanges();
             return;
         }
         if (this.mode === 'expanded') {
             this.currentHeight = this.expandedHeight;
-            this.toolbar.style.marginTop = `0px`;
+            this.scrollDistance = 0;
             this._ref.detectChanges();
             return;
         }
@@ -129,7 +125,6 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
         this.scrollDistance = this.isWindow ? document.scrollingElement.scrollTop : el.scrollTop;
         if (this.scrollDistance === 0) {
             this.currentHeight = this.expandedHeight;
-            //   this.onReachedExpandedHeight.emit();
         }
         const scrollPercentage = this.scrollDistance / this.expandedHeight;
         if (scrollPercentage >= 1 && this.currentHeight === collapsedHeight) {
@@ -138,7 +133,6 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
         }
         if (scrollPercentage >= 1) {
             this.currentHeight = collapsedHeight;
-            //   this.onReachedCollapsedHeight.emit();
         } else {
             this.currentHeight = Math.round(
                 collapsedHeight + (this.expandedHeight - collapsedHeight) * (1 - scrollPercentage)
@@ -167,5 +161,9 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
 
     private _calcDefaultCollapsedHeight(): number {
         return document.documentElement.clientWidth <= 600 ? 56 : 64;
+    }
+
+    getMarginTop(): number {
+        return Math.min(this.expandedHeight, this.scrollDistance);
     }
 }
