@@ -25,10 +25,20 @@ The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can b
 | scrollContainerElement      | Scrollable element which dynamic app bar responds to         | `Element`                                    | no       |               |
 | scrollContainerClassName    | Class name, index number of scrollable element               | `{ name: string, index: number }`            | no       |               |
 | scrollContainerId           | Id of the scrollable element                                 | `string`                                     | no       |               |
+| scrollThreshold             | Distance in pixels to scroll before collapsing toolbar       | `number`                                     | no       | 100           |
 
 </div>
 
 > For the `dynamic` mode to respond correctly to scroll events, the `scrollContainerElement`, `scrollContainerClassName`, or `scrollContainerId` should be provided. 
+
+
+The following child element is projected into `<pxb-channel-value>`:
+
+| Selector                     | Description                                                  | Required | Default |
+| ---------------------------- | ------------------------------------------------------------ | -------- | ------- |
+| pxb-app-bar-dynamic-content  | Dynamic content that grows and shrinks as user scrolls       | no       |         |
+| pxb-icon                     | Menu icon                                                    | no       |         |
+| pxb-actions                  | Menu action items                                            | no       |         |
 
 
 ### Classes

@@ -5,12 +5,13 @@ import {
     Component,
     ContentChild,
     Input,
-    OnChanges, OnDestroy,
+    OnChanges,
+    OnDestroy,
     OnInit,
     SimpleChanges,
     ViewEncapsulation,
 } from '@angular/core';
-import {fromEvent, interval, Subscription} from 'rxjs';
+import { fromEvent, interval, Subscription } from 'rxjs';
 import { throttle } from 'rxjs/operators';
 
 @Component({
@@ -75,7 +76,7 @@ export class AppBarDynamicContent implements OnInit {
         <mat-toolbar
             color="primary"
             class="pxb-app-bar-content"
-            [class.collapsed]='isCollapsed'
+            [class.collapsed]="isCollapsed"
             [style.marginBottom.px]="marginBottom"
             [style.height.px]="currentHeight"
         >
@@ -105,9 +106,9 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     scrollEl;
 
     isWindow = false;
-    currentHeight: number;
-    useDefaultCollapsedHeight = false;
     isCollapsed = true;
+    useDefaultCollapsedHeight = true;
+    currentHeight: number;
     marginBottom = 0;
 
     scrollListener: Subscription;
@@ -124,9 +125,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
             this.expandedHeight = Number(this.expandedHeight);
             this.collapsedHeight = Number(this.collapsedHeight);
         }
-        if (isNaN(this.collapsedHeight) || this.collapsedHeight === 0) {
-            this.useDefaultCollapsedHeight = true;
-        }
+        this.useDefaultCollapsedHeight = isNaN(this.collapsedHeight) || this.collapsedHeight === 0;
         if (changes.mode) {
             this._resizeOnModeChange();
         }
@@ -184,17 +183,16 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
         if (this.mode !== 'dynamic') {
             return this._handleLockedModes();
         }
-        this.collapsedHeight = this.useDefaultCollapsedHeight
-            ? this._calcDefaultCollapsedHeight()
-            : this.collapsedHeight;
         const scrollDistance = this.isWindow ? document.scrollingElement.scrollTop : this.scrollEl.scrollTop;
         if (scrollDistance > this.scrollThreshold && !this.isCollapsed) {
+            this._setNewCollapsedHeight();
             this.isCollapsed = true;
             this.marginBottom = this.expandedHeight - this.collapsedHeight;
             this.currentHeight = this.collapsedHeight;
             this._transformDynamicContent();
             this._ref.detectChanges();
         } else if (scrollDistance <= this.collapsedHeight && this.isCollapsed) {
+            this._setNewCollapsedHeight();
             this.isCollapsed = false;
             this.currentHeight = this.expandedHeight;
             this.marginBottom = 0;
@@ -222,6 +220,12 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
             this.scrollEl = window;
             this.isWindow = true;
         }
+    }
+
+    private _setNewCollapsedHeight(): void {
+        this.collapsedHeight = this.useDefaultCollapsedHeight
+            ? this._calcDefaultCollapsedHeight()
+            : this.collapsedHeight;
     }
 
     private _calcDefaultCollapsedHeight(): number {
