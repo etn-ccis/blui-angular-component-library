@@ -29,6 +29,7 @@ import { throttle } from 'rxjs/operators';
             [class.pxb-app-bar-sticky]="collapsedHeight === currentHeight || mode !== 'dynamic'"
         >
             <mat-toolbar-row>{{ currentHeight }}</mat-toolbar-row>
+            <mat-toolbar-row><ng-content></ng-content></mat-toolbar-row>
         </mat-toolbar>
     `,
     host: {
@@ -51,7 +52,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
     isWindow = false;
     currentHeight: number;
     scrollDistance: number;
-    useDefaultCollapsedHeight = false;
+    useDefaultCollapsedHeight = true;
     toolbar: HTMLElement;
 
     constructor(private readonly _ref: ChangeDetectorRef) {}
@@ -61,7 +62,9 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        this.useDefaultCollapsedHeight = !this.collapsedHeight;
+        if (changes.collapsedHeight) {
+            this.useDefaultCollapsedHeight = false;
+        }
         if (changes.collapsedHeight || changes.expandedHeighted) {
             this.expandedHeight = Number(this.expandedHeight);
             this.collapsedHeight = Number(this.collapsedHeight);
@@ -119,6 +122,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
         const collapsedHeight = this.useDefaultCollapsedHeight
             ? this._calcDefaultCollapsedHeight()
             : this.collapsedHeight;
+        console.log(collapsedHeight);
         this.collapsedHeight = collapsedHeight;
 
         const el = this.scrollEl;
