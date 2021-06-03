@@ -21,13 +21,18 @@ The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can b
 
 <div style="overflow: auto;">
 
-| @Input                 | Description                                  | Type                                         | Required | Default       |
-| ---------------------- | -------------------------------------------- | -------------------------------------------- | -------- | ------------- |
-| collapsedHeight        | Height of the AppBar when collapsed          | `number`                                     | no       | theme default |
-| expandedHeight         | Height of the AppBar when expanded           | `number`                                     | no       | 200           |
-| mode                   | Behavior mode of the App Bar                 | `'expanded'` \| `'collapsed'` \| `'dynamic'` | no       | 'dynamic'     |
+| @Input                      | Description                                                  | Type                                         | Required | Default       |
+| --------------------------- | ------------------------------------------------------------ | -------------------------------------------- | -------- | ------------- |
+| collapsedHeight             | Height of the AppBar when collapsed                          | `number`                                     | no       | theme default |
+| expandedHeight              | Height of the AppBar when expanded                           | `number`                                     | no       | 200           |
+| mode                        | Behavior mode of the App Bar                                 | `'expanded'` \| `'collapsed'` \| `'dynamic'` | no       | 'dynamic'     |
+| scrollContainerElement      | Scrollable element which dynamic app bar responds to         | `Element`                                    | no       |               |
+| scrollContainerClassName    | Class name, index number of scrollable element               | `{ name: string, index: number }`            | no       |               |
+| scrollContainerId           | Id of the scrollable element                                 | `string`                                     | no       |               |
 
 </div>
+
+> For the `dynamic` mode to respond correctly to scroll events, the `scrollContainerElement`, `scrollContainerClassName`, or `scrollContainerId` should be provided. 
 
 
 ### Classes
