@@ -20,18 +20,18 @@ import { throttle } from 'rxjs/operators';
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./app-bar.component.scss'],
     template: `
-        <mat-toolbar
-            #pxbAppBar
-            color="primary"
-            class="pxb-app-bar-content"
-            [style.height.px]="currentHeight"
-            [style.marginTop.px]="getMarginTop()"
-            [class.pxb-app-bar-sticky]="collapsedHeight === currentHeight || mode !== 'dynamic'"
-        >
-            <mat-toolbar-row>{{ currentHeight }}</mat-toolbar-row>
-            <mat-toolbar-row><ng-content></ng-content></mat-toolbar-row>
-        </mat-toolbar>
-    `,
+    <mat-toolbar
+      #pxbAppBar
+      color="primary"
+      class="pxb-app-bar-content"
+      [style.height.px]="currentHeight"
+      [style.marginTop.px]="getMarginTop()"
+      [class.pxb-app-bar-sticky]="collapsedHeight === currentHeight || mode !== 'dynamic'"
+    >
+      <mat-toolbar-row>{{ currentHeight }}</mat-toolbar-row>
+      <mat-toolbar-row><ng-content></ng-content></mat-toolbar-row>
+    </mat-toolbar>
+  `,
     host: {
         class: 'pxb-app-bar',
     },
@@ -62,7 +62,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        if (changes.collapsedHeight) {
+        if (changes.collapsedHeight && !isNaN(Number(changes.collapsedHeight))) {
             this.useDefaultCollapsedHeight = false;
         }
         if (changes.collapsedHeight || changes.expandedHeighted) {
@@ -122,7 +122,6 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
         const collapsedHeight = this.useDefaultCollapsedHeight
             ? this._calcDefaultCollapsedHeight()
             : this.collapsedHeight;
-        console.log(collapsedHeight);
         this.collapsedHeight = collapsedHeight;
 
         const el = this.scrollEl;
@@ -156,7 +155,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
         } else if (this.scrollContainerClassName) {
             this.scrollEl = document.getElementsByClassName(this.scrollContainerClassName.name)[
                 this.scrollContainerClassName.index
-            ];
+                ];
         } else {
             this.scrollEl = window;
             this.isWindow = true;
