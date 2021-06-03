@@ -21,7 +21,7 @@ The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can b
 
 <div style="overflow: auto;">
 
-| Prop Name              | Description                                  | Type                                         | Required | Default       |
+| @Input                 | Description                                  | Type                                         | Required | Default       |
 | ---------------------- | -------------------------------------------- | -------------------------------------------- | -------- | ------------- |
 | collapsedHeight        | Height of the AppBar when collapsed          | `number`                                     | no       | theme default |
 | expandedHeight         | Height of the AppBar when expanded           | `number`                                     | no       | 200           |
