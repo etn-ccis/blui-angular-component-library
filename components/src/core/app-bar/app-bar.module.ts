@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppBarComponent } from './app-bar.component';
+import {AppBarComponent, AppBarThreeLiner} from './app-bar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
-    declarations: [AppBarComponent],
+    declarations: [AppBarComponent, AppBarThreeLiner],
     imports: [CommonModule, MatToolbarModule],
-    exports: [AppBarComponent],
+    exports: [AppBarComponent, AppBarThreeLiner],
 })
 export class AppBarModule {}

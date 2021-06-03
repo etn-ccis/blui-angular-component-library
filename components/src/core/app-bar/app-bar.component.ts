@@ -2,17 +2,63 @@ import {
     AfterViewInit,
     ChangeDetectionStrategy,
     ChangeDetectorRef,
-    Component,
+    Component, ContentChild,
     ElementRef,
     Input,
     OnChanges,
     OnInit,
-    SimpleChanges,
+    SimpleChanges, TemplateRef,
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
 import { fromEvent, interval } from 'rxjs';
 import { throttle } from 'rxjs/operators';
+
+@Component({
+    selector: 'pxb-app-bar-content',
+    encapsulation: ViewEncapsulation.None,
+    styleUrls: ['app-bar-three-liner.component.scss'],
+    template: `
+        <div #titleVc [style.fontSize.px]="titlePx">{{title}}</div>
+        <div #subtitleVc [style.fontSize.px]="subtitlePx" [style.opacity]="1 - transformPercent">{{subtitle}}</div>
+        <div #infoVc [style.fontSize.px]="infoPx" [style.marginTop.px]="getInfoMarginTop()">{{info}}</div>
+  `,
+})
+export class AppBarThreeLiner {
+    @Input() title;
+    @Input() subtitle;
+    @Input() info;
+
+    @Input() titleExpandHeight = 30;
+    @Input() subtitleExpandHeight = 16;
+    @Input() infoExpandHeight = 14;
+
+    @Input() titleCollapseHeight = 20;
+    @Input() subtitleCollapseHeight = 0;
+    @Input() infoCollapseHeight = 16;
+
+    titlePx: string;
+    subtitlePx: string;
+    infoPx: string;
+
+    transformPercent: number;
+
+    constructor(private readonly _ref: ChangeDetectorRef) {}
+
+    transform(percent: number): void {
+        this.transformPercent = percent;
+        this.titlePx =  `${this.titleExpandHeight -
+        (this.titleExpandHeight - this.titleCollapseHeight) * percent}`;
+        this.subtitlePx =  `${this.subtitleExpandHeight -
+        (this.subtitleExpandHeight - this.subtitleCollapseHeight) * percent}`;
+        this.infoPx =  `${this.infoExpandHeight -
+        (this.infoExpandHeight - this.infoCollapseHeight) * percent}`;
+    }
+
+    getInfoMarginTop(): number {
+        return - (this.transformPercent * 8);
+    }
+}
 
 @Component({
     selector: 'pxb-app-bar',
@@ -28,8 +74,7 @@ import { throttle } from 'rxjs/operators';
       [style.marginTop.px]="getMarginTop()"
       [class.pxb-app-bar-sticky]="collapsedHeight === currentHeight || mode !== 'dynamic'"
     >
-      <mat-toolbar-row>{{ currentHeight }}</mat-toolbar-row>
-      <mat-toolbar-row><ng-content></ng-content></mat-toolbar-row>
+      <ng-content select='pxb-app-bar-content'></ng-content>
     </mat-toolbar>
   `,
     host: {
@@ -38,6 +83,7 @@ import { throttle } from 'rxjs/operators';
 })
 export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
     @ViewChild('pxbAppBar', { read: ElementRef, static: false }) bar: ElementRef;
+    @ContentChild(AppBarThreeLiner) threeLiner: AppBarThreeLiner;
 
     @Input() expandedHeight = 200;
     @Input() collapsedHeight = this._calcDefaultCollapsedHeight();
@@ -48,6 +94,9 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
     @Input() scrollContainerClassName: { name: string; index: number };
     @Input() scrollContainerId: string;
     scrollEl;
+
+
+    @Input() ref: TemplateRef<AppBarThreeLiner>;
 
     isWindow = false;
     currentHeight: number;
@@ -134,6 +183,8 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges {
             // Do nothing
             return;
         }
+        this.threeLiner.transform(scrollPercentage);
+
         if (scrollPercentage >= 1) {
             this.currentHeight = collapsedHeight;
         } else {
