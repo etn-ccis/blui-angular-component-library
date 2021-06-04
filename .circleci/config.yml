@@ -162,7 +162,7 @@ jobs:
         steps:
             - checkout
             - attach_workspace:
-                  at: .
+                at: .
             - run:
                   name: Deploy Storybook
                   command: |
@@ -173,8 +173,12 @@ jobs:
 
                       if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
                         git clone $MASTER_TARGET out
-                      else
+                      elif [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
                         git clone $DEV_TARGET out
+                      else
+                        echo Deploying feature branch to firebase: https://pxb-storybook-ng-feature.web.app/index.html
+                        yarn run deploy:feature
+                        exit 0
                       fi
 
                       cd out
@@ -201,19 +205,13 @@ jobs:
             at: .
         - run:
             name: Authenticate with registry
-            command: echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+            command: |
+              echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
+              echo "//registry.yarnpkg.com/:_authToken=$NPM_TOKEN" >> ~/.npmrc
         - run:
             name: Publish @pxblue/angular-components
             command:  |
-              cd dist
-              MASTER_VERSION=`node -p "require('./package.json').version"`
-              NPM_LATEST_VERSION=`npm show @pxblue/angular-components version`
-              if ! [ $MASTER_VERSION == $NPM_LATEST_VERSION ];
-              then
-                  npm publish
-              else
-                  echo "Latest version is already published."
-              fi
+              yarn publish:package -b $CIRCLE_BRANCH
 
 workflows:
     version: 2
@@ -229,11 +227,6 @@ workflows:
             - deploy_storybook:
                 requires:
                     - build_storybook
-                filters:
-                    branches:
-                        only:
-                          - master
-                          - dev
             - publish:
                 requires:
                     - build_storybook
@@ -242,3 +235,4 @@ workflows:
                     branches:
                         only:
                             - master
+                            - dev

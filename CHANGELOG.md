@@ -4,11 +4,35 @@
 
 ### Added
 
--   Added new property `disabled` to `<pxb-info-list-item`>.
+- Added new property `disabled` to `<pxb-info-list-item`>.
 
 ### Changed
 
--   Updated to Angular 11 for building the library
+- Updated to Angular 11 for building the library
+
+## v4.4.0 (May 28, 2021)
+
+### Changed
+
+-   Update `<pxb-user-menu>` to responsively display a bottom sheet in place of an overlay menu.
+
+### Added
+
+-   Added `disableRailTooltip` prop to `<pxb-drawer>`.
+
+### Fixed
+
+-   Fixed non-centered `<pxb-list-item-tag>` text.
+
+## v4.3.0 (April 27, 2021)
+
+### Added
+
+-   Added new property `disabled` to `<pxb-info-list-item`>.
+
+### Fixed
+
+-   Fixed non-centered icon alignment in `<pxb-info-list-item>`.
 
 ## v4.2.0 (March 31, 2021)
 
