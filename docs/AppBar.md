@@ -32,7 +32,7 @@ The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can b
 > For the `dynamic` mode to respond correctly to scroll events, the `scrollContainerElement`, `scrollContainerClassName`, or `scrollContainerId` should be provided. 
 
 
-The following child element is projected into `<pxb-channel-value>`:
+The following child element is projected into `<pxb-app-bar>`:
 
 | Selector                     | Description                                                  | Required | Default |
 | ---------------------------- | ------------------------------------------------------------ | -------- | ------- |
