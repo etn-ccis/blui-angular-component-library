@@ -1,7 +1,11 @@
-.pxb-app-bar-content {
-    top: 0;
-    min-height: unset;
-    z-index: 2;
+.pxb-app-bar {
+    display: flex;
     position: sticky;
-    transition: all 350ms;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+}
+.pxb-app-bar-content {
+    min-height: unset;
+    transition: all 300ms;
 }
