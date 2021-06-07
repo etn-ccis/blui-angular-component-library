@@ -41,13 +41,13 @@ export class AppBarDynamicContent implements OnInit {
     @Input() subtitle;
     @Input() info;
 
-    @Input() titleExpandHeight = 30;
-    @Input() subtitleExpandHeight = 16;
-    @Input() infoExpandHeight = 14;
+    @Input() titleExpandedSize = 30;
+    @Input() subtitleExpandedSize = 16;
+    @Input() infoExpandedSize = 14;
 
-    @Input() titleCollapseHeight = 20;
-    @Input() subtitleCollapseHeight = 0;
-    @Input() infoCollapseHeight = 16;
+    @Input() titleCollapsedSize = 20;
+    @Input() subtitleCollapsedSize = 0;
+    @Input() infoCollapsedSize = 16;
 
     titlePx: number;
     subtitlePx: number;
@@ -60,9 +60,9 @@ export class AppBarDynamicContent implements OnInit {
     }
 
     transform(isCollapsed: boolean): void {
-        this.titlePx = isCollapsed ? this.titleCollapseHeight : this.titleExpandHeight;
-        this.subtitlePx = isCollapsed ? this.subtitleCollapseHeight : this.subtitleExpandHeight;
-        this.infoPx = isCollapsed ? this.infoCollapseHeight : this.infoExpandHeight;
+        this.titlePx = isCollapsed ? this.titleCollapsedSize : this.titleExpandedSize;
+        this.subtitlePx = isCollapsed ? this.subtitleCollapsedSize : this.subtitleExpandedSize;
+        this.infoPx = isCollapsed ? this.infoCollapsedSize : this.infoExpandedSize;
         this.infoMargin = isCollapsed ? -8 : 0;
     }
 }
@@ -77,7 +77,6 @@ export class AppBarDynamicContent implements OnInit {
             color="primary"
             class="pxb-app-bar-content"
             [class.collapsed]="isCollapsed"
-            [style.marginBottom.px]="marginBottom"
             [style.height.px]="currentHeight"
         >
             <ng-content select="[pxb-icon]"></ng-content>
@@ -98,6 +97,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     @Input() collapsedHeight = this._calcDefaultCollapsedHeight();
     @Input() mode: 'collapsed' | 'expanded' | 'dynamic' = 'collapsed';
     @Input() scrollThreshold = 100;
+    @Input() animationDuration: 300;
 
     // The thing that scrolls, we listen to this.
     @Input() scrollContainerElement: Element;
@@ -109,7 +109,8 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     isCollapsed = true;
     useDefaultCollapsedHeight = true;
     currentHeight: number;
-    marginBottom = 0;
+    animationStyle: string;
+    isAnimating: boolean;
 
     scrollListener: Subscription;
     resizeListener: Subscription;
@@ -121,6 +122,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     }
 
     ngOnChanges(changes: SimpleChanges): void {
+        this.animationStyle = `all ${this.animationDuration}`;
         if (changes.collapsedHeight || changes.expandedHeighted) {
             this.expandedHeight = Number(this.expandedHeight);
             this.collapsedHeight = Number(this.collapsedHeight);
@@ -180,28 +182,39 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     }
 
     private _resizeEl(): void {
+        if (this.isAnimating) {
+            return;
+        }
         if (this.mode !== 'dynamic') {
             return this._handleLockedModes();
         }
         const scrollDistance = this.isWindow ? document.scrollingElement.scrollTop : this.scrollEl.scrollTop;
-        if (scrollDistance > this.scrollThreshold && !this.isCollapsed) {
-            this._setNewCollapsedHeight();
-            this.isCollapsed = true;
-            this.marginBottom = this.expandedHeight - this.collapsedHeight;
-            this.currentHeight = this.collapsedHeight;
-            this._transformDynamicContent();
-            this._ref.detectChanges();
-        } else if (scrollDistance <= this.collapsedHeight && this.isCollapsed) {
+
+        if (this.isCollapsed && scrollDistance === 0) {
             this._setNewCollapsedHeight();
             this.isCollapsed = false;
             this.currentHeight = this.expandedHeight;
-            this.marginBottom = 0;
             this._transformDynamicContent();
             this._ref.detectChanges();
+        }
+        else if (scrollDistance > this.scrollThreshold && !this.isCollapsed) {
+            this._setNewCollapsedHeight();
+            this.isCollapsed = true;
+            this.currentHeight = this.collapsedHeight;
+            this._transformDynamicContent();
+            this._ref.detectChanges();
+            setTimeout(() => {
+                this.scrollEl.scrollTop = 1;
+                this._ref.detectChanges();
+            }, this.animationDuration);
         }
     }
 
     private _transformDynamicContent(): void {
+        this.isAnimating = true;
+        setTimeout(() => {
+            this.isAnimating = false;
+        }, this.animationDuration +100);
         if (this.threeLiner) {
             this.threeLiner.transform(this.isCollapsed);
         }
