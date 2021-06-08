@@ -16,14 +16,14 @@ import { withModes } from './with-modes.stories';
 import { withDynamicContent } from './with-dynamic-content';
 import { withFullConfig } from './with-full-config';
 import { MatButtonModule } from '@angular/material/button';
-import {MatSelectModule} from "@angular/material/select";
-import {withNgContent} from "./with-ng-content.stories";
-import {MatFormFieldModule} from "@angular/material/form-field";
-import {MatInputModule} from "@angular/material/input";
-import {MatMenuModule} from "@angular/material/menu";
-import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
-import {MatListModule} from "@angular/material/list";
-import {ChannelValueModule} from "@pxblue/angular-components"
+import { MatSelectModule } from '@angular/material/select';
+import { withNgContent } from './with-ng-content.stories';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatMenuModule } from '@angular/material/menu';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatListModule } from '@angular/material/list';
+import { ChannelValueModule } from '@pxblue/angular-components';
 
 export const appBarWrapper = () => (storyFn: any): any => {
     const story = storyFn();

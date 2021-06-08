@@ -1,11 +1,13 @@
 import { number, text } from '@storybook/addon-knobs';
 
 export const withNgContent = (): any => ({
-    styles: [`
+    styles: [
+        `
        ::ng-deep .pxb-app-bar-content.collapsed .info {
             margin-top: -8px;
         }
-    `],
+    `,
+    ],
     template: `
         <pxb-app-bar
          [expandedHeight]="expandedHeight"
