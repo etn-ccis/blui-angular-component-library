@@ -1,18 +1,31 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import {AppBarModule} from "./app-bar.module";
-import {AppBarComponent} from "./app-bar.component";
-import {count} from "../../utils/test-utils";
+import { AppBarModule } from './app-bar.module';
+import { count } from '../../utils/test-utils';
+import { Component } from '@angular/core';
+
+@Component({
+    template: `
+        <pxb-app-bar mode="collapsed">
+            <pxb-app-bar-dynamic-content>
+                <div pxb-title>title</div>
+                <div pxb-subtitle>title</div>
+                <div pxb-info>title</div>
+            </pxb-app-bar-dynamic-content>
+        </pxb-app-bar>
+    `,
+})
+class TestBasicUsage {}
 
 describe('AppBarComponent', () => {
-    let component: AppBarComponent;
-    let fixture: ComponentFixture<AppBarComponent>;
+    let component: TestBasicUsage;
+    let fixture: ComponentFixture<TestBasicUsage>;
 
     beforeEach(() => {
         void TestBed.configureTestingModule({
-            declarations: [],
+            declarations: [TestBasicUsage],
             imports: [AppBarModule],
         }).compileComponents();
-        fixture = TestBed.createComponent(AppBarComponent);
+        fixture = TestBed.createComponent(TestBasicUsage);
         component = fixture.componentInstance;
     });
 
@@ -24,9 +37,13 @@ describe('AppBarComponent', () => {
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
         const classList = [
-            '.pxb-app-bar',
             '.pxb-app-bar-content',
-            '.pxb-app-bar-collapsed'
+            '.pxb-app-bar-background',
+            '.pxb-app-bar-collapsed',
+            '.pxb-app-bar-dynamic-content',
+            '.pxb-app-bar-dynamic-content-title',
+            '.pxb-app-bar-dynamic-content-subtitle',
+            '.pxb-app-bar-dynamic-content-info',
         ];
         for (const className of classList) {
             count(fixture, className);

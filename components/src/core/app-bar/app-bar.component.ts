@@ -51,7 +51,7 @@ import { isEmptyView } from '../../utils/utils';
         </div>
     `,
 })
-export class AppBarDynamicContent {
+export class AppBarDynamicContent implements AfterViewInit {
     @Input() title;
     @Input() subtitle;
     @Input() info;
@@ -60,6 +60,12 @@ export class AppBarDynamicContent {
     @ViewChild('subtitleVc') subtitleEl: ElementRef;
     @ViewChild('infoVc') infoEl: ElementRef;
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
+
+    constructor(private readonly _ref: ChangeDetectorRef) {}
+
+    ngAfterViewInit(): void {
+        this._ref.detectChanges();
+    }
 }
 
 @Component({
