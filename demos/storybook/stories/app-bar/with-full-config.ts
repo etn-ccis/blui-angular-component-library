@@ -27,14 +27,14 @@ export const withFullConfig = (): any => ({
          <pxb-app-bar-dynamic-content
             style="margin: 0 24px"
             [title]="title"
-            [titleCollapseHeight]="titleCollapseHeight"
-            [titleExpandHeight]="titleExpandHeight"
+            [titleExpandedSize]="titleCollapsedSize"
+            [titleExpandedSize]="titleExpandedSize"
             [subtitle]="subtitle"
-            [subtitleCollapseHeight]="subtitleCollapseHeight"
-            [subtitleExpandHeight]="subtitleExpandHeight"
+            [subtitleCollapsedSize]="subtitleCollapsedSize"
+            [subtitleExpandedSize]="subtitleExpandedSize"
             [info]="info"
-            [infoCollapseHeight]="infoCollapseHeight"
-            [infoExpandHeight]="infoExpandHeight">
+            [infoCollapsedSize]="infoCollapsedSize"
+            [infoExpandedSize]="infoExpandedSize">
         </pxb-app-bar-dynamic-content>
         <div pxb-actions>
             <mat-icon style="margin: 0 8px">light</mat-icon>
@@ -49,14 +49,14 @@ export const withFullConfig = (): any => ({
         scrollThreshold: number('scrollThreshold', 100),
         mode: select('mode', ['dynamic', 'collapsed', 'expanded'], 'dynamic'),
         title: text('title', 'title'),
-        titleExpandHeight: number('titleExpandHeight', 30),
-        titleCollapseHeight: number('titleCollapseHeight', 20),
+        titleExpandedSize: number('titleExpandedSize', 30),
+        titleCollapseHeight: number('titleCollapsedSize', 20),
         subtitle: text('subtitle', 'subtitle'),
-        subtitleExpandHeight: number('subtitleExpandHeight', 16),
-        subtitleCollapseHeight: number('subtitleCollapseHeight', 0),
+        subtitleExpandedSize: number('subtitleExpandedSize', 16),
+        subtitleCollapsedSize: number('subtitleCollapsedSize', 0),
         info: text('info', 'info'),
-        infoExpandHeight: number('infoExpandHeight', 14),
-        infoCollapseHeight: number('infoCollapseHeight', 16),
+        infoExpandedSize: number('infoExpandedSize', 14),
+        infoCollapsedSize: number('infoCollapsedSize', 16),
         //showBackgroundImage: boolean('Show Background Image', true)
     },
 });

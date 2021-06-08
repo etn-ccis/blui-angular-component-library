@@ -3,27 +3,50 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
-    ContentChild,
+    ContentChild, ElementRef,
     Input,
     OnChanges,
     OnDestroy,
     OnInit,
-    SimpleChanges,
+    SimpleChanges, ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
 import { fromEvent, interval, Subscription } from 'rxjs';
 import { throttle } from 'rxjs/operators';
+import {isEmptyView} from "../../utils/utils";
 
 @Component({
     selector: 'pxb-app-bar-dynamic-content',
     encapsulation: ViewEncapsulation.None,
     template: `
         <div class="pxb-app-bar-dynamic-content">
-            <div [style.fontSize.px]="titlePx">{{ title }}</div>
-            <div [style.fontSize.px]="subtitlePx" [style.opacity]="1 - transformPercent">
+            <div #titleVc
+                 [style.transitionDuration.ms]='animationDuration'
+                 [style.fontSize.px]="titlePx">
+                <ng-content select="[pxb-title]"></ng-content>
+            </div>
+            <div *ngIf="isEmpty(titleEl)" [style.fontSize.px]="titlePx"
+                 [style.transitionDuration.ms]='animationDuration'>{{ title }}</div>
+
+            <div #subtitleVc  
+                 [style.fontSize.px]="subtitlePx"
+                 [style.transitionDuration.ms]='animationDuration'>
+                <ng-content select="[pxb-subtitle]"></ng-content>
+            </div>
+            <div *ngIf="isEmpty(subtitleEl)" [style.fontSize.px]="subtitlePx"
+                 [style.transitionDuration.ms]='animationDuration'
+                 [style.opacity]="1 - transformPercent">
                 {{ subtitle }}
             </div>
-            <div [style.fontSize.px]="infoPx" [style.marginTop.px]="infoMargin">
+
+            <div #infoVc 
+                 [style.fontSize.px]="infoPx"
+                 [style.transitionDuration.ms]='animationDuration'>
+                <ng-content select="[pxb-info]"></ng-content>
+            </div>
+            <div *ngIf="isEmpty(infoEl)"  [style.fontSize.px]="infoPx"
+                 [style.transitionDuration.ms]='animationDuration'
+                 [style.marginTop.px]="infoMargin">
                 {{ info }}
             </div>
         </div>
@@ -31,7 +54,7 @@ import { throttle } from 'rxjs/operators';
     styles: [
         `
             .pxb-app-bar-dynamic-content * {
-                transition: all 350ms;
+                transition: all;
             }
         `,
     ],
@@ -49,6 +72,12 @@ export class AppBarDynamicContent implements OnInit {
     @Input() subtitleCollapsedSize = 0;
     @Input() infoCollapsedSize = 16;
 
+    @ViewChild('titleVc') titleEl: ElementRef;
+    @ViewChild('subtitleVc') subtitleEl: ElementRef;
+    @ViewChild('infoVc') infoEl: ElementRef;
+
+    isEmpty = (el: ElementRef): boolean => isEmptyView(el);
+    animationDuration = 300;
     titlePx: number;
     subtitlePx: number;
     infoPx: number;
@@ -77,6 +106,7 @@ export class AppBarDynamicContent implements OnInit {
             color="primary"
             class="pxb-app-bar-content"
             [class.collapsed]="isCollapsed"
+            [style.transitionDuration.ms]='animationDuration'
             [style.height.px]="currentHeight"
         >
             <ng-content select="[pxb-icon]"></ng-content>
@@ -97,7 +127,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     @Input() collapsedHeight = this._calcDefaultCollapsedHeight();
     @Input() mode: 'collapsed' | 'expanded' | 'dynamic' = 'collapsed';
     @Input() scrollThreshold = 100;
-    @Input() animationDuration: 300;
+    @Input() animationDuration = 300;
 
     // The thing that scrolls, we listen to this.
     @Input() scrollContainerElement: Element;
@@ -130,6 +160,9 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
         this.useDefaultCollapsedHeight = isNaN(this.collapsedHeight) || this.collapsedHeight === 0;
         if (changes.mode) {
             this._resizeOnModeChange();
+        }
+        if (this.threeLiner) {
+          this.threeLiner.animationDuration = this.animationDuration;
         }
     }
 
@@ -188,33 +221,36 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
         if (this.mode !== 'dynamic') {
             return this._handleLockedModes();
         }
-        const scrollDistance = this.isWindow ? document.scrollingElement.scrollTop : this.scrollEl.scrollTop;
 
+        const scrollDistance = this.isWindow ? document.scrollingElement.scrollTop : this.scrollEl.scrollTop;
         if (this.isCollapsed && scrollDistance === 0) {
             this._setNewCollapsedHeight();
             this.isCollapsed = false;
             this.currentHeight = this.expandedHeight;
             this._transformDynamicContent();
             this._ref.detectChanges();
-        }
-        else if (scrollDistance > this.scrollThreshold && !this.isCollapsed) {
+        } else if (scrollDistance > this.scrollThreshold && !this.isCollapsed) {
             this._setNewCollapsedHeight();
             this.isCollapsed = true;
             this.currentHeight = this.collapsedHeight;
             this._transformDynamicContent();
+            this.isAnimating = true;
             this._ref.detectChanges();
             setTimeout(() => {
-                this.scrollEl.scrollTop = 1;
-                this._ref.detectChanges();
+                const currScrollDistance = this.isWindow ? document.scrollingElement.scrollTop : this.scrollEl.scrollTop;
+                if (currScrollDistance === 0) {
+                    if (this.isWindow) {
+                        window.scrollBy(0, 1);
+                    } else {
+                        this.scrollEl.scrollTop = 1;
+                    }
+                }
+                this.isAnimating = false;
             }, this.animationDuration);
         }
     }
 
     private _transformDynamicContent(): void {
-        this.isAnimating = true;
-        setTimeout(() => {
-            this.isAnimating = false;
-        }, this.animationDuration +100);
         if (this.threeLiner) {
             this.threeLiner.transform(this.isCollapsed);
         }
