@@ -49,3 +49,34 @@ Each PX Blue component has classes which can be used to override component style
 | ------------------------------ | ------------------------------------ |
 | pxb-app-bar                    | Styles applied to the tag            |
 | pxb-app-bar-content            | Styles applied to the root element   |
+
+# App Bar Dynamic Content
+
+The `<pxb-app-bar-dynamic-content>` accepts content that can grow and shrink within the context of a `<pxb-app-bar>`.
+
+
+## API
+
+<div style="overflow: auto;">
+
+| @Input                      | Description                                                  | Type       | Required | Default       |
+| --------------------------- | ------------------------------------------------------------ | ---------- | -------- | ------------- |
+| title                       | First line content                                           | `string`   | no       |               |
+| titleExpandedSize           | Pixel font size of the title when expanded                   | `number`   | no       | 30            |
+| titleCollapsedSize          | Pixel font size of the title when collapsed                  | `number`   | no       | 20            |
+| subtitle                    | Second line content                                          | `string`   | no       |               |
+| subtitleExpandedSize        | Pixel font size of the subtitle when expanded                | `number`   | no       | 16            |
+| subtitleCollapsedSize       | Pixel font size of the subtitle when collapsed               | `number`   | no       | 0             |
+| info                        | Third line content                                           | `string`   | no       |               |
+| infoExpandedSize            | Pixel font size of the info line when expanded               | `number`   | no       | 14            |
+| infoCollapsedSize           | Pixel font size of the info line when collapsed              | `number`   | no       | 16            |
+
+</div>
+
+The following child element is projected into `<pxb-app-bar-dynamic-content>`:
+
+| Selector                     | Description                | Required | Default |
+| ---------------------------- | -------------------------- | -------- | ------- |
+| pxb-title                    | First line content         | no       |         |
+| pxb-subtitle                 | Second line content        | no       |         |
+| pxb-info                     | Third line content         | no       |         |
