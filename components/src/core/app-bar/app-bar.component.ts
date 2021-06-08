@@ -3,50 +3,57 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
-    ContentChild, ElementRef,
+    ContentChild,
+    ElementRef,
     Input,
     OnChanges,
     OnDestroy,
     OnInit,
-    SimpleChanges, ViewChild,
+    SimpleChanges,
+    ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
 import { fromEvent, interval, Subscription } from 'rxjs';
 import { throttle } from 'rxjs/operators';
-import {isEmptyView} from "../../utils/utils";
+import { isEmptyView } from '../../utils/utils';
 
 @Component({
     selector: 'pxb-app-bar-dynamic-content',
     encapsulation: ViewEncapsulation.None,
     template: `
         <div class="pxb-app-bar-dynamic-content">
-            <div #titleVc
-                 [style.transitionDuration.ms]='animationDuration'
-                 [style.fontSize.px]="titlePx">
+            <div #titleVc [style.transitionDuration.ms]="animationDuration" [style.fontSize.px]="titlePx">
                 <ng-content select="[pxb-title]"></ng-content>
             </div>
-            <div *ngIf="isEmpty(titleEl)" [style.fontSize.px]="titlePx"
-                 [style.transitionDuration.ms]='animationDuration'>{{ title }}</div>
+            <div
+                *ngIf="isEmpty(titleEl)"
+                [style.fontSize.px]="titlePx"
+                [style.transitionDuration.ms]="animationDuration"
+            >
+                {{ title }}
+            </div>
 
-            <div #subtitleVc  
-                 [style.fontSize.px]="subtitlePx"
-                 [style.transitionDuration.ms]='animationDuration'>
+            <div #subtitleVc [style.fontSize.px]="subtitlePx" [style.transitionDuration.ms]="animationDuration">
                 <ng-content select="[pxb-subtitle]"></ng-content>
             </div>
-            <div *ngIf="isEmpty(subtitleEl)" [style.fontSize.px]="subtitlePx"
-                 [style.transitionDuration.ms]='animationDuration'
-                 [style.opacity]="1 - transformPercent">
+            <div
+                *ngIf="isEmpty(subtitleEl)"
+                [style.fontSize.px]="subtitlePx"
+                [style.transitionDuration.ms]="animationDuration"
+                [style.opacity]="1 - transformPercent"
+            >
                 {{ subtitle }}
             </div>
 
-            <div #infoVc 
-                 [style.fontSize.px]="infoPx"
-                 [style.transitionDuration.ms]='animationDuration'>
+            <div #infoVc [style.fontSize.px]="infoPx" [style.transitionDuration.ms]="animationDuration">
                 <ng-content select="[pxb-info]"></ng-content>
             </div>
-            <div *ngIf="isEmpty(infoEl)"  [style.fontSize.px]="infoPx"
-                 [style.transitionDuration.ms]='animationDuration'
-                 [style.marginTop.px]="infoMargin">
+            <div
+                *ngIf="isEmpty(infoEl)"
+                [style.fontSize.px]="infoPx"
+                [style.transitionDuration.ms]="animationDuration"
+                [style.marginTop.px]="infoMargin"
+            >
                 {{ info }}
             </div>
         </div>
@@ -106,7 +113,7 @@ export class AppBarDynamicContent implements OnInit {
             color="primary"
             class="pxb-app-bar-content"
             [class.collapsed]="isCollapsed"
-            [style.transitionDuration.ms]='animationDuration'
+            [style.transitionDuration.ms]="animationDuration"
             [style.height.px]="currentHeight"
         >
             <ng-content select="[pxb-icon]"></ng-content>
@@ -165,7 +172,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
             this._resizeOnModeChange();
         }
         if (this.threeLiner) {
-          this.threeLiner.animationDuration = this.animationDuration;
+            this.threeLiner.animationDuration = this.animationDuration;
         }
     }
 
@@ -240,7 +247,9 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
             this.isAnimating = true;
             this._ref.detectChanges();
             setTimeout(() => {
-                const currScrollDistance = this.isWindow ? document.scrollingElement.scrollTop : this.scrollEl.scrollTop;
+                const currScrollDistance = this.isWindow
+                    ? document.scrollingElement.scrollTop
+                    : this.scrollEl.scrollTop;
                 if (currScrollDistance === 0) {
                     if (this.isWindow) {
                         window.scrollBy(0, 1);
