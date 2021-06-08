@@ -126,7 +126,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     @Input() expandedHeight = 200;
     @Input() collapsedHeight = this._calcDefaultCollapsedHeight();
     @Input() mode: 'collapsed' | 'expanded' | 'dynamic' = 'collapsed';
-    @Input() scrollThreshold = 100;
+    @Input() scrollThreshold;
     @Input() animationDuration = 300;
 
     // The thing that scrolls, we listen to this.
@@ -149,6 +149,9 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
 
     ngOnInit(): void {
         this.currentHeight = this.expandedHeight;
+        if (!this.scrollThreshold) {
+            this.scrollThreshold = (this.expandedHeight - this.collapsedHeight) / 2;
+        }
     }
 
     ngOnChanges(changes: SimpleChanges): void {

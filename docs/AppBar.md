@@ -1,6 +1,6 @@
 # App Bar
 
-The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can be resized as the page is scrolled. It supports three modes:
+The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can be resized as the page is scrolled. It supports three modes: `dynamic`, `collapsed`, and `expanded`.
 
 ## Usage
 
@@ -17,15 +17,15 @@ The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can b
 
 <div style="overflow: auto;">
 
-| @Input                      | Description                                                  | Type                                         | Required | Default       |
-| --------------------------- | ------------------------------------------------------------ | -------------------------------------------- | -------- | ------------- |
-| collapsedHeight             | Height of the AppBar when collapsed                          | `number`                                     | no       | theme default |
-| expandedHeight              | Height of the AppBar when expanded                           | `number`                                     | no       | 200           |
-| mode                        | Behavior mode of the App Bar                                 | `'expanded'` \| `'collapsed'` \| `'dynamic'` | no       | 'dynamic'     |
-| scrollContainerElement      | Scrollable element which dynamic app bar responds to         | `Element`                                    | no       |               |
-| scrollContainerClassName    | Class name, index number of scrollable element               | `{ name: string, index: number }`            | no       |               |
-| scrollContainerId           | Id of the scrollable element                                 | `string`                                     | no       |               |
-| scrollThreshold             | Distance in pixels to scroll before collapsing toolbar       | `number`                                     | no       | 100           |
+| @Input                      | Description                                                  | Type                                         | Required | Default                                |
+| --------------------------- | ------------------------------------------------------------ | -------------------------------------------- | -------- | -------------------------------------- |
+| collapsedHeight             | Height of the AppBar when collapsed                          | `number`                                     | no       | theme default                          |
+| expandedHeight              | Height of the AppBar when expanded                           | `number`                                     | no       | 200                                    |
+| mode                        | Behavior mode of the App Bar                                 | `'expanded'` \| `'collapsed'` \| `'dynamic'` | no       | 'dynamic'                              |
+| scrollContainerElement      | Scrollable element which dynamic app bar responds to         | `Element`                                    | no       |                                        |
+| scrollContainerClassName    | Class name, index number of scrollable element               | `{ name: string, index: number }`            | no       |                                        |
+| scrollContainerId           | Id of the scrollable element                                 | `string`                                     | no       |                                        |
+| scrollThreshold             | Distance in pixels to scroll before collapsing toolbar       | `number`                                     | no       | (expandedHeight - collapsedHeight) / 2 |
 
 </div>
 

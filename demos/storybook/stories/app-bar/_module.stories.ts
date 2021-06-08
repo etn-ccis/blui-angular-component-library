@@ -32,7 +32,7 @@ export const appBarWrapper = () => (storyFn: any): any => {
         template: `
                 <div id="pxb-app-bar-container" style="width: 90%; max-height: 70vh; overflow: auto; position: relative" [style.backgroundColor]="getDecoratorBgColor()">
                     ${story.template}
-                    <div [style.height.vh]="100" [style.marginTop.px]="expandedHeight">
+                    <div [style.height.vh]="100" [style.marginTop.px]="8">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas iaculis vulputate arcu, quis vulputate mauris aliquet in. Praesent sollicitudin erat at augue cursus, a scelerisque odio tristique. Aenean quis dui in nisi condimentum viverra eleifend sed odio. Vestibulum a lacinia leo. Proin congue purus vulputate metus vestibulum eleifend. Suspendisse sit amet orci magna. Suspendisse eu odio ut purus ultrices ornare id eu dolor. Cras porttitor semper feugiat. Sed vel ultricies risus, vel dignissim arcu. Vestibulum quis interdum sem. Morbi bibendum tortor ligula, non pellentesque ante ullamcorper sed. Duis ornare felis eget justo faucibus, id tristique felis dignissim. Nullam sapien metus, feugiat egestas convallis eu, vehicula et turpis. Phasellus interdum, justo sit amet maximus pellentesque, eros orci dictum diam, id bibendum risus neque non risus.
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas iaculis vulputate arcu, quis vulputate mauris aliquet in. Praesent sollicitudin erat at augue cursus, a scelerisque odio tristique. Aenean quis dui in nisi condimentum viverra eleifend sed odio. Vestibulum a lacinia leo. Proin congue purus vulputate metus vestibulum eleifend. Suspendisse sit amet orci magna. Suspendisse eu odio ut purus ultrices ornare id eu dolor. Cras porttitor semper feugiat. Sed vel ultricies risus, vel dignissim arcu. Vestibulum quis interdum sem. Morbi bibendum tortor ligula, non pellentesque ante ullamcorper sed. Duis ornare felis eget justo faucibus, id tristique felis dignissim. Nullam sapien metus, feugiat egestas convallis eu, vehicula et turpis. Phasellus interdum, justo sit amet maximus pellentesque, eros orci dictum diam, id bibendum risus neque non risus.
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas iaculis vulputate arcu, quis vulputate mauris aliquet in. Praesent sollicitudin erat at augue cursus, a scelerisque odio tristique. Aenean quis dui in nisi condimentum viverra eleifend sed odio. Vestibulum a lacinia leo. Proin congue purus vulputate metus vestibulum eleifend. Suspendisse sit amet orci magna. Suspendisse eu odio ut purus ultrices ornare id eu dolor. Cras porttitor semper feugiat. Sed vel ultricies risus, vel dignissim arcu. Vestibulum quis interdum sem. Morbi bibendum tortor ligula, non pellentesque ante ullamcorper sed. Duis ornare felis eget justo faucibus, id tristique felis dignissim. Nullam sapien metus, feugiat egestas convallis eu, vehicula et turpis. Phasellus interdum, justo sit amet maximus pellentesque, eros orci dictum diam, id bibendum risus neque non risus.
@@ -44,8 +44,9 @@ export const appBarWrapper = () => (storyFn: any): any => {
             :host { 
                 display: flex; width: 100%; justify-content: center;
             } 
-            ::ng-deep #pxb-app-bar-container story > div { 
-                position: absolute;
+            ::ng-deep .mat-typography {
+                justify-content: center;
+                display: flex;
             }
             ${storyStyles}
             `,
@@ -79,8 +80,8 @@ storiesOf(`${COMPONENT_SECTION_NAME}/App Bar`, module)
     .addDecorator(withKnobs)
     // @accessibility
     .addDecorator(withA11y)
-    .addDecorator(storyWrapper())
     .addDecorator(appBarWrapper())
+    .addDecorator(storyWrapper())
     .addParameters({
         ...STORY_PARAMS,
         notes: { markdown: getReadMe('AppBar.md') },
