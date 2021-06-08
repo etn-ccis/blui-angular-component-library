@@ -1,5 +1,5 @@
 import { MatIconModule } from '@angular/material/icon';
-import { AppBarModule } from '@pxblue/angular-components';
+import { AppBarModule, ChannelValueModule } from '@pxblue/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { getReadMe, getReadMeStory, isDarkMode, storyWrapper, UtilModule } from '../../src/utils';
@@ -23,7 +23,6 @@ import { MatInputModule } from '@angular/material/input';
 import { MatMenuModule } from '@angular/material/menu';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatListModule } from '@angular/material/list';
-import { ChannelValueModule } from '@pxblue/angular-components';
 
 export const appBarWrapper = () => (storyFn: any): any => {
     const story = storyFn();
