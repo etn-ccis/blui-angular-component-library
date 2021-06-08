@@ -45,10 +45,16 @@ The following child element is projected into `<pxb-app-bar>`:
 
 Each PX Blue component has classes which can be used to override component styles:
 
-| Name                           | Description                          |
-| ------------------------------ | ------------------------------------ |
-| pxb-app-bar                    | Styles applied to the tag            |
-| pxb-app-bar-content            | Styles applied to the root element   |
+| Name                                 | Description                                     |
+| ------------------------------------ | ----------------------------------------------- |
+| pxb-app-bar                          | Styles applied to the tag                       |
+| pxb-app-bar-content                  | Styles applied to the root element              |
+| pxb-app-bar-background               | Styles applied to the background image          |
+| pxb-app-bar-background               | Styles applied to the background image          |
+| pxb-app-bar-dynamic-content-info     | Styles applied to the dynamic content 3rd line  |
+| pxb-app-bar-dynamic-content-subtitle | Styles applied to the dynamic content 2nd line  |
+| pxb-app-bar-dynamic-content-title    | Styles applied to the dynamic content 1st line  |
+| pxb-app-bar-collapsed                | Styles applied to the app bar when collapsed    |
 
 # App Bar Dynamic Content
 
@@ -62,14 +68,8 @@ The `<pxb-app-bar-dynamic-content>` accepts content that can grow and shrink wit
 | @Input                      | Description                                                  | Type       | Required | Default       |
 | --------------------------- | ------------------------------------------------------------ | ---------- | -------- | ------------- |
 | title                       | First line content                                           | `string`   | no       |               |
-| titleExpandedSize           | Pixel font size of the title when expanded                   | `number`   | no       | 30            |
-| titleCollapsedSize          | Pixel font size of the title when collapsed                  | `number`   | no       | 20            |
 | subtitle                    | Second line content                                          | `string`   | no       |               |
-| subtitleExpandedSize        | Pixel font size of the subtitle when expanded                | `number`   | no       | 16            |
-| subtitleCollapsedSize       | Pixel font size of the subtitle when collapsed               | `number`   | no       | 0             |
 | info                        | Third line content                                           | `string`   | no       |               |
-| infoExpandedSize            | Pixel font size of the info line when expanded               | `number`   | no       | 14            |
-| infoCollapsedSize           | Pixel font size of the info line when collapsed              | `number`   | no       | 16            |
 
 </div>
 

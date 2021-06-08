@@ -22,85 +22,44 @@ import { isEmptyView } from '../../utils/utils';
     encapsulation: ViewEncapsulation.None,
     template: `
         <div class="pxb-app-bar-dynamic-content">
-            <div #titleVc [style.transitionDuration.ms]="animationDuration" [style.fontSize.px]="titlePx">
-                <ng-content select="[pxb-title]"></ng-content>
-            </div>
-            <div
-                *ngIf="isEmpty(titleEl)"
-                [style.fontSize.px]="titlePx"
-                [style.transitionDuration.ms]="animationDuration"
-            >
-                {{ title }}
+            <div class="pxb-app-bar-dynamic-content-title">
+                <div #titleVc>
+                    <ng-content select="[pxb-title]"></ng-content>
+                </div>
+                <ng-container *ngIf="isEmpty(titleEl)">
+                    {{ title }}
+                </ng-container>
             </div>
 
-            <div #subtitleVc [style.fontSize.px]="subtitlePx" [style.transitionDuration.ms]="animationDuration">
-                <ng-content select="[pxb-subtitle]"></ng-content>
-            </div>
-            <div
-                *ngIf="isEmpty(subtitleEl)"
-                [style.fontSize.px]="subtitlePx"
-                [style.transitionDuration.ms]="animationDuration"
-                [style.opacity]="1 - transformPercent"
-            >
-                {{ subtitle }}
+            <div class="pxb-app-bar-dynamic-content-subtitle">
+                <div #subtitleVc>
+                    <ng-content select="[pxb-subtitle]"></ng-content>
+                </div>
+                <ng-container *ngIf="isEmpty(subtitleEl)">
+                    {{ subtitle }}
+                </ng-container>
             </div>
 
-            <div #infoVc [style.fontSize.px]="infoPx" [style.transitionDuration.ms]="animationDuration">
-                <ng-content select="[pxb-info]"></ng-content>
-            </div>
-            <div
-                *ngIf="isEmpty(infoEl)"
-                [style.fontSize.px]="infoPx"
-                [style.transitionDuration.ms]="animationDuration"
-                [style.marginTop.px]="infoMargin"
-            >
-                {{ info }}
+            <div class="pxb-app-bar-dynamic-content-info">
+                <div #infoVc>
+                    <ng-content select="[pxb-info]"></ng-content>
+                </div>
+                <ng-container *ngIf="isEmpty(infoEl)">
+                    {{ info }}
+                </ng-container>
             </div>
         </div>
     `,
-    styles: [
-        `
-            .pxb-app-bar-dynamic-content * {
-                transition: all;
-            }
-        `,
-    ],
 })
-export class AppBarDynamicContent implements OnInit {
+export class AppBarDynamicContent {
     @Input() title;
     @Input() subtitle;
     @Input() info;
 
-    @Input() titleExpandedSize = 30;
-    @Input() subtitleExpandedSize = 16;
-    @Input() infoExpandedSize = 14;
-
-    @Input() titleCollapsedSize = 20;
-    @Input() subtitleCollapsedSize = 0;
-    @Input() infoCollapsedSize = 16;
-
     @ViewChild('titleVc') titleEl: ElementRef;
     @ViewChild('subtitleVc') subtitleEl: ElementRef;
     @ViewChild('infoVc') infoEl: ElementRef;
-
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
-    animationDuration = 300;
-    titlePx: number;
-    subtitlePx: number;
-    infoPx: number;
-    infoMargin: number;
-    transformPercent: number;
-
-    ngOnInit(): void {
-        this.transform(false);
-    }
-
-    transform(isCollapsed: boolean): void {
-        this.titlePx = isCollapsed ? this.titleCollapsedSize : this.titleExpandedSize;
-        this.subtitlePx = isCollapsed ? this.subtitleCollapsedSize : this.subtitleExpandedSize;
-        this.infoPx = isCollapsed ? this.infoCollapsedSize : this.infoExpandedSize;
-        this.infoMargin = isCollapsed ? -8 : 0;
-    }
 }
 
 @Component({
@@ -110,12 +69,12 @@ export class AppBarDynamicContent implements OnInit {
     styleUrls: ['./app-bar.component.scss'],
     template: `
         <mat-toolbar
-            color="primary"
+            [color]="color"
             class="pxb-app-bar-content"
-            [class.collapsed]="isCollapsed"
-            [style.transitionDuration.ms]="animationDuration"
+            [class.pxb-app-bar-collapsed]="isCollapsed"
             [style.height.px]="currentHeight"
         >
+            <div class="pxb-app-bar-background"></div>
             <ng-content select="[pxb-icon]"></ng-content>
             <ng-content select="pxb-app-bar-dynamic-content"></ng-content>
             <ng-content></ng-content>
@@ -134,7 +93,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     @Input() collapsedHeight = this._calcDefaultCollapsedHeight();
     @Input() mode: 'collapsed' | 'expanded' | 'dynamic' = 'collapsed';
     @Input() scrollThreshold;
-    @Input() animationDuration = 300;
+    @Input() color: 'primary' | 'accent' | 'warn' | undefined = 'primary';
 
     // The thing that scrolls, we listen to this.
     @Input() scrollContainerElement: Element;
@@ -146,7 +105,6 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     isCollapsed = true;
     useDefaultCollapsedHeight = true;
     currentHeight: number;
-    animationStyle: string;
     isAnimating: boolean;
 
     scrollListener: Subscription;
@@ -162,7 +120,6 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        this.animationStyle = `all ${this.animationDuration}`;
         if (changes.collapsedHeight || changes.expandedHeighted) {
             this.expandedHeight = Number(this.expandedHeight);
             this.collapsedHeight = Number(this.collapsedHeight);
@@ -170,9 +127,6 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
         this.useDefaultCollapsedHeight = isNaN(this.collapsedHeight) || this.collapsedHeight === 0;
         if (changes.mode) {
             this._resizeOnModeChange();
-        }
-        if (this.threeLiner) {
-            this.threeLiner.animationDuration = this.animationDuration;
         }
     }
 
@@ -237,13 +191,11 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
             this._setNewCollapsedHeight();
             this.isCollapsed = false;
             this.currentHeight = this.expandedHeight;
-            this._transformDynamicContent();
             this._ref.detectChanges();
         } else if (scrollDistance > this.scrollThreshold && !this.isCollapsed) {
             this._setNewCollapsedHeight();
             this.isCollapsed = true;
             this.currentHeight = this.collapsedHeight;
-            this._transformDynamicContent();
             this.isAnimating = true;
             this._ref.detectChanges();
             setTimeout(() => {
@@ -258,13 +210,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
                     }
                 }
                 this.isAnimating = false;
-            }, this.animationDuration);
-        }
-    }
-
-    private _transformDynamicContent(): void {
-        if (this.threeLiner) {
-            this.threeLiner.transform(this.isCollapsed);
+            }, 300);
         }
     }
 
