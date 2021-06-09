@@ -16,7 +16,7 @@ import {
 import { fromEvent, interval, Subscription } from 'rxjs';
 import { throttle } from 'rxjs/operators';
 import { isEmptyView } from '../../utils/utils';
-import {Element} from "@angular/compiler";
+import { Element } from '@angular/compiler';
 
 @Component({
     selector: 'pxb-app-bar-dynamic-content',
