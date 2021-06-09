@@ -16,6 +16,7 @@ import {
 import { fromEvent, interval, Subscription } from 'rxjs';
 import { throttle } from 'rxjs/operators';
 import { isEmptyView } from '../../utils/utils';
+import {Element} from "@angular/compiler";
 
 @Component({
     selector: 'pxb-app-bar-dynamic-content',
@@ -80,12 +81,16 @@ export class AppBarDynamicContent implements AfterViewInit {
             [class.pxb-app-bar-collapsed]="isCollapsed"
             [style.height.px]="currentHeight"
         >
-            <div class="pxb-app-bar-background"></div>
-            <ng-content select="[pxb-icon]"></ng-content>
-            <ng-content select="pxb-app-bar-dynamic-content"></ng-content>
-            <ng-content></ng-content>
-            <pxb-spacer></pxb-spacer>
-            <ng-content select="[pxb-actions]"></ng-content>
+            <mat-toolbar-row>
+                <div class="pxb-app-bar-background"></div>
+                <ng-content select="[pxb-icon]"></ng-content>
+                <div class="pxb-app-bar-content-wrapper">
+                    <ng-content select="pxb-app-bar-dynamic-content"></ng-content>
+                    <ng-content></ng-content>
+                </div>
+                <pxb-spacer></pxb-spacer>
+                <ng-content select="[pxb-actions]"></ng-content>
+            </mat-toolbar-row>
         </mat-toolbar>
     `,
     host: {
@@ -115,6 +120,8 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
 
     scrollListener: Subscription;
     resizeListener: Subscription;
+
+    contentSize = 0;
 
     constructor(private readonly _ref: ChangeDetectorRef) {}
 
@@ -157,7 +164,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
             this.scrollListener.unsubscribe();
         }
         if (this.resizeListener) {
-            this.scrollListener.unsubscribe();
+            this.resizeListener.unsubscribe();
         }
     }
 

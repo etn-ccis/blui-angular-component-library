@@ -16,27 +16,26 @@ export const withFullConfig = (): any => ({
     ],
     template: `
         <pxb-app-bar
-         [class.showBackgroundImage]="showBackgroundImage"
-         [expandedHeight]="expandedHeight"
-         [collapsedHeight]="collapsedHeight"
-         [scrollThreshold]="scrollThreshold"
-         [scrollContainerId]="scrollContainerId"
-         [mode]="mode">
-         <button pxb-icon mat-icon-button>
-            <mat-icon>menu</mat-icon>
-        </button>
-         <pxb-app-bar-dynamic-content
-            style="margin: 0 24px"
-            [title]="title"
-            [subtitle]="subtitle"
-            [info]="info">
-        </pxb-app-bar-dynamic-content>
-        <div pxb-actions style="display: flex">
-            <mat-icon style="margin: 0 8px">light</mat-icon>
-            <mat-icon style="margin: 0 8px">face</mat-icon>
-            <mat-icon style="margin: 0 8px">home</mat-icon>
-        </div>
-    </pxb-app-bar>
+             [class.showBackgroundImage]="showBackgroundImage"
+             [expandedHeight]="expandedHeight"
+             [collapsedHeight]="collapsedHeight"
+             [scrollThreshold]="scrollThreshold"
+             [scrollContainerId]="scrollContainerId"
+             [mode]="mode">
+             <button pxb-icon mat-icon-button>
+                <mat-icon>menu</mat-icon>
+            </button>
+             <pxb-app-bar-dynamic-content
+                [title]="title"
+                [subtitle]="subtitle"
+                [info]="info">
+            </pxb-app-bar-dynamic-content>
+            <div pxb-actions style="display: flex">
+                <mat-icon style="margin: 0 8px">light</mat-icon>
+                <mat-icon style="margin: 0 8px">face</mat-icon>
+                <mat-icon style="margin: 0 8px">home</mat-icon>
+            </div>
+        </pxb-app-bar>
     `,
     props: {
         collapsedHeight: number('collapsedHeight', 64),
