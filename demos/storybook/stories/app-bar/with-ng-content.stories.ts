@@ -14,7 +14,7 @@ export const withNgContent = (): any => ({
          [collapsedHeight]="collapsedHeight"
          [scrollThreshold]="scrollThreshold"
          [scrollContainerId]="scrollContainerId"
-         mode="dynamic">
+         variant="snap">
              <pxb-app-bar-dynamic-content>
                 <pxb-channel-value style="color: white" pxb-title value="Temperature"></pxb-channel-value>
                 <div pxb-subtitle>subtitle</div>

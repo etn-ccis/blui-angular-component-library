@@ -21,7 +21,7 @@ export const withFullConfig = (): any => ({
              [collapsedHeight]="collapsedHeight"
              [scrollThreshold]="scrollThreshold"
              [scrollContainerId]="scrollContainerId"
-             [mode]="mode">
+             [variant]="variant">
              <button pxb-icon mat-icon-button>
                 <mat-icon>menu</mat-icon>
             </button>
@@ -41,7 +41,7 @@ export const withFullConfig = (): any => ({
         collapsedHeight: number('collapsedHeight', 64),
         expandedHeight: number('expandedHeight', 200),
         scrollThreshold: number('scrollThreshold', 100),
-        mode: select('mode', ['dynamic', 'collapsed', 'expanded'], 'dynamic'),
+        variant: select('variant', ['snap', 'collapsed', 'expanded'], 'snap'),
         title: text('title', 'title'),
         subtitle: text('subtitle', 'subtitle'),
         info: text('info', 'info'),

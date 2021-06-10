@@ -102,7 +102,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
 
     @Input() expandedHeight = 200;
     @Input() collapsedHeight = this._calcDefaultCollapsedHeight();
-    @Input() mode: 'collapsed' | 'expanded' | 'dynamic' = 'collapsed';
+    @Input() variant: 'collapsed' | 'expanded' | 'snap' = 'collapsed';
     @Input() scrollThreshold;
     @Input() color: 'primary' | 'accent' | 'warn' | undefined = 'primary';
 
@@ -128,7 +128,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     ngOnInit(): void {
         this.currentHeight = this.expandedHeight;
         if (!this.scrollThreshold) {
-            this.scrollThreshold = (this.expandedHeight - this.collapsedHeight) / 2;
+            this.scrollThreshold = this.expandedHeight - this.collapsedHeight;
         }
     }
 
@@ -138,7 +138,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
             this.collapsedHeight = Number(this.collapsedHeight);
         }
         this.useDefaultCollapsedHeight = isNaN(this.collapsedHeight) || this.collapsedHeight === 0;
-        if (changes.mode) {
+        if (changes.variant) {
             this._resizeOnModeChange();
         }
     }
@@ -169,7 +169,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     }
 
     private _resizeOnModeChange(): void {
-        if (this.mode !== 'dynamic') {
+        if (this.variant !== 'snap') {
             return this._handleLockedModes();
         } else if (this.scrollEl) {
             this._resizeEl();
@@ -177,14 +177,16 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     }
 
     private _handleLockedModes(): void {
-        if (this.mode === 'collapsed') {
+        if (this.variant === 'collapsed') {
+            this.isCollapsed = true;
             this.currentHeight = this.useDefaultCollapsedHeight
                 ? this._calcDefaultCollapsedHeight()
                 : this.collapsedHeight;
             this._ref.detectChanges();
             return;
         }
-        if (this.mode === 'expanded') {
+        if (this.variant === 'expanded') {
+            this.isCollapsed = false;
             this.currentHeight = this.expandedHeight;
             this._ref.detectChanges();
             return;
@@ -195,7 +197,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
         if (this.isAnimating) {
             return;
         }
-        if (this.mode !== 'dynamic') {
+        if (this.variant !== 'snap') {
             return this._handleLockedModes();
         }
 

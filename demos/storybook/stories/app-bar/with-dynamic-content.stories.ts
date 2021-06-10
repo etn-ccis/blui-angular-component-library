@@ -7,7 +7,7 @@ export const withDynamicContent = (): any => ({
          [collapsedHeight]="collapsedHeight"
          [scrollThreshold]="scrollThreshold"
          [scrollContainerId]="scrollContainerId"
-         mode="dynamic">
+         variant="snap">
          <pxb-app-bar-dynamic-content
             [title]="title"
             [subtitle]="subtitle"

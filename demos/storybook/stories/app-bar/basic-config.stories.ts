@@ -6,7 +6,8 @@ export const withBasicConfig = (): any => ({
          [expandedHeight]="expandedHeight"
          [collapsedHeight]="collapsedHeight"
          [scrollThreshold]="scrollThreshold"
-         [scrollContainerId]="scrollContainerId" mode="dynamic">
+         [scrollContainerId]="scrollContainerId" 
+         variant="snap">
          
          <div>Content</div>
 </pxb-app-bar>
