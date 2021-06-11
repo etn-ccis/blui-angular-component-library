@@ -32,7 +32,7 @@ jobs:
             - run:
                   name: Test
                   command: |
-                      yarn test --coverage --watchAll=false
+                      yarn test --no-watch --code-coverage
             - run:
                   name: Build Library
                   command: |
