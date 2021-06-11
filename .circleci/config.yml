@@ -253,7 +253,7 @@ workflows:
             - coverage_report:
                 requires:
                     - build_library
-                # filters:
-                #     branches:
-                #         only:
-                #             - master
+                filters:
+                    branches:
+                        only:
+                            - master
