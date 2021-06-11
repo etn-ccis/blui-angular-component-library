@@ -43,9 +43,5 @@
     "devDependencies": {
         "@pxblue/prettier-config": "^1.0.3",
         "prettier": "^2.2.1"
-    },
-    "dependencies": {
-        "@pxblue/eslint-config": "^2.0.5",
-        "@pxblue/ng-progress-icons": "^1.2.1"
     }
 }
