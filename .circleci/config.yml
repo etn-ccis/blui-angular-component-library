@@ -1,4 +1,6 @@
-version: 2
+version: 2.1
+orbs:
+    codecov: codecov/codecov@1.1.3
 jobs:
     build_library:
         docker:
@@ -30,7 +32,7 @@ jobs:
             - run:
                   name: Test
                   command: |
-                      yarn test
+                      yarn test --coverage --watchAll=false
             - run:
                   name: Build Library
                   command: |
@@ -48,6 +50,18 @@ jobs:
                   root: .
                   paths:
                       - dist
+                      - components/coverage
+    coverage_report:
+        working_directory: ~/angular-component-library
+        docker:
+            - image: circleci/node:12.9.1-browsers
+        steps:
+            - checkout
+            - attach_workspace:
+                at: .
+            - codecov/upload:
+                file: './components/coverage/lcov.info'
+                token: dc22e69d-e76e-4c9c-92a4-92432b1033d4
 
     # Builds the Storybook app using @pxblue/angular-components persisted in /dist folder.
     build_storybook:
@@ -236,3 +250,10 @@ workflows:
                         only:
                             - master
                             - dev
+            - coverage_report:
+                requires:
+                    - build_library
+                # filters:
+                #     branches:
+                #         only:
+                #             - master
