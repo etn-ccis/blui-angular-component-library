@@ -4,7 +4,7 @@
   "projects": {
     "components": {
       "root": ".",
-      "sourceRoot": "components",
+      "sourceRoot": "src",
       "projectType": "library",
       "prefix": "pxb",
       "architect": {

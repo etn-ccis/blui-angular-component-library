@@ -12,7 +12,8 @@
     "prettier": "prettier \"src/**/**.{ts,json,css,scss,html}\" --write",
     "prettier:check": "prettier \"src/**/**.{ts,json,css,scss,html}\" --check",
     "lint": "eslint \"src/**/**.ts\"",
-    "lint:fix": "eslint \"src/**/**.ts\" --fix"
+    "lint:fix": "eslint \"src/**/**.ts\" --fix",
+    "coverage": "yarn test --no-watch --code-coverage"
   },
   "peerDependencies": {},
   "devDependencies": {
@@ -36,6 +37,7 @@
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "^4.4.0",
     "@typescript-eslint/parser": "^4.4.0",
+    "codecov": "^3.8.2",
     "codelyzer": "^6.0.0",
     "eslint": "^7.10.0",
     "eslint-config-prettier": "^6.12.0",
