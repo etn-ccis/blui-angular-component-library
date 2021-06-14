@@ -6,7 +6,7 @@
     "prettier": "@pxblue/prettier-config",
     "scripts": {
         "initialize": "bash scripts/initializeSubmodule.sh",
-        "test": "cd ./components && yarn test",
+        "test": "cd ./components && yarn test:ci",
         "test:artifacts": "bash scripts/buildTest.sh",
         "coverage": "cd ./components && yarn test --no-watch --code-coverage",
         "build": "bash scripts/buildComponents.sh",
