@@ -8,7 +8,7 @@
     "watch:showcase": "ng build -c showcase",
     "build": "ng build",
     "test": "ng test",
-    "test:ci": "ng test --watch false",
+    "test:ci": "ng test --watch false --code-coverage",
     "prettier": "prettier \"src/**/**.{ts,json,css,scss,html}\" --write",
     "prettier:check": "prettier \"src/**/**.{ts,json,css,scss,html}\" --check",
     "lint": "eslint \"src/**/**.ts\"",
