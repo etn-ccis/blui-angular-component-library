@@ -6,11 +6,7 @@ import { Component } from '@angular/core';
 @Component({
     template: `
         <pxb-app-bar mode="collapsed">
-            <pxb-app-bar-dynamic-content>
-                <div pxb-title>title</div>
-                <div pxb-subtitle>title</div>
-                <div pxb-info>title</div>
-            </pxb-app-bar-dynamic-content>
+            <div>title</div>
         </pxb-app-bar>
     `,
 })
@@ -40,10 +36,7 @@ describe('AppBarComponent', () => {
             '.pxb-app-bar-content',
             '.pxb-app-bar-background',
             '.pxb-app-bar-collapsed',
-            '.pxb-app-bar-dynamic-content',
-            '.pxb-app-bar-dynamic-content-title',
-            '.pxb-app-bar-dynamic-content-subtitle',
-            '.pxb-app-bar-dynamic-content-info',
+            '.pxb-app-bar-body-wrapper',
         ];
         for (const className of classList) {
             count(fixture, className);

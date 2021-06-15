@@ -1,22 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { ThreeLinerModule } from './three-liner.module';
 import { count } from '../../utils/test-utils';
 import { Component } from '@angular/core';
+import {ThreeLinerModule} from "./three-liner.module";
 
 @Component({
     template: `
-        <pxb-app-bar mode="collapsed">
-            <pxb-app-bar-dynamic-content>
-                <div pxb-title>title</div>
-                <div pxb-subtitle>title</div>
-                <div pxb-info>title</div>
-            </pxb-app-bar-dynamic-content>
-        </pxb-app-bar>
+        <pxb-three-liner>
+            <div pxb-title>title</div>
+            <div pxb-subtitle>title</div>
+            <div pxb-info>title</div>
+        </pxb-three-liner>
     `,
 })
 class TestBasicUsage {}
 
-describe('AppBarComponent', () => {
+describe('ThreeLinerComponent', () => {
     let component: TestBasicUsage;
     let fixture: ComponentFixture<TestBasicUsage>;
 
@@ -37,13 +35,10 @@ describe('AppBarComponent', () => {
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
         const classList = [
-            '.pxb-app-bar-content',
-            '.pxb-app-bar-background',
-            '.pxb-app-bar-collapsed',
-            '.pxb-app-bar-dynamic-content',
-            '.pxb-app-bar-dynamic-content-title',
-            '.pxb-app-bar-dynamic-content-subtitle',
-            '.pxb-app-bar-dynamic-content-info',
+            '.pxb-three-liner-content',
+            '.pxb-three-liner-title',
+            '.pxb-three-liner-subtitle',
+            '.pxb-three-liner-info',
         ];
         for (const className of classList) {
             count(fixture, className);
