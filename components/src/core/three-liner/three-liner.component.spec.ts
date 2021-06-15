@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { count } from '../../utils/test-utils';
 import { Component } from '@angular/core';
-import {ThreeLinerModule} from "./three-liner.module";
+import { ThreeLinerModule } from './three-liner.module';
 
 @Component({
     template: `
