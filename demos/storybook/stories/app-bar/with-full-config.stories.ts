@@ -49,6 +49,6 @@ export const withFullConfig = (): any => ({
         info: text('info', 'info'),
         showBackgroundImage: boolean('Show Background Image', true),
         isCollapsed: undefined,
-        expandedYOffset: number('Expanded Y Offset', 80)
+        expandedYOffset: number('Expanded Y Offset', 80),
     },
 });

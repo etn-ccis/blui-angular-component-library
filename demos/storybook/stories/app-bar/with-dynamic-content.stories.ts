@@ -25,6 +25,6 @@ export const withDynamicContent = (): any => ({
         subtitle: text('subtitle', 'subtitle'),
         info: text('info', 'info'),
         isCollapsed: undefined,
-        expandedYOffset: number('Expanded Y Offset', 80)
+        expandedYOffset: number('Expanded Y Offset', 80),
     },
 });

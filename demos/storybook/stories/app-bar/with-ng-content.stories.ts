@@ -33,6 +33,6 @@ export const withNgContent = (): any => ({
         expandedHeight: number('expandedHeight', 200),
         scrollThreshold: number('scrollThreshold', 100),
         isCollapsed: undefined,
-        expandedYOffset: number('Expanded Y Offset', 80)
+        expandedYOffset: number('Expanded Y Offset', 80),
     },
 });

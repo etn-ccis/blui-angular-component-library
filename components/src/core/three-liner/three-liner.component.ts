@@ -7,12 +7,12 @@ import {
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
-import {isEmptyView} from '../../utils/utils';
+import { isEmptyView } from '../../utils/utils';
 
 @Component({
     selector: 'pxb-three-liner',
     encapsulation: ViewEncapsulation.None,
-    styleUrls: [ 'three-liner.component.scss' ],
+    styleUrls: ['three-liner.component.scss'],
     template: `
         <div class="pxb-three-liner-content">
             <div class="pxb-three-liner-title">

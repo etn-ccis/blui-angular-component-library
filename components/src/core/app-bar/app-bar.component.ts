@@ -3,18 +3,20 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
-    ContentChild, EventEmitter,
+    ContentChild,
+    EventEmitter,
     Input,
     OnChanges,
     OnDestroy,
-    OnInit, Output,
+    OnInit,
+    Output,
     SimpleChanges,
     ViewEncapsulation,
 } from '@angular/core';
 import { fromEvent, interval, Subscription } from 'rxjs';
 import { throttle } from 'rxjs/operators';
 import { Element } from '@angular/compiler';
-import {ThreeLinerComponent} from "../three-liner/three-liner.component";
+import { ThreeLinerComponent } from '../three-liner/three-liner.component';
 
 @Component({
     selector: 'pxb-app-bar',
