@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AppBarComponent, AppBarDynamicContent } from './app-bar.component';
+import { AppBarComponent } from './app-bar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { SpacerModule } from '../utility/spacer.module';
 import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-    declarations: [AppBarComponent, AppBarDynamicContent],
+    declarations: [AppBarComponent],
     imports: [CommonModule, MatToolbarModule, SpacerModule, MatIconModule],
-    exports: [AppBarComponent, AppBarDynamicContent],
+    exports: [AppBarComponent],
 })
 export class AppBarModule {}

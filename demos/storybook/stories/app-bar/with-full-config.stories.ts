@@ -21,20 +21,22 @@ export const withFullConfig = (): any => ({
              [collapsedHeight]="collapsedHeight"
              [scrollThreshold]="scrollThreshold"
              [scrollContainerId]="scrollContainerId"
-             [variant]="variant">
-             <button pxb-icon mat-icon-button>
-                <mat-icon>menu</mat-icon>
-            </button>
-             <pxb-app-bar-dynamic-content
-                [title]="title"
-                [subtitle]="subtitle"
-                [info]="info">
-            </pxb-app-bar-dynamic-content>
-            <div pxb-actions style="display: flex">
-                <mat-icon style="margin: 0 8px">light</mat-icon>
-                <mat-icon style="margin: 0 8px">face</mat-icon>
-                <mat-icon style="margin: 0 8px">home</mat-icon>
-            </div>
+             [variant]="variant"
+             [(isCollapsed)]="isCollapsed">
+                 <button pxb-icon mat-icon-button>
+                    <mat-icon>menu</mat-icon>
+                 </button>
+                 <pxb-three-liner
+                    [title]="title"
+                    [subtitle]="subtitle"
+                    [info]="info"
+                    [style.top.px]="isCollapsed ? 0 : expandedYOffset">
+                 </pxb-three-liner>
+                 <div pxb-actions style="display: flex">
+                    <mat-icon style="margin: 0 8px">light</mat-icon>
+                    <mat-icon style="margin: 0 8px">face</mat-icon>
+                    <mat-icon style="margin: 0 8px">home</mat-icon>
+                 </div>
         </pxb-app-bar>
     `,
     props: {
@@ -46,5 +48,7 @@ export const withFullConfig = (): any => ({
         subtitle: text('subtitle', 'subtitle'),
         info: text('info', 'info'),
         showBackgroundImage: boolean('Show Background Image', true),
+        isCollapsed: undefined,
+        expandedYOffset: number('Expanded Y Offset', 80)
     },
 });

@@ -3,71 +3,18 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
-    ContentChild,
-    ElementRef,
+    ContentChild, EventEmitter,
     Input,
     OnChanges,
     OnDestroy,
-    OnInit,
+    OnInit, Output,
     SimpleChanges,
-    ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
 import { fromEvent, interval, Subscription } from 'rxjs';
 import { throttle } from 'rxjs/operators';
-import { isEmptyView } from '../../utils/utils';
 import { Element } from '@angular/compiler';
-
-@Component({
-    selector: 'pxb-app-bar-dynamic-content',
-    encapsulation: ViewEncapsulation.None,
-    template: `
-        <div class="pxb-app-bar-dynamic-content">
-            <div class="pxb-app-bar-dynamic-content-title">
-                <div #titleVc>
-                    <ng-content select="[pxb-title]"></ng-content>
-                </div>
-                <ng-container *ngIf="isEmpty(titleEl)">
-                    {{ title }}
-                </ng-container>
-            </div>
-
-            <div class="pxb-app-bar-dynamic-content-subtitle">
-                <div #subtitleVc>
-                    <ng-content select="[pxb-subtitle]"></ng-content>
-                </div>
-                <ng-container *ngIf="isEmpty(subtitleEl)">
-                    {{ subtitle }}
-                </ng-container>
-            </div>
-
-            <div class="pxb-app-bar-dynamic-content-info">
-                <div #infoVc>
-                    <ng-content select="[pxb-info]"></ng-content>
-                </div>
-                <ng-container *ngIf="isEmpty(infoEl)">
-                    {{ info }}
-                </ng-container>
-            </div>
-        </div>
-    `,
-})
-export class AppBarDynamicContent implements AfterViewInit {
-    @Input() title;
-    @Input() subtitle;
-    @Input() info;
-
-    @ViewChild('titleVc') titleEl: ElementRef;
-    @ViewChild('subtitleVc') subtitleEl: ElementRef;
-    @ViewChild('infoVc') infoEl: ElementRef;
-    isEmpty = (el: ElementRef): boolean => isEmptyView(el);
-
-    constructor(private readonly _ref: ChangeDetectorRef) {}
-
-    ngAfterViewInit(): void {
-        this._ref.detectChanges();
-    }
-}
+import {ThreeLinerComponent} from "../three-liner/three-liner.component";
 
 @Component({
     selector: 'pxb-app-bar',
@@ -79,13 +26,14 @@ export class AppBarDynamicContent implements AfterViewInit {
             [color]="color"
             class="pxb-app-bar-content"
             [class.pxb-app-bar-collapsed]="isCollapsed"
+            [class.pxb-app-bar-expanded]="!isCollapsed"
+            [class.pxb-app-bar-view-init]="viewInit"
             [style.height.px]="currentHeight"
         >
             <mat-toolbar-row>
                 <div class="pxb-app-bar-background"></div>
                 <ng-content select="[pxb-icon]"></ng-content>
-                <div class="pxb-app-bar-content-wrapper">
-                    <ng-content select="pxb-app-bar-dynamic-content"></ng-content>
+                <div class="pxb-app-bar-body-wrapper">
                     <ng-content></ng-content>
                 </div>
                 <pxb-spacer></pxb-spacer>
@@ -98,25 +46,29 @@ export class AppBarDynamicContent implements AfterViewInit {
     },
 })
 export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
-    @ContentChild(AppBarDynamicContent) threeLiner: AppBarDynamicContent;
+    @ContentChild(ThreeLinerComponent) threeLiner: ThreeLinerComponent;
 
     @Input() expandedHeight = 200;
     @Input() collapsedHeight = this._calcDefaultCollapsedHeight();
     @Input() variant: 'collapsed' | 'expanded' | 'snap' = 'collapsed';
     @Input() scrollThreshold;
     @Input() color: 'primary' | 'accent' | 'warn' | undefined = 'primary';
+    @Input() isCollapsed = false;
 
     // The thing that scrolls, we listen to this.
     @Input() scrollContainerElement: Element;
     @Input() scrollContainerClassName: { name: string; index: number };
     @Input() scrollContainerId: string;
+
+    @Output() isCollapsedChange: EventEmitter<boolean> = new EventEmitter();
+
     scrollEl;
 
     isWindow = false;
-    isCollapsed = true;
     useDefaultCollapsedHeight = true;
     currentHeight: number;
     isAnimating: boolean;
+    viewInit = false;
 
     scrollListener: Subscription;
     resizeListener: Subscription;
@@ -133,19 +85,20 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     }
 
     ngOnChanges(changes: SimpleChanges): void {
-        if (changes.collapsedHeight || changes.expandedHeighted) {
-            this.expandedHeight = Number(this.expandedHeight);
-            this.collapsedHeight = Number(this.collapsedHeight);
-        }
-        this.useDefaultCollapsedHeight = isNaN(this.collapsedHeight) || this.collapsedHeight === 0;
         if (changes.variant) {
             this._resizeOnModeChange();
         }
+        this.useDefaultCollapsedHeight = isNaN(this.collapsedHeight) || this.collapsedHeight === 0;
+        this.expandedHeight = Number(this.expandedHeight);
+        this.collapsedHeight = Number(this.collapsedHeight);
+        this.currentHeight = this.isCollapsed ? this.collapsedHeight : this.expandedHeight;
+        this._ref.detectChanges();
     }
 
     ngAfterViewInit(): void {
         this._setScrollEl();
         this._resizeOnModeChange();
+        this.viewInit = true;
         this.scrollListener = fromEvent(this.scrollEl, 'scroll')
             .pipe(throttle(() => interval(10)))
             .subscribe(() => {
@@ -178,7 +131,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
 
     private _handleLockedModes(): void {
         if (this.variant === 'collapsed') {
-            this.isCollapsed = true;
+            this._setCollapsed(true);
             this.currentHeight = this.useDefaultCollapsedHeight
                 ? this._calcDefaultCollapsedHeight()
                 : this.collapsedHeight;
@@ -186,11 +139,16 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
             return;
         }
         if (this.variant === 'expanded') {
-            this.isCollapsed = false;
+            this._setCollapsed(false);
             this.currentHeight = this.expandedHeight;
             this._ref.detectChanges();
             return;
         }
+    }
+
+    private _setCollapsed(collapsed: boolean): void {
+        this.isCollapsed = collapsed;
+        this.isCollapsedChange.emit(collapsed);
     }
 
     private _resizeEl(): void {
@@ -204,12 +162,12 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
         const scrollDistance = this.isWindow ? document.scrollingElement.scrollTop : this.scrollEl.scrollTop;
         if (this.isCollapsed && scrollDistance === 0) {
             this._setNewCollapsedHeight();
-            this.isCollapsed = false;
+            this._setCollapsed(false);
             this.currentHeight = this.expandedHeight;
             this._ref.detectChanges();
         } else if (scrollDistance > this.scrollThreshold && !this.isCollapsed) {
             this._setNewCollapsedHeight();
-            this.isCollapsed = true;
+            this._setCollapsed(true);
             this.currentHeight = this.collapsedHeight;
             this.isAnimating = true;
             this._ref.detectChanges();

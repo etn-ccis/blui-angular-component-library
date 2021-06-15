@@ -21,11 +21,12 @@ The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can b
 | --------------------------- | ------------------------------------------------------------ | -------------------------------------------- | -------- | -------------------------------------- |
 | collapsedHeight             | Height of the AppBar when collapsed                          | `number`                                     | no       | theme default                          |
 | expandedHeight              | Height of the AppBar when expanded                           | `number`                                     | no       | 200                                    |
-| variant                     | Behavior mode of the App Bar                                 | `'expanded'` \| `'collapsed'` \| `'snap'`    | no       | 'snap'                                 |
+| isCollapsed                 | Two-way binding for whether the app bar is collapsed         | `boolean`                                    | no       | false                                  |
 | scrollContainerElement      | Scrollable element which dynamic app bar responds to         | `Element`                                    | no       |                                        |
 | scrollContainerClassName    | Class name, index number of scrollable element               | `{ name: string, index: number }`            | no       |                                        |
 | scrollContainerId           | Id of the scrollable element                                 | `string`                                     | no       |                                        |
 | scrollThreshold             | Distance in pixels to scroll before collapsing toolbar       | `number`                                     | no       | expandedHeight - collapsedHeight       |
+| variant                     | Behavior mode of the App Bar                                 | `'expanded'` \| `'collapsed'` \| `'snap'`    | no       | 'snap'                                 |
 
 </div>
 
@@ -36,9 +37,8 @@ The following child element is projected into `<pxb-app-bar>`:
 
 | Selector                     | Description                                                  | Required | Default |
 | ---------------------------- | ------------------------------------------------------------ | -------- | ------- |
-| pxb-app-bar-dynamic-content  | Dynamic content that grows and shrinks as user scrolls       | no       |         |
-| pxb-icon                     | Menu icon                                                    | no       |         |
 | pxb-actions                  | Menu action items                                            | no       |         |
+| pxb-icon                     | Menu icon                                                    | no       |         |
 
 
 ### Classes
@@ -48,35 +48,8 @@ Each PX Blue component has classes which can be used to override component style
 | Name                                 | Description                                     |
 | ------------------------------------ | ----------------------------------------------- |
 | pxb-app-bar                          | Styles applied to the tag                       |
-| pxb-app-bar-content                  | Styles applied to the root element              |
 | pxb-app-bar-background               | Styles applied to the background image          |
-| pxb-app-bar-background               | Styles applied to the background image          |
-| pxb-app-bar-dynamic-content-info     | Styles applied to the dynamic content 3rd line  |
-| pxb-app-bar-dynamic-content-subtitle | Styles applied to the dynamic content 2nd line  |
-| pxb-app-bar-dynamic-content-title    | Styles applied to the dynamic content 1st line  |
+| pxb-app-bar-body-wrapper             | Styles applied to the toolbar body ng-content   |
 | pxb-app-bar-collapsed                | Styles applied to the app bar when collapsed    |
-
-# App Bar Dynamic Content
-
-The `<pxb-app-bar-dynamic-content>` accepts content that can grow and shrink within the context of a `<pxb-app-bar>`.
-
-
-## API
-
-<div style="overflow: auto;">
-
-| @Input                      | Description                                                  | Type       | Required | Default       |
-| --------------------------- | ------------------------------------------------------------ | ---------- | -------- | ------------- |
-| title                       | First line content                                           | `string`   | no       |               |
-| subtitle                    | Second line content                                          | `string`   | no       |               |
-| info                        | Third line content                                           | `string`   | no       |               |
-
-</div>
-
-The following child element is projected into `<pxb-app-bar-dynamic-content>`:
-
-| Selector                     | Description                | Required | Default |
-| ---------------------------- | -------------------------- | -------- | ------- |
-| pxb-title                    | First line content         | no       |         |
-| pxb-subtitle                 | Second line content        | no       |         |
-| pxb-info                     | Third line content         | no       |         |
+| pxb-app-bar-content                  | Styles applied to the root element              |
+| pxb-app-bar-expanded                 | Styles applied to the app bar when expanded     |

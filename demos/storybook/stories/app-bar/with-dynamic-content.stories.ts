@@ -7,13 +7,15 @@ export const withDynamicContent = (): any => ({
          [collapsedHeight]="collapsedHeight"
          [scrollThreshold]="scrollThreshold"
          [scrollContainerId]="scrollContainerId"
+         [(isCollapsed)]="isCollapsed"
          variant="snap">
-         <pxb-app-bar-dynamic-content
-            [title]="title"
-            [subtitle]="subtitle"
-            [info]="info">
-        </pxb-app-bar-dynamic-content>
-</pxb-app-bar>
+             <pxb-three-liner
+                [title]="title"
+                [subtitle]="subtitle"
+                [info]="info"
+                [style.top.px]="isCollapsed ? 0 : expandedYOffset">
+            </pxb-three-liner>
+        </pxb-app-bar>
     `,
     props: {
         collapsedHeight: number('collapsedHeight', 64),
@@ -22,5 +24,7 @@ export const withDynamicContent = (): any => ({
         title: text('title', 'title'),
         subtitle: text('subtitle', 'subtitle'),
         info: text('info', 'info'),
+        isCollapsed: undefined,
+        expandedYOffset: number('Expanded Y Offset', 80)
     },
 });

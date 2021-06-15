@@ -8,9 +8,8 @@ export const withModes = (): any => ({
          [scrollThreshold]="scrollThreshold"
          [scrollContainerId]="scrollContainerId"
          [variant]="variant">
-         
-         <div>Content</div>
-</pxb-app-bar>
+            <div>Content</div>
+        </pxb-app-bar>
     `,
     props: {
         collapsedHeight: number('collapsedHeight', 64),

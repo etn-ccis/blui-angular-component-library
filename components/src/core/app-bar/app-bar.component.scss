@@ -16,15 +16,23 @@ $transition: all 300ms;
 }
 
 .pxb-app-bar-collapsed {
-    .pxb-app-bar-content-wrapper {
+    .pxb-app-bar-body-wrapper > * {
         top: 0;
     }
 }
-.pxb-app-bar-content-wrapper {
-    transition: $transition;
+.pxb-app-bar-body-wrapper > * {
     margin-left: 24px;
     position: relative;
     top: 80px;
+}
+
+// Only add the position transition after the view has been initiated.
+.pxb-app-bar-view-init .pxb-app-bar-body-wrapper > * {
+    transition: $transition;
+}
+//
+.pxb-app-bar-content:not(.pxb-app-bar-view-init) .pxb-app-bar-body-wrapper * {
+    transition: none;
 }
 
 .pxb-app-bar-background {
@@ -41,31 +49,17 @@ $transition: all 300ms;
     transition: $transition;
 }
 
-.pxb-app-bar-dynamic-content-title {
-    font-size: 30px;
-    transition: $transition;
-}
-.pxb-app-bar-dynamic-content-subtitle {
-    font-size: 16px;
-    transition: $transition;
-}
-.pxb-app-bar-dynamic-content-info {
-    font-size: 14px;
-    font-weight: 300;
-    transition: $transition;
-}
-
 .pxb-app-bar-collapsed {
     .pxb-app-bar-background {
         opacity: 0;
     }
-    .pxb-app-bar-dynamic-content-title {
+    .pxb-three-liner-title {
         font-size: 20px;
     }
-    .pxb-app-bar-dynamic-content-subtitle {
+    .pxb-three-liner-subtitle {
         font-size: 0px;
     }
-    .pxb-app-bar-dynamic-content-info {
+    .pxb-three-liner-info {
         margin-top: -8px;
         font-size: 16px;
         font-weight: 400;

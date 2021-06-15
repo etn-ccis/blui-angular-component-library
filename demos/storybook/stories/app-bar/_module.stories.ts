@@ -1,5 +1,5 @@
 import { MatIconModule } from '@angular/material/icon';
-import { AppBarModule, ChannelValueModule } from '@pxblue/angular-components';
+import { AppBarModule, ChannelValueModule, ThreeLinerModule } from '@pxblue/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { getReadMe, getReadMeStory, isDarkMode, storyWrapper, UtilModule } from '../../src/utils';
@@ -64,6 +64,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/App Bar`, module)
         moduleMetadata({
             imports: [
                 AppBarModule,
+                ThreeLinerModule,
                 BrowserAnimationsModule,
                 ChannelValueModule,
                 MatIconModule,

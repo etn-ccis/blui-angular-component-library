@@ -8,9 +8,8 @@ export const withBasicConfig = (): any => ({
          [scrollThreshold]="scrollThreshold"
          [scrollContainerId]="scrollContainerId" 
          variant="snap">
-         
-         <div>Content</div>
-</pxb-app-bar>
+            <div>Content</div>
+        </pxb-app-bar>
     `,
     props: {
         collapsedHeight: number('collapsedHeight', 64),

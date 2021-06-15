@@ -1,0 +1,19 @@
+$transition: all 300ms;
+
+.pxb-three-liner {
+    display: flex;
+}
+
+.pxb-three-liner-title {
+    font-size: 30px;
+    transition: $transition;
+}
+.pxb-three-liner-subtitle {
+    font-size: 16px;
+    transition: $transition;
+}
+.pxb-three-liner-info {
+    font-size: 14px;
+    font-weight: 300;
+    transition: $transition;
+}
