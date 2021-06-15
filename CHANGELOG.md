@@ -1,6 +1,10 @@
 # Change Log
 
-## v4.4.0 (not published yet)
+## v4.4.0 (May 28, 2021)
+
+### Changed
+
+-   Update `<pxb-user-menu>` to responsively display a bottom sheet in place of an overlay menu.
 
 ### Added
 
