@@ -30,6 +30,7 @@ export const withFullConfig = (): any => ({
                     [title]="title"
                     [subtitle]="subtitle"
                     [info]="info"
+                    style="margin-left: 24px"
                     [style.top.px]="isCollapsed ? 0 : expandedYOffset">
                  </pxb-three-liner>
                  <div pxb-actions style="display: flex">
