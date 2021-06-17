@@ -1,6 +1,6 @@
 # Three Liner
 
-The `<pxb-three-liner>` accepts content that can grow and shrink within the context of a `<pxb-app-bar>`.
+The `<pxb-three-liner>` can display up to three lines of stylized text or other ng-content. It is most commonly used within the context of a `<pxb-app-bar>` where the text can grow / shrink as the App Bar is expanded and collapsed.
 
 ## API
 
