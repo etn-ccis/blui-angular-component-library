@@ -28,7 +28,7 @@ import { Element } from '@angular/compiler';
             [class.pxb-app-bar-collapsed]="isCollapsed"
             [class.pxb-app-bar-expanded]="!isCollapsed"
             [class.pxb-app-bar-view-init]="viewInit"
-            [style.height.px]="currentHeight"
+            [style.height]="calcCurrentToolbarHeight()"
         >
             <mat-toolbar-row>
                 <div class="pxb-app-bar-background"></div>
@@ -47,7 +47,7 @@ import { Element } from '@angular/compiler';
 })
 export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
     @Input() expandedHeight = 200;
-    @Input() collapsedHeight = this._calcDefaultCollapsedHeight();
+    @Input() collapsedHeight;
     @Input() variant: 'collapsed' | 'expanded' | 'snap' = 'collapsed';
     @Input() scrollThreshold;
     @Input() color: 'primary' | 'accent' | 'warn' | undefined = 'primary';
@@ -64,7 +64,6 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
 
     isWindow = false;
     useDefaultCollapsedHeight = true;
-    currentHeight: number;
     isAnimating: boolean;
     viewInit = false;
 
@@ -76,7 +75,6 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     constructor(private readonly _ref: ChangeDetectorRef) {}
 
     ngOnInit(): void {
-        this.currentHeight = this.expandedHeight;
         if (!this.scrollThreshold) {
             this.scrollThreshold = this.expandedHeight - this.collapsedHeight;
         }
@@ -89,7 +87,6 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
         this.useDefaultCollapsedHeight = isNaN(this.collapsedHeight) || this.collapsedHeight === 0;
         this.expandedHeight = Number(this.expandedHeight);
         this.collapsedHeight = Number(this.collapsedHeight);
-        this.currentHeight = this.isCollapsed ? this.collapsedHeight : this.expandedHeight;
         this._ref.detectChanges();
     }
 
@@ -119,6 +116,15 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
         }
     }
 
+    calcCurrentToolbarHeight(): string {
+        if (!this.isCollapsed) {
+            return `${this.expandedHeight}px`;
+        } else if (!this.useDefaultCollapsedHeight) {
+            return `${this.collapsedHeight}px`;
+        }
+        return `${this._calcDefaultCollapsedHeight()}rem`;
+    }
+
     private _resizeOnModeChange(): void {
         if (this.variant !== 'snap') {
             return this._handleLockedModes();
@@ -130,15 +136,11 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     private _handleLockedModes(): void {
         if (this.variant === 'collapsed') {
             this._setCollapsed(true);
-            this.currentHeight = this.useDefaultCollapsedHeight
-                ? this._calcDefaultCollapsedHeight()
-                : this.collapsedHeight;
             this._ref.detectChanges();
             return;
         }
         if (this.variant === 'expanded') {
             this._setCollapsed(false);
-            this.currentHeight = this.expandedHeight;
             this._ref.detectChanges();
             return;
         }
@@ -159,14 +161,10 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
 
         const scrollDistance = this.isWindow ? document.scrollingElement.scrollTop : this.scrollEl.scrollTop;
         if (this.isCollapsed && scrollDistance === 0) {
-            this._setNewCollapsedHeight();
             this._setCollapsed(false);
-            this.currentHeight = this.expandedHeight;
             this._ref.detectChanges();
         } else if (scrollDistance > this.scrollThreshold && !this.isCollapsed) {
-            this._setNewCollapsedHeight();
             this._setCollapsed(true);
-            this.currentHeight = this.collapsedHeight;
             this.isAnimating = true;
             this._ref.detectChanges();
             setTimeout(() => {
@@ -200,13 +198,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
         }
     }
 
-    private _setNewCollapsedHeight(): void {
-        this.collapsedHeight = this.useDefaultCollapsedHeight
-            ? this._calcDefaultCollapsedHeight()
-            : this.collapsedHeight;
-    }
-
     private _calcDefaultCollapsedHeight(): number {
-        return document.documentElement.clientWidth <= 600 ? 56 : 64;
+        return document.documentElement.clientWidth <= 600 ? 3.5 : 4;
     }
 }
