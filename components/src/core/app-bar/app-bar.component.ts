@@ -160,7 +160,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
         }
 
         const scrollDistance = this.isWindow ? document.scrollingElement.scrollTop : this.scrollEl.scrollTop;
-        if (this.isCollapsed && scrollDistance === 0) {
+        if (this.isCollapsed && scrollDistance <= 0) {
             this._setCollapsed(false);
             this._ref.detectChanges();
         } else if (scrollDistance > this.scrollThreshold && !this.isCollapsed) {
@@ -171,7 +171,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
                 const currScrollDistance = this.isWindow
                     ? document.scrollingElement.scrollTop
                     : this.scrollEl.scrollTop;
-                if (currScrollDistance === 0) {
+                if (currScrollDistance <= 0) {
                     if (this.isWindow) {
                         window.scrollBy(0, 1);
                     } else {
