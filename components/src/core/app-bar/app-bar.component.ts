@@ -76,7 +76,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
 
     ngOnInit(): void {
         if (!this.scrollThreshold) {
-            this.scrollThreshold = this.expandedHeight - this.collapsedHeight;
+            this.scrollThreshold = this.expandedHeight - (this.collapsedHeight || 64);
         }
     }
 
