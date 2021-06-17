@@ -23,7 +23,6 @@ $transition: all 300ms;
 }
 .pxb-app-bar-body-wrapper > * {
     position: relative;
-    top: 80px;
 }
 
 // Only add the position transition after the view has been initiated.
@@ -54,14 +53,14 @@ $transition: all 300ms;
         opacity: 0;
     }
     .pxb-three-liner-title {
-        font-size: 20px;
+        font-size: 1.25rem;
     }
     .pxb-three-liner-subtitle {
         font-size: 0px;
     }
     .pxb-three-liner-info {
-        margin-top: -8px;
-        font-size: 16px;
+        margin-top: -.5rem;
+        font-size: 1rem;
         font-weight: 400;
     }
 }

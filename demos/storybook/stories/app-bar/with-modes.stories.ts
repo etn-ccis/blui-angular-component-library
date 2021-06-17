@@ -7,8 +7,9 @@ export const withModes = (): any => ({
          [collapsedHeight]="collapsedHeight"
          [scrollThreshold]="scrollThreshold"
          [scrollContainerId]="scrollContainerId"
+         [(isCollapsed)]="isCollapsed"
          [variant]="variant">
-            <div>Content</div>
+            <div [style.top.px]="isCollapsed ? 0 : expandedYOffset">Content</div>
         </pxb-app-bar>
     `,
     props: {
@@ -16,5 +17,7 @@ export const withModes = (): any => ({
         expandedHeight: number('expandedHeight', 200),
         scrollThreshold: number('scrollThreshold', 100),
         variant: select('variant', ['snap', 'collapsed', 'expanded'], 'snap'),
+        expandedYOffset: number('Expanded Y Offset', 80),
+        isCollapsed: undefined,
     },
 });

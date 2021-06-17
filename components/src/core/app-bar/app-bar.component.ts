@@ -3,7 +3,6 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
-    ContentChild,
     EventEmitter,
     Input,
     OnChanges,
@@ -16,7 +15,6 @@ import {
 import { fromEvent, interval, Subscription } from 'rxjs';
 import { throttle } from 'rxjs/operators';
 import { Element } from '@angular/compiler';
-import { ThreeLinerComponent } from '../three-liner/three-liner.component';
 
 @Component({
     selector: 'pxb-app-bar',
@@ -48,8 +46,6 @@ import { ThreeLinerComponent } from '../three-liner/three-liner.component';
     },
 })
 export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
-    @ContentChild(ThreeLinerComponent) threeLiner: ThreeLinerComponent;
-
     @Input() expandedHeight = 200;
     @Input() collapsedHeight = this._calcDefaultCollapsedHeight();
     @Input() variant: 'collapsed' | 'expanded' | 'snap' = 'collapsed';
