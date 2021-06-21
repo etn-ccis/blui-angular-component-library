@@ -9,7 +9,7 @@
 
 ### Fixed
 
-- Fixed `<pxb-drawer-header>` content alignment when a menu icon is not provided.
+- Fixed `<pxb-drawer-header>` content alignment when omitting a menu icon.
 
 ## v4.4.0 (May 28, 2021)
 
