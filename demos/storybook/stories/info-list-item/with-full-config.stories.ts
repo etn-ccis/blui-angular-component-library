@@ -9,6 +9,7 @@ export const withFullConfig = (): any => ({
             matRipple
             style="display:flex; cursor: pointer"
             [iconAlign]="iconAlign"
+            [wrapInfo]="wrapInfo"
             [wrapSubtitle]="wrapSubtitle"
             [wrapTitle]="wrapTitle"
             [avatar]="avatar"
@@ -39,6 +40,7 @@ export const withFullConfig = (): any => ({
         dense: boolean('dense', false),
         wrapTitle: boolean('wrapTitle', false),
         wrapSubtitle: boolean('wrapSubtitle', false),
+        wrapInfo: boolean('wrapInfo', false),
         iconAlign: select('iconAlign', ['left', 'center', 'right'], 'left'),
         iconColor: color('icon color', Colors.black[500]),
         avatar: boolean('avatar', false),
