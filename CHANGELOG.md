@@ -7,7 +7,6 @@
 - Added `<pxb-app-bar>` component.
 - Added `wrapInfo` prop to `<pxb-info-list-item>`.
 
-
 ## v4.4.0 (May 28, 2021)
 
 ### Changed

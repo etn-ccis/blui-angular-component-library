@@ -55,11 +55,7 @@ type DividerType = 'full' | 'partial' | undefined;
             >
                 <ng-content select="[pxb-subtitle]"></ng-content>
             </div>
-            <div
-                class="mat-body-2 pxb-info-list-item-info-wrapper"
-                matLine
-                [class.pxb-info-list-item-wrap]="wrapInfo"
-            >
+            <div class="mat-body-2 pxb-info-list-item-info-wrapper" matLine [class.pxb-info-list-item-wrap]="wrapInfo">
                 <ng-content select="[pxb-info]"></ng-content>
             </div>
             <pxb-spacer class="pxb-info-list-item-spacer"></pxb-spacer>
