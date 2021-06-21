@@ -73,3 +73,7 @@ from the root directory.
 ## Using the Components
 
 See the [documentation](https://github.com/pxblue/angular-component-library/tree/dev/docs) for information on using these components.
+
+## Browser Support
+
+PX Blue libraries will work with any modern browser. For details refer to our [Browser Support](https://pxblue.github.io/development/frameworks-web/angular#browser-support) documentation.
