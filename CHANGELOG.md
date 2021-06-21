@@ -7,6 +7,10 @@
 - Added `<pxb-app-bar>` component.
 - Added `wrapInfo` prop to `<pxb-info-list-item>`.
 
+### Fixed
+
+- Fixed `<pxb-drawer-header>` content alignment when omitting a menu icon.
+
 ## v4.4.0 (May 28, 2021)
 
 ### Changed
