@@ -1,5 +1,5 @@
 import { navItems } from './basic-config.stories';
-import {boolean} from "@storybook/addon-knobs";
+import { boolean } from '@storybook/addon-knobs';
 
 const bgImage = require('../../assets/farm.jpg');
 
@@ -48,6 +48,6 @@ export const withCustomHeader = (): any => ({
       `,
     props: {
         navItems: navItems,
-        hideMenuIcon: boolean('Hide Menu Icon', false)
+        hideMenuIcon: boolean('Hide Menu Icon', false),
     },
 });
