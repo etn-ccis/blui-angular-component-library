@@ -1,16 +1,32 @@
 # App Bar
 
-The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can be resized as the page is scrolled. It supports three modes: `snap`, `collapsed`, and `expanded`.
+The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can be resized as the page is scrolled. It supports three variants: `snap`, `collapsed`, and `expanded`.
+
+<div style="text-align:center; margin-bottom:20px">
+    <img width="100%" style="max-width: 600px" alt="App Bar Three Liner " src="./gifs/appBarThreeLiner.gif">
+    <hr/>
+</div>
 
 ## Usage
 
 ```tsx
+// AppBar and Three Liner component resizes between collapsedHeight and expandedHeight as the window is scrolled
+<pxb-app-bar variant='snap'>
+<pxb-three-liner
+    [title] ='title'
+    [subtitle] ='subtitle'
+    [info] ='info'
+</pxb-three-liner>
+</pxb-app-bar>
+
 // Default: AppBar will resize between collapsedHeight and expandedHeight as the window is scrolled
-<pxb-app-bar mode='snap'></pxb-app-bar>
+<pxb-app-bar variant='snap'></pxb-app-bar>
+
 // App Bar will stay fixed at the collapsedHeight size
-<pxb-app-bar mode='collapsed'></pxb-app-bar>
+<pxb-app-bar variant='collapsed'></pxb-app-bar>
+
 // App Bar will stay fixed at the expandedHeight size
-<pxb-app-bar mode='expanded'></pxb-app-bar>
+<pxb-app-bar variant='expanded'></pxb-app-bar>
 ```
 
 ## API
@@ -26,11 +42,11 @@ The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can b
 | scrollContainerClassName    | Class name, index number of scrollable element               | `{ name: string, index: number }`            | no       |                                        |
 | scrollContainerId           | Id of the scrollable element                                 | `string`                                     | no       |                                        |
 | scrollThreshold             | Distance in pixels to scroll before collapsing toolbar       | `number`                                     | no       | expandedHeight - collapsedHeight       |
-| variant                     | Behavior mode of the App Bar                                 | `'expanded'` \| `'collapsed'` \| `'snap'`    | no       | 'snap'                                 |
+| variant                     | Behavior of the App Bar                                 | `'expanded'` \| `'collapsed'` \| `'snap'`    | no       | 'snap'                                 |
 
 </div>
 
-> For the `snap` mode to respond correctly to scroll events, the `scrollContainerElement`, `scrollContainerClassName`, or `scrollContainerId` should be provided. 
+> For the `snap` variant to respond correctly to scroll events, the `scrollContainerElement`, `scrollContainerClassName`, or `scrollContainerId` should be provided. 
 
 
 The following child element is projected into `<pxb-app-bar>`:
