@@ -18,9 +18,9 @@ The following child element is projected into `<pxb-three-liner>`:
 
 | Selector                     | Description                | Required | Default |
 | ---------------------------- | -------------------------- | -------- | ------- |
-| pxb-title                    | First line content         | no       |         |
-| pxb-subtitle                 | Second line content        | no       |         |
-| pxb-info                     | Third line content         | no       |         |
+| [pxb-title]                    | First line content         | no       |         |
+| [pxb-subtitle]                 | Second line content        | no       |         |
+| [pxb-info]                     | Third line content         | no       |         |
 
 ### Classes
 
