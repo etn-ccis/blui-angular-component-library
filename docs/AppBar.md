@@ -23,14 +23,14 @@ imports: [
 ...
 ```
 
-```tsx
+```html
 // AppBar and Three Liner component resizes between collapsedHeight and expandedHeight as the window is scrolled
 <pxb-app-bar variant='snap'>
-<pxb-three-liner
-    [title] ='title'
-    [subtitle] ='subtitle'
-    [info] ='info'
-</pxb-three-liner>
+    <pxb-three-liner
+        [title] ='title'
+        [subtitle] ='subtitle'
+        [info] ='info'
+    </pxb-three-liner>
 </pxb-app-bar>
 
 // Default: AppBar will resize between collapsedHeight and expandedHeight as the window is scrolled
@@ -60,15 +60,15 @@ imports: [
 
 </div>
 
-> For the `snap` variant to respond correctly to scroll events, the `scrollContainerElement`, `scrollContainerClassName`, or `scrollContainerId` should be provided. 
+> For the `snap` variant to respond correctly to scroll events, the following child element is projected into <pxb-app-bar> `scrollContainerElement`, `scrollContainerClassName`, or `scrollContainerId` should be provided. 
 
 
 The following child element is projected into `<pxb-app-bar>`:
 
 | Selector                     | Description                                                  | Required | Default |
 | ---------------------------- | ------------------------------------------------------------ | -------- | ------- |
-| pxb-actions                  | Menu action items                                            | no       |         |
-| pxb-icon                     | Menu icon                                                    | no       |         |
+| [pxb-actions]                  | Menu action items                                            | no       |         |
+| [pxb-icon]                     | Menu icon                                                    | no       |         |
 
 
 ### Classes
