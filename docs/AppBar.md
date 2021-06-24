@@ -60,7 +60,7 @@ imports: [
 
 </div>
 
-> For the `snap` variant to respond correctly to scroll events, the following child element is projected into <pxb-app-bar> `scrollContainerElement`, `scrollContainerClassName`, or `scrollContainerId` should be provided. 
+> For the `snap` variant to respond correctly to scroll events, the `scrollContainerElement`, `scrollContainerClassName`, or `scrollContainerId` should be provided. 
 
 
 The following child element is projected into `<pxb-app-bar>`:
