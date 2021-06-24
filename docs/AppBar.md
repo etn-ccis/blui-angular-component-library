@@ -4,10 +4,24 @@ The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can b
 
 <div style="text-align:center; margin-bottom:20px">
     <img width="100%" style="max-width: 600px" alt="App Bar Three Liner " src="./gifs/appBarThreeLiner.gif">
-    <hr/>
 </div>
 
 ## Usage
+
+<div style="width: 100%; text-align: center">
+    <img width="100%" style="max-width: 600px" alt="User Menu Anatomy" src="./images/appBarExpanded.png">
+    <img width="100%" style="max-width: 600px" alt="User Menu Anatomy Selector" src="./images/appBarCollapsed.png">
+</div>
+
+```typescript
+// app.module.ts
+import { AppBarComponent} from '@pxblue/angular-components';
+...
+imports: [
+    CommonModule, MatToolbarModule, SpacerModule, MatIconModule
+],
+...
+```
 
 ```tsx
 // AppBar and Three Liner component resizes between collapsedHeight and expandedHeight as the window is scrolled
