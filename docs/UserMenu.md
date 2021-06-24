@@ -101,12 +101,12 @@ The following child elements are projected into `<pxb-user-menu>`:
 
 Each PX Blue component has classes which can be used to override component styles:
 
-| Name                                | Description                                 |
-| ----------------------------------- | ------------------------------------------- |
-| pxb-user-menu-avatar                | Styles applied to avatar element            |
-| pxb-user-menu-overlay               | Styles applied to the menu overlay          |
-| pxb-user-menu-header                | Styles applied to the generated menu header |
-| pxb-user-menu-header-avatar         | Styles applied to the menu header avatar    |
-| pxb-user-menu-overlay-backdrop      | Styles applied to the menu overlay backdrop |
-| pxb-user-menu-bottomsheet           | Styles applied to the bottomsheet overlay   |
-| pxb-user-menu-bottomsheet-backdrop  | Styles applied to the bottomsheet backdrop  |
+| Name                               | Description                                 |
+| ---------------------------------- | ------------------------------------------- |
+| pxb-user-menu-avatar               | Styles applied to avatar element            |
+| pxb-user-menu-overlay              | Styles applied to the menu overlay          |
+| pxb-user-menu-header               | Styles applied to the generated menu header |
+| pxb-user-menu-header-avatar        | Styles applied to the menu header avatar    |
+| pxb-user-menu-overlay-backdrop     | Styles applied to the menu overlay backdrop |
+| pxb-user-menu-bottomsheet          | Styles applied to the bottomsheet overlay   |
+| pxb-user-menu-bottomsheet-backdrop | Styles applied to the bottomsheet backdrop  |

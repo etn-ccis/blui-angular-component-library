@@ -50,7 +50,7 @@ The following child element is projected into `<pxb-channel-value>`:
 
 | Selector | Description             | Required | Default |
 | -------- | ----------------------- | -------- | ------- |
-| [child]  | Icons shown on the left | no       |         |
+| (child)  | Icons shown on the left | no       |         |
 
 ### Classes
 
