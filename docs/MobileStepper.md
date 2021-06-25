@@ -18,11 +18,11 @@ imports: [
 ```
 
 ```html
-// your-component.ts activeStep = 0; steps = 4;
+your-component.ts activeStep = 0; steps = 4;
 ```
 
 ```html
-// your-component.html
+your-component.html
 <pxb-mobile-stepper [steps]="steps" [activeStep]="activeStep">
     <button
         pxb-back-button

@@ -15,7 +15,7 @@ The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can b
 
 ```typescript
 // app.module.ts
-import { AppBarComponent} from '@pxblue/angular-components';
+import { AppBarModule } from '@pxblue/angular-components';
 ...
 imports: [
     CommonModule, MatToolbarModule, SpacerModule, MatIconModule
@@ -24,15 +24,6 @@ imports: [
 ```
 
 ```html
-// AppBar and Three Liner component resizes between collapsedHeight and expandedHeight as the window is scrolled
-<pxb-app-bar variant='snap'>
-    <pxb-three-liner
-        [title] ='title'
-        [subtitle] ='subtitle'
-        [info] ='info'
-    </pxb-three-liner>
-</pxb-app-bar>
-
 // Default: AppBar will resize between collapsedHeight and expandedHeight as the window is scrolled
 <pxb-app-bar variant='snap'></pxb-app-bar>
 
@@ -41,6 +32,15 @@ imports: [
 
 // App Bar will stay fixed at the expandedHeight size
 <pxb-app-bar variant='expanded'></pxb-app-bar>
+
+// AppBar wiht Three Liner component
+<pxb-app-bar variant='snap'>
+    <pxb-three-liner
+        [title] ='title'
+        [subtitle] ='subtitle'
+        [info] ='info'
+    </pxb-three-liner>
+</pxb-app-bar>
 ```
 
 ## API
