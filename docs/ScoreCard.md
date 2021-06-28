@@ -24,7 +24,7 @@ imports: [
 ```
 
 ```html
-// Example with basic body content, action items, and a score badge
+<!-- Example with basic body content, action items, and a score badge -->
 
 <pxb-score-card
     [headerTitle]="'Substation 3'"

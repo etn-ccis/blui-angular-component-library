@@ -19,10 +19,10 @@ imports: [
 ```
 
 ```html
-// using flex layout
+<!-- using flex layout -->
 <pxb-spacer></pxb-spacer>
 
-// using pixels
+<!-- using pixels -->
 <pxb-spacer width="50"></pxb-spacer>
 ```
 
