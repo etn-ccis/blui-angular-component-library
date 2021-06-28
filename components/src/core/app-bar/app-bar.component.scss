@@ -1,0 +1,66 @@
+.pxb-app-bar {
+    display: flex;
+    position: sticky;
+    position: -webkit-sticky; /* For macOS/iOS Safari */
+    top: 0; /* Sets the sticky toolbar to be on top */
+    z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
+    overflow: hidden;
+}
+
+$transition: all 300ms;
+.pxb-app-bar-content {
+    min-height: unset;
+    transition: $transition;
+    * {
+        z-index: 2;
+    }
+}
+
+.pxb-app-bar-collapsed {
+    .pxb-app-bar-body-wrapper > * {
+        top: 0;
+    }
+}
+.pxb-app-bar-body-wrapper > * {
+    position: relative;
+}
+
+// Only add the position transition after the view has been initiated.
+.pxb-app-bar-view-init .pxb-app-bar-body-wrapper > * {
+    transition: $transition;
+}
+//
+.pxb-app-bar-content:not(.pxb-app-bar-view-init) .pxb-app-bar-body-wrapper * {
+    transition: none;
+}
+
+.pxb-app-bar-background {
+    z-index: 1;
+    position: absolute;
+    opacity: 0.3;
+    background-position: center;
+    background-size: cover;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: $transition;
+}
+
+.pxb-app-bar-collapsed {
+    .pxb-app-bar-background {
+        opacity: 0;
+    }
+    .pxb-three-liner-title {
+        font-size: 1.25rem;
+    }
+    .pxb-three-liner-subtitle {
+        font-size: 0px;
+    }
+    .pxb-three-liner-info {
+        margin-top: -0.5rem;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+}

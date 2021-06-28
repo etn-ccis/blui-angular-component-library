@@ -1,4 +1,4 @@
-import { number, select, text } from '@storybook/addon-knobs';
+import { select, text } from '@storybook/addon-knobs';
 import { ConnectionPositionPair } from '@angular/cdk/overlay';
 import { items } from './with-basic-config.stories';
 import { invertRTL } from '../../src/utils';
@@ -10,9 +10,8 @@ export const withFullConfig = (): any => ({
             [avatarValue]="avatarValue" 
             [menuTitle]="menuTitle" 
             [menuSubtitle]="menuSubtitle"
-            [positions]="createPositions(originX, originY, overlayX, overlayY)"
-            [useBottomSheetAt]="useBottomSheetAt">
-            <mat-nav-list pxb-menu-body [style.paddingTop.px]="0">
+            [positions]="createPositions(originX, originY, overlayX, overlayY)">>
+            <mat-nav-list pxb-menu-body [style.paddingTop.px]="0" [style.width.rem]="12">
                 <pxb-info-list-item *ngFor="let item of items" [dense]="true" 
                     (click)="open=false; item.onSelect();">
                     <mat-icon pxb-icon [style.transform]="invertRTL()">{{item.icon}}</mat-icon>
@@ -35,6 +34,5 @@ export const withFullConfig = (): any => ({
         createPositions: (originX, originY, overlayX, overlayY): ConnectionPositionPair[] => [
             new ConnectionPositionPair({ originX, originY }, { overlayX, overlayY }),
         ],
-        useBottomSheetAt: number('useBottomSheetAt', 600),
     },
 });
