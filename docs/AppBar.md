@@ -33,7 +33,7 @@ imports: [
 // App Bar will stay fixed at the expandedHeight size
 <pxb-app-bar variant='expanded'></pxb-app-bar>
 
-// AppBar wiht Three Liner component
+// AppBar with Three Liner component
 <pxb-app-bar variant='snap'>
     <pxb-three-liner
         [title] ='title'
