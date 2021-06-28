@@ -29,7 +29,7 @@ imports: [
 ...
 ```
 
-```tsx
+```ts
 let open = false;
 const items = [
     {

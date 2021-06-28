@@ -3,7 +3,8 @@
 The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can be resized as the page is scrolled. It supports three variants: `snap`, `collapsed`, and `expanded`.
 
 <div style="text-align:center; margin-bottom:20px">
-    <img width="100%" style="max-width: 600px" alt="App Bar Three Liner " src="./gifs/appBarThreeLiner.gif">
+    <img width="100%" style="max-width: 600px; margin-bottom: 20px; border: 1px solid #0002;" alt="App Bar Three Liner" src="./gifs/appBarThreeLiner.gif">
+    <img width="100%" style="max-width: 600px; border: 1px solid #0002;" alt="App Bar that would snap to the scroll position" src="./gifs/appBarSnap.gif">
 </div>
 
 ## Usage
@@ -24,22 +25,18 @@ imports: [
 ```
 
 ```html
-// Default: AppBar will resize between collapsedHeight and expandedHeight as the window is scrolled
-<pxb-app-bar variant='snap'></pxb-app-bar>
+<!-- Default: AppBar will resize between collapsedHeight and expandedHeight as the window is scrolled -->
+<pxb-app-bar variant="snap"></pxb-app-bar>
 
-// App Bar will stay fixed at the collapsedHeight size
-<pxb-app-bar variant='collapsed'></pxb-app-bar>
+<!-- App Bar will stay fixed at the collapsedHeight size -->
+<pxb-app-bar variant="collapsed"></pxb-app-bar>
 
-// App Bar will stay fixed at the expandedHeight size
-<pxb-app-bar variant='expanded'></pxb-app-bar>
+<!-- App Bar will stay fixed at the expandedHeight size -->
+<pxb-app-bar variant="expanded"></pxb-app-bar>
 
-// AppBar with Three Liner component
-<pxb-app-bar variant='snap'>
-    <pxb-three-liner
-        [title] ='title'
-        [subtitle] ='subtitle'
-        [info] ='info'
-    ></pxb-three-liner>
+<!-- AppBar with Three Liner component -->
+<pxb-app-bar variant="snap">
+    <pxb-three-liner [title]="title" [subtitle]="subtitle" [info]="info"></pxb-three-liner>
 </pxb-app-bar>
 ```
 

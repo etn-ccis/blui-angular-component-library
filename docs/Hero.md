@@ -27,14 +27,14 @@ imports: [
 ```
 
 ```html
-// Simple usage via Hero attributes
+<!-- Simple usage via Hero attributes -->
 
 <pxb-hero label="Healthy" value="96" units="/100">
     <mat-icon pxb-primary>timer</mat-icon>
     <mat-icon pxb-secondary>trending_up</mat-icon>
 </pxb-hero>
 
-// Complex example with multiple values as children
+<!-- Complex example with multiple values as children -->
 
 <pxb-hero label="Load">
     <mat-icon pxb-primary>timer</mat-icon>
@@ -98,7 +98,7 @@ imports: [
 ```
 
 ```html
-// your-component.html
+<!-- your-component.html -->
 <pxb-hero-banner [divider]="true">
     <pxb-hero [label]="'label'">
         <i pxb-primary class="pxb-grade_a"></i>
