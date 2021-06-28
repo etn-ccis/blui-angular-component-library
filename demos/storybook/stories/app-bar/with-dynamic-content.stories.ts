@@ -7,7 +7,7 @@ export const withDynamicContent = (): any => ({
          [collapsedHeight]="collapsedHeight"
          [scrollThreshold]="scrollThreshold"
          [scrollContainerId]="scrollContainerId"
-         [(isCollapsed)]="isCollapsed"
+         (collapsedChange)="isCollapsed = $event"
          variant="snap">
              <pxb-three-liner
                 [title]="title"

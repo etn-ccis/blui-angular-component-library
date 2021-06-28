@@ -51,14 +51,14 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     @Input() variant: 'collapsed' | 'expanded' | 'snap' = 'collapsed';
     @Input() scrollThreshold;
     @Input() color: 'primary' | 'accent' | 'warn' | undefined = 'primary';
-    @Input() isCollapsed = false;
+    isCollapsed = false;
 
     // The thing that scrolls, we listen to this.
     @Input() scrollContainerElement: Element;
     @Input() scrollContainerClassName: { name: string; index: number };
     @Input() scrollContainerId: string;
 
-    @Output() isCollapsedChange: EventEmitter<boolean> = new EventEmitter();
+    @Output() collapsedChange: EventEmitter<boolean> = new EventEmitter();
 
     scrollEl;
 
@@ -148,7 +148,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
 
     private _setCollapsed(collapsed: boolean): void {
         this.isCollapsed = collapsed;
-        this.isCollapsedChange.emit(collapsed);
+        this.collapsedChange.emit(collapsed);
     }
 
     private _resizeEl(): void {

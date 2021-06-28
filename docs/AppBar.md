@@ -48,7 +48,7 @@ imports: [
 | ------------------------ | ------------------------------------------------------ | ----------------------------------------- | -------- | -------------------------------- |
 | collapsedHeight          | Height of the AppBar when collapsed                    | `number`                                  | no       | theme default                    |
 | expandedHeight           | Height of the AppBar when expanded                     | `number`                                  | no       | 200                              |
-| isCollapsed              | Two-way binding for whether the app bar is collapsed   | `boolean`                                 | no       | false                            |
+| collapsedChange          | Event emitter for when the appbar opens or closes      | `EventEmitter<boolean>`                   | no       |                                  |
 | scrollContainerElement   | Scrollable element which dynamic app bar responds to   | `Element`                                 | no       |                                  |
 | scrollContainerClassName | Class name, index number of scrollable element         | `{ name: string, index: number }`         | no       |                                  |
 | scrollContainerId        | Id of the scrollable element                           | `string`                                  | no       |                                  |
