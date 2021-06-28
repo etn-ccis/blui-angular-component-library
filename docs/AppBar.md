@@ -39,7 +39,7 @@ imports: [
         [title] ='title'
         [subtitle] ='subtitle'
         [info] ='info'
-    </pxb-three-liner>
+    ></pxb-three-liner>
 </pxb-app-bar>
 ```
 
