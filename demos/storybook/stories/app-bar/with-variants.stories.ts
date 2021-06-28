@@ -1,6 +1,6 @@
 import { number, select } from '@storybook/addon-knobs';
 
-export const withModes = (): any => ({
+export const withVariants = (): any => ({
     template: `
         <pxb-app-bar
          [expandedHeight]="expandedHeight"
