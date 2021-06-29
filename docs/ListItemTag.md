@@ -17,7 +17,7 @@ imports: [
 ```
 
 ```html
-<!-- your-component.html -->
+// your-component.html
 <pxb-list-item-tag label="Sample Label" backgroundColor="black" fontColor="gold"> </pxb-list-item-tag>
 ```
 

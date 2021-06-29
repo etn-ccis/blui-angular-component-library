@@ -23,18 +23,19 @@ imports: [ AppBarModule ]
 ```
 
 ```html
-<!-- Default: AppBar will resize between collapsedHeight and expandedHeight as the window is scrolled -->
+// your-component.html // Default: AppBar will resize between collapsedHeight and expandedHeight as the window is
+scrolled
 <pxb-app-bar variant="snap"></pxb-app-bar>
 
-<!-- App Bar will stay fixed at the collapsedHeight size -->
+// App Bar will stay fixed at the collapsedHeight size
 <pxb-app-bar variant="collapsed"></pxb-app-bar>
 
-<!-- App Bar will stay fixed at the expandedHeight size -->
+// App Bar will stay fixed at the expandedHeight size
 <pxb-app-bar variant="expanded"></pxb-app-bar>
 
-<!-- AppBar with Three Liner component -->
+// AppBar with Three Liner component
 <pxb-app-bar variant="snap">
-    <pxb-three-liner [title]="title" [subtitle]="subtitle" [info]="info"></pxb-three-liner>
+    <pxb-three-liner title="title" subtitle="subtitle" info="info"></pxb-three-liner>
 </pxb-app-bar>
 ```
 

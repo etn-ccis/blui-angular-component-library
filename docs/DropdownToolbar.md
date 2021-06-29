@@ -18,7 +18,7 @@ imports: [
 ```
 
 ```html
-<!-- your-component.html -->
+// your-component.html
 <pxb-dropdown-toolbar [title]="title" [subtitle]="subtitle">
     <button mat-icon-button pxb-nav-icon>
         <mat-icon>menu</mat-icon>

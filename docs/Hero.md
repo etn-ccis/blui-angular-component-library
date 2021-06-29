@@ -27,15 +27,13 @@ imports: [
 ```
 
 ```html
-<!-- Simple usage via Hero attributes -->
-
+// your-component.html // Simple usage via Hero attributes
 <pxb-hero label="Healthy" value="96" units="/100">
     <mat-icon pxb-primary>timer</mat-icon>
     <mat-icon pxb-secondary>trending_up</mat-icon>
 </pxb-hero>
 
-<!-- Complex example with multiple values as children -->
-
+// Complex example with multiple values as children
 <pxb-hero label="Load">
     <mat-icon pxb-primary>timer</mat-icon>
     <pxb-channel-value value="1" units="h"></pxb-channel-value>

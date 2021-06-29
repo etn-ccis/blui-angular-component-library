@@ -9,6 +9,7 @@ The `<pxb-drawer>` is used to organize content (typically navigation links) with
 ### Drawer Usage
 
 ```html
+// your-component.html
 <pxb-drawer [open]="state.open">
     <pxb-drawer-header>Header content goes here</pxb-drawer-header>
     <pxb-drawer-subheader>Subheader content goes here</pxb-drawer-subheader>

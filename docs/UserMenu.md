@@ -48,6 +48,7 @@ const items = [
 ```
 
 ```html
+// your-component.html
 <pxb-user-menu avatarValue="HA" menuTitle="Sample Title" [(open)]="open">
     <mat-nav-list pxb-menu-body>
         <pxb-info-list-item *ngFor="let item of items" [dense]="true" (click)="open=false">
