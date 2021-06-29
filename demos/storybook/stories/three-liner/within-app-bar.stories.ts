@@ -23,8 +23,10 @@ export const withinAppBar = (): any => ({
     ],
     template: `
         <div id="pxb-app-bar-container" [style.backgroundColor]="getDecoratorBgColor()">
-            <pxb-app-bar [scrollContainerId]="scrollContainerId" variant="snap">
-                <pxb-three-liner>
+            <pxb-app-bar [scrollContainerId]="scrollContainerId" 
+                variant="snap" 
+                (collapsedChange)="isCollapsed = $event">
+                <pxb-three-liner [style.top.px]="isCollapsed ? 0 : 80">
                     <div pxb-title>{{title}}</div>
                     <div pxb-subtitle>{{subtitle}}</div>
                     <div pxb-info>{{info}}</div>
@@ -42,5 +44,6 @@ export const withinAppBar = (): any => ({
         scrollContainerId: 'pxb-app-bar-container',
         getDecoratorBgColor: (): string => (isDarkMode() ? Colors.black[900] : 'white'),
         fillerContent: fillerContent,
+        isCollapsed: undefined,
     },
 });

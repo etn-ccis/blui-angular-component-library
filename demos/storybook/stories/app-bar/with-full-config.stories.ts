@@ -22,7 +22,7 @@ export const withFullConfig = (): any => ({
              [scrollThreshold]="scrollThreshold"
              [scrollContainerId]="scrollContainerId"
              [variant]="variant"
-             [(isCollapsed)]="isCollapsed">
+             (collapsedChange)="isCollapsed = $event">
                  <button pxb-icon mat-icon-button style="margin: 0 -12px">
                     <mat-icon>menu</mat-icon>
                  </button>
