@@ -112,6 +112,5 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Drawer`, module)
     .addDecorator(withA11y)
     .addDecorator(storyWrapper())
     .addParameters({ ...STORY_PARAMS, notes: { markdown: getReadMe('Drawer.md') } })
-    .add(README_STORY_NAME, getReadMeStory)
     .add('within a Drawer Layout', withinDrawerLayout)
     .add('within a Drawer Layout as rail', withinDrawerLayoutRail);

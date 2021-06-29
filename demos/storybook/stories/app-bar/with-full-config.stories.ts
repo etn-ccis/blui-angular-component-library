@@ -23,17 +23,17 @@ export const withFullConfig = (): any => ({
              [scrollContainerId]="scrollContainerId"
              [variant]="variant"
              [(isCollapsed)]="isCollapsed">
-                 <button pxb-icon mat-icon-button>
+                 <button pxb-icon mat-icon-button style="margin: 0 -12px">
                     <mat-icon>menu</mat-icon>
                  </button>
                  <pxb-three-liner
                     [title]="title"
                     [subtitle]="subtitle"
                     [info]="info"
-                    style="margin-left: 24px"
+                    style="margin: 0 40px"
                     [style.top.px]="isCollapsed ? 0 : expandedYOffset">
                  </pxb-three-liner>
-                 <div pxb-actions style="display: flex">
+                 <div pxb-actions style="display: flex; margin: 0 -12px;">
                     <mat-icon style="margin: 0 8px">light</mat-icon>
                     <mat-icon style="margin: 0 8px">face</mat-icon>
                     <mat-icon style="margin: 0 8px">home</mat-icon>
