@@ -1,3 +1,4 @@
+export * from './app-bar/public-api';
 export * from './channel-value/public-api';
 export * from './drawer/public-api';
 export * from './empty-state/public-api';
@@ -7,5 +8,6 @@ export * from './info-list-item/public-api';
 export * from './list-item-tag/public-api';
 export * from './utility/public-api';
 export * from './dropdown-toolbar/public-api';
+export * from './three-liner/public-api';
 export * from './user-menu/public-api';
 export * from './mobile-stepper/public-api';
