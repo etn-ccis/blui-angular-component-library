@@ -34,7 +34,7 @@ imports: [ AppBarModule ]
 
 <!-- AppBar with Three Liner component -->
 <pxb-app-bar variant="snap">
-    <pxb-three-liner [title]="title" [subtitle]="subtitle" [info]="info"></pxb-three-liner>
+    <pxb-three-liner title="title" subtitle="subtitle" info="info"></pxb-three-liner>
 </pxb-app-bar>
 ```
 
