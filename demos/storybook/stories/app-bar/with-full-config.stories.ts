@@ -22,13 +22,8 @@ export const withFullConfig = (): any => ({
              [scrollThreshold]="scrollThreshold"
              [scrollContainerId]="scrollContainerId"
              [variant]="variant"
-<<<<<<< HEAD
-             (collapsedChange)="isCollapsed = $event">
-                 <button pxb-icon mat-icon-button>
-=======
              [(isCollapsed)]="isCollapsed">
                  <button pxb-icon mat-icon-button style="margin: 0 -12px">
->>>>>>> dev
                     <mat-icon>menu</mat-icon>
                  </button>
                  <pxb-three-liner
