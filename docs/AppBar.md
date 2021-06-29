@@ -18,9 +18,7 @@ The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can b
 // app.module.ts
 import { AppBarModule } from '@pxblue/angular-components';
 ...
-imports: [
-    CommonModule, MatToolbarModule, SpacerModule, MatIconModule
-],
+imports: [ AppBarModule ]
 ...
 ```
 
