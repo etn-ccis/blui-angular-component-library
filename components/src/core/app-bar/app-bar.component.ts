@@ -25,7 +25,7 @@ import { Element } from '@angular/compiler';
     template: `
         <mat-toolbar
             [color]="color"
-            class="pxb-app-bar-content mat-elevation-z4"
+            class="pxb-app-bar-content"
             [class.pxb-app-bar-collapsed]="isCollapsed"
             [class.pxb-app-bar-expanded]="!isCollapsed"
             [class.pxb-app-bar-view-init]="viewInit"
