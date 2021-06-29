@@ -24,7 +24,7 @@ steps = 4;
 ```
 
 ```html
-<!-- your-component.html -->
+// your-component.html
 <pxb-mobile-stepper [steps]="steps" [activeStep]="activeStep">
     <button
         pxb-back-button

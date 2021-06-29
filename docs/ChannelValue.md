@@ -26,7 +26,7 @@ imports: [
 ```
 
 ```html
-<!-- your-component.html -->
+// your-component.html
 <pxb-channel-value class="content" value="65" units="%" [prefix]="true">
     <mat-icon>trending_up</mat-icon>
 </pxb-channel-value>

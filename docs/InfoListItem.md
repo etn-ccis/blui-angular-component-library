@@ -16,7 +16,7 @@ imports: [
 ```
 
 ```html
-<!-- your-component.html -->
+// your-component.html
 <pxb-info-list-item divider="full" [statusColor]="colors.green[500]">
     <div pxb-title>Info List Item</div>
     <mat-icon [style.color]="colors.green[500]" pxb-icon>eco</mat-icon>

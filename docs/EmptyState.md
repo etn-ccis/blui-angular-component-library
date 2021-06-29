@@ -26,7 +26,7 @@ imports: [
 ```
 
 ```html
-<!-- your-component.html -->
+// your-component.html
 <pxb-empty-state title="No Devices Found">
     <mat-icon pxb-empty-icon>notifications_none</mat-icon>
     <button mat-raised-button color="primary" pxb-actions>
