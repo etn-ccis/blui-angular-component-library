@@ -4,6 +4,7 @@ import {
     ChangeDetectorRef,
     Component,
     EventEmitter,
+    HostBinding,
     Input,
     OnChanges,
     OnDestroy,
@@ -41,9 +42,6 @@ import { Element } from '@angular/compiler';
             </mat-toolbar-row>
         </mat-toolbar>
     `,
-    host: {
-        class: 'pxb-app-bar',
-    },
 })
 export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
     @Input() expandedHeight = 200;
@@ -59,6 +57,8 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     @Input() scrollContainerId: string;
 
     @Output() collapsedChange: EventEmitter<boolean> = new EventEmitter();
+
+    @HostBinding('class') @Input('class') classList = 'pxb-app-bar mat-elevation-z4';
 
     scrollEl;
 
