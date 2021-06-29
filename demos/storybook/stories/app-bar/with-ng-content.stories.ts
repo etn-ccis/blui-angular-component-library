@@ -11,21 +11,22 @@ export const withNgContent = (): any => ({
          variant="snap">
              <pxb-three-liner [style.top.px]="isCollapsed ? 0 : expandedYOffset">
                 <pxb-channel-value style="color: white" pxb-title value="Temperature"></pxb-channel-value>
-                <div pxb-subtitle>subtitle</div>
+                <div pxb-subtitle>Subtitle</div>
                  <div pxb-info class="info"
                     [matMenuTriggerFor]="dropdownToolbarMenu"
                     #menuTrigger="matMenuTrigger"
+                    style="display: flex; align-items: center; cursor: pointer;"
                 >
                     <span>Menu</span>
-                    <mat-icon style="font-size: inherit; margin: 0 4px">arrow_drop_down</mat-icon>
+                    <mat-icon style="font-size: inherit; width: 16px; height: 16px;">arrow_drop_down</mat-icon>
                 </div>
             </pxb-three-liner>
         </pxb-app-bar>
 
         <mat-menu #dropdownToolbarMenu="matMenu" [overlapTrigger]="false">
-            <mat-list-item>Item 1</mat-list-item>
-            <mat-list-item>Item 2</mat-list-item>
-            <mat-list-item>Item 3</mat-list-item>
+            <button mat-menu-item>Item 1</button>
+            <button mat-menu-item>Item 2</button>
+            <button mat-menu-item>Item 3</button>
         </mat-menu>
     `,
     props: {

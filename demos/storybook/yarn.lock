@@ -1706,7 +1706,7 @@
     mkdirp "^1.0.4"
     rimraf "^3.0.2"
 
-"@pxblue/angular-themes@^6.0.3":
+"@pxblue/angular-themes@^6.1.0":
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/@pxblue/angular-themes/-/angular-themes-6.1.0.tgz#2ad747c948d0b62781238e3445c4f34c88223613"
   integrity sha512-K0o5V6wRYjH7a+PfmHDKRGteqoYp3In9NVzLtIRZ2g7j9FQFs97bj2ZbcsxSVdBf+85mdKZwsPUYhz0Bzv46Tg==
@@ -1714,7 +1714,7 @@
     "@fontsource/open-sans" "^4.1.0"
     "@pxblue/colors" "^3.0.0"
 
-"@pxblue/colors@^3.0.0":
+"@pxblue/colors@^3.0.0", "@pxblue/colors@^3.0.1":
   version "3.0.1"
   resolved "https://registry.yarnpkg.com/@pxblue/colors/-/colors-3.0.1.tgz#4f89fc9ed10d754eac1ea699b722f5ac8c723173"
   integrity sha512-3iROA/tvf7BiXRA4R9DobWeEE4Tg7bFgFWNuLzqqwHBEz/uI/J83XTW913g/wba9V5IAVt2DYAQFb/qbqYyjKQ==
@@ -1754,7 +1754,7 @@
   resolved "https://registry.yarnpkg.com/@pxblue/prettier-config/-/prettier-config-1.0.3.tgz#285b9ba346f714d397ef4a59579443b95a77e63e"
   integrity sha512-x9SDup4pf5H54r/stZBXz7/XlMcIqnwHkEJ+9pyXVtGyQljI28lDGQCWQj6heipWAett50yx0RB3P2+MWZDhJA==
 
-"@pxblue/storybook-rtl-addon@^1.0.0":
+"@pxblue/storybook-rtl-addon@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@pxblue/storybook-rtl-addon/-/storybook-rtl-addon-1.0.1.tgz#97750f3907ec523e1a4a33f87512820cb4a3b042"
   integrity sha512-N/HysEo6rK7f0Eqm4xt8nciZXwjdNscRD5hSYUZUZEn4EzdtqwqXSel8jfjUuZ9R6YCQ7+IIqdZsk6gHUlS+qw==
