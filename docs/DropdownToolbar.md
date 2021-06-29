@@ -40,20 +40,20 @@ Parent element (`<pxb-dropdown-toolbar>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input   | Description                   | Type                                             | Required | Default   |
-| -------- | ----------------------------- | ------------------------------------------------ | -------- | --------- |
-| title    | The text to display for title | `string`                                         | no       |           |
-| subtitle | The text to display subtitle  | `string`                                         | no       |           |
-| color    | Mat toolbar color variant     | `'primary' | 'accent' | 'warn' | undefined`      | no       | `primary` |
+| @Input   | Description                   | Type       | Required | Default |
+| -------- | ----------------------------- | ---------- | -------- | ------- | ---------- | --- | --------- |
+| title    | The text to display for title | `string`   | no       |         |
+| subtitle | The text to display subtitle  | `string`   | no       |         |
+| color    | Mat toolbar color variant     | `'primary' | 'accent' | 'warn'  | undefined` | no  | `primary` |
 
 </div>
 
 The following child elements are projected into `<pxb-dropdown-toolbar>`:
 
-| Selector         | Description                              | Required | Default |
-| ---------------- | ---------------------------------------- | -------- | ------- |
-| pxb-nav-icon     | Icon shown on the left                   | no       |         |
-| pxb-toolbar-menu | Content to be shown within dropdown menu | no       |         |
+| Selector           | Description                              | Required | Default |
+| ------------------ | ---------------------------------------- | -------- | ------- |
+| [pxb-nav-icon]     | Icon shown on the left                   | no       |         |
+| [pxb-toolbar-menu] | Content to be shown within dropdown menu | no       |         |
 
 ### Classes
 

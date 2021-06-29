@@ -7,7 +7,7 @@ export const withNgContent = (): any => ({
          [collapsedHeight]="collapsedHeight"
          [scrollThreshold]="scrollThreshold"
          [scrollContainerId]="scrollContainerId"
-         [(isCollapsed)]="isCollapsed"
+         (collapsedChange)="isCollapsed = $event"
          variant="snap">
              <pxb-three-liner [style.top.px]="isCollapsed ? 0 : expandedYOffset">
                 <pxb-channel-value style="color: white" pxb-title value="Temperature"></pxb-channel-value>

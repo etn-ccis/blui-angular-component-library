@@ -7,7 +7,7 @@ export const withVariants = (): any => ({
          [collapsedHeight]="collapsedHeight"
          [scrollThreshold]="scrollThreshold"
          [scrollContainerId]="scrollContainerId"
-         [(isCollapsed)]="isCollapsed"
+         (collapsedChange)="isCollapsed = $event"
          [variant]="variant">
             <div [style.top.px]="isCollapsed ? 0 : expandedYOffset">Content</div>
         </pxb-app-bar>
