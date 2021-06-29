@@ -3,7 +3,8 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
-    EventEmitter, HostBinding,
+    EventEmitter,
+    HostBinding,
     Input,
     OnChanges,
     OnDestroy,
@@ -57,8 +58,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
 
     @Output() collapsedChange: EventEmitter<boolean> = new EventEmitter();
 
-    @HostBinding('class') @Input('class') classList: string = 'pxb-app-bar mat-elevation-z4';
-
+    @HostBinding('class') @Input('class') classList = 'pxb-app-bar mat-elevation-z4';
 
     scrollEl;
 
