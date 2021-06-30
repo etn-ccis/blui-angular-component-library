@@ -2,9 +2,9 @@
 
 ## v5.0.0 (June 30, 2021)
 
-### Added
+### Changed
 
-- Added support for Angular 11
+- Updated to Angular 11 for building the library
 
 ## v4.5.0 (June 30, 2021)
 
@@ -12,20 +12,11 @@
 
 - Added `<pxb-app-bar>` component.
 - Added `wrapInfo` prop to `<pxb-info-list-item>`.
+- Added new property `disabled` to `<pxb-info-list-item`>.
 
 ### Fixed
 
 - Fixed `<pxb-drawer-header>` content alignment when omitting a menu icon.
-
-## v5.0.0 (Not Published Yet)
-
-### Added
-
-- Added new property `disabled` to `<pxb-info-list-item`>.
-
-### Changed
-
-- Updated to Angular 11 for building the library
 
 ## v4.4.0 (May 28, 2021)
 
