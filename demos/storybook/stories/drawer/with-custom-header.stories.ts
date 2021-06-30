@@ -1,4 +1,5 @@
 import { navItems } from './basic-config.stories';
+import { boolean } from '@storybook/addon-knobs';
 
 const bgImage = require('../../assets/farm.jpg');
 
@@ -22,7 +23,7 @@ export const withCustomHeader = (): any => ({
     template: `
         <pxb-drawer [open]="state.open">
           <pxb-drawer-header>
-            <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
+            <button *ngIf="!hideMenuIcon" pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                 <mat-icon>menu</mat-icon>
             </button>
             <div pxb-title-content *ngIf="state.open" class="header-content">
@@ -47,5 +48,6 @@ export const withCustomHeader = (): any => ({
       `,
     props: {
         navItems: navItems,
+        hideMenuIcon: boolean('Hide Menu Icon', false),
     },
 });

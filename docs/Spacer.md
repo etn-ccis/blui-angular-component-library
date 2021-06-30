@@ -19,7 +19,7 @@ imports: [
 ```
 
 ```html
-// using flex layout
+// your-component.html // using flex layout
 <pxb-spacer></pxb-spacer>
 
 // using pixels

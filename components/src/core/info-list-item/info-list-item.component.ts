@@ -19,7 +19,7 @@ type DividerType = 'full' | 'partial' | undefined;
     template: `
         <mat-list-item
             class="pxb-info-list-item-content"
-            [class.pxb-info-list-item-wrap]="wrapSubtitle || wrapTitle"
+            [class.pxb-info-list-item-wrap]="wrapSubtitle || wrapTitle || wrapInfo"
             [class.pxb-info-list-item-dense]="dense"
             [class.pxb-info-list-item-status]="statusColor"
             [style.border-left-color]="statusColor"
@@ -55,11 +55,7 @@ type DividerType = 'full' | 'partial' | undefined;
             >
                 <ng-content select="[pxb-subtitle]"></ng-content>
             </div>
-            <div
-                class="mat-body-2 pxb-info-list-item-info-wrapper"
-                matLine
-                [class.pxb-info-list-item-wrap]="wrapSubtitle"
-            >
+            <div class="mat-body-2 pxb-info-list-item-info-wrapper" matLine [class.pxb-info-list-item-wrap]="wrapInfo">
                 <ng-content select="[pxb-info]"></ng-content>
             </div>
             <pxb-spacer class="pxb-info-list-item-spacer"></pxb-spacer>
@@ -91,6 +87,7 @@ export class InfoListItemComponent implements AfterViewInit {
     @Input() iconAlign: IconAlignType = 'left';
     @Input() wrapSubtitle = false;
     @Input() wrapTitle = false;
+    @Input() wrapInfo = false;
     @Input() divider: DividerType;
     @Input() disabled = false;
 
