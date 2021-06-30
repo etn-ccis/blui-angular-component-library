@@ -119,7 +119,7 @@ export const withFullConfig = (): any => ({
             [openOnHover]="openOnHover"
             [class.show-header-image]="showHeaderImage">
            <pxb-drawer-header [title]="title" [subtitle]="subtitle" [divider]="showHeaderDivider" [color]="color">
-             <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
+             <button *ngIf="!hideIcon" pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                <mat-icon>menu</mat-icon>
              </button>
            </pxb-drawer-header>
@@ -180,6 +180,7 @@ export const withFullConfig = (): any => ({
         showHeaderImage: boolean('Show Background Image', true, header),
         showHeaderDivider: boolean('divider', true, header),
         color: select('color', ['primary', 'accent', 'warn', ''], 'primary', header),
+        hideIcon: boolean('Hide Menu Icon', false, header),
         groupTitle1: text('NavGroup 1 title', 'Group 1', navGroup),
         groupTitle2: text('NavGroup 2 title', 'Group 2', navGroup),
         groupDivider: boolean('divider', true, navGroup),
