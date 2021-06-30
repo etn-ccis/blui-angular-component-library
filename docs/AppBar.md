@@ -23,8 +23,8 @@ imports: [ AppBarModule ]
 ```
 
 ```html
-// your-component.html // Default: AppBar will resize between collapsedHeight and expandedHeight as the window is
-scrolled
+// your-component.html 
+// Default: AppBar will resize between collapsedHeight and expandedHeight as the window is scrolled
 <pxb-app-bar variant="snap"></pxb-app-bar>
 
 // App Bar will stay fixed at the collapsedHeight size
