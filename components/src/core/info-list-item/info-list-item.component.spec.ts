@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 import { count } from '../../utils/test-utils';
 import { InfoListItemModule } from './info-list-item.module';
 import { Component, Input } from '@angular/core';
@@ -74,12 +74,14 @@ describe('InfoListItemComponent', () => {
     let component: TestBasicUsage;
     let fixture: ComponentFixture<TestBasicUsage>;
 
-    beforeEach(async(() => {
-        void TestBed.configureTestingModule({
-            declarations: [TestBasicUsage, TestMissingTitle, TestIconComponent, TestLeftContent, TestRightContent],
-            imports: [InfoListItemModule],
-        }).compileComponents();
-    }));
+    beforeEach(
+        waitForAsync(() => {
+            void TestBed.configureTestingModule({
+                declarations: [TestBasicUsage, TestMissingTitle, TestIconComponent, TestLeftContent, TestRightContent],
+                imports: [InfoListItemModule],
+            }).compileComponents();
+        })
+    );
 
     beforeEach(() => {
         fixture = TestBed.createComponent(TestBasicUsage);

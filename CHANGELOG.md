@@ -1,11 +1,18 @@
 # Change Log
 
+## v5.0.0 (June 30, 2021)
+
+### Changed
+
+- Updated to Angular 11 for building the library
+
 ## v4.5.0 (June 30, 2021)
 
 ### Added
 
 - Added `<pxb-app-bar>` component.
 - Added `wrapInfo` prop to `<pxb-info-list-item>`.
+- Added new property `disabled` to `<pxb-info-list-item`>.
 
 ### Fixed
 
