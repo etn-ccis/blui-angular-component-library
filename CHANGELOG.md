@@ -1,5 +1,11 @@
 # Change Log
 
+## v5.0.0 (June 30, 2021)
+
+### Added
+
+- Added support for Angular 11
+
 ## v4.5.0 (June 30, 2021)
 
 ### Added
