@@ -1,13 +1,13 @@
 import { number, select } from '@storybook/addon-knobs';
 
-export const withModes = (): any => ({
+export const withVariants = (): any => ({
     template: `
         <pxb-app-bar
          [expandedHeight]="expandedHeight"
          [collapsedHeight]="collapsedHeight"
          [scrollThreshold]="scrollThreshold"
          [scrollContainerId]="scrollContainerId"
-         [(isCollapsed)]="isCollapsed"
+         (collapsedChange)="isCollapsed = $event"
          [variant]="variant">
             <div [style.top.px]="isCollapsed ? 0 : expandedYOffset">Content</div>
         </pxb-app-bar>

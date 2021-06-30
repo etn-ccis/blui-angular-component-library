@@ -12,7 +12,7 @@ import {
 import { withA11y } from '@storybook/addon-a11y';
 import { withBasicConfig } from './basic-config.stories';
 import * as Colors from '@pxblue/colors';
-import { withModes } from './with-modes.stories';
+import { withVariants } from './with-variants.stories';
 import { withDynamicContent } from './with-dynamic-content.stories';
 import { withNgContent } from './with-ng-content.stories';
 import { withFullConfig } from './with-full-config.stories';
@@ -89,7 +89,7 @@ storiesOf(`${COMPONENT_SECTION_NAME}/App Bar`, module)
     })
     .add(README_STORY_NAME, getReadMeStory)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
-    .add('with modes', withModes)
+    .add('with variants', withVariants)
     .add('with dynamic content', withDynamicContent)
     .add('with ng-content', withNgContent)
     .add('with full config', withFullConfig);
