@@ -40,10 +40,17 @@ import { requireInput } from '../../utils/utils';
     },
 })
 export class ScoreCardComponent {
-    @Input() headerTitle: string;
-    @Input() headerSubtitle: string;
-    @Input() headerInfo: string;
+    /** Vertical offset for the badge content */
     @Input() badgeOffset = 0;
+
+    /** Tertiary text */
+    @Input() headerInfo: string;
+
+    /** The secondary text */
+    @Input() headerSubtitle: string;
+
+    /** The primary text */
+    @Input() headerTitle: string;
 
     ngOnChanges(): void {
         requireInput<ScoreCardComponent>(['headerTitle'], this);

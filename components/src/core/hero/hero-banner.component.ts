@@ -16,5 +16,6 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
     },
 })
 export class HeroBannerComponent {
+    /** Whether to show the line separator */
     @Input() divider = false;
 }

@@ -20,7 +20,9 @@ import { requireContent } from '../../utils/utils';
     },
 })
 export class EmptyStateComponent implements AfterViewInit {
+    /** The secondary text to display */
     @Input() description: string;
+    /** The main text to display */
     @Input() title: string;
 
     @ViewChild('emptyIcon') emptyIcon: ElementRef;

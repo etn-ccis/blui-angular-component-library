@@ -48,8 +48,11 @@ import { isEmptyView } from '../../utils/utils';
     },
 })
 export class ThreeLinerComponent implements AfterViewInit {
+    /** First line content */
     @Input() title;
+    /** Second line content */
     @Input() subtitle;
+    /** Third line content */
     @Input() info;
 
     @ViewChild('titleVc') titleEl: ElementRef;

@@ -14,8 +14,13 @@ export type MobileStepperVariant = 'dots' | 'text' | 'progress';
     },
 })
 export class MobileStepperComponent implements OnChanges {
-    @Input() steps: number;
+    /** The index of the active step */
     @Input() activeStep: number;
+
+    /** How many steps the to display */
+    @Input() steps: number;
+
+    /** Which type of indicator to use */
     @Input() variant: MobileStepperVariant = 'dots';
 
     stepsArray: number[] = [];

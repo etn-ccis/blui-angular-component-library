@@ -37,8 +37,11 @@ import { MatMenuTrigger } from '@angular/material/menu';
     },
 })
 export class DropdownToolbarComponent {
+    /** The text to display for title */
     @Input() title: string;
+    /** The text to display subtitle */
     @Input() subtitle: string;
+    /** Mat toolbar color variant */
     @Input() color: 'primary' | 'accent' | 'warn' | undefined = 'primary';
     @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger;
 }

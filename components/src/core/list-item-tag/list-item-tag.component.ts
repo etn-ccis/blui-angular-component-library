@@ -12,8 +12,11 @@ import { requireInput } from '../../utils/utils';
     },
 })
 export class ListItemTagComponent implements OnChanges {
+    /** Color of the label background */
     @Input() backgroundColor: string;
+    /** Color of the label */
     @Input() fontColor: string;
+    /** The label text */
     @Input() label: string;
 
     ngOnChanges(): void {

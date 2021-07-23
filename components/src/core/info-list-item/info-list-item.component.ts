@@ -79,17 +79,28 @@ type DividerType = 'full' | 'partial' | undefined;
     },
 })
 export class InfoListItemComponent implements AfterViewInit {
-    @Input() statusColor: string;
-    @Input() chevron = false;
-    @Input() dense = false;
+    /** Show a colored background for the icon */
     @Input() avatar = false;
-    @Input() hidePadding = false;
-    @Input() iconAlign: IconAlignType = 'left';
-    @Input() wrapSubtitle = false;
-    @Input() wrapTitle = false;
-    @Input() wrapInfo = false;
+    /** Add a chevron icon on the right */
+    @Input() chevron = false;
+    /** Smaller height row with less padding */
+    @Input() dense = false;
+    /** Show a row separator below the row */
     @Input() divider: DividerType;
+    /** Disable the list item */
     @Input() disabled = false;
+    /** Remove left padding if no icon is used */
+    @Input() hidePadding = false;
+    /** Icon alignment when avatar is set to false */
+    @Input() iconAlign: IconAlignType = 'left';
+    /** Left border color */
+    @Input() statusColor: string;
+    /** Whether to wrap info on overflow */
+    @Input() wrapInfo = false;
+    /** Whether to wrap subtitle on overflow */
+    @Input() wrapSubtitle = false;
+    /** Whether to wrap title on overflow */
+    @Input() wrapTitle = false;
 
     @ViewChild('title') titleEl: ElementRef;
     @ViewChild('right') rightEl: ElementRef;
