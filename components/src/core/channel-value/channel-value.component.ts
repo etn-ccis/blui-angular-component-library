@@ -21,9 +21,13 @@ import { requireInput } from '../../utils/utils';
     },
 })
 export class ChannelValueComponent implements OnChanges {
-    @Input() value: string | number;
-    @Input() units: string;
+    /** Show units before the value */
     @Input() prefix = false;
+    /** The text to display for the units (light text) */
+    @Input() units: string;
+    /** The value (bold text) to display */
+    @Input() value: string | number;
+    /** Text color */
     @Input() color: string;
 
     ngOnChanges(): void {

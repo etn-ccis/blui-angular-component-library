@@ -119,18 +119,30 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
     },
 })
 export class DrawerNavItemComponent extends StateListener implements Omit<DrawerNavItem, 'items'> {
+    /** Sets the active item background shape */
     @Input() activeItemBackgroundShape: ActiveItemBackgroundShape = 'square';
+    /** Sets whether to show chevron */
     @Input() chevron: boolean;
+    /** Sets whether to show divider */
     @Input() divider = false;
+    /** Sets whether to show nested nav items */
     @Input() expanded = false;
+    /** Sets whether to show/hide padding */
     @Input() hidePadding: boolean;
-    @Input() ripple = true;
-    @Input() selected: boolean;
-    @Input() statusColor: string;
-    @Input() subtitle: string;
-    @Input() title: string;
+    /** Sets whether to hide the nav item */
     @Input() hidden = false;
+    /** Sets whether to show/hide ripple */
+    @Input() ripple = true;
+    /** Sets whether an item is selected */
+    @Input() selected: boolean;
+    /** Status stripe color */
+    @Input() statusColor: string;
+    /** Text to display as a subtitle */
+    @Input() subtitle: string;
+    /** Text to display as a title */
+    @Input() title: string;
 
+    /** Event triggered on nav item select */
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
 
     @ContentChildren(DrawerNavItemComponent, { descendants: false }) nestedNavItems;

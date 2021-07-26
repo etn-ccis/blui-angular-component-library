@@ -50,8 +50,11 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
     },
 })
 export class DrawerLayoutComponent extends StateListener implements AfterViewInit, OnChanges {
+    /** Sets the drawer variant */
     @Input() variant: DrawerLayoutVariantType;
+    /** Drawer pixel width */
     @Input() width = 350;
+    /** Event triggered on 'temporary variant backdrop click */
     @Output() backdropClick: EventEmitter<void> = new EventEmitter();
     @ViewChild('remElement') remElement: ElementRef;
 

@@ -44,24 +44,32 @@ import { Element } from '@angular/compiler';
     `,
 })
 export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
-    @Input() expandedHeight = 200;
-    @Input() collapsedHeight;
-    @Input() variant: 'collapsed' | 'expanded' | 'snap' = 'collapsed';
-    @Input() scrollThreshold;
+    /** Height of the AppBar when collapsed */
+    @Input() collapsedHeight: number;
+    /** Color variant which is passed to the `<mat-toolbar>` */
     @Input() color: 'primary' | 'accent' | 'warn' | undefined = 'primary';
-    isCollapsed = false;
-
+    /** Height of the AppBar when expanded */
+    @Input() expandedHeight = 200;
     // The thing that scrolls, we listen to this.
+    /** Scrollable element which dynamic app bar responds to */
     @Input() scrollContainerElement: Element;
+    /** Class name, index number of scrollable element */
     @Input() scrollContainerClassName: { name: string; index: number };
+    /** Id of the scrollable element */
     @Input() scrollContainerId: string;
+    /** Distance in pixels to scroll before collapsing toolbar */
+    @Input() scrollThreshold;
+    /** Behavior of the App Bar */
+    @Input() variant: 'collapsed' | 'expanded' | 'snap' = 'collapsed';
 
+    /** Event emitter for when the appbar opens or closes */
     @Output() collapsedChange: EventEmitter<boolean> = new EventEmitter();
 
     @HostBinding('class') @Input('class') classList = 'pxb-app-bar mat-elevation-z4';
 
     scrollEl;
 
+    isCollapsed = false;
     isWindow = false;
     useDefaultCollapsedHeight = true;
     isAnimating: boolean;

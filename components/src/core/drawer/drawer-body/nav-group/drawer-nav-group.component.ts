@@ -62,8 +62,10 @@ export type DrawerNavGroup = {
     },
 })
 export class DrawerNavGroupComponent extends StateListener implements Omit<DrawerNavGroup, 'items'> {
-    @Input() title: string;
+    /** Divider that appears under the title */
     @Input() divider = false;
+    /** Component to render a group title */
+    @Input() title: string;
     @ContentChildren(DrawerNavItemComponent) navItems;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {

@@ -46,6 +46,7 @@ imports: [ AppBarModule ]
 | @Input                   | Description                                            | Type                                      | Required | Default                          |
 | ------------------------ | ------------------------------------------------------ | ----------------------------------------- | -------- | -------------------------------- |
 | collapsedHeight          | Height of the AppBar when collapsed                    | `number`                                  | no       | theme default                    |
+| color                    | Color variant which is passed to the `<mat-toolbar>`   | `'primary'` \| `'accent'` \| `'warn'`     | no       | 'primary'                        |
 | expandedHeight           | Height of the AppBar when expanded                     | `number`                                  | no       | 200                              |
 | collapsedChange          | Event emitter for when the appbar opens or closes      | `EventEmitter<boolean>`                   | no       |                                  |
 | scrollContainerElement   | Scrollable element which dynamic app bar responds to   | `Element`                                 | no       |                                  |

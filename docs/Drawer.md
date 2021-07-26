@@ -87,10 +87,10 @@ Parent element (`<pxb-drawer-layout>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input  | Description             | Type         | Required     | Default     |
+| @Input  | Description             | Type         | Required     | Default     |         |     |     |
 | ------- | ----------------------- | ------------ | ------------ | ----------- | ------- | --- | --- |
 | variant | Sets the drawer variant | `'permanent' | 'persistent' | 'temporary' | 'rail'` | yes |     |
-| width   | Drawer pixel width      | `number`     | no           | 350         |
+| width   | Drawer pixel width      | `number`     | no           | 350         |         |     |     |
 
 </div>
 
@@ -148,12 +148,12 @@ Parent element (`<pxb-drawer-header>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input   | Description                         | Type       | Required | Default |
+| @Input   | Description                         | Type       | Required | Default |            |     |           |
 | -------- | ----------------------------------- | ---------- | -------- | ------- | ---------- | --- | --------- |
 | color    | Mat toolbar color variant           | `'primary' | 'accent' | 'warn'  | undefined` | no  | `primary` |
-| divider  | Show a divider below footer         | `boolean`  | no       | false   |
-| subtitle | The text to show on the second line | `string`   | no       |         |
-| title    | The text to show on the first line  | `string`   | no       |         |
+| divider  | Show a divider below footer         | `boolean`  | no       | false   |            |     |           |
+| subtitle | The text to show on the second line | `string`   | no       |         |            |     |           |
+| title    | The text to show on the first line  | `string`   | no       |         |            |     |           |
 
 </div>
 
@@ -312,19 +312,19 @@ Parent element (`<pxb-drawer-nav-item>`) attributes:
 
 <div style="overflow: auto;">
 
-| @input                    | Description                           | Type      | Required  | Default |
+| @input                    | Description                           | Type      | Required  | Default |          |
 | ------------------------- | ------------------------------------- | --------- | --------- | ------- | -------- |
 | activeItemBackgroundShape | Sets the active item background shape | `'round'  | 'square'` | no      | 'square' |
-| chevron                   | Sets whether to show chevron          | `boolean` | no        | false   |
-| divider                   | Sets whether to show divider          | `boolean` | no        | false   |
-| expanded                  | Sets whether to show nested nav items | `boolean` | no        | false   |
-| hidePadding               | Sets whether to show/hide padding     | `boolean` | no        |         |
-| hidden                    | Sets whether to hide the nav item     | `boolean` | no        | false   |
-| ripple                    | Sets whether to show/hide ripple      | `boolean` | no        | true    |
-| selected                  | Sets whether an item is selected      | `boolean` | no        |         |
-| statusColor               | Status stripe color                   | `string`  | no        |         |
-| subtitle                  | Text to display as a subtitle         | `string`  | no        |         |
-| title                     | Text to display as a title            | `string`  | no        |         |
+| chevron                   | Sets whether to show chevron          | `boolean` | no        | false   |          |
+| divider                   | Sets whether to show divider          | `boolean` | no        | false   |          |
+| expanded                  | Sets whether to show nested nav items | `boolean` | no        | false   |          |
+| hidePadding               | Sets whether to show/hide padding     | `boolean` | no        |         |          |
+| hidden                    | Sets whether to hide the nav item     | `boolean` | no        | false   |          |
+| ripple                    | Sets whether to show/hide ripple      | `boolean` | no        | true    |          |
+| selected                  | Sets whether an item is selected      | `boolean` | no        |         |          |
+| statusColor               | Status stripe color                   | `string`  | no        |         |          |
+| subtitle                  | Text to display as a subtitle         | `string`  | no        |         |          |
+| title                     | Text to display as a title            | `string`  | no        |         |          |
 
 </div>
 

@@ -39,13 +39,20 @@ import { Subscription } from 'rxjs';
     },
 })
 export class DrawerComponent extends StateListener implements OnInit, OnChanges {
-    @Input() open: boolean;
+    /** Skinny view for rail variant */
     @Input() condensed = false;
-    @Input() sideBorder = false;
-    @Input() disableActiveItemParentStyles = false;
-    @Input() openOnHover = true;
-    @Input() openOnHoverDelay = 500;
+    /** Show tooltips on hover for the rail variant */
     @Input() disableRailTooltip = false;
+    /** If true, NavItems will not have a bold title when a child NavItem is selected */
+    @Input() disableActiveItemParentStyles = false;
+    /** State for the drawer */
+    @Input() open: boolean;
+    /** Automatically open the drawer on hover when closed (persistent variant only) */
+    @Input() openOnHover = true;
+    /** Delay in milliseconds before a hover event opens the drawer (persistent variant only) */
+    @Input() openOnHoverDelay = 500;
+    /** Toggle a side border instead of shadow */
+    @Input() sideBorder = false;
 
     hoverDelayTimeout: any;
     drawerSelectionListener: Subscription;

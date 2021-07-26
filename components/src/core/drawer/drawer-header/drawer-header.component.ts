@@ -42,10 +42,14 @@ import { isEmptyView } from '../../../utils/utils';
     },
 })
 export class DrawerHeaderComponent extends StateListener {
-    @Input() subtitle: string;
-    @Input() title: string;
-    @Input() divider = false;
+    /** Mat toolbar color variant */
     @Input() color: 'primary' | 'accent' | 'warn' | undefined = 'primary';
+    /** Show a divider below footer */
+    @Input() divider = false;
+    /** The text to show on the second line */
+    @Input() subtitle: string;
+    /** The text to show on the first line */
+    @Input() title: string;
     @ViewChild('icon', { static: true }) iconEl: ElementRef;
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
