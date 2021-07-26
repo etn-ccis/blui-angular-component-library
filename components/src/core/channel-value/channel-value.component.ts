@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, ViewEncapsulation } from '@angular/core';
 import { requireInput } from '../../utils/utils';
 
+/** Displays a value/unit combination.
+ * These are used as part of the HeroComponent but can also be used inline. */
 @Component({
     selector: 'pxb-channel-value',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,7 +23,7 @@ import { requireInput } from '../../utils/utils';
     },
 })
 export class ChannelValueComponent implements OnChanges {
-    /** Show units before the value */
+    /** If true, shows units before the value */
     @Input() prefix = false;
     /** The text to display for the units (light text) */
     @Input() units: string;

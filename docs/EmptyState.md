@@ -42,10 +42,10 @@ Parent element (`<pxb-empty-state>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input      | Description                   | Type     | Required | Default |
-| ----------- | ----------------------------- | -------- | -------- | ------- |
-| description | The secondary text to display | `string` | no       |         |
-| title       | The main text to display      | `string` | no       |         |
+| @Input      | Description                                   | Type     | Required | Default |
+| ----------- | --------------------------------------------- | -------- | -------- | ------- |
+| description | The secondary text to display (second line)   | `string` | no       |         |
+| title       | The primary text to display (first line)      | `string` | no       |         |
 
 </div>
 

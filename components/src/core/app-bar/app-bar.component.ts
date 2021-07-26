@@ -17,6 +17,9 @@ import { fromEvent, interval, Subscription } from 'rxjs';
 import { throttle } from 'rxjs/operators';
 import { Element } from '@angular/compiler';
 
+/** The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can be resized as the page is scrolled.
+ * It supports three variants: `snap`, `collapsed`, and `expanded`.
+ * */
 @Component({
     selector: 'pxb-app-bar',
     changeDetection: ChangeDetectionStrategy.OnPush,

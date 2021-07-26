@@ -16,6 +16,10 @@ export type DrawerNavGroup = {
     items: DrawerNavItem[];
 };
 
+/**
+ * A `<pxb-drawer-nav-group>` is used inside of the `<pxb-drawer-body>` to organize links and content.
+ * Each group consists of an (optional) group title and a series of NavItems.
+ */
 @Component({
     selector: 'pxb-drawer-nav-group',
     changeDetection: ChangeDetectionStrategy.OnPush,

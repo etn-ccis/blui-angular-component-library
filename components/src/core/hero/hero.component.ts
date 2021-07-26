@@ -12,6 +12,10 @@ import {
 } from '@angular/core';
 import { requireInput } from '../../utils/utils';
 
+/**
+ * The `<pxb-hero>` components are used to call attention to particular values that are of the most importance to the user.
+ * These are typically displayed in a banner.
+ */
 @Component({
     selector: 'pxb-hero',
     changeDetection: ChangeDetectionStrategy.OnPush,

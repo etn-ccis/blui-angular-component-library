@@ -12,6 +12,10 @@ import { isEmptyView, requireContent } from '../../utils/utils';
 type IconAlignType = 'left' | 'center' | 'right' | undefined;
 type DividerType = 'full' | 'partial' | undefined;
 
+/**
+ * The `<pxb-info-list-item>` is intended to be used in List views.
+ * It positions a title as well as optional subtitle(s), icon, and status stripe.
+ */
 @Component({
     selector: 'pxb-info-list-item',
     changeDetection: ChangeDetectionStrategy.OnPush,

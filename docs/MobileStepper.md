@@ -53,11 +53,11 @@ Parent element (`<pxb-mobile-stepper`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input     | Description                    | Type     | Required | Default    |     |        |
-| ---------- | ------------------------------ | -------- | -------- | ---------- | --- | ------ |
-| activeStep | The index of the active step   | `number` | yes      |            |     |        |
-| steps      | How many steps the to display  | `number` | yes      |            |     |        |  
-| variant    | Which type of indicator to use | `dots    | text     | progress ` | no  | `dots` |
+| @Input     | Description                        | Type     | Required | Default    |     |        |
+| ---------- | ---------------------------------- | -------- | -------- | ---------- | --- | ------ |
+| activeStep | The index of the active step       | `number` | yes      |            |     |        |
+| steps      | Total number of steps to display   | `number` | yes      |            |     |        |  
+| variant    | Which type of indicator to use     | `dots    | text     | progress ` | no  | `dots` |
 
 </div>
 

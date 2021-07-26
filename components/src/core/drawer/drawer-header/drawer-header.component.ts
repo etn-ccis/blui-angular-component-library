@@ -11,6 +11,9 @@ import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 import { isEmptyView } from '../../../utils/utils';
 
+/**
+ * The `<pxb-drawer-header>` contains the content found at the top of the `<pxb-drawer>`.
+ */
 @Component({
     selector: 'pxb-drawer-header',
     changeDetection: ChangeDetectionStrategy.OnPush,

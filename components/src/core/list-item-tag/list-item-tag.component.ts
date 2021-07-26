@@ -1,6 +1,9 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, ViewEncapsulation } from '@angular/core';
 import { requireInput } from '../../utils/utils';
 
+/**
+ * The `<pxb-list-item-tag>` is a text item with a colored background and rounded corners that is used to tag lists.
+ */
 @Component({
     selector: 'pxb-list-item-tag',
     templateUrl: './list-item-tag.component.html',

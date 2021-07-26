@@ -3,6 +3,9 @@ import { requireInput } from '../../utils/utils';
 
 export type MobileStepperVariant = 'dots' | 'text' | 'progress';
 
+/** The <MobileStepper> is used to minimally display progress when completing a workflow that requires multiple steps.
+ *  There are three types of progress indicators supported, dots (default), text, and progress.
+ */
 @Component({
     selector: 'pxb-mobile-stepper',
     templateUrl: './mobile-stepper.component.html',
@@ -17,7 +20,7 @@ export class MobileStepperComponent implements OnChanges {
     /** The index of the active step */
     @Input() activeStep: number;
 
-    /** How many steps the to display */
+    /** Total number of steps to display */
     @Input() steps: number;
 
     /** Which type of indicator to use */

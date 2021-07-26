@@ -9,6 +9,10 @@ import {
 } from '@angular/core';
 import { requireContent } from '../../utils/utils';
 
+/**
+ * The `<pxb-empty-state>` component can display a particular icon, text, and actions.
+ * Icon components are passed as a child element with the `emptyIcon` attribute - these will typically be a Material icon, PX Blue icon, or Progress Icon.
+ */
 @Component({
     selector: 'pxb-empty-state',
     templateUrl: './empty-state.component.html',
@@ -20,11 +24,12 @@ import { requireContent } from '../../utils/utils';
     },
 })
 export class EmptyStateComponent implements AfterViewInit {
-    /** The secondary text to display */
+    /** The secondary text to display (second line) */
     @Input() description: string;
-    /** The main text to display */
+    /** The primary text to display (first line) */
     @Input() title: string;
 
+    /** Used to check if an icon has been provided ngAfterViewInit */
     @ViewChild('emptyIcon') emptyIcon: ElementRef;
 
     ngAfterViewInit(): void {

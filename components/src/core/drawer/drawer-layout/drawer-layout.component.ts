@@ -17,6 +17,11 @@ import { Subscription } from 'rxjs';
 
 export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' | 'rail';
 
+/**
+ * The `<pxb-drawer-layout>` component is a wrapper around the [Angular Material Sidenav](https://material.angular.io/components/sidenav/overview) that adds specific PX Blue functionality and styling.
+ * The `<pxb-drawer-layout>` component is used to provide the appropriate resizing behavior for your main application content when used in conjunction with a PX Blue `<pxb-drawer>`.
+ * It accepts a drawer and content as child elements;
+ */
 @Component({
     selector: 'pxb-drawer-layout',
     encapsulation: ViewEncapsulation.None,

@@ -62,9 +62,9 @@ Parent element (`<pxb-score-card>`) attributes:
 | @Input         | Description                           | Type     | Required | Default |
 | -------------- | ------------------------------------- | -------- | -------- | ------- |
 | badgeOffset    | Vertical offset for the badge content | `number` | no       | 0       |
-| headerInfo     | Tertiary text                         | `string` | no       |         |
-| headerSubtitle | The secondary text                    | `string` | no       |         |
-| headerTitle    | The primary text                      | `string` | yes      |         |
+| headerInfo     | The third line of text in the header  | `string` | no       |         |
+| headerSubtitle | The second line of text in the header | `string` | no       |         |
+| headerTitle    | The first line of text in the header  | `string` | yes      |         |
 
 </div>
 

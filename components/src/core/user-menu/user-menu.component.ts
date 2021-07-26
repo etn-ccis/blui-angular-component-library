@@ -16,6 +16,10 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { fromEvent, Subscription } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
+/**
+ * The `<pxb-user-menu>` is an Avatar that opens a Menu when clicked.
+ * It is typically used in the top-right corner of an application and indicates who is logged in.
+ */
 @Component({
     selector: 'pxb-user-menu',
     changeDetection: ChangeDetectionStrategy.OnPush,

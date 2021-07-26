@@ -1,5 +1,9 @@
 import { Component, HostBinding, Input, NgModule, OnChanges, OnInit } from '@angular/core';
 
+/**
+ * An invisible utility component that acts as a spacer element in various layouts.
+ * It works with flexbox sizing or fixed sizing.
+ */
 @Component({
     selector: 'pxb-spacer',
     template: `
@@ -7,8 +11,11 @@ import { Component, HostBinding, Input, NgModule, OnChanges, OnInit } from '@ang
     `,
 })
 export class SpacerComponent implements OnChanges, OnInit {
+    /** Flex grow/shrink value for use in flex layouts */
     @Input() flex = 1;
+    /** Height (in px) for static layouts */
     @HostBinding('style.height.px') @Input() height: number;
+    /** Width (in px) for static layouts */
     @HostBinding('style.width.px') @Input() width: number;
     @HostBinding('style.flex') grow: string;
     @HostBinding('style.display') display = 'flex';

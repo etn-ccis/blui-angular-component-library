@@ -32,6 +32,9 @@ export type DrawerNavItem = {
 
 export type ActiveItemBackgroundShape = 'round' | 'square';
 
+/**
+ * The `<pxb-drawer-nav-item>` is a wrapper to the `<pxb-info-list-item>` that is meant to be used within a `<pxb-nav-group>`.
+ */
 @Component({
     selector: 'pxb-drawer-nav-item',
     encapsulation: ViewEncapsulation.None,

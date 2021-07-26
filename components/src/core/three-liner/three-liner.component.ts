@@ -9,6 +9,10 @@ import {
 } from '@angular/core';
 import { isEmptyView } from '../../utils/utils';
 
+/**
+ * The `<pxb-three-liner>` can display up to three lines of stylized text or other ng-content.
+ * It is most commonly used within the context of a `<pxb-app-bar>` component where the text can grow / shrink as the App Bar is expanded and collapsed.
+ */
 @Component({
     selector: 'pxb-three-liner',
     encapsulation: ViewEncapsulation.None,

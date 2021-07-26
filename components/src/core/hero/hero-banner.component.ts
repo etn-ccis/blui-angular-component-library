@@ -1,5 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 
+/**
+ * The `<pxb-hero-banner>` component is a simple wrapper component that is used to contain `<pxb-hero>`s.
+ */
 @Component({
     selector: 'pxb-hero-banner',
     changeDetection: ChangeDetectionStrategy.OnPush,

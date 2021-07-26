@@ -2,6 +2,10 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, ViewEncap
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 
+/**
+ * The `<pxb-drawer-footer>` is an optional section that renders at the bottom of the `<pxb-drawer>`.
+ * It can be used to add any custom content (as children).
+ */
 @Component({
     selector: 'pxb-drawer-footer',
     changeDetection: ChangeDetectionStrategy.OnPush,

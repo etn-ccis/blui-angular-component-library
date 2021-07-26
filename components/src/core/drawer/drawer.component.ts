@@ -11,6 +11,10 @@ import { DrawerService } from './service/drawer.service';
 import { StateListener } from './state-listener.component';
 import { Subscription } from 'rxjs';
 
+/**
+ * The `<pxb-drawer>` is used to organize content (typically navigation links) within a `<pxb-drawer-layout>`.
+ * The `<pxb-drawer>` includes helper components for `<pxb-drawer-header>`, `<pxb-drawer-subheader>`, `<pxb-drawer-body>`, `<pxb-drawer-nav-group>`, `<pxb-drawer-footer>`, and `<pxb-drawer-layout>` to help organize the content.
+ */
 @Component({
     selector: 'pxb-drawer',
     changeDetection: ChangeDetectionStrategy.OnPush,
