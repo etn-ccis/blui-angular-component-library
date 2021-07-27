@@ -17,6 +17,8 @@ import { fromEvent, Subscription } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
 /**
+ * [UserMenu Component](https://pxblue-components.github.io/angular/?path=/info/components-user-menu--readme)
+ *
  * The `<pxb-user-menu>` is an Avatar that opens a Menu when clicked.
  * It is typically used in the top-right corner of an application and indicates who is logged in.
  */

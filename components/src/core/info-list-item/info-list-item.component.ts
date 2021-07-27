@@ -13,6 +13,8 @@ type IconAlignType = 'left' | 'center' | 'right' | undefined;
 type DividerType = 'full' | 'partial' | undefined;
 
 /**
+ * [InfoListItem Component](https://pxblue-components.github.io/angular/?path=/info/components-info-list-item--readme)
+ *
  * The `<pxb-info-list-item>` is intended to be used in List views.
  * It positions a title as well as optional subtitle(s), icon, and status stripe.
  */

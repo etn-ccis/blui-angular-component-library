@@ -13,6 +13,8 @@ import {
 import { requireInput } from '../../utils/utils';
 
 /**
+ * [Hero Component](https://pxblue-components.github.io/angular/?path=/info/components-hero--readme)
+ *
  * The `<pxb-hero>` components are used to call attention to particular values that are of the most importance to the user.
  * These are typically displayed in a banner.
  */

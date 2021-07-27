@@ -1,6 +1,8 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 
 /**
+ * [HeroBanner Component](https://pxblue-components.github.io/angular/?path=/info/components-hero--readme)
+ *
  * The `<pxb-hero-banner>` component is a simple wrapper component that is used to contain `<pxb-hero>`s.
  */
 @Component({

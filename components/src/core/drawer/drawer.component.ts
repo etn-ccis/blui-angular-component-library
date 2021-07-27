@@ -12,6 +12,8 @@ import { StateListener } from './state-listener.component';
 import { Subscription } from 'rxjs';
 
 /**
+ * [Drawer Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ *
  * The `<pxb-drawer>` is used to organize content (typically navigation links) within a `<pxb-drawer-layout>`.
  * The `<pxb-drawer>` includes helper components for `<pxb-drawer-header>`, `<pxb-drawer-subheader>`, `<pxb-drawer-body>`, `<pxb-drawer-nav-group>`, `<pxb-drawer-footer>`, and `<pxb-drawer-layout>` to help organize the content.
  */

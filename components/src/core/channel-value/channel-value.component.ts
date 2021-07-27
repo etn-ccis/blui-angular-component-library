@@ -1,7 +1,10 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, ViewEncapsulation } from '@angular/core';
 import { requireInput } from '../../utils/utils';
 
-/** Displays a value/unit combination.
+/**
+ * [ChannelValue Component](https://pxblue-components.github.io/angular/?path=/info/components-channel-value--readme)
+ *
+ * Displays a value/unit combination.
  * These are used as part of the HeroComponent but can also be used inline. */
 @Component({
     selector: 'pxb-channel-value',

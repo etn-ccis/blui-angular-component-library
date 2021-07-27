@@ -3,7 +3,10 @@ import { requireInput } from '../../utils/utils';
 
 export type MobileStepperVariant = 'dots' | 'text' | 'progress';
 
-/** The <MobileStepper> is used to minimally display progress when completing a workflow that requires multiple steps.
+/**
+ * [MobileStepper Component](https://pxblue-components.github.io/angular/?path=/info/components-mobile-stepper--readme)
+ *
+ * The <MobileStepper> is used to minimally display progress when completing a workflow that requires multiple steps.
  *  There are three types of progress indicators supported, dots (default), text, and progress.
  */
 @Component({

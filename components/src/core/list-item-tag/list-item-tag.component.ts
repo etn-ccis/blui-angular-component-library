@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, Input, OnChanges, ViewEncapsulation
 import { requireInput } from '../../utils/utils';
 
 /**
+ * [ListItemTag Component](https://pxblue-components.github.io/angular/?path=/info/components-list-item-tag--readme)
+ *
  * The `<pxb-list-item-tag>` is a text item with a colored background and rounded corners that is used to tag lists.
  */
 @Component({

@@ -1,6 +1,8 @@
 import { Component, HostBinding, Input, NgModule, OnChanges, OnInit } from '@angular/core';
 
 /**
+ * [Spacer Component](https://pxblue-components.github.io/angular/?path=/info/components-spacer--readme)
+ *
  * An invisible utility component that acts as a spacer element in various layouts.
  * It works with flexbox sizing or fixed sizing.
  */

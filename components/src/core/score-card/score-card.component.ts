@@ -2,6 +2,8 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
 import { requireInput } from '../../utils/utils';
 
 /**
+ * [ScoreCard Component](https://pxblue-components.github.io/angular/?path=/info/components-score-card--readme)
+ *
  `<pxb-score-card>` is a card component that calls attention to particular values.
  */
 @Component({

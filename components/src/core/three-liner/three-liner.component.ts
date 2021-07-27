@@ -10,6 +10,8 @@ import {
 import { isEmptyView } from '../../utils/utils';
 
 /**
+ * [ThreeLiner Component](https://pxblue-components.github.io/angular/?path=/info/components-three-liner--readme)
+ *
  * The `<pxb-three-liner>` can display up to three lines of stylized text or other ng-content.
  * It is most commonly used within the context of a `<pxb-app-bar>` component where the text can grow / shrink as the App Bar is expanded and collapsed.
  */

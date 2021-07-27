@@ -10,6 +10,8 @@ import {
 import { requireContent } from '../../utils/utils';
 
 /**
+ * [EmptyState Component](https://pxblue-components.github.io/angular/?path=/info/components-empty-state--readme)
+ *
  * The `<pxb-empty-state>` component can display a particular icon, text, and actions.
  * Icon components are passed as a child element with the `emptyIcon` attribute - these will typically be a Material icon, PX Blue icon, or Progress Icon.
  */
