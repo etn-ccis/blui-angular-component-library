@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { DrawerLayoutVariantType } from '../..';
 
+/** This service is used to manage the state of a Drawer component, responds to user behavior and input settings. */
 @Injectable({
     providedIn: 'root',
 })
@@ -103,6 +104,7 @@ export class DrawerService {
         return this.drawerActiveItemChangeObs;
     }
 
+    /** Each nav item has a unique id which is used to determine which item is selected. */
     createNavItemID(): number {
         return ++this.navItemCount;
     }

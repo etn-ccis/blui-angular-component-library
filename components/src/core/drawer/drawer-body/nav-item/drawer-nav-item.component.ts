@@ -205,6 +205,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         return !this.drawerService.isDisableRailTooltip();
     }
 
+    /** Whenever the selected item in the drawer state changes, we need to check to see we should apply a hierarchical highlight. */
     manageActiveItemTreeHighlight(): void {
         if (!this.navItemEl) {
             return;
@@ -249,12 +250,14 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         }
     }
 
+    /** Sets default state values for non-nested nav items. */
     setNavItemDefaults(): void {
         if (this.divider === undefined) this.divider = true;
         if (this.hidePadding === undefined) this.hidePadding = true;
         this.incrementDepth(0);
     }
 
+    /** Sets default state values for nested nav items. */
     setNestedDrawerDefaults(): void {
         this.isNestedItem = true;
         if (this.divider === undefined) this.divider = false;

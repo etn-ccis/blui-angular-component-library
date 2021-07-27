@@ -35,6 +35,7 @@ export class MobileStepperComponent implements OnChanges {
             .map((i) => i);
     }
 
+    /** This is only used for progress variant. */
     getProgressFill(): number {
         return this.activeStep === 0 ? 0 : (this.activeStep / (this.stepsArray.length - 1)) * 100;
     }

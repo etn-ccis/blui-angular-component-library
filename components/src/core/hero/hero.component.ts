@@ -76,6 +76,7 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
         requireInput<HeroComponent>(['label'], this);
         this.iSize = this.iconSize;
     }
+
     ngAfterViewInit(): void {
         this.hasMatSvgIcon = Boolean(this.getMatSvgIcon());
         this._ref.detectChanges();
