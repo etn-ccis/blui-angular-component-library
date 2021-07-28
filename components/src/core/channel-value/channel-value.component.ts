@@ -5,7 +5,7 @@ import { requireInput } from '../../utils/utils';
  *
  * Displays a value/unit combination.
  * These are used as part of the HeroComponent but can also be used inline.
- */
+ * */
 @Component({
     selector: 'pxb-channel-value',
     changeDetection: ChangeDetectionStrategy.OnPush,
