@@ -5,7 +5,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
  * [DropdownToolbar Component](https://pxblue-components.github.io/angular/?path=/info/components-dropdown-toolbar--readme)
  *
  * The `<pxb-dropdown-toolbar>` component is used to display a toolbar with a dropdown.
-*/
+ */
 @Component({
     selector: 'pxb-dropdown-toolbar',
     encapsulation: ViewEncapsulation.None,
