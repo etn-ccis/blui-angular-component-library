@@ -27,7 +27,7 @@ import { StateListener } from '../state-listener.component';
 export class DrawerSubheaderComponent extends StateListener {
     /** Show a divider below subheader */
     @Input() divider = true;
-    /** Hide subheader content when closed */
+    /** Hide subheader content when drawer is collapsed */
     @Input() hideContentOnCollapse = true;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
