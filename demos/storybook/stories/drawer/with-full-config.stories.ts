@@ -117,7 +117,9 @@ export const withFullConfig = (): any => ({
             [sideBorder]="sideBorder"
             [disableActiveItemParentStyles]="disableActiveItemParentStyles" 
             [openOnHover]="openOnHover"
-            [class.show-header-image]="showHeaderImage">
+            [class.show-header-image]="showHeaderImage"
+            [disableRailTooltip]="disableRailTooltip"
+            >
            <pxb-drawer-header [title]="title" [subtitle]="subtitle" [divider]="showHeaderDivider" [color]="color">
              <button *ngIf="!hideIcon" pxb-icon mat-icon-button (click)="toggleDrawer(state)">
                <mat-icon>menu</mat-icon>
@@ -175,6 +177,7 @@ export const withFullConfig = (): any => ({
         ),
         sideBorder: boolean('sideBorder', true, drawer),
         disableActiveItemParentStyles: boolean('disableActiveItemParentStyles', false, drawer),
+        disableRailTooltip: boolean('disableRailTooltip', false, drawer),
         title: text('title', 'PX Blue Drawer', header),
         subtitle: text('subtitle', 'with full config', header),
         showHeaderImage: boolean('Show Background Image', true, header),
