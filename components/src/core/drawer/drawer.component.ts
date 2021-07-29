@@ -50,7 +50,7 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
      * @default false
      * */
     @Input() condensed = false;
-    /** Show tooltips on hover for the rail variant
+    /** Hides tooltips on hover for the rail variant
      *
      * @default false
      * */
