@@ -157,7 +157,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
      * @default true
      * */
     @Input() ripple = true;
-    /** Sets whether an item is selected */
+    /** Sets whether an item is selected.  A selected item will have the `activeBackgroundShape` applied to it and appear different from all other NavItems.*/
     @Input() selected: boolean;
     /** Left border color */
     @Input() statusColor: string;

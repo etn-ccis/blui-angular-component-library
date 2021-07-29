@@ -30,7 +30,10 @@ export class DrawerSubheaderComponent extends StateListener {
      * @default true
      * */
     @Input() divider = true;
-    /** Hide subheader content when drawer is collapsed */
+    /** Hide subheader content when drawer is collapsed
+     *
+     * @default true
+     * */
     @Input() hideContentOnCollapse = true;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {

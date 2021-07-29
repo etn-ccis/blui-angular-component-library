@@ -57,7 +57,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
     },
 })
 export class DrawerLayoutComponent extends StateListener implements AfterViewInit, OnChanges {
-    /** Sets the drawer variant
+    /** Controls how the Drawer behaves and appears on the screen.  Can be `permanent` | `peristent` | `temporary` | `rail`.
      *
      * `permanent` - `Drawer` appears on the side of the screen and cannot be dismissed.
      *
