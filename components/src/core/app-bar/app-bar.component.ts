@@ -50,25 +50,41 @@ import { Element } from '@angular/compiler';
     `,
 })
 export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDestroy {
-    /** Height of the AppBar when collapsed */
+    /** Height (pixels) of the AppBar when collapsed */
     @Input() collapsedHeight: number;
-    /** Color variant which is passed to the `<mat-toolbar>` */
+    /** Color variant which is passed to the `<mat-toolbar>`
+     *
+     * @default primary
+     * */
     @Input() color: 'primary' | 'accent' | 'warn' | undefined = 'primary';
-    /** Height of the AppBar when expanded */
+    /** Height (pixels) of the AppBar when expanded
+     *
+     * @default 200
+     * */
     @Input() expandedHeight = 200;
     // The thing that scrolls, we listen to this.
-    /** Scrollable element which dynamic app bar responds to */
+    /** Scrollable element which dynamic app bar responds to.  This element is searched in the DOM `ngAfterViewInit`.*/
     @Input() scrollContainerElement: Element;
-    /** Class name, index number of scrollable element */
+    /** Class name, index number of scrollable element. This element is searched in the DOM `ngAfterViewInit`. */
     @Input() scrollContainerClassName: { name: string; index: number };
-    /** Id of the scrollable element */
+    /** Id of the scrollable element. This element is searched in the DOM `ngAfterViewInit`.  */
     @Input() scrollContainerId: string;
-    /** Distance in pixels to scroll before collapsing toolbar */
+    /** Distance in pixels to scroll before collapsing toolbar. */
     @Input() scrollThreshold;
-    /** Behavior of the App Bar */
+    /** Behavior of the App Bar
+     *
+     *  `collapsed` - Height set to `collapsedHeight` and does not respond to scroll distance
+     *
+     *  `expanded` -  Height set to `expandedHeight` and does not respond to scroll distance
+     *
+     *  `snap` - Variant that responds to scroll distance and switches between the `collapsed` and `expanded` variant.
+     *
+     *  @default collapsed
+     *
+     * */
     @Input() variant: 'collapsed' | 'expanded' | 'snap' = 'collapsed';
 
-    /** Event emitter for when the appbar opens or closes */
+    /** Event emitter for when the appbar opens or closes.  Emits a boolean that indicates whether the AppBar is expanded. */
     @Output() collapsedChange: EventEmitter<boolean> = new EventEmitter();
 
     @HostBinding('class') @Input('class') classList = 'pxb-app-bar mat-elevation-z4';

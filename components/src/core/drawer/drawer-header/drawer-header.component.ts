@@ -45,9 +45,15 @@ import { isEmptyView } from '../../../utils/utils';
     },
 })
 export class DrawerHeaderComponent extends StateListener {
-    /** Mat toolbar color variant */
+    /** Mat toolbar color variant
+     *
+     * @default primary
+     * */
     @Input() color: 'primary' | 'accent' | 'warn' | undefined = 'primary';
-    /** Show a divider below footer */
+    /** Show a divider below footer
+     *
+     * @default false
+     * */
     @Input() divider = false;
     /** The text to show on the second line */
     @Input() subtitle: string;

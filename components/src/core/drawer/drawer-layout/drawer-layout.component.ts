@@ -57,9 +57,23 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
     },
 })
 export class DrawerLayoutComponent extends StateListener implements AfterViewInit, OnChanges {
-    /** Sets the drawer variant */
-    @Input() variant: DrawerLayoutVariantType;
-    /** Drawer pixel width */
+    /** Sets the drawer variant
+     *
+     * `permanent` - `Drawer` appears on the side of the screen and cannot be dismissed.
+     *
+     * `persistent` - `Drawer` appears on the side of the screen and responds to the `open` @Input. When closed, only shows each `NavItem` icon.
+     *
+     * `temporary` - `Drawer` slides in from the side of the screen and appears as an overlay.
+     *
+     * `rail` - `Drawer` appears on the side of the screen as a slim element, supporting icons and text.
+     *
+     * @default temporary
+     * */
+    @Input() variant: DrawerLayoutVariantType = 'temporary';
+    /** Drawer pixel width
+     *
+     * @default 350
+     * */
     @Input() width = 350;
     /** Event triggered on 'temporary variant backdrop click */
     @Output() backdropClick: EventEmitter<void> = new EventEmitter();

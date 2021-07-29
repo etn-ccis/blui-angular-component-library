@@ -45,7 +45,10 @@ import { requireInput } from '../../utils/utils';
     },
 })
 export class ScoreCardComponent {
-    /** Vertical offset for the badge content */
+    /** Vertical offset for the badge content
+     *
+     * @default 0
+     * */
     @Input() badgeOffset = 0;
 
     /** The third line of text in the header */

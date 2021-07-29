@@ -66,7 +66,7 @@ export type DrawerNavGroup = {
     },
 })
 export class DrawerNavGroupComponent extends StateListener implements Omit<DrawerNavGroup, 'items'> {
-    /** Divider that appears under the title */
+    /** Whether to show a dividing line below the title */
     @Input() divider = false;
     /** Component to render a group title */
     @Input() title: string;

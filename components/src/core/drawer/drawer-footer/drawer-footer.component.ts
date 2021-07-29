@@ -25,9 +25,15 @@ import { StateListener } from '../state-listener.component';
     },
 })
 export class DrawerFooterComponent extends StateListener {
-    /** Show a divider above footer */
+    /** Whether to show a dividing line above the Footer
+     *
+     * @default true
+     * */
     @Input() divider = true;
-    /** Hide footer content when closed */
+    /** Hide footer content when closed
+     *
+     * @default true
+     * */
     @Input() hideContentOnCollapse = true;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {

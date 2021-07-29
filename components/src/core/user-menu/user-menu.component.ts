@@ -110,9 +110,16 @@ export class UserMenuComponent {
         new ConnectionPositionPair({ originX: 'start', originY: 'top' }, { overlayX: 'start', overlayY: 'top' }),
     ];
 
+    /** Whether the menu overlay appears on screen.
+     *
+     * @default false
+     */
     @Input() open = false;
 
-    /** Window pixel width at which the responsive bottom sheet menu is triggered (set to 0 to disable responsive behavior) */
+    /** Window pixel width at which the responsive bottom sheet menu is triggered (set to 0 to disable responsive behavior)
+     *
+     * @default 600
+     * */
     @Input() useBottomSheetAt = 600;
 
     /** Emits event when backdrop is clicked */

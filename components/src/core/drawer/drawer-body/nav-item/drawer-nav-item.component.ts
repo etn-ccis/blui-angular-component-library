@@ -122,23 +122,44 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
     },
 })
 export class DrawerNavItemComponent extends StateListener implements Omit<DrawerNavItem, 'items'> {
-    /** Sets the active item background shape */
+    /** Sets the active item background shape
+     *
+     * `square` - Background shape takes the entire height of width of the NavItem.
+     * `round` - Background shape has a rounded corner towards the end of the NavItem.
+     *
+     * @default square
+     * */
     @Input() activeItemBackgroundShape: ActiveItemBackgroundShape = 'square';
-    /** Sets whether to show chevron */
-    @Input() chevron: boolean;
-    /** Sets whether to show divider */
+    /** Sets whether to show a chevron icon on the left side of a `NavItem`
+     *
+     * @default false
+     * */
+    @Input() chevron = false;
+    /** Whether to show a dividing line below each NavItem
+     *
+     * @default false
+     * */
     @Input() divider = false;
-    /** Sets whether to show nested nav items */
+    /** Sets whether to show nested nav items
+     *
+     * @default false
+     * */
     @Input() expanded = false;
     /** Sets whether to show/hide padding */
     @Input() hidePadding: boolean;
-    /** Sets whether to hide the nav item */
+    /** Sets whether to hide the nav item
+     *
+     * @default false
+     * */
     @Input() hidden = false;
-    /** Sets whether to show/hide ripple */
+    /** Sets whether to show/hide Angular ripple animation effect onClick
+     *
+     * @default true
+     * */
     @Input() ripple = true;
     /** Sets whether an item is selected */
     @Input() selected: boolean;
-    /** Status stripe color */
+    /** Left border color */
     @Input() statusColor: string;
     /** Text to display as a subtitle */
     @Input() subtitle: string;

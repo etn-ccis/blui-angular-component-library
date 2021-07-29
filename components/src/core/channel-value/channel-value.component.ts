@@ -26,11 +26,14 @@ import { requireInput } from '../../utils/utils';
     },
 })
 export class ChannelValueComponent implements OnChanges {
-    /** If true, shows units before the value */
+    /** If true, shows units before the value
+     *
+     * @default false
+     * */
     @Input() prefix = false;
     /** The text to display for the units (light text) */
     @Input() units: string;
-    /** The value (bold text) to display */
+    /** The text to display for the value (bold text)*/
     @Input() value: string | number;
     /** Text color */
     @Input() color: string;

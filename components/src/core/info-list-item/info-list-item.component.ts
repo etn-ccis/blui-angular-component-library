@@ -85,27 +85,62 @@ type DividerType = 'full' | 'partial' | undefined;
     },
 })
 export class InfoListItemComponent implements AfterViewInit {
-    /** Show a colored background for the icon */
+    /** Show a colored background for the icon
+     *
+     * @default false
+     * */
     @Input() avatar = false;
-    /** Add a chevron icon on the right */
+    /** Add a chevron icon on the right
+     *
+     * @default false
+     * */
     @Input() chevron = false;
-    /** Smaller height row with less padding */
+    /** Smaller height row with less padding
+     *
+     * @default false
+     * */
     @Input() dense = false;
-    /** Show a row separator below the row */
+    /** Show a row separator below the row.  Can be `partial` | `full`
+     *
+     * `partial` - Divider does not expand full width of the ListItem
+     *
+     * `full`- Divider spans full width of the ListItem
+     * */
     @Input() divider: DividerType;
-    /** Disable the list item */
+    /** Disable the list item
+     *
+     * @default false
+     * */
     @Input() disabled = false;
     /** Remove left padding if no icon is used */
     @Input() hidePadding = false;
-    /** Icon alignment when avatar is set to false */
+    /** Icon alignment when avatar is set to false. Can be `left` | `right` | `center`
+     *
+     * `left` - Icon appears at the `flex-start` of the icon container.
+     *
+     * `right` - Icon appears at the `flex-end` of the icon container.
+     *
+     * `center` - Icon appears at the center of the icon container.
+     *
+     * @default left
+     * */
     @Input() iconAlign: IconAlignType = 'left';
     /** Left border color */
     @Input() statusColor: string;
-    /** Whether to wrap info on overflow */
+    /** When true, 3rd-line text overflow breaks onto the next line instead of using an ellipsis
+     *
+     * @default false
+     * */
     @Input() wrapInfo = false;
-    /** Whether to wrap subtitle on overflow */
+    /** When true, 2nd-line text overflow breaks onto the next line instead of using an ellipsis
+     *
+     * @default false
+     * */
     @Input() wrapSubtitle = false;
-    /** Whether to wrap title on overflow */
+    /** When true, 1st-line text overflow breaks onto the next line instead of using an ellipsis
+     *
+     * @default false
+     * */
     @Input() wrapTitle = false;
 
     @ViewChild('title') titleEl: ElementRef;

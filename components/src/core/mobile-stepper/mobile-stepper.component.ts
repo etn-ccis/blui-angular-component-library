@@ -26,7 +26,16 @@ export class MobileStepperComponent implements OnChanges {
     /** Total number of steps to display */
     @Input() steps: number;
 
-    /** Which type of indicator to use */
+    /** Which type of indicator to use. Can be 'dots' | 'text' | 'progress'.
+     *
+     * `dots` - Each step appears as a dot. Visited steps will appear as a different color.
+     *
+     * `text` -  Text indicator which shows current step and total steps.  Example: "Step 1/5"
+     *
+     * `progress` - Appears as a progress bar that fills the further along as user is in the workflow.
+     *
+     * @default dots
+     * */
     @Input() variant: MobileStepperVariant = 'dots';
 
     stepsArray: number[] = [];

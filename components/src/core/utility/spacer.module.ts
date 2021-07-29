@@ -13,7 +13,10 @@ import { Component, HostBinding, Input, NgModule, OnChanges, OnInit } from '@ang
     `,
 })
 export class SpacerComponent implements OnChanges, OnInit {
-    /** Flex grow/shrink value for use in flex layouts */
+    /** Flex grow/shrink value for use in flex layouts
+     *
+     * @default 1
+     * */
     @Input() flex = 1;
     /** Height (in px) for static layouts */
     @HostBinding('style.height.px') @Input() height: number;
