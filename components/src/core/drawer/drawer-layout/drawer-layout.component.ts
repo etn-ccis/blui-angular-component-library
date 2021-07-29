@@ -75,7 +75,7 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
      * @default 350
      * */
     @Input() width = 350;
-    /** Event triggered on 'temporary variant backdrop click */
+    /** Event triggered on 'temporary' variant backdrop click */
     @Output() backdropClick: EventEmitter<void> = new EventEmitter();
     @ViewChild('remElement') remElement: ElementRef;
 
