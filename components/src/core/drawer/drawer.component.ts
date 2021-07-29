@@ -45,12 +45,12 @@ import { Subscription } from 'rxjs';
     },
 })
 export class DrawerComponent extends StateListener implements OnInit, OnChanges {
-    /** Skinny view for rail variant
+    /** Enables a condensed view for the `rail` variant which removes NavItem labels and shows tooltips instead
      *
      * @default false
      * */
     @Input() condensed = false;
-    /** Hides tooltips on hover for the rail variant
+    /** Hides tooltips on hover for the `rail` variant
      *
      * @default false
      * */
