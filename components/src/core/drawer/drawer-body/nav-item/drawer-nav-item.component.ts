@@ -145,7 +145,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
      * @default false
      * */
     @Input() expanded = false;
-    /** Sets whether to show/hide padding */
+    /** Sets whether to show/hide padding whenever a NavItem does not have an icon */
     @Input() hidePadding: boolean;
     /** Sets whether to hide the nav item
      *
