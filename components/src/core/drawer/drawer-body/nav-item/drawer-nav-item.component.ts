@@ -64,6 +64,9 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                     [hidePadding]="hidePadding"
                     [divider]="divider ? 'full' : undefined"
                     [class.pxb-drawer-nav-item-no-icon-closed]="isEmpty(iconEl) && !isOpen()"
+                    [matTooltip]="title"
+                    [matTooltipDisabled]="isOpen() || isOpenOnHover()"
+                    matTooltipPosition="right"
                 >
                     <ng-container pxb-icon #icon>
                         <ng-container *ngTemplateOutlet="navIcon"></ng-container>

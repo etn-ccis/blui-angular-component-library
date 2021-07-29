@@ -67,6 +67,7 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
         this.drawerService.setIsCondensed(this.condensed);
         this.drawerService.setDisableRailTooltip(this.disableRailTooltip);
         this.drawerService.setDisableActiveItemParentStyles(this.disableActiveItemParentStyles);
+        this.drawerService.setOpenOnHover(this.openOnHover);
     }
 
     hoverDrawer(): void {
