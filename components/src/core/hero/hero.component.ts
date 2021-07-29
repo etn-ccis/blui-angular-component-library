@@ -51,15 +51,15 @@ import { requireInput } from '../../utils/utils';
     },
 })
 export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChecked {
-    /** Deprecated* Color of the hero icon */
+    /** Color of the hero icon */
     @Input() color: string;
-    /** Deprecated* Color of the hero background */
+    /** Color of the hero background */
     @Input() iconBackgroundColor: string;
     /** The size of the primary icon (10-48) */
     @Input() iconSize = 36;
     /** The text shown below the Channel Value */
     @Input() label: string;
-    /** Deprecated* Scales SVG icon */
+    /** Transforms an SVG icon based on the provided `iconSize` */
     @Input() scaleSvgIcon = true;
     /** Text to show after the value */
     @Input() units: string;
