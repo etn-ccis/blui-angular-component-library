@@ -236,8 +236,6 @@ jobs:
         - run:
             name: Tag @pxblue/angular-components
             command: |
-              cp CHANGELOG.md components/CHANGELOG.md
-              cd components
               yarn tag:package -b $CIRCLE_BRANCH
 
 workflows:
