@@ -2,6 +2,12 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, ViewEncap
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 
+/**
+ * [DrawerFooter Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ *
+ * The `<pxb-drawer-footer>` is an optional section that renders at the bottom of the `<pxb-drawer>`.
+ * It can be used to add any custom content (as children).
+ */
 @Component({
     selector: 'pxb-drawer-footer',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,7 +27,15 @@ import { StateListener } from '../state-listener.component';
     },
 })
 export class DrawerFooterComponent extends StateListener {
+    /** Whether to show a dividing line above the Footer
+     *
+     * @default true
+     * */
     @Input() divider = true;
+    /** Hide footer content when closed
+     *
+     * @default true
+     * */
     @Input() hideContentOnCollapse = true;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {

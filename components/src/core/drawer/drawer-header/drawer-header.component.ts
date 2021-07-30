@@ -11,6 +11,11 @@ import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 import { isEmptyView } from '../../../utils/utils';
 
+/**
+ * [DrawerHeader Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ *
+ * The `<pxb-drawer-header>` contains the content found at the top of the `<pxb-drawer>`.
+ */
 @Component({
     selector: 'pxb-drawer-header',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -42,10 +47,20 @@ import { isEmptyView } from '../../../utils/utils';
     },
 })
 export class DrawerHeaderComponent extends StateListener {
-    @Input() subtitle: string;
-    @Input() title: string;
-    @Input() divider = false;
+    /** Mat toolbar color variant
+     *
+     * @default primary
+     * */
     @Input() color: 'primary' | 'accent' | 'warn' | undefined = 'primary';
+    /** Show a divider below footer
+     *
+     * @default false
+     * */
+    @Input() divider = false;
+    /** The text to show on the second line */
+    @Input() subtitle: string;
+    /** The text to show on the first line */
+    @Input() title: string;
     @ViewChild('icon', { static: true }) iconEl: ElementRef;
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);

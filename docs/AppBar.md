@@ -1,6 +1,7 @@
 # App Bar
 
-The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can be resized as the page is scrolled. It supports three variants: `snap`, `collapsed`, and `expanded`.
+The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can be resized as the page is scrolled. 
+It supports three variants: `snap`, `collapsed`, and `expanded`.
 
 <div style="text-align:center; margin-bottom:20px">
     <img width="100%" style="max-width: 600px; margin-bottom: 20px; border: 1px solid #0002;" alt="App Bar Three Liner" src="./gifs/appBarThreeLiner.gif">
@@ -46,6 +47,7 @@ imports: [ AppBarModule ]
 | @Input                   | Description                                            | Type                                      | Required | Default                          |
 | ------------------------ | ------------------------------------------------------ | ----------------------------------------- | -------- | -------------------------------- |
 | collapsedHeight          | Height of the AppBar when collapsed                    | `number`                                  | no       | theme default                    |
+| color                    | Color variant which is passed to the `<mat-toolbar>`   | `'primary'` \| `'accent'` \| `'warn'`     | no       | 'primary'                        |
 | expandedHeight           | Height of the AppBar when expanded                     | `number`                                  | no       | 200                              |
 | collapsedChange          | Event emitter for when the appbar opens or closes      | `EventEmitter<boolean>`                   | no       |                                  |
 | scrollContainerElement   | Scrollable element which dynamic app bar responds to   | `Element`                                 | no       |                                  |

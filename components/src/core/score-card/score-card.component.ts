@@ -1,6 +1,11 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 import { requireInput } from '../../utils/utils';
 
+/**
+ * [ScoreCard Component](https://pxblue-components.github.io/angular/?path=/info/components-score-card--readme)
+ *
+ `<pxb-score-card>` is a card component that calls attention to particular values.
+ */
 @Component({
     selector: 'pxb-score-card',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -40,10 +45,20 @@ import { requireInput } from '../../utils/utils';
     },
 })
 export class ScoreCardComponent {
-    @Input() headerTitle: string;
-    @Input() headerSubtitle: string;
-    @Input() headerInfo: string;
+    /** Vertical offset for the badge content
+     *
+     * @default 0
+     * */
     @Input() badgeOffset = 0;
+
+    /** The third line of text in the header */
+    @Input() headerInfo: string;
+
+    /** The second line of text in the header */
+    @Input() headerSubtitle: string;
+
+    /** The first line of text in the header */
+    @Input() headerTitle: string;
 
     ngOnChanges(): void {
         requireInput<ScoreCardComponent>(['headerTitle'], this);

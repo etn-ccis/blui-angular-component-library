@@ -11,6 +11,12 @@ import { DrawerService } from './service/drawer.service';
 import { StateListener } from './state-listener.component';
 import { Subscription } from 'rxjs';
 
+/**
+ * [Drawer Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ *
+ * The `<pxb-drawer>` is used to organize content (typically navigation links) within a `<pxb-drawer-layout>`.
+ * The `<pxb-drawer>` includes helper components for `<pxb-drawer-header>`, `<pxb-drawer-subheader>`, `<pxb-drawer-body>`, `<pxb-drawer-nav-group>`, `<pxb-drawer-footer>`, and `<pxb-drawer-layout>` to help organize the content.
+ */
 @Component({
     selector: 'pxb-drawer',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -39,13 +45,35 @@ import { Subscription } from 'rxjs';
     },
 })
 export class DrawerComponent extends StateListener implements OnInit, OnChanges {
-    @Input() open: boolean;
+    /** Enables a condensed view for the `rail` variant which removes NavItem labels and shows tooltips instead
+     *
+     * @default false
+     * */
     @Input() condensed = false;
-    @Input() sideBorder = false;
-    @Input() disableActiveItemParentStyles = false;
-    @Input() openOnHover = true;
-    @Input() openOnHoverDelay = 500;
+    /** Hides tooltips on hover for the `rail` variant
+     *
+     * @default false
+     * */
     @Input() disableRailTooltip = false;
+    /** If true, NavItems will not have a bold title when a child NavItem is selected
+     *
+     * @default false
+     * */
+    @Input() disableActiveItemParentStyles = false;
+    /** State for the drawer */
+    @Input() open: boolean;
+    /** Automatically open the drawer on hover when closed (persistent variant only) */
+    @Input() openOnHover = true;
+    /** Delay in milliseconds before a hover event opens the drawer (persistent variant only)
+     *
+     * @default 500
+     * */
+    @Input() openOnHoverDelay = 500;
+    /** Toggle a side border instead of shadow
+     *
+     * @default false
+     * */
+    @Input() sideBorder = false;
 
     hoverDelayTimeout: any;
     drawerSelectionListener: Subscription;

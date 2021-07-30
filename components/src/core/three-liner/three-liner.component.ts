@@ -9,6 +9,12 @@ import {
 } from '@angular/core';
 import { isEmptyView } from '../../utils/utils';
 
+/**
+ * [ThreeLiner Component](https://pxblue-components.github.io/angular/?path=/info/components-three-liner--readme)
+ *
+ * The `<pxb-three-liner>` can display up to three lines of stylized text or other ng-content.
+ * It is most commonly used within the context of a `<pxb-app-bar>` component where the text can grow / shrink as the App Bar is expanded and collapsed.
+ */
 @Component({
     selector: 'pxb-three-liner',
     encapsulation: ViewEncapsulation.None,
@@ -48,8 +54,11 @@ import { isEmptyView } from '../../utils/utils';
     },
 })
 export class ThreeLinerComponent implements AfterViewInit {
+    /** First line content */
     @Input() title;
+    /** Second line content */
     @Input() subtitle;
+    /** Third line content */
     @Input() info;
 
     @ViewChild('titleVc') titleEl: ElementRef;

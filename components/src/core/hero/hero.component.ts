@@ -12,6 +12,12 @@ import {
 } from '@angular/core';
 import { requireInput } from '../../utils/utils';
 
+/**
+ * [Hero Component](https://pxblue-components.github.io/angular/?path=/info/components-hero--readme)
+ *
+ * The `<pxb-hero>` components are used to call attention to particular values that are of the most importance to the user.
+ * These are typically displayed in a banner.
+ */
 @Component({
     selector: 'pxb-hero',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -45,13 +51,21 @@ import { requireInput } from '../../utils/utils';
     },
 })
 export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChecked {
+    /** Color of the hero icon */
     @Input() color: string;
-    @Input() label: string;
-    @Input() value: string;
-    @Input() units: string;
-    @Input() iconSize = 36;
-    @Input() scaleSvgIcon = true;
+    /** Color of the hero background */
     @Input() iconBackgroundColor: string;
+    /** The size of the primary icon (10-48) */
+    @Input() iconSize = 36;
+    /** The text shown below the Channel Value */
+    @Input() label: string;
+    /** Transforms an SVG icon based on the provided `iconSize` */
+    @Input() scaleSvgIcon = true;
+    /** Text to show after the value */
+    @Input() units: string;
+    /** The value for the channel */
+    @Input() value: string;
+
     @ViewChild('primaryContainer') primaryContainer: ElementRef;
 
     iSize: number;
@@ -64,6 +78,7 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
         requireInput<HeroComponent>(['label'], this);
         this.iSize = this.iconSize;
     }
+
     ngAfterViewInit(): void {
         this.hasMatSvgIcon = Boolean(this.getMatSvgIcon());
         this._ref.detectChanges();

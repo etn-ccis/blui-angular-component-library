@@ -1,6 +1,11 @@
 import { Component, Input, ViewChild, ViewEncapsulation } from '@angular/core';
 import { MatMenuTrigger } from '@angular/material/menu';
 
+/**
+ * [DropdownToolbar Component](https://pxblue-components.github.io/angular/?path=/info/components-dropdown-toolbar--readme)
+ *
+ * The `<pxb-dropdown-toolbar>` component is used to display a toolbar with a dropdown.
+ */
 @Component({
     selector: 'pxb-dropdown-toolbar',
     encapsulation: ViewEncapsulation.None,
@@ -37,8 +42,11 @@ import { MatMenuTrigger } from '@angular/material/menu';
     },
 })
 export class DropdownToolbarComponent {
+    /** The text to display for title */
     @Input() title: string;
+    /** The text to display subtitle */
     @Input() subtitle: string;
+    /** Mat toolbar color variant */
     @Input() color: 'primary' | 'accent' | 'warn' | undefined = 'primary';
     @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger;
 }

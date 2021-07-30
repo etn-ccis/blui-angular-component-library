@@ -17,6 +17,13 @@ import { Subscription } from 'rxjs';
 
 export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' | 'rail';
 
+/**
+ * [DrawerLayout Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ *
+ * The `<pxb-drawer-layout>` component is a wrapper around the [Angular Material Sidenav](https://material.angular.io/components/sidenav/overview) that adds specific PX Blue functionality and styling.
+ * The `<pxb-drawer-layout>` component is used to provide the appropriate resizing behavior for your main application content when used in conjunction with a PX Blue `<pxb-drawer>`.
+ * It accepts a drawer and content as child elements;
+ */
 @Component({
     selector: 'pxb-drawer-layout',
     encapsulation: ViewEncapsulation.None,
@@ -50,8 +57,25 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
     },
 })
 export class DrawerLayoutComponent extends StateListener implements AfterViewInit, OnChanges {
-    @Input() variant: DrawerLayoutVariantType;
+    /** Controls how the Drawer behaves and appears on the screen.  Can be `permanent` | `peristent` | `temporary` | `rail`.
+     *
+     * `permanent` - `Drawer` appears on the side of the screen and cannot be dismissed.
+     *
+     * `persistent` - `Drawer` appears on the side of the screen and responds to the `open` @Input. When closed, only shows each `NavItem` icon.
+     *
+     * `temporary` - `Drawer` slides in from the side of the screen and appears as an overlay.
+     *
+     * `rail` - `Drawer` appears on the side of the screen as a slim element, supporting icons and text.
+     *
+     * @default temporary
+     * */
+    @Input() variant: DrawerLayoutVariantType = 'temporary';
+    /** Drawer pixel width
+     *
+     * @default 350
+     * */
     @Input() width = 350;
+    /** Event triggered on 'temporary' variant backdrop click */
     @Output() backdropClick: EventEmitter<void> = new EventEmitter();
     @ViewChild('remElement') remElement: ElementRef;
 

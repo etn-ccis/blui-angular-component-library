@@ -16,6 +16,12 @@ export type DrawerNavGroup = {
     items: DrawerNavItem[];
 };
 
+/**
+ * [DrawerNavGroup Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ *
+ * A `<pxb-drawer-nav-group>` is used inside of the `<pxb-drawer-body>` to organize links and content.
+ * Each group consists of an (optional) group title and a series of NavItems.
+ */
 @Component({
     selector: 'pxb-drawer-nav-group',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -62,8 +68,10 @@ export type DrawerNavGroup = {
     },
 })
 export class DrawerNavGroupComponent extends StateListener implements Omit<DrawerNavGroup, 'items'> {
-    @Input() title: string;
+    /** Whether to show a dividing line below the title */
     @Input() divider = false;
+    /** Component to render a group title */
+    @Input() title: string;
     @ContentChildren(DrawerNavItemComponent) navItems;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
