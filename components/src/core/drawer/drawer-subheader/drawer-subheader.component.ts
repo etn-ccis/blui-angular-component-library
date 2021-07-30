@@ -3,6 +3,8 @@ import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 
 /**
+ * [DrawerSubheader Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ *
  * The `<pxb-drawer-subheader>` is an optional section that renders below the header and above the body of the `<pxb-drawer>`.
  * It can be used to support custom content (passed as children), such as filtering options or to display additional information.
  */

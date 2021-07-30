@@ -33,6 +33,8 @@ export type DrawerNavItem = {
 export type ActiveItemBackgroundShape = 'round' | 'square';
 
 /**
+ * [DrawerNavItem Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ *
  * The `<pxb-drawer-nav-item>` is a wrapper to the `<pxb-info-list-item>` that is meant to be used within a `<pxb-nav-group>`.
  */
 @Component({

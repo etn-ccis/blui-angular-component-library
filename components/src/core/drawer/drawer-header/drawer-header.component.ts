@@ -12,6 +12,8 @@ import { StateListener } from '../state-listener.component';
 import { isEmptyView } from '../../../utils/utils';
 
 /**
+ * [DrawerHeader Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ *
  * The `<pxb-drawer-header>` contains the content found at the top of the `<pxb-drawer>`.
  */
 @Component({

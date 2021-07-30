@@ -3,6 +3,8 @@ import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 
 /**
+ * [DrawerFooter Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ *
  * The `<pxb-drawer-footer>` is an optional section that renders at the bottom of the `<pxb-drawer>`.
  * It can be used to add any custom content (as children).
  */
