@@ -13,7 +13,8 @@
         "prettier:check": "prettier \"src/**/**.{ts,json,css,scss,html}\" --check",
         "lint": "eslint \"src/**/**.ts\"",
         "lint:fix": "eslint \"src/**/**.ts\" --fix",
-        "coverage": "yarn test --no-watch --code-coverage"
+        "coverage": "yarn test --no-watch --code-coverage",
+        "tag:package": "npx -p @pxblue/tag pxb-tag"
     },
     "peerDependencies": {},
     "devDependencies": {

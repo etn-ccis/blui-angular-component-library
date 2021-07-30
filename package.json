@@ -11,7 +11,6 @@
         "coverage": "cd ./components && yarn test --no-watch --code-coverage",
         "build": "bash scripts/buildComponents.sh",
         "publish:package": "cd dist && rm -f *.tgz && set npm_config_yes=true && npx -p @pxblue/publish pxb-publish",
-        "tag:package": "npx -p @pxblue/tag pxb-tag",
         "install:dependencies": "cd demos/showcase && yarn && cd ../storybook && yarn && cd ../../components && yarn",
         "link:components": "bash scripts/linkComponents.sh",
         "start:storybook": "yarn install:dependencies && yarn link:components && cd demos/storybook && yarn start",
