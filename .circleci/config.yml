@@ -236,7 +236,7 @@ jobs:
         - run:
             name: Tag @pxblue/angular-components
             command: |
-              yarn tag-package -b $CIRCLE_BRANCH
+              yarn tag:package -b $CIRCLE_BRANCH
 
 workflows:
     version: 2
