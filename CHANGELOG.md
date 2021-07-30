@@ -1,22 +1,28 @@
 # Change Log
 
+## v5.0.1 (August 2, 2021)
+
+### Added
+
+-   Tooltips to the `<pxb-drawer-nav-item>` when using the `persistent` drawer variant ([#301](https://github.com/pxblue/angular-component-library/issues/301)).
+
 ## v5.0.0 (June 30, 2021)
 
 ### Changed
 
-- Updated to Angular 11 for building the library
+-   Updated to Angular 11 for building the library.
 
 ## v4.5.0 (June 30, 2021)
 
 ### Added
 
-- Added `<pxb-app-bar>` component.
-- Added `wrapInfo` prop to `<pxb-info-list-item>`.
-- Added new property `disabled` to `<pxb-info-list-item`>.
+-   Added `<pxb-app-bar>` component.
+-   Added `wrapInfo` prop to `<pxb-info-list-item>`.
+-   Added new property `disabled` to `<pxb-info-list-item`>.
 
 ### Fixed
 
-- Fixed `<pxb-drawer-header>` content alignment when omitting a menu icon.
+-   Fixed `<pxb-drawer-header>` content alignment when omitting a menu icon.
 
 ## v4.4.0 (May 28, 2021)
 
