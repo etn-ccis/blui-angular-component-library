@@ -1,10 +1,11 @@
 # Change Log
 
-## v5.0.1 (August 2, 2021)
+## v5.0.1 (July 30, 2021)
 
 ### Added
 
 -   Tooltips to the `<pxb-drawer-nav-item>` when using the `persistent` drawer variant ([#301](https://github.com/pxblue/angular-component-library/issues/301)).
+-   Improved intellisense popup documentation with links to full component documentation.
 
 ## v5.0.0 (June 30, 2021)
 
