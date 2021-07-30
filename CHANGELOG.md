@@ -4,7 +4,7 @@
 
 ### Added
 
--   Tooltips to the `<pxb-drawer-nav-item>` when using the `persistent` drawer variant.
+-   Tooltips to the `<pxb-drawer-nav-item>` when using the `persistent` drawer variant ([#301](https://github.com/pxblue/angular-component-library/issues/301)).
 
 ## v5.0.0 (June 30, 2021)
 
