@@ -16,6 +16,12 @@ import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { fromEvent, Subscription } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
+/**
+ * [UserMenu Component](https://pxblue-components.github.io/angular/?path=/info/components-user-menu--readme)
+ *
+ * The `<pxb-user-menu>` is an Avatar that opens a Menu when clicked.
+ * It is typically used in the top-right corner of an application and indicates who is logged in.
+ */
 @Component({
     selector: 'pxb-user-menu',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -87,18 +93,40 @@ import { map, startWith } from 'rxjs/operators';
     },
 })
 export class UserMenuComponent {
-    @Input() avatarValue: string;
+    /** Image source for avatar */
     @Input() avatarImage: string;
-    @Input() menuTitle: string;
+
+    /** Text value for avatar */
+    @Input() avatarValue: string;
+
+    /** Subtitle shown when menu is open */
     @Input() menuSubtitle: string;
-    @Input() open = false;
-    @Input() useBottomSheetAt = 600;
+
+    /** Title shown when menu is open */
+    @Input() menuTitle: string;
+
+    /** Where to render the menu relative to the avatar */
     @Input() positions = [
         new ConnectionPositionPair({ originX: 'start', originY: 'top' }, { overlayX: 'start', overlayY: 'top' }),
     ];
 
-    @Output() openChange: EventEmitter<boolean> = new EventEmitter<boolean>();
+    /** Whether the menu overlay appears on screen.
+     *
+     * @default false
+     */
+    @Input() open = false;
+
+    /** Window pixel width at which the responsive bottom sheet menu is triggered (set to 0 to disable responsive behavior)
+     *
+     * @default 600
+     * */
+    @Input() useBottomSheetAt = 600;
+
+    /** Emits event when backdrop is clicked */
     @Output() backdropClick: EventEmitter<void> = new EventEmitter<void>();
+
+    /** Emits an event when the open prop changes */
+    @Output() openChange: EventEmitter<boolean> = new EventEmitter<boolean>();
 
     @ViewChild(TemplateRef) menu: TemplateRef<any>;
 

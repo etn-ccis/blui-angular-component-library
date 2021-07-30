@@ -1,6 +1,11 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, ViewEncapsulation } from '@angular/core';
 import { requireInput } from '../../utils/utils';
 
+/**
+ * [ListItemTag Component](https://pxblue-components.github.io/angular/?path=/info/components-list-item-tag--readme)
+ *
+ * The `<pxb-list-item-tag>` is a text item with a colored background and rounded corners that is used to tag lists.
+ */
 @Component({
     selector: 'pxb-list-item-tag',
     templateUrl: './list-item-tag.component.html',
@@ -12,8 +17,11 @@ import { requireInput } from '../../utils/utils';
     },
 })
 export class ListItemTagComponent implements OnChanges {
+    /** Color of the label background */
     @Input() backgroundColor: string;
+    /** Color of the label text */
     @Input() fontColor: string;
+    /** The label text */
     @Input() label: string;
 
     ngOnChanges(): void {

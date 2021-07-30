@@ -40,9 +40,9 @@ Parent element (`<pxb-channel-value>`) attributes:
 
 | @Input | Description                                    | Type                 | Required | Default |
 | ------ | ---------------------------------------------- | -------------------- | -------- | ------- |
-| prefix | Show units before the value                    | `boolean`            | no       | false   |
-| units  | The text to display for the units (light text) | `string`             | no       |         |
-| value  | The value (bold text) to display               | `string` \| `number` | yes      |         |
+| prefix | If true, shows units before the value          | `boolean`            | no       | false   |
+| units  | Text to display for the units                  | `string`             | no       |         |
+| value  | Text to display for the value                  | `string` \| `number` | yes      |         |
 
 </div>
 

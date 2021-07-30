@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 import { DrawerLayoutVariantType } from '../..';
 
+/** This service is used to manage the state of a Drawer component, responds to user behavior and input settings. */
 @Injectable({
     providedIn: 'root',
 })
@@ -14,6 +15,7 @@ export class DrawerService {
     private isCondensed: boolean;
     private sideBorder: boolean;
     private disableRailTooltip: boolean;
+    private openOnHover: boolean;
 
     drawerOpenObs = new Subject<boolean>();
     drawerSelectObs = new Subject<boolean>();
@@ -25,6 +27,14 @@ export class DrawerService {
 
     setSideBorder(sideBorder: boolean): void {
         this.sideBorder = sideBorder;
+    }
+
+    isOpenOnHover(): boolean {
+        return this.openOnHover;
+    }
+
+    setOpenOnHover(openOnHover: boolean): void {
+        this.openOnHover = openOnHover;
     }
 
     setDisableActiveItemParentStyles(disableActiveItemParentStyles: boolean): void {
@@ -103,6 +113,7 @@ export class DrawerService {
         return this.drawerActiveItemChangeObs;
     }
 
+    /** Each nav item has a unique id which is used to determine which item is selected. */
     createNavItemID(): number {
         return ++this.navItemCount;
     }

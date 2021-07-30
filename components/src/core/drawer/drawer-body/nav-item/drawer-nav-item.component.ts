@@ -32,6 +32,11 @@ export type DrawerNavItem = {
 
 export type ActiveItemBackgroundShape = 'round' | 'square';
 
+/**
+ * [DrawerNavItem Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ *
+ * The `<pxb-drawer-nav-item>` is a wrapper to the `<pxb-info-list-item>` that is meant to be used within a `<pxb-nav-group>`.
+ */
 @Component({
     selector: 'pxb-drawer-nav-item',
     encapsulation: ViewEncapsulation.None,
@@ -64,6 +69,9 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                     [hidePadding]="hidePadding"
                     [divider]="divider ? 'full' : undefined"
                     [class.pxb-drawer-nav-item-no-icon-closed]="isEmpty(iconEl) && !isOpen()"
+                    [matTooltip]="title"
+                    [matTooltipDisabled]="isOpen() || isOpenOnHover() || !showTooltipOnRailHover()"
+                    matTooltipPosition="right"
                 >
                     <ng-container pxb-icon #icon>
                         <ng-container *ngTemplateOutlet="navIcon"></ng-container>
@@ -119,18 +127,51 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
     },
 })
 export class DrawerNavItemComponent extends StateListener implements Omit<DrawerNavItem, 'items'> {
+    /** Sets the active item background shape
+     *
+     * `square` - Background shape takes the entire height of width of the NavItem.
+     * `round` - Background shape has a rounded corner towards the end of the NavItem.
+     *
+     * @default square
+     * */
     @Input() activeItemBackgroundShape: ActiveItemBackgroundShape = 'square';
-    @Input() chevron: boolean;
+    /** Sets whether to show a chevron icon on the left side of a `NavItem`
+     *
+     * @default false
+     * */
+    @Input() chevron = false;
+    /** Whether to show a dividing line below each NavItem
+     *
+     * @default false
+     * */
     @Input() divider = false;
+    /** Sets whether to show nested nav items
+     *
+     * @default false
+     * */
     @Input() expanded = false;
+    /** Sets whether to show/hide padding whenever a NavItem does not have an icon */
     @Input() hidePadding: boolean;
-    @Input() ripple = true;
-    @Input() selected: boolean;
-    @Input() statusColor: string;
-    @Input() subtitle: string;
-    @Input() title: string;
+    /** Sets whether to hide the nav item
+     *
+     * @default false
+     * */
     @Input() hidden = false;
+    /** Sets whether to show/hide Angular ripple animation effect onClick
+     *
+     * @default true
+     * */
+    @Input() ripple = true;
+    /** Sets whether an item is selected.  A selected item will have the `activeBackgroundShape` applied to it and appear different from all other NavItems.*/
+    @Input() selected: boolean;
+    /** Left border color */
+    @Input() statusColor: string;
+    /** Text to display as a subtitle */
+    @Input() subtitle: string;
+    /** Text to display as a title */
+    @Input() title: string;
 
+    /** Event triggered on nav item select */
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
 
     @ContentChildren(DrawerNavItemComponent, { descendants: false }) nestedNavItems;
@@ -190,6 +231,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         return !this.drawerService.isDisableRailTooltip();
     }
 
+    /** Whenever the selected item in the drawer state changes, we need to check to see we should apply a hierarchical highlight. */
     manageActiveItemTreeHighlight(): void {
         if (!this.navItemEl) {
             return;
@@ -234,12 +276,14 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         }
     }
 
+    /** Sets default state values for non-nested nav items. */
     setNavItemDefaults(): void {
         if (this.divider === undefined) this.divider = true;
         if (this.hidePadding === undefined) this.hidePadding = true;
         this.incrementDepth(0);
     }
 
+    /** Sets default state values for nested nav items. */
     setNestedDrawerDefaults(): void {
         this.isNestedItem = true;
         if (this.divider === undefined) this.divider = false;

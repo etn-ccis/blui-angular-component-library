@@ -29,19 +29,19 @@ Parent element (`<pxb-info-list-item>`) attributes:
 
 <div style="overflow: auto;">
 
-| @input       | Description                                | Type                                | Required | Default |
-| ------------ | ------------------------------------------ | ----------------------------------- | -------- | ------- |
-| avatar       | Show a colored background for the icon     | `boolean`                           | no       | false   |
-| chevron      | Add a chevron icon on the right            | `boolean`                           | no       | false   |
-| dense        | Smaller height row with less padding       | `boolean`                           | no       | false   |
-| divider      | Show a row separator below the row         | `'full'` \| `'partial'`             | no       |         |
-| disabled     | Disable the list item                      | `boolean`                           | no       | false   |
-| hidePadding  | Remove left padding if no icon is used     | `boolean`                           | no       | false   |
-| iconAlign    | Icon alignment when avatar is set to false | `'left'` \| `'center'` \| `'right'` | no       | 'left'  |
-| statusColor  | Left border color                          | `string`                            | no       |         |
-| wrapInfo     | Whether to wrap info on overflow           | `boolean`                           | no       | false   |
-| wrapSubtitle | Whether to wrap subtitle on overflow       | `boolean`                           | no       | false   |
-| wrapTitle    | Whether to wrap title on overflow          | `boolean`                           | no       | false   |
+| @input       | Description                                                      | Type                                | Required | Default |
+| ------------ | ---------------------------------------------------------------- | ----------------------------------- | -------- | ------- |
+| avatar       | Show a colored background for the icon                           | `boolean`                           | no       | false   |
+| chevron      | Add a chevron icon on the right                                  | `boolean`                           | no       | false   |
+| dense        | Smaller height row with less padding                             | `boolean`                           | no       | false   |
+| divider      | Show a row separator below the row                               | `'full'` \| `'partial'`             | no       |         |
+| disabled     | Disable the list item                                            | `boolean`                           | no       | false   |
+| hidePadding  | Remove left padding if no icon is used                           | `boolean`                           | no       | false   |
+| iconAlign    | Icon alignment when avatar is set to false                       | `'left'` \| `'center'` \| `'right'` | no       | 'left'  |
+| statusColor  | Left border color                                                | `string`                            | no       |         |
+| wrapInfo     | Whether to wrap info on overflow rather than using ellipsis      | `boolean`                           | no       | false   |
+| wrapSubtitle | Whether to wrap subtitle on overflow rather than using ellipsis  | `boolean`                           | no       | false   |
+| wrapTitle    | Whether to wrap title on overflow rather than using ellipsis     | `boolean`                           | no       | false   |
 
 </div>
 

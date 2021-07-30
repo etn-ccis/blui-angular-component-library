@@ -1,6 +1,11 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, ViewEncapsulation } from '@angular/core';
 import { requireInput } from '../../utils/utils';
 
+/** [ChannelValue Component](https://pxblue-components.github.io/angular/?path=/info/components-channel-value--readme)
+ *
+ * Displays a value/unit combination.
+ * These are used as part of the HeroComponent but can also be used inline.
+ * */
 @Component({
     selector: 'pxb-channel-value',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -21,9 +26,16 @@ import { requireInput } from '../../utils/utils';
     },
 })
 export class ChannelValueComponent implements OnChanges {
-    @Input() value: string | number;
-    @Input() units: string;
+    /** If true, shows units before the value
+     *
+     * @default false
+     * */
     @Input() prefix = false;
+    /** The text to display for the units (light text) */
+    @Input() units: string;
+    /** The text to display for the value (bold text)*/
+    @Input() value: string | number;
+    /** Text color */
     @Input() color: string;
 
     ngOnChanges(): void {

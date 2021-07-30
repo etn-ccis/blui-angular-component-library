@@ -20,6 +20,10 @@ export class StateListener implements OnInit, OnDestroy {
         return this.drawerService.isDrawerOpen();
     }
 
+    public isOpenOnHover(): boolean {
+        return this.drawerService.isOpenOnHover();
+    }
+
     public unsubscribeListeners(): void {
         if (this.drawerOpenListener) {
             this.drawerOpenListener.unsubscribe();

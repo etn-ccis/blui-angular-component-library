@@ -1,5 +1,10 @@
 import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@angular/core';
 
+/**
+ * [HeroBanner Component](https://pxblue-components.github.io/angular/?path=/info/components-hero--readme)
+ *
+ * The `<pxb-hero-banner>` component is a simple wrapper component that is used to contain `<pxb-hero>`s.
+ */
 @Component({
     selector: 'pxb-hero-banner',
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -16,5 +21,9 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation } from '@a
     },
 })
 export class HeroBannerComponent {
+    /** Whether to show the line separator
+     *
+     * @default false
+     * */
     @Input() divider = false;
 }
