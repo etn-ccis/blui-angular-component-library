@@ -1,7 +1,36 @@
 /* RTL */
-[dir='rtl'] .pxb-channel-value-content .pxb-channel-value-icon-wrapper {
-    margin-right: 0;
-    margin-left: 0.35em;
+[dir='rtl'] {
+    .pxb-channel-value-content  {
+        .pxb-channel-value-icon-wrapper {
+            margin-right: 0;
+            margin-left: 0.35em;
+        }
+
+        .pxb-channel-value-value + .pxb-channel-value-units-suffix {
+            margin-left: 0;
+            margin-right: 0.25em;
+        }
+    
+    
+        .pxb-channel-value-units-prefix + .pxb-channel-value-value {
+            margin-left: 0;
+            margin-right: 0.25em;
+        }
+    
+        .pxb-channel-value-value.pxb-channel-value-without-space + .pxb-channel-value-units-suffix {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    
+    
+        .pxb-channel-value-units-prefix + .pxb-channel-value-value.pxb-channel-value-without-space {
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+    
+
+    
 }
 
 .pxb-channel-value {
@@ -25,24 +54,20 @@
     }
 
     .pxb-channel-value-value + .pxb-channel-value-units-suffix {
-        color: red;
         margin-left: 0.25em;
     }
 
 
     .pxb-channel-value-units-prefix + .pxb-channel-value-value {
-        color: green;
         margin-left: 0.25em;
     }
 
     .pxb-channel-value-value.pxb-channel-value-without-space + .pxb-channel-value-units-suffix {
-        color: yellow;
         margin-left: 0;
     }
 
 
     .pxb-channel-value-units-prefix + .pxb-channel-value-value.pxb-channel-value-without-space {
-        color: rebeccapurple;
         margin-left: 0;
     }
 

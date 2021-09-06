@@ -16,7 +16,7 @@ type UnitSpaceType = 'show' | 'hide' | 'auto';
             <span class="pxb-channel-value-icon-wrapper">
                 <ng-content></ng-content>
             </span>
-            <div *ngIf="units && prefix" class="pxb-channel-value-units pxb-channel-value-units-prefix">{{ units }}</div>
+            <div *ngIf="units && prefix" class="pxb-channel-value-units" [class.pxb-channel-value-units-prefix]="!checkWhiteListUnits()">{{ units }}</div>
             <div 
                 *ngIf="value"
                 class="pxb-channel-value-value"
@@ -25,7 +25,7 @@ type UnitSpaceType = 'show' | 'hide' | 'auto';
             >
                 {{ value }}
             </div>
-            <div *ngIf="units && !prefix" class="pxb-channel-value-units pxb-channel-value-units-suffix">{{ units }}</div>
+            <div *ngIf="units && !prefix" class="pxb-channel-value-units" [class.pxb-channel-value-units-suffix]="!checkWhiteListUnits()">{{ units }}</div>
         </span>
     `,
     styleUrls: ['./channel-value.component.scss'],
@@ -71,12 +71,8 @@ export class ChannelValueComponent implements OnChanges {
 
     checkWhiteListUnits(): boolean {
         if(this.prefix) {
-            console.log('prefix', this.units);
-            console.log('prefix bool', this.prefixUnitWhitelist.includes(this.units));
             return this.prefixUnitWhitelist.includes(this.units);
         } else {
-            console.log('suffix', this.units);
-            console.log('suffix bool', this.suffixUnitWhitelist.includes(this.units));
             return this.suffixUnitWhitelist.includes(this.units);
         }
     }
