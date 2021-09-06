@@ -36,11 +36,11 @@ describe('ChannelValueComponent', () => {
         void expect(component).toBeTruthy();
     });
 
-    it('should render a value', () => {
+    fit('should render a value', () => {
         component.value = 'Test Value';
         fixture.detectChanges();
         const value = fixture.nativeElement.querySelector('.pxb-channel-value-value');
-        void expect(value.innerHTML).toBe('Test Value');
+        void expect(value.innerText).toBe('Test Value');
     });
 
     it('should render units to the left', () => {
@@ -50,7 +50,7 @@ describe('ChannelValueComponent', () => {
         fixture.detectChanges();
         const container = fixture.nativeElement.querySelector('.pxb-channel-value-content');
         const units = fixture.nativeElement.querySelector('.pxb-channel-value-units');
-        void expect(units.innerHTML).toBe('hz');
+        void expect(units.innerText).toBe('hz');
         void expect(container.children[2]).toBe(units);
     });
 
@@ -61,7 +61,7 @@ describe('ChannelValueComponent', () => {
         fixture.detectChanges();
         const container = fixture.nativeElement.querySelector('.pxb-channel-value-content');
         const units = fixture.nativeElement.querySelector('.pxb-channel-value-units');
-        void expect(units.innerHTML).toBe('C');
+        void expect(units.innerText).toBe('C');
         void expect(container.children[1]).toBe(units);
     });
 
