@@ -86,4 +86,54 @@ describe('ChannelValueComponent', () => {
             count(fixture, className);
         }
     });
+
+    it('should add space between value and unit since default is auto', () => {
+        component.value = '123';
+        component.units = 'hz';
+        fixture.detectChanges();
+        const classList = [
+            '.pxb-channel-value-content',
+            '.pxb-channel-value-units',
+            '.pxb-channel-value-icon-wrapper',
+            '.pxb-channel-value-value',
+            '.pxb-channel-value-add-space',
+        ];
+        for (const className of classList) {
+            count(fixture, className);
+        }
+    });
+
+    it('should not add space between value and unit', () => {
+        component.value = '123';
+        component.units = 'hz';
+        component.unitSpace = 'hide';
+        fixture.detectChanges();
+        const classList = [
+            '.pxb-channel-value-content',
+            '.pxb-channel-value-units',
+            '.pxb-channel-value-icon-wrapper',
+            '.pxb-channel-value-value',
+            '.pxb-channel-value-remove-space',
+        ];
+        for (const className of classList) {
+            count(fixture, className);
+        }
+    });
+
+    it('should not add space between value and unit if whitelist prefix added', () => {
+        component.value = '74';
+        component.units = '$';
+        component.prefix = true;
+        fixture.detectChanges();
+        const units = fixture.nativeElement.querySelector('.pxb-channel-value-units-prefix');
+        void expect(units).toBeNull();
+    });
+
+    it('should not add space between value and unit if whitelist prefix added', () => {
+        component.value = '74';
+        component.units = '%';
+        fixture.detectChanges();
+        const units = fixture.nativeElement.querySelector('.pxb-channel-value-units-suffix');
+        void expect(units).toBeNull();
+    });
 });

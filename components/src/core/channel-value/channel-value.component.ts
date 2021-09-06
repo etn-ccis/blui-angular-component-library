@@ -16,16 +16,28 @@ type UnitSpaceType = 'show' | 'hide' | 'auto';
             <span class="pxb-channel-value-icon-wrapper">
                 <ng-content></ng-content>
             </span>
-            <div *ngIf="units && prefix" class="pxb-channel-value-units" [class.pxb-channel-value-units-prefix]="!checkWhiteListUnits()">{{ units }}</div>
-            <div 
+            <div
+                *ngIf="units && prefix"
+                class="pxb-channel-value-units"
+                [class.pxb-channel-value-units-prefix]="!checkWhiteListUnits()"
+            >
+                {{ units }}
+            </div>
+            <div
                 *ngIf="value"
                 class="pxb-channel-value-value"
-                [class.pxb-channel-value-with-space]="unitSpace === 'auto' || unitSpace === 'show'"
-                [class.pxb-channel-value-without-space]="unitSpace === 'hide'"
+                [class.pxb-channel-value-add-space]="unitSpace === 'auto' || unitSpace === 'show'"
+                [class.pxb-channel-value-remove-space]="unitSpace === 'hide'"
             >
                 {{ value }}
             </div>
-            <div *ngIf="units && !prefix" class="pxb-channel-value-units" [class.pxb-channel-value-units-suffix]="!checkWhiteListUnits()">{{ units }}</div>
+            <div
+                *ngIf="units && !prefix"
+                class="pxb-channel-value-units"
+                [class.pxb-channel-value-units-suffix]="!checkWhiteListUnits()"
+            >
+                {{ units }}
+            </div>
         </span>
     `,
     styleUrls: ['./channel-value.component.scss'],
@@ -52,28 +64,26 @@ export class ChannelValueComponent implements OnChanges {
      * `hide` - Hide a space between the value and units.
      *
      * `auto` - Shows space except for white list items.
-     * 
+     *
      * prefixUnitWhitelist: ['$']
-     * 
+     *
      * suffixUnitWhitelist: ['%', '℉','°F','℃','°C','°']
-     * 
+     *
      * @default auto;
      * */
-     @Input() unitSpace: UnitSpaceType = 'auto';
+    @Input() unitSpace: UnitSpaceType = 'auto';
 
-     prefixUnitWhitelist = ['$'];
-     suffixUnitWhitelist = ['%', '℉','°F','℃','°C','°'];
+    prefixUnitWhitelist = ['$'];
+    suffixUnitWhitelist = ['%', '℉', '°F', '℃', '°C', '°'];
 
-    
     ngOnChanges(): void {
         requireInput<ChannelValueComponent>(['value'], this);
     }
 
     checkWhiteListUnits(): boolean {
-        if(this.prefix) {
+        if (this.prefix) {
             return this.prefixUnitWhitelist.includes(this.units);
-        } else {
-            return this.suffixUnitWhitelist.includes(this.units);
         }
+        return this.suffixUnitWhitelist.includes(this.units);
     }
 }

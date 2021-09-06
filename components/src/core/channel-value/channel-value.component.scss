@@ -1,6 +1,6 @@
 /* RTL */
 [dir='rtl'] {
-    .pxb-channel-value-content  {
+    .pxb-channel-value-content {
         .pxb-channel-value-icon-wrapper {
             margin-right: 0;
             margin-left: 0.35em;
@@ -10,27 +10,22 @@
             margin-left: 0;
             margin-right: 0.25em;
         }
-    
-    
+
         .pxb-channel-value-units-prefix + .pxb-channel-value-value {
             margin-left: 0;
             margin-right: 0.25em;
         }
-    
-        .pxb-channel-value-value.pxb-channel-value-without-space + .pxb-channel-value-units-suffix {
+
+        .pxb-channel-value-value.pxb-channel-value-remove-space + .pxb-channel-value-units-suffix {
             margin-left: 0;
             margin-right: 0;
         }
-    
-    
-        .pxb-channel-value-units-prefix + .pxb-channel-value-value.pxb-channel-value-without-space {
+
+        .pxb-channel-value-units-prefix + .pxb-channel-value-value.pxb-channel-value-remove-space {
             margin-left: 0;
             margin-right: 0;
         }
     }
-    
-
-    
 }
 
 .pxb-channel-value {
@@ -57,17 +52,15 @@
         margin-left: 0.25em;
     }
 
-
     .pxb-channel-value-units-prefix + .pxb-channel-value-value {
         margin-left: 0.25em;
     }
 
-    .pxb-channel-value-value.pxb-channel-value-without-space + .pxb-channel-value-units-suffix {
+    .pxb-channel-value-value.pxb-channel-value-remove-space + .pxb-channel-value-units-suffix {
         margin-left: 0;
     }
 
-
-    .pxb-channel-value-units-prefix + .pxb-channel-value-value.pxb-channel-value-without-space {
+    .pxb-channel-value-units-prefix + .pxb-channel-value-value.pxb-channel-value-remove-space {
         margin-left: 0;
     }
 

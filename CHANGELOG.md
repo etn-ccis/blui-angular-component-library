@@ -1,5 +1,8 @@
 # Change Log
 
+### Added
+## 6.0.0 (Unreleased)
+-   `unitSpace` prop to `<ChannelValue>` to manage spacing between the value and units.
 ## v5.0.1 (July 30, 2021)
 
 ### Added
