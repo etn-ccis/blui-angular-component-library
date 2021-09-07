@@ -19,7 +19,7 @@ type UnitSpaceType = 'show' | 'hide' | 'auto';
             <div
                 *ngIf="units && prefix"
                 class="pxb-channel-value-units"
-                [class.pxb-channel-value-units-prefix]="!checkWhiteListUnits()"
+                [class.pxb-channel-value-units-prefix]="!checkWhiteListUnits() || unitSpace === 'show'"
             >
                 {{ units }}
             </div>
@@ -34,7 +34,7 @@ type UnitSpaceType = 'show' | 'hide' | 'auto';
             <div
                 *ngIf="units && !prefix"
                 class="pxb-channel-value-units"
-                [class.pxb-channel-value-units-suffix]="!checkWhiteListUnits()"
+                [class.pxb-channel-value-units-suffix]="!checkWhiteListUnits() || unitSpace === 'show'"
             >
                 {{ units }}
             </div>
