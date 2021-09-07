@@ -38,11 +38,12 @@ Parent element (`<pxb-channel-value>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input | Description                                    | Type                 | Required | Default |
-| ------ | ---------------------------------------------- | -------------------- | -------- | ------- |
-| prefix | If true, shows units before the value          | `boolean`            | no       | false   |
-| units  | Text to display for the units                  | `string`             | no       |         |
-| value  | Text to display for the value                  | `string` \| `number` | yes      |         |
+| @Input     | Description                                    | Type                             | Required | Default |
+| ---------- | ---------------------------------------------- | -------------------------------- | -------- | ------  |
+| prefix     | If true, shows units before the value          | `boolean`                        | no       | false   |
+| units      | Text to display for the units                  | `string`                         | no       |         |
+| value      | Text to display for the value                  | `string` \| `number`             | yes      |         |
+| unitSpace  | Show/Hide spacing between the value and units  | `'auto'` \| `'hide'` \| `'show'` | yes      | 'auto'  |
 
 </div>
 
