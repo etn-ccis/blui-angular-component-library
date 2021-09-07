@@ -7,9 +7,7 @@ import { By } from '@angular/platform-browser';
 import { count } from 'src/utils/test-utils';
 
 @Component({
-    template: `
-        <pxb-drawer-header title="title" subtitle="subtitle"></pxb-drawer-header>
-    `,
+    template: ` <pxb-drawer-header title="title" subtitle="subtitle"></pxb-drawer-header> `,
 })
 class TestDrawerHeader {}
 
