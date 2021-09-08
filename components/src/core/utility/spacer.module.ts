@@ -8,9 +8,7 @@ import { Component, HostBinding, Input, NgModule, OnChanges, OnInit } from '@ang
  */
 @Component({
     selector: 'pxb-spacer',
-    template: `
-        <ng-content></ng-content>
-    `,
+    template: ` <ng-content></ng-content> `,
 })
 export class SpacerComponent implements OnChanges, OnInit {
     /** Flex grow/shrink value for use in flex layouts
