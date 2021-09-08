@@ -90,13 +90,14 @@ describe('ChannelValueComponent', () => {
     it('should add space between value and unit since default is auto', () => {
         component.value = '123';
         component.units = 'hz';
+        component.prefix = true;
         fixture.detectChanges();
         const classList = [
             '.pxb-channel-value-content',
             '.pxb-channel-value-units',
             '.pxb-channel-value-icon-wrapper',
             '.pxb-channel-value-value',
-            '.pxb-channel-value-add-space',
+            '.pxb-channel-value-units-prefix',
         ];
         for (const className of classList) {
             count(fixture, className);
@@ -124,6 +125,7 @@ describe('ChannelValueComponent', () => {
         component.value = '74';
         component.units = '$';
         component.prefix = true;
+        component.isWhiteListedUnit = true;
         fixture.detectChanges();
         const units = fixture.nativeElement.querySelector('.pxb-channel-value-units-prefix');
         void expect(units).toBeNull();
@@ -132,6 +134,7 @@ describe('ChannelValueComponent', () => {
     it('should not add space between value and unit if whitelist prefix added', () => {
         component.value = '74';
         component.units = '%';
+        component.isWhiteListedUnit = true;
         fixture.detectChanges();
         const units = fixture.nativeElement.querySelector('.pxb-channel-value-units-suffix');
         void expect(units).toBeNull();

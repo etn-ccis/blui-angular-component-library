@@ -26,7 +26,6 @@ type UnitSpaceType = 'show' | 'hide' | 'auto';
             <div
                 *ngIf="value"
                 class="pxb-channel-value-value"
-                [class.pxb-channel-value-add-space]="unitSpace === 'auto' || unitSpace === 'show'"
                 [class.pxb-channel-value-remove-space]="unitSpace === 'hide'"
             >
                 {{ value }}
