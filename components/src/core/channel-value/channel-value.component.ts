@@ -19,7 +19,7 @@ type UnitSpaceType = 'show' | 'hide' | 'auto';
             <div
                 *ngIf="units && prefix"
                 class="pxb-channel-value-units"
-                [class.pxb-channel-value-units-prefix]="!checkWhiteListUnits() || unitSpace === 'show'"
+                [class.pxb-channel-value-units-prefix]="!isWhiteListedUnit || unitSpace === 'show'"
             >
                 {{ units }}
             </div>
@@ -34,7 +34,7 @@ type UnitSpaceType = 'show' | 'hide' | 'auto';
             <div
                 *ngIf="units && !prefix"
                 class="pxb-channel-value-units"
-                [class.pxb-channel-value-units-suffix]="!checkWhiteListUnits() || unitSpace === 'show'"
+                [class.pxb-channel-value-units-suffix]="!isWhiteListedUnit || unitSpace === 'show'"
             >
                 {{ units }}
             </div>
@@ -75,15 +75,11 @@ export class ChannelValueComponent implements OnChanges {
 
     prefixUnitWhitelist = ['$'];
     suffixUnitWhitelist = ['%', '℉', '°F', '℃', '°C', '°'];
-
+    isWhiteListedUnit = false;
     ngOnChanges(): void {
         requireInput<ChannelValueComponent>(['value'], this);
-    }
-
-    checkWhiteListUnits(): boolean {
-        if (this.prefix) {
-            return this.prefixUnitWhitelist.includes(this.units);
-        }
-        return this.suffixUnitWhitelist.includes(this.units);
+        this.isWhiteListedUnit = this.prefix
+            ? this.prefixUnitWhitelist.includes(this.units)
+            : this.suffixUnitWhitelist.includes(this.units);
     }
 }

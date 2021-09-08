@@ -1,8 +1,8 @@
 # Change Log
 
+## v6.0.0 (Unreleased)
 ### Added
-## 6.0.0 (Unreleased)
--   `unitSpace` prop to `<pxb-channel-value>` to manage spacing between the value and units.
+-   Added new property `unitSpace` to `<pxb-channel-value>` to manage spacing between the value and units.
 ## v5.0.1 (July 30, 2021)
 
 ### Added

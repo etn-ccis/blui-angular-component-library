@@ -36,7 +36,7 @@ describe('ChannelValueComponent', () => {
         void expect(component).toBeTruthy();
     });
 
-    fit('should render a value', () => {
+    it('should render a value', () => {
         component.value = 'Test Value';
         fixture.detectChanges();
         const value = fixture.nativeElement.querySelector('.pxb-channel-value-value');
