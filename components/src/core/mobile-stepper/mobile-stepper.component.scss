@@ -33,3 +33,16 @@
 .pxb-mobile-stepper-display-none {
     display: none;
 }
+
+.pxb-mobile-stepper-next-button-wrapper,
+.pxb-mobile-stepper-back-button-wrapper {
+    display: flex;
+    flex: 1;
+}
+
+.pxb-mobile-stepper-next-button-wrapper {
+    justify-content: end;
+}
+.pxb-mobile-stepper-back-button-wrapper {
+    justify-content: start;
+}
