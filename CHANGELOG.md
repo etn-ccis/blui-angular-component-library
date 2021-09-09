@@ -8,7 +8,7 @@
 
 ### Fixed
 
--   Fixed stepper spacing in `<pxb-mobile-stepper` when Back and Next buttons are uneven width.  
+-   Fixed stepper spacing in `<pxb-mobile-stepper>` when Back and Next buttons are uneven width.  
 
 ## v5.0.1 (July 30, 2021)
 
