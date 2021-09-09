@@ -54,6 +54,8 @@ describe('DotStepperComponent', () => {
             '.pxb-mobile-stepper-content',
             '.pxb-mobile-stepper-dots',
             '.pxb-mobile-stepper-dot-active',
+            '.pxb-mobile-stepper-next-button-wrapper',
+            '.pxb-mobile-stepper-back-button-wrapper',
         ];
         for (const className of classList) {
             count(fixture, className);

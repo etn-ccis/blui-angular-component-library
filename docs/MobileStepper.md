@@ -53,11 +53,11 @@ Parent element (`<pxb-mobile-stepper`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input     | Description                        | Type     | Required | Default    |     |        |
-| ---------- | ---------------------------------- | -------- | -------- | ---------- | --- | ------ |
-| activeStep | The index of the active step       | `number` | yes      |            |     |        |
-| steps      | Total number of steps to display   | `number` | yes      |            |     |        |  
-| variant    | Which type of indicator to use     | `dots    | text     | progress ` | no  | `dots` |
+| @Input     | Description                        | Type     | Required | Default    | 
+| ---------- | ---------------------------------- | -------- | -------- | ---------- | 
+| activeStep | The index of the active step       | `number` | yes      |            |  
+| steps      | Total number of steps to display   | `number` | yes      |            | 
+| variant    | Which type of indicator to use     | `dots`   | no       | `progress` |
 
 </div>
 
@@ -74,12 +74,14 @@ The following child elements are projected into `<pxb-mobile-stepper>`:
 
 Each PX Blue component has classes which can be used to override component styles:
 
-| Name                             | Description                                            |
-| -------------------------------- | ------------------------------------------------------ |
-| pxb-mobile-stepper               | Styles applied to the tag                              |
-| pxb-mobile-stepper-content       | Styles applied to the mobile stepper container         |
-| pxb-mobile-stepper-dots          | Styles applied to the mobile stepper dots container    |
-| pxb-mobile-stepper-dot           | Styles applied to each dot in the stepper              |
-| pxb-mobile-stepper-dot-active    | Styles applied to the dot representing the active step |
-| pxb-mobile-stepper-dot-visited   | Styles applied to the visited dots                     |
-| pxb-mobile-stepper-dot-unvisited | Styles applied to the dots that were not visited yet   |
+| Name                                        | Description                                            |
+| ------------------------------------------- | ------------------------------------------------------ |
+| pxb-mobile-stepper                          | Styles applied to the tag                              |
+| pxb-mobile-stepper-content                  | Styles applied to the mobile stepper container         |
+| pxb-mobile-stepper-dots                     | Styles applied to the mobile stepper dots container    |
+| pxb-mobile-stepper-dot                      | Styles applied to each dot in the stepper              |
+| pxb-mobile-stepper-dot-active               | Styles applied to the dot representing the active step |
+| pxb-mobile-stepper-dot-visited              | Styles applied to the visited dots                     |
+| pxb-mobile-stepper-dot-unvisited            | Styles applied to the dots that were not visited yet   |
+|pxb-mobile-stepper-next-button-wrapper       | Styles applied to the next button wrapper              | 
+|pxb-mobile-stepper-back-button-wrapper       | Styles applied to the back button wrapper              | 

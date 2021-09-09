@@ -1,4 +1,4 @@
-import { boolean, number, select } from '@storybook/addon-knobs';
+import { boolean, number, select, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 export const withFullConfig = (): any => ({
@@ -22,11 +22,11 @@ export const withFullConfig = (): any => ({
             <button pxb-back-button mat-stroked-button color="primary" 
                 [style.visibility]="showBackButton ? 'visible' : 'hidden' "
                 [disabled]="activeStep === 0" 
-                (click)="activeStep = activeStep - 1; goBack();">Back</button>
+                (click)="activeStep = activeStep - 1; goBack();">{{ backButtonText }} </button>
             <button pxb-next-button mat-flat-button color="primary" 
                 [style.visibility]="showNextButton ? 'visible' : 'hidden' "
                 [disabled]="activeStep === steps - 1" 
-                (click)="activeStep = activeStep + 1; goNext();"> Next</button>
+                (click)="activeStep = activeStep + 1; goNext();"> {{ nextButtonText }} </button>
          </pxb-mobile-stepper>
      </div>
     `,
@@ -39,5 +39,7 @@ export const withFullConfig = (): any => ({
         goNext: action('Next Button Clicked'),
         showBackButton: boolean('Show Back Button', true),
         showNextButton: boolean('Show Next Button', true),
+        backButtonText: text('Back Button Text', 'Back'),
+        nextButtonText: text('Next Button Text', 'Next'),
     },
 });
