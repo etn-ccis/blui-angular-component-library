@@ -49,15 +49,15 @@ steps = 4;
 
 ## API
 
-Parent element (`<pxb-mobile-stepper`) attributes:
+Parent element (`<pxb-mobile-stepper>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input     | Description                        | Type     | Required | Default    | 
-| ---------- | ---------------------------------- | -------- | -------- | ---------- | 
-| activeStep | The index of the active step       | `number` | yes      |            |  
-| steps      | Total number of steps to display   | `number` | yes      |            | 
-| variant    | Which type of indicator to use     | `dots`   | no       | `progress` |
+| @Input     | Description                        | Type                                   | Required                    | Default    | 
+| ---------- | ---------------------------------- | -------------------------------------- | --------------------------- | ---------- | 
+| activeStep | The index of the active step       | `number`                               | yes                         |            |  
+| steps      | Total number of steps to display   | `number`                               | yes                         |            |              
+| variant    | Which type of indicator to use     | `'dots'` \| `'progress'` \| `'text'`   | no         | `'progress'` |
 
 </div>
 
