@@ -57,7 +57,7 @@ Parent element (`<pxb-mobile-stepper>`) attributes:
 | ---------- | ---------------------------------- | -------------------------------------- | --------------------------- | ---------- | 
 | activeStep | The index of the active step       | `number`                               | yes                         |            |  
 | steps      | Total number of steps to display   | `number`                               | yes                         |            |              
-| variant    | Which type of indicator to use     | `'dots'` \| `'progress'` \| `'text'`   | no         | `'progress'` |
+| variant    | Which type of indicator to use     | `'dots'` \| `'progress'` \| `'text'`   | no                          | `'dots'`   |
 
 </div>
 
