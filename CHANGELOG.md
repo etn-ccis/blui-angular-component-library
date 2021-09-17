@@ -9,6 +9,7 @@
 ### Fixed
 
 -   Fixed stepper spacing in `<pxb-mobile-stepper>` when Back and Next buttons are uneven width.  
+-   Fixed bug in `<pxb-app-bar>` that prevented class overrides on the root element.
 
 ## v5.0.1 (July 30, 2021)
 
