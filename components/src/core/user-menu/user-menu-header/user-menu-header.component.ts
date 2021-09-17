@@ -2,9 +2,9 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation, ViewChild
 import { isEmptyView } from '../../../utils/utils';
 
 /**
- * [DrawerHeader Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ * [UserMenuHeaderComponent Component](https://pxblue-components.github.io/angular/?path=/info/components-user-menu--readme)
  *
- * The `<pxb-user-menu-header>` contains the content found at the top of the `<pxb-drawer>`.
+ * The `<pxb-user-menu-header>` is the menu header of the `<pxb-user-menu>`.
  */
 @Component({
     selector: 'pxb-user-menu-header',
