@@ -102,8 +102,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
 
     contentSize = 0;
 
-    constructor(private readonly _ref: ChangeDetectorRef) {
-    }
+    constructor(private readonly _ref: ChangeDetectorRef) {}
 
     ngOnInit(): void {
         if (!this.scrollThreshold) {
