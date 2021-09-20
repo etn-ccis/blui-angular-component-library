@@ -8,7 +8,8 @@
 
 ### Fixed
 
--   Fixed stepper spacing in `<pxb-mobile-stepper>` when Back and Next buttons are uneven width.  
+-   Fixed stepper spacing in `<pxb-mobile-stepper>` when Back and Next buttons are uneven width.
+-   Fixed bug in `<pxb-app-bar>` so scroll listeners can no longer attempt to measure `undefined` elements' scroll distance. 
 
 ## v5.0.1 (July 30, 2021)
 
