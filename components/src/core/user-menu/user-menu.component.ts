@@ -42,28 +42,28 @@ import { map, startWith } from 'rxjs/operators';
     template: `
         <!-- This button triggers the overlay and is it's origin -->
         <pxb-user-menu-avatar
-            cdkOverlayOrigin
-            [avatarValue]="avatarValue"
-            [avatarImage]="avatarImage"
-            (click)="openMenu()"
-            #trigger="cdkOverlayOrigin"
+                cdkOverlayOrigin
+                [avatarValue]="avatarValue"
+                [avatarImage]="avatarImage"
+                (click)="openOverlay()"
+                #trigger="cdkOverlayOrigin"
         >
             <ng-content select="[pxb-avatar]"></ng-content>
         </pxb-user-menu-avatar>
 
         <ng-template #menu>
             <pxb-drawer-header
-                *ngIf="menuTitle"
-                class="pxb-user-menu-header"
-                [title]="menuTitle"
-                [subtitle]="menuSubtitle"
-                [divider]="true"
+                    *ngIf="menuTitle"
+                    class="pxb-user-menu-header"
+                    [title]="menuTitle"
+                    [subtitle]="menuSubtitle"
+                    [divider]="true"
             >
                 <pxb-user-menu-avatar
-                    pxb-icon
-                    [avatarValue]="avatarValue"
-                    [avatarImage]="avatarImage"
-                    class="pxb-user-menu-header-avatar"
+                        pxb-icon
+                        [avatarValue]="avatarValue"
+                        [avatarImage]="avatarImage"
+                        class="pxb-user-menu-header-avatar"
                 >
                     <ng-content select="[pxb-menu-avatar]"></ng-content>
                 </pxb-user-menu-avatar>
@@ -73,15 +73,15 @@ import { map, startWith } from 'rxjs/operators';
         </ng-template>
 
         <ng-template
-            cdkConnectedOverlay
-            (backdropClick)="onClickMenuBackdrop()"
-            [cdkConnectedOverlayPush]="true"
-            [cdkConnectedOverlayHasBackdrop]="true"
-            [cdkConnectedOverlayOrigin]="trigger"
-            [cdkConnectedOverlayOpen]="isMenuOpen"
-            [cdkConnectedOverlayPositions]="positions"
-            [cdkConnectedOverlayViewportMargin]="16"
-            [cdkConnectedOverlayBackdropClass]="'pxb-user-menu-overlay-backdrop'"
+                cdkConnectedOverlay
+                (backdropClick)="onClickMenuBackdrop()"
+                [cdkConnectedOverlayPush]="true"
+                [cdkConnectedOverlayHasBackdrop]="true"
+                [cdkConnectedOverlayOrigin]="trigger"
+                [cdkConnectedOverlayOpen]="isMenuOpen"
+                [cdkConnectedOverlayPositions]="positions"
+                [cdkConnectedOverlayViewportMargin]="16"
+                [cdkConnectedOverlayBackdropClass]="'pxb-user-menu-overlay-backdrop'"
         >
             <mat-card class="pxb-user-menu-overlay mat-elevation-z8" [@fade-in-out]>
                 <ng-template [ngTemplateOutlet]="menu"></ng-template>
@@ -134,7 +134,6 @@ export class UserMenuComponent {
 
     screenSizeChangeListener: Subscription;
     useBottomSheet: boolean;
-    isBottomSheetOpen: boolean;
     isMenuOpen: boolean;
 
     checkScreenSize = (): boolean => document.body.offsetWidth < this.useBottomSheetAt;
@@ -160,13 +159,12 @@ export class UserMenuComponent {
     }
 
     ngOnChanges(simpleChanges: SimpleChanges): void {
-        // Set state and dismiss bottom sheet when open() changes.
-        if (simpleChanges.open) {
-            this.isBottomSheetOpen = this.open && this.useBottomSheet;
-            this.isMenuOpen = this.open && !this.useBottomSheet;
-            if (!this.open) {
-                this._bottomSheet.dismiss(false);
-            }
+        // Set state and dismiss bottom sheet when open() changes.\
+        if (this.open) {
+            this.openOverlay();
+        } else {
+            this.isMenuOpen = false;
+            this._bottomSheet.dismiss(false);
         }
         if (simpleChanges.useBottomSheetAt) {
             this.useBottomSheet = this.checkScreenSize();
@@ -186,7 +184,7 @@ export class UserMenuComponent {
         this.backdropClick.emit();
     }
 
-    openMenu(): void {
+    openOverlay(): void {
         this.open = true;
         this.openChange.emit(this.open);
         if (this.useBottomSheet) {
@@ -197,20 +195,22 @@ export class UserMenuComponent {
     }
 
     private _openBottomSheet(): void {
-        this.isBottomSheetOpen = true;
-        this._bottomSheet
-            .open(this.menu, {
-                backdropClass: 'pxb-user-menu-bottomsheet-backdrop',
-                panelClass: 'pxb-user-menu-bottomsheet',
-                hasBackdrop: true,
-            })
-            .afterDismissed()
+        const ref = this._bottomSheet.open(this.menu, {
+            backdropClass: 'pxb-user-menu-bottomsheet-backdrop',
+            panelClass: 'pxb-user-menu-bottomsheet',
+            hasBackdrop: true,
+        });
+        ref.afterDismissed()
             .subscribe((openMenu: true) => {
-                this.isBottomSheetOpen = false;
                 if (openMenu) {
                     this.isMenuOpen = true;
                     this._ref.detectChanges();
                 }
             });
+
+        ref.backdropClick().subscribe(() => {
+            this.backdropClick.emit();
+        });
+
     }
 }

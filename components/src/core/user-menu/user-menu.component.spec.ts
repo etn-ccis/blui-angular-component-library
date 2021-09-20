@@ -131,7 +131,7 @@ describe('UserMenuComponent', () => {
         }
         component.useBottomSheet = true;
         component.isMenuOpen = false;
-        component.openMenu();
+        component.openOverlay();
         for (const className of bottomSheetClassList) {
             void expect(document.getElementsByClassName(className).length).toBe(1);
         }
