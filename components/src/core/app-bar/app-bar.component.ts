@@ -124,17 +124,20 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
         this._setScrollEl();
         this._resizeOnModeChange();
         this.viewInit = true;
-        this.scrollListener = fromEvent(this.scrollEl, 'scroll')
-            .pipe(throttle(() => interval(10)))
-            .subscribe(() => {
-                this._resizeEl();
-            });
 
-        this.resizeListener = fromEvent(window, 'resize')
-            .pipe(throttle(() => interval(10)))
-            .subscribe(() => {
-                this._resizeEl();
-            });
+        if (this.scrollEl) {
+            this.scrollListener = fromEvent(this.scrollEl, 'scroll')
+                .pipe(throttle(() => interval(10)))
+                .subscribe(() => {
+                    this._resizeEl();
+                });
+
+            this.resizeListener = fromEvent(window, 'resize')
+                .pipe(throttle(() => interval(10)))
+                .subscribe(() => {
+                    this._resizeEl();
+                });
+        }
     }
 
     ngOnDestroy(): void {
