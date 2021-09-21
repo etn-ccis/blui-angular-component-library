@@ -144,6 +144,7 @@ export class UserMenuComponent {
             .pipe(map(this.checkScreenSize))
             .pipe(startWith(this.checkScreenSize()))
             .subscribe((isMobile: boolean) => {
+                console.log('hi');
                 // Transition from Desktop to Mobile
                 if (this.open && isMobile && !this.useBottomSheet) {
                     this.isMenuOpen = false;
@@ -159,7 +160,8 @@ export class UserMenuComponent {
     }
 
     ngOnChanges(simpleChanges: SimpleChanges): void {
-        // Set state and dismiss bottom sheet when open() changes.\
+        // Set state and dismiss bottom sheet when open() changes.
+        console.log(simpleChanges);
         if (this.open) {
             this.openOverlay();
         } else {
@@ -185,6 +187,7 @@ export class UserMenuComponent {
     }
 
     openOverlay(): void {
+        console.log('open overlay');
         this.open = true;
         this.openChange.emit(this.open);
         if (this.useBottomSheet) {
