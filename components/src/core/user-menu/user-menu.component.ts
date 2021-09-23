@@ -18,7 +18,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { fromEvent, Subscription } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import { requireContent, requireInput } from '../../utils/utils';
+import { requireInput } from '../../utils/utils';
 
 /**
  * [UserMenu Component](https://pxblue-components.github.io/angular/?path=/info/components-user-menu--readme)
