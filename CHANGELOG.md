@@ -15,6 +15,8 @@
 -   Fixed stepper spacing in `<pxb-mobile-stepper>` when Back and Next buttons are uneven width.
 -   Fixed bug in `<pxb-user-menu>` that prevented the bottom sheet from rendering when `open` was manually set to `true`.
 -   Fixed bug in `<pxb-user-menu>` where dismissing a bottomsheet via backdrop click did not emit a `backdropClick` event.
+-   Fixed bug in `<pxb-app-bar>` that prevented class overrides on the root element.
+-   Fixed bug in `<pxb-app-bar>` so scroll listeners can no longer attempt to measure `undefined` elements' scroll distance. 
 
 ## v5.0.1 (July 30, 2021)
 
