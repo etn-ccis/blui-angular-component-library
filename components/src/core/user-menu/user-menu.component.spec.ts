@@ -80,7 +80,7 @@ describe('UserMenuComponent', () => {
         component.isMenuOpen = true;
         component.useBottomSheet = false;
         fixture.detectChanges();
-        const title = document.getElementsByClassName('pxb-drawer-header-title')[0] as HTMLElement;
+        const title = document.getElementsByClassName('pxb-user-menu-header-title')[0] as HTMLElement;
         void expect(title.innerText).toBe('Sample Title');
     });
 
@@ -91,7 +91,7 @@ describe('UserMenuComponent', () => {
         component.isMenuOpen = true;
         component.useBottomSheet = false;
         fixture.detectChanges();
-        const title = document.getElementsByClassName('pxb-drawer-header-subtitle')[0] as HTMLElement;
+        const title = document.getElementsByClassName('pxb-user-menu-header-subtitle')[0] as HTMLElement;
         void expect(title.innerText).toBe('Sample Subtitle');
     });
 

@@ -1,0 +1,87 @@
+@import '../../utility/utility';
+
+/* RTL */
+[dir='rtl'] .pxb-user-menu-header-content {
+    .pxb-user-menu-header-icon-wrapper {
+        margin-right: -0.5rem;
+        margin-left: calc(24px + (1rem - 16px) / 2);
+    }
+    &.pxb-user-menu-header-no-icon .pxb-user-menu-header-icon-wrapper {
+        margin-right: 0;
+        margin-left: 0;
+    }
+}
+
+.pxb-user-menu-header-content {
+    width: 100%;
+    align-items: flex-start;
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    height: 4rem;
+
+    &.mat-toolbar-single-row.mat-toolbar {
+        padding-right: 16px;
+        padding-left: 16px;
+    }
+
+    .pxb-user-menu-header-text {
+        z-index: 2;
+        display: flex;
+        width: 100%;
+        height: 100%;
+    }
+
+    .pxb-user-menu-header-icon-wrapper {
+        display: flex;
+        align-items: center;
+        z-index: 1;
+        margin-right: calc(24px + (1rem - 16px) / 2); // Intense math: default needs 24, xLarge needs 28
+        margin-left: -0.5rem;
+        width: 2.5rem;
+        @include scale-icon-button();
+        &:empty {
+            width: 0;
+            margin: 0;
+        }
+    }
+    &.pxb-user-menu-header-no-icon .pxb-user-menu-header-icon-wrapper {
+        width: 0;
+        margin: 0;
+    }
+
+    .pxb-user-menu-header-title-wrapper {
+        display: flex;
+        justify-content: center;
+        align-self: stretch;
+        flex-direction: column;
+        width: calc(100% - 3.5rem);
+        box-sizing: border-box;
+        z-index: 1;
+
+        .pxb-user-menu-header-title {
+            font-weight: 600;
+            line-height: 1.6rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .pxb-user-menu-header-subtitle {
+            font-weight: 300;
+            line-height: 1.3rem;
+            margin-top: -0.125rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            &.mat-subheading-2 {
+                margin-bottom: 0;
+            }
+        }
+    }
+}
+
+@media (max-width: 599px) {
+    .pxb-user-menu-header-content {
+        height: 3.5rem;
+    }
+}

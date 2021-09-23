@@ -56,7 +56,7 @@ import { requireInput } from '../../utils/utils';
         </pxb-user-menu-avatar>
 
         <ng-template #menu>
-            <pxb-drawer-header
+            <pxb-user-menu-header
                 *ngIf="menuTitle"
                 class="pxb-user-menu-header"
                 [title]="menuTitle"
@@ -71,7 +71,7 @@ import { requireInput } from '../../utils/utils';
                 >
                     <ng-content select="[pxb-menu-avatar]"></ng-content>
                 </pxb-user-menu-avatar>
-            </pxb-drawer-header>
+            </pxb-user-menu-header>
             <ng-content select="[pxb-menu-header]"></ng-content>
             <ng-content select="[pxb-menu-body]"></ng-content>
         </ng-template>

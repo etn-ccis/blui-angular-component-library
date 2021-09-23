@@ -9,6 +9,8 @@
 ### Changed
 
 -   Changed `<pxb-user-menu>` `open` property to be required instead of optional.
+-   Changed `<pxb-user-menu>` component to use a new `UserMenuHeaderComponent` in the menu overlay instead of using a `DrawerHeaderComponent`.
+
 
 ### Fixed
 
