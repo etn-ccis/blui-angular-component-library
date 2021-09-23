@@ -8,12 +8,13 @@
 
 ### Changed
 
--   Changed `<pxb-user-menu>` `open` property to be required.
+-   Changed `<pxb-user-menu>` `open` property to be required instead of optional.
 
 ### Fixed
 
 -   Fixed stepper spacing in `<pxb-mobile-stepper>` when Back and Next buttons are uneven width.
--   Fixed bug in the `<pxb-user-menu>` that prevented the bottom sheet from rendering when `open` was manually set to `true`.
+-   Fixed bug in `<pxb-user-menu>` that prevented the bottom sheet from rendering when `open` was manually set to `true`.
+-   Fixed bug in `<pxb-user-menu>` where dismissing a bottomsheet via backdrop click did not emit a `backdropClick` event.
 
 ## v5.0.1 (July 30, 2021)
 
