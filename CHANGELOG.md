@@ -6,9 +6,14 @@
 
 -   Added new property `unitSpace` to `<pxb-channel-value>` to manage spacing between the value and units.
 
+### Changed
+
+-   Changed `<pxb-user-menu>` `open` property to be required.
+
 ### Fixed
 
--   Fixed stepper spacing in `<pxb-mobile-stepper>` when Back and Next buttons are uneven width.  
+-   Fixed stepper spacing in `<pxb-mobile-stepper>` when Back and Next buttons are uneven width.
+-   Fixed bug in the `<pxb-user-menu>` that prevented the bottom sheet from rendering when `open` was manually set to `true`.
 
 ## v5.0.1 (July 30, 2021)
 
