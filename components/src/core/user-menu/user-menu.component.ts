@@ -18,7 +18,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { fromEvent, Subscription } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
-import {requireContent, requireInput} from "../../utils/utils";
+import { requireContent, requireInput } from '../../utils/utils';
 
 /**
  * [UserMenu Component](https://pxblue-components.github.io/angular/?path=/info/components-user-menu--readme)
@@ -150,7 +150,7 @@ export class UserMenuComponent implements OnInit, OnChanges, OnDestroy {
                 // Transition from Desktop to Mobile
                 if (this.open && isMobile && !this.useBottomSheet) {
                     this.isMenuOpen = false;
-                    this._openBottomSheet();
+                    this.openBottomSheet();
                     this._ref.detectChanges();
                 }
                 // Transition from Mobile to Desktop
@@ -168,7 +168,7 @@ export class UserMenuComponent implements OnInit, OnChanges, OnDestroy {
             const openState = changes.open;
             if (openState.currentValue === true && (openState.previousValue === false || openState.isFirstChange())) {
                 if (this.useBottomSheet) {
-                    this._openBottomSheet();
+                    this.openBottomSheet();
                 } else {
                     this.isMenuOpen = true;
                 }
@@ -200,8 +200,7 @@ export class UserMenuComponent implements OnInit, OnChanges, OnDestroy {
         this.openChange.emit(true);
     }
 
-    private _openBottomSheet(): void {
-
+    openBottomSheet(): void {
         // Do not invoke the bottom sheet until `menu` has been rendered.
         this._ref.detectChanges();
 
