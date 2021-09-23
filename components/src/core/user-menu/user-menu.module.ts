@@ -7,10 +7,20 @@ import { UserMenuAvatarComponent } from './user-menu-avatar.component';
 import { DrawerHeaderModule } from '../drawer/drawer-header/drawer-header.module';
 import { MatCardModule } from '@angular/material/card';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
+import { UserMenuHeaderComponent } from './user-menu-header/user-menu-header.component';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 @NgModule({
-    declarations: [UserMenuComponent, UserMenuAvatarComponent],
-    imports: [CommonModule, DrawerHeaderModule, InfoListItemModule, OverlayModule, MatBottomSheetModule, MatCardModule],
-    exports: [UserMenuComponent, UserMenuAvatarComponent],
+    declarations: [UserMenuComponent, UserMenuAvatarComponent, UserMenuHeaderComponent],
+    imports: [
+        CommonModule,
+        DrawerHeaderModule,
+        InfoListItemModule,
+        OverlayModule,
+        MatBottomSheetModule,
+        MatCardModule,
+        MatToolbarModule,
+    ],
+    exports: [UserMenuComponent, UserMenuAvatarComponent, UserMenuHeaderComponent],
 })
 export class UserMenuModule {}

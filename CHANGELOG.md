@@ -6,6 +6,10 @@
 
 -   Added new property `unitSpace` to `<pxb-channel-value>` to manage spacing between the value and units.
 
+### Changed
+
+-   Changed the `<pxb-user-menu>` component to use a new `UserMenuHeaderComponent` in the menu overlay instead of using a `DrawerHeaderComponent`. 
+
 ### Fixed
 
 -   Fixed stepper spacing in `<pxb-mobile-stepper>` when Back and Next buttons are uneven width.  
