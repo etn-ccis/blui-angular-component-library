@@ -4,7 +4,7 @@
 
 ### Added
 
--   Added new property `unitSpace` to `<pxb-channel-value>` to manage spacing between the value and units.
+-   Added new property `unitSpace` to `<pxb-channel-value>` and `<pxb-hero>` to manage spacing between the value and units.
 
 ### Changed
 

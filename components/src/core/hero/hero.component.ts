@@ -39,7 +39,7 @@ import { requireInput } from '../../utils/utils';
             </div>
             <span class="pxb-hero-channel-value-wrapper">
                 <ng-content select="pxb-channel-value" *ngIf="value === undefined"></ng-content>
-                <pxb-channel-value *ngIf="value !== undefined" [value]="value" [units]="units">
+                <pxb-channel-value *ngIf="value !== undefined" [value]="value" [units]="units" [unitSpace]="unitSpace">
                     <ng-content select="[pxb-secondary]"></ng-content>
                 </pxb-channel-value>
             </span>
@@ -65,6 +65,8 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
     @Input() units: string;
     /** The value for the channel */
     @Input() value: string;
+    /** Show a space between the value and units for the channel */
+    @Input() unitSpace: string;
 
     @ViewChild('primaryContainer') primaryContainer: ElementRef;
 
