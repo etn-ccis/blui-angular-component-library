@@ -66,7 +66,7 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
     /** The value for the channel */
     @Input() value: string;
     /** Show a space between the value and units for the channel */
-    @Input() unitSpace: string;
+    @Input() unitSpace: 'show' | 'hide' | 'auto' = 'auto';
 
     @ViewChild('primaryContainer') primaryContainer: ElementRef;
 
