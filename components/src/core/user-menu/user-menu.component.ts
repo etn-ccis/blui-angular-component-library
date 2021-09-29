@@ -4,6 +4,9 @@ import {
     Component,
     EventEmitter,
     Input,
+    OnChanges,
+    OnDestroy,
+    OnInit,
     Output,
     SimpleChanges,
     TemplateRef,
@@ -15,6 +18,7 @@ import { animate, state, style, transition, trigger } from '@angular/animations'
 import { MatBottomSheet } from '@angular/material/bottom-sheet';
 import { fromEvent, Subscription } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
+import { requireInput } from '../../utils/utils';
 
 /**
  * [UserMenu Component](https://pxblue-components.github.io/angular/?path=/info/components-user-menu--readme)
@@ -45,7 +49,7 @@ import { map, startWith } from 'rxjs/operators';
             cdkOverlayOrigin
             [avatarValue]="avatarValue"
             [avatarImage]="avatarImage"
-            (click)="openMenu()"
+            (click)="openOverlay()"
             #trigger="cdkOverlayOrigin"
         >
             <ng-content select="[pxb-avatar]"></ng-content>
@@ -92,7 +96,7 @@ import { map, startWith } from 'rxjs/operators';
         class: 'pxb-user-menu',
     },
 })
-export class UserMenuComponent {
+export class UserMenuComponent implements OnInit, OnChanges, OnDestroy {
     /** Image source for avatar */
     @Input() avatarImage: string;
 
@@ -110,11 +114,8 @@ export class UserMenuComponent {
         new ConnectionPositionPair({ originX: 'start', originY: 'top' }, { overlayX: 'start', overlayY: 'top' }),
     ];
 
-    /** Whether the menu overlay appears on screen.
-     *
-     * @default false
-     */
-    @Input() open = false;
+    /** Whether the menu overlay appears on screen. */
+    @Input() open;
 
     /** Window pixel width at which the responsive bottom sheet menu is triggered (set to 0 to disable responsive behavior)
      *
@@ -134,12 +135,13 @@ export class UserMenuComponent {
 
     screenSizeChangeListener: Subscription;
     useBottomSheet: boolean;
-    isBottomSheetOpen: boolean;
     isMenuOpen: boolean;
 
     checkScreenSize = (): boolean => document.body.offsetWidth < this.useBottomSheetAt;
 
     ngOnInit(): void {
+        requireInput<UserMenuComponent>(['open'], this);
+
         // Subscribe to resize events and transition from menu to bottomsheet (or vise versa) when open & resizing
         this.screenSizeChangeListener = fromEvent(window, 'resize')
             .pipe(map(this.checkScreenSize))
@@ -148,7 +150,7 @@ export class UserMenuComponent {
                 // Transition from Desktop to Mobile
                 if (this.open && isMobile && !this.useBottomSheet) {
                     this.isMenuOpen = false;
-                    this._openBottomSheet();
+                    this.openBottomSheet();
                     this._ref.detectChanges();
                 }
                 // Transition from Mobile to Desktop
@@ -159,16 +161,26 @@ export class UserMenuComponent {
             });
     }
 
-    ngOnChanges(simpleChanges: SimpleChanges): void {
+    ngOnChanges(changes: SimpleChanges): void {
         // Set state and dismiss bottom sheet when open() changes.
-        if (simpleChanges.open) {
-            this.isBottomSheetOpen = this.open && this.useBottomSheet;
-            this.isMenuOpen = this.open && !this.useBottomSheet;
-            if (!this.open) {
+        if (changes.open) {
+            // State changes from closed to open.
+            const openState = changes.open;
+            if (openState.currentValue === true && (openState.previousValue === false || openState.isFirstChange())) {
+                if (this.useBottomSheet) {
+                    this.openBottomSheet();
+                } else {
+                    this.isMenuOpen = true;
+                }
+            }
+            // State changes from open to closed.
+            if (openState.currentValue === false && (openState.previousValue === true || openState.isFirstChange())) {
+                this.isMenuOpen = false;
                 this._bottomSheet.dismiss(false);
             }
         }
-        if (simpleChanges.useBottomSheetAt) {
+
+        if (changes.useBottomSheetAt) {
             this.useBottomSheet = this.checkScreenSize();
         }
     }
@@ -180,37 +192,32 @@ export class UserMenuComponent {
     }
 
     onClickMenuBackdrop(): void {
-        this.open = false;
-        this.isMenuOpen = false;
-        this.openChange.emit(this.open);
+        this.openChange.emit(false);
         this.backdropClick.emit();
     }
 
-    openMenu(): void {
-        this.open = true;
-        this.openChange.emit(this.open);
-        if (this.useBottomSheet) {
-            this._openBottomSheet();
-        } else {
-            this.isMenuOpen = true;
-        }
+    openOverlay(): void {
+        this.openChange.emit(true);
     }
 
-    private _openBottomSheet(): void {
-        this.isBottomSheetOpen = true;
-        this._bottomSheet
-            .open(this.menu, {
-                backdropClass: 'pxb-user-menu-bottomsheet-backdrop',
-                panelClass: 'pxb-user-menu-bottomsheet',
-                hasBackdrop: true,
-            })
-            .afterDismissed()
-            .subscribe((openMenu: true) => {
-                this.isBottomSheetOpen = false;
-                if (openMenu) {
-                    this.isMenuOpen = true;
-                    this._ref.detectChanges();
-                }
-            });
+    openBottomSheet(): void {
+        // Do not invoke the bottom sheet until `menu` has been rendered.
+        this._ref.detectChanges();
+
+        const bottomSheetRef = this._bottomSheet.open(this.menu, {
+            backdropClass: 'pxb-user-menu-bottomsheet-backdrop',
+            panelClass: 'pxb-user-menu-bottomsheet',
+            hasBackdrop: true,
+        });
+
+        bottomSheetRef.afterDismissed().subscribe((openMenu: true) => {
+            this.isMenuOpen = openMenu;
+            this._ref.detectChanges();
+        });
+
+        bottomSheetRef.backdropClick().subscribe(() => {
+            this.openChange.emit(false);
+            this.backdropClick.emit();
+        });
     }
 }
