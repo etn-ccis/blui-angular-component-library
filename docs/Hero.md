@@ -8,7 +8,7 @@ The `<pxb-hero>` components are used to call attention to particular values that
 
 The `<pxb-hero>` component displays a particular icon, value/units, and a label. Icon components are passed as a child element with the `primary` attribute - these will typically be a Material icon, PX Blue icon, or Progress Icon. It will also accept Text/Emoji values inside of a `<span>` element.
 
-The value section of the `<pxb-hero>` utilizes a [`<pxb-channel-value>`](./ChannelValue.md) component. To display a single simple value, the information can be passed as attributes (`value`, `units`). An icon can be passed as a child of the `<pxb-hero>` component with the `secondary` attribute. For more complex values (such as a duration that displays hours and minutes), you can pass in multiple `<pxb-channel-value>` components as children and they will be displayed inline.
+The value section of the `<pxb-hero>` utilizes a [`<pxb-channel-value>`](./ChannelValue.md) component. To display a single simple value, the information can be passed as attributes (`value`, `units`, `unitSpace`). An icon can be passed as a child of the `<pxb-hero>` component with the `secondary` attribute. For more complex values (such as a duration that displays hours and minutes), you can pass in multiple `<pxb-channel-value>` components as children and they will be displayed inline.
 
 ## Hero Usage
 
@@ -29,7 +29,7 @@ imports: [
 ```html
 // your-component.html 
 // Simple usage via Hero attributes
-<pxb-hero label="Healthy" value="96" units="/100">
+<pxb-hero label="Healthy" value="96" units="/100" unitSpace="hide">
     <mat-icon pxb-primary>timer</mat-icon>
     <mat-icon pxb-secondary>trending_up</mat-icon>
 </pxb-hero>
@@ -37,8 +37,8 @@ imports: [
 // Complex example with multiple values as children
 <pxb-hero label="Load">
     <mat-icon pxb-primary>timer</mat-icon>
-    <pxb-channel-value value="1" units="h"></pxb-channel-value>
-    <pxb-channel-value value="26" units="m"></pxb-channel-value>
+    <pxb-channel-value value="1" units="h" unitSpace="hide"></pxb-channel-value>
+    <pxb-channel-value value="26" units="m" unitSpace="hide"></pxb-channel-value>
 </pxb-hero>
 ```
 
@@ -53,6 +53,7 @@ Parent element (`<pxb-hero>`) attributes:
 | iconSize | The size of the primary icon (10-48)   | `number`             | no       | 'normal' (36) |
 | label    | The text shown below the Channel Value | `string`             | yes      |               |
 | units    | Text to show after the value           | `string`             | no       |               |
+| unitSpace  | Show/Hide spacing between the value and units  | `'auto'` \| `'hide'` \| `'show'` | yes      | 'auto'  |
 | value    | The value for the channel              | `string` \| `number` | no       |               |
 
 </div>
