@@ -15,7 +15,7 @@ export const withFullConfig = (): any => ({
         label: text('label', 'Velocity'),
         value: text('value', '470'),
         units: text('units', 'RPM'),
-        unitSpace: select('unitSpace', ['show', 'hide', 'auto'], 'auto'),
+        unitSpace: select('unitSpace', ['show', 'hide', 'auto'], 'hide'),
         showSecondary: boolean('Show Secondary Icon', true),
         iconSize: number('iconSize', 36),
         iconColor: color('primary.style.color', Colors.white[50]),

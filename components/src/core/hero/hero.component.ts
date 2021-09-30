@@ -11,7 +11,7 @@ import {
     ViewEncapsulation,
 } from '@angular/core';
 import { requireInput } from '../../utils/utils';
-
+import { UnitSpaceType } from '../channel-value/channel-value.component';
 /**
  * [Hero Component](https://pxblue-components.github.io/angular/?path=/info/components-hero--readme)
  *
@@ -65,8 +65,8 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
     @Input() units: string;
     /** The value for the channel */
     @Input() value: string;
-    /** Show a space between the value and units for the channel */
-    @Input() unitSpace: 'show' | 'hide' | 'auto' = 'auto';
+    /** Show a space between the value and units for the channel, default is `auto` */
+    @Input() unitSpace: UnitSpaceType = 'auto';
 
     @ViewChild('primaryContainer') primaryContainer: ElementRef;
 
