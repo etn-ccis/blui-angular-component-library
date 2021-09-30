@@ -1916,10 +1916,10 @@
     node-gyp "^7.1.0"
     read-package-json-fast "^2.0.1"
 
-"@pxblue/angular-themes@^6.3.0-beta.0":
-  version "6.3.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/angular-themes/-/angular-themes-6.3.0-beta.0.tgz#abd8dc812fc12aa0b9ed0f4365631ce63eb5bbe2"
-  integrity sha512-usHlnNfb4ML4CWOUkS2KebdZBaa6FKpbPuzzN5oZHF/5EUHN4Segs/EFgtJ02J6vJo3NWu0thaBR/AD+1uitfQ==
+"@pxblue/angular-themes@^6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@pxblue/angular-themes/-/angular-themes-6.3.0.tgz#0714c8051bf4d54ae6040a04566f66e9a1f8639f"
+  integrity sha512-2WbQFfibGST6n/ELe43xzdKnQyqjO30wqgKYw7JTS5YiVqEMopZqT9LI3Zb/FM8yfiL0gbZDoOkQZXCB3/5FzA==
   dependencies:
     "@fontsource/open-sans" "^4.1.0"
     "@pxblue/colors" "^3.0.0"
