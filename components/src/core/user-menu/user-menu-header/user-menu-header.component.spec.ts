@@ -1,49 +1,47 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-import { DrawerHeaderComponent } from './drawer-header.component';
-import { DrawerHeaderModule } from './drawer-header.module';
+import { UserMenuHeaderComponent } from './user-menu-header.component';
 import { Component } from '@angular/core';
-import { MatIconModule } from '@angular/material/icon';
 import { By } from '@angular/platform-browser';
 import { count } from 'src/utils/test-utils';
+import { UserMenuModule } from '../user-menu.module';
+import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-    template: ` <pxb-drawer-header title="title" subtitle="subtitle"></pxb-drawer-header> `,
+    template: `<pxb-user-menu-header title="title" subtitle="subtitle"></pxb-user-menu-header>`,
 })
-class TestDrawerHeader {}
+class TestUserMenuHeader {}
 
 @Component({
     template: `
-        <pxb-drawer-header>
+        <pxb-user-menu-header>
             <div pxb-title-content id="test-title-content">test title content</div>
-        </pxb-drawer-header>
+        </pxb-user-menu-header>
     `,
 })
-class TestDrawerHeaderWithTitleContent {}
+class TestUserMenuHeaderWithTitleContent {}
 
 @Component({
     template: `
-        <pxb-drawer-header>
+        <pxb-user-menu-header>
             <button id="test-icon" mat-icon-button pxb-icon>
                 <mat-icon>menu</mat-icon>
             </button>
-        </pxb-drawer-header>
+        </pxb-user-menu-header>
     `,
 })
-class TestDrawerHeaderWithIcon {}
+class TestUserMenuHeaderWithIcon {}
 
-describe('DrawerHeaderComponent', () => {
-    let component: DrawerHeaderComponent;
-    let fixture: ComponentFixture<DrawerHeaderComponent>;
+describe('UserMenuHeaderComponent', () => {
+    let component: UserMenuHeaderComponent;
+    let fixture: ComponentFixture<UserMenuHeaderComponent>;
 
     beforeEach(() => {
         void TestBed.configureTestingModule({
-            declarations: [TestDrawerHeader, TestDrawerHeaderWithTitleContent, TestDrawerHeaderWithIcon],
-            imports: [DrawerHeaderModule, MatIconModule],
+            declarations: [TestUserMenuHeader, TestUserMenuHeaderWithTitleContent, TestUserMenuHeaderWithIcon],
+            imports: [UserMenuModule, MatIconModule],
         }).compileComponents();
-        fixture = TestBed.createComponent(DrawerHeaderComponent);
+        fixture = TestBed.createComponent(UserMenuHeaderComponent);
         component = fixture.componentInstance;
-        spyOn(component, 'ngOnInit').and.stub();
-        spyOn(component, 'ngOnDestroy').and.stub();
     });
 
     afterEach(() => {
@@ -58,7 +56,7 @@ describe('DrawerHeaderComponent', () => {
     it('should render title', () => {
         component.title = 'test title';
         fixture.detectChanges();
-        const title = fixture.debugElement.query(By.css('.pxb-drawer-header-title'));
+        const title = fixture.debugElement.query(By.css('.pxb-user-menu-header-title'));
         void expect(title.nativeElement.innerHTML.trim()).toBe('test title');
     });
 
@@ -66,19 +64,19 @@ describe('DrawerHeaderComponent', () => {
         component.title = 'test title';
         component.subtitle = 'test subtitle';
         fixture.detectChanges();
-        const subtitle = fixture.debugElement.query(By.css('.pxb-drawer-header-subtitle'));
+        const subtitle = fixture.debugElement.query(By.css('.pxb-user-menu-header-subtitle'));
         void expect(subtitle.nativeElement.innerHTML.trim()).toBe('test subtitle');
     });
 
     it('should render titleContent', () => {
-        const customFixture = TestBed.createComponent(TestDrawerHeaderWithTitleContent);
+        const customFixture = TestBed.createComponent(TestUserMenuHeaderWithTitleContent);
         customFixture.detectChanges();
         const content: HTMLElement = customFixture.nativeElement.querySelector('#test-title-content');
         void expect(content.innerHTML).toBe('test title content');
     });
 
     it('should render icon', () => {
-        const customFixture = TestBed.createComponent(TestDrawerHeaderWithIcon);
+        const customFixture = TestBed.createComponent(TestUserMenuHeaderWithIcon);
         customFixture.detectChanges();
         const icon: HTMLElement = customFixture.nativeElement.querySelector('#test-icon');
         void expect(icon.innerHTML).toBe(
@@ -87,17 +85,15 @@ describe('DrawerHeaderComponent', () => {
     });
 
     it('should enforce class naming conventions', () => {
-        const customFixture = TestBed.createComponent(TestDrawerHeader);
+        const customFixture = TestBed.createComponent(TestUserMenuHeader);
         customFixture.detectChanges();
         const classList = [
-            '.pxb-drawer-header',
-            '.pxb-drawer-header-content',
-            '.pxb-drawer-header-background',
-            '.pxb-drawer-header-content',
-            '.pxb-drawer-header-icon-wrapper',
-            '.pxb-drawer-header-title-wrapper',
-            '.pxb-drawer-header-title',
-            '.pxb-drawer-header-subtitle',
+            '.pxb-user-menu-header',
+            '.pxb-user-menu-header-content',
+            '.pxb-user-menu-header-icon-wrapper',
+            '.pxb-user-menu-header-title-wrapper',
+            '.pxb-user-menu-header-title',
+            '.pxb-user-menu-header-subtitle',
         ];
         for (const className of classList) {
             count(customFixture, className);

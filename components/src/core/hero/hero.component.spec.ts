@@ -69,8 +69,8 @@ describe('HeroComponent', () => {
         fixture.detectChanges();
         const value = fixture.nativeElement.querySelector('.pxb-channel-value-value');
         const units = fixture.nativeElement.querySelector('.pxb-channel-value-units');
-        void expect(value.innerHTML).toBe('80');
-        void expect(units.innerHTML).toBe('C');
+        void expect(value.innerText).toBe('80');
+        void expect(units.innerText).toBe('C');
     });
 
     it('should accept and project a pxb-channel-value', () => {
@@ -78,8 +78,8 @@ describe('HeroComponent', () => {
         channelValueFixture.detectChanges();
         const value = channelValueFixture.nativeElement.querySelector('.pxb-channel-value-value');
         const units = channelValueFixture.nativeElement.querySelector('.pxb-channel-value-units');
-        void expect(value.innerHTML).toBe('60');
-        void expect(units.innerHTML).toBe('hours');
+        void expect(value.innerText).toBe('60');
+        void expect(units.innerText).toBe('hours');
     });
 
     it('should render an icon', () => {

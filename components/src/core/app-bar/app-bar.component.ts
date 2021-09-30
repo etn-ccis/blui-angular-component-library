@@ -4,7 +4,6 @@ import {
     ChangeDetectorRef,
     Component,
     EventEmitter,
-    HostBinding,
     Input,
     OnChanges,
     OnDestroy,
@@ -28,6 +27,9 @@ import { Element } from '@angular/compiler';
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./app-bar.component.scss'],
+    host: {
+        class: 'pxb-app-bar mat-elevation-z4',
+    },
     template: `
         <mat-toolbar
             [color]="color"
@@ -87,8 +89,6 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     /** Event emitter for when the appbar opens or closes.  Emits a boolean that indicates whether the AppBar is expanded. */
     @Output() collapsedChange: EventEmitter<boolean> = new EventEmitter();
 
-    @HostBinding('class') @Input('class') classList = 'pxb-app-bar mat-elevation-z4';
-
     scrollEl;
 
     isCollapsed = false;
@@ -124,17 +124,20 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
         this._setScrollEl();
         this._resizeOnModeChange();
         this.viewInit = true;
-        this.scrollListener = fromEvent(this.scrollEl, 'scroll')
-            .pipe(throttle(() => interval(10)))
-            .subscribe(() => {
-                this._resizeEl();
-            });
 
-        this.resizeListener = fromEvent(window, 'resize')
-            .pipe(throttle(() => interval(10)))
-            .subscribe(() => {
-                this._resizeEl();
-            });
+        if (this.scrollEl) {
+            this.scrollListener = fromEvent(this.scrollEl, 'scroll')
+                .pipe(throttle(() => interval(10)))
+                .subscribe(() => {
+                    this._resizeEl();
+                });
+
+            this.resizeListener = fromEvent(window, 'resize')
+                .pipe(throttle(() => interval(10)))
+                .subscribe(() => {
+                    this._resizeEl();
+                });
+        }
     }
 
     ngOnDestroy(): void {

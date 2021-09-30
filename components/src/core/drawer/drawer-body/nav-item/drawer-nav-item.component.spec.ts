@@ -6,9 +6,7 @@ import { count } from 'src/utils/test-utils';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
-    template: `
-        <pxb-drawer-nav-item [hidden]="true"></pxb-drawer-nav-item>
-    `,
+    template: ` <pxb-drawer-nav-item [hidden]="true"></pxb-drawer-nav-item> `,
 })
 class DrawerHiddenNavItem {}
 

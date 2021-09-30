@@ -33,6 +33,8 @@ describe('AppBarComponent', () => {
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
         const classList = [
+            '.pxb-app-bar',
+            '.mat-elevation-z4',
             '.pxb-app-bar-content',
             '.pxb-app-bar-background',
             '.pxb-app-bar-collapsed',

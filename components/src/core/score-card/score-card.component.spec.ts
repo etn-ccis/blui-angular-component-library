@@ -19,16 +19,12 @@ import { count } from '../../utils/test-utils';
 class TestScoreCardActions {}
 
 @Component({
-    template: `
-        <pxb-score-card><div pxb-body id="test-content">Content Goes Here</div></pxb-score-card>
-    `,
+    template: ` <pxb-score-card><div pxb-body id="test-content">Content Goes Here</div></pxb-score-card> `,
 })
 class TestScoreCardContent {}
 
 @Component({
-    template: `
-        <pxb-score-card><div pxb-action-row id="test-action-row">Show Details</div></pxb-score-card>
-    `,
+    template: ` <pxb-score-card><div pxb-action-row id="test-action-row">Show Details</div></pxb-score-card> `,
 })
 class TestScoreCardActionRow {}
 

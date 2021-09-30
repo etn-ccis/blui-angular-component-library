@@ -44,9 +44,7 @@ class TestBasicUsage {
 class TestIconComponent {}
 
 @Component({
-    template: `
-        <pxb-info-list-item> </pxb-info-list-item>
-    `,
+    template: ` <pxb-info-list-item> </pxb-info-list-item> `,
 })
 class TestMissingTitle {}
 
