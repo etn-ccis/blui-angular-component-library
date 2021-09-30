@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, Input, OnChanges, ViewEncapsulation } from '@angular/core';
 import { requireInput } from '../../utils/utils';
 
-type UnitSpaceType = 'show' | 'hide' | 'auto';
+export type UnitSpaceType = 'show' | 'hide' | 'auto';
 /** [ChannelValue Component](https://pxblue-components.github.io/angular/?path=/info/components-channel-value--readme)
  *
  * Displays a value/unit combination.
