@@ -10,27 +10,31 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @Component({
     selector: 'test-app',
     template: `
-        <pxb-user-menu avatarValue="HA" [open]="true">
+        <pxb-user-menu avatarValue="HA" [(open)]="open">
             <div pxb-menu-header>
                 <div id="custom-header-test"></div>
             </div>
         </pxb-user-menu>
     `,
 })
-class UserMenuCustomHeaderTest {}
+class UserMenuCustomHeaderTest {
+    open = true;
+}
 
 /** Test component that contains an MatButton. */
 @Component({
     selector: 'test-app',
     template: `
-        <pxb-user-menu avatarValue="HA" [open]="true">
+        <pxb-user-menu avatarValue="HA" [(open)]="open">
             <mat-nav-list pxb-menu-body>
                 <mat-list-item id="list-item-test">List Item 1</mat-list-item>
             </mat-nav-list>
         </pxb-user-menu>
     `,
 })
-class UserMenuNavItemsTest {}
+class UserMenuNavItemsTest {
+    open = true;
+}
 
 describe('UserMenuComponent', () => {
     let component: UserMenuComponent;
@@ -76,7 +80,7 @@ describe('UserMenuComponent', () => {
         component.isMenuOpen = true;
         component.useBottomSheet = false;
         fixture.detectChanges();
-        const title = document.getElementsByClassName('pxb-drawer-header-title')[0] as HTMLElement;
+        const title = document.getElementsByClassName('pxb-user-menu-header-title')[0] as HTMLElement;
         void expect(title.innerText).toBe('Sample Title');
     });
 
@@ -87,7 +91,7 @@ describe('UserMenuComponent', () => {
         component.isMenuOpen = true;
         component.useBottomSheet = false;
         fixture.detectChanges();
-        const title = document.getElementsByClassName('pxb-drawer-header-subtitle')[0] as HTMLElement;
+        const title = document.getElementsByClassName('pxb-user-menu-header-subtitle')[0] as HTMLElement;
         void expect(title.innerText).toBe('Sample Subtitle');
     });
 
@@ -126,12 +130,9 @@ describe('UserMenuComponent', () => {
         for (const className of menuOverlayClassList) {
             void expect(document.getElementsByClassName(className).length).toBe(1);
         }
-        for (const className of bottomSheetClassList) {
-            void expect(document.getElementsByClassName(className).length).toBe(0);
-        }
         component.useBottomSheet = true;
         component.isMenuOpen = false;
-        component.openMenu();
+        component.openBottomSheet();
         for (const className of bottomSheetClassList) {
             void expect(document.getElementsByClassName(className).length).toBe(1);
         }

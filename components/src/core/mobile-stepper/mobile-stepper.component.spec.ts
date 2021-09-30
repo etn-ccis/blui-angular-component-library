@@ -4,16 +4,12 @@ import { MobileStepperModule } from './mobile-stepper.module';
 import { Component } from '@angular/core';
 
 @Component({
-    template: `
-        <pxb-mobile-stepper [steps]="4" [activeStep]="0"></pxb-mobile-stepper>
-    `,
+    template: ` <pxb-mobile-stepper [steps]="4" [activeStep]="0"></pxb-mobile-stepper> `,
 })
 class TestMobileStepperDot {}
 
 @Component({
-    template: `
-        <pxb-mobile-stepper [steps]="4" [activeStep]="0" variant="progress"></pxb-mobile-stepper>
-    `,
+    template: ` <pxb-mobile-stepper [steps]="4" [activeStep]="0" variant="progress"></pxb-mobile-stepper> `,
 })
 class TestMobileStepperProgress {}
 
@@ -58,6 +54,8 @@ describe('DotStepperComponent', () => {
             '.pxb-mobile-stepper-content',
             '.pxb-mobile-stepper-dots',
             '.pxb-mobile-stepper-dot-active',
+            '.pxb-mobile-stepper-next-button-wrapper',
+            '.pxb-mobile-stepper-back-button-wrapper',
         ];
         for (const className of classList) {
             count(fixture, className);
