@@ -2,7 +2,7 @@ import { color, number, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 import * as Colors from '@pxblue/colors';
 import { invertRTL } from '../../src/utils';
-
+const iconColor = Colors.gray[500];
 export const withinACardConfig = (): any => ({
     template: `
         <mat-accordion>
@@ -12,8 +12,8 @@ export const withinACardConfig = (): any => ({
                         Device Usage
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <pxb-empty-state [title]="title" [description]="description">
-                    <mat-icon pxb-empty-icon [style.color]="color" [style.fontSize.px]="fontSize"
+                <pxb-empty-state title="No Devices Found" description="After you add devices to this repository, we will show your recent device activities here.">
+                    <mat-icon pxb-empty-icon [style.color]="iconColor" [style.fontSize.px]="100"
                         [style.transform]="invertRTL()">
                         help_outline</mat-icon>
                     <button pxb-actions mat-flat-button color="primary" (click)="click()">
@@ -21,19 +21,14 @@ export const withinACardConfig = (): any => ({
                         height: 16px;
                         width: 15px;
                         margin-right: 8px;">add</mat-icon>
-                        {{actionText}}
+                        Learn More
                     </button>
                 </pxb-empty-state>
             </mat-expansion-panel>
         </mat-accordion>
     `,
     props: {
-        title: text('title', 'No Devices Found'),
-        description: text('description', 'After you add devices to this repository, we will show your recent device activities here.'),
         click: action('button clicked'),
-        actionText: text('Action Text', 'Learn More'),
-        color: color('emptyIcon.color', Colors.gray[500]),
-        fontSize: number('emptyIcon.fontSize.px', 100),
         invertRTL: invertRTL,
         updateState: (state, val): void => {
             state.panelOpenState = val;
