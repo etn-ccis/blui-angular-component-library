@@ -15,7 +15,10 @@ import { withDescription } from './with-description.stories';
 import { withBasicConfig } from './basic-config.stories';
 import { withActions } from './with-actions.stories';
 import { withFullConfig } from './with-full-config.stories';
+import { withinACardConfig } from './within-a-card.stories';
 import { withA11y } from '@storybook/addon-a11y';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import * as Colors from '@pxblue/colors';
 
 export const useWhiteBackground = () => (storyFn: any): any => {
@@ -41,7 +44,7 @@ export const useWhiteBackground = () => (storyFn: any): any => {
 storiesOf(`${COMPONENT_SECTION_NAME}/Empty State`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [EmptyStateModule, MatButtonModule, MatIconModule, UtilModule],
+            imports: [BrowserAnimationsModule, EmptyStateModule, MatButtonModule, MatIconModule, UtilModule, MatExpansionModule],
         })
     )
     .addDecorator(withKnobs)
@@ -57,4 +60,5 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Empty State`, module)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
     .add('with description', withDescription)
     .add('with actions', withActions)
-    .add(WITH_FULL_CONFIG_STORY_NAME, withFullConfig);
+    .add(WITH_FULL_CONFIG_STORY_NAME, withFullConfig)
+    .add('within a card', withinACardConfig);
