@@ -1,7 +1,8 @@
 import { action } from '@storybook/addon-actions';
 import * as Colors from '@pxblue/colors';
 import { invertRTL } from '../../src/utils';
-const iconColor = Colors.gray[500];
+import { getDirection } from '@pxblue/storybook-rtl-addon';
+
 export const withinACardConfig = (): any => ({
     template: `
         <mat-accordion>
@@ -17,7 +18,7 @@ export const withinACardConfig = (): any => ({
                     [style.margin.px]="24"
                 >
                     <mat-icon pxb-empty-icon
-                        [style.color]="iconColor"
+                        [style.color]="colors.gray[500]"
                         [style.fontSize.px]="100"
                         [style.transform]="invertRTL()"
                     >
@@ -25,10 +26,9 @@ export const withinACardConfig = (): any => ({
                     </mat-icon>
                     <button pxb-actions mat-flat-button color="primary" (click)="click()">
                         <mat-icon 
-                            style="font-size: 16px;
-                            height: 16px;
-                            width: 16px;
-                            margin-right: 8px;"
+                            style="height: 16px; width: 16px; font-size: 16px;"
+                            [style.marginRight.px]="direction() === 'rtl' ? -4 : 8"
+                            [style.marginLeft.px]="direction() === 'rtl' ? 8 : -4"
                         >
                             add
                         </mat-icon>
@@ -41,5 +41,7 @@ export const withinACardConfig = (): any => ({
     props: {
         click: action('button clicked'),
         invertRTL: invertRTL,
+        direction: getDirection,
+        colors: Colors,
     },
 });

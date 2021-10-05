@@ -44,7 +44,14 @@ export const useWhiteBackground = () => (storyFn: any): any => {
 storiesOf(`${COMPONENT_SECTION_NAME}/Empty State`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [BrowserAnimationsModule, EmptyStateModule, MatButtonModule, MatIconModule, UtilModule, MatExpansionModule],
+            imports: [
+                BrowserAnimationsModule,
+                EmptyStateModule,
+                MatButtonModule,
+                MatIconModule,
+                UtilModule,
+                MatExpansionModule,
+            ],
         })
     )
     .addDecorator(withKnobs)
