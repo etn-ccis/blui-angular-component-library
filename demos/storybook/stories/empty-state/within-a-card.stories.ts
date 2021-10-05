@@ -6,9 +6,9 @@ import { getDirection } from '@pxblue/storybook-rtl-addon';
 export const withinACardConfig = (): any => ({
     template: `
         <mat-accordion>
-            <mat-expansion-panel [expanded]="true" style="width: 392px;">
+            <mat-expansion-panel [expanded]="true" [style.width.px]="392">
                 <mat-expansion-panel-header style="border-bottom: 1px solid #d5d8da; border-radius: 0;">
-                    <mat-panel-title style="color:#007BC1;">
+                    <mat-panel-title [style.color]="colors.blue[500]">
                         Device Usage
                     </mat-panel-title>
                 </mat-expansion-panel-header>
