@@ -19,7 +19,7 @@ export const withinACardConfig = (): any => ({
                 >
                     <mat-icon pxb-empty-icon
                         [style.color]="colors.gray[500]"
-                        [style.fontSize.px]="100"
+                        [style.fontSize.px]="96"
                         [style.transform]="invertRTL()"
                     >
                         help_outline
