@@ -170,10 +170,10 @@ jobs:
         environment:
             - MASTER_BRANCH: master
             - DEV_BRANCH: dev
-            - DEV_TARGET: https://github.com/pxblue-components/angular-dev
-            - MASTER_TARGET: https://github.com/pxblue-components/angular
+            - DEV_TARGET: https://github.com/brightlayer-ui-components/angular-dev
+            - MASTER_TARGET: https://github.com/brightlayer-ui-components/angular
             - GH_EMAIL: pxblue@eaton.com
-            - GH_NAME: PX Blue Agent
+            - GH_NAME: Brightlayer UI Agent
         steps:
             - checkout
             - attach_workspace:
@@ -198,10 +198,6 @@ jobs:
 
                       cd out
                       git rm -rf .
-                      # Add the CNAME record for pxblue.eaton.com
-                      # if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
-                      #   echo "pxblue-components.eaton.com/angular" > CNAME
-                      # fi
                       cd ..
 
                       cp -a storybook-static/. out/.
