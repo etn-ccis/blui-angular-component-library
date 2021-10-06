@@ -4,6 +4,13 @@ import { invertRTL } from '../../src/utils';
 import { getDirection } from '@pxblue/storybook-rtl-addon';
 
 export const withinACardConfig = (): any => ({
+    styles: [
+        `
+       ::ng-deep .mat-expansion-panel .mat-expansion-panel-header {
+            height: 48px!important;
+        }
+    `,
+    ],
     template: `
         <mat-accordion>
             <mat-expansion-panel [expanded]="true" [style.width.px]="392">

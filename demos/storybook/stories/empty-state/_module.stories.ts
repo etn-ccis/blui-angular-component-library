@@ -23,6 +23,7 @@ import * as Colors from '@pxblue/colors';
 
 export const useWhiteBackground = () => (storyFn: any): any => {
     const story = storyFn();
+    const storyStyles: string = story.styles ? story.styles[0] : '';
     return {
         ...story,
         template: `<div [style.backgroundColor]="getDecoratorBgColor()" id="white-background-story-wrapper">${story.template}</div>`,
@@ -32,7 +33,9 @@ export const useWhiteBackground = () => (storyFn: any): any => {
                 display: flex; 
                 align-items: center; 
                 justify-content: center;
-            }`,
+            }
+            ${storyStyles}
+            `,
         ],
         props: {
             ...story.props,
