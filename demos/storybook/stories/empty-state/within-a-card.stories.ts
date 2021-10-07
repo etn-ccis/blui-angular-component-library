@@ -6,13 +6,19 @@ import { getDirection } from '@pxblue/storybook-rtl-addon';
 export const withinACardConfig = (): any => ({
     styles: [
         `
-       ::ng-deep .mat-expansion-panel .mat-expansion-panel-header {
+        ::ng-deep .accordion-panel .mat-expansion-panel .mat-expansion-panel-header {
             height: 48px!important;
+        }
+        ::ng-deep .accordion-panel .mat-expansion-panel .mat-expansion-panel-header .mat-expansion-indicator {
+            margin-top: -4px;
+        }
+        ::ng-deep .accordion-panel .mat-expansion-panel .mat-expansion-panel-header.mat-expanded .mat-expansion-indicator {
+            margin-top: 8px;
         }
     `,
     ],
     template: `
-        <mat-accordion>
+        <mat-accordion class="accordion-panel">
             <mat-expansion-panel [expanded]="true" [style.width.px]="392">
                 <mat-expansion-panel-header style="border-bottom: 1px solid #d5d8da; border-radius: 0;">
                     <mat-panel-title [style.color]="colors.blue[500]">
