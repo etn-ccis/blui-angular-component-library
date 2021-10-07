@@ -10,10 +10,10 @@ export const withinACardConfig = (): any => ({
             height: 48px!important;
         }
         ::ng-deep .accordion-panel .mat-expansion-panel .mat-expansion-panel-header .mat-expansion-indicator {
-            margin-top: -4px;
+            margin-top: -8px;
         }
         ::ng-deep .accordion-panel .mat-expansion-panel .mat-expansion-panel-header.mat-expanded .mat-expansion-indicator {
-            margin-top: 8px;
+            margin-top: 4px;
         }
     `,
     ],
