@@ -61,7 +61,11 @@ type DividerType = 'full' | 'partial' | undefined;
             >
                 <ng-content select="[blui-subtitle]"></ng-content>
             </div>
-            <div class="mat-body-2 blui-info-list-item-info-wrapper" matLine [class.blui-info-list-item-wrap]="wrapInfo">
+            <div
+                class="mat-body-2 blui-info-list-item-info-wrapper"
+                matLine
+                [class.blui-info-list-item-wrap]="wrapInfo"
+            >
                 <ng-content select="[blui-info]"></ng-content>
             </div>
             <blui-spacer class="blui-info-list-item-spacer"></blui-spacer>

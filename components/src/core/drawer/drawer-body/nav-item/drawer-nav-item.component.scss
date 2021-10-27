@@ -62,7 +62,10 @@ blui-drawer-nav-item {
     }
     &.blui-drawer-nav-item-active,
     &.blui-drawer-nav-item-active-tree {
-        .blui-info-list-item .mat-list-item.blui-info-list-item-content .mat-list-text .blui-info-list-item-title-wrapper {
+        .blui-info-list-item
+            .mat-list-item.blui-info-list-item-content
+            .mat-list-text
+            .blui-info-list-item-title-wrapper {
             font-weight: 600; // Default font-weight for active nav item parents.
         }
     }
