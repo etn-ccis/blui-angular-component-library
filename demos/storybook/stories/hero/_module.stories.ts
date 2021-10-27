@@ -1,5 +1,5 @@
 import { MatIconModule } from '@angular/material/icon';
-import { ChannelValueModule, HeroModule } from '@pxblue/angular-components';
+import { ChannelValueModule, HeroModule } from '@brightlayer-ui/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import {

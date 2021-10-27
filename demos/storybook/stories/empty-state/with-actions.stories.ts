@@ -1,12 +1,12 @@
 import { text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { getDirection } from '@pxblue/storybook-rtl-addon';
+import { getDirection } from '@brightlayer-ui/storybook-rtl-addon';
 
 export const withActions = (): any => ({
     template: `
-        <pxb-empty-state [title]="title" [description]="description">
-            <mat-icon pxb-empty-icon>devices</mat-icon>
-            <button pxb-actions mat-stroked-button color="primary" (click)="click()">
+        <blui-empty-state [title]="title" [description]="description">
+            <mat-icon blui-empty-icon>devices</mat-icon>
+            <button blui-actions mat-stroked-button color="primary" (click)="click()">
                 <mat-icon 
                     style="height: 20px; width: 20px; font-size: 20px;"
                     [style.marginRight.px]="direction() === 'rtl' ? -4 : 8"
@@ -15,7 +15,7 @@ export const withActions = (): any => ({
                 </mat-icon>
                 {{actionText}}
             </button> 
-        </pxb-empty-state>
+        </blui-empty-state>
     `,
     props: {
         title: text('title', 'No Devices'),

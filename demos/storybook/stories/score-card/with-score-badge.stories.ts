@@ -1,10 +1,10 @@
 import { number } from '@storybook/addon-knobs';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { action } from '@storybook/addon-actions';
 import { withCustomHeaderStyles } from './with-custom-header.stories';
 import { demoActions } from './with-actions.stories';
 import { ViewEncapsulation } from '@angular/core';
-import { getDirection } from '@pxblue/storybook-rtl-addon';
+import { getDirection } from '@brightlayer-ui/storybook-rtl-addon';
 
 export const withScoreBadge = (): any => ({
     styles: [
@@ -33,14 +33,14 @@ export const withScoreBadge = (): any => ({
     ],
     encapsulation: ViewEncapsulation.None,
     template: `
-        <pxb-score-card
+        <blui-score-card
             [headerTitle]="'Substation 3'"
             [headerSubtitle]="'Normal'"
             [headerInfo]="'4 Devices'"
             [badgeOffset]="badgeOffset"
         >
-            <mat-icon pxb-action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
-            <mat-list pxb-body class="sb-score-card-content" [class.rtl]="direction() === 'rtl'">
+            <mat-icon blui-action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
+            <mat-list blui-body class="sb-score-card-content" [class.rtl]="direction() === 'rtl'">
                 <mat-list-item>
                     <p mat-line style="font-weight: 400">0 Alarms</p>
                     <mat-icon mat-list-icon>notifications</mat-icon>
@@ -54,13 +54,13 @@ export const withScoreBadge = (): any => ({
                     <mat-icon mat-list-icon>cloud</mat-icon>
                 </mat-list-item>
             </mat-list>
-            <pxb-hero pxb-badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="72">
-                <i pxb-primary [style.color]="colors.green[500]" class="pxb-grade_a"></i>
-            </pxb-hero>
-            <pxb-info-list-item pxb-action-row chevron="true" hidePadding="true" dense="true" (click)="actionRowClick()">
-                <div pxb-title>View Location</div>
-            </pxb-info-list-item>
-        </pxb-score-card>
+            <blui-hero blui-badge [label]="'Grade'" [value]="'98'" [units]="'/100'" [iconSize]="72">
+                <i blui-primary [style.color]="colors.green[500]" class="blui-grade_a"></i>
+            </blui-hero>
+            <blui-info-list-item blui-action-row chevron="true" hidePadding="true" dense="true" (click)="actionRowClick()">
+                <div blui-title>View Location</div>
+            </blui-info-list-item>
+        </blui-score-card>
     `,
     props: {
         actionClick: (iconName: string): any => action(`${iconName} clicked`)(),

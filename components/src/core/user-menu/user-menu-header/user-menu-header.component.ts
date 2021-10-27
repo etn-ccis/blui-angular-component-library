@@ -2,36 +2,36 @@ import { ChangeDetectionStrategy, Component, Input, ViewEncapsulation, ViewChild
 import { isEmptyView } from '../../../utils/utils';
 
 /**
- * [UserMenuHeaderComponent Component](https://pxblue-components.github.io/angular/?path=/info/components-user-menu--readme)
+ * [UserMenuHeaderComponent Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-user-menu--readme)
  *
- * The `<pxb-user-menu-header>` is the menu header of the `<pxb-user-menu>`.
+ * The `<blui-user-menu-header>` is the menu header of the `<blui-user-menu>`.
  */
 @Component({
-    selector: 'pxb-user-menu-header',
+    selector: 'blui-user-menu-header',
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
         <mat-toolbar
-            class="pxb-user-menu-header-content"
+            class="blui-user-menu-header-content"
             [color]="color"
-            [class.pxb-user-menu-header-no-icon]="isEmpty(iconEl)"
+            [class.blui-user-menu-header-no-icon]="isEmpty(iconEl)"
         >
-            <div class="pxb-user-menu-header-text">
-                <div #icon class="pxb-user-menu-header-icon-wrapper">
-                    <ng-content select="[pxb-icon]"></ng-content>
+            <div class="blui-user-menu-header-text">
+                <div #icon class="blui-user-menu-header-icon-wrapper">
+                    <ng-content select="[blui-icon]"></ng-content>
                 </div>
-                <div *ngIf="title" class="pxb-user-menu-header-title-wrapper">
-                    <div class="pxb-user-menu-header-title">{{ title }}</div>
-                    <div *ngIf="subtitle" class="pxb-user-menu-header-subtitle mat-subheading-2">{{ subtitle }}</div>
+                <div *ngIf="title" class="blui-user-menu-header-title-wrapper">
+                    <div class="blui-user-menu-header-title">{{ title }}</div>
+                    <div *ngIf="subtitle" class="blui-user-menu-header-subtitle mat-subheading-2">{{ subtitle }}</div>
                 </div>
-                <ng-content select="[pxb-title-content]"></ng-content>
+                <ng-content select="[blui-title-content]"></ng-content>
             </div>
         </mat-toolbar>
         <mat-divider *ngIf="divider"></mat-divider>
     `,
     styleUrls: ['./user-menu-header.component.scss'],
     host: {
-        class: 'pxb-user-menu-header',
+        class: 'blui-user-menu-header',
     },
 })
 export class UserMenuHeaderComponent {

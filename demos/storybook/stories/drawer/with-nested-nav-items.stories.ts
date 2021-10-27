@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { DrawerNavItem } from '@pxblue/angular-components';
+import { DrawerNavItem } from '@brightlayer-ui/angular-components';
 import { boolean } from '@storybook/addon-knobs';
 
 export const nestedNavGroup: DrawerNavItem[] = [
@@ -41,39 +41,39 @@ export const nestedNavGroup: DrawerNavItem[] = [
 
 export const withNestedNavItems = (): any => ({
     template: `
-        <pxb-drawer [open]="state.open" [disableActiveItemParentStyles]="disableActiveItemParentStyles">
-           <pxb-drawer-header title="PX Blue Drawer" subtitle="with nested nav items">
-             <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
+        <blui-drawer [open]="state.open" [disableActiveItemParentStyles]="disableActiveItemParentStyles">
+           <blui-drawer-header title="PX Blue Drawer" subtitle="with nested nav items">
+             <button blui-icon mat-icon-button (click)="toggleDrawer(state)">
                <mat-icon>menu</mat-icon>
              </button>
-           </pxb-drawer-header>
-           <pxb-drawer-body>
-              <pxb-drawer-nav-group>
-                  <pxb-drawer-nav-item *ngFor="let navItem of navItems"
+           </blui-drawer-header>
+           <blui-drawer-body>
+              <blui-drawer-nav-group>
+                  <blui-drawer-nav-item *ngFor="let navItem of navItems"
                      [title]="navItem.title"
                      [divider]="divider"
                      [hidePadding]="hidePadding"
                      [selected]="state.selected === navItem.title"
                      (select)="navItem.onSelect(); setActive(navItem, state);">
-                     <mat-icon *ngIf="showIcon" pxb-icon>{{ navItem.icon }}</mat-icon>
-                     <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items"
+                     <mat-icon *ngIf="showIcon" blui-icon>{{ navItem.icon }}</mat-icon>
+                     <blui-drawer-nav-item *ngFor="let nestedItem of navItem.items"
                        [title]="nestedItem.title"
                        [divider]="dividerNested"
                        [hidePadding]="hidePaddingNested"
                        [selected]="state.selected === nestedItem.title"
                        (select)="nestedItem.onSelect(); setActive(nestedItem, state);">
-                        <pxb-drawer-nav-item *ngFor="let deepItem of nestedItem.items"
+                        <blui-drawer-nav-item *ngFor="let deepItem of nestedItem.items"
                            [title]="deepItem.title"                    
                            [divider]="dividerNested"
                            [hidePadding]="hidePaddingNested"
                            [selected]="state.selected === deepItem.title"
                            (select)="deepItem.onSelect(); setActive(deepItem, state);">
-                         </pxb-drawer-nav-item>
-                     </pxb-drawer-nav-item>
-                  </pxb-drawer-nav-item>
-              </pxb-drawer-nav-group>
-           </pxb-drawer-body>
-        </pxb-drawer>
+                         </blui-drawer-nav-item>
+                     </blui-drawer-nav-item>
+                  </blui-drawer-nav-item>
+              </blui-drawer-nav-group>
+           </blui-drawer-body>
+        </blui-drawer>
       `,
     props: {
         navItems: nestedNavGroup,

@@ -4,20 +4,20 @@ import { invertRTL } from '../../src/utils';
 
 export const withNavIcon = (): any => ({
     template: `
-       <pxb-dropdown-toolbar [title]="title" [subtitle]="state.selected || subtitle">
-            <button mat-icon-button pxb-nav-icon (click)="clickPXBIcon()" aria-label="menu icon">
+       <blui-dropdown-toolbar [title]="title" [subtitle]="state.selected || subtitle">
+            <button mat-icon-button blui-nav-icon (click)="clickbluiIcon()" aria-label="menu icon">
                 <mat-icon *ngIf="navIcon === 'menu'">menu</mat-icon>
                 <mat-icon *ngIf="navIcon === 'arrow_back'" [style.transform]="invertRTL()">arrow_back</mat-icon>
             </button>
-        <ng-container pxb-toolbar-menu>
+        <ng-container blui-toolbar-menu>
             <button mat-menu-item (click)="updateSubtitle('Test Item 1', state)">Test Item 1</button>
             <button mat-menu-item (click)="updateSubtitle('Test Item 2', state)">Test Item 2</button>
             <button mat-menu-item (click)="updateSubtitle('Test Item 3', state)">Test Item 3</button>
         </ng-container>
-       </pxb-dropdown-toolbar>
+       </blui-dropdown-toolbar>
     `,
     props: {
-        navIcon: select('pxb-nav-icon', ['menu', 'arrow_back'], 'menu'),
+        navIcon: select('blui-nav-icon', ['menu', 'arrow_back'], 'menu'),
         title: text('title', 'Title'),
         subtitle: text('subtitle', 'Subtitle'),
         updateSubtitle: (str: string, state): void => {
@@ -26,7 +26,7 @@ export const withNavIcon = (): any => ({
         state: {
             selected: undefined,
         },
-        clickPXBIcon: action('pxb nav icon clicked'),
+        clickbluiIcon: action('blui nav icon clicked'),
         invertRTL: invertRTL,
     },
 });

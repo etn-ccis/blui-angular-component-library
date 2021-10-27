@@ -2,22 +2,22 @@ $width-open: 360px;
 $width-closed: calc(1.5rem + 16px * 2);
 $transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
 
-.pxb-drawer-layout .pxb-drawer-content {
-    box-shadow: none; // DrawerLayout has its own side border styles; these are not needed when placed in a PXB DrawerLayout.
+.blui-drawer-layout .blui-drawer-content {
+    box-shadow: none; // DrawerLayout has its own side border styles; these are not needed when placed in a blui DrawerLayout.
 }
 
-.pxb-drawer {
+.blui-drawer {
     height: 100%;
     display: flex;
 }
 
 /* RTL */
-[dir='rtl'] .pxb-drawer-content {
+[dir='rtl'] .blui-drawer-content {
     border-right: 0;
-    &.pxb-drawer-side-border {
+    &.blui-drawer-side-border {
         border-left: 1px solid rgba(0, 0, 0, 0.12);
     }
-    &:not(.pxb-drawer-side-border) {
+    &:not(.blui-drawer-side-border) {
         border-left: 0;
     }
     &.temp-variant {
@@ -25,42 +25,42 @@ $transition: width 300ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
     }
 }
 
-.pxb-drawer-content {
+.blui-drawer-content {
     display: flex;
     flex-direction: column;
     height: 100%;
     width: $width-open;
     transition: $transition;
     box-sizing: border-box;
-    &.pxb-drawer-side-border {
+    &.blui-drawer-side-border {
         border-right: 1px solid rgba(0, 0, 0, 0.12);
     }
-    &:not(.pxb-drawer-side-border) {
+    &:not(.blui-drawer-side-border) {
         border-right: 0;
     }
-    &.pxb-drawer-temp-variant {
+    &.blui-drawer-temp-variant {
         border-right: 0;
     }
 
     /* Drawer condensed-rail & Drawer closed (persistent) are the same width. */
-    &.pxb-drawer-collapse,
-    &.pxb-drawer-condensed-rail .pxb-drawer-nav-item-content .pxb-drawer-nav-item-rail {
+    &.blui-drawer-collapse,
+    &.blui-drawer-condensed-rail .blui-drawer-nav-item-content .blui-drawer-nav-item-rail {
         width: $width-closed;
     }
 
-    pxb-drawer-subheader,
-    pxb-drawer-body,
-    pxb-drawer-footer {
+    blui-drawer-subheader,
+    blui-drawer-body,
+    blui-drawer-footer {
         display: flex;
         flex-direction: column;
     }
-    pxb-drawer-body {
+    blui-drawer-body {
         height: 100%;
         flex: 1 1 0;
         overflow: auto;
     }
 
-    .pxb-drawer-hover-area {
+    .blui-drawer-hover-area {
         display: flex;
         flex-direction: column;
         height: 100%;

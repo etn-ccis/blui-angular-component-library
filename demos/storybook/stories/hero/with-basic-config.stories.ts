@@ -2,9 +2,9 @@ import { text } from '@storybook/addon-knobs';
 
 export const withBasicConfig = (): any => ({
     template: `
-        <pxb-hero [label]="label">
-            <i pxb-primary class="pxb-grade_a"></i>
-        </pxb-hero>
+        <blui-hero [label]="label">
+            <i blui-primary class="blui-grade_a"></i>
+        </blui-hero>
     `,
     props: {
         label: text('label', 'Efficiency'),

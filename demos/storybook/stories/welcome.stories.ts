@@ -14,7 +14,7 @@ storiesOf('Intro/Overview', module)
         },
     })
     .addDecorator(storyWrapper())
-    .add('PX Blue Angular Components', () => ({
+    .add('Brightlayer UI Angular Components', () => ({
         template: `<welcome></welcome>`,
         styles: [`:host { width: 100%; height: 100%;}`],
     }));

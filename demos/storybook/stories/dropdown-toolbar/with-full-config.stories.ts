@@ -1,21 +1,21 @@
 import { text, number, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { getDirection } from '@pxblue/storybook-rtl-addon';
+import { getDirection } from '@brightlayer-ui/storybook-rtl-addon';
 import { invertRTL } from '../../src/utils';
 
 export const withFullConfig = (): any => ({
     template: `
-       <pxb-dropdown-toolbar [title]="title" [subtitle]="state.selected || subtitle" [color]="color">
-            <button mat-icon-button pxb-nav-icon (click)="clickPXBIcon()" aria-label="menu icon">
+       <blui-dropdown-toolbar [title]="title" [subtitle]="state.selected || subtitle" [color]="color">
+            <button mat-icon-button blui-nav-icon (click)="clickbluiIcon()" aria-label="menu icon">
             <mat-icon *ngIf="navIcon === 'menu'">menu</mat-icon>
             <mat-icon *ngIf="navIcon === 'arrow_back'" [style.transform]="invertRTL()">arrow_back</mat-icon>
             </button>
-        <ng-container pxb-toolbar-menu>
+        <ng-container blui-toolbar-menu>
             <button mat-menu-item (click)="updateSubtitle('Test Item 1', state)">Test Item 1</button>
             <button mat-menu-item (click)="updateSubtitle('Test Item 2', state)">Test Item 2</button>
             <button mat-menu-item (click)="updateSubtitle('Test Item 3', state)">Test Item 3</button>
         </ng-container>
-        <pxb-spacer></pxb-spacer>
+        <blui-spacer></blui-spacer>
         <div>
             <button mat-icon-button style="margin: 0 4px" *ngIf="count > 0" (click)="clickRightContentIcon()" aria-label="home icon"><mat-icon>home</mat-icon></button>
             <button mat-icon-button style="margin: 0 4px" *ngIf="count > 1" (click)="clickRightContentIcon()" aria-label="work icon"><mat-icon>work</mat-icon></button>
@@ -28,11 +28,11 @@ export const withFullConfig = (): any => ({
                 <mat-icon>settings</mat-icon>
             </button>
         </div>
-       </pxb-dropdown-toolbar>
+       </blui-dropdown-toolbar>
     `,
     props: {
         direction: getDirection,
-        navIcon: select('pxb-nav-icon', ['menu', 'arrow_back'], 'menu'),
+        navIcon: select('blui-nav-icon', ['menu', 'arrow_back'], 'menu'),
         title: text('title', 'Title'),
         subtitle: text('subtitle', 'Subtitle'),
         color: select('color', ['primary', 'accent', 'warn', ''], 'primary'),
@@ -43,7 +43,7 @@ export const withFullConfig = (): any => ({
         state: {
             selected: undefined,
         },
-        clickPXBIcon: action('pxb nav icon clicked'),
+        clickbluiIcon: action('blui nav icon clicked'),
         clickRightContentIcon: action('icon clicked'),
         invertRTL: invertRTL,
     },

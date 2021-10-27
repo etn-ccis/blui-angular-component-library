@@ -1,9 +1,9 @@
 import { number, text } from '@storybook/addon-knobs';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { action } from '@storybook/addon-actions';
 import { demoActions } from './with-actions.stories';
 import { withCustomHeaderStyles } from './with-custom-header.stories';
-import { getDirection } from '@pxblue/storybook-rtl-addon';
+import { getDirection } from '@brightlayer-ui/storybook-rtl-addon';
 
 export const withFullConfig = (): any => ({
     styles: [
@@ -32,20 +32,20 @@ export const withFullConfig = (): any => ({
     `,
     ],
     template: `
-        <pxb-score-card
+        <blui-score-card
             [headerTitle]="headerTitle"
             [headerSubtitle]="headerSubtitle"
             [headerInfo]="headerInfo"
             [badgeOffset]="badgeOffset"
         >
-            <ng-container pxb-action-items>
+            <ng-container blui-action-items>
                 <ng-container *ngFor="let action of actions; index as i;">
                     <mat-icon *ngIf="i < actionLimit" (click)="actionClick(actions[i])">
                         {{actions[i]}}
                     </mat-icon>
                 </ng-container>
             </ng-container>
-            <mat-list pxb-body class="sb-score-card-content" [class.rtl]="direction() === 'rtl'">
+            <mat-list blui-body class="sb-score-card-content" [class.rtl]="direction() === 'rtl'">
                 <mat-list-item>
                     <p mat-line style="font-weight: 400">0 Alarms</p>
                     <mat-icon mat-list-icon>notifications</mat-icon>
@@ -59,18 +59,18 @@ export const withFullConfig = (): any => ({
                     <mat-icon mat-list-icon>cloud</mat-icon>
                 </mat-list-item>
             </mat-list>
-            <pxb-hero-banner pxb-badge>
-                <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'" [units]="'°F'" [iconSize]="72">
-                    <i pxb-primary class="pxb-temp"></i>
-                </pxb-hero>
-                <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="72">
-                    <i pxb-primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
-                </pxb-hero>
-            </pxb-hero-banner>
-            <pxb-info-list-item pxb-action-row chevron="true" hidePadding="true" dense="true"(click)="actionRowClick()">
-                <div pxb-title>View Location</div>
-            </pxb-info-list-item>
-        </pxb-score-card>
+            <blui-hero-banner blui-badge>
+                <blui-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'" [units]="'°F'" [iconSize]="72">
+                    <i blui-primary class="blui-temp"></i>
+                </blui-hero>
+                <blui-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="72">
+                    <i blui-primary [style.color]="colors.blue[300]" class="blui-moisture"></i>
+                </blui-hero>
+            </blui-hero-banner>
+            <blui-info-list-item blui-action-row chevron="true" hidePadding="true" dense="true"(click)="actionRowClick()">
+                <div blui-title>View Location</div>
+            </blui-info-list-item>
+        </blui-score-card>
     `,
     props: {
         headerTitle: text('headerTitle', 'Substation 3'),

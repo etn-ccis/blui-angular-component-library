@@ -1,5 +1,5 @@
 import { MatIconModule } from '@angular/material/icon';
-import { AppBarModule, ChannelValueModule, ThreeLinerModule } from '@pxblue/angular-components';
+import { AppBarModule, ChannelValueModule, ThreeLinerModule } from '@brightlayer-ui/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/utils';

@@ -3,18 +3,18 @@ import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 
 /**
- * [DrawerSubheader Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ * [DrawerSubheader Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-drawer--readme)
  *
- * The `<pxb-drawer-subheader>` is an optional section that renders below the header and above the body of the `<pxb-drawer>`.
+ * The `<blui-drawer-subheader>` is an optional section that renders below the header and above the body of the `<blui-drawer>`.
  * It can be used to support custom content (passed as children), such as filtering options or to display additional information.
  */
 @Component({
-    selector: 'pxb-drawer-subheader',
+    selector: 'blui-drawer-subheader',
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
         <div
-            class="pxb-drawer-subheader-content"
+            class="blui-drawer-subheader-content"
             [style.visibility]="hideContentOnCollapse ? (isOpen() ? 'visible' : 'hidden') : 'visible'"
         >
             <ng-content></ng-content>
@@ -23,7 +23,7 @@ import { StateListener } from '../state-listener.component';
     `,
     styleUrls: ['./drawer-subheader.component.scss'],
     host: {
-        class: 'pxb-drawer-subheader',
+        class: 'blui-drawer-subheader',
     },
 })
 export class DrawerSubheaderComponent extends StateListener {

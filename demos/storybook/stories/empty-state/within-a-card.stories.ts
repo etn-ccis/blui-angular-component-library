@@ -1,7 +1,7 @@
 import { action } from '@storybook/addon-actions';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { invertRTL } from '../../src/utils';
-import { getDirection } from '@pxblue/storybook-rtl-addon';
+import { getDirection } from '@brightlayer-ui/storybook-rtl-addon';
 
 export const withinACardConfig = (): any => ({
     styles: [
@@ -25,19 +25,19 @@ export const withinACardConfig = (): any => ({
                         Device Usage
                     </mat-panel-title>
                 </mat-expansion-panel-header>
-                <pxb-empty-state 
+                <blui-empty-state 
                     title="No Devices Found"
                     description="After you add devices to this repository, we will show your recent device activities here."
                     [style.margin.px]="24"
                 >
-                    <mat-icon pxb-empty-icon
+                    <mat-icon blui-empty-icon
                         [style.color]="colors.gray[500]"
                         [style.fontSize.px]="96"
                         [style.transform]="invertRTL()"
                     >
                         help_outline
                     </mat-icon>
-                    <button pxb-actions mat-flat-button color="primary" (click)="click()">
+                    <button blui-actions mat-flat-button color="primary" (click)="click()">
                         <mat-icon 
                             style="height: 16px; width: 16px; font-size: 16px;"
                             [style.marginRight.px]="direction() === 'rtl' ? -4 : 8"
@@ -47,7 +47,7 @@ export const withinACardConfig = (): any => ({
                         </mat-icon>
                         Learn More
                     </button>
-                </pxb-empty-state>
+                </blui-empty-state>
             </mat-expansion-panel>
         </mat-accordion>
     `,

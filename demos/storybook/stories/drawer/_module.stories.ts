@@ -1,5 +1,5 @@
 import { MatIconModule } from '@angular/material/icon';
-import { DrawerModule, ListItemTagModule } from '@pxblue/angular-components';
+import { DrawerModule, ListItemTagModule } from '@brightlayer-ui/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import {

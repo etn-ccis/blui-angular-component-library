@@ -1,6 +1,6 @@
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { EmptyStateModule } from '@pxblue/angular-components';
+import { EmptyStateModule } from '@brightlayer-ui/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import {
@@ -19,7 +19,7 @@ import { withinACardConfig } from './within-a-card.stories';
 import { withA11y } from '@storybook/addon-a11y';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 
 export const useWhiteBackground = () => (storyFn: any): any => {
     const story = storyFn();

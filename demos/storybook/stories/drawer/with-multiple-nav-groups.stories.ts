@@ -19,33 +19,33 @@ export const navItems2 = [
 
 export const withMultiNavGroups = (): any => ({
     template: `
-        <pxb-drawer [open]="state.open">
-           <pxb-drawer-header title="PX Blue Drawer" subtitle="with multiple Nav Groups">
-             <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
+        <blui-drawer [open]="state.open">
+           <blui-drawer-header title="PX Blue Drawer" subtitle="with multiple Nav Groups">
+             <button blui-icon mat-icon-button (click)="toggleDrawer(state)">
                <mat-icon>menu</mat-icon>
              </button>
-           </pxb-drawer-header>
-           <pxb-drawer-body>
-              <pxb-drawer-nav-group [title]="groupTitle1" [divider]="true">
-                 <pxb-drawer-nav-item *ngFor="let navItem of navItems1"
+           </blui-drawer-header>
+           <blui-drawer-body>
+              <blui-drawer-nav-group [title]="groupTitle1" [divider]="true">
+                 <blui-drawer-nav-item *ngFor="let navItem of navItems1"
                     [title]="navItem.title"
                     [selected]="state.selected === navItem.title"
                     (select)="navItem.onSelect(); setActive(navItem.title, state);">
-                    <mat-icon pxb-icon>{{ navItem.icon }}</mat-icon>
-                 </pxb-drawer-nav-item>
-              </pxb-drawer-nav-group>
-              <pxb-spacer *ngIf="spacer"></pxb-spacer> 
-              <pxb-drawer-nav-group [title]="groupTitle2" [divider]="true">
-                 <pxb-drawer-nav-item *ngFor="let navItem of navItems2"
+                    <mat-icon blui-icon>{{ navItem.icon }}</mat-icon>
+                 </blui-drawer-nav-item>
+              </blui-drawer-nav-group>
+              <blui-spacer *ngIf="spacer"></blui-spacer> 
+              <blui-drawer-nav-group [title]="groupTitle2" [divider]="true">
+                 <blui-drawer-nav-item *ngFor="let navItem of navItems2"
                     [title]="navItem.title"
                     [hidePadding]="true"
                     [selected]="state.selected === navItem.title"
                     (select)="navItem.onSelect(); setActive(navItem.title, state);">
-                    <mat-icon pxb-icon>{{ navItem.icon }}</mat-icon>
-                 </pxb-drawer-nav-item>
-              </pxb-drawer-nav-group>
-           </pxb-drawer-body>
-        </pxb-drawer>
+                    <mat-icon blui-icon>{{ navItem.icon }}</mat-icon>
+                 </blui-drawer-nav-item>
+              </blui-drawer-nav-group>
+           </blui-drawer-body>
+        </blui-drawer>
       `,
     props: {
         navItems1: navItems,

@@ -1,8 +1,8 @@
 import { boolean, number, select } from '@storybook/addon-knobs';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { navItems } from './basic-config.stories';
-import { DrawerNavItem } from '@pxblue/angular-components';
-import { getDirection } from '@pxblue/storybook-rtl-addon';
+import { DrawerNavItem } from '@brightlayer-ui/angular-components';
+import { getDirection } from '@brightlayer-ui/storybook-rtl-addon';
 const headerImg = require('../../assets/eaton-condensed.png');
 const items = [...navItems];
 
@@ -34,25 +34,25 @@ export const withinDrawerLayout = (): any => ({
 `,
     ],
     template: `
-        <pxb-drawer-layout [dir]="direction()" [width]="width" [variant]="variant" (backdropClick)="state.open = false">
-            <pxb-drawer pxb-drawer [open]="state.open" [sideBorder]="sideBorder">
-               <pxb-drawer-header title="PX Blue Drawer" subtitle="in a PX Blue Drawer Layout">
-                 <button pxb-icon mat-icon-button (click)="toggleDrawer(state)">
+        <blui-drawer-layout [dir]="direction()" [width]="width" [variant]="variant" (backdropClick)="state.open = false">
+            <blui-drawer blui-drawer [open]="state.open" [sideBorder]="sideBorder">
+               <blui-drawer-header title="PX Blue Drawer" subtitle="in a PX Blue Drawer Layout">
+                 <button blui-icon mat-icon-button (click)="toggleDrawer(state)">
                    <mat-icon>menu</mat-icon>
                  </button>
-               </pxb-drawer-header>
-               <pxb-drawer-body>
-                  <pxb-drawer-nav-group>
-                     <pxb-drawer-nav-item *ngFor="let navItem of navItems"
+               </blui-drawer-header>
+               <blui-drawer-body>
+                  <blui-drawer-nav-group>
+                     <blui-drawer-nav-item *ngFor="let navItem of navItems"
                        [title]="navItem.title"
                        [selected]="state.selected === navItem.title"
                        (select)="navItem.onSelect(); setActive(navItem, state);">
-                       <mat-icon pxb-icon>{{ navItem.icon }}</mat-icon>
-                     </pxb-drawer-nav-item>
-                  </pxb-drawer-nav-group>
-               </pxb-drawer-body>
-            </pxb-drawer>
-            <div pxb-content>
+                       <mat-icon blui-icon>{{ navItem.icon }}</mat-icon>
+                     </blui-drawer-nav-item>
+                  </blui-drawer-nav-group>
+               </blui-drawer-body>
+            </blui-drawer>
+            <div blui-content>
                 <mat-toolbar [style.backgroundColor]="blue" [style.color]="white" class="app-bar">
                     <button *ngIf="variant === 'temporary'" mat-icon-button 
                         class="scale-button"
@@ -65,7 +65,7 @@ export const withinDrawerLayout = (): any => ({
                 </mat-toolbar>
                 <div class="mat-body-1" style="padding: 24px">App content goes here.</div>
             </div>
-        </pxb-drawer-layout>
+        </blui-drawer-layout>
       `,
     props: {
         direction: getDirection,

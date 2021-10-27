@@ -1417,6 +1417,23 @@
   resolved "https://registry.yarnpkg.com/@base2/pretty-print-object/-/pretty-print-object-1.0.0.tgz#860ce718b0b73f4009e153541faff2cb6b85d047"
   integrity sha512-4Th98KlMHr5+JkxfcoDT//6vY8vM+iSPrLNpHhRyLx2CFYi8e2RfqPLdpbnpo0Q5lQC5hNB79yes07zb02fvCw==
 
+"@brightlayer-ui/colors@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/colors/-/colors-3.0.1.tgz#f085acf6b6b4266a01798c78bc25841d15e44b3e"
+  integrity sha512-AE9F6FN1EQWMoqFTak6q8MN3wg9et2u2SUs6HjYhcS3GVSHjMWVSsuJZ2aD5Lu9409Gfi6pBHDWsJZ5PyeLsdQ==
+  dependencies:
+    "@brightlayer-ui/types" "^2.0.0"
+
+"@brightlayer-ui/storybook-themes@^1.1.0-beta.0":
+  version "1.1.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/storybook-themes/-/storybook-themes-1.1.0-beta.0.tgz#6be9ed007cbec6b6ae04cac4c2fe0c1f84dd6521"
+  integrity sha512-QGaIUJbsprvIBZXmP5gJW2PQ1BRJwvu+7UGJ2lvHfVgDlaEYqKdQSfiW2stMAC7oBBjhCdtG1yGZT/92CTbURg==
+
+"@brightlayer-ui/types@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/types/-/types-2.0.0.tgz#d8adc0cdb96c164943adbad6e74043128a8b4112"
+  integrity sha512-DTCVwND6YC9qrkQl7pkFlN6QxDReJHtjuAiFU9HkXJN368vlw+fzHQ5/j4sB1sZl2eNwOgccv5ecl2XrlolOCw==
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -1968,11 +1985,6 @@
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@pxblue/storybook-rtl-addon/-/storybook-rtl-addon-1.0.1.tgz#97750f3907ec523e1a4a33f87512820cb4a3b042"
   integrity sha512-N/HysEo6rK7f0Eqm4xt8nciZXwjdNscRD5hSYUZUZEn4EzdtqwqXSel8jfjUuZ9R6YCQ7+IIqdZsk6gHUlS+qw==
-
-"@pxblue/storybook-themes@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/storybook-themes/-/storybook-themes-1.1.0.tgz#60bfbc6670142c4be0f4a21d5ec7523f5b26662c"
-  integrity sha512-wUM69MYAQTrTqxcFyAIhsPIWZOlF0YxqwFLZDlYe5dvm/iJu9wXDuwdrC5RVgb/JAXuxTwTSkIXXrnPFjlEwXA==
 
 "@pxblue/types@^2.0.0":
   version "2.0.0"

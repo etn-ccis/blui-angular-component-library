@@ -1,5 +1,5 @@
 import { number } from '@storybook/addon-knobs';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 
 export const withStaticLayout = (): any => ({
     styles: [
@@ -26,15 +26,15 @@ export const withStaticLayout = (): any => ({
     template: `
         <div class="mat-h4">Horizontal</div>
         <div class="horizontal">
-            <pxb-spacer [width]="flex1" [style.backgroundColor]="colors.blue[300]">1</pxb-spacer>
-            <pxb-spacer [width]="flex2" [style.background]="colors.yellow[300]">2</pxb-spacer>
-            <pxb-spacer [width]="flex3" [style.background]="colors.red[300]">3</pxb-spacer>
+            <blui-spacer [width]="flex1" [style.backgroundColor]="colors.blue[300]">1</blui-spacer>
+            <blui-spacer [width]="flex2" [style.background]="colors.yellow[300]">2</blui-spacer>
+            <blui-spacer [width]="flex3" [style.background]="colors.red[300]">3</blui-spacer>
         </div>
         <div class="mat-h4">Vertical</div>
         <div class="vertical">
-            <pxb-spacer [height]="flex1" [style.backgroundColor]="colors.blue[300]">1</pxb-spacer>
-            <pxb-spacer [height]="flex2" [style.background]="colors.yellow[300]">2</pxb-spacer>
-            <pxb-spacer [height]="flex3" [style.background]="colors.red[300]">3</pxb-spacer>
+            <blui-spacer [height]="flex1" [style.backgroundColor]="colors.blue[300]">1</blui-spacer>
+            <blui-spacer [height]="flex2" [style.background]="colors.yellow[300]">2</blui-spacer>
+            <blui-spacer [height]="flex3" [style.background]="colors.red[300]">3</blui-spacer>
         </div>
       `,
     props: {

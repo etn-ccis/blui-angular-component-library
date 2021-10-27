@@ -1,7 +1,7 @@
 import { boolean, number, select, text } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
-import { DrawerNavItem } from '@pxblue/angular-components';
-import * as Colors from '@pxblue/colors';
+import { DrawerNavItem } from '@brightlayer-ui/angular-components';
+import * as Colors from '@brightlayer-ui/colors';
 const footerImage = require('../../assets/EatonLogo.svg');
 const headerImage = require('../../assets/topology_40.png');
 
@@ -104,14 +104,14 @@ export const navItems2 = [
 
 export const withFullConfig = (): any => ({
     styles: [
-        `::ng-deep .show-header-image .pxb-drawer-header-background {
+        `::ng-deep .show-header-image .blui-drawer-header-background {
           background-image: url(${headerImage});
           width: 360px;
         }
        `,
     ],
     template: `
-        <pxb-drawer 
+        <blui-drawer 
             [open]="state.open" 
             [openOnHoverDelay]="openOnHoverDelay"
             [sideBorder]="sideBorder"
@@ -120,15 +120,15 @@ export const withFullConfig = (): any => ({
             [class.show-header-image]="showHeaderImage"
             [disableRailTooltip]="disableRailTooltip"
             >
-           <pxb-drawer-header [title]="title" [subtitle]="subtitle" [divider]="showHeaderDivider" [color]="color">
-             <button *ngIf="!hideIcon" pxb-icon mat-icon-button (click)="toggleDrawer(state)">
+           <blui-drawer-header [title]="title" [subtitle]="subtitle" [divider]="showHeaderDivider" [color]="color">
+             <button *ngIf="!hideIcon" blui-icon mat-icon-button (click)="toggleDrawer(state)">
                <mat-icon>menu</mat-icon>
              </button>
-           </pxb-drawer-header>
-           <pxb-drawer-body>
+           </blui-drawer-header>
+           <blui-drawer-body>
               <ng-container *ngFor="let navGroup of [navItems1, navItems2]; let first = first;">
-                 <pxb-drawer-nav-group [title]="first ? groupTitle1 : groupTitle2" [divider]="groupDivider">
-                    <pxb-drawer-nav-item *ngFor="let navItem of navGroup.slice(0, first ? itemsLength1 : itemsLength2)"
+                 <blui-drawer-nav-group [title]="first ? groupTitle1 : groupTitle2" [divider]="groupDivider">
+                    <blui-drawer-nav-item *ngFor="let navItem of navGroup.slice(0, first ? itemsLength1 : itemsLength2)"
                       [title]="navItem.title"
                       [subtitle]="navItem.subtitle"
                       [selected]="state.selected === navItem.title"
@@ -138,25 +138,25 @@ export const withFullConfig = (): any => ({
                       [divider]="itemDivider"
                       [activeItemBackgroundShape]="activeItemBackgroundShape"
                       (select)="navItem.onSelect(); setActive(navItem, state);">
-                        <mat-icon *ngIf="showNavItemIcon" pxb-icon>{{ navItem.icon }}</mat-icon>
-                        <mat-icon *ngIf="customExpandIcon" pxb-expand-icon>add</mat-icon>
-                        <mat-icon *ngIf="customExpandIcon" pxb-collapse-icon>remove</mat-icon>
-                        <pxb-drawer-nav-item *ngFor="let nestedItem of navItem.items"
+                        <mat-icon *ngIf="showNavItemIcon" blui-icon>{{ navItem.icon }}</mat-icon>
+                        <mat-icon *ngIf="customExpandIcon" blui-expand-icon>add</mat-icon>
+                        <mat-icon *ngIf="customExpandIcon" blui-collapse-icon>remove</mat-icon>
+                        <blui-drawer-nav-item *ngFor="let nestedItem of navItem.items"
                            [title]="nestedItem.title"
                            [hidePadding]="hidePaddingNested"
                            [selected]="state.selected === nestedItem.title"
                            [activeItemBackgroundShape]="activeItemBackgroundShape"
                            (select)="nestedItem.onSelect(); setActive(nestedItem, state);">       
-                        </pxb-drawer-nav-item>
-                    </pxb-drawer-nav-item>
-                 </pxb-drawer-nav-group>
-                <pxb-spacer *ngIf="first && spacer"></pxb-spacer>
+                        </blui-drawer-nav-item>
+                    </blui-drawer-nav-item>
+                 </blui-drawer-nav-group>
+                <blui-spacer *ngIf="first && spacer"></blui-spacer>
               </ng-container>
-           </pxb-drawer-body>
-           <pxb-drawer-footer *ngIf="showFooter" [divider]="footerDivider" [hideContentOnCollapse]="hideContentOnCollapse">
+           </blui-drawer-body>
+           <blui-drawer-footer *ngIf="showFooter" [divider]="footerDivider" [hideContentOnCollapse]="hideContentOnCollapse">
              <img [src]="footerImage" width="170" style="align-self: center; padding: 16px" />
-           </pxb-drawer-footer>
-        </pxb-drawer>
+           </blui-drawer-footer>
+        </blui-drawer>
       `,
     props: {
         navItems1: navItems1,

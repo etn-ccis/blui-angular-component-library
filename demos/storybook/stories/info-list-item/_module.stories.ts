@@ -1,6 +1,6 @@
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
-import { InfoListItemModule, ChannelValueModule } from '@pxblue/angular-components';
+import { InfoListItemModule, ChannelValueModule } from '@brightlayer-ui/angular-components';
 import {
     COMPONENT_SECTION_NAME,
     README_STORY_NAME,
@@ -19,7 +19,7 @@ import { withinList } from './within-list.stories';
 import { withA11y } from '@storybook/addon-a11y';
 import { withRightContent } from './with-right-content.stories';
 import { withLeftContent } from './with-left-content.stories';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 
 export const infoListItemWrapper = () => (storyFn: any): any => {
     const story = storyFn();

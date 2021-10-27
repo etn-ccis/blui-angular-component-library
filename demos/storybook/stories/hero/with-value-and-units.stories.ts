@@ -2,9 +2,9 @@ import { text } from '@storybook/addon-knobs';
 
 export const withValueUnits = (): any => ({
     template: `
-        <pxb-hero [label]="'Efficiency'" [value]="value" [units]="units">
-            <i pxb-primary style="transform: none" class="pxb-grade_b"></i>
-        </pxb-hero>
+        <blui-hero [label]="'Efficiency'" [value]="value" [units]="units">
+            <i blui-primary style="transform: none" class="blui-grade_b"></i>
+        </blui-hero>
     `,
     props: {
         value: text('value', '88'),

@@ -1,10 +1,10 @@
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { boolean, color, text, select } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
 export const withFullConfig = (): any => ({
     template: `
-        <pxb-info-list-item
+        <blui-info-list-item
             [style.color]="colors.black[500]"
             matRipple
             style="display:flex; cursor: pointer"
@@ -19,15 +19,15 @@ export const withFullConfig = (): any => ({
             [chevron]="chevron"
             [disabled]="disabled"
             (click)="action()">
-            <div pxb-title>{{title}}</div>
-            <div pxb-subtitle>{{subtitle}}</div>
-            <div pxb-info>{{info}}</div>
-            <mat-icon  pxb-icon *ngIf="showIcon" 
+            <div blui-title>{{title}}</div>
+            <div blui-subtitle>{{subtitle}}</div>
+            <div blui-info>{{info}}</div>
+            <mat-icon  blui-icon *ngIf="showIcon" 
                 [style.color]="iconColor"
                 [style.backgroundColor]="getBgColor(avatar, statusColor)">
                 devices
             </mat-icon>
-        </pxb-info-list-item>
+        </blui-info-list-item>
       `,
     props: {
         title: text('title', 'Info List Item'),

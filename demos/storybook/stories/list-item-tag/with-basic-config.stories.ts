@@ -1,9 +1,9 @@
 import { text } from '@storybook/addon-knobs';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 
 export const withBasicConfig = (): any => ({
     template: `
-          <pxb-list-item-tag [label]="label"></pxb-list-item-tag>
+          <blui-list-item-tag [label]="label"></blui-list-item-tag>
     `,
     props: {
         label: text('label', 'active'),

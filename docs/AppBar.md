@@ -1,6 +1,6 @@
 # App Bar
 
-The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can be resized as the page is scrolled. 
+The `<blui-app-bar>` component is a wrapper around the `<mat-toolbar>` that can be resized as the page is scrolled. 
 It supports three variants: `snap`, `collapsed`, and `expanded`.
 
 <div style="text-align:center; margin-bottom:20px">
@@ -17,7 +17,7 @@ It supports three variants: `snap`, `collapsed`, and `expanded`.
 
 ```typescript
 // app.module.ts
-import { AppBarModule } from '@pxblue/angular-components';
+import { AppBarModule } from '@brightlayer-ui/angular-components';
 ...
 imports: [ AppBarModule ]
 ...
@@ -26,18 +26,18 @@ imports: [ AppBarModule ]
 ```html
 // your-component.html 
 // Default: AppBar will resize between collapsedHeight and expandedHeight as the window is scrolled
-<pxb-app-bar variant="snap"></pxb-app-bar>
+<blui-app-bar variant="snap"></blui-app-bar>
 
 // App Bar will stay fixed at the collapsedHeight size
-<pxb-app-bar variant="collapsed"></pxb-app-bar>
+<blui-app-bar variant="collapsed"></blui-app-bar>
 
 // App Bar will stay fixed at the expandedHeight size
-<pxb-app-bar variant="expanded"></pxb-app-bar>
+<blui-app-bar variant="expanded"></blui-app-bar>
 
 // AppBar with Three Liner component
-<pxb-app-bar variant="snap">
-    <pxb-three-liner title="title" subtitle="subtitle" info="info"></pxb-three-liner>
-</pxb-app-bar>
+<blui-app-bar variant="snap">
+    <blui-three-liner title="title" subtitle="subtitle" info="info"></blui-three-liner>
+</blui-app-bar>
 ```
 
 ## API
@@ -60,22 +60,22 @@ imports: [ AppBarModule ]
 
 > For the `snap` variant to respond correctly to scroll events, the `scrollContainerElement`, `scrollContainerClassName`, or `scrollContainerId` should be provided.
 
-The following child element is projected into `<pxb-app-bar>`:
+The following child element is projected into `<blui-app-bar>`:
 
-| Selector      | Description       | Required | Default |
-| ------------- | ----------------- | -------- | ------- |
-| [pxb-actions] | Menu action items | no       |         |
-| [pxb-icon]    | Menu icon         | no       |         |
+| Selector       | Description       | Required | Default |
+| -------------- | ----------------- | -------- | ------- |
+| [blui-actions] | Menu action items | no       |         |
+| [blui-icon]    | Menu icon         | no       |         |
 
 ### Classes
 
 Each PX Blue component has classes which can be used to override component styles:
 
-| Name                     | Description                                   |
-| ------------------------ | --------------------------------------------- |
-| pxb-app-bar              | Styles applied to the tag                     |
-| pxb-app-bar-background   | Styles applied to the background image        |
-| pxb-app-bar-body-wrapper | Styles applied to the toolbar body ng-content |
-| pxb-app-bar-collapsed    | Styles applied to the app bar when collapsed  |
-| pxb-app-bar-content      | Styles applied to the root element            |
-| pxb-app-bar-expanded     | Styles applied to the app bar when expanded   |
+| Name                      | Description                                   |
+| ------------------------- | --------------------------------------------- |
+| blui-app-bar              | Styles applied to the tag                     |
+| blui-app-bar-background   | Styles applied to the background image        |
+| blui-app-bar-body-wrapper | Styles applied to the toolbar body ng-content |
+| blui-app-bar-collapsed    | Styles applied to the app bar when collapsed  |
+| blui-app-bar-content      | Styles applied to the root element            |
+| blui-app-bar-expanded     | Styles applied to the app bar when expanded   |

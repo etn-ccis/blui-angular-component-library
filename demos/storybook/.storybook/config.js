@@ -1,6 +1,6 @@
 import { addParameters } from '@storybook/angular';
 require('@pxblue/icons/iconfont/PXBlueIcons.css');
-import { pxblueTheme } from '@pxblue/storybook-themes';
+import { bluiTheme } from '@brightlayer-ui/storybook-themes';
 
 const newViewports = {
     iPhone5: {
@@ -26,18 +26,18 @@ const newViewports = {
     },
 };
 
-pxblueTheme.brandTitle = 'PX Blue Angular Component Library';
-pxblueTheme.brandUrl = 'https://pxblue.github.io';
+bluiTheme.brandTitle = 'PX Blue Angular Component Library';
+bluiTheme.brandUrl = 'https://pxblue.github.io';
 
 if (window.top.location.hostname === 'localhost') {
-    pxblueTheme.brandImage = require('../assets/pxblue-angular-alpha.svg');
+    bluiTheme.brandImage = require('../assets/pxblue-angular-alpha.svg');
 } else if (window.top.location.pathname.slice(0, 13) === '/angular-dev/') {
-    pxblueTheme.brandImage = require('../assets/pxblue-angular-beta.svg');
+    bluiTheme.brandImage = require('../assets/pxblue-angular-beta.svg');
 } else {
-    pxblueTheme.brandImage = require('../assets/pxblue-angular.svg');
+    bluiTheme.brandImage = require('../assets/pxblue-angular.svg');
 }
 
-const themeInit = { dark: pxblueTheme, light: pxblueTheme, current: 'light' };
+const themeInit = { dark: bluiTheme, light: bluiTheme, current: 'light' };
 window.localStorage.setItem('sb-addon-themes-3', JSON.stringify(themeInit));
 
 addParameters({
@@ -53,8 +53,8 @@ addParameters({
     },
     darkMode: {
         // Override the default light theme
-        light: { ...pxblueTheme },
+        light: { ...bluiTheme },
         // Override the default dark theme
-        dark: { ...pxblueTheme },
+        dark: { ...bluiTheme },
     },
 });

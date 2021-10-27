@@ -1,5 +1,5 @@
 import { action } from '@storybook/addon-actions';
-import { DrawerNavItem } from '@pxblue/angular-components';
+import { DrawerNavItem } from '@brightlayer-ui/angular-components';
 import { boolean } from '@storybook/addon-knobs';
 
 export const navItems: DrawerNavItem[] = [
@@ -28,37 +28,37 @@ export const navItems: DrawerNavItem[] = [
 export const withNavRail = (): any => ({
     styles: [
         /* Remove content background color for demo. */
-        `::ng-deep .pxb-blue .mat-drawer-content,
-         ::ng-deep .pxb-blue .mat-drawer-container {
+        `::ng-deep .blui-blue .mat-drawer-content,
+         ::ng-deep .blui-blue .mat-drawer-container {
           background-color: unset!important;
        }
-         ::ng-deep .pxb-blue-dark .mat-drawer-content, 
-         ::ng-deep .pxb-blue-dark .mat-drawer-container {
+         ::ng-deep .blui-blue-dark .mat-drawer-content, 
+         ::ng-deep .blui-blue-dark .mat-drawer-container {
           background-color: unset!important;
        }`,
     ],
     template: `
-        <pxb-drawer-layout variant="rail">
-            <pxb-drawer pxb-drawer [condensed]="condensed" [sideBorder]="sideBorder">
-               <pxb-drawer-body>
-                  <pxb-drawer-nav-group>
-                       <pxb-drawer-nav-item *ngFor="let navItem of navItems"
+        <blui-drawer-layout variant="rail">
+            <blui-drawer blui-drawer [condensed]="condensed" [sideBorder]="sideBorder">
+               <blui-drawer-body>
+                  <blui-drawer-nav-group>
+                       <blui-drawer-nav-item *ngFor="let navItem of navItems"
                         [title]="navItem.title"
                         [divider]="divider"
                         [selected]="state.selected === navItem.title"
                         (select)="navItem.onSelect(); setActive(navItem.title, state);">
-                        <mat-icon pxb-icon>{{ navItem.icon }}</mat-icon>
-                      </pxb-drawer-nav-item>
-                  </pxb-drawer-nav-group>
-               </pxb-drawer-body>
-                <pxb-drawer-footer>
+                        <mat-icon blui-icon>{{ navItem.icon }}</mat-icon>
+                      </blui-drawer-nav-item>
+                  </blui-drawer-nav-group>
+               </blui-drawer-body>
+                <blui-drawer-footer>
                     <div style="height: 56px; display: flex; align-items: center; justify-content: center">
-                        <i class="pxb-eaton" style="font-size: 14px;"></i>
+                        <i class="blui-eaton" style="font-size: 14px;"></i>
                     </div>
-                </pxb-drawer-footer>
-            </pxb-drawer>
-            <div pxb-content class="with-nav-rail-content" [style.width.px]="24"></div>
-        </pxb-drawer-layout>
+                </blui-drawer-footer>
+            </blui-drawer>
+            <div blui-content class="with-nav-rail-content" [style.width.px]="24"></div>
+        </blui-drawer-layout>
       `,
     props: {
         navItems: navItems,

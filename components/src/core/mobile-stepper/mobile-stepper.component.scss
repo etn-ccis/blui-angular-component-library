@@ -1,9 +1,9 @@
-.pxb-mobile-stepper {
+.blui-mobile-stepper {
     display: flex;
     width: 100%;
 }
 
-.pxb-mobile-stepper-content {
+.blui-mobile-stepper-content {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -13,12 +13,12 @@
     }
 }
 
-.pxb-mobile-stepper-dots {
+.blui-mobile-stepper-dots {
     display: flex;
     flex-direction: row;
 }
 
-.pxb-mobile-stepper-dot {
+.blui-mobile-stepper-dot {
     height: 0.5rem;
     width: 0.5rem;
     background-color: gray;
@@ -26,23 +26,23 @@
     margin: 0 0.25rem;
 }
 
-.pxb-mobile-stepper-dot-active {
+.blui-mobile-stepper-dot-active {
     background-color: blue; /* Default color */
 }
 
-.pxb-mobile-stepper-display-none {
+.blui-mobile-stepper-display-none {
     display: none;
 }
 
-.pxb-mobile-stepper-next-button-wrapper,
-.pxb-mobile-stepper-back-button-wrapper {
+.blui-mobile-stepper-next-button-wrapper,
+.blui-mobile-stepper-back-button-wrapper {
     display: flex;
     flex: 1;
 }
 
-.pxb-mobile-stepper-next-button-wrapper {
+.blui-mobile-stepper-next-button-wrapper {
     justify-content: end;
 }
-.pxb-mobile-stepper-back-button-wrapper {
+.blui-mobile-stepper-back-button-wrapper {
     justify-content: start;
 }
