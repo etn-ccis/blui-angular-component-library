@@ -31,7 +31,6 @@
         "@angular/platform-browser": "~12.2.4",
         "@angular/platform-browser-dynamic": "~12.2.4",
         "@brightlayer-ui/eslint-config": "^2.0.5",
-        "@brightlayer-ui/ng-progress-icons": "^1.2.1",
         "@brightlayer-ui/prettier-config": "^1.0.3",
         "@types/jasmine": "~3.9.0",
         "@types/jasminewd2": "~2.0.10",

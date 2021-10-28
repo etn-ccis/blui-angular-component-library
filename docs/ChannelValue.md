@@ -1,8 +1,8 @@
 # Channel Value
 
-The `<pxb-channel-value>` component is used to display a channel value (and units). This component abstracts the styles used to display the channel and units as well as an optional inline icon. These are used as part of the [`<pxb-hero>`](./Hero.md) component, but can also be used inline (e.g., in a list).
+The `<blui-channel-value>` component is used to display a channel value (and units). This component abstracts the styles used to display the channel and units as well as an optional inline icon. These are used as part of the [`<blui-hero>`](./Hero.md) component, but can also be used inline (e.g., in a list).
 
-Icons are passed in as a child element of the `<pxb-channel-value>` component.
+Icons are passed in as a child element of the `<blui-channel-value>` component.
 
 <div style="text-align:center; margin-bottom:20px">
     <img width="100%" style="max-width: 600px" alt="Channel Value in Hero" src="./images/heroes.png">
@@ -18,7 +18,7 @@ Icons are passed in as a child element of the `<pxb-channel-value>` component.
 
 ```typescript
 // app.module.ts
-import { ChannelValueModule } from '@pxblue/angular-components';
+import { ChannelValueModule } from '@brightlayer-ui/angular-components';
 ...
 imports: [
     ChannelValueModule
@@ -27,14 +27,14 @@ imports: [
 
 ```html
 // your-component.html
-<pxb-channel-value class="content" value="65" units="%" [prefix]="true">
+<blui-channel-value class="content" value="65" units="%" [prefix]="true">
     <mat-icon>trending_up</mat-icon>
-</pxb-channel-value>
+</blui-channel-value>
 ```
 
 ## API
 
-Parent element (`<pxb-channel-value>`) attributes:
+Parent element (`<blui-channel-value>`) attributes:
 
 <div style="overflow: auto;">
 
@@ -47,7 +47,7 @@ Parent element (`<pxb-channel-value>`) attributes:
 
 </div>
 
-The following child element is projected into `<pxb-channel-value>`:
+The following child element is projected into `<blui-channel-value>`:
 
 | Selector | Description             | Required | Default |
 | -------- | ----------------------- | -------- | ------- |
@@ -57,10 +57,10 @@ The following child element is projected into `<pxb-channel-value>`:
 
 Each PX Blue component has classes which can be used to override component styles:
 
-| Name                           | Description                          |
-| ------------------------------ | ------------------------------------ |
-| pxb-channel-value              | Styles applied to the tag            |
-| pxb-channel-value-content      | Styles applied to the root element   |
-| pxb-channel-value-icon-wrapper | Styles applied to the icon container |
-| pxb-channel-value-units        | Styles applied to the units @Input   |
-| pxb-channel-value-value        | Styles applied to the value @Input   |
+| Name                            | Description                          |
+| ------------------------------- | ------------------------------------ |
+| blui-channel-value              | Styles applied to the tag            |
+| blui-channel-value-content      | Styles applied to the root element   |
+| blui-channel-value-icon-wrapper | Styles applied to the icon container |
+| blui-channel-value-units        | Styles applied to the units @Input   |
+| blui-channel-value-value        | Styles applied to the value @Input   |

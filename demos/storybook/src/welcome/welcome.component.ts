@@ -39,7 +39,7 @@ const packageJSON = require('@brightlayer-ui/angular-components/package.json');
                     <div class="mat-display-1">Angular Component Library</div>
                     <div class="mat-h3" *ngIf="package.version">v{{ package.version }}</div>
                     <div class="mat-h3 description">
-                        Learn about and interact with our PX Blue components using Storybook.
+                        Learn about and interact with our Brightlayer UI components using Storybook.
                     </div>
                     <a
                         mat-stroked-button

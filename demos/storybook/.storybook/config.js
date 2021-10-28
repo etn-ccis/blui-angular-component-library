@@ -26,15 +26,15 @@ const newViewports = {
     },
 };
 
-bluiTheme.brandTitle = 'PX Blue Angular Component Library';
-bluiTheme.brandUrl = 'https://pxblue.github.io';
+bluiTheme.brandTitle = 'Brightlayer UI Angular Component Library';
+bluiTheme.brandUrl = 'https://brightlayer-ui.github.io';
 
 if (window.top.location.hostname === 'localhost') {
-    bluiTheme.brandImage = require('../assets/pxblue-angular-alpha.svg');
+    bluiTheme.brandImage = require('../assets/blui-angular-alpha.svg');
 } else if (window.top.location.pathname.slice(0, 13) === '/angular-dev/') {
-    bluiTheme.brandImage = require('../assets/pxblue-angular-beta.svg');
+    bluiTheme.brandImage = require('../assets/blui-angular-beta.svg');
 } else {
-    bluiTheme.brandImage = require('../assets/pxblue-angular.svg');
+    bluiTheme.brandImage = require('../assets/blui-angular.svg');
 }
 
 const themeInit = { dark: bluiTheme, light: bluiTheme, current: 'light' };

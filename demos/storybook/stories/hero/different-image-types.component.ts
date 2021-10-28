@@ -5,7 +5,7 @@ import { HeroModule } from '@brightlayer-ui/angular-components';
 import * as Colors from '@brightlayer-ui/colors';
 import { HttpClientModule } from '@angular/common/http';
 import { NgProgressIconsModule } from '@brightlayer-ui/ng-progress-icons';
-const iconSet = require('@brightlayer-ui/icons-svg/icons.svg');
+const iconSet = require('@pxblue/icons-svg/icons.svg');
 const Trex = require('../../assets/trex.png');
 
 @Component({
