@@ -1,7 +1,7 @@
 {
     "name": "brightlayer-ui-angular-components",
     "version": "0.0.0",
-    "description": "Angular components for PX Blue applications",
+    "description": "Angular components for Brightlayer UI applications",
     "main": "index.js",
     "prettier": "@brightlayer-ui/prettier-config",
     "scripts": {
@@ -10,7 +10,7 @@
         "test:artifacts": "bash scripts/buildTest.sh",
         "coverage": "cd ./components && yarn test --no-watch --code-coverage",
         "build": "bash scripts/buildComponents.sh",
-        "publish:package": "cd dist && rm -f *.tgz && set npm_config_yes=true && npx -p @brightlayer-ui/publish pxb-publish",
+        "publish:package": "cd dist && rm -f *.tgz && set npm_config_yes=true && npx -p @brightlayer-ui/publish blui-publish",
         "tag:package": "cd components && yarn tag:package",
         "install:dependencies": "cd demos/showcase && yarn && cd ../storybook && yarn && cd ../../components && yarn",
         "link:components": "bash scripts/linkComponents.sh",

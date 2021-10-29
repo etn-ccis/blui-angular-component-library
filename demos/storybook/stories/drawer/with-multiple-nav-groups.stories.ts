@@ -20,7 +20,7 @@ export const navItems2 = [
 export const withMultiNavGroups = (): any => ({
     template: `
         <blui-drawer [open]="state.open">
-           <blui-drawer-header title="PX Blue Drawer" subtitle="with multiple Nav Groups">
+           <blui-drawer-header title="Brightlayer UI Drawer" subtitle="with multiple Nav Groups">
              <button blui-icon mat-icon-button (click)="toggleDrawer(state)">
                <mat-icon>menu</mat-icon>
              </button>

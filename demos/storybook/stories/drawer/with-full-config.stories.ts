@@ -178,7 +178,7 @@ export const withFullConfig = (): any => ({
         sideBorder: boolean('sideBorder', true, drawer),
         disableActiveItemParentStyles: boolean('disableActiveItemParentStyles', false, drawer),
         disableRailTooltip: boolean('disableRailTooltip', false, drawer),
-        title: text('title', 'PX Blue Drawer', header),
+        title: text('title', 'Brightlayer UI Drawer', header),
         subtitle: text('subtitle', 'with full config', header),
         showHeaderImage: boolean('Show Background Image', true, header),
         showHeaderDivider: boolean('divider', true, header),

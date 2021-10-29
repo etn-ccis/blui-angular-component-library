@@ -1460,10 +1460,10 @@
   resolved "https://registry.yarnpkg.com/@brightlayer-ui/storybook-rtl-addon/-/storybook-rtl-addon-1.1.0.tgz#d57847485b27ec5f4f4c96672cf8211c09d309e3"
   integrity sha512-aXJBPrBw0El7u/v1VYvyyXYtqMu1+Ou58uXM4TviTMTH5oVuzGFmB+Ln1QKCrTfCZU99afNWCFdjJh/zQGI3og==
 
-"@brightlayer-ui/storybook-themes@^1.1.0-beta.1":
-  version "1.1.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/storybook-themes/-/storybook-themes-1.1.0-beta.1.tgz#e329d6b36752e6573be612e9d94ac3c87f9d21c4"
-  integrity sha512-/+k2DaapMoWmsOdy/EqXCZJSRfx2NpKfc0ttog0t0+wGv/+PsyZDfR+PsLR3sv2mC5byqptIXqgEF7JKO/MPdA==
+"@brightlayer-ui/storybook-themes@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/storybook-themes/-/storybook-themes-1.1.0.tgz#11d89f7d1419ec64c9d8c0d0ba8ad793e9007693"
+  integrity sha512-VLg7Ux085kS6Zw6NBdmzo4GQHlNCCXX5fdnDvpOZSTlMsqfKtsdXpO9SF1DTrigL/I48yCjktAOjEDCWZ/0+2g==
 
 "@brightlayer-ui/types@^2.0.0":
   version "2.0.0"

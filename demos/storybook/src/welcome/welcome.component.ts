@@ -35,7 +35,7 @@ const packageJSON = require('@brightlayer-ui/angular-components/package.json');
                     <img [src]="bluiIcon" alt="blui-icon" class="rotate" />
                 </div>
                 <section class="mat-typography">
-                    <div class="mat-display-3">Power Xpert <strong>Blue</strong></div>
+                    <div class="mat-display-3">Brightlayer <strong>UI</strong></div>
                     <div class="mat-display-1">Angular Component Library</div>
                     <div class="mat-h3" *ngIf="package.version">v{{ package.version }}</div>
                     <div class="mat-h3 description">

@@ -14,7 +14,7 @@ const optionsObj = {
 export const withSubheader = (): any => ({
     template: `
         <blui-drawer [open]="state.open">
-           <blui-drawer-header title="PX Blue Drawer" subtitle="with a subtitle">
+           <blui-drawer-header title="Brightlayer UI Drawer" subtitle="with a subtitle">
              <button blui-icon mat-icon-button (click)="toggleDrawer(state)">
                <mat-icon>menu</mat-icon>
              </button>

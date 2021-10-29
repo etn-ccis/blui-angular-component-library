@@ -10,7 +10,7 @@ An invisible utility component that acts as a spacer element in various layouts.
 
 ```typescript
 // app.module.ts
-import { SpacerModule } from '@pxblue/angular-components';
+import { SpacerModule } from '@brightlayer-ui/angular-components';
 ...
 imports: [
     SpacerModule
@@ -20,15 +20,15 @@ imports: [
 
 ```html
 // your-component.html // using flex layout
-<pxb-spacer></pxb-spacer>
+<blui-spacer></blui-spacer>
 
 // using pixels
-<pxb-spacer width="50"></pxb-spacer>
+<blui-spacer width="50"></blui-spacer>
 ```
 
 ## API
 
-Parent element (`<pxb-spacer>`) attributes:
+Parent element (`<blui-spacer>`) attributes:
 
 <div style="overflow: auto;">
 

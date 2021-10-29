@@ -1,6 +1,6 @@
 # Mobile Stepper
 
-The `<pxb-mobile-stepper>` is used to minimally display progress when completing a workflow that requires multiple steps. There are three types of progress indicators supported, `dots` (default), `text`, and `progress`.
+The `<blui-mobile-stepper>` is used to minimally display progress when completing a workflow that requires multiple steps. There are three types of progress indicators supported, `dots` (default), `text`, and `progress`.
 
 <div style="text-align:center; margin-bottom:20px">
     <img width="100%" style="max-width: 600px" alt="Mobile Stepper used " src="./images/dotStepper.png">
@@ -10,7 +10,7 @@ The `<pxb-mobile-stepper>` is used to minimally display progress when completing
 
 ```typescript
 // app.module.ts
-import { MobileStepperModule } from '@pxblue/angular-components';
+import { MobileStepperModule } from '@brightlayer-ui/angular-components';
 ...
 imports: [
     MobileStepperModule
@@ -25,9 +25,9 @@ steps = 4;
 
 ```html
 // your-component.html
-<pxb-mobile-stepper [steps]="steps" [activeStep]="activeStep">
+<blui-mobile-stepper [steps]="steps" [activeStep]="activeStep">
     <button
-        pxb-back-button
+        blui-back-button
         mat-stroked-button
         color="primary"
         [disabled]="activeStep === 0"
@@ -36,7 +36,7 @@ steps = 4;
         Back
     </button>
     <button
-        pxb-next-button
+        blui-next-button
         mat-flat-button
         color="primary"
         [disabled]="activeStep === steps - 1"
@@ -44,12 +44,12 @@ steps = 4;
     >
         Next
     </button>
-</pxb-mobile-stepper>
+</blui-mobile-stepper>
 ```
 
 ## API
 
-Parent element (`<pxb-mobile-stepper>`) attributes:
+Parent element (`<blui-mobile-stepper>`) attributes:
 
 <div style="overflow: auto;">
 
@@ -61,27 +61,27 @@ Parent element (`<pxb-mobile-stepper>`) attributes:
 
 </div>
 
-The following child elements are projected into `<pxb-mobile-stepper>`:
+The following child elements are projected into `<blui-mobile-stepper>`:
 
 <div style="overflow: auto;">
 
 | Selector          | Description         | Required | Default |
 | ----------------- | ------------------- | -------- | ------- |
-| [pxb-back-button] | Stepper back button | no       |         |
-| [pxb-next-button] | Stepper next button | no       |         |
+| [blui-back-button] | Stepper back button | no       |         |
+| [blui-next-button] | Stepper next button | no       |         |
 
 ### Classes
 
 Each PX Blue component has classes which can be used to override component styles:
 
-| Name                                        | Description                                            |
-| ------------------------------------------- | ------------------------------------------------------ |
-| pxb-mobile-stepper                          | Styles applied to the tag                              |
-| pxb-mobile-stepper-content                  | Styles applied to the mobile stepper container         |
-| pxb-mobile-stepper-dots                     | Styles applied to the mobile stepper dots container    |
-| pxb-mobile-stepper-dot                      | Styles applied to each dot in the stepper              |
-| pxb-mobile-stepper-dot-active               | Styles applied to the dot representing the active step |
-| pxb-mobile-stepper-dot-visited              | Styles applied to the visited dots                     |
-| pxb-mobile-stepper-dot-unvisited            | Styles applied to the dots that were not visited yet   |
-|pxb-mobile-stepper-next-button-wrapper       | Styles applied to the next button wrapper              | 
-|pxb-mobile-stepper-back-button-wrapper       | Styles applied to the back button wrapper              | 
+| Name                                         | Description                                            |
+| -------------------------------------------- | ------------------------------------------------------ |
+| blui-mobile-stepper                          | Styles applied to the tag                              |
+| blui-mobile-stepper-content                  | Styles applied to the mobile stepper container         |
+| blui-mobile-stepper-dots                     | Styles applied to the mobile stepper dots container    |
+| blui-mobile-stepper-dot                      | Styles applied to each dot in the stepper              |
+| blui-mobile-stepper-dot-active               | Styles applied to the dot representing the active step |
+| blui-mobile-stepper-dot-visited              | Styles applied to the visited dots                     |
+| blui-mobile-stepper-dot-unvisited            | Styles applied to the dots that were not visited yet   |
+| blui-mobile-stepper-next-button-wrapper      | Styles applied to the next button wrapper              | 
+| blui-mobile-stepper-back-button-wrapper      | Styles applied to the back button wrapper              | 

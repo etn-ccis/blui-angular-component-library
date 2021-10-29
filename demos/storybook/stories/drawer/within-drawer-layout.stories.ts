@@ -36,7 +36,7 @@ export const withinDrawerLayout = (): any => ({
     template: `
         <blui-drawer-layout [dir]="direction()" [width]="width" [variant]="variant" (backdropClick)="state.open = false">
             <blui-drawer blui-drawer [open]="state.open" [sideBorder]="sideBorder">
-               <blui-drawer-header title="PX Blue Drawer" subtitle="in a PX Blue Drawer Layout">
+               <blui-drawer-header title="Brightlayer UI Drawer" subtitle="in a Brightlayer UI Drawer Layout">
                  <button blui-icon mat-icon-button (click)="toggleDrawer(state)">
                    <mat-icon>menu</mat-icon>
                  </button>

@@ -1,6 +1,6 @@
 # List Item Tag
 
-The `<pxb-list-item-tag>` is a text item with a colored background and rounded corners that is used to tag lists.
+The `<blui-list-item-tag>` is a text item with a colored background and rounded corners that is used to tag lists.
 
 <img width="100%" alt="Info List Items in a variety of styles" src="./images/listItemTag.png">
 
@@ -8,7 +8,7 @@ The `<pxb-list-item-tag>` is a text item with a colored background and rounded c
 
 ```typescript
 // app.module.ts
-import { ListItemTagModule } from '@pxblue/angular-components';
+import { ListItemTagModule } from '@brightlayer-ui/angular-components';
 ...
 imports: [
     ListItemTagModule
@@ -18,12 +18,12 @@ imports: [
 
 ```html
 // your-component.html
-<pxb-list-item-tag label="Sample Label" backgroundColor="black" fontColor="gold"> </pxb-list-item-tag>
+<blui-list-item-tag label="Sample Label" backgroundColor="black" fontColor="gold"> </blui-list-item-tag>
 ```
 
 ## API
 
-Parent element (`pxb-list-item-tag`) attributes:
+Parent element (`blui-list-item-tag`) attributes:
 
 <div style="overflow: auto;">
 
@@ -39,8 +39,8 @@ Parent element (`pxb-list-item-tag`) attributes:
 
 Each PX Blue component has classes which can be used to override component styles:
 
-| Name                      | Description                        |
-| ------------------------- | ---------------------------------- |
-| pxb-list-item-tag         | Styles applied to the tag          |
-| pxb-list-item-tag-content | Styles applied to the root element |
-| pxb-list-item-tag-label   | Styles applied to the label @Input |
+| Name                       | Description                        |
+| -------------------------- | ---------------------------------- |
+| blui-list-item-tag         | Styles applied to the tag          |
+| blui-list-item-tag-content | Styles applied to the root element |
+| blui-list-item-tag-label   | Styles applied to the label @Input |

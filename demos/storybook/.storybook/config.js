@@ -27,7 +27,7 @@ const newViewports = {
 };
 
 bluiTheme.brandTitle = 'Brightlayer UI Angular Component Library';
-bluiTheme.brandUrl = 'https://brightlayer-ui.github.io';
+bluiTheme.brandUrl = 'https://pxblue.github.io';
 
 if (window.top.location.hostname === 'localhost') {
     bluiTheme.brandImage = require('../assets/blui-angular-alpha.svg');

@@ -14,7 +14,7 @@
         "lint": "eslint \"src/**/**.ts\"",
         "lint:fix": "eslint \"src/**/**.ts\" --fix",
         "coverage": "yarn test --no-watch --code-coverage",
-        "tag:package": "cp ../CHANGELOG.md CHANGELOG.md && npx -p @brightlayer-ui/tag blui-tag"
+        "tag:package": "cp ../CHANGELOG.md CHANGELOG.md && npx -p @brightlayer-ui/tag blui-tag -s -blui-angular-components"
     },
     "peerDependencies": {},
     "devDependencies": {

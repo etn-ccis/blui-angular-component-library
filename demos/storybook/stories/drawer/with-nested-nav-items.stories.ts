@@ -42,7 +42,7 @@ export const nestedNavGroup: DrawerNavItem[] = [
 export const withNestedNavItems = (): any => ({
     template: `
         <blui-drawer [open]="state.open" [disableActiveItemParentStyles]="disableActiveItemParentStyles">
-           <blui-drawer-header title="PX Blue Drawer" subtitle="with nested nav items">
+           <blui-drawer-header title="Brightlayer UI Drawer" subtitle="with nested nav items">
              <button blui-icon mat-icon-button (click)="toggleDrawer(state)">
                <mat-icon>menu</mat-icon>
              </button>
