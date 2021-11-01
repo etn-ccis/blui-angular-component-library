@@ -1,5 +1,5 @@
 import { addParameters } from '@storybook/angular';
-require('@pxblue/icons/iconfont/PXBlueIcons.css');
+require('@brightlayer-ui/icons/iconfont/BrightlayerUIIcons.css');
 import { bluiTheme } from '@brightlayer-ui/storybook-themes';
 
 const newViewports = {
