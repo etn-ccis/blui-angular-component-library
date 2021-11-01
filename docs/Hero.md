@@ -6,7 +6,7 @@ The `<blui-hero>` components are used to call attention to particular values tha
 <img width="100%" style="max-width:600px" alt="Hero Banner" src="./images/heroes.png">
 </div>
 
-The `<blui-hero>` component displays a particular icon, value/units, and a label. Icon components are passed as a child element with the `primary` attribute - these will typically be a Material icon, PX Blue icon, or Progress Icon. It will also accept Text/Emoji values inside of a `<span>` element.
+The `<blui-hero>` component displays a particular icon, value/units, and a label. Icon components are passed as a child element with the `primary` attribute - these will typically be a Material icon, Brightlayer UI icon, or Progress Icon. It will also accept Text/Emoji values inside of a `<span>` element.
 
 The value section of the `<blui-hero>` utilizes a [`<blui-channel-value>`](./ChannelValue.md) component. To display a single simple value, the information can be passed as attributes (`value`, `units`, `unitSpace`). An icon can be passed as a child of the `<blui-hero>` component with the `secondary` attribute. For more complex values (such as a duration that displays hours and minutes), you can pass in multiple `<blui-channel-value>` components as children and they will be displayed inline.
 
@@ -72,7 +72,7 @@ The following child elements are projected into `<blui-hero>`:
 
 ### Classes
 
-Each PX Blue component has classes which can be used to override component styles:
+Each Brightlayer UI component has classes which can be used to override component styles:
 
 | Name                           | Description                                  |
 | ------------------------------ | -------------------------------------------- |
@@ -128,7 +128,7 @@ The following child element is projected into `<blui-hero-banner>`:
 
 ### Classes
 
-Each PX Blue component has classes which can be used to override component styles:
+Each Brightlayer UI component has classes which can be used to override component styles:
 
 | Name                     | Description                        |
 | ------------------------ | ---------------------------------- |

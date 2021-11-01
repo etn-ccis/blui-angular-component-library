@@ -37,7 +37,7 @@ Parent element (`blui-list-item-tag`) attributes:
 
 ### Classes
 
-Each PX Blue component has classes which can be used to override component styles:
+Each Brightlayer UI component has classes which can be used to override component styles:
 
 | Name                       | Description                        |
 | -------------------------- | ---------------------------------- |

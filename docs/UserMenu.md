@@ -101,7 +101,7 @@ The following child elements are projected into `<blui-user-menu>`:
 
 ### Classes
 
-Each PX Blue component has classes which can be used to override component styles:
+Each Brightlayer UI component has classes which can be used to override component styles:
 
 | Name                                | Description                                 |
 | ----------------------------------- | ------------------------------------------- |

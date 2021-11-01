@@ -35,7 +35,7 @@ The following child element is projected into `<blui-three-liner>`:
 
 ### Classes
 
-Each PX Blue component has classes which can be used to override component styles:
+Each Brightlayer UI component has classes which can be used to override component styles:
 
 | Name                      | Description                                    |
 | ------------------------- | ---------------------------------------------- |
