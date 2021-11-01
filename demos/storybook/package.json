@@ -25,7 +25,7 @@
         "@angular/material": "^12.2.4",
         "@angular/platform-browser": "~12.2.4",
         "@angular/platform-browser-dynamic": "~12.2.4",
-        "@brightlayer-ui/angular-themes": "^5.2.1",
+        "@brightlayer-ui/angular-themes": "^6.3.0-beta.0",
         "@brightlayer-ui/colors": "^3.0.1",
         "@brightlayer-ui/ng-progress-icons": "^1.2.1",
         "@brightlayer-ui/storybook-rtl-addon": "^1.0.1",

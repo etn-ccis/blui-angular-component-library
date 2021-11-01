@@ -1417,13 +1417,13 @@
   resolved "https://registry.yarnpkg.com/@base2/pretty-print-object/-/pretty-print-object-1.0.0.tgz#860ce718b0b73f4009e153541faff2cb6b85d047"
   integrity sha512-4Th98KlMHr5+JkxfcoDT//6vY8vM+iSPrLNpHhRyLx2CFYi8e2RfqPLdpbnpo0Q5lQC5hNB79yes07zb02fvCw==
 
-"@brightlayer-ui/angular-themes@^5.2.1":
-  version "5.2.1"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/angular-themes/-/angular-themes-5.2.1.tgz#99fb2f1c28b4698ea311a445983e082a1770eb23"
-  integrity sha512-QqhKch+9Q/iSocxxxS29OJ3I/jOkaBia3aZI6ALPzv+4tcdfTSyoNGIN46YwMuUkc+dYQF62MDf35O/6X6cSuw==
+"@brightlayer-ui/angular-themes@^6.3.0-beta.0":
+  version "6.3.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/angular-themes/-/angular-themes-6.3.0-beta.0.tgz#4891c67614d3bb30689502d8677f5546d8c93bb5"
+  integrity sha512-WCShhJvtb2fKpyeC8COjLmZ4V1KoRWabOyhbvdgT5dmeNEBmvyZeKqmpVNWxx/C2nj7FWPOvZaGoNnOCrWyu7g==
   dependencies:
     "@brightlayer-ui/colors" "^3.0.0"
-    typeface-open-sans "^0.0.75"
+    "@fontsource/open-sans" "^4.1.0"
 
 "@brightlayer-ui/colors@^3.0.0", "@brightlayer-ui/colors@^3.0.1":
   version "3.0.1"
@@ -1619,6 +1619,11 @@
     js-yaml "^3.13.1"
     minimatch "^3.0.4"
     strip-json-comments "^3.1.1"
+
+"@fontsource/open-sans@^4.1.0":
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-4.5.2.tgz#6953650035d5b42be645013b1465544d0af49d7d"
+  integrity sha512-aDQrW8s0KslG2aKb9nM5R6fiQR9iPomqWXf6iZCC30qv/UFlSY14SppodA3rE//+w37EqsJjyUq3BSEYzLdisg==
 
 "@fontsource/open-sans@^4.5.1":
   version "4.5.1"
@@ -14626,11 +14631,6 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
-
-typeface-open-sans@^0.0.75:
-  version "0.0.75"
-  resolved "https://registry.yarnpkg.com/typeface-open-sans/-/typeface-open-sans-0.0.75.tgz#20d0c330f14c0c40463c334adbedd6005389abe4"
-  integrity sha512-0lLmB7pfj113OP4T78SbpSmC4OCdFQ0vUxdSXQccsSb6qF76F92iEuC/DghFgmPswTyidk8+Hwf+PS/htiJoRQ==
 
 typeface-open-sans@^1.1.13:
   version "1.1.13"
