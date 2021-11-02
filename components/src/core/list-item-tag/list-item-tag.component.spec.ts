@@ -32,7 +32,7 @@ describe('ListItemTagComponent', () => {
 
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
-        const classList = ['.pxb-list-item-tag-content', '.pxb-list-item-tag-label'];
+        const classList = ['.blui-list-item-tag-content', '.blui-list-item-tag-label'];
         for (const className of classList) {
             count(fixture, className);
         }

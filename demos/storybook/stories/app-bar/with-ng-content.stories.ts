@@ -2,17 +2,17 @@ import { number } from '@storybook/addon-knobs';
 
 export const withNgContent = (): any => ({
     template: `
-        <pxb-app-bar
+        <blui-app-bar
          [expandedHeight]="expandedHeight"
          [collapsedHeight]="collapsedHeight"
          [scrollThreshold]="scrollThreshold"
          [scrollContainerId]="scrollContainerId"
          (collapsedChange)="isCollapsed = $event"
          variant="snap">
-             <pxb-three-liner [style.top.px]="isCollapsed ? 0 : expandedYOffset">
-                <pxb-channel-value style="color: white" pxb-title value="Temperature"></pxb-channel-value>
-                <div pxb-subtitle>Subtitle</div>
-                 <div pxb-info class="info"
+             <blui-three-liner [style.top.px]="isCollapsed ? 0 : expandedYOffset">
+                <blui-channel-value style="color: white" blui-title value="Temperature"></blui-channel-value>
+                <div blui-subtitle>Subtitle</div>
+                 <div blui-info class="info"
                     [matMenuTriggerFor]="dropdownToolbarMenu"
                     #menuTrigger="matMenuTrigger"
                     style="display: flex; align-items: center; cursor: pointer;"
@@ -20,8 +20,8 @@ export const withNgContent = (): any => ({
                     <span>Menu</span>
                     <mat-icon style="font-size: inherit; width: 16px; height: 16px;">arrow_drop_down</mat-icon>
                 </div>
-            </pxb-three-liner>
-        </pxb-app-bar>
+            </blui-three-liner>
+        </blui-app-bar>
 
         <mat-menu #dropdownToolbarMenu="matMenu" [overlapTrigger]="false">
             <button mat-menu-item>Item 1</button>

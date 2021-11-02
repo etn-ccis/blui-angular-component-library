@@ -6,7 +6,7 @@
       "root": ".",
       "sourceRoot": "src",
       "projectType": "library",
-      "prefix": "pxb",
+      "prefix": "blui",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",

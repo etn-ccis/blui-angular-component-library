@@ -2,7 +2,7 @@ import { number, select } from '@storybook/addon-knobs';
 
 export const withVariants = (): any => ({
     template: `
-        <pxb-app-bar
+        <blui-app-bar
          [expandedHeight]="expandedHeight"
          [collapsedHeight]="collapsedHeight"
          [scrollThreshold]="scrollThreshold"
@@ -10,7 +10,7 @@ export const withVariants = (): any => ({
          (collapsedChange)="isCollapsed = $event"
          [variant]="variant">
             <div [style.top.px]="isCollapsed ? 0 : expandedYOffset">Content</div>
-        </pxb-app-bar>
+        </blui-app-bar>
     `,
     props: {
         collapsedHeight: number('collapsedHeight', 64),

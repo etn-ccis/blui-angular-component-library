@@ -2,20 +2,20 @@ import { number, text } from '@storybook/addon-knobs';
 
 export const withDynamicContent = (): any => ({
     template: `
-        <pxb-app-bar
+        <blui-app-bar
          [expandedHeight]="expandedHeight"
          [collapsedHeight]="collapsedHeight"
          [scrollThreshold]="scrollThreshold"
          [scrollContainerId]="scrollContainerId"
          (collapsedChange)="isCollapsed = $event"
          variant="snap">
-             <pxb-three-liner
+             <blui-three-liner
                 [title]="title"
                 [subtitle]="subtitle"
                 [info]="info"
                 [style.top.px]="isCollapsed ? 0 : expandedYOffset">
-            </pxb-three-liner>
-        </pxb-app-bar>
+            </blui-three-liner>
+        </blui-app-bar>
     `,
     props: {
         collapsedHeight: number('collapsedHeight', 64),

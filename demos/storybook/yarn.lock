@@ -1417,6 +1417,69 @@
   resolved "https://registry.yarnpkg.com/@base2/pretty-print-object/-/pretty-print-object-1.0.0.tgz#860ce718b0b73f4009e153541faff2cb6b85d047"
   integrity sha512-4Th98KlMHr5+JkxfcoDT//6vY8vM+iSPrLNpHhRyLx2CFYi8e2RfqPLdpbnpo0Q5lQC5hNB79yes07zb02fvCw==
 
+"@brightlayer-ui/angular-themes@^6.3.0-beta.0":
+  version "6.3.0-beta.0"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/angular-themes/-/angular-themes-6.3.0-beta.0.tgz#4891c67614d3bb30689502d8677f5546d8c93bb5"
+  integrity sha512-WCShhJvtb2fKpyeC8COjLmZ4V1KoRWabOyhbvdgT5dmeNEBmvyZeKqmpVNWxx/C2nj7FWPOvZaGoNnOCrWyu7g==
+  dependencies:
+    "@brightlayer-ui/colors" "^3.0.0"
+    "@fontsource/open-sans" "^4.1.0"
+
+"@brightlayer-ui/colors@^3.0.0", "@brightlayer-ui/colors@^3.0.1":
+  version "3.0.1"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/colors/-/colors-3.0.1.tgz#f085acf6b6b4266a01798c78bc25841d15e44b3e"
+  integrity sha512-AE9F6FN1EQWMoqFTak6q8MN3wg9et2u2SUs6HjYhcS3GVSHjMWVSsuJZ2aD5Lu9409Gfi6pBHDWsJZ5PyeLsdQ==
+  dependencies:
+    "@brightlayer-ui/types" "^2.0.0"
+
+"@brightlayer-ui/eslint-config@^2.0.5":
+  version "2.0.5"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/eslint-config/-/eslint-config-2.0.5.tgz#b7ee0c47f4669d2ecefc45d5fc37d7a9e209ccc9"
+  integrity sha512-qUxNX/1z+cmBWzbOeFftxGD7SPT+xkT1rUj++xsZjIQajEkwF1Ka+0mRlSY5qqAsQpRLGDCHDszx8uztmSm1lA==
+  dependencies:
+    "@typescript-eslint/parser" "^4.8.0"
+    eslint-config-prettier ">= 6.3.0"
+  optionalDependencies:
+    eslint-plugin-react "^7.16.0"
+
+"@brightlayer-ui/icons-svg@^1.7.0-beta.1":
+  version "1.7.0-beta.1"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/icons-svg/-/icons-svg-1.7.0-beta.1.tgz#120e7cc5c8cb960e95c9eea296fee120cc507fcc"
+  integrity sha512-Zvnz1jEK3Yp955iBlRWSgDd27YvGTlkVhyGsCyQQhGX774ZWNweYIRHskn3pjZA34vLbWz7vJRJwHScTKt182A==
+
+"@brightlayer-ui/icons@^1.7.1-beta.1":
+  version "1.7.1-beta.1"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/icons/-/icons-1.7.1-beta.1.tgz#78851d7440ea3f837e8c85bc61800961cd25cd95"
+  integrity sha512-XPlG1ZjsHTFkW8QP2hLjvlysvMABe0zvj6aLzqNUvAC5aCoT+Lwgc6FdpOaV91och0qnT7eR78khIJtk4VPkBQ==
+
+"@brightlayer-ui/ng-progress-icons@^1.2.1":
+  version "1.2.1"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/ng-progress-icons/-/ng-progress-icons-1.2.1.tgz#1a10cac9f19b47a2019fc5c81bfb267474bed7dc"
+  integrity sha512-2YWkQaNfSjQmwr5BXF+xpW/ARzokbTVPDkTcV3+ynh7TkKeXQICk1NxkF8ykhWpvS66lLOOYzYyS99/7EHx1eQ==
+  dependencies:
+    color "^3.1.2"
+    tslib "^1.9.0"
+
+"@brightlayer-ui/prettier-config@^1.0.3":
+  version "1.0.3"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/prettier-config/-/prettier-config-1.0.3.tgz#e40a7ae7435c6fd5118acbf249080e0aa81e93af"
+  integrity sha512-EYm3+V7Qd+oYEF+8FadsXAZqXryEHHbGnrV1BMp9selhABjceqUqXPVE4Sn3SKWQdBNJ3En2A3EzgrzRbvRTaw==
+
+"@brightlayer-ui/storybook-rtl-addon@^1.0.1":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/storybook-rtl-addon/-/storybook-rtl-addon-1.1.0.tgz#d57847485b27ec5f4f4c96672cf8211c09d309e3"
+  integrity sha512-aXJBPrBw0El7u/v1VYvyyXYtqMu1+Ou58uXM4TviTMTH5oVuzGFmB+Ln1QKCrTfCZU99afNWCFdjJh/zQGI3og==
+
+"@brightlayer-ui/storybook-themes@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/storybook-themes/-/storybook-themes-1.1.0.tgz#11d89f7d1419ec64c9d8c0d0ba8ad793e9007693"
+  integrity sha512-VLg7Ux085kS6Zw6NBdmzo4GQHlNCCXX5fdnDvpOZSTlMsqfKtsdXpO9SF1DTrigL/I48yCjktAOjEDCWZ/0+2g==
+
+"@brightlayer-ui/types@^2.0.0":
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/types/-/types-2.0.0.tgz#d8adc0cdb96c164943adbad6e74043128a8b4112"
+  integrity sha512-DTCVwND6YC9qrkQl7pkFlN6QxDReJHtjuAiFU9HkXJN368vlw+fzHQ5/j4sB1sZl2eNwOgccv5ecl2XrlolOCw==
+
 "@cnakazawa/watch@^1.0.3":
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/@cnakazawa/watch/-/watch-1.0.4.tgz#f864ae85004d0fcab6f50be9141c4da368d1656a"
@@ -1558,9 +1621,14 @@
     strip-json-comments "^3.1.1"
 
 "@fontsource/open-sans@^4.1.0":
-  version "4.5.0"
-  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-4.5.0.tgz#e6d05dfdfe74580001010302f9c418067b45a6a9"
-  integrity sha512-49+A0IkTTv3cpS1YecrZNCqvlVTThUt/qioiAIZsXfgC3TqavgRqwXXvroXmhVeP/f0sqZw5CRDMS1Hj4aSTbQ==
+  version "4.5.2"
+  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-4.5.2.tgz#6953650035d5b42be645013b1465544d0af49d7d"
+  integrity sha512-aDQrW8s0KslG2aKb9nM5R6fiQR9iPomqWXf6iZCC30qv/UFlSY14SppodA3rE//+w37EqsJjyUq3BSEYzLdisg==
+
+"@fontsource/open-sans@^4.5.1":
+  version "4.5.1"
+  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-4.5.1.tgz#3ad91ff0ee29d6dece501248840d2dd4f63e94a5"
+  integrity sha512-Zvse9PG3XU+gfa44i4ENXvZi28X0RTtuc/b1v4AaqrSpSf2OALN2QrBf91BOC5gXU1Y6xW/S0To5wz8EraLPlQ==
 
 "@gar/promisify@^1.0.1":
   version "1.1.2"
@@ -1915,69 +1983,6 @@
     "@npmcli/promise-spawn" "^1.3.2"
     node-gyp "^7.1.0"
     read-package-json-fast "^2.0.1"
-
-"@pxblue/angular-themes@^6.3.0":
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/angular-themes/-/angular-themes-6.3.0.tgz#0714c8051bf4d54ae6040a04566f66e9a1f8639f"
-  integrity sha512-2WbQFfibGST6n/ELe43xzdKnQyqjO30wqgKYw7JTS5YiVqEMopZqT9LI3Zb/FM8yfiL0gbZDoOkQZXCB3/5FzA==
-  dependencies:
-    "@fontsource/open-sans" "^4.1.0"
-    "@pxblue/colors" "^3.0.0"
-
-"@pxblue/colors@^3.0.0", "@pxblue/colors@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@pxblue/colors/-/colors-3.0.1.tgz#4f89fc9ed10d754eac1ea699b722f5ac8c723173"
-  integrity sha512-3iROA/tvf7BiXRA4R9DobWeEE4Tg7bFgFWNuLzqqwHBEz/uI/J83XTW913g/wba9V5IAVt2DYAQFb/qbqYyjKQ==
-  dependencies:
-    "@pxblue/types" "^2.0.0"
-
-"@pxblue/eslint-config@^2.0.5":
-  version "2.0.5"
-  resolved "https://registry.yarnpkg.com/@pxblue/eslint-config/-/eslint-config-2.0.5.tgz#2c9f9156175cd99aef2d579e834716f3c0877c93"
-  integrity sha512-nkFi1CSD37OutixMlapg5zPJ3HE+RyokgYmR4J7Uput5Jp6MIzvUw+YeRCT0KWOoWq5snTxyUvIA0ANuX/sXig==
-  dependencies:
-    "@typescript-eslint/parser" "^4.8.0"
-    eslint-config-prettier ">= 6.3.0"
-  optionalDependencies:
-    eslint-plugin-react "^7.16.0"
-
-"@pxblue/icons-svg@^1.3.0":
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/icons-svg/-/icons-svg-1.6.0.tgz#73e314c183a49ce00e5e19672c7033b19eed06c8"
-  integrity sha512-76+f2l0ysD+ItLmtmrEKSsWcINiYvDGFlkNJRcQtyeTwxNN4n9MOfHUcMtQ9Kww03BNo5ghipORy3z0ISqBcJg==
-
-"@pxblue/icons@^1.3.0":
-  version "1.6.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/icons/-/icons-1.6.0.tgz#1f3d7f63fd81f53ffaf75a9331dbd3421968a6e9"
-  integrity sha512-1X4TG/bUZMdtQJJMS1+cg13ay0wzAL62wOvJ3WGX3LF+0bU5GidrMHN2z9I1qSla+jiRedlpPlsM97HhyPQUXA==
-
-"@pxblue/ng-progress-icons@^1.2.1":
-  version "1.2.1"
-  resolved "https://registry.yarnpkg.com/@pxblue/ng-progress-icons/-/ng-progress-icons-1.2.1.tgz#2a512107d774e7bc22cdaecf2718cd42094ccd78"
-  integrity sha512-qBowwudAnmHG8wAtvCcSgY4Y3AGGStgsbhrzOH6+nHh5FI6XZoeygTB30kadF/ppuiR/VRD0Q2HhbRDNLkt9Tg==
-  dependencies:
-    color "^3.1.2"
-    tslib "^1.9.0"
-
-"@pxblue/prettier-config@^1.0.3":
-  version "1.0.3"
-  resolved "https://registry.yarnpkg.com/@pxblue/prettier-config/-/prettier-config-1.0.3.tgz#285b9ba346f714d397ef4a59579443b95a77e63e"
-  integrity sha512-x9SDup4pf5H54r/stZBXz7/XlMcIqnwHkEJ+9pyXVtGyQljI28lDGQCWQj6heipWAett50yx0RB3P2+MWZDhJA==
-
-"@pxblue/storybook-rtl-addon@^1.0.1":
-  version "1.0.1"
-  resolved "https://registry.yarnpkg.com/@pxblue/storybook-rtl-addon/-/storybook-rtl-addon-1.0.1.tgz#97750f3907ec523e1a4a33f87512820cb4a3b042"
-  integrity sha512-N/HysEo6rK7f0Eqm4xt8nciZXwjdNscRD5hSYUZUZEn4EzdtqwqXSel8jfjUuZ9R6YCQ7+IIqdZsk6gHUlS+qw==
-
-"@pxblue/storybook-themes@^1.1.0":
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/storybook-themes/-/storybook-themes-1.1.0.tgz#60bfbc6670142c4be0f4a21d5ec7523f5b26662c"
-  integrity sha512-wUM69MYAQTrTqxcFyAIhsPIWZOlF0YxqwFLZDlYe5dvm/iJu9wXDuwdrC5RVgb/JAXuxTwTSkIXXrnPFjlEwXA==
-
-"@pxblue/types@^2.0.0":
-  version "2.0.0"
-  resolved "https://registry.yarnpkg.com/@pxblue/types/-/types-2.0.0.tgz#3df970352aca5256974a10a97d75a2264bad1eba"
-  integrity sha512-rHABCqYALGjrDxdCfw/v4mFsHhE9y9+vdSD3VHfIzA3HY1g1Bp/VWwEuEXWbtj2H5n75D+jkMQZ0rTqSKY3vLw==
 
 "@reach/router@^1.2.1":
   version "1.3.4"
@@ -14626,6 +14631,11 @@ typedarray@^0.0.6:
   version "0.0.6"
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
+
+typeface-open-sans@^1.1.13:
+  version "1.1.13"
+  resolved "https://registry.yarnpkg.com/typeface-open-sans/-/typeface-open-sans-1.1.13.tgz#32a09ebd7df59601e01ad81216f98ce641eeafd1"
+  integrity sha512-lVGVHvYl7UJDFB9vN8r7NHw3sVm7Rjeow6b9AeABc/J+2mDaCkmcdVtw3QZnsJW39P+xm5zeggIj9gLHYGn9Iw==
 
 typescript@4.0.3:
   version "4.0.3"

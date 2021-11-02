@@ -1,6 +1,6 @@
 # User Menu
 
-The `<pxb-user-menu>` is an Avatar that opens a Menu when clicked. It is typically used in the top-right corner of an application and indicates who is logged in.
+The `<blui-user-menu>` is an Avatar that opens a Menu when clicked. It is typically used in the top-right corner of an application and indicates who is logged in.
 
 <div style="align-items: center; display:flex; justify-content: space-around">
 
@@ -20,7 +20,7 @@ The Menu header can be constructed by supplying a `menuTitle` and optional `menu
 
 ```typescript
 // app.module.ts
-import { UserMenuModule, InfoListItemModule } from '@pxblue/angular-components';
+import { UserMenuModule, InfoListItemModule } from '@brightlayer-ui/angular-components';
 ...
 imports: [
     UserMenuModule,
@@ -49,19 +49,19 @@ const items = [
 
 ```html
 // your-component.html
-<pxb-user-menu avatarValue="HA" menuTitle="Sample Title" [(open)]="open">
-    <mat-nav-list pxb-menu-body>
-        <pxb-info-list-item *ngFor="let item of items" [dense]="true" (click)="open=false">
-            <mat-icon pxb-icon>{{item.icon}}</mat-icon>
-            <div pxb-title>{{item.title}}</div>
-        </pxb-info-list-item>
+<blui-user-menu avatarValue="HA" menuTitle="Sample Title" [(open)]="open">
+    <mat-nav-list blui-menu-body>
+        <blui-info-list-item *ngFor="let item of items" [dense]="true" (click)="open=false">
+            <mat-icon blui-icon>{{item.icon}}</mat-icon>
+            <div blui-title>{{item.title}}</div>
+        </blui-info-list-item>
     </mat-nav-list>
-</pxb-user-menu>
+</blui-user-menu>
 ```
 
 ## API
 
-Parent element (`<pxb-user-menu>`) attributes:
+Parent element (`<blui-user-menu>`) attributes:
 
 <div style="overflow: auto;">
 
@@ -86,29 +86,29 @@ Parent element (`<pxb-user-menu>`) attributes:
 
 </div>
 
-The following child elements are projected into `<pxb-user-menu>`:
+The following child elements are projected into `<blui-user-menu>`:
 
 <div style="overflow: auto;">
 
-| Selector          | Description                                                               | Required |
-| ----------------- | ------------------------------------------------------------------------- | -------- |
-| [pxb-avatar]      | Custom avatar to show, alternative to `avatarImage` or `avatarValue` prop | no       |
-| [pxb-menu-avatar] | Custom menu avatar to show                                                | no       |
-| [pxb-menu-header] | Custom menu header content                                                | no       |
-| [pxb-menu-body]   | Custom menu body content                                                  | no       |
+| Selector           | Description                                                               | Required |
+| ------------------ | ------------------------------------------------------------------------- | -------- |
+| [blui-avatar]      | Custom avatar to show, alternative to `avatarImage` or `avatarValue` prop | no       |
+| [blui-menu-avatar] | Custom menu avatar to show                                                | no       |
+| [blui-menu-header] | Custom menu header content                                                | no       |
+| [blui-menu-body]   | Custom menu body content                                                  | no       |
 
 </div>
 
 ### Classes
 
-Each PX Blue component has classes which can be used to override component styles:
+Each Brightlayer UI component has classes which can be used to override component styles:
 
-| Name                               | Description                                 |
-| ---------------------------------- | ------------------------------------------- |
-| pxb-user-menu-avatar               | Styles applied to avatar element            |
-| pxb-user-menu-overlay              | Styles applied to the menu overlay          |
-| pxb-user-menu-header               | Styles applied to the generated menu header |
-| pxb-user-menu-header-avatar        | Styles applied to the menu header avatar    |
-| pxb-user-menu-overlay-backdrop     | Styles applied to the menu overlay backdrop |
-| pxb-user-menu-bottomsheet          | Styles applied to the bottomsheet overlay   |
-| pxb-user-menu-bottomsheet-backdrop | Styles applied to the bottomsheet backdrop  |
+| Name                                | Description                                 |
+| ----------------------------------- | ------------------------------------------- |
+| blui-user-menu-avatar               | Styles applied to avatar element            |
+| blui-user-menu-overlay              | Styles applied to the menu overlay          |
+| blui-user-menu-header               | Styles applied to the generated menu header |
+| blui-user-menu-header-avatar        | Styles applied to the menu header avatar    |
+| blui-user-menu-overlay-backdrop     | Styles applied to the menu overlay backdrop |
+| blui-user-menu-bottomsheet          | Styles applied to the bottomsheet overlay   |
+| blui-user-menu-bottomsheet-backdrop | Styles applied to the bottomsheet backdrop  |

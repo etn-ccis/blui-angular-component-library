@@ -1,9 +1,9 @@
 import { text, color } from '@storybook/addon-knobs';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 
 export const withFullConfig = (): any => ({
     template: `
-          <pxb-list-item-tag [label]="label" [backgroundColor]="backgroundColor" [fontColor]="fontColor"> </pxb-list-item-tag>
+          <blui-list-item-tag [label]="label" [backgroundColor]="backgroundColor" [fontColor]="fontColor"> </blui-list-item-tag>
     `,
     props: {
         label: text('label', 'Label'),

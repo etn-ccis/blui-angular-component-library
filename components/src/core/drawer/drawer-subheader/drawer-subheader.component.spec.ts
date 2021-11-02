@@ -6,9 +6,9 @@ import { count } from 'src/utils/test-utils';
 
 @Component({
     template: `
-        <pxb-drawer-subheader>
+        <blui-drawer-subheader>
             <div id="test-subheader-content">test subheader content</div>
-        </pxb-drawer-subheader>
+        </blui-drawer-subheader>
     `,
 })
 class TestDrawerSubheader {}
@@ -47,7 +47,7 @@ describe('DrawerSubheaderComponent', () => {
     it('should enforce class naming conventions', () => {
         const customFixture = TestBed.createComponent(TestDrawerSubheader);
         customFixture.detectChanges();
-        const classList = ['.pxb-drawer-subheader', '.pxb-drawer-subheader-content'];
+        const classList = ['.blui-drawer-subheader', '.blui-drawer-subheader-content'];
         for (const className of classList) {
             count(customFixture, className);
         }

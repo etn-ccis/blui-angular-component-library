@@ -1,18 +1,18 @@
-.pxb-hero-banner {
+.blui-hero-banner {
     display: flex;
 }
 
-.pxb-hero-banner-content {
+.blui-hero-banner-content {
     display: flex;
     flex: 1 1 0;
     align-items: center;
     justify-content: center;
 
-    pxb-hero {
+    blui-hero {
         flex: 1 1 0;
     }
 
-    pxb-hero:nth-child(n + 5) {
+    blui-hero:nth-child(n + 5) {
         display: none;
     }
 }

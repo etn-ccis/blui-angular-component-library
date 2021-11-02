@@ -4,10 +4,10 @@ const bgImage = require('../../assets/farm.jpg');
 export const withFullConfig = (): any => ({
     styles: [
         `
-       ::ng-deep .showBackgroundImage .pxb-app-bar-toolbar {
+       ::ng-deep .showBackgroundImage .blui-app-bar-toolbar {
             background-color: unset!important;
         }
-       ::ng-deep .showBackgroundImage .pxb-app-bar-background {
+       ::ng-deep .showBackgroundImage .blui-app-bar-background {
           background-image: url(${bgImage})!important;
           background-size: cover!important;
           opacity: .5;
@@ -15,7 +15,7 @@ export const withFullConfig = (): any => ({
     `,
     ],
     template: `
-        <pxb-app-bar
+        <blui-app-bar
              [class.showBackgroundImage]="showBackgroundImage"
              [expandedHeight]="expandedHeight"
              [collapsedHeight]="collapsedHeight"
@@ -23,22 +23,22 @@ export const withFullConfig = (): any => ({
              [scrollContainerId]="scrollContainerId"
              [variant]="variant"
              (collapsedChange)="isCollapsed = $event">
-                 <button pxb-icon mat-icon-button style="margin: 0 -12px">
+                 <button blui-icon mat-icon-button style="margin: 0 -12px">
                     <mat-icon>menu</mat-icon>
                  </button>
-                 <pxb-three-liner
+                 <blui-three-liner
                     [title]="title"
                     [subtitle]="subtitle"
                     [info]="info"
                     style="margin: 0 40px"
                     [style.top.px]="isCollapsed ? 0 : expandedYOffset">
-                 </pxb-three-liner>
-                 <div pxb-actions style="display: flex; margin: 0 -12px;">
+                 </blui-three-liner>
+                 <div blui-actions style="display: flex; margin: 0 -12px;">
                     <mat-icon style="margin: 0 8px">light</mat-icon>
                     <mat-icon style="margin: 0 8px">face</mat-icon>
                     <mat-icon style="margin: 0 8px">home</mat-icon>
                  </div>
-        </pxb-app-bar>
+        </blui-app-bar>
     `,
     props: {
         collapsedHeight: number('collapsedHeight', 64),

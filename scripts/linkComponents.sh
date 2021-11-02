@@ -13,29 +13,29 @@ echo -e "${BLUE}Building components...${NC}"
 yarn build
 
 echo -en "${BLUE}Creating new folder in node_modules...${NC}"
-rm -rf "./demos/showcase/node_modules/@pxblue/angular-components"
-rm -rf "./demos/storybook/node_modules/@pxblue/angular-components"
-mkdir -p "./demos/showcase/node_modules/@pxblue/angular-components"
-mkdir -p "./demos/storybook/node_modules/@pxblue/angular-components"
+rm -rf "./demos/showcase/node_modules/@brightlayer-ui/angular-components"
+rm -rf "./demos/storybook/node_modules/@brightlayer-ui/angular-components"
+mkdir -p "./demos/showcase/node_modules/@brightlayer-ui/angular-components"
+mkdir -p "./demos/storybook/node_modules/@brightlayer-ui/angular-components"
 echo -e "${GREEN}Done${NC}"
 
 echo -en "${BLUE}Copying build output into node_modules...${NC}";
-cp -r ./dist/. ./demos/showcase/node_modules/@pxblue/angular-components
-cp -r ./dist/. ./demos/storybook/node_modules/@pxblue/angular-components
+cp -r ./dist/. ./demos/showcase/node_modules/@brightlayer-ui/angular-components
+cp -r ./dist/. ./demos/storybook/node_modules/@brightlayer-ui/angular-components
 echo -e "${GREEN}Done${NC}"
 
 echo -en "\r\n${BBLUE}Linking Components: ${NC}"
-if [ ! -f ./demos/showcase/node_modules/@pxblue/angular-components/package.json ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
-if [ ! -f ./demos/storybook/node_modules/@pxblue/angular-components/package.json ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
-if [ ! -s ./demos/showcase/node_modules/@pxblue/angular-components ];
+if [ ! -f ./demos/showcase/node_modules/@brightlayer-ui/angular-components/package.json ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
+if [ ! -f ./demos/storybook/node_modules/@brightlayer-ui/angular-components/package.json ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
+if [ ! -s ./demos/showcase/node_modules/@brightlayer-ui/angular-components ];
     then
-        if [ ! -f ./demos/showcase/node_modules/@pxblue/angular-components/esm2015/index.js ];
+        if [ ! -f ./demos/showcase/node_modules/@brightlayer-ui/angular-components/esm2015/index.js ];
         then echo -e "${BRED}Not Linked${NC}" && exit 1;
         fi;
 fi
-if [ ! -s ./demos/storybook/node_modules/@pxblue/angular-components ];
+if [ ! -s ./demos/storybook/node_modules/@brightlayer-ui/angular-components ];
     then
-        if [ ! -f ./demos/showcase/node_modules/@pxblue/angular-components/esm2015/index.js ];
+        if [ ! -f ./demos/showcase/node_modules/@brightlayer-ui/angular-components/esm2015/index.js ];
         then echo -e "${BRED}Not Linked${NC}" && exit 1;
         fi;
 fi

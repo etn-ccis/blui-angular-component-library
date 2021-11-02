@@ -13,75 +13,79 @@ type IconAlignType = 'left' | 'center' | 'right' | undefined;
 type DividerType = 'full' | 'partial' | undefined;
 
 /**
- * [InfoListItem Component](https://pxblue-components.github.io/angular/?path=/info/components-info-list-item--readme)
+ * [InfoListItem Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-info-list-item--readme)
  *
- * The `<pxb-info-list-item>` is intended to be used in List views.
+ * The `<blui-info-list-item>` is intended to be used in List views.
  * It positions a title as well as optional subtitle(s), icon, and status stripe.
  */
 @Component({
-    selector: 'pxb-info-list-item',
+    selector: 'blui-info-list-item',
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
         <mat-list-item
-            class="pxb-info-list-item-content"
-            [class.pxb-info-list-item-wrap]="wrapSubtitle || wrapTitle || wrapInfo"
-            [class.pxb-info-list-item-dense]="dense"
-            [class.pxb-info-list-item-status]="statusColor"
+            class="blui-info-list-item-content"
+            [class.blui-info-list-item-wrap]="wrapSubtitle || wrapTitle || wrapInfo"
+            [class.blui-info-list-item-dense]="dense"
+            [class.blui-info-list-item-status]="statusColor"
             [style.border-left-color]="statusColor"
             [style.border-right-color]="statusColor"
             [disabled]="disabled"
         >
             <div
                 mat-list-icon
-                class="pxb-info-list-item-icon-wrapper"
-                [class.pxb-info-list-item-hide-padding]="hidePadding"
-                [class.pxb-info-list-item-avatar]="avatar"
+                class="blui-info-list-item-icon-wrapper"
+                [class.blui-info-list-item-hide-padding]="hidePadding"
+                [class.blui-info-list-item-avatar]="avatar"
                 [style.justify-content]="
                     iconAlign === 'right' ? 'flex-end' : iconAlign === 'center' ? 'center' : 'flex-start'
                 "
             >
-                <ng-content select="[pxb-icon]"></ng-content>
+                <ng-content select="[blui-icon]"></ng-content>
             </div>
-            <div class="pxb-info-list-item-left-content-wrapper">
-                <ng-content select="[pxb-left-content]"></ng-content>
+            <div class="blui-info-list-item-left-content-wrapper">
+                <ng-content select="[blui-left-content]"></ng-content>
             </div>
             <div
-                class="mat-body-1 pxb-info-list-item-title-wrapper"
+                class="mat-body-1 blui-info-list-item-title-wrapper"
                 matLine
-                [class.pxb-info-list-item-wrap]="wrapTitle"
+                [class.blui-info-list-item-wrap]="wrapTitle"
                 #title
             >
-                <ng-content select="[pxb-title]"></ng-content>
+                <ng-content select="[blui-title]"></ng-content>
             </div>
             <div
-                class="mat-body-2 pxb-info-list-item-subtitle-wrapper"
+                class="mat-body-2 blui-info-list-item-subtitle-wrapper"
                 matLine
-                [class.pxb-info-list-item-wrap]="wrapSubtitle"
+                [class.blui-info-list-item-wrap]="wrapSubtitle"
             >
-                <ng-content select="[pxb-subtitle]"></ng-content>
+                <ng-content select="[blui-subtitle]"></ng-content>
             </div>
-            <div class="mat-body-2 pxb-info-list-item-info-wrapper" matLine [class.pxb-info-list-item-wrap]="wrapInfo">
-                <ng-content select="[pxb-info]"></ng-content>
+            <div
+                class="mat-body-2 blui-info-list-item-info-wrapper"
+                matLine
+                [class.blui-info-list-item-wrap]="wrapInfo"
+            >
+                <ng-content select="[blui-info]"></ng-content>
             </div>
-            <pxb-spacer class="pxb-info-list-item-spacer"></pxb-spacer>
-            <div class="pxb-info-list-item-right-content">
-                <div #right class="pxb-info-list-item-right-content-wrapper">
-                    <ng-content select="[pxb-right-content]"></ng-content>
+            <blui-spacer class="blui-info-list-item-spacer"></blui-spacer>
+            <div class="blui-info-list-item-right-content">
+                <div #right class="blui-info-list-item-right-content-wrapper">
+                    <ng-content select="[blui-right-content]"></ng-content>
                 </div>
-                <mat-icon *ngIf="chevron && isEmpty(rightEl)" class="pxb-chevron">chevron_right</mat-icon>
+                <mat-icon *ngIf="chevron && isEmpty(rightEl)" class="blui-chevron">chevron_right</mat-icon>
             </div>
         </mat-list-item>
         <mat-divider
             *ngIf="divider"
-            class="pxb-info-list-item-divider"
-            [class.pxb-info-list-item-partial-divider]="divider === 'partial'"
+            class="blui-info-list-item-divider"
+            [class.blui-info-list-item-partial-divider]="divider === 'partial'"
         >
         </mat-divider>
     `,
     styleUrls: ['./info-list-item.component.scss'],
     host: {
-        class: 'pxb-info-list-item',
+        class: 'blui-info-list-item',
     },
 })
 export class InfoListItemComponent implements AfterViewInit {

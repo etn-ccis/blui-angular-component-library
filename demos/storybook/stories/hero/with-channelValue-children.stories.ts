@@ -2,11 +2,11 @@ import { text, select } from '@storybook/addon-knobs';
 
 export const withChannelValueChildren = (): any => ({
     template: `
-        <pxb-hero [label]="'Duration'">
-            <mat-icon pxb-primary>schedule</mat-icon>
-            <pxb-channel-value [value]="hours" units="h" [unitSpace]="unitSpace"></pxb-channel-value>
-            <pxb-channel-value [value]="minutes" units="m" [unitSpace]="unitSpace"></pxb-channel-value>
-        </pxb-hero>
+        <blui-hero [label]="'Duration'">
+            <mat-icon blui-primary>schedule</mat-icon>
+            <blui-channel-value [value]="hours" units="h" [unitSpace]="unitSpace"></blui-channel-value>
+            <blui-channel-value [value]="minutes" units="m" [unitSpace]="unitSpace"></blui-channel-value>
+        </blui-hero>
     `,
     props: {
         hours: text('ChannelValue.hours', '1'),

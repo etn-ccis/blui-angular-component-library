@@ -5,20 +5,20 @@ import { invertRTL } from '../../src/utils';
 
 export const withFullConfig = (): any => ({
     template: `
-        <pxb-user-menu 
+        <blui-user-menu 
             [(open)]="open"
             [avatarValue]="avatarValue" 
             [menuTitle]="menuTitle" 
             [menuSubtitle]="menuSubtitle"
             [positions]="createPositions(originX, originY, overlayX, overlayY)">>
-            <mat-nav-list pxb-menu-body [style.paddingTop.px]="0">
-                <pxb-info-list-item *ngFor="let item of items" [dense]="true" 
+            <mat-nav-list blui-menu-body [style.paddingTop.px]="0">
+                <blui-info-list-item *ngFor="let item of items" [dense]="true" 
                     (click)="open=false; item.onSelect();">
-                    <mat-icon pxb-icon [style.transform]="invertRTL()">{{item.icon}}</mat-icon>
-                    <div pxb-title>{{item.title}}</div>
-                </pxb-info-list-item>
+                    <mat-icon blui-icon [style.transform]="invertRTL()">{{item.icon}}</mat-icon>
+                    <div blui-title>{{item.title}}</div>
+                </blui-info-list-item>
             </mat-nav-list>
-    </pxb-user-menu> 
+    </blui-user-menu> 
     `,
     props: {
         open: false,

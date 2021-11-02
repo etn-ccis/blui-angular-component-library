@@ -1,39 +1,39 @@
 import { number } from '@storybook/addon-knobs';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { action } from '@storybook/addon-actions';
 import { withCustomHeaderStyles } from './with-custom-header.stories';
 
 export const withHeroes = (): any => ({
     styles: [
         `${withCustomHeaderStyles}
-        ::ng-deep pxb-score-card .pxb-score-card .pxb-score-card-header {
+        ::ng-deep blui-score-card .blui-score-card .blui-score-card-header {
             background-color: ${Colors.blue[500]};
         }`,
     ],
     template: `
-        <pxb-score-card
+        <blui-score-card
             [headerTitle]="'Substation 3'"
             [headerSubtitle]="'High Humidity Alarm'"
             [headerInfo]="'4 Devices'"
         >
-            <mat-icon pxb-action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
-            <mat-list pxb-body>
+            <mat-icon blui-action-items (click)="actionClick('more_vert')">more_vert</mat-icon>
+            <mat-list blui-body>
                 <mat-list-item>
                     <p mat-line>Body Content</p>
                 </mat-list-item>
             </mat-list>
-            <pxb-hero-banner pxb-badge>
-                <pxb-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'" [units]="'°F'" [iconSize]="36">
-                    <i pxb-primary class="pxb-temp"></i>
-                </pxb-hero>
-                <pxb-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="36">
-                    <i pxb-primary [style.color]="colors.blue[300]" class="pxb-moisture"></i>
-                </pxb-hero>
-            </pxb-hero-banner>
-            <pxb-info-list-item pxb-action-row chevron="true" hidePadding="true" dense="true" (click)="actionRowClick()">
-                <div pxb-title>View Location</div>
-            </pxb-info-list-item>
-        </pxb-score-card>
+            <blui-hero-banner blui-badge>
+                <blui-hero *ngIf="heroLimit > 0" [label]="'Temperature'" [value]="'98'" [units]="'°F'" [iconSize]="36">
+                    <i blui-primary class="blui-temp"></i>
+                </blui-hero>
+                <blui-hero *ngIf="heroLimit > 1" [label]="'Humidity'" [value]="'54'" [units]="'%'" [iconSize]="36">
+                    <i blui-primary [style.color]="colors.blue[300]" class="blui-moisture"></i>
+                </blui-hero>
+            </blui-hero-banner>
+            <blui-info-list-item blui-action-row chevron="true" hidePadding="true" dense="true" (click)="actionRowClick()">
+                <div blui-title>View Location</div>
+            </blui-info-list-item>
+        </blui-score-card>
     `,
     props: {
         actionClick: (iconName: string): any => action(`${iconName} clicked`)(),

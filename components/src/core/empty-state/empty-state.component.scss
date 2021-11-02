@@ -1,8 +1,8 @@
-.pxb-empty-state {
+.blui-empty-state {
     display: flex;
 }
 
-.pxb-empty-state-content {
+.blui-empty-state-content {
     height: 100%;
     width: 100%;
     display: flex;
@@ -10,21 +10,21 @@
     align-items: center;
     justify-content: center;
 
-    .pxb-empty-state-title {
+    .blui-empty-state-title {
         margin-bottom: 0;
     }
 
-    .pxb-empty-state-description {
+    .blui-empty-state-description {
         margin-bottom: 1rem;
     }
 
-    .pxb-empty-state-title,
-    .pxb-empty-state-description {
+    .blui-empty-state-title,
+    .blui-empty-state-description {
         text-align: center;
         font-weight: 600;
     }
 
-    .pxb-empty-state-empty-icon-wrapper {
+    .blui-empty-state-empty-icon-wrapper {
         margin-bottom: 1rem;
         line-height: 1;
         > * {
@@ -36,7 +36,7 @@
         }
     }
 
-    .pxb-empty-state-actions-wrapper .mat-button-wrapper {
+    .blui-empty-state-actions-wrapper .mat-button-wrapper {
         display: flex;
         align-items: center;
     }

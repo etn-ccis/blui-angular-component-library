@@ -1,5 +1,5 @@
 {
-  "dest": "../demos/showcase/node_modules/@pxblue/angular-components",
+  "dest": "../demos/showcase/node_modules/@brightlayer-ui/angular-components",
   "lib": {
     "entryFile": "src/index.ts"
   }

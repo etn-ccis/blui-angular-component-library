@@ -1,4 +1,4 @@
-import '@pxblue/angular-themes/theme.scss';
+import '@brightlayer-ui/angular-themes/theme.scss';
 import { CommonModule } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
 import '@fontsource/open-sans/300.css';
@@ -13,8 +13,8 @@ import '@fontsource/open-sans/800.css';
 import '@fontsource/open-sans/800-italic.css';
 import { BrowserModule } from '@angular/platform-browser';
 import { COMPONENT_SECTION_NAME, README_STORY_NAME } from './constants';
-import * as Colors from '@pxblue/colors';
-import { getDirection } from '@pxblue/storybook-rtl-addon';
+import * as Colors from '@brightlayer-ui/colors';
+import { getDirection } from '@brightlayer-ui/storybook-rtl-addon';
 
 let banner: HTMLElement;
 let prevUrl = '';
@@ -45,13 +45,13 @@ const selectNotesTab = (): void => {
 
 export const updateTitle = (): void => {
     setTimeout(() => {
-        window.top.document.title = 'PX Blue | Angular Components';
+        window.top.document.title = 'Brightlayer UI | Angular Components';
     }, 10);
 
     const link: any = window.top.document.querySelector("link[rel*='icon']") || document.createElement('link');
     link.type = 'image/x-icon';
     link.rel = 'shortcut icon';
-    link.href = './pxblue.png';
+    link.href = './blui.png';
     window.top.document.getElementsByTagName('head')[0].appendChild(link);
 };
 
@@ -145,11 +145,11 @@ export class StoryComponent {
         const body = document.querySelector('body') as HTMLElement;
         this.useDarkMode = isDarkMode();
         if (this.useDarkMode) {
-            body.classList.remove('pxb-blue');
-            body.classList.add('pxb-blue-dark');
+            body.classList.remove('blui-blue');
+            body.classList.add('blui-blue-dark');
         } else {
-            body.classList.remove('pxb-blue-dark');
-            body.classList.add('pxb-blue');
+            body.classList.remove('blui-blue-dark');
+            body.classList.add('blui-blue');
         }
         const canvas = document.querySelector('.sb-show-main') as HTMLElement;
         if (canvas && canvas.style) {

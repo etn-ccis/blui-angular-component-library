@@ -6,7 +6,7 @@ import { By } from '@angular/platform-browser';
 
 @Component({
     template: `
-        <pxb-info-list-item
+        <blui-info-list-item
             [statusColor]="statusColor"
             [chevron]="chevron"
             [dense]="dense"
@@ -16,10 +16,10 @@ import { By } from '@angular/platform-browser';
             [wrapTitle]="wrapTitle"
             [divider]="divider"
         >
-            <div pxb-title>Test Title</div>
-            <div pxb-subtitle>Test Subtitle</div>
-            <mat-icon pxb-icon>mail</mat-icon>
-        </pxb-info-list-item>
+            <div blui-title>Test Title</div>
+            <div blui-subtitle>Test Subtitle</div>
+            <mat-icon blui-icon>mail</mat-icon>
+        </blui-info-list-item>
     `,
 })
 class TestBasicUsage {
@@ -35,35 +35,35 @@ class TestBasicUsage {
 
 @Component({
     template: `
-        <pxb-info-list-item>
-            <div pxb-title>title</div>
-            <mat-icon pxb-icon>mail</mat-icon>
-        </pxb-info-list-item>
+        <blui-info-list-item>
+            <div blui-title>title</div>
+            <mat-icon blui-icon>mail</mat-icon>
+        </blui-info-list-item>
     `,
 })
 class TestIconComponent {}
 
 @Component({
-    template: ` <pxb-info-list-item> </pxb-info-list-item> `,
+    template: ` <blui-info-list-item> </blui-info-list-item> `,
 })
 class TestMissingTitle {}
 
 @Component({
     template: `
-        <pxb-info-list-item>
-            <div pxb-title>title</div>
-            <div pxb-left-content class="test-left">lefty</div>
-        </pxb-info-list-item>
+        <blui-info-list-item>
+            <div blui-title>title</div>
+            <div blui-left-content class="test-left">lefty</div>
+        </blui-info-list-item>
     `,
 })
 class TestLeftContent {}
 
 @Component({
     template: `
-        <pxb-info-list-item>
-            <div pxb-title>title</div>
-            <div pxb-right-content class="test-right">righty</div>
-        </pxb-info-list-item>
+        <blui-info-list-item>
+            <div blui-title>title</div>
+            <div blui-right-content class="test-right">righty</div>
+        </blui-info-list-item>
     `,
 })
 class TestRightContent {}
@@ -93,14 +93,14 @@ describe('InfoListItemComponent', () => {
 
     it('should render a title', () => {
         fixture.detectChanges();
-        void expect(fixture.nativeElement.querySelector('.pxb-info-list-item-title-wrapper').innerHTML).toContain(
+        void expect(fixture.nativeElement.querySelector('.blui-info-list-item-title-wrapper').innerHTML).toContain(
             'Test Title'
         );
     });
 
     it('should render a subtitle', () => {
         fixture.detectChanges();
-        void expect(fixture.nativeElement.querySelector('.pxb-info-list-item-subtitle-wrapper').innerHTML).toContain(
+        void expect(fixture.nativeElement.querySelector('.blui-info-list-item-subtitle-wrapper').innerHTML).toContain(
             'Test Subtitle'
         );
     });
@@ -132,14 +132,14 @@ describe('InfoListItemComponent', () => {
 
     it('should have a default height of 72px', () => {
         fixture.detectChanges();
-        const root = fixture.debugElement.query(By.css('.pxb-info-list-item-content'));
+        const root = fixture.debugElement.query(By.css('.blui-info-list-item-content'));
         void expect(root.nativeElement.children[0].offsetHeight).toBe(72);
     });
 
     it('should have a dense height of 52px', () => {
         component.dense = true;
         fixture.detectChanges();
-        const root = fixture.debugElement.query(By.css('.pxb-info-list-item-content'));
+        const root = fixture.debugElement.query(By.css('.blui-info-list-item-content'));
         void expect(root.nativeElement.children[0].offsetHeight).toBe(52);
     });
 
@@ -149,17 +149,17 @@ describe('InfoListItemComponent', () => {
         component.hidePadding = true;
         fixture.detectChanges();
         const classList = [
-            '.pxb-info-list-item-content',
-            '.pxb-info-list-item-icon-wrapper',
-            '.pxb-info-list-item-left-content-wrapper',
-            '.pxb-info-list-item-title-wrapper',
-            '.pxb-info-list-item-subtitle-wrapper',
-            '.pxb-info-list-item-spacer',
-            '.pxb-info-list-item-divider',
-            '.pxb-info-list-item-avatar',
-            '.pxb-info-list-item-hide-padding',
-            '.pxb-info-list-item-right-content',
-            '.pxb-info-list-item-right-content-wrapper',
+            '.blui-info-list-item-content',
+            '.blui-info-list-item-icon-wrapper',
+            '.blui-info-list-item-left-content-wrapper',
+            '.blui-info-list-item-title-wrapper',
+            '.blui-info-list-item-subtitle-wrapper',
+            '.blui-info-list-item-spacer',
+            '.blui-info-list-item-divider',
+            '.blui-info-list-item-avatar',
+            '.blui-info-list-item-hide-padding',
+            '.blui-info-list-item-right-content',
+            '.blui-info-list-item-right-content-wrapper',
         ];
         for (const className of classList) {
             count(fixture, className);

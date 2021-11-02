@@ -7,27 +7,27 @@ import { ChannelValueModule } from '..';
 
 @Component({
     template: `
-        <pxb-hero label="Duration">
-            <pxb-channel-value value="60" units="hours"></pxb-channel-value>
-        </pxb-hero>
+        <blui-hero label="Duration">
+            <blui-channel-value value="60" units="hours"></blui-channel-value>
+        </blui-hero>
     `,
 })
 class TestChannelValue {}
 
 @Component({
     template: `
-        <pxb-hero label="Duration">
-            <div pxb-primary id="test-primary-icon">Icon</div>
-        </pxb-hero>
+        <blui-hero label="Duration">
+            <div blui-primary id="test-primary-icon">Icon</div>
+        </blui-hero>
     `,
 })
 class TestPrimaryIcon {}
 
 @Component({
     template: `
-        <pxb-hero label="Duration" value="60" units="hours">
-            <div pxb-secondary id="test-secondary-icon">Icon</div>
-        </pxb-hero>
+        <blui-hero label="Duration" value="60" units="hours">
+            <div blui-secondary id="test-secondary-icon">Icon</div>
+        </blui-hero>
     `,
 })
 class TestSecondaryIcon {}
@@ -58,26 +58,26 @@ describe('HeroComponent', () => {
     it('should render a label', () => {
         component.label = 'Test Label';
         fixture.detectChanges();
-        const label = fixture.nativeElement.querySelector('.pxb-hero-label');
+        const label = fixture.nativeElement.querySelector('.blui-hero-label');
         void expect(label.innerHTML).toBe('Test Label');
     });
 
-    it('should create and render a pxb-channel-value', () => {
+    it('should create and render a blui-channel-value', () => {
         component.label = 'Temp';
         component.value = '80';
         component.units = 'C';
         fixture.detectChanges();
-        const value = fixture.nativeElement.querySelector('.pxb-channel-value-value');
-        const units = fixture.nativeElement.querySelector('.pxb-channel-value-units');
+        const value = fixture.nativeElement.querySelector('.blui-channel-value-value');
+        const units = fixture.nativeElement.querySelector('.blui-channel-value-units');
         void expect(value.innerText).toBe('80');
         void expect(units.innerText).toBe('C');
     });
 
-    it('should accept and project a pxb-channel-value', () => {
+    it('should accept and project a blui-channel-value', () => {
         const channelValueFixture = TestBed.createComponent(TestChannelValue);
         channelValueFixture.detectChanges();
-        const value = channelValueFixture.nativeElement.querySelector('.pxb-channel-value-value');
-        const units = channelValueFixture.nativeElement.querySelector('.pxb-channel-value-units');
+        const value = channelValueFixture.nativeElement.querySelector('.blui-channel-value-value');
+        const units = channelValueFixture.nativeElement.querySelector('.blui-channel-value-units');
         void expect(value.innerText).toBe('60');
         void expect(units.innerText).toBe('hours');
     });
@@ -98,10 +98,10 @@ describe('HeroComponent', () => {
 
     it('should enforce class naming conventions', () => {
         const classList = [
-            '.pxb-hero-content',
-            '.pxb-hero-primary-wrapper',
-            '.pxb-hero-channel-value-wrapper',
-            '.pxb-hero-label',
+            '.blui-hero-content',
+            '.blui-hero-primary-wrapper',
+            '.blui-hero-channel-value-wrapper',
+            '.blui-hero-label',
         ];
         for (const className of classList) {
             count(fixture, className);

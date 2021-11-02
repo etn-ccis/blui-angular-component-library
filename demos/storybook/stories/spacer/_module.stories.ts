@@ -4,7 +4,7 @@ import { COMPONENT_SECTION_NAME, README_STORY_NAME, STORY_PARAMS } from '../../s
 import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/utils';
 import { withFlexLayout } from './with-flex-layout.stories';
 import { withStaticLayout } from './with-static-layout.stories';
-import { SpacerModule } from '@pxblue/angular-components';
+import { SpacerModule } from '@brightlayer-ui/angular-components';
 import { withA11y } from '@storybook/addon-a11y';
 
 storiesOf(`${COMPONENT_SECTION_NAME}/Spacer`, module)
