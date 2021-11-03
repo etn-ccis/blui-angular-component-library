@@ -1,4 +1,4 @@
-import '@pxblue/angular-themes/theme.scss';
+import '@brightlayer-ui/angular-themes/theme.scss';
 import { Component, NgModule, OnInit, OnDestroy } from '@angular/core';
 import '@fontsource/open-sans/300.css';
 import '@fontsource/open-sans/300-italic.css';
@@ -14,38 +14,38 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatDividerModule } from '@angular/material/divider';
 import { hideTopBanner, showTopBanner, UtilModule } from '../utils';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 const bg = require('../../assets/circles-bg.svg');
-const icon = require('../../assets/pxb-icon.svg');
+const icon = require('../../assets/blui-icon.svg');
 import { CommonModule } from '@angular/common';
-const packageJSON = require('@pxblue/angular-components/package.json');
+const packageJSON = require('@brightlayer-ui/angular-components/package.json');
 
 @Component({
     selector: 'welcome',
     styleUrls: ['welcome.component.css'],
     template: `
         <div
-            class="pxb-blue mat-typography welcome-root"
-            [style.backgroundColor]="pxbColors.blue[500]"
-            [style.color]="pxbColors.white[50]"
+            class="blui-blue mat-typography welcome-root"
+            [style.backgroundColor]="bluiColors.blue[500]"
+            [style.color]="bluiColors.white[50]"
             [style.backgroundImage]="background"
         >
             <div class="container" dir="ltr">
                 <div class="img-container">
-                    <img [src]="pxbIcon" alt="pxb-icon" class="rotate" />
+                    <img [src]="bluiIcon" alt="blui-icon" class="rotate" />
                 </div>
                 <section class="mat-typography">
-                    <div class="mat-display-3">Power Xpert <strong>Blue</strong></div>
+                    <div class="mat-display-3">Brightlayer <strong>UI</strong></div>
                     <div class="mat-display-1">Angular Component Library</div>
                     <div class="mat-h3" *ngIf="package.version">v{{ package.version }}</div>
                     <div class="mat-h3 description">
-                        Learn about and interact with our PX Blue components using Storybook.
+                        Learn about and interact with our Brightlayer UI components using Storybook.
                     </div>
                     <a
                         mat-stroked-button
                         actions
                         style="color: white; border-color: white"
-                        href="https://github.com/pxblue/angular-component-library"
+                        href="https://github.com/brightlayer-ui/angular-component-library"
                         target="blank"
                         [style.marginTop.px]="36"
                     >
@@ -53,7 +53,7 @@ const packageJSON = require('@pxblue/angular-components/package.json');
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 24 24"
                             class="github"
-                            [style.fill]="pxbColors.white[50]"
+                            [style.fill]="bluiColors.white[50]"
                         >
                             <rect width="24" height="24" fill="none" />
                             <path
@@ -68,9 +68,9 @@ const packageJSON = require('@pxblue/angular-components/package.json');
     `,
 })
 export class WelcomeComponent implements OnInit, OnDestroy {
-    pxbColors = Colors;
+    bluiColors = Colors;
     background = `url(${bg})`;
-    pxbIcon = icon;
+    bluiIcon = icon;
     package = packageJSON;
 
     ngOnInit(): void {

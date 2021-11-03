@@ -31,21 +31,21 @@ describe('DrawerNavGroupComponent', () => {
         component.title = 'test';
         spyOn(component, 'isOpen').and.returnValue(true);
         fixture.detectChanges();
-        void expect(fixture.nativeElement.querySelector('.pxb-drawer-nav-group-title').innerHTML).toContain('test');
+        void expect(fixture.nativeElement.querySelector('.blui-drawer-nav-group-title').innerHTML).toContain('test');
     });
 
     it('should hide the group title if the drawer is not open', () => {
         component.title = 'test';
         spyOn(component, 'isOpen').and.returnValue(false);
         fixture.detectChanges();
-        void expect(fixture.nativeElement.querySelector('.pxb-drawer-nav-group-title-closed')).toBeTruthy();
+        void expect(fixture.nativeElement.querySelector('.blui-drawer-nav-group-title-closed')).toBeTruthy();
     });
 
     it('should enforce class naming conventions', () => {
         component.title = 'test';
         spyOn(component, 'isOpen').and.returnValue(true);
         fixture.detectChanges();
-        const classList = ['.pxb-drawer-nav-group-content', '.pxb-drawer-nav-group-title'];
+        const classList = ['.blui-drawer-nav-group-content', '.blui-drawer-nav-group-title'];
         for (const className of classList) {
             count(fixture, className);
         }

@@ -1,38 +1,38 @@
 /* RTL */
 [dir='rtl'] {
-    .pxb-channel-value-content {
-        .pxb-channel-value-icon-wrapper {
+    .blui-channel-value-content {
+        .blui-channel-value-icon-wrapper {
             margin-right: 0;
             margin-left: 0.35em;
         }
 
-        .pxb-channel-value-value + .pxb-channel-value-units-suffix {
+        .blui-channel-value-value + .blui-channel-value-units-suffix {
             margin-left: 0;
             margin-right: 0.25em;
         }
 
-        .pxb-channel-value-units-prefix + .pxb-channel-value-value {
+        .blui-channel-value-units-prefix + .blui-channel-value-value {
             margin-left: 0;
             margin-right: 0.25em;
         }
 
-        .pxb-channel-value-value.pxb-channel-value-remove-space + .pxb-channel-value-units-suffix {
+        .blui-channel-value-value.blui-channel-value-remove-space + .blui-channel-value-units-suffix {
             margin-left: 0;
             margin-right: 0;
         }
 
-        .pxb-channel-value-units-prefix + .pxb-channel-value-value.pxb-channel-value-remove-space {
+        .blui-channel-value-units-prefix + .blui-channel-value-value.blui-channel-value-remove-space {
             margin-left: 0;
             margin-right: 0;
         }
     }
 }
 
-.pxb-channel-value {
+.blui-channel-value {
     display: inline-flex;
 }
 
-.pxb-channel-value-content {
+.blui-channel-value-content {
     display: inline-flex;
     align-items: center;
     line-height: 1.2;
@@ -40,31 +40,31 @@
     letter-spacing: 0;
     margin: 0;
 
-    .pxb-channel-value-units {
+    .blui-channel-value-units {
         font-weight: 300;
     }
 
-    .pxb-channel-value-value {
+    .blui-channel-value-value {
         font-weight: 600;
     }
 
-    .pxb-channel-value-value + .pxb-channel-value-units-suffix {
+    .blui-channel-value-value + .blui-channel-value-units-suffix {
         margin-left: 0.25em;
     }
 
-    .pxb-channel-value-units-prefix + .pxb-channel-value-value {
+    .blui-channel-value-units-prefix + .blui-channel-value-value {
         margin-left: 0.25em;
     }
 
-    .pxb-channel-value-value.pxb-channel-value-remove-space + .pxb-channel-value-units-suffix {
+    .blui-channel-value-value.blui-channel-value-remove-space + .blui-channel-value-units-suffix {
         margin-left: 0;
     }
 
-    .pxb-channel-value-units-prefix + .pxb-channel-value-value.pxb-channel-value-remove-space {
+    .blui-channel-value-units-prefix + .blui-channel-value-value.blui-channel-value-remove-space {
         margin-left: 0;
     }
 
-    .pxb-channel-value-icon-wrapper {
+    .blui-channel-value-icon-wrapper {
         font-size: inherit;
         display: block;
         margin-right: 0.35em;

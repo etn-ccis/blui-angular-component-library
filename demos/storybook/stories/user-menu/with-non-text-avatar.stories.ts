@@ -15,25 +15,25 @@ export const withNonTextAvatar = (): any => ({
     ],
     template: `
         <div class="non-text-avatar-container">
-            <pxb-user-menu [avatarImage]="trex" [(open)]="open1">
-                <mat-nav-list pxb-menu-body [style.paddingTop.px]="0">
-                    <pxb-info-list-item *ngFor="let item of items" [dense]="true" (click)="open1=false; item.onSelect();">
-                        <mat-icon pxb-icon [style.transform]="invertRTL()">{{item.icon}}</mat-icon>
-                        <div pxb-title>{{item.title}}</div>
-                    </pxb-info-list-item>
+            <blui-user-menu [avatarImage]="trex" [(open)]="open1">
+                <mat-nav-list blui-menu-body [style.paddingTop.px]="0">
+                    <blui-info-list-item *ngFor="let item of items" [dense]="true" (click)="open1=false; item.onSelect();">
+                        <mat-icon blui-icon [style.transform]="invertRTL()">{{item.icon}}</mat-icon>
+                        <div blui-title>{{item.title}}</div>
+                    </blui-info-list-item>
                 </mat-nav-list>
-            </pxb-user-menu> 
+            </blui-user-menu> 
             
-            <pxb-user-menu [(open)]="open2">
-                <mat-icon pxb-avatar>pets</mat-icon>
-                <mat-nav-list pxb-menu-body [style.paddingTop.px]="0">
-                    <pxb-info-list-item *ngFor="let item of items" [dense]="true" 
+            <blui-user-menu [(open)]="open2">
+                <mat-icon blui-avatar>pets</mat-icon>
+                <mat-nav-list blui-menu-body [style.paddingTop.px]="0">
+                    <blui-info-list-item *ngFor="let item of items" [dense]="true" 
                         (click)="open2=false; item.onSelect();">
-                        <mat-icon pxb-icon [style.transform]="invertRTL()">{{item.icon}}</mat-icon>
-                        <div pxb-title>{{item.title}}</div>
-                    </pxb-info-list-item>
+                        <mat-icon blui-icon [style.transform]="invertRTL()">{{item.icon}}</mat-icon>
+                        <div blui-title>{{item.title}}</div>
+                    </blui-info-list-item>
                 </mat-nav-list>
-            </pxb-user-menu> 
+            </blui-user-menu> 
         </div>
     `,
     props: {

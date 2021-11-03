@@ -12,11 +12,11 @@ export const matListStyles = `
 export const withBasicConfig = (): any => ({
     styles: [matListStyles],
     template: `
-        <pxb-score-card [headerTitle]="headerTitle">
-            <mat-list pxb-body>
+        <blui-score-card [headerTitle]="headerTitle">
+            <mat-list blui-body>
                 <mat-list-item>Body Content</mat-list-item>
             </mat-list>
-        </pxb-score-card> 
+        </blui-score-card> 
     `,
     props: {
         headerTitle: text('headerTitle', 'Card Title'),

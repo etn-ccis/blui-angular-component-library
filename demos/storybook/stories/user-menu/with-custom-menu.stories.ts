@@ -34,8 +34,8 @@ export const withCustomMenu = (): any => ({
     `,
     ],
     template: `
-        <pxb-user-menu [avatarImage]="avatarImage" [(open)]="open">
-            <div pxb-menu-header>
+        <blui-user-menu [avatarImage]="avatarImage" [(open)]="open">
+            <div blui-menu-header>
                 <div style="padding: 16px 8px 8px 8px; position: relative">
                     <div class="header1">Welcome,</div>
                     <div class="header2">T-Rex</div>
@@ -43,7 +43,7 @@ export const withCustomMenu = (): any => ({
                 </div>
                 <mat-divider></mat-divider>
             </div>
-            <div pxb-menu-body>
+            <div blui-menu-body>
                 <mat-nav-list [style.paddingTop.px]="0">
                     <mat-list-item *ngFor="let item of items" (click)="open=false; onSelect()">
                         {{item}}
@@ -52,7 +52,7 @@ export const withCustomMenu = (): any => ({
                 <mat-divider></mat-divider>
                 <img [src]="eatonLogo" class="footer" />
             </div>
-        </pxb-user-menu> 
+        </blui-user-menu> 
     `,
     props: {
         open: false,

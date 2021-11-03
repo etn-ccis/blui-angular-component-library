@@ -1,18 +1,18 @@
 @import '../../utility/utility';
 
 /* RTL */
-[dir='rtl'] .pxb-user-menu-header-content {
-    .pxb-user-menu-header-icon-wrapper {
+[dir='rtl'] .blui-user-menu-header-content {
+    .blui-user-menu-header-icon-wrapper {
         margin-right: -0.5rem;
         margin-left: calc(24px + (1rem - 16px) / 2);
     }
-    &.pxb-user-menu-header-no-icon .pxb-user-menu-header-icon-wrapper {
+    &.blui-user-menu-header-no-icon .blui-user-menu-header-icon-wrapper {
         margin-right: 0;
         margin-left: 0;
     }
 }
 
-.pxb-user-menu-header-content {
+.blui-user-menu-header-content {
     width: 100%;
     align-items: flex-start;
     box-sizing: border-box;
@@ -26,14 +26,14 @@
         padding-left: 16px;
     }
 
-    .pxb-user-menu-header-text {
+    .blui-user-menu-header-text {
         z-index: 2;
         display: flex;
         width: 100%;
         height: 100%;
     }
 
-    .pxb-user-menu-header-icon-wrapper {
+    .blui-user-menu-header-icon-wrapper {
         display: flex;
         align-items: center;
         z-index: 1;
@@ -46,12 +46,12 @@
             margin: 0;
         }
     }
-    &.pxb-user-menu-header-no-icon .pxb-user-menu-header-icon-wrapper {
+    &.blui-user-menu-header-no-icon .blui-user-menu-header-icon-wrapper {
         width: 0;
         margin: 0;
     }
 
-    .pxb-user-menu-header-title-wrapper {
+    .blui-user-menu-header-title-wrapper {
         display: flex;
         justify-content: center;
         align-self: stretch;
@@ -60,14 +60,14 @@
         box-sizing: border-box;
         z-index: 1;
 
-        .pxb-user-menu-header-title {
+        .blui-user-menu-header-title {
             font-weight: 600;
             line-height: 1.6rem;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
-        .pxb-user-menu-header-subtitle {
+        .blui-user-menu-header-subtitle {
             font-weight: 300;
             line-height: 1.3rem;
             margin-top: -0.125rem;
@@ -81,7 +81,7 @@
 }
 
 @media (max-width: 599px) {
-    .pxb-user-menu-header-content {
+    .blui-user-menu-header-content {
         height: 3.5rem;
     }
 }

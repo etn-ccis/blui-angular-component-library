@@ -1,5 +1,5 @@
 import { MatIconModule } from '@angular/material/icon';
-import { MobileStepperModule } from '@pxblue/angular-components';
+import { MobileStepperModule } from '@brightlayer-ui/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { getReadMe, getReadMeStory, isDarkMode, storyWrapper, UtilModule } from '../../src/utils';
@@ -11,7 +11,7 @@ import {
 } from '../../src/constants';
 import { withBasicConfig } from './basic-config.stories';
 import { withA11y } from '@storybook/addon-a11y';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { MatDividerModule } from '@angular/material/divider';
 import { withFullConfig } from './with-full-config.stories';
 import { MatButtonModule } from '@angular/material/button';

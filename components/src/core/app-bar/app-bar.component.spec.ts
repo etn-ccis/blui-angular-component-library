@@ -5,9 +5,9 @@ import { Component } from '@angular/core';
 
 @Component({
     template: `
-        <pxb-app-bar mode="collapsed">
+        <blui-app-bar mode="collapsed">
             <div>title</div>
-        </pxb-app-bar>
+        </blui-app-bar>
     `,
 })
 class TestBasicUsage {}
@@ -33,12 +33,12 @@ describe('AppBarComponent', () => {
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
         const classList = [
-            '.pxb-app-bar',
+            '.blui-app-bar',
             '.mat-elevation-z4',
-            '.pxb-app-bar-content',
-            '.pxb-app-bar-background',
-            '.pxb-app-bar-collapsed',
-            '.pxb-app-bar-body-wrapper',
+            '.blui-app-bar-content',
+            '.blui-app-bar-background',
+            '.blui-app-bar-collapsed',
+            '.blui-app-bar-body-wrapper',
         ];
         for (const className of classList) {
             count(fixture, className);

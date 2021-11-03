@@ -1,12 +1,12 @@
 # Three Liner
 
-The `<pxb-three-liner>` can display up to three lines of stylized text or other ng-content. It is most commonly used within the context of a [`<pxb-app-bar>`](./AppBar.md) component where the text can grow / shrink as the App Bar is expanded and collapsed.
+The `<blui-three-liner>` can display up to three lines of stylized text or other ng-content. It is most commonly used within the context of a [`<blui-app-bar>`](./AppBar.md) component where the text can grow / shrink as the App Bar is expanded and collapsed.
 
 ## Usage
 
 ```html
 // your-component.html
-<pxb-three-liner
+<blui-three-liner
     [title]="'Title Text / Page Title'"
     [subtitle]="'Subtitle Text / Second Line of Text'"
     [info]="'Info Text / Third Line of Text'"
@@ -25,20 +25,20 @@ The `<pxb-three-liner>` can display up to three lines of stylized text or other 
 
 </div>
 
-The following child element is projected into `<pxb-three-liner>`:
+The following child element is projected into `<blui-three-liner>`:
 
-| Selector       | Description         | Required | Default |
-| -------------- | ------------------- | -------- | ------- |
-| [pxb-title]    | First line content  | no       |         |
-| [pxb-subtitle] | Second line content | no       |         |
-| [pxb-info]     | Third line content  | no       |         |
+| Selector        | Description         | Required | Default |
+| --------------- | ------------------- | -------- | ------- |
+| [blui-title]    | First line content  | no       |         |
+| [blui-subtitle] | Second line content | no       |         |
+| [blui-info]     | Third line content  | no       |         |
 
 ### Classes
 
-Each PX Blue component has classes which can be used to override component styles:
+Each Brightlayer UI component has classes which can be used to override component styles:
 
-| Name                     | Description                                    |
-| ------------------------ | ---------------------------------------------- |
-| pxb-three-liner-info     | Styles applied to the dynamic content 3rd line |
-| pxb-three-liner-subtitle | Styles applied to the dynamic content 2nd line |
-| pxb-three-liner-title    | Styles applied to the dynamic content 1st line |
+| Name                      | Description                                    |
+| ------------------------- | ---------------------------------------------- |
+| blui-three-liner-info     | Styles applied to the dynamic content 3rd line |
+| blui-three-liner-subtitle | Styles applied to the dynamic content 2nd line |
+| blui-three-liner-title    | Styles applied to the dynamic content 1st line |

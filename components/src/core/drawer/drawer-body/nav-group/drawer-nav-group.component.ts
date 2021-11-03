@@ -17,22 +17,22 @@ export type DrawerNavGroup = {
 };
 
 /**
- * [DrawerNavGroup Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ * [DrawerNavGroup Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-drawer--readme)
  *
- * A `<pxb-drawer-nav-group>` is used inside of the `<pxb-drawer-body>` to organize links and content.
+ * A `<blui-drawer-nav-group>` is used inside of the `<blui-drawer-body>` to organize links and content.
  * Each group consists of an (optional) group title and a series of NavItems.
  */
 @Component({
-    selector: 'pxb-drawer-nav-group',
+    selector: 'blui-drawer-nav-group',
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     styles: [
         `
-            .pxb-drawer-nav-group-content .mat-list-base {
+            .blui-drawer-nav-group-content .mat-list-base {
                 font-weight: 600;
                 padding-top: 0;
             }
-            .pxb-drawer-nav-group-content .pxb-drawer-nav-group-title {
+            .blui-drawer-nav-group-content .blui-drawer-nav-group-title {
                 font-weight: 600;
                 height: 3rem;
                 line-height: 3rem;
@@ -42,29 +42,29 @@ export type DrawerNavGroup = {
                 text-overflow: ellipsis;
                 display: block;
             }
-            .pxb-drawer-nav-group-content .pxb-drawer-nav-group-title-closed {
+            .blui-drawer-nav-group-content .blui-drawer-nav-group-title-closed {
                 visibility: hidden;
             }
         `,
     ],
     template: `
-        <div class="pxb-drawer-nav-group-content">
+        <div class="blui-drawer-nav-group-content">
             <div
                 *ngIf="title"
-                class="pxb-drawer-nav-group-title mat-overline"
-                [class.pxb-drawer-nav-group-title-closed]="!isOpen()"
+                class="blui-drawer-nav-group-title mat-overline"
+                [class.blui-drawer-nav-group-title-closed]="!isOpen()"
             >
                 {{ title }}
             </div>
-            <ng-content select="pxb-title-content"></ng-content>
+            <ng-content select="blui-title-content"></ng-content>
             <mat-divider *ngIf="divider"></mat-divider>
             <mat-nav-list>
-                <ng-content select="pxb-drawer-nav-item"></ng-content>
+                <ng-content select="blui-drawer-nav-item"></ng-content>
             </mat-nav-list>
         </div>
     `,
     host: {
-        class: 'pxb-drawer-nav-group',
+        class: 'blui-drawer-nav-group',
     },
 })
 export class DrawerNavGroupComponent extends StateListener implements Omit<DrawerNavGroup, 'items'> {

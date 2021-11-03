@@ -6,9 +6,9 @@ import { count } from 'src/utils/test-utils';
 
 @Component({
     template: `
-        <pxb-drawer-footer>
+        <blui-drawer-footer>
             <div id="test-footer-content">test footer content</div>
-        </pxb-drawer-footer>
+        </blui-drawer-footer>
     `,
 })
 class TestDrawerFooter {}
@@ -47,7 +47,7 @@ describe('DrawerFooterComponent', () => {
     it('should enforce class naming conventions', () => {
         const customFixture = TestBed.createComponent(TestDrawerFooter);
         customFixture.detectChanges();
-        const classList = ['.pxb-drawer-footer', '.pxb-drawer-footer-content'];
+        const classList = ['.blui-drawer-footer', '.blui-drawer-footer-content'];
         for (const className of classList) {
             count(customFixture, className);
         }

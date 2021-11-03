@@ -6,36 +6,36 @@ import { Component } from '@angular/core';
 
 @Component({
     template: `
-        <pxb-drawer>
-            <pxb-drawer-header id="test-header"></pxb-drawer-header>
-        </pxb-drawer>
+        <blui-drawer>
+            <blui-drawer-header id="test-header"></blui-drawer-header>
+        </blui-drawer>
     `,
 })
 class DrawerHeaderRenderTest {}
 
 @Component({
     template: `
-        <pxb-drawer>
-            <pxb-drawer-subheader id="test-subheader"></pxb-drawer-subheader>
-        </pxb-drawer>
+        <blui-drawer>
+            <blui-drawer-subheader id="test-subheader"></blui-drawer-subheader>
+        </blui-drawer>
     `,
 })
 class DrawerSubheaderRenderTest {}
 
 @Component({
     template: `
-        <pxb-drawer>
-            <pxb-drawer-body id="test-body"></pxb-drawer-body>
-        </pxb-drawer>
+        <blui-drawer>
+            <blui-drawer-body id="test-body"></blui-drawer-body>
+        </blui-drawer>
     `,
 })
 class DrawerBodyRenderTest {}
 
 @Component({
     template: `
-        <pxb-drawer>
-            <pxb-drawer-footer id="test-footer"></pxb-drawer-footer>
-        </pxb-drawer>
+        <blui-drawer>
+            <blui-drawer-footer id="test-footer"></blui-drawer-footer>
+        </blui-drawer>
     `,
 })
 class DrawerFooterRenderTest {}
@@ -95,7 +95,7 @@ describe('DrawerComponent', () => {
 
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
-        const classList = ['.pxb-drawer-content', '.pxb-drawer-hover-area'];
+        const classList = ['.blui-drawer-content', '.blui-drawer-hover-area'];
         for (const className of classList) {
             count(fixture, className);
         }

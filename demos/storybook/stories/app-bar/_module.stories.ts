@@ -1,5 +1,5 @@
 import { MatIconModule } from '@angular/material/icon';
-import { AppBarModule, ChannelValueModule, ThreeLinerModule } from '@pxblue/angular-components';
+import { AppBarModule, ChannelValueModule, ThreeLinerModule } from '@brightlayer-ui/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { getReadMe, getReadMeStory, isDarkMode, storyWrapper, UtilModule } from '../../src/utils';
@@ -11,7 +11,7 @@ import {
 } from '../../src/constants';
 import { withA11y } from '@storybook/addon-a11y';
 import { withBasicConfig } from './basic-config.stories';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { withVariants } from './with-variants.stories';
 import { withDynamicContent } from './with-dynamic-content.stories';
 import { withNgContent } from './with-ng-content.stories';
@@ -30,7 +30,7 @@ export const appBarWrapper = () => (storyFn: any): any => {
     return {
         ...story,
         template: `
-                <div id="pxb-app-bar-container" style="width: 90%; max-height: 70vh; overflow: auto; position: relative" [style.backgroundColor]="getDecoratorBgColor()">
+                <div id="blui-app-bar-container" style="width: 90%; max-height: 70vh; overflow: auto; position: relative" [style.backgroundColor]="getDecoratorBgColor()">
                     ${story.template}
                     <div style="height: 100vh; padding: 16px">
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas iaculis vulputate arcu, quis vulputate mauris aliquet in. Praesent sollicitudin erat at augue cursus, a scelerisque odio tristique. Aenean quis dui in nisi condimentum viverra eleifend sed odio. Vestibulum a lacinia leo. Proin congue purus vulputate metus vestibulum eleifend. Suspendisse sit amet orci magna. Suspendisse eu odio ut purus ultrices ornare id eu dolor. Cras porttitor semper feugiat. Sed vel ultricies risus, vel dignissim arcu. Vestibulum quis interdum sem. Morbi bibendum tortor ligula, non pellentesque ante ullamcorper sed. Duis ornare felis eget justo faucibus, id tristique felis dignissim. Nullam sapien metus, feugiat egestas convallis eu, vehicula et turpis. Phasellus interdum, justo sit amet maximus pellentesque, eros orci dictum diam, id bibendum risus neque non risus.
@@ -53,7 +53,7 @@ export const appBarWrapper = () => (storyFn: any): any => {
         ],
         props: {
             ...story.props,
-            scrollContainerId: 'pxb-app-bar-container',
+            scrollContainerId: 'blui-app-bar-container',
             getDecoratorBgColor: (): string => (isDarkMode() ? Colors.black[900] : 'white'),
         },
     };

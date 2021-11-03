@@ -9,7 +9,7 @@ import {
 import { getReadMe, getReadMeStory, isDarkMode, storyWrapper, UtilModule } from '../../src/utils';
 import { withBasicConfig } from './with-basic-config.stories';
 
-import { UserMenuModule, InfoListItemModule, SpacerModule } from '@pxblue/angular-components';
+import { UserMenuModule, InfoListItemModule, SpacerModule } from '@brightlayer-ui/angular-components';
 import { withA11y } from '@storybook/addon-a11y';
 import { withNonTextAvatar } from './with-non-text-avatar.stories';
 import { MatIconModule } from '@angular/material/icon';
@@ -17,7 +17,7 @@ import { withMenuHeader } from './with-menu-header.stories';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatListModule } from '@angular/material/list';
 import { MatToolbarModule } from '@angular/material/toolbar';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { withinToolbar } from './within-a-toolbar.stories';
 import { withFullConfig } from './with-full-config.stories';
 import { withCustomMenu } from './with-custom-menu.stories';

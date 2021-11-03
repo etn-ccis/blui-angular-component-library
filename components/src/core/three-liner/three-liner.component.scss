@@ -1,18 +1,18 @@
 $transition: all 300ms;
 
-.pxb-three-liner {
+.blui-three-liner {
     display: flex;
 }
 
-.pxb-three-liner-title {
+.blui-three-liner-title {
     font-size: 1.875rem;
     transition: $transition;
 }
-.pxb-three-liner-subtitle {
+.blui-three-liner-subtitle {
     font-size: 1rem;
     transition: $transition;
 }
-.pxb-three-liner-info {
+.blui-three-liner-info {
     font-size: 0.875rem;
     font-weight: 300;
     transition: $transition;

@@ -2,18 +2,18 @@ import { ChangeDetectionStrategy, Component, Input, OnChanges, ViewEncapsulation
 import { requireInput } from '../../utils/utils';
 
 /**
- * [ListItemTag Component](https://pxblue-components.github.io/angular/?path=/info/components-list-item-tag--readme)
+ * [ListItemTag Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-list-item-tag--readme)
  *
- * The `<pxb-list-item-tag>` is a text item with a colored background and rounded corners that is used to tag lists.
+ * The `<blui-list-item-tag>` is a text item with a colored background and rounded corners that is used to tag lists.
  */
 @Component({
-    selector: 'pxb-list-item-tag',
+    selector: 'blui-list-item-tag',
     templateUrl: './list-item-tag.component.html',
     styleUrls: ['./list-item-tag.component.scss'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     host: {
-        class: 'pxb-list-item-tag',
+        class: 'blui-list-item-tag',
     },
 })
 export class ListItemTagComponent implements OnChanges {

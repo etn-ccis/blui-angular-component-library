@@ -13,41 +13,41 @@ import {
 import { requireInput } from '../../utils/utils';
 import { UnitSpaceType } from '../channel-value/channel-value.component';
 /**
- * [Hero Component](https://pxblue-components.github.io/angular/?path=/info/components-hero--readme)
+ * [Hero Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-hero--readme)
  *
- * The `<pxb-hero>` components are used to call attention to particular values that are of the most importance to the user.
+ * The `<blui-hero>` components are used to call attention to particular values that are of the most importance to the user.
  * These are typically displayed in a banner.
  */
 @Component({
-    selector: 'pxb-hero',
+    selector: 'blui-hero',
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./hero.component.scss'],
     template: `
-        <div class="pxb-hero-content">
+        <div class="blui-hero-content">
             <div
-                class="pxb-hero-primary-wrapper"
+                class="blui-hero-primary-wrapper"
                 #primaryContainer
                 [style.backgroundColor]="iconBackgroundColor"
                 [style.lineHeight.px]="iSize"
                 [style.fontSize.px]="iSize"
                 [style.width.px]="iSize"
                 [style.height.px]="iSize"
-                [class.pxb-hero-svgIcon]="hasMatSvgIcon"
+                [class.blui-hero-svgIcon]="hasMatSvgIcon"
             >
-                <ng-content select="[pxb-primary]"></ng-content>
+                <ng-content select="[blui-primary]"></ng-content>
             </div>
-            <span class="pxb-hero-channel-value-wrapper">
-                <ng-content select="pxb-channel-value" *ngIf="value === undefined"></ng-content>
-                <pxb-channel-value *ngIf="value !== undefined" [value]="value" [units]="units" [unitSpace]="unitSpace">
-                    <ng-content select="[pxb-secondary]"></ng-content>
-                </pxb-channel-value>
+            <span class="blui-hero-channel-value-wrapper">
+                <ng-content select="blui-channel-value" *ngIf="value === undefined"></ng-content>
+                <blui-channel-value *ngIf="value !== undefined" [value]="value" [units]="units" [unitSpace]="unitSpace">
+                    <ng-content select="[blui-secondary]"></ng-content>
+                </blui-channel-value>
             </span>
-            <h5 class="pxb-hero-label">{{ label }}</h5>
+            <h5 class="blui-hero-label">{{ label }}</h5>
         </div>
     `,
     host: {
-        class: 'pxb-hero',
+        class: 'blui-hero',
     },
 })
 export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChecked {

@@ -1,17 +1,17 @@
-.pxb-list-item-tag {
+.blui-list-item-tag {
     display: inline-block;
 }
 
-.pxb-list-item-tag,
-.pxb-list-item-tag-content {
+.blui-list-item-tag,
+.blui-list-item-tag-content {
     border-radius: 0.125rem;
 }
 
-.pxb-list-item-tag-content {
+.blui-list-item-tag-content {
     padding: 0 0.25rem;
     overflow: hidden;
 
-    .pxb-list-item-tag-label {
+    .blui-list-item-tag-label {
         font-weight: 700;
         text-transform: uppercase;
         letter-spacing: 1px;

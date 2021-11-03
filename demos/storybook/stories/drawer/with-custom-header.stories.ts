@@ -5,10 +5,10 @@ const bgImage = require('../../assets/farm.jpg');
 
 export const withCustomHeader = (): any => ({
     styles: [
-        `::ng-deep .pxb-drawer .pxb-drawer-header {
+        `::ng-deep .blui-drawer .blui-drawer-header {
           background-color: unset;
        }
-       ::ng-deep .pxb-drawer .pxb-drawer-header-background {
+       ::ng-deep .blui-drawer .blui-drawer-header-background {
           background-image: url(${bgImage});
         }
         .header-content {
@@ -21,30 +21,30 @@ export const withCustomHeader = (): any => ({
        `,
     ],
     template: `
-        <pxb-drawer [open]="state.open">
-          <pxb-drawer-header>
-            <button *ngIf="!hideMenuIcon" pxb-icon mat-icon-button (click)="toggleDrawer(state)">
+        <blui-drawer [open]="state.open">
+          <blui-drawer-header>
+            <button *ngIf="!hideMenuIcon" blui-icon mat-icon-button (click)="toggleDrawer(state)">
                 <mat-icon>menu</mat-icon>
             </button>
-            <div pxb-title-content *ngIf="state.open" class="header-content">
+            <div blui-title-content *ngIf="state.open" class="header-content">
                 <div>
                    <div class="mat-h4" style="margin-bottom: -8px; margin-top: 8px">Customizable</div>
                    <div class="mat-h2" style="margin: 0">Header Content</div>
                 </div>
-                <pxb-list-item-tag label="V1.0.3" style="margin-bottom: 16px"></pxb-list-item-tag>
+                <blui-list-item-tag label="V1.0.3" style="margin-bottom: 16px"></blui-list-item-tag>
             </div>
-          </pxb-drawer-header>
-          <pxb-drawer-body>
-              <pxb-drawer-nav-group>
-                  <pxb-drawer-nav-item *ngFor="let navItem of navItems"
+          </blui-drawer-header>
+          <blui-drawer-body>
+              <blui-drawer-nav-group>
+                  <blui-drawer-nav-item *ngFor="let navItem of navItems"
                     [title]="navItem.title"
                     [selected]="state.selected === navItem.title"
                     (select)="navItem.onSelect(); setActive(navItem.title, state);">
-                    <mat-icon pxb-icon>{{ navItem.icon }}</mat-icon>
-                  </pxb-drawer-nav-item>
-              </pxb-drawer-nav-group>
-            </pxb-drawer-body>
-        </pxb-drawer>
+                    <mat-icon blui-icon>{{ navItem.icon }}</mat-icon>
+                  </blui-drawer-nav-item>
+              </blui-drawer-nav-group>
+            </blui-drawer-body>
+        </blui-drawer>
       `,
     props: {
         navItems: navItems,

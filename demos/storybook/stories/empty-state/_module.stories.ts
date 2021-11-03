@@ -1,6 +1,6 @@
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { EmptyStateModule } from '@pxblue/angular-components';
+import { EmptyStateModule } from '@brightlayer-ui/angular-components';
 import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import {
@@ -15,11 +15,15 @@ import { withDescription } from './with-description.stories';
 import { withBasicConfig } from './basic-config.stories';
 import { withActions } from './with-actions.stories';
 import { withFullConfig } from './with-full-config.stories';
+import { withinACardConfig } from './within-a-card.stories';
 import { withA11y } from '@storybook/addon-a11y';
-import * as Colors from '@pxblue/colors';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import * as Colors from '@brightlayer-ui/colors';
 
 export const useWhiteBackground = () => (storyFn: any): any => {
     const story = storyFn();
+    const storyStyles: string = story.styles ? story.styles[0] : '';
     return {
         ...story,
         template: `<div [style.backgroundColor]="getDecoratorBgColor()" id="white-background-story-wrapper">${story.template}</div>`,
@@ -29,7 +33,9 @@ export const useWhiteBackground = () => (storyFn: any): any => {
                 display: flex; 
                 align-items: center; 
                 justify-content: center;
-            }`,
+            }
+            ${storyStyles}
+            `,
         ],
         props: {
             ...story.props,
@@ -41,7 +47,14 @@ export const useWhiteBackground = () => (storyFn: any): any => {
 storiesOf(`${COMPONENT_SECTION_NAME}/Empty State`, module)
     .addDecorator(
         moduleMetadata({
-            imports: [EmptyStateModule, MatButtonModule, MatIconModule, UtilModule],
+            imports: [
+                BrowserAnimationsModule,
+                EmptyStateModule,
+                MatButtonModule,
+                MatIconModule,
+                UtilModule,
+                MatExpansionModule,
+            ],
         })
     )
     .addDecorator(withKnobs)
@@ -57,4 +70,5 @@ storiesOf(`${COMPONENT_SECTION_NAME}/Empty State`, module)
     .add(WITH_MIN_PROPS_STORY_NAME, withBasicConfig)
     .add('with description', withDescription)
     .add('with actions', withActions)
-    .add(WITH_FULL_CONFIG_STORY_NAME, withFullConfig);
+    .add(WITH_FULL_CONFIG_STORY_NAME, withFullConfig)
+    .add('within a card', withinACardConfig);

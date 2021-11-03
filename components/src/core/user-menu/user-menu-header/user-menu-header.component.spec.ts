@@ -7,26 +7,26 @@ import { UserMenuModule } from '../user-menu.module';
 import { MatIconModule } from '@angular/material/icon';
 
 @Component({
-    template: `<pxb-user-menu-header title="title" subtitle="subtitle"></pxb-user-menu-header>`,
+    template: `<blui-user-menu-header title="title" subtitle="subtitle"></blui-user-menu-header>`,
 })
 class TestUserMenuHeader {}
 
 @Component({
     template: `
-        <pxb-user-menu-header>
-            <div pxb-title-content id="test-title-content">test title content</div>
-        </pxb-user-menu-header>
+        <blui-user-menu-header>
+            <div blui-title-content id="test-title-content">test title content</div>
+        </blui-user-menu-header>
     `,
 })
 class TestUserMenuHeaderWithTitleContent {}
 
 @Component({
     template: `
-        <pxb-user-menu-header>
-            <button id="test-icon" mat-icon-button pxb-icon>
+        <blui-user-menu-header>
+            <button id="test-icon" mat-icon-button blui-icon>
                 <mat-icon>menu</mat-icon>
             </button>
-        </pxb-user-menu-header>
+        </blui-user-menu-header>
     `,
 })
 class TestUserMenuHeaderWithIcon {}
@@ -56,7 +56,7 @@ describe('UserMenuHeaderComponent', () => {
     it('should render title', () => {
         component.title = 'test title';
         fixture.detectChanges();
-        const title = fixture.debugElement.query(By.css('.pxb-user-menu-header-title'));
+        const title = fixture.debugElement.query(By.css('.blui-user-menu-header-title'));
         void expect(title.nativeElement.innerHTML.trim()).toBe('test title');
     });
 
@@ -64,7 +64,7 @@ describe('UserMenuHeaderComponent', () => {
         component.title = 'test title';
         component.subtitle = 'test subtitle';
         fixture.detectChanges();
-        const subtitle = fixture.debugElement.query(By.css('.pxb-user-menu-header-subtitle'));
+        const subtitle = fixture.debugElement.query(By.css('.blui-user-menu-header-subtitle'));
         void expect(subtitle.nativeElement.innerHTML.trim()).toBe('test subtitle');
     });
 
@@ -88,12 +88,12 @@ describe('UserMenuHeaderComponent', () => {
         const customFixture = TestBed.createComponent(TestUserMenuHeader);
         customFixture.detectChanges();
         const classList = [
-            '.pxb-user-menu-header',
-            '.pxb-user-menu-header-content',
-            '.pxb-user-menu-header-icon-wrapper',
-            '.pxb-user-menu-header-title-wrapper',
-            '.pxb-user-menu-header-title',
-            '.pxb-user-menu-header-subtitle',
+            '.blui-user-menu-header',
+            '.blui-user-menu-header-content',
+            '.blui-user-menu-header-icon-wrapper',
+            '.blui-user-menu-header-title-wrapper',
+            '.blui-user-menu-header-title',
+            '.blui-user-menu-header-subtitle',
         ];
         for (const className of classList) {
             count(customFixture, className);

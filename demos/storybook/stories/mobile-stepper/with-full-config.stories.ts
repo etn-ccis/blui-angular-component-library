@@ -16,18 +16,18 @@ export const withFullConfig = (): any => ({
      <div>
          <div class="step-content">Step #{{activeStep + 1}}</div>
          <mat-divider></mat-divider>
-         <pxb-mobile-stepper [variant]="variant" [steps]="steps" 
+         <blui-mobile-stepper [variant]="variant" [steps]="steps" 
             [activeStep]="activeStep" 
             [style.width.px]="width">
-            <button pxb-back-button mat-stroked-button color="primary" 
+            <button blui-back-button mat-stroked-button color="primary" 
                 [style.visibility]="showBackButton ? 'visible' : 'hidden' "
                 [disabled]="activeStep === 0" 
                 (click)="activeStep = activeStep - 1; goBack();">{{ backButtonText }} </button>
-            <button pxb-next-button mat-flat-button color="primary" 
+            <button blui-next-button mat-flat-button color="primary" 
                 [style.visibility]="showNextButton ? 'visible' : 'hidden' "
                 [disabled]="activeStep === steps - 1" 
                 (click)="activeStep = activeStep + 1; goNext();"> {{ nextButtonText }} </button>
-         </pxb-mobile-stepper>
+         </blui-mobile-stepper>
      </div>
     `,
     props: {

@@ -1,15 +1,15 @@
 import { boolean, color, text, number, select } from '@storybook/addon-knobs';
 import { invertRTL } from '../../src/utils';
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 
 export const withFullConfig = (): any => ({
     template: `
-        <pxb-hero [label]="label" [value]="value" [units]="units" [unitSpace]="unitSpace" [iconSize]="iconSize" [iconBackgroundColor]="colors.blue[500]">
-            <i pxb-primary [style.color]="iconColor" class="pxb-fan"></i>
-            <mat-icon pxb-secondary *ngIf="showSecondary" [style.transform]="invertRTL()">
+        <blui-hero [label]="label" [value]="value" [units]="units" [unitSpace]="unitSpace" [iconSize]="iconSize" [iconBackgroundColor]="colors.blue[500]">
+            <i blui-primary [style.color]="iconColor" class="blui-fan"></i>
+            <mat-icon blui-secondary *ngIf="showSecondary" [style.transform]="invertRTL()">
                 trending_up
             </mat-icon>
-        </pxb-hero>
+        </blui-hero>
       `,
     props: {
         label: text('label', 'Velocity'),

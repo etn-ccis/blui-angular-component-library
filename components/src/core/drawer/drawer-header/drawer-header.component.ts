@@ -12,38 +12,38 @@ import { StateListener } from '../state-listener.component';
 import { isEmptyView } from '../../../utils/utils';
 
 /**
- * [DrawerHeader Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ * [DrawerHeader Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-drawer--readme)
  *
- * The `<pxb-drawer-header>` contains the content found at the top of the `<pxb-drawer>`.
+ * The `<blui-drawer-header>` contains the content found at the top of the `<blui-drawer>`.
  */
 @Component({
-    selector: 'pxb-drawer-header',
+    selector: 'blui-drawer-header',
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
         <mat-toolbar
-            class="pxb-drawer-header-content"
+            class="blui-drawer-header-content"
             [class.rail]="isRail()"
             [color]="color"
-            [class.pxb-drawer-header-no-icon]="isEmpty(iconEl)"
+            [class.blui-drawer-header-no-icon]="isEmpty(iconEl)"
         >
-            <div class="pxb-drawer-header-background"></div>
-            <div class="pxb-drawer-header-text">
-                <div #icon class="pxb-drawer-header-icon-wrapper">
-                    <ng-content select="[pxb-icon]"></ng-content>
+            <div class="blui-drawer-header-background"></div>
+            <div class="blui-drawer-header-text">
+                <div #icon class="blui-drawer-header-icon-wrapper">
+                    <ng-content select="[blui-icon]"></ng-content>
                 </div>
-                <div *ngIf="title" class="pxb-drawer-header-title-wrapper">
-                    <div class="pxb-drawer-header-title">{{ title }}</div>
-                    <div *ngIf="subtitle" class="pxb-drawer-header-subtitle mat-subheading-2">{{ subtitle }}</div>
+                <div *ngIf="title" class="blui-drawer-header-title-wrapper">
+                    <div class="blui-drawer-header-title">{{ title }}</div>
+                    <div *ngIf="subtitle" class="blui-drawer-header-subtitle mat-subheading-2">{{ subtitle }}</div>
                 </div>
-                <ng-content select="[pxb-title-content]"></ng-content>
+                <ng-content select="[blui-title-content]"></ng-content>
             </div>
         </mat-toolbar>
         <mat-divider *ngIf="divider"></mat-divider>
     `,
     styleUrls: ['./drawer-header.component.scss'],
     host: {
-        class: 'pxb-drawer-header',
+        class: 'blui-drawer-header',
     },
 })
 export class DrawerHeaderComponent extends StateListener {

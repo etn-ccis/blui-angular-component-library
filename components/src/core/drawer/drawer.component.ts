@@ -12,36 +12,36 @@ import { StateListener } from './state-listener.component';
 import { Subscription } from 'rxjs';
 
 /**
- * [Drawer Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ * [Drawer Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-drawer--readme)
  *
- * The `<pxb-drawer>` is used to organize content (typically navigation links) within a `<pxb-drawer-layout>`.
- * The `<pxb-drawer>` includes helper components for `<pxb-drawer-header>`, `<pxb-drawer-subheader>`, `<pxb-drawer-body>`, `<pxb-drawer-nav-group>`, `<pxb-drawer-footer>`, and `<pxb-drawer-layout>` to help organize the content.
+ * The `<blui-drawer>` is used to organize content (typically navigation links) within a `<blui-drawer-layout>`.
+ * The `<blui-drawer>` includes helper components for `<blui-drawer-header>`, `<blui-drawer-subheader>`, `<blui-drawer-body>`, `<blui-drawer-nav-group>`, `<blui-drawer-footer>`, and `<blui-drawer-layout>` to help organize the content.
  */
 @Component({
-    selector: 'pxb-drawer',
+    selector: 'blui-drawer',
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
         <div
-            class="pxb-drawer-content"
-            [class.pxb-drawer-side-border]="sideBorder"
+            class="blui-drawer-content"
+            [class.blui-drawer-side-border]="sideBorder"
             [class.mat-elevation-z6]="!sideBorder"
-            [class.pxb-drawer-condensed-rail]="condensed"
-            [class.pxb-drawer-collapse]="!isOpen()"
-            [class.pxb-drawer-temp-variant]="isTemporaryVariant()"
+            [class.blui-drawer-condensed-rail]="condensed"
+            [class.blui-drawer-collapse]="!isOpen()"
+            [class.blui-drawer-temp-variant]="isTemporaryVariant()"
         >
             <!-- Drawer is responsible for managing the styles between the 4 subsections -->
-            <ng-content select="pxb-drawer-header"></ng-content>
-            <div class="pxb-drawer-hover-area" (mouseenter)="hoverDrawer()" (mouseleave)="unhoverDrawer()">
-                <ng-content select="pxb-drawer-subheader"></ng-content>
-                <ng-content select="pxb-drawer-body"></ng-content>
-                <ng-content select="pxb-drawer-footer"></ng-content>
+            <ng-content select="blui-drawer-header"></ng-content>
+            <div class="blui-drawer-hover-area" (mouseenter)="hoverDrawer()" (mouseleave)="unhoverDrawer()">
+                <ng-content select="blui-drawer-subheader"></ng-content>
+                <ng-content select="blui-drawer-body"></ng-content>
+                <ng-content select="blui-drawer-footer"></ng-content>
             </div>
         </div>
     `,
     styleUrls: ['./drawer.component.scss'],
     host: {
-        class: 'pxb-drawer',
+        class: 'blui-drawer',
     },
 })
 export class DrawerComponent extends StateListener implements OnInit, OnChanges {

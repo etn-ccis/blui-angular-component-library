@@ -1,13 +1,13 @@
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 
 export const withRightContent = (): any => ({
     template: `
-        <pxb-info-list-item>
-            <div pxb-title>Info List Item</div>
-            <div pxb-subtitle>with a ChannelValue component to the right</div>
-            <mat-icon [style.color]="colors.blue[500]" pxb-icon>battery_charging_full</mat-icon>
-            <pxb-channel-value [value]="15" units="A" pxb-right-content></pxb-channel-value>
-        </pxb-info-list-item>
+        <blui-info-list-item>
+            <div blui-title>Info List Item</div>
+            <div blui-subtitle>with a ChannelValue component to the right</div>
+            <mat-icon [style.color]="colors.blue[500]" blui-icon>battery_charging_full</mat-icon>
+            <blui-channel-value [value]="15" units="A" blui-right-content></blui-channel-value>
+        </blui-info-list-item>
       `,
     props: {
         colors: Colors,

@@ -6,10 +6,10 @@ import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
     template: `
-        <pxb-drawer-layout [variant]="'persistent'">
-            <div pxb-drawer id="test-drawer"></div>
-            <div pxb-content id="test-content"></div>
-        </pxb-drawer-layout>
+        <blui-drawer-layout [variant]="'persistent'">
+            <div blui-drawer id="test-drawer"></div>
+            <div blui-content id="test-content"></div>
+        </blui-drawer-layout>
     `,
 })
 class DrawerRenderTest {}
@@ -53,7 +53,7 @@ describe('DrawerLayoutComponent', () => {
     it('should enforce class naming conventions', () => {
         const customFixture = TestBed.createComponent(DrawerRenderTest);
         customFixture.detectChanges();
-        const classList = ['.pxb-drawer-layout-content', '.pxb-drawer-layout-sidenav'];
+        const classList = ['.blui-drawer-layout-content', '.blui-drawer-layout-sidenav'];
         for (const className of classList) {
             count(customFixture, className);
         }

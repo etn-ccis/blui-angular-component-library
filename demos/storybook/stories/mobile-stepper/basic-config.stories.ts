@@ -3,14 +3,14 @@ import { action } from '@storybook/addon-actions';
 
 export const withBasicConfig = (): any => ({
     template: ` 
-        <pxb-mobile-stepper [steps]="steps" [activeStep]="activeStep">
-            <button pxb-back-button mat-stroked-button color="primary" 
+        <blui-mobile-stepper [steps]="steps" [activeStep]="activeStep">
+            <button blui-back-button mat-stroked-button color="primary" 
                 [disabled]="activeStep === 0" 
                 (click)="activeStep = activeStep - 1; goBack();">Back</button>
-            <button pxb-next-button mat-flat-button color="primary" 
+            <button blui-next-button mat-flat-button color="primary" 
                 [disabled]="activeStep === steps - 1" 
                 (click)="activeStep = activeStep + 1; goNext();"> Next</button>
-        </pxb-mobile-stepper>
+        </blui-mobile-stepper>
     `,
     props: {
         activeStep: 0,

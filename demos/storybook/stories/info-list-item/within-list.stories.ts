@@ -1,56 +1,56 @@
-import * as Colors from '@pxblue/colors';
+import * as Colors from '@brightlayer-ui/colors';
 import { boolean, select } from '@storybook/addon-knobs';
 
 export const withinList = (): any => ({
     template: `
         <mat-nav-list [style.paddingTop.px]="0">
-            <pxb-info-list-item dense="true" [statusColor]="colors.green[700]" [divider]="divider" class="test" [iconAlign]="'center'">
-                <div pxb-title>Status</div>
-                <i pxb-icon class="pxb-device_activating" [style.color]="colors.green[500]"></i>
-                <pxb-channel-value pxb-right-content value="Online, ESS+"></pxb-channel-value>
-            </pxb-info-list-item>
+            <blui-info-list-item dense="true" [statusColor]="colors.green[700]" [divider]="divider" class="test" [iconAlign]="'center'">
+                <div blui-title>Status</div>
+                <i blui-icon class="blui-device_activating" [style.color]="colors.green[500]"></i>
+                <blui-channel-value blui-right-content value="Online, ESS+"></blui-channel-value>
+            </blui-info-list-item>
     
-            <pxb-info-list-item [divider]="divider" [avatar]="true">
-                <div pxb-title>Input Voltage</div>
-                <div pxb-subtitle>Phase A · Phase B · Phase C</div>
-                <mat-icon pxb-icon [style.backgroundColor]="colors.blue[500]"
+            <blui-info-list-item [divider]="divider" [avatar]="true">
+                <div blui-title>Input Voltage</div>
+                <div blui-subtitle>Phase A · Phase B · Phase C</div>
+                <mat-icon blui-icon [style.backgroundColor]="colors.blue[500]"
                     style="color: white;">check_circle</mat-icon>
-                <span pxb-right-content>
-                    <pxb-channel-value value="478" units="V"></pxb-channel-value>,&nbsp;
-                    <pxb-channel-value value="479" units="V"></pxb-channel-value>,&nbsp;
-                    <pxb-channel-value value="473" units="V"></pxb-channel-value>
+                <span blui-right-content>
+                    <blui-channel-value value="478" units="V"></blui-channel-value>,&nbsp;
+                    <blui-channel-value value="479" units="V"></blui-channel-value>,&nbsp;
+                    <blui-channel-value value="473" units="V"></blui-channel-value>
                 </span>
-            </pxb-info-list-item>
+            </blui-info-list-item>
     
-            <pxb-info-list-item [style.color]="colors.red[500]" [statusColor]="colors.red[500]" [divider]="divider" [avatar]="true">
-                <div pxb-title>Output Voltage</div>
-                <div pxb-subtitle>Phase A · Phase B · Phase C</div>
-                <mat-icon pxb-icon [style.backgroundColor]="colors.red[500]"
+            <blui-info-list-item [style.color]="colors.red[500]" [statusColor]="colors.red[500]" [divider]="divider" [avatar]="true">
+                <div blui-title>Output Voltage</div>
+                <div blui-subtitle>Phase A · Phase B · Phase C</div>
+                <mat-icon blui-icon [style.backgroundColor]="colors.red[500]"
                     style="color: white">check_circle</mat-icon>
-                <span pxb-right-content>
-                    <pxb-channel-value value="478" units="V"></pxb-channel-value>,&nbsp;
-                    <pxb-channel-value value="479" units="V"></pxb-channel-value>,&nbsp;
-                    <pxb-channel-value value="473" units="V"></pxb-channel-value>
+                <span blui-right-content>
+                    <blui-channel-value value="478" units="V"></blui-channel-value>,&nbsp;
+                    <blui-channel-value value="479" units="V"></blui-channel-value>,&nbsp;
+                    <blui-channel-value value="473" units="V"></blui-channel-value>
                 </span>
-            </pxb-info-list-item>
+            </blui-info-list-item>
     
-            <pxb-info-list-item dense="true" [divider]="divider" [iconAlign]="'center'" [disabled]="disabled">
-                <div pxb-title>Output Current</div>
-                <mat-icon pxb-icon>battery_charging_full</mat-icon>
-                <span pxb-right-content>
-                    <pxb-channel-value value="15" units="A"></pxb-channel-value>,&nbsp;
-                    <pxb-channel-value value="14.9" units="A"></pxb-channel-value>,&nbsp;
-                    <pxb-channel-value value="15" units="A"></pxb-channel-value>
+            <blui-info-list-item dense="true" [divider]="divider" [iconAlign]="'center'" [disabled]="disabled">
+                <div blui-title>Output Current</div>
+                <mat-icon blui-icon>battery_charging_full</mat-icon>
+                <span blui-right-content>
+                    <blui-channel-value value="15" units="A"></blui-channel-value>,&nbsp;
+                    <blui-channel-value value="14.9" units="A"></blui-channel-value>,&nbsp;
+                    <blui-channel-value value="15" units="A"></blui-channel-value>
                 </span>
-            </pxb-info-list-item>
+            </blui-info-list-item>
     
-            <pxb-info-list-item dense="true" [divider]="divider" [iconAlign]="'center'">
-                <div pxb-title>Temperature</div>
-                <i pxb-icon class="pxb-temp"></i>
-                <span pxb-right-content style="display: flex; align-items: center">
-                    <pxb-channel-value value="68" units="°F"></pxb-channel-value>
+            <blui-info-list-item dense="true" [divider]="divider" [iconAlign]="'center'">
+                <div blui-title>Temperature</div>
+                <i blui-icon class="blui-temp"></i>
+                <span blui-right-content style="display: flex; align-items: center">
+                    <blui-channel-value value="68" units="°F"></blui-channel-value>
                 </span>
-            </pxb-info-list-item>
+            </blui-info-list-item>
         </mat-nav-list>
     `,
     props: {

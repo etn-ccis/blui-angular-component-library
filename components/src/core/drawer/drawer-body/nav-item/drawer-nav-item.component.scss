@@ -1,73 +1,76 @@
 @import '../../../utility/utility';
 
 /* RTL */
-[dir='rtl'] .pxb-drawer-nav-item-content {
-    .pxb-drawer-nav-item-active-highlight {
+[dir='rtl'] .blui-drawer-nav-item-content {
+    .blui-drawer-nav-item-active-highlight {
         right: 0;
-        &.pxb-drawer-nav-item-active-round {
+        &.blui-drawer-nav-item-active-round {
             border-radius: 1.5rem 0 0 1.5rem;
         }
     }
-    .pxb-drawer-nav-item-depth-3 {
+    .blui-drawer-nav-item-depth-3 {
         padding-left: 0;
         padding-right: 32px;
     }
-    pxb-info-list-item.pxb-drawer-nav-item-no-icon-closed .pxb-info-list-item .mat-list-item-content {
+    blui-info-list-item.blui-drawer-nav-item-no-icon-closed .blui-info-list-item .mat-list-item-content {
         padding-right: 16px;
         padding-left: 24px;
     }
 }
 
-pxb-drawer-nav-item {
+blui-drawer-nav-item {
     outline: none;
-    .pxb-drawer-nav-item-active .mat-list-item:hover {
+    .blui-drawer-nav-item-active .mat-list-item:hover {
         background: unset;
     }
 }
 
-.pxb-drawer-condensed-rail .pxb-drawer-nav-item-content .pxb-drawer-nav-item-rail {
+.blui-drawer-condensed-rail .blui-drawer-nav-item-content .blui-drawer-nav-item-rail {
     min-height: 3.5rem;
-    .pxb-drawer-nav-item-rail-text {
+    .blui-drawer-nav-item-rail-text {
         display: none;
     }
 }
 
-.pxb-drawer-nav-item-content {
+.blui-drawer-nav-item-content {
     overflow: hidden;
     position: relative;
     user-select: none;
 
-    &.pxb-drawer-nav-item-compact {
+    &.blui-drawer-nav-item-compact {
         margin-top: 0.5rem;
         margin-bottom: 0.5rem;
-        .pxb-info-list-item-content {
-            &.pxb-info-list-item-dense,
+        .blui-info-list-item-content {
+            &.blui-info-list-item-dense,
             .mat-list-item-content {
                 height: 2.5rem !important;
             }
         }
     }
-    .pxb-drawer-nav-item-depth-1 {
+    .blui-drawer-nav-item-depth-1 {
         padding-left: 0;
     }
-    .pxb-drawer-nav-item-depth-2 {
+    .blui-drawer-nav-item-depth-2 {
         padding-left: 0;
     }
-    .pxb-drawer-nav-item-depth-3 {
+    .blui-drawer-nav-item-depth-3 {
         padding-left: 32px;
     }
 
-    .pxb-info-list-item .mat-list-item.pxb-info-list-item-content .mat-list-text .pxb-info-list-item-title-wrapper {
+    .blui-info-list-item .mat-list-item.blui-info-list-item-content .mat-list-text .blui-info-list-item-title-wrapper {
         font-weight: 400; // Default font-weight for nav items.
     }
-    &.pxb-drawer-nav-item-active,
-    &.pxb-drawer-nav-item-active-tree {
-        .pxb-info-list-item .mat-list-item.pxb-info-list-item-content .mat-list-text .pxb-info-list-item-title-wrapper {
+    &.blui-drawer-nav-item-active,
+    &.blui-drawer-nav-item-active-tree {
+        .blui-info-list-item
+            .mat-list-item.blui-info-list-item-content
+            .mat-list-text
+            .blui-info-list-item-title-wrapper {
             font-weight: 600; // Default font-weight for active nav item parents.
         }
     }
 
-    pxb-info-list-item {
+    blui-info-list-item {
         display: flex;
         flex-direction: column;
         mat-list-item {
@@ -75,40 +78,40 @@ pxb-drawer-nav-item {
         }
 
         // This class is used to hide a nav-item's clipped title when collapsed with no icon.
-        &.pxb-drawer-nav-item-no-icon-closed .pxb-info-list-item .mat-list-item-content {
+        &.blui-drawer-nav-item-no-icon-closed .blui-info-list-item .mat-list-item-content {
             padding-right: 24px;
         }
     }
 
-    .pxb-info-list-item .pxb-info-list-item-icon-wrapper {
+    .blui-info-list-item .blui-info-list-item-icon-wrapper {
         padding: 0;
     }
 
-    .pxb-drawer-nav-item-active-highlight {
+    .blui-drawer-nav-item-active-highlight {
         display: flex;
         z-index: 0;
         position: absolute;
         height: 100%;
         left: 0;
         top: 0;
-        &.pxb-drawer-nav-item-active-round {
+        &.blui-drawer-nav-item-active-round {
             width: calc(100% - 0.5rem);
             border-radius: 0 1.5rem 1.5rem 0;
         }
-        &.pxb-drawer-nav-item-active-square {
+        &.blui-drawer-nav-item-active-square {
             border-radius: 0;
             width: 100%;
         }
     }
 
-    .pxb-drawer-nav-item-expand-icon {
+    .blui-drawer-nav-item-expand-icon {
         transition: 300ms;
         @include scale-icon-content();
-        &.pxb-drawer-nav-item-expanded {
+        &.blui-drawer-nav-item-expanded {
             transform: rotate(180deg);
         }
     }
-    .pxb-drawer-nav-item-rail-container {
+    .blui-drawer-nav-item-rail-container {
         z-index: 1;
         display: flex;
         flex-direction: column;
@@ -116,7 +119,7 @@ pxb-drawer-nav-item {
             @include scale-icon-content();
         }
     }
-    .pxb-drawer-nav-item-rail {
+    .blui-drawer-nav-item-rail {
         z-index: 1;
         display: flex;
         flex-direction: column;
@@ -131,7 +134,7 @@ pxb-drawer-nav-item {
         * {
             z-index: 1; // Keep items above the highlight.
         }
-        .pxb-drawer-nav-item-rail-text {
+        .blui-drawer-nav-item-rail-text {
             font-size: 0.75rem;
             line-height: 1rem;
             word-break: break-word;
@@ -140,8 +143,8 @@ pxb-drawer-nav-item {
     }
 }
 
-.pxb-drawer-nested-nav-item {
-    .pxb-info-list-item .mat-list-item-content {
+.blui-drawer-nested-nav-item {
+    .blui-info-list-item .mat-list-item-content {
         padding-left: 16px;
     }
     .mat-expansion-panel-body {

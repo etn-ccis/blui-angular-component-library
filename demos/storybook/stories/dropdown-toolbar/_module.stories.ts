@@ -2,7 +2,7 @@ import { withKnobs } from '@storybook/addon-knobs';
 import { moduleMetadata, storiesOf } from '@storybook/angular';
 import { COMPONENT_SECTION_NAME, README_STORY_NAME, STORY_PARAMS } from '../../src/constants';
 import { getReadMe, getReadMeStory, storyWrapper, UtilModule } from '../../src/utils';
-import { DropdownToolbarModule, InfoListItemModule } from '@pxblue/angular-components';
+import { DropdownToolbarModule, InfoListItemModule } from '@brightlayer-ui/angular-components';
 import { withA11y } from '@storybook/addon-a11y';
 import { withFullConfig } from './with-full-config.stories';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,7 +20,7 @@ export const dropdownToolbarWrapper = () => (storyFn: any): any => {
         ...story,
         styles: [
             `
-        ::ng-deep .pxb-dropdown-toolbar {
+        ::ng-deep .blui-dropdown-toolbar {
             width: 80vw !important;
         }`,
         ],

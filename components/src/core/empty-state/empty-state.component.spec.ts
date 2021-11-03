@@ -7,9 +7,9 @@ import { EmptyStateModule } from './empty-state.module';
 @Component({
     selector: 'empty-state-basic-usage-test',
     template: `
-        <pxb-empty-state [title]="title" [description]="description">
-            <span pxb-empty-icon></span>
-        </pxb-empty-state>
+        <blui-empty-state [title]="title" [description]="description">
+            <span blui-empty-icon></span>
+        </blui-empty-state>
     `,
 })
 class EmptyStateBasicUsageComponent {
@@ -20,14 +20,14 @@ class EmptyStateBasicUsageComponent {
 @Component({
     selector: 'test-app',
     template: `
-        <pxb-empty-state class="withIcon">
-            <span pxb-empty-icon></span>
-        </pxb-empty-state>
-        <pxb-empty-state class="empty"></pxb-empty-state>
+        <blui-empty-state class="withIcon">
+            <span blui-empty-icon></span>
+        </blui-empty-state>
+        <blui-empty-state class="empty"></blui-empty-state>
 
-        <pxb-empty-state class="withActions">
-            <span pxb-actions></span>
-        </pxb-empty-state>
+        <blui-empty-state class="withActions">
+            <span blui-actions></span>
+        </blui-empty-state>
     `,
 })
 class TestIconActions {}
@@ -35,10 +35,10 @@ class TestIconActions {}
 @Component({
     selector: 'test-description-content',
     template: `
-        <pxb-empty-state>
-            <span pxb-empty-icon></span>
-            <div pxb-description>description</div>
-        </pxb-empty-state>
+        <blui-empty-state>
+            <span blui-empty-icon></span>
+            <div blui-description>description</div>
+        </blui-empty-state>
     `,
 })
 class TestDescriptionContent {}
@@ -46,10 +46,10 @@ class TestDescriptionContent {}
 @Component({
     selector: 'test-title-content',
     template: `
-        <pxb-empty-state>
-            <span pxb-empty-icon></span>
-            <div pxb-title>title</div>
-        </pxb-empty-state>
+        <blui-empty-state>
+            <span blui-empty-icon></span>
+            <div blui-title>title</div>
+        </blui-empty-state>
     `,
 })
 class TestTitleContent {}
@@ -113,20 +113,20 @@ describe('Empty State Component', () => {
     // Action Check
     it('should show actions when supplied', () => {
         const actionFixture = TestBed.createComponent(TestIconActions);
-        let actionElement = actionFixture.debugElement.query(By.css('.withActions [pxb-actions]'));
+        let actionElement = actionFixture.debugElement.query(By.css('.withActions [blui-actions]'));
         void expect(actionElement).not.toBeNull();
 
-        actionElement = actionFixture.debugElement.query(By.css('.empty [pxb-actions]'));
+        actionElement = actionFixture.debugElement.query(By.css('.empty [blui-actions]'));
         void expect(actionElement).toBeNull();
     });
 
     // Icon Check
     it('should show icon when supplied', () => {
         const iconFixture = TestBed.createComponent(TestIconActions);
-        let actionElement = iconFixture.debugElement.query(By.css('.withIcon [pxb-empty-icon]'));
+        let actionElement = iconFixture.debugElement.query(By.css('.withIcon [blui-empty-icon]'));
         void expect(actionElement).not.toBeNull();
 
-        actionElement = iconFixture.debugElement.query(By.css('.empty [pxb-empty-icon]'));
+        actionElement = iconFixture.debugElement.query(By.css('.empty [blui-empty-icon]'));
         void expect(actionElement).toBeNull();
     });
 
@@ -135,11 +135,11 @@ describe('Empty State Component', () => {
         component.description = 'description';
         fixture.detectChanges();
         const classList = [
-            '.pxb-empty-state-content',
-            '.pxb-empty-state-empty-icon-wrapper',
-            '.pxb-empty-state-title',
-            '.pxb-empty-state-description',
-            '.pxb-empty-state-actions-wrapper',
+            '.blui-empty-state-content',
+            '.blui-empty-state-empty-icon-wrapper',
+            '.blui-empty-state-title',
+            '.blui-empty-state-description',
+            '.blui-empty-state-actions-wrapper',
         ];
         for (const className of classList) {
             count(fixture, className);
