@@ -1,7 +1,7 @@
 {
     "name": "@brightlayer-ui/angular-components",
     "version": "5.0.1",
-    "description": "Angular components for PX Blue applications",
+    "description": "Angular components for Brightlayer UI applications",
     "scripts": {
         "ng": "ng",
         "watch:storybook": "ng build -c storybook",
