@@ -20,7 +20,7 @@ export function requireContent(contentPairs: ContentPair[], component: any): voi
         if (!contentPair.ref.nativeElement.children || contentPair.ref.nativeElement.children.length === 0) {
             const name: string = component.constructor.name;
             // eslint-disable-next-line no-console
-            console.warn(`PXBlue ${name} error: Selector "${contentPair.selector}" is required.`);
+            console.warn(`BLUI ${name} error: Selector "${contentPair.selector}" is required.`);
         }
     });
 }
