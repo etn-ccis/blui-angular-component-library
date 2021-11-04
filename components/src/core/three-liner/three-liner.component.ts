@@ -10,38 +10,38 @@ import {
 import { isEmptyView } from '../../utils/utils';
 
 /**
- * [ThreeLiner Component](https://pxblue-components.github.io/angular/?path=/info/components-three-liner--readme)
+ * [ThreeLiner Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-three-liner--readme)
  *
- * The `<pxb-three-liner>` can display up to three lines of stylized text or other ng-content.
- * It is most commonly used within the context of a `<pxb-app-bar>` component where the text can grow / shrink as the App Bar is expanded and collapsed.
+ * The `<blui-three-liner>` can display up to three lines of stylized text or other ng-content.
+ * It is most commonly used within the context of a `<blui-app-bar>` component where the text can grow / shrink as the App Bar is expanded and collapsed.
  */
 @Component({
-    selector: 'pxb-three-liner',
+    selector: 'blui-three-liner',
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['three-liner.component.scss'],
     template: `
-        <div class="pxb-three-liner-content">
-            <div class="pxb-three-liner-title">
+        <div class="blui-three-liner-content">
+            <div class="blui-three-liner-title">
                 <div #titleVc>
-                    <ng-content select="[pxb-title]"></ng-content>
+                    <ng-content select="[blui-title]"></ng-content>
                 </div>
                 <ng-container *ngIf="isEmpty(titleEl)">
                     {{ title }}
                 </ng-container>
             </div>
 
-            <div class="pxb-three-liner-subtitle">
+            <div class="blui-three-liner-subtitle">
                 <div #subtitleVc>
-                    <ng-content select="[pxb-subtitle]"></ng-content>
+                    <ng-content select="[blui-subtitle]"></ng-content>
                 </div>
                 <ng-container *ngIf="isEmpty(subtitleEl)">
                     {{ subtitle }}
                 </ng-container>
             </div>
 
-            <div class="pxb-three-liner-info">
+            <div class="blui-three-liner-info">
                 <div #infoVc>
-                    <ng-content select="[pxb-info]"></ng-content>
+                    <ng-content select="[blui-info]"></ng-content>
                 </div>
                 <ng-container *ngIf="isEmpty(infoEl)">
                     {{ info }}
@@ -50,7 +50,7 @@ import { isEmptyView } from '../../utils/utils';
         </div>
     `,
     host: {
-        class: 'pxb-three-liner',
+        class: 'blui-three-liner',
     },
 })
 export class ThreeLinerComponent implements AfterViewInit {

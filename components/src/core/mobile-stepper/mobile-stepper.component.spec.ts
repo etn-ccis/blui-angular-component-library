@@ -5,14 +5,14 @@ import { Component } from '@angular/core';
 
 @Component({
     template: `
-        <pxb-mobile-stepper [steps]="4" [activeStep]="0"></pxb-mobile-stepper>
+        <blui-mobile-stepper [steps]="4" [activeStep]="0"></blui-mobile-stepper>
     `,
 })
 class TestMobileStepperDot {}
 
 @Component({
     template: `
-        <pxb-mobile-stepper [steps]="4" [activeStep]="0" variant="progress"></pxb-mobile-stepper>
+        <blui-mobile-stepper [steps]="4" [activeStep]="0" variant="progress"></blui-mobile-stepper>
     `,
 })
 class TestMobileStepperProgress {}
@@ -40,7 +40,7 @@ describe('DotStepperComponent', () => {
 
     it('should render the correct number of steps', () => {
         fixture.detectChanges();
-        const dots = fixture.nativeElement.querySelectorAll('.pxb-mobile-stepper-dot');
+        const dots = fixture.nativeElement.querySelectorAll('.blui-mobile-stepper-dot');
         void expect(dots.length).toBe(4);
     });
 
@@ -54,16 +54,16 @@ describe('DotStepperComponent', () => {
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
         const classList = [
-            '.pxb-mobile-stepper',
-            '.pxb-mobile-stepper-content',
-            '.pxb-mobile-stepper-dots',
-            '.pxb-mobile-stepper-dot-active',
+            '.blui-mobile-stepper',
+            '.blui-mobile-stepper-content',
+            '.blui-mobile-stepper-dots',
+            '.blui-mobile-stepper-dot-active',
         ];
         for (const className of classList) {
             count(fixture, className);
         }
-        count(fixture, '.pxb-mobile-stepper-dot', 4);
-        count(fixture, '.pxb-mobile-stepper-dot-visited', 0);
-        count(fixture, '.pxb-mobile-stepper-dot-unvisited', 3);
+        count(fixture, '.blui-mobile-stepper-dot', 4);
+        count(fixture, '.blui-mobile-stepper-dot-visited', 0);
+        count(fixture, '.blui-mobile-stepper-dot-unvisited', 3);
     });
 });

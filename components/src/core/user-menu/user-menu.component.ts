@@ -17,13 +17,13 @@ import { fromEvent, Subscription } from 'rxjs';
 import { map, startWith } from 'rxjs/operators';
 
 /**
- * [UserMenu Component](https://pxblue-components.github.io/angular/?path=/info/components-user-menu--readme)
+ * [UserMenu Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-user-menu--readme)
  *
- * The `<pxb-user-menu>` is an Avatar that opens a Menu when clicked.
+ * The `<blui-user-menu>` is an Avatar that opens a Menu when clicked.
  * It is typically used in the top-right corner of an application and indicates who is logged in.
  */
 @Component({
-    selector: 'pxb-user-menu',
+    selector: 'blui-user-menu',
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./user-menu.component.scss'],
@@ -41,35 +41,35 @@ import { map, startWith } from 'rxjs/operators';
     ],
     template: `
         <!-- This button triggers the overlay and is it's origin -->
-        <pxb-user-menu-avatar
+        <blui-user-menu-avatar
             cdkOverlayOrigin
             [avatarValue]="avatarValue"
             [avatarImage]="avatarImage"
             (click)="openMenu()"
             #trigger="cdkOverlayOrigin"
         >
-            <ng-content select="[pxb-avatar]"></ng-content>
-        </pxb-user-menu-avatar>
+            <ng-content select="[blui-avatar]"></ng-content>
+        </blui-user-menu-avatar>
 
         <ng-template #menu>
-            <pxb-drawer-header
+            <blui-drawer-header
                 *ngIf="menuTitle"
-                class="pxb-user-menu-header"
+                class="blui-user-menu-header"
                 [title]="menuTitle"
                 [subtitle]="menuSubtitle"
                 [divider]="true"
             >
-                <pxb-user-menu-avatar
-                    pxb-icon
+                <blui-user-menu-avatar
+                    blui-icon
                     [avatarValue]="avatarValue"
                     [avatarImage]="avatarImage"
-                    class="pxb-user-menu-header-avatar"
+                    class="blui-user-menu-header-avatar"
                 >
-                    <ng-content select="[pxb-menu-avatar]"></ng-content>
-                </pxb-user-menu-avatar>
-            </pxb-drawer-header>
-            <ng-content select="[pxb-menu-header]"></ng-content>
-            <ng-content select="[pxb-menu-body]"></ng-content>
+                    <ng-content select="[blui-menu-avatar]"></ng-content>
+                </blui-user-menu-avatar>
+            </blui-drawer-header>
+            <ng-content select="[blui-menu-header]"></ng-content>
+            <ng-content select="[blui-menu-body]"></ng-content>
         </ng-template>
 
         <ng-template
@@ -81,15 +81,15 @@ import { map, startWith } from 'rxjs/operators';
             [cdkConnectedOverlayOpen]="isMenuOpen"
             [cdkConnectedOverlayPositions]="positions"
             [cdkConnectedOverlayViewportMargin]="16"
-            [cdkConnectedOverlayBackdropClass]="'pxb-user-menu-overlay-backdrop'"
+            [cdkConnectedOverlayBackdropClass]="'blui-user-menu-overlay-backdrop'"
         >
-            <mat-card class="pxb-user-menu-overlay mat-elevation-z8" [@fade-in-out]>
+            <mat-card class="blui-user-menu-overlay mat-elevation-z8" [@fade-in-out]>
                 <ng-template [ngTemplateOutlet]="menu"></ng-template>
             </mat-card>
         </ng-template>
     `,
     host: {
-        class: 'pxb-user-menu',
+        class: 'blui-user-menu',
     },
 })
 export class UserMenuComponent {
@@ -200,8 +200,8 @@ export class UserMenuComponent {
         this.isBottomSheetOpen = true;
         this._bottomSheet
             .open(this.menu, {
-                backdropClass: 'pxb-user-menu-bottomsheet-backdrop',
-                panelClass: 'pxb-user-menu-bottomsheet',
+                backdropClass: 'blui-user-menu-bottomsheet-backdrop',
+                panelClass: 'blui-user-menu-bottomsheet',
                 hasBackdrop: true,
             })
             .afterDismissed()

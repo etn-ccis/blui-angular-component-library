@@ -10,11 +10,11 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @Component({
     selector: 'test-app',
     template: `
-        <pxb-user-menu avatarValue="HA" [open]="true">
-            <div pxb-menu-header>
+        <blui-user-menu avatarValue="HA" [open]="true">
+            <div blui-menu-header>
                 <div id="custom-header-test"></div>
             </div>
-        </pxb-user-menu>
+        </blui-user-menu>
     `,
 })
 class UserMenuCustomHeaderTest {}
@@ -23,11 +23,11 @@ class UserMenuCustomHeaderTest {}
 @Component({
     selector: 'test-app',
     template: `
-        <pxb-user-menu avatarValue="HA" [open]="true">
-            <mat-nav-list pxb-menu-body>
+        <blui-user-menu avatarValue="HA" [open]="true">
+            <mat-nav-list blui-menu-body>
                 <mat-list-item id="list-item-test">List Item 1</mat-list-item>
             </mat-nav-list>
-        </pxb-user-menu>
+        </blui-user-menu>
     `,
 })
 class UserMenuNavItemsTest {}
@@ -54,19 +54,19 @@ describe('UserMenuComponent', () => {
     it('should render text in the avatar', () => {
         component.avatarValue = 'HA';
         fixture.detectChanges();
-        const avatar = fixture.nativeElement.querySelector('.pxb-user-menu-avatar');
+        const avatar = fixture.nativeElement.querySelector('.blui-user-menu-avatar');
         void expect(avatar.innerText).toBe('HA');
     });
 
     it('should render the menu open is true', () => {
         fixture.detectChanges();
-        let menu = document.getElementsByClassName('.pxb-user-menu-overlay');
+        let menu = document.getElementsByClassName('.blui-user-menu-overlay');
         void expect(menu).toBeTruthy();
         component.open = true;
         component.isMenuOpen = true;
         component.useBottomSheet = false;
         fixture.detectChanges();
-        menu = document.getElementsByClassName('.pxb-user-menu-overlay');
+        menu = document.getElementsByClassName('.blui-user-menu-overlay');
         void expect(menu).toBeTruthy();
     });
 
@@ -76,7 +76,7 @@ describe('UserMenuComponent', () => {
         component.isMenuOpen = true;
         component.useBottomSheet = false;
         fixture.detectChanges();
-        const title = document.getElementsByClassName('pxb-drawer-header-title')[0] as HTMLElement;
+        const title = document.getElementsByClassName('blui-drawer-header-title')[0] as HTMLElement;
         void expect(title.innerText).toBe('Sample Title');
     });
 
@@ -87,7 +87,7 @@ describe('UserMenuComponent', () => {
         component.isMenuOpen = true;
         component.useBottomSheet = false;
         fixture.detectChanges();
-        const title = document.getElementsByClassName('pxb-drawer-header-subtitle')[0] as HTMLElement;
+        const title = document.getElementsByClassName('blui-drawer-header-subtitle')[0] as HTMLElement;
         void expect(title.innerText).toBe('Sample Subtitle');
     });
 
@@ -112,14 +112,14 @@ describe('UserMenuComponent', () => {
         component.useBottomSheet = false;
         component.menuTitle = 'Title';
         fixture.detectChanges();
-        const fixtureClassList = ['.pxb-user-menu-avatar', '.pxb-user-menu-text-avatar'];
+        const fixtureClassList = ['.blui-user-menu-avatar', '.blui-user-menu-text-avatar'];
         const menuOverlayClassList = [
-            'pxb-user-menu-overlay-backdrop',
-            'pxb-user-menu-overlay',
-            'pxb-user-menu-header',
-            'pxb-user-menu-header-avatar',
+            'blui-user-menu-overlay-backdrop',
+            'blui-user-menu-overlay',
+            'blui-user-menu-header',
+            'blui-user-menu-header-avatar',
         ];
-        const bottomSheetClassList = ['pxb-user-menu-bottomsheet', 'pxb-user-menu-bottomsheet-backdrop'];
+        const bottomSheetClassList = ['blui-user-menu-bottomsheet', 'blui-user-menu-bottomsheet-backdrop'];
         for (const className of fixtureClassList) {
             count(fixture, className);
         }

@@ -1,18 +1,18 @@
 @import '../../utility/utility';
 
 /* RTL */
-[dir='rtl'] .pxb-drawer-header-content {
-    .pxb-drawer-header-icon-wrapper {
+[dir='rtl'] .blui-drawer-header-content {
+    .blui-drawer-header-icon-wrapper {
         margin-right: -0.5rem;
         margin-left: calc(24px + (1rem - 16px) / 2);
     }
-    &.pxb-drawer-header-no-icon .pxb-drawer-header-icon-wrapper {
+    &.blui-drawer-header-no-icon .blui-drawer-header-icon-wrapper {
         margin-right: 0;
         margin-left: 0;
     }
 }
 
-.pxb-drawer-header-content {
+.blui-drawer-header-content {
     width: 100%;
     align-items: flex-start;
     box-sizing: border-box;
@@ -25,12 +25,12 @@
         padding-right: 16px;
         padding-left: 16px;
     }
-    &.rail.pxb-drawer-header-no-icon.mat-toolbar-single-row.mat-toolbar {
+    &.rail.blui-drawer-header-no-icon.mat-toolbar-single-row.mat-toolbar {
         padding-right: 0;
         padding-left: 0;
     }
 
-    .pxb-drawer-header-background {
+    .blui-drawer-header-background {
         position: absolute;
         opacity: 0.3;
         background-position: center;
@@ -42,14 +42,14 @@
         bottom: 0;
     }
 
-    .pxb-drawer-header-text {
+    .blui-drawer-header-text {
         z-index: 2;
         display: flex;
         width: 100%;
         height: 100%;
     }
 
-    .pxb-drawer-header-icon-wrapper {
+    .blui-drawer-header-icon-wrapper {
         display: flex;
         align-items: center;
         z-index: 1;
@@ -62,12 +62,12 @@
             margin: 0;
         }
     }
-    &.pxb-drawer-header-no-icon .pxb-drawer-header-icon-wrapper {
+    &.blui-drawer-header-no-icon .blui-drawer-header-icon-wrapper {
         width: 0;
         margin: 0;
     }
 
-    .pxb-drawer-header-title-wrapper {
+    .blui-drawer-header-title-wrapper {
         display: flex;
         justify-content: center;
         align-self: stretch;
@@ -76,14 +76,14 @@
         box-sizing: border-box;
         z-index: 1;
 
-        .pxb-drawer-header-title {
+        .blui-drawer-header-title {
             font-weight: 600;
             line-height: 1.6rem;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
-        .pxb-drawer-header-subtitle {
+        .blui-drawer-header-subtitle {
             font-weight: 300;
             line-height: 1.3rem;
             margin-top: -0.125rem;
@@ -97,7 +97,7 @@
 }
 
 @media (max-width: 599px) {
-    .pxb-drawer-header-content {
+    .blui-drawer-header-content {
         height: 3.5rem;
     }
 }

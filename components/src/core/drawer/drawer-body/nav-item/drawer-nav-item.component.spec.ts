@@ -7,7 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
     template: `
-        <pxb-drawer-nav-item [hidden]="true"></pxb-drawer-nav-item>
+        <blui-drawer-nav-item [hidden]="true"></blui-drawer-nav-item>
     `,
 })
 class DrawerHiddenNavItem {}
@@ -39,7 +39,7 @@ describe('DrawerNavItemComponent', () => {
     it('should not render the nav item if hidden is true', () => {
         const hiddenFixture = TestBed.createComponent(DrawerHiddenNavItem);
         hiddenFixture.detectChanges();
-        const navItem = hiddenFixture.nativeElement.querySelector('.pxb-drawer-nav-item-content');
+        const navItem = hiddenFixture.nativeElement.querySelector('.blui-drawer-nav-item-content');
         void expect(navItem).toBeFalsy();
     });
 
@@ -51,19 +51,19 @@ describe('DrawerNavItemComponent', () => {
         spyOn(component, 'isEmpty').and.returnValue(true);
         fixture.detectChanges();
         let classList = [
-            '.pxb-drawer-nav-item-content',
-            //       '.pxb-drawer-nav-item-expand-icon', // TODO: Fix me.
-            '.pxb-drawer-nested-nav-item',
-            '.pxb-drawer-nav-item-active-square',
-            '.pxb-drawer-nav-item-active',
-            '.pxb-drawer-nav-item-active-highlight',
+            '.blui-drawer-nav-item-content',
+            //       '.blui-drawer-nav-item-expand-icon', // TODO: Fix me.
+            '.blui-drawer-nested-nav-item',
+            '.blui-drawer-nav-item-active-square',
+            '.blui-drawer-nav-item-active',
+            '.blui-drawer-nav-item-active-highlight',
         ];
         for (const className of classList) {
             count(fixture, className);
         }
         spyOn(component, 'isRail').and.returnValue(true);
         fixture.detectChanges();
-        classList = ['.pxb-drawer-nav-item-rail', '.pxb-drawer-nav-item-rail-text'];
+        classList = ['.blui-drawer-nav-item-rail', '.blui-drawer-nav-item-rail-text'];
         for (const className of classList) {
             count(fixture, className);
         }

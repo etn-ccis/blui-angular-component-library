@@ -18,42 +18,42 @@ import { Subscription } from 'rxjs';
 export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' | 'rail';
 
 /**
- * [DrawerLayout Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ * [DrawerLayout Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-drawer--readme)
  *
- * The `<pxb-drawer-layout>` component is a wrapper around the [Angular Material Sidenav](https://material.angular.io/components/sidenav/overview) that adds specific PX Blue functionality and styling.
- * The `<pxb-drawer-layout>` component is used to provide the appropriate resizing behavior for your main application content when used in conjunction with a PX Blue `<pxb-drawer>`.
+ * The `<blui-drawer-layout>` component is a wrapper around the [Angular Material Sidenav](https://material.angular.io/components/sidenav/overview) that adds specific Brightlayer UI functionality and styling.
+ * The `<blui-drawer-layout>` component is used to provide the appropriate resizing behavior for your main application content when used in conjunction with a Brightlayer UI `<blui-drawer>`.
  * It accepts a drawer and content as child elements;
  */
 @Component({
-    selector: 'pxb-drawer-layout',
+    selector: 'blui-drawer-layout',
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./drawer-layout.component.scss'],
     template: `
-        <mat-sidenav-container class="pxb-drawer-layout-content" (backdropClick)="closeDrawer()" autosize="false">
+        <mat-sidenav-container class="blui-drawer-layout-content" (backdropClick)="closeDrawer()" autosize="false">
             <mat-sidenav
-                class="pxb-drawer-layout-sidenav"
+                class="blui-drawer-layout-sidenav"
                 [fixedInViewport]="false"
-                [class.pxb-drawer-layout-smooth]="variant !== 'temporary'"
+                [class.blui-drawer-layout-smooth]="variant !== 'temporary'"
                 [class.mat-elevation-z6]="!hasSideBorder()"
                 [style.width.rem]="isCollapsed() ? getCollapsedWidth() : toRem(width)"
                 [mode]="getMode()"
                 [opened]="isDrawerVisible()"
             >
-                <ng-content select="[pxb-drawer]"></ng-content>
+                <ng-content select="[blui-drawer]"></ng-content>
             </mat-sidenav>
             <div
-                class="pxb-drawer-layout-nav-content"
-                [class.pxb-drawer-layout-smooth]="variant !== 'temporary'"
+                class="blui-drawer-layout-nav-content"
+                [class.blui-drawer-layout-smooth]="variant !== 'temporary'"
                 [style.marginRight.rem]="isRtl ? getContentMargin() : 0"
                 [style.marginLeft.rem]="isRtl ? 0 : getContentMargin()"
             >
-                <ng-content select="[pxb-content]"></ng-content>
+                <ng-content select="[blui-content]"></ng-content>
             </div>
             <div style="display:none; font-size: 1rem" #remElement></div>
         </mat-sidenav-container>
     `,
     host: {
-        class: 'pxb-drawer-layout',
+        class: 'blui-drawer-layout',
     },
 })
 export class DrawerLayoutComponent extends StateListener implements AfterViewInit, OnChanges {

@@ -8,27 +8,27 @@ import { count } from 'src/utils/test-utils';
 
 @Component({
     template: `
-        <pxb-drawer-header title="title" subtitle="subtitle"></pxb-drawer-header>
+        <blui-drawer-header title="title" subtitle="subtitle"></blui-drawer-header>
     `,
 })
 class TestDrawerHeader {}
 
 @Component({
     template: `
-        <pxb-drawer-header>
-            <div pxb-title-content id="test-title-content">test title content</div>
-        </pxb-drawer-header>
+        <blui-drawer-header>
+            <div blui-title-content id="test-title-content">test title content</div>
+        </blui-drawer-header>
     `,
 })
 class TestDrawerHeaderWithTitleContent {}
 
 @Component({
     template: `
-        <pxb-drawer-header>
-            <button id="test-icon" mat-icon-button pxb-icon>
+        <blui-drawer-header>
+            <button id="test-icon" mat-icon-button blui-icon>
                 <mat-icon>menu</mat-icon>
             </button>
-        </pxb-drawer-header>
+        </blui-drawer-header>
     `,
 })
 class TestDrawerHeaderWithIcon {}
@@ -60,7 +60,7 @@ describe('DrawerHeaderComponent', () => {
     it('should render title', () => {
         component.title = 'test title';
         fixture.detectChanges();
-        const title = fixture.debugElement.query(By.css('.pxb-drawer-header-title'));
+        const title = fixture.debugElement.query(By.css('.blui-drawer-header-title'));
         void expect(title.nativeElement.innerHTML.trim()).toBe('test title');
     });
 
@@ -68,7 +68,7 @@ describe('DrawerHeaderComponent', () => {
         component.title = 'test title';
         component.subtitle = 'test subtitle';
         fixture.detectChanges();
-        const subtitle = fixture.debugElement.query(By.css('.pxb-drawer-header-subtitle'));
+        const subtitle = fixture.debugElement.query(By.css('.blui-drawer-header-subtitle'));
         void expect(subtitle.nativeElement.innerHTML.trim()).toBe('test subtitle');
     });
 
@@ -92,14 +92,14 @@ describe('DrawerHeaderComponent', () => {
         const customFixture = TestBed.createComponent(TestDrawerHeader);
         customFixture.detectChanges();
         const classList = [
-            '.pxb-drawer-header',
-            '.pxb-drawer-header-content',
-            '.pxb-drawer-header-background',
-            '.pxb-drawer-header-content',
-            '.pxb-drawer-header-icon-wrapper',
-            '.pxb-drawer-header-title-wrapper',
-            '.pxb-drawer-header-title',
-            '.pxb-drawer-header-subtitle',
+            '.blui-drawer-header',
+            '.blui-drawer-header-content',
+            '.blui-drawer-header-background',
+            '.blui-drawer-header-content',
+            '.blui-drawer-header-icon-wrapper',
+            '.blui-drawer-header-title-wrapper',
+            '.blui-drawer-header-title',
+            '.blui-drawer-header-subtitle',
         ];
         for (const className of classList) {
             count(customFixture, className);

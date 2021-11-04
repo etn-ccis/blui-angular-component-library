@@ -1,16 +1,16 @@
 $transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
 
-.pxb-drawer-layout {
+.blui-drawer-layout {
     display: flex;
     height: 100vh;
 }
 
 /* RTL */
-[dir='rtl'] .pxb-drawer-layout-content .mat-drawer-side {
+[dir='rtl'] .blui-drawer-layout-content .mat-drawer-side {
     border-left: 0; // Border-left is provided by the Drawer component.
 }
 
-.pxb-drawer-layout-content {
+.blui-drawer-layout-content {
     height: 100%;
     width: 100%;
     transition: none;
@@ -26,19 +26,19 @@ $transition: 300ms cubic-bezier(0.4, 0, 0.2, 1);
         border-right: none;
     }
 
-    .pxb-drawer-content {
+    .blui-drawer-content {
         transition: none;
         width: 100%;
-        &.pxb-drawer-collapse {
+        &.blui-drawer-collapse {
             width: 100%;
         }
     }
 
-    .pxb-drawer-layout-sidenav,
-    .pxb-drawer-layout-nav-content {
+    .blui-drawer-layout-sidenav,
+    .blui-drawer-layout-nav-content {
         min-height: 100%;
         transition: none;
-        &.pxb-drawer-layout-smooth {
+        &.blui-drawer-layout-smooth {
             transition: $transition;
         }
     }

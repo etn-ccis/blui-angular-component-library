@@ -10,7 +10,7 @@ export function requireInput<T>(inputs: Array<keyof T>, component: any): void {
         if (component[input] === undefined || component[input] === null || component[input] === '') {
             const name: string = component.constructor.name;
             // eslint-disable-next-line no-console
-            console.warn(`PXBlue ${name} error: Property "${input}" is required.`);
+            console.warn(`Brightlayer UI ${name} error: Property "${input}" is required.`);
         }
     });
 }

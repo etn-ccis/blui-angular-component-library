@@ -1,5 +1,5 @@
 {
-    "name": "@pxblue/angular-components",
+    "name": "@brightlayer-ui/angular-components",
     "version": "5.0.1",
     "description": "Angular components for PX Blue applications",
     "scripts": {
@@ -14,7 +14,7 @@
         "lint": "eslint \"src/**/**.ts\"",
         "lint:fix": "eslint \"src/**/**.ts\" --fix",
         "coverage": "yarn test --no-watch --code-coverage",
-        "tag:package": "cp ../CHANGELOG.md CHANGELOG.md && npx -p @pxblue/tag pxb-tag"
+        "tag:package": "cp ../CHANGELOG.md CHANGELOG.md && npx -p @brightlayer-ui/tag blui-tag"
     },
     "peerDependencies": {},
     "devDependencies": {
@@ -30,9 +30,9 @@
         "@angular/material": "^11.2.8",
         "@angular/platform-browser": "~11.2.9",
         "@angular/platform-browser-dynamic": "~11.2.9",
-        "@pxblue/eslint-config": "^2.0.1",
-        "@pxblue/ng-progress-icons": "^1.1.3",
-        "@pxblue/prettier-config": "^1.0.2",
+        "@brightlayer-ui/eslint-config": "^2.0.1",
+        "@brightlayer-ui/ng-progress-icons": "^1.1.3",
+        "@brightlayer-ui/prettier-config": "^1.0.2",
         "@types/jasmine": "~3.6.0",
         "@types/jasminewd2": "~2.0.8",
         "@types/node": "^12.11.1",
@@ -57,22 +57,22 @@
         "yarn-audit-fix": "^6.3.4",
         "zone.js": "~0.10.2"
     },
-    "prettier": "@pxblue/prettier-config",
+    "prettier": "@brightlayer-ui/prettier-config",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/pxblue/angular-component-library.git"
+        "url": "git+https://github.com/brightlayer-ui/angular-component-library.git"
     },
     "keywords": [
         "angular",
         "components",
-        "pxblue"
+        "brightlayer-ui"
     ],
-    "author": "pxblue <pxblue@eaton.com>",
+    "author": "brightlayer-ui <brightlayer-ui@eaton.com>",
     "license": "BSD-3-Clause",
     "bugs": {
-        "url": "https://github.com/pxblue/angular-component-library/issues"
+        "url": "https://github.com/brightlayer-ui/angular-component-library/issues"
     },
-    "homepage": "https://github.com/pxblue/angular-component-library#readme",
+    "homepage": "https://github.com/brightlayer-ui/angular-component-library#readme",
     "dependencies": {
         "tslib": "^2.0.0"
     }
