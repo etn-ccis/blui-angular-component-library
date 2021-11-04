@@ -31,7 +31,11 @@ import { MatMenuTrigger } from '@angular/material/menu';
                 </div>
             </div>
             <ng-content></ng-content>
-            <mat-menu #dropdownToolbarMenu="matMenu" [overlapTrigger]="false" class="blui-dropdown-toolbar-menu-wrapper">
+            <mat-menu
+                #dropdownToolbarMenu="matMenu"
+                [overlapTrigger]="false"
+                class="blui-dropdown-toolbar-menu-wrapper"
+            >
                 <ng-content select="[blui-toolbar-menu]"></ng-content>
             </mat-menu>
         </mat-toolbar>
