@@ -1862,6 +1862,13 @@
     node-gyp "^7.1.0"
     read-package-json-fast "^2.0.1"
 
+"@pxblue/angular-components@5.0.1":
+  version "5.0.1"
+  resolved "https://registry.yarnpkg.com/@pxblue/angular-components/-/angular-components-5.0.1.tgz#5b6c1d9393911499b1687734dbfabd409b4abfac"
+  integrity sha512-ss0fuO7/z6wiVyi17C7ukx91kPKkgAtnyiUONyDBWMShuAssS1p0IhHpOo1JZmstVShBbsXCe96Elzeemp8TsQ==
+  dependencies:
+    tslib "^2.0.0"
+
 "@pxblue/angular-themes@^6.1.0":
   version "6.1.0"
   resolved "https://registry.yarnpkg.com/@pxblue/angular-themes/-/angular-themes-6.1.0.tgz#2ad747c948d0b62781238e3445c4f34c88223613"
