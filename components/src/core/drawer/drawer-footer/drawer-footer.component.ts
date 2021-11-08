@@ -3,18 +3,18 @@ import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 
 /**
- * [DrawerFooter Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ * [DrawerFooter Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-drawer--readme)
  *
- * The `<pxb-drawer-footer>` is an optional section that renders at the bottom of the `<pxb-drawer>`.
+ * The `<blui-drawer-footer>` is an optional section that renders at the bottom of the `<blui-drawer>`.
  * It can be used to add any custom content (as children).
  */
 @Component({
-    selector: 'pxb-drawer-footer',
+    selector: 'blui-drawer-footer',
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
         <div
-            class="pxb-drawer-footer-content"
+            class="blui-drawer-footer-content"
             [style.visibility]="hideContentOnCollapse ? (isOpen() ? 'visible' : 'hidden') : 'visible'"
         >
             <mat-divider *ngIf="divider"></mat-divider>
@@ -23,7 +23,7 @@ import { StateListener } from '../state-listener.component';
     `,
     styleUrls: ['./drawer-footer.component.scss'],
     host: {
-        class: 'pxb-drawer-footer',
+        class: 'blui-drawer-footer',
     },
 })
 export class DrawerFooterComponent extends StateListener {

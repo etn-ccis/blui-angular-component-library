@@ -18,33 +18,33 @@ import { throttle } from 'rxjs/operators';
 import { Element } from '@angular/compiler';
 
 /**
- * [AppBar Component](https://pxblue-components.github.io/angular/?path=/info/components-app-bar--readme)
+ * [AppBar Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-app-bar--readme)
  *
- * The `<pxb-app-bar>` component is a wrapper around the `<mat-toolbar>` that can be resized as the page is scrolled.
+ * The `<blui-app-bar>` component is a wrapper around the `<mat-toolbar>` that can be resized as the page is scrolled.
  * It supports three variants: `snap`, `collapsed`, and `expanded`.
  * */
 @Component({
-    selector: 'pxb-app-bar',
+    selector: 'blui-app-bar',
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./app-bar.component.scss'],
     template: `
         <mat-toolbar
             [color]="color"
-            class="pxb-app-bar-content"
-            [class.pxb-app-bar-collapsed]="isCollapsed"
-            [class.pxb-app-bar-expanded]="!isCollapsed"
-            [class.pxb-app-bar-view-init]="viewInit"
+            class="blui-app-bar-content"
+            [class.blui-app-bar-collapsed]="isCollapsed"
+            [class.blui-app-bar-expanded]="!isCollapsed"
+            [class.blui-app-bar-view-init]="viewInit"
             [style.height]="calcCurrentToolbarHeight()"
         >
             <mat-toolbar-row>
-                <div class="pxb-app-bar-background"></div>
-                <ng-content select="[pxb-icon]"></ng-content>
-                <div class="pxb-app-bar-body-wrapper">
+                <div class="blui-app-bar-background"></div>
+                <ng-content select="[blui-icon]"></ng-content>
+                <div class="blui-app-bar-body-wrapper">
                     <ng-content></ng-content>
                 </div>
-                <pxb-spacer></pxb-spacer>
-                <ng-content select="[pxb-actions]"></ng-content>
+                <blui-spacer></blui-spacer>
+                <ng-content select="[blui-actions]"></ng-content>
             </mat-toolbar-row>
         </mat-toolbar>
     `,
@@ -87,7 +87,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     /** Event emitter for when the appbar opens or closes.  Emits a boolean that indicates whether the AppBar is expanded. */
     @Output() collapsedChange: EventEmitter<boolean> = new EventEmitter();
 
-    @HostBinding('class') @Input('class') classList = 'pxb-app-bar mat-elevation-z4';
+    @HostBinding('class') @Input('class') classList = 'blui-app-bar mat-elevation-z4';
 
     scrollEl;
 

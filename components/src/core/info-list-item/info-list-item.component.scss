@@ -5,16 +5,16 @@ $contentPaddingLeft: 16px;
 $normalHeight: 4.5rem;
 $denseHeight: 3.25rem;
 
-.pxb-info-list-item {
+.blui-info-list-item {
     display: block;
     width: 100%;
 }
 
 /* RTL */
 [dir='rtl'] {
-    .pxb-info-list-item-content,
-    .mat-list-base .mat-list-item.pxb-info-list-item-content {
-        &.pxb-info-list-item-status .mat-list-item-content {
+    .blui-info-list-item-content,
+    .mat-list-base .mat-list-item.blui-info-list-item-content {
+        &.blui-info-list-item-status .mat-list-item-content {
             border-right: solid $statusWidth;
             border-right-color: inherit;
             padding-right: $contentPaddingLeft - $statusWidth;
@@ -25,31 +25,31 @@ $denseHeight: 3.25rem;
             padding-right: 0;
         }
 
-        .pxb-info-list-item-icon-wrapper {
+        .blui-info-list-item-icon-wrapper {
             margin-right: 0;
             margin-left: 16px;
         }
 
-        .pxb-chevron {
+        .blui-chevron {
             @include invert();
         }
-        .pxb-info-list-item-left-content-wrapper > * {
+        .blui-info-list-item-left-content-wrapper > * {
             margin-left: 16px;
             margin-right: 0;
         }
-        .pxb-info-list-item-right-content {
+        .blui-info-list-item-right-content {
             margin-right: 16px;
             margin-left: 0;
         }
     }
-    mat-divider.mat-divider.pxb-info-list-item-partial-divider {
+    mat-divider.mat-divider.blui-info-list-item-partial-divider {
         left: 0;
         right: 4.5rem;
     }
 }
 
-.pxb-info-list-item-content,
-.mat-list-base .mat-list-item.pxb-info-list-item-content {
+.blui-info-list-item-content,
+.mat-list-base .mat-list-item.blui-info-list-item-content {
     width: 100%;
     height: inherit; /* Used to override height applied when wrapped in a mat-list. */
     .mat-list-item-content {
@@ -67,49 +67,49 @@ $denseHeight: 3.25rem;
         }
     }
 
-    &.pxb-info-list-item-status .mat-list-item-content {
+    &.blui-info-list-item-status .mat-list-item-content {
         border-left: solid $statusWidth;
         border-left-color: inherit;
         padding-left: $contentPaddingLeft - $statusWidth;
     }
 
-    &.pxb-info-list-item-dense .mat-list-item-content {
+    &.blui-info-list-item-dense .mat-list-item-content {
         height: $denseHeight;
     }
 
-    &.pxb-info-list-item-wrap {
+    &.blui-info-list-item-wrap {
         .mat-list-item-content {
             height: unset;
             min-height: $normalHeight;
         }
-        &.pxb-info-list-item-dense .mat-list-item-content {
+        &.blui-info-list-item-dense .mat-list-item-content {
             min-height: $denseHeight;
         }
     }
 
-    .pxb-info-list-item-title-wrapper {
+    .blui-info-list-item-title-wrapper {
         font-size: 1rem; // TODO: Fix via theme
         font-weight: 600;
         line-height: 1.25;
         margin-bottom: 0;
     }
 
-    .pxb-info-list-item-subtitle-wrapper,
-    .pxb-info-list-item-info-wrapper {
+    .blui-info-list-item-subtitle-wrapper,
+    .blui-info-list-item-info-wrapper {
         font-weight: 400;
         line-height: 1.3;
         font-size: 0.875rem;
     }
 
-    .pxb-info-list-item-title-wrapper,
-    .pxb-info-list-item-subtitle-wrapper,
-    .pxb-info-list-item-info-wrapper {
+    .blui-info-list-item-title-wrapper,
+    .blui-info-list-item-subtitle-wrapper,
+    .blui-info-list-item-info-wrapper {
         * {
             white-space: nowrap;
             overflow: hidden;
             text-overflow: ellipsis;
         }
-        &.pxb-info-list-item-wrap * {
+        &.blui-info-list-item-wrap * {
             white-space: normal;
             overflow: unset;
             text-overflow: unset;
@@ -118,15 +118,15 @@ $denseHeight: 3.25rem;
     }
 
     // Display order is below, left-to-right.
-    .pxb-info-list-item-icon-wrapper,
-    .pxb-info-list-item-left-content-wrapper,
+    .blui-info-list-item-icon-wrapper,
+    .blui-info-list-item-left-content-wrapper,
     .mat-list-text,
-    .pxb-info-list-item-spacer,
-    .pxb-info-list-item-right-content {
+    .blui-info-list-item-spacer,
+    .blui-info-list-item-right-content {
         display: flex;
     }
 
-    .pxb-info-list-item-icon-wrapper {
+    .blui-info-list-item-icon-wrapper {
         order: 1;
         width: 2.5rem;
         min-width: 2.5rem;
@@ -139,12 +139,12 @@ $denseHeight: 3.25rem;
             /* mat-icon, font-icon, etc */
             @include scale-icon-content();
         }
-        &.pxb-info-list-item-hide-padding:empty {
+        &.blui-info-list-item-hide-padding:empty {
             width: 0;
             margin: 0;
             min-width: unset;
         }
-        &.pxb-info-list-item-avatar > * {
+        &.blui-info-list-item-avatar > * {
             padding: 0.5rem;
             display: flex;
             border-radius: 50%;
@@ -154,13 +154,13 @@ $denseHeight: 3.25rem;
         }
     }
 
-    .pxb-info-list-item-left-content-wrapper {
+    .blui-info-list-item-left-content-wrapper {
         order: 2;
         > * {
             display: flex;
         }
     }
-    .pxb-info-list-item-left-content-wrapper > * {
+    .blui-info-list-item-left-content-wrapper > * {
         margin-right: 1rem;
     }
 
@@ -170,21 +170,21 @@ $denseHeight: 3.25rem;
         flex-direction: column;
     }
 
-    .pxb-info-list-item-spacer {
+    .blui-info-list-item-spacer {
         order: 4;
     }
 
-    .pxb-info-list-item-right-content {
+    .blui-info-list-item-right-content {
         order: 5;
         white-space: nowrap;
         align-items: center;
         margin-left: 16px;
-        .pxb-info-list-item-right-content-wrapper > * {
+        .blui-info-list-item-right-content-wrapper > * {
             display: flex;
             align-items: center;
         }
     }
-    .pxb-chevron {
+    .blui-chevron {
         font-size: 1.5rem;
         height: 1.5rem;
         width: 1.5rem;
@@ -192,10 +192,10 @@ $denseHeight: 3.25rem;
 }
 
 mat-divider {
-    &.pxb-info-list-item-divider {
+    &.blui-info-list-item-divider {
         margin-top: -1px;
     }
-    &.mat-divider.pxb-info-list-item-partial-divider {
+    &.mat-divider.blui-info-list-item-partial-divider {
         $partial-start: calc(2.5rem + 32px);
         position: relative;
         bottom: 0;

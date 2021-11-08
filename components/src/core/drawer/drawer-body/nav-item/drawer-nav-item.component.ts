@@ -33,34 +33,34 @@ export type DrawerNavItem = {
 export type ActiveItemBackgroundShape = 'round' | 'square';
 
 /**
- * [DrawerNavItem Component](https://pxblue-components.github.io/angular/?path=/info/components-drawer--readme)
+ * [DrawerNavItem Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-drawer--readme)
  *
- * The `<pxb-drawer-nav-item>` is a wrapper to the `<pxb-info-list-item>` that is meant to be used within a `<pxb-nav-group>`.
+ * The `<blui-drawer-nav-item>` is a wrapper to the `<blui-info-list-item>` that is meant to be used within a `<blui-nav-group>`.
  */
 @Component({
-    selector: 'pxb-drawer-nav-item',
+    selector: 'blui-drawer-nav-item',
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./drawer-nav-item.component.scss'],
     template: `
         <ng-container *ngIf="!hidden">
-            <ng-template #navIcon><ng-content select="[pxb-icon]"></ng-content></ng-template>
+            <ng-template #navIcon><ng-content select="[blui-icon]"></ng-content></ng-template>
             <div
-                class="pxb-drawer-nav-item-content"
+                class="blui-drawer-nav-item-content"
                 #navItem
                 matRipple
-                [class.pxb-drawer-nav-item-active]="selected"
-                [class.pxb-drawer-nav-item-compact]="false"
+                [class.blui-drawer-nav-item-active]="selected"
+                [class.blui-drawer-nav-item-compact]="false"
             >
                 <div
-                    [class.pxb-drawer-nav-item-active-highlight]="selected"
-                    [class.pxb-drawer-nav-item-active-round]="
+                    [class.blui-drawer-nav-item-active-highlight]="selected"
+                    [class.blui-drawer-nav-item-active-round]="
                         activeItemBackgroundShape === 'round' && isOpen() && !isRail()
                     "
-                    [class.pxb-drawer-nav-item-active-square]="
+                    [class.blui-drawer-nav-item-active-square]="
                         activeItemBackgroundShape === 'square' || !isOpen() || isRail()
                     "
                 ></div>
-                <pxb-info-list-item
+                <blui-info-list-item
                     *ngIf="!isRail()"
                     (click)="selectItem()"
                     [dense]="true"
@@ -68,62 +68,62 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                     [chevron]="chevron && isOpen()"
                     [hidePadding]="hidePadding"
                     [divider]="divider ? 'full' : undefined"
-                    [class.pxb-drawer-nav-item-no-icon-closed]="isEmpty(iconEl) && !isOpen()"
+                    [class.blui-drawer-nav-item-no-icon-closed]="isEmpty(iconEl) && !isOpen()"
                     [matTooltip]="title"
                     [matTooltipDisabled]="isOpen() || isOpenOnHover() || !showTooltipOnRailHover()"
                     matTooltipPosition="right"
                 >
-                    <ng-container pxb-icon #icon>
+                    <ng-container blui-icon #icon>
                         <ng-container *ngTemplateOutlet="navIcon"></ng-container>
                     </ng-container>
                     <div
-                        pxb-title
-                        [class.pxb-drawer-nav-item-depth-1]="depth === 1"
-                        [class.pxb-drawer-nav-item-depth-2]="depth === 2"
-                        [class.pxb-drawer-nav-item-depth-3]="depth === 3"
+                        blui-title
+                        [class.blui-drawer-nav-item-depth-1]="depth === 1"
+                        [class.blui-drawer-nav-item-depth-2]="depth === 2"
+                        [class.blui-drawer-nav-item-depth-3]="depth === 3"
                     >
                         {{ title }}
                     </div>
-                    <div pxb-subtitle>{{ subtitle }}</div>
-                    <div pxb-right-content *ngIf="hasChildren && isOpen()">
+                    <div blui-subtitle>{{ subtitle }}</div>
+                    <div blui-right-content *ngIf="hasChildren && isOpen()">
                         <div #expandIcon *ngIf="!expanded">
-                            <ng-content select="[pxb-expand-icon]"></ng-content>
+                            <ng-content select="[blui-expand-icon]"></ng-content>
                         </div>
                         <div #collapseIcon *ngIf="expanded">
-                            <ng-content select="[pxb-collapse-icon]"></ng-content>
+                            <ng-content select="[blui-collapse-icon]"></ng-content>
                         </div>
                         <mat-icon
                             *ngIf="isEmpty(collapseIconEl) && isEmpty(expandIconEl)"
-                            class="pxb-drawer-nav-item-expand-icon"
-                            [class.pxb-drawer-nav-item-expanded]="expanded"
+                            class="blui-drawer-nav-item-expand-icon"
+                            [class.blui-drawer-nav-item-expanded]="expanded"
                             >{{ depth > 1 ? 'arrow_drop_down' : 'expand_more' }}</mat-icon
                         >
                     </div>
-                </pxb-info-list-item>
-                <div class="pxb-drawer-nav-item-rail-container" *ngIf="isRail()">
+                </blui-info-list-item>
+                <div class="blui-drawer-nav-item-rail-container" *ngIf="isRail()">
                     <div
                         (click)="selectItem()"
-                        class="pxb-drawer-nav-item-rail"
+                        class="blui-drawer-nav-item-rail"
                         [matTooltip]="showTooltipOnRailHover() ? title : ''"
                         [matTooltipDisabled]="!isRailCondensed()"
                         matTooltipPosition="right"
                     >
                         <ng-container *ngTemplateOutlet="navIcon"></ng-container>
-                        <div class="pxb-drawer-nav-item-rail-text">{{ title }}</div>
+                        <div class="blui-drawer-nav-item-rail-text">{{ title }}</div>
                     </div>
                     <mat-divider *ngIf="divider"></mat-divider>
                 </div>
             </div>
             <!-- Nested Nav Items -->
-            <mat-accordion displayMode="flat" class="pxb-drawer-nested-nav-item" *ngIf="!isRail()">
+            <mat-accordion displayMode="flat" class="blui-drawer-nested-nav-item" *ngIf="!isRail()">
                 <mat-expansion-panel [expanded]="expanded && isOpen()">
-                    <ng-content select="pxb-drawer-nav-item"></ng-content>
+                    <ng-content select="blui-drawer-nav-item"></ng-content>
                 </mat-expansion-panel>
             </mat-accordion>
         </ng-container>
     `,
     host: {
-        class: 'pxb-drawer-nav-item',
+        class: 'blui-drawer-nav-item',
     },
 })
 export class DrawerNavItemComponent extends StateListener implements Omit<DrawerNavItem, 'items'> {
@@ -237,7 +237,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
             return;
         }
 
-        this.navItemEl.nativeElement.classList.remove('pxb-drawer-nav-item-active-tree');
+        this.navItemEl.nativeElement.classList.remove('blui-drawer-nav-item-active-tree');
 
         if (this.drawerService.hasDisableActiveItemParentStyles()) {
             return;
@@ -249,8 +249,8 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
             while (parent.parentNode) {
                 parent = parent.parentNode;
                 const navItem = parent.firstElementChild;
-                if (navItem.classList.contains('pxb-drawer-nav-item-content')) {
-                    navItem.classList.add('pxb-drawer-nav-item-active-tree');
+                if (navItem.classList.contains('blui-drawer-nav-item-content')) {
+                    navItem.classList.add('blui-drawer-nav-item-active-tree');
                 }
             }
         }

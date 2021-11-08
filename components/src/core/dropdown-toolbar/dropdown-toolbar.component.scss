@@ -1,55 +1,55 @@
 @import '../utility/utility';
 
-[dir='rtl'] .pxb-dropdown-toolbar-content {
-    .pxb-dropdown-toolbar-icon-wrapper > * {
+[dir='rtl'] .blui-dropdown-toolbar-content {
+    .blui-dropdown-toolbar-icon-wrapper > * {
         margin-right: -8px;
         margin-left: 32px;
     }
-    .pxb-dropdown-toolbar-text-content-container {
+    .blui-dropdown-toolbar-text-content-container {
         padding-right: 0;
     }
 }
 
-.pxb-dropdown-toolbar {
+.blui-dropdown-toolbar {
     display: flex;
 }
-.pxb-dropdown-toolbar-content {
+.blui-dropdown-toolbar-content {
     height: 4rem;
-    .pxb-dropdown-toolbar-icon-wrapper > * {
+    .blui-dropdown-toolbar-icon-wrapper > * {
         margin-right: 32px;
         margin-left: -8px;
     }
     @include scale-icon-button();
 }
 @media (max-width: 599px) {
-    .pxb-dropdown-toolbar-content {
+    .blui-dropdown-toolbar-content {
         height: 3.5rem;
     }
 }
 
-.pxb-dropdown-toolbar-text-content-container {
+.blui-dropdown-toolbar-text-content-container {
     display: block;
     overflow: hidden;
 
-    .pxb-dropdown-toolbar-title {
+    .blui-dropdown-toolbar-title {
         line-height: 1.6rem;
         overflow: hidden;
         text-overflow: ellipsis;
     }
 
-    .pxb-dropdown-toolbar-subtitle-container {
+    .blui-dropdown-toolbar-subtitle-container {
         margin-top: -0.125rem;
         display: flex;
         align-items: center;
         cursor: pointer;
 
-        .pxb-dropdown-toolbar-subtitle {
+        .blui-dropdown-toolbar-subtitle {
             line-height: 1.3rem;
             overflow: hidden;
             text-overflow: ellipsis;
         }
 
-        .pxb-dropdown-toolbar-subtitle-icon {
+        .blui-dropdown-toolbar-subtitle-icon {
             margin: 0 0.25rem;
             @include scale-icon-content();
         }

@@ -6,9 +6,9 @@ import { Component } from '@angular/core';
 
 @Component({
     template: `
-        <pxb-channel-value value="Icon Test">
+        <blui-channel-value value="Icon Test">
             <div id="channel-value-test-icon"></div>
-        </pxb-channel-value>
+        </blui-channel-value>
     `,
 })
 class TestIcon {}
@@ -39,7 +39,7 @@ describe('ChannelValueComponent', () => {
     it('should render a value', () => {
         component.value = 'Test Value';
         fixture.detectChanges();
-        const value = fixture.nativeElement.querySelector('.pxb-channel-value-value');
+        const value = fixture.nativeElement.querySelector('.blui-channel-value-value');
         void expect(value.innerHTML).toBe('Test Value');
     });
 
@@ -48,8 +48,8 @@ describe('ChannelValueComponent', () => {
         component.units = 'hz';
         component.prefix = false;
         fixture.detectChanges();
-        const container = fixture.nativeElement.querySelector('.pxb-channel-value-content');
-        const units = fixture.nativeElement.querySelector('.pxb-channel-value-units');
+        const container = fixture.nativeElement.querySelector('.blui-channel-value-content');
+        const units = fixture.nativeElement.querySelector('.blui-channel-value-units');
         void expect(units.innerHTML).toBe('hz');
         void expect(container.children[2]).toBe(units);
     });
@@ -59,8 +59,8 @@ describe('ChannelValueComponent', () => {
         component.units = 'C';
         component.prefix = true;
         fixture.detectChanges();
-        const container = fixture.nativeElement.querySelector('.pxb-channel-value-content');
-        const units = fixture.nativeElement.querySelector('.pxb-channel-value-units');
+        const container = fixture.nativeElement.querySelector('.blui-channel-value-content');
+        const units = fixture.nativeElement.querySelector('.blui-channel-value-units');
         void expect(units.innerHTML).toBe('C');
         void expect(container.children[1]).toBe(units);
     });
@@ -77,10 +77,10 @@ describe('ChannelValueComponent', () => {
         component.units = 'hz';
         fixture.detectChanges();
         const classList = [
-            '.pxb-channel-value-content',
-            '.pxb-channel-value-units',
-            '.pxb-channel-value-icon-wrapper',
-            '.pxb-channel-value-value',
+            '.blui-channel-value-content',
+            '.blui-channel-value-units',
+            '.blui-channel-value-icon-wrapper',
+            '.blui-channel-value-value',
         ];
         for (const className of classList) {
             count(fixture, className);

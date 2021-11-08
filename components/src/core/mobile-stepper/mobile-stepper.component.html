@@ -1,15 +1,15 @@
-<div class="pxb-mobile-stepper-content">
-    <ng-content select="[pxb-back-button]"></ng-content>
-    <div *ngIf="variant === 'dots'" class="pxb-mobile-stepper-dots">
+<div class="blui-mobile-stepper-content">
+    <ng-content select="[blui-back-button]"></ng-content>
+    <div *ngIf="variant === 'dots'" class="blui-mobile-stepper-dots">
         <div
             *ngFor="let step of stepsArray; let index = index"
-            class="pxb-mobile-stepper-dot"
-            [class.pxb-mobile-stepper-dot-visited]="index < activeStep"
-            [class.pxb-mobile-stepper-dot-active]="index === activeStep"
-            [class.pxb-mobile-stepper-dot-unvisited]="index > activeStep"
+            class="blui-mobile-stepper-dot"
+            [class.blui-mobile-stepper-dot-visited]="index < activeStep"
+            [class.blui-mobile-stepper-dot-active]="index === activeStep"
+            [class.blui-mobile-stepper-dot-unvisited]="index > activeStep"
         ></div>
     </div>
     <div *ngIf="variant === 'text'" class="mat-subheading-2">{{ activeStep + 1 }} / {{ stepsArray.length }}</div>
     <mat-progress-bar *ngIf="variant === 'progress'" mode="determinate" [value]="getProgressFill()"></mat-progress-bar>
-    <ng-content select="[pxb-next-button]"></ng-content>
+    <ng-content select="[blui-next-button]"></ng-content>
 </div>

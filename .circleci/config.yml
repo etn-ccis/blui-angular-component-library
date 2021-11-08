@@ -64,7 +64,7 @@ jobs:
                 file: './components/coverage/lcov.info'
                 token: dc22e69d-e76e-4c9c-92a4-92432b1033d4
 
-    # Builds the Storybook app using @pxblue/angular-components persisted in /dist folder.
+    # Builds the Storybook app using @brightlayer-ui/angular-components persisted in /dist folder.
     build_storybook:
         docker:
             - image: circleci/node:12.9.1-browsers
@@ -84,9 +84,9 @@ jobs:
                       cd demos/storybook
                       yarn install --frozen-lockfile
 
-                      # Install the packed version of @pxblue/angular-components
+                      # Install the packed version of @brightlayer-ui/angular-components
                       PACKAGED_VERSION=`node -p "require('../../dist/package.json').version"`
-                      yarn add ../../dist/pxblue-angular-components-$PACKAGED_VERSION.tgz
+                      yarn add ../../dist/brightlayer-ui-angular-components-$PACKAGED_VERSION.tgz
             - save_cache:
                   name: Save Cache
                   paths:
@@ -125,7 +125,7 @@ jobs:
                   paths:
                       - demos/storybook/storybook-static
 
-    # Builds the Showcase app using @pxblue/angular-components persisted in /dist folder.
+    # Builds the Showcase app using @brightlayer-ui/angular-components persisted in /dist folder.
     build_showcase:
         docker:
             - image: circleci/node:12.9.1-browsers
@@ -148,9 +148,9 @@ jobs:
                       cd demos/showcase
                       yarn install --frozen-lockfile
 
-                      # Install the packed version of @pxblue/angular-components
+                      # Install the packed version of @brightlayer-ui/angular-components
                       PACKAGED_VERSION=`node -p "require('../../dist/package.json').version"`
-                      yarn add ../../dist/pxblue-angular-components-$PACKAGED_VERSION.tgz
+                      yarn add ../../dist/brightlayer-ui-angular-components-$PACKAGED_VERSION.tgz
             - save_cache:
                   name: Save Cache
                   paths:
@@ -170,9 +170,9 @@ jobs:
         environment:
             - MASTER_BRANCH: master
             - DEV_BRANCH: dev
-            - DEV_TARGET: https://github.com/pxblue-components/angular-dev
-            - MASTER_TARGET: https://github.com/pxblue-components/angular
-            - GH_EMAIL: pxblue@eaton.com
+            - DEV_TARGET: https://github.com/brightlayer-ui-components/angular-dev
+            - MASTER_TARGET: https://github.com/brightlayer-ui-components/angular
+            - GH_EMAIL: brightlayer-ui@eaton.com
             - GH_NAME: PX Blue Agent
         steps:
             - checkout
@@ -191,16 +191,16 @@ jobs:
                       elif [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
                         git clone $DEV_TARGET out
                       else
-                        echo Deploying feature branch to firebase: https://pxb-storybook-ng-feature.web.app/index.html
+                        echo Deploying feature branch to firebase: https://blui-storybook-ng-feature.web.app/index.html
                         yarn run deploy:feature
                         exit 0
                       fi
 
                       cd out
                       git rm -rf .
-                      # Add the CNAME record for pxblue.eaton.com
+                      # Add the CNAME record for brightlayer-ui.eaton.com
                       # if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
-                      #   echo "pxblue-components.eaton.com/angular" > CNAME
+                      #   echo "brightlayer-ui-components.eaton.com/angular" > CNAME
                       # fi
                       cd ..
 
@@ -224,7 +224,7 @@ jobs:
               echo "//registry.npmjs.org/:_authToken=$NPM_TOKEN" > ~/.npmrc
               echo "//registry.yarnpkg.com/:_authToken=$NPM_TOKEN" >> ~/.npmrc
         - run:
-            name: Publish @pxblue/angular-components
+            name: Publish @brightlayer-ui/angular-components
             command:  |
               yarn publish:package -b $CIRCLE_BRANCH
     tag:
@@ -234,7 +234,7 @@ jobs:
         - checkout
         - gh/setup
         - run:
-            name: Tag @pxblue/angular-components
+            name: Tag @brightlayer-ui/angular-components
             command: |
               yarn tag:package -b $CIRCLE_BRANCH
 
@@ -249,9 +249,6 @@ workflows:
             - build_storybook:
                 requires:
                     - build_library
-            - deploy_storybook:
-                requires:
-                    - build_storybook
             - publish:
                 requires:
                     - build_storybook

@@ -9,12 +9,12 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
     template: `
-        <pxb-dropdown-toolbar title="title" subtitle="subtitle">
-            <button id="test-icon" mat-icon-button pxb-icon>
+        <blui-dropdown-toolbar title="title" subtitle="subtitle">
+            <button id="test-icon" mat-icon-button blui-icon>
                 <mat-icon>menu</mat-icon>
             </button>
-            <div pxb-menu id="test-menu">menu text</div>
-        </pxb-dropdown-toolbar>
+            <div blui-menu id="test-menu">menu text</div>
+        </blui-dropdown-toolbar>
     `,
 })
 class TestDropdownToolbar {}
@@ -40,7 +40,7 @@ describe('DropdownToolbarComponent', () => {
     it('should render title', () => {
         component.title = 'test title';
         fixture.detectChanges();
-        const title = fixture.debugElement.query(By.css('.pxb-dropdown-toolbar-title'));
+        const title = fixture.debugElement.query(By.css('.blui-dropdown-toolbar-title'));
         void expect(title.nativeElement.innerHTML.trim()).toBe('test title');
     });
 
@@ -48,7 +48,7 @@ describe('DropdownToolbarComponent', () => {
         component.title = 'test title';
         component.subtitle = 'test subtitle';
         fixture.detectChanges();
-        const subtitle = fixture.debugElement.query(By.css('.pxb-dropdown-toolbar-subtitle'));
+        const subtitle = fixture.debugElement.query(By.css('.blui-dropdown-toolbar-subtitle'));
         void expect(subtitle.nativeElement.innerHTML.trim()).toBe('test subtitle');
     });
 
@@ -63,7 +63,7 @@ describe('DropdownToolbarComponent', () => {
 
     const clickMenu = (customFixture): void => {
         customFixture.detectChanges();
-        const menuTrigger = document.getElementsByClassName('pxb-dropdown-toolbar-subtitle-container')[0];
+        const menuTrigger = document.getElementsByClassName('blui-dropdown-toolbar-subtitle-container')[0];
         menuTrigger.dispatchEvent(new Event('click'));
         customFixture.detectChanges();
     };
@@ -82,10 +82,10 @@ describe('DropdownToolbarComponent', () => {
 
         // Non-overlay classes
         const classList = [
-            '.pxb-dropdown-toolbar-content',
-            '.pxb-dropdown-toolbar-icon-wrapper',
-            '.pxb-dropdown-toolbar-title',
-            '.pxb-dropdown-toolbar-subtitle',
+            '.blui-dropdown-toolbar-content',
+            '.blui-dropdown-toolbar-icon-wrapper',
+            '.blui-dropdown-toolbar-title',
+            '.blui-dropdown-toolbar-subtitle',
         ];
 
         for (const className of classList) {
@@ -93,6 +93,6 @@ describe('DropdownToolbarComponent', () => {
         }
 
         // Overlay classes
-        void expect(document.getElementsByClassName('pxb-dropdown-toolbar-menu-wrapper').length).toBe(1);
+        void expect(document.getElementsByClassName('blui-dropdown-toolbar-menu-wrapper').length).toBe(1);
     });
 });

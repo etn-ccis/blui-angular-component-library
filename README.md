@@ -1,30 +1,30 @@
-# PX Blue Angular Components
+# Brightlayer UI Angular Components
 
-[![](https://img.shields.io/circleci/project/github/pxblue/angular-component-library/master.svg?style=flat)](https://circleci.com/gh/pxblue/angular-component-library/tree/master)
-![npm](https://img.shields.io/npm/v/@pxblue/angular-components?label=%40pxblue%2Fangular-components)
+[![](https://img.shields.io/circleci/project/github/brightlayer-ui/angular-component-library/master.svg?style=flat)](https://circleci.com/gh/brightlayer-ui/angular-component-library/tree/master)
+![npm](https://img.shields.io/npm/v/@brightlayer-ui/angular-components?label=%40brightlayer-ui%2Fangular-components)
 
-This is a library of custom components for use in PX Blue applications. For the most part, these components are meant to simplify building your application by providing re-usable components that implement common use cases in PX Blue and eliminating the need to multiple teams to build their own components for these.
+This is a library of custom components for use in Brightlayer UI applications. For the most part, these components are meant to simplify building your application by providing re-usable components that implement common use cases in Brightlayer UI and eliminating the need to multiple teams to build their own components for these.
 
-Refer to the [Component Library](https://pxblue-components.github.io/angular/?path=/story/intro-welcome--to-px-blue) API documentation site for a list of available components or see the repository the [documentation](https://github.com/pxblue/angular-component-library/tree/dev/docs) for each individual component.
+Refer to the [Component Library](https://brightlayer-ui-components.github.io/angular) API documentation site for a list of available components or see the repository the [documentation](https://github.com/brightlayer-ui/angular-component-library/tree/dev/docs) for each individual component.
 
 ## Installation
 
-To install the PX Blue angular components from NPM as a dependency for your project, you can run the following command in your project root:
+To install the Brightlayer UI angular components from NPM as a dependency for your project, you can run the following command in your project root:
 
 ```
-yarn add @pxblue/angular-components
+yarn add @brightlayer-ui/angular-components
 ```
 
-> **NOTE**: This install command will install the package from NPM. If you are a PX Blue developer working with components locally, you will want to follow the manual linking instructions - see below.
+> **NOTE**: This install command will install the package from NPM. If you are a Brightlayer UI developer working with components locally, you will want to follow the manual linking instructions - see below.
 
-> **NOTE**: This component library requires that your application have @pxblue/themes and @angular/material installed.
+> **NOTE**: This component library requires that your application have @brightlayer-ui/themes and @angular/material installed.
 
 ## Building the Library
 
 To work with this library, first clone down the repository:
 
 ```
-git clone https://github.com/pxblue/angular-component-library
+git clone https://github.com/brightlayer-ui/angular-component-library
 cd angular-component-library
 ```
 
@@ -42,9 +42,9 @@ yarn link:components
 
 ## Compatibility
 
-The following table outlines which versions of Angular and PX Blue resources will work together.
+The following table outlines which versions of Angular and Brightlayer UI resources will work together.
 
-| @pxblue/angular-components | @pxblue/angular-themes | @angular + @angular/material |
+| @brightlayer-ui/angular-components | @brightlayer-ui/angular-themes | @angular + @angular/material |
 | -------------------------- | ---------------------- | ---------------------------- |
 | `^2.0.0`                   | `^5.0.0`               | `^8.0.0`                     |
 | `^3.0.0`                   | `^5.1.0`               | `8.x - 9.x`                  |
@@ -72,8 +72,8 @@ from the root directory.
 
 ## Using the Components
 
-See the [documentation](https://github.com/pxblue/angular-component-library/tree/dev/docs) for information on using these components.
+See the [documentation](https://github.com/brightlayer-ui/angular-component-library/tree/dev/docs) for information on using these components.
 
 ## Browser Support
 
-PX Blue libraries will work with any modern browser. For details refer to our [Browser Support](https://pxblue.github.io/development/frameworks-web/angular#browser-support) documentation.
+Brightlayer UI libraries will work with any modern browser. For details refer to our [Browser Support](https://brightlayer-ui.github.io/development/frameworks-web/angular#browser-support) documentation.

@@ -1,6 +1,6 @@
 # Score Card
 
-`<pxb-score-card>` is a card component that calls attention to particular values.
+`<blui-score-card>` is a card component that calls attention to particular values.
 
 <div style="align-items: center; text-align: center; width: 100%; display: flex; justify-content: space-evenly; margin-bottom: 20px">
     <img width="40%" alt="Score Card with multiple highlighted values" src="./images/scoreCard.png"><br/>
@@ -15,7 +15,7 @@
 
 ```typescript
 // app.module.ts
-import { ScoreCardModule } from '@pxblue/angular-components';
+import { ScoreCardModule } from '@brightlayer-ui/angular-components';
 ...
 imports: [
     ScoreCardModule
@@ -25,37 +25,37 @@ imports: [
 
 ```html
 // your-component.html // Example with basic body content, action items, and a score badge
-<pxb-score-card
+<blui-score-card
     [headerTitle]="'Substation 3'"
     [headerSubtitle]="'Normal'"
     [headerInfo]="'4 Devices'"
     [badgeOffset]="-76"
 >
-    <ng-container pxb-action-items>
+    <ng-container blui-action-items>
         <mat-icon>search</mat-icon>
         <mat-icon>more_vert</mat-icon>
     </ng-container>
 
-    <mat-list pxb-body>
+    <mat-list blui-body>
         <mat-list-item>Body Content</mat-list-item>
     </mat-list>
 
-    <pxb-hero
-        pxb-badge
+    <blui-hero
+        blui-badge
         [label]="'Grade'"
         [value]="'98'"
         [units]="'/100'"
         [iconSize]="'large'"
         [iconBackgroundColor]="'white'"
     >
-        <i pxb-primary class="pxb-grade_a"></i>
-    </pxb-hero>
-</pxb-score-card>
+        <i blui-primary class="blui-grade_a"></i>
+    </blui-hero>
+</blui-score-card>
 ```
 
 ## API
 
-Parent element (`<pxb-score-card>`) attributes:
+Parent element (`<blui-score-card>`) attributes:
 
 <div style="overflow: auto;">
 
@@ -68,34 +68,34 @@ Parent element (`<pxb-score-card>`) attributes:
 
 </div>
 
-The following child elements are projected into `<pxb-score-card>`:
+The following child elements are projected into `<blui-score-card>`:
 
 <div style="overflow: auto;">
 
-| Selector           | Description                                 | Required | Default |
-| ------------------ | ------------------------------------------- | -------- | ------- |
-| [pxb-action-items] | Icons shown to the right of the header text | no       |         |
-| [pxb-action-row]   | Content to render for the footer            | no       |         |
-| [pxb-badge]        | Content to render in the callout area       | no       |         |
-| [pxb-body]         | Content to render in the body               | no       |         |
+| Selector            | Description                                 | Required | Default |
+| ------------------- | ------------------------------------------- | -------- | ------- |
+| [blui-action-items] | Icons shown to the right of the header text | no       |         |
+| [blui-action-row]   | Content to render for the footer            | no       |         |
+| [blui-badge]        | Content to render in the callout area       | no       |         |
+| [blui-body]         | Content to render in the body               | no       |         |
 
 </div>
 
 ### Classes
 
-Each PX Blue component has classes which can be used to override component styles:
+Each Brightlayer UI component has classes which can be used to override component styles:
 
 | Name                                | Description                                       |
 | ----------------------------------- | ------------------------------------------------- |
-| pxb-score-card                      | Styles applied to the tag                         |
-| pxb-score-card-content              | Styles applied to the root element                |
-| pxb-score-card-header               | Styles applied to the scorecard header            |
-| pxb-score-card-header-background    | Hidden overlay used to provide a background image |
-| pxb-score-card-header-wrapper       | Styles used to align header text and actions      |
-| pxb-score-card-title                | Styles applied to the headerTitle @Input          |
-| pxb-score-card-subtitle             | Styles applied to the headerSubtitle @Input       |
-| pxb-score-card-info                 | Styles applied to the info @Input                 |
-| pxb-score-card-action-items-wrapper | Styles applied to the actionItems container       |
-| pxb-score-card-body                 | Styles applied to the scorecard body              |
-| pxb-score-card-badge-wrapper        | Styles applied to the badge container             |
-| pxb-score-card-action-row-wrapper   | Styles applied to the actionRow container         |
+| blui-score-card                      | Styles applied to the tag                         |
+| blui-score-card-content              | Styles applied to the root element                |
+| blui-score-card-header               | Styles applied to the scorecard header            |
+| blui-score-card-header-background    | Hidden overlay used to provide a background image |
+| blui-score-card-header-wrapper       | Styles used to align header text and actions      |
+| blui-score-card-title                | Styles applied to the headerTitle @Input          |
+| blui-score-card-subtitle             | Styles applied to the headerSubtitle @Input       |
+| blui-score-card-info                 | Styles applied to the info @Input                 |
+| blui-score-card-action-items-wrapper | Styles applied to the actionItems container       |
+| blui-score-card-body                 | Styles applied to the scorecard body              |
+| blui-score-card-badge-wrapper        | Styles applied to the badge container             |
+| blui-score-card-action-row-wrapper   | Styles applied to the actionRow container         |

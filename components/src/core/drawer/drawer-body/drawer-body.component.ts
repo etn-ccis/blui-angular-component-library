@@ -3,32 +3,32 @@ import { StateListener } from '../state-listener.component';
 import { DrawerService } from '../service/drawer.service';
 
 /**
- * The `<pxb-drawer-body>` is a wrapper for the main content of the Drawer.
- * The typical use case is to display `<pxb-drawer-nav-group>` elements, but custom elements (e.g., for spacing) are accepted as well.
+ * The `<blui-drawer-body>` is a wrapper for the main content of the Drawer.
+ * The typical use case is to display `<blui-drawer-nav-group>` elements, but custom elements (e.g., for spacing) are accepted as well.
  */
 @Component({
-    selector: 'pxb-drawer-body',
+    selector: 'blui-drawer-body',
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
-        <div class="pxb-drawer-body-content" [class.pxb-drawer-body-closed]="!isOpen()">
+        <div class="blui-drawer-body-content" [class.blui-drawer-body-closed]="!isOpen()">
             <ng-content></ng-content>
         </div>
     `,
     styles: [
         `
-            .pxb-drawer-body-content {
+            .blui-drawer-body-content {
                 height: 100%;
                 display: flex;
                 flex-direction: column;
             }
-            .pxb-drawer-body-closed {
+            .blui-drawer-body-closed {
                 overflow: hidden;
             }
         `,
     ],
     host: {
-        class: 'pxb-drawer-body',
+        class: 'blui-drawer-body',
     },
 })
 export class DrawerBodyComponent extends StateListener {
