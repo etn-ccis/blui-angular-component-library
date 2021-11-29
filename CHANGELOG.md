@@ -1,5 +1,9 @@
 # Change Log
+## v6.0.1 (November 29, 2021)
 
+### Fixed
+
+-   Fixed `<pxb-info-list-item>` when title contains descender letters.
 ## v6.0.0 (November 3, 2021)
 
 ### Changed
