@@ -1,5 +1,9 @@
 # Change Log
+## v6.0.1 (December 1, 2021)
 
+### Fixed
+
+-   Fixed `<pxb-score-card>` cutting off descender letters.
 ## v6.0.0 (November 3, 2021)
 
 ### Changed
