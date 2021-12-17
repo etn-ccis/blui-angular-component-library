@@ -1,5 +1,5 @@
 # Change Log
-## v6.0.1 (December 1, 2021)
+## v6.0.1 (December 17, 2021)
 
 ### Fixed
 
