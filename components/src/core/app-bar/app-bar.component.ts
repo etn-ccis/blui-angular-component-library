@@ -72,7 +72,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     /** Id of the scrollable element. This element is searched in the DOM `ngAfterViewInit`.  */
     @Input() scrollContainerId: string;
     /** Distance in pixels to scroll before collapsing toolbar. */
-    @Input() scrollThreshold;
+    @Input() scrollThreshold: number;
     /** Behavior of the App Bar
      *
      *  `collapsed` - Height set to `collapsedHeight` and does not respond to scroll distance
