@@ -1,9 +1,17 @@
 # Change Log
+
+## v6.0.2 (Unreleased)
+
+### Changed
+
+-   Added 1rem default padding to `<blui-empty-state>` ([#336](https://github.com/brightlayer-ui/angular-component-library/issues/336)).
+
 ## v6.0.1 (December 17, 2021)
 
 ### Fixed
 
--   Fixed `<pxb-score-card>` cutting off descender letters.
+-   Fixed `<blui-score-card>` cutting off descender letters.
+
 ## v6.0.0 (November 3, 2021)
 
 ### Changed
@@ -27,14 +35,13 @@ Previous versions listed after this indicator refer to our deprecated `@pxblue` 
 -   Changed `<pxb-user-menu>` `open` property to be required instead of optional.
 -   Changed `<pxb-user-menu>` component to use a new `UserMenuHeaderComponent` in the menu overlay instead of using a `DrawerHeaderComponent`.
 
-
 ### Fixed
 
 -   Fixed stepper spacing in `<pxb-mobile-stepper>` when Back and Next buttons are uneven width.
 -   Fixed bug in `<pxb-user-menu>` that prevented the bottom sheet from rendering when `open` was manually set to `true`.
 -   Fixed bug in `<pxb-user-menu>` where dismissing a bottomsheet via backdrop click did not emit a `backdropClick` event.
 -   Fixed bug in `<pxb-app-bar>` that prevented class overrides on the root element.
--   Fixed bug in `<pxb-app-bar>` so scroll listeners can no longer attempt to measure `undefined` elements' scroll distance. 
+-   Fixed bug in `<pxb-app-bar>` so scroll listeners can no longer attempt to measure `undefined` elements' scroll distance.
 
 ## v5.0.1 (July 30, 2021)
 
