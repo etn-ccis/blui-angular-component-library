@@ -11,6 +11,7 @@
 ### Fixed
 
 -   Fixed `<blui-score-card>` cutting off descender letters.
+-   Fixed `<blui-app-bar`> not listening for new scroll elements `onChanges`. 
 
 ## v6.0.0 (November 3, 2021)
 
