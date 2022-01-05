@@ -6,12 +6,15 @@
 
 -   Added 1rem default padding to `<blui-empty-state>` ([#336](https://github.com/brightlayer-ui/angular-component-library/issues/336)).
 
+### Fixed
+
+-   Fixed `<blui-app-bar>` not listening for new scroll elements `onChanges`.
+
 ## v6.0.1 (December 17, 2021)
 
 ### Fixed
 
 -   Fixed `<blui-score-card>` cutting off descender letters.
--   Fixed `<blui-app-bar`> not listening for new scroll elements `onChanges`. 
 
 ## v6.0.0 (November 3, 2021)
 
