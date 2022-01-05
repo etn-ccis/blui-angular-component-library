@@ -119,7 +119,6 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
         this.collapsedHeight = Number(this.collapsedHeight);
 
         if (changes.scrollContainerClassName || changes.scrollContainerId) {
-            console.log(changes);
             this._listenForScrollEvents();
         }
 
