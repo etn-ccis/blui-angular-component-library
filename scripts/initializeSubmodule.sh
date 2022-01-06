@@ -11,7 +11,7 @@ NC='\033[0m' # No Color
 
 echo -e "${BLUE}Initializing Showcase Submodule...${NC}"
 if [ ! -f ./demos/showcase/package.json ];
-    then git submodule init && git submodule update;
+    then rm ./demos/showcase/.git & git submodule init && git submodule update;
     else echo -e "${BBLUE}Already initialized${NC}" && exit 0;
 fi
 echo -e "${BBLUE}Initialization Complete${NC}\r\n"
