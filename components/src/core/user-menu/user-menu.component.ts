@@ -136,6 +136,7 @@ export class UserMenuComponent implements OnInit, OnChanges, OnDestroy {
     screenSizeChangeListener: Subscription;
     useBottomSheet: boolean;
     isMenuOpen: boolean;
+    isBottomSheetingDismissing: boolean;
 
     checkScreenSize = (): boolean => document.body.offsetWidth < this.useBottomSheetAt;
 
@@ -197,6 +198,10 @@ export class UserMenuComponent implements OnInit, OnChanges, OnDestroy {
     }
 
     openOverlay(): void {
+        // If the bottom sheet is being dismissed, ignore subsequent open calls.
+        if (this.isBottomSheetingDismissing) {
+            return;
+        }
         this.openChange.emit(true);
     }
 
@@ -210,12 +215,14 @@ export class UserMenuComponent implements OnInit, OnChanges, OnDestroy {
             hasBackdrop: true,
         });
 
-        bottomSheetRef.afterDismissed().subscribe((openMenu: true) => {
+        bottomSheetRef.afterDismissed().subscribe((openMenu: boolean) => {
+            this.isBottomSheetingDismissing = false;
             this.isMenuOpen = openMenu;
             this._ref.detectChanges();
         });
 
         bottomSheetRef.backdropClick().subscribe(() => {
+            this.isBottomSheetingDismissing = true;
             this.openChange.emit(false);
             this.backdropClick.emit();
         });

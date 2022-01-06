@@ -6,11 +6,16 @@
 
 -   Added 1rem default padding to `<blui-empty-state>` ([#336](https://github.com/brightlayer-ui/angular-component-library/issues/336)).
 
+### Fixed
+
+-   Fixed `<blui-user-menu>` not rendering bottomsheet content when quickly dismissing and then reopening. ([#345](https://github.com/brightlayer-ui/angular-component-library/issues/345))
+
 ## v6.0.1 (December 17, 2021)
 
 ### Fixed
 
 -   Fixed `<blui-score-card>` cutting off descender letters.
+
 
 ## v6.0.0 (November 3, 2021)
 
