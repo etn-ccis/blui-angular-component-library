@@ -9,6 +9,7 @@
 ### Fixed
 
 -   Fixed `<blui-app-bar>` not listening for new scroll elements `onChanges` ([#362](https://github.com/brightlayer-ui/angular-component-library/issues/362)).
+-   Fixed `<blui-user-menu>` not rendering bottomsheet content when quickly dismissing and then reopening. ([#345](https://github.com/brightlayer-ui/angular-component-library/issues/345))
 
 ## v6.0.1 (December 17, 2021)
 
