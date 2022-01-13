@@ -44,7 +44,7 @@ export const withinDrawerLayoutRail = (): any => ({
                </blui-drawer-footer>
             </blui-drawer>
             <div blui-content>
-                <mat-toolbar [style.backgroundColor]="blue" [style.color]="white" class="app-bar">
+                <mat-toolbar color="primary" class="app-bar">
                     <button *ngIf="variant === 'temporary'" mat-icon-button 
                         [style.marginRight.px]="direction() === 'rtl' ? -16 : 16"
                         [style.marginLeft.px]="direction() === 'rtl' ? 16 : -16"
