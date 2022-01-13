@@ -70,7 +70,7 @@ jobs:
             - image: circleci/node:14.17-browsers
         environment:
             - MASTER_BRANCH: master
-            - DEV_BRANCH: feature/pxblue-2367-analytics
+            - DEV_BRANCH: dev
         steps:
             - checkout
             - attach_workspace:
@@ -169,7 +169,7 @@ jobs:
             - image: circleci/node:14.17-browsers
         environment:
             - MASTER_BRANCH: master
-            - DEV_BRANCH: feature/pxblue-2367-analytics
+            - DEV_BRANCH: dev
             - DEV_TARGET: https://github.com/brightlayer-ui-components/angular-dev
             - MASTER_TARGET: https://github.com/brightlayer-ui-components/angular
             - GH_EMAIL: brightlayer-ui@eaton.com
@@ -256,7 +256,7 @@ workflows:
                     branches:
                         only:
                             - master
-                            - feature/pxblue-2367-analytics
+                            - dev
             - tag:
                 requires:
                     - publish
