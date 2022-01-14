@@ -191,6 +191,9 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
         this.id = drawerService.createNavItemID();
+        this.drawerService.drawerOpenChanges().subscribe(() => {
+            this.handleExpand();
+        })
         this.drawerService.drawerActiveItemChanges().subscribe(() => {
             if (this.navItemEl) {
                 this.manageActiveItemTreeHighlight();
@@ -229,11 +232,8 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     }
 
     handleExpand(): void {
-        console.log('clad');
         setTimeout(() => {
-            this.changeDetector.detectChanges();
-            console.log(this.expanded);
-            this.expanded ?  this.matExpansionPanel.open() : this.matExpansionPanel.close();
+            this.expanded && this.isOpen() ?  this.matExpansionPanel.open() : this.matExpansionPanel.close();
             this.changeDetector.detectChanges();
         });
     }
