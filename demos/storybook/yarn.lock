@@ -1449,15 +1449,15 @@
   optionalDependencies:
     eslint-plugin-react "^7.16.0"
 
-"@brightlayer-ui/icons-svg@^1.7.0-beta.1":
-  version "1.7.0-beta.1"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/icons-svg/-/icons-svg-1.7.0-beta.1.tgz#120e7cc5c8cb960e95c9eea296fee120cc507fcc"
-  integrity sha512-Zvnz1jEK3Yp955iBlRWSgDd27YvGTlkVhyGsCyQQhGX774ZWNweYIRHskn3pjZA34vLbWz7vJRJwHScTKt182A==
+"@brightlayer-ui/icons-svg@1.8.1":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/icons-svg/-/icons-svg-1.8.1.tgz#bf5b74dff2b44b05beace9b2131e35b64c521965"
+  integrity sha512-6YTHn17GZcDI7CuM3pVFmKrGz+F2k0+GXTQirAI5Otvzc1K/wPQc8Nl1KrQnAEKrYmyWxotAkzw9HenlxuJ9Uw==
 
-"@brightlayer-ui/icons@^1.7.1-beta.1":
-  version "1.7.1-beta.1"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/icons/-/icons-1.7.1-beta.1.tgz#78851d7440ea3f837e8c85bc61800961cd25cd95"
-  integrity sha512-XPlG1ZjsHTFkW8QP2hLjvlysvMABe0zvj6aLzqNUvAC5aCoT+Lwgc6FdpOaV91och0qnT7eR78khIJtk4VPkBQ==
+"@brightlayer-ui/icons@1.8.1":
+  version "1.8.1"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/icons/-/icons-1.8.1.tgz#46438413d6135e517a41ed41426fe6b5062f1d3d"
+  integrity sha512-M3hA0fLrTQoXgXcW+hUCL0jAOLC+XqmkeT6GXoM2fhUQDJ1Da/JmlmyOt4qnP7WDjqPtBt7gT0xdVF10qiV/Ow==
 
 "@brightlayer-ui/ng-progress-icons@^1.2.1":
   version "1.2.1"
