@@ -1424,10 +1424,10 @@
   resolved "https://registry.yarnpkg.com/@base2/pretty-print-object/-/pretty-print-object-1.0.0.tgz#860ce718b0b73f4009e153541faff2cb6b85d047"
   integrity sha512-4Th98KlMHr5+JkxfcoDT//6vY8vM+iSPrLNpHhRyLx2CFYi8e2RfqPLdpbnpo0Q5lQC5hNB79yes07zb02fvCw==
 
-"@brightlayer-ui/angular-themes@^6.3.0-beta.0":
-  version "6.3.0-beta.0"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/angular-themes/-/angular-themes-6.3.0-beta.0.tgz#4891c67614d3bb30689502d8677f5546d8c93bb5"
-  integrity sha512-WCShhJvtb2fKpyeC8COjLmZ4V1KoRWabOyhbvdgT5dmeNEBmvyZeKqmpVNWxx/C2nj7FWPOvZaGoNnOCrWyu7g==
+"@brightlayer-ui/angular-themes@6.3.0":
+  version "6.3.0"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/angular-themes/-/angular-themes-6.3.0.tgz#b15eba57e05fd39beff09435c99ae7892d1d0e72"
+  integrity sha512-lrCyQTBtaPvqb66kq1Bzwg3777zsVeyIQxPpn9MnzO9uzhlM/xLlkoZU2GCjhZYTxAUfGwxi22Ukxt7kNL8tGQ==
   dependencies:
     "@brightlayer-ui/colors" "^3.0.0"
     "@fontsource/open-sans" "^4.1.0"
