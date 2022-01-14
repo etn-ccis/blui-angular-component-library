@@ -13,6 +13,7 @@ import {
 import { DrawerService } from '../../service/drawer.service';
 import { StateListener } from '../../state-listener.component';
 import { isEmptyView } from '../../../../utils/utils';
+import {MatExpansionPanel} from "@angular/material/expansion";
 
 export type DrawerNavItem = {
     statusColor?: string;
@@ -116,7 +117,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
             </div>
             <!-- Nested Nav Items -->
             <mat-accordion displayMode="flat" class="blui-drawer-nested-nav-item" *ngIf="!isRail()">
-                <mat-expansion-panel [expanded]="expanded && isOpen()">
+                <mat-expansion-panel #matExpansionPanel>
                     <ng-content select="blui-drawer-nav-item"></ng-content>
                 </mat-expansion-panel>
             </mat-accordion>
@@ -179,6 +180,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @ViewChild('icon') iconEl: ElementRef;
     @ViewChild('collapseIcon') collapseIconEl: ElementRef;
     @ViewChild('navItem') navItemEl: ElementRef;
+    @ViewChild('matExpansionPanel') matExpansionPanel: MatExpansionPanel;
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
     isNestedItem: boolean;
@@ -217,6 +219,23 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         if (changes.selected) {
             this.drawerService.emitChangeActiveItemEvent();
         }
+        if (changes.expanded !== undefined && !changes.expanded.isFirstChange() && this.matExpansionPanel) {
+            this.handleExpand();
+        }
+    }
+
+    ngAfterViewInit(): void {
+        this.handleExpand();
+    }
+
+    handleExpand(): void {
+        console.log('clad');
+        setTimeout(() => {
+            this.changeDetector.detectChanges();
+            console.log(this.expanded);
+            this.expanded ?  this.matExpansionPanel.open() : this.matExpansionPanel.close();
+            this.changeDetector.detectChanges();
+        });
     }
 
     isRail(): boolean {
@@ -301,5 +320,6 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
 
     toggleNestedNavItems(): void {
         this.expanded = !this.expanded;
+        this.handleExpand();
     }
 }
