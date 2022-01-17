@@ -257,6 +257,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         });
     }
 
+    /** A top-level navigation item has a depth of 1. */
     incrementDepth(parentDepth: number): void {
         if (parentDepth > 0) {
             this.setNestedDrawerDefaults();
