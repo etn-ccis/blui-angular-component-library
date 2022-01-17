@@ -13,7 +13,7 @@ import {
 import { DrawerService } from '../../service/drawer.service';
 import { StateListener } from '../../state-listener.component';
 import { isEmptyView } from '../../../../utils/utils';
-import {MatExpansionPanel} from "@angular/material/expansion";
+import { MatExpansionPanel } from '@angular/material/expansion';
 
 export type DrawerNavItem = {
     statusColor?: string;
@@ -193,12 +193,16 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         this.id = drawerService.createNavItemID();
         this.drawerService.drawerOpenChanges().subscribe(() => {
             this.handleExpand();
-        })
+        });
         this.drawerService.drawerActiveItemChanges().subscribe(() => {
             if (this.navItemEl) {
                 this.manageActiveItemTreeHighlight();
             }
         });
+    }
+
+    ngAfterViewInit(): void {
+        this.handleExpand();
     }
 
     ngAfterContentInit(): void {
@@ -227,14 +231,13 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         }
     }
 
-    ngAfterViewInit(): void {
-        this.handleExpand();
-    }
-
     handleExpand(): void {
         setTimeout(() => {
-            this.expanded && this.isOpen() ?  this.matExpansionPanel.open() : this.matExpansionPanel.close();
-            this.changeDetector.detectChanges();
+            if (this.expanded && this.isOpen()) {
+                this.matExpansionPanel.open();
+            } else {
+                this.matExpansionPanel.close();
+            }
         });
     }
 
