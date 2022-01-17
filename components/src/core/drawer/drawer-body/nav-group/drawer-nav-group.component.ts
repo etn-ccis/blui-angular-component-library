@@ -1,4 +1,5 @@
 import {
+    AfterContentChecked,
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
@@ -67,7 +68,10 @@ export type DrawerNavGroup = {
         class: 'blui-drawer-nav-group',
     },
 })
-export class DrawerNavGroupComponent extends StateListener implements Omit<DrawerNavGroup, 'items'> {
+export class DrawerNavGroupComponent
+    extends StateListener
+    implements Omit<DrawerNavGroup, 'items'>, AfterContentChecked
+{
     /** Whether to show a dividing line below the title */
     @Input() divider = false;
     /** Component to render a group title */
@@ -78,9 +82,14 @@ export class DrawerNavGroupComponent extends StateListener implements Omit<Drawe
         super(drawerService, changeDetectorRef);
     }
 
-    ngAfterContentInit(): void {
+    /** Iterates through top-level NavItem children and sets defaults.
+     *  This is ran AfterContentChecked instead of AfterContentInit to account for asynchronously added navigation items.
+     * */
+    ngAfterContentChecked(): void {
         for (const navItem of this.navItems) {
-            navItem.setNavItemDefaults();
+            if (navItem.depth === undefined) {
+                navItem.setNavItemDefaults();
+            }
         }
     }
 }
