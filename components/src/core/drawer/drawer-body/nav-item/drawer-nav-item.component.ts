@@ -233,7 +233,9 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
 
     handleExpand(): void {
         setTimeout(() => {
-            if (this.expanded && this.isOpen()) {
+            // Persistent drawers will only expand if they the drawer is opened.
+            // Temporary drawers will always have any expansion panels opened.
+            if (this.expanded && (this.isOpen() || this.drawerService.getDrawerVariant() === 'temporary')) {
                 this.matExpansionPanel.open();
             } else {
                 this.matExpansionPanel.close();
