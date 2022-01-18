@@ -5,11 +5,14 @@
 ### Changed
 
 -   Added 1rem default padding to `<blui-empty-state>` ([#336](https://github.com/brightlayer-ui/angular-component-library/issues/336)).
+-   Added a list `peerDependencies` to component's `package.json` ([#351](https://github.com/brightlayer-ui/angular-component-library/issues/351)). 
 
 ### Fixed
 
 -   Fixed `<blui-app-bar>` not listening for new scroll elements `onChanges` ([#362](https://github.com/brightlayer-ui/angular-component-library/issues/362)).
 -   Fixed `<blui-user-menu>` not rendering bottomsheet content when quickly dismissing and then reopening. ([#345](https://github.com/brightlayer-ui/angular-component-library/issues/345))
+-   Fixed `<blui-drawer-nav-item>` not responding to `expanded` input updates. ([#326](https://github.com/brightlayer-ui/angular-component-library/issues/326))
+
 
 ## v6.0.1 (December 17, 2021)
 
