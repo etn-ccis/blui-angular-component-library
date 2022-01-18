@@ -5,6 +5,7 @@
 ### Changed
 
 -   Added 1rem default padding to `<blui-empty-state>` ([#336](https://github.com/brightlayer-ui/angular-component-library/issues/336)).
+-   Added a list `peerDependencies` to component's `package.json` ([#351](https://github.com/brightlayer-ui/angular-component-library/issues/351)). 
 
 ### Fixed
 
