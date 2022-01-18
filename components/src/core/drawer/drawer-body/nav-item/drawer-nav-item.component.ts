@@ -304,7 +304,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     }
 
     /** Sets default state values for nested nav items. */
-    public setNestedDrawerDefaults(): void {
+    setNestedDrawerDefaults(): void {
         if (this.divider === undefined) this.divider = false;
         if (this.hidePadding === undefined) this.hidePadding = false;
     }
