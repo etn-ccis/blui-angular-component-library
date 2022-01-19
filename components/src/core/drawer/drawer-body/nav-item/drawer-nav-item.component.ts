@@ -1,4 +1,6 @@
 import {
+    AfterContentInit,
+    AfterViewInit,
     ChangeDetectorRef,
     Component,
     ContentChildren,
@@ -43,7 +45,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./drawer-nav-item.component.scss'],
     template: `
-        <ng-container *ngIf="!hidden">
+        <ng-container *ngIf="!hidden && depth">
             <ng-template #navIcon><ng-content select="[blui-icon]"></ng-content></ng-template>
             <div
                 class="blui-drawer-nav-item-content"
@@ -127,7 +129,10 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
         class: 'blui-drawer-nav-item',
     },
 })
-export class DrawerNavItemComponent extends StateListener implements Omit<DrawerNavItem, 'items'> {
+export class DrawerNavItemComponent
+    extends StateListener
+    implements Omit<DrawerNavItem, 'items'>, AfterContentInit, AfterViewInit
+{
     /** Sets the active item background shape
      *
      * `square` - Background shape takes the entire height of width of the NavItem.
@@ -183,14 +188,19 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     @ViewChild('matExpansionPanel') matExpansionPanel: MatExpansionPanel;
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
-    isNestedItem: boolean;
+
+    /** Controls the expansion icon. */
     hasChildren = false;
-    depth: number;
+    /** Each navigation item in the drawer is assigned a unique id; this is used later when iterating through potential nav item children. */
     id: number;
+    /** The depth of the navigation item when appearing within a nested structure.
+     *  Depth is populated by iterating through the Drawer navigation tree.  See DrawerNavGroupComponent for details. */
+    depth: number;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
         this.id = drawerService.createNavItemID();
+        this.drawerService.emitNewNavItemCreated();
         this.drawerService.drawerOpenChanges().subscribe(() => {
             this.handleExpand();
         });
@@ -199,27 +209,6 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
                 this.manageActiveItemTreeHighlight();
             }
         });
-    }
-
-    ngAfterViewInit(): void {
-        this.handleExpand();
-    }
-
-    ngAfterContentInit(): void {
-        if (!this.nestedNavItems) {
-            return;
-        }
-
-        // If ContentChildren is self-inclusive (ng version < 9), filter self out using service-generated NavItem ID.
-        this.nestedNavItems = this.nestedNavItems.filter((item: DrawerNavItemComponent) => item.id !== this.id);
-        if (!this.nestedNavItems) {
-            return;
-        }
-
-        this.hasChildren = this.nestedNavItems.length >= 1;
-        for (const nestedItem of this.nestedNavItems) {
-            nestedItem.setNestedDrawerDefaults();
-        }
     }
 
     ngOnChanges(changes: SimpleChanges): void {
@@ -231,7 +220,20 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         }
     }
 
+    ngAfterViewInit(): void {
+        this.handleExpand();
+    }
+
+    ngAfterContentInit(): void {
+        // If ContentChildren is self-inclusive (ng version < 9), filter self out using service-generated NavItem ID.
+        this.nestedNavItems = this.nestedNavItems.filter((item: DrawerNavItemComponent) => item.id !== this.id);
+    }
+
     handleExpand(): void {
+        if (!this.matExpansionPanel) {
+            return;
+        }
+
         setTimeout(() => {
             // Persistent drawers will only expand if they the drawer is opened.
             // Temporary drawers will always have any expansion panels opened.
@@ -262,7 +264,6 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         }
 
         this.navItemEl.nativeElement.classList.remove('blui-drawer-nav-item-active-tree');
-
         if (this.drawerService.hasDisableActiveItemParentStyles()) {
             return;
         }
@@ -290,26 +291,26 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         });
     }
 
+    /** A top-level navigation item has a depth of 1. */
     incrementDepth(parentDepth: number): void {
-        this.depth = parentDepth + 1;
-        this.changeDetector.detectChanges();
-        if (this.nestedNavItems) {
-            for (const nestedItem of this.nestedNavItems) {
-                nestedItem.incrementDepth(this.depth);
-            }
+        if (parentDepth === 0) {
+            this._setNavItemDefaults();
+        } else {
+            this._setNestedNavItemDefaults();
         }
+        this.depth = parentDepth + 1;
+        this.hasChildren = this.nestedNavItems && this.nestedNavItems.length > 0;
+        this.changeDetector.detectChanges();
     }
 
-    /** Sets default state values for non-nested nav items. */
-    setNavItemDefaults(): void {
+    /** Sets default state values for non-nested nav items. Invoked by DrawerNavGroupComponent on content init. */
+    private _setNavItemDefaults(): void {
         if (this.divider === undefined) this.divider = true;
         if (this.hidePadding === undefined) this.hidePadding = true;
-        this.incrementDepth(0);
     }
 
     /** Sets default state values for nested nav items. */
-    setNestedDrawerDefaults(): void {
-        this.isNestedItem = true;
+    private _setNestedNavItemDefaults(): void {
         if (this.divider === undefined) this.divider = false;
         if (this.hidePadding === undefined) this.hidePadding = false;
     }
