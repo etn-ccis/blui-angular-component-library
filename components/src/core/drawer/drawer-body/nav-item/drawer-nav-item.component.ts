@@ -230,6 +230,10 @@ export class DrawerNavItemComponent
     }
 
     handleExpand(): void {
+        if (!this.matExpansionPanel) {
+            return;
+        }
+
         setTimeout(() => {
             // Persistent drawers will only expand if they the drawer is opened.
             // Temporary drawers will always have any expansion panels opened.
