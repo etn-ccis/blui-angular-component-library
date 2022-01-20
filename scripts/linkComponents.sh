@@ -27,16 +27,5 @@ echo -e "${GREEN}Done${NC}"
 echo -en "\r\n${BBLUE}Linking Components: ${NC}"
 if [ ! -f ./demos/showcase/node_modules/@brightlayer-ui/angular-components/package.json ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
 if [ ! -f ./demos/storybook/node_modules/@brightlayer-ui/angular-components/package.json ]; then echo -e "${BRED}Not Linked${NC}" && exit 1; fi
-if [ ! -s ./demos/showcase/node_modules/@brightlayer-ui/angular-components ];
-    then
-        if [ ! -f ./demos/showcase/node_modules/@brightlayer-ui/angular-components/esm2015/index.js ];
-        then echo -e "${BRED}Not Linked${NC}" && exit 1;
-        fi;
-fi
-if [ ! -s ./demos/storybook/node_modules/@brightlayer-ui/angular-components ];
-    then
-        if [ ! -f ./demos/showcase/node_modules/@brightlayer-ui/angular-components/esm2015/index.js ];
-        then echo -e "${BRED}Not Linked${NC}" && exit 1;
-        fi;
-fi
+
 echo -e "${GRAY}Complete${NC}\r\n"

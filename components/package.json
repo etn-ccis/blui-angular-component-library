@@ -1,82 +1,81 @@
 {
-    "name": "@brightlayer-ui/angular-components",
-    "version": "6.0.2",
-    "description": "Angular components for Brightlayer UI applications",
-    "scripts": {
-        "ng": "ng",
-        "watch:storybook": "ng build -c storybook",
-        "watch:showcase": "ng build -c showcase",
-        "build": "ng build",
-        "test": "ng test",
-        "test:ci": "ng test --watch false --code-coverage",
-        "prettier": "prettier \"src/**/**.{ts,json,css,scss,html}\" --write",
-        "prettier:check": "prettier \"src/**/**.{ts,json,css,scss,html}\" --check",
-        "lint": "eslint \"src/**/**.ts\"",
-        "lint:fix": "eslint \"src/**/**.ts\" --fix",
-        "coverage": "yarn test --no-watch --code-coverage",
-        "tag:package": "cp ../CHANGELOG.md CHANGELOG.md && npx -p @brightlayer-ui/tag blui-tag -s -blui-angular-components"
-    },
-    "peerDependencies": {
-        "@angular/core": "^12.0.0",
-        "@angular/material": "^12.0.0",
-        "@angular/cdk": "^12.0.0"
-    },
-    "devDependencies": {
-        "@angular-devkit/build-angular": "~12.2.4",
-        "@angular/animations": "~12.2.4",
-        "@angular/cdk": "^12.2.4",
-        "@angular/cli": "~12.2.4",
-        "@angular/common": "~12.2.4",
-        "@angular/compiler": "~12.2.4",
-        "@angular/compiler-cli": "~12.2.4",
-        "@angular/core": "~12.2.4",
-        "@angular/forms": "^12.2.4",
-        "@angular/material": "^12.2.4",
-        "@angular/platform-browser": "~12.2.4",
-        "@angular/platform-browser-dynamic": "~12.2.4",
-        "@brightlayer-ui/eslint-config": "^2.0.5",
-        "@brightlayer-ui/prettier-config": "^1.0.3",
-        "@types/jasmine": "~3.9.0",
-        "@types/jasminewd2": "~2.0.10",
-        "@types/node": "^12.11.1",
-        "@typescript-eslint/eslint-plugin": "^4.30.0",
-        "@typescript-eslint/parser": "^4.30.0",
-        "codecov": "^3.8.3",
-        "codelyzer": "^6.0.2",
-        "eslint": "^7.32.0",
-        "eslint-config-prettier": "^8.3.0",
-        "jasmine-core": "~3.9.0",
-        "jasmine-spec-reporter": "~6.0.0",
-        "karma": "^6.3.4",
-        "karma-chrome-launcher": "~3.1.0",
-        "karma-coverage": "^2.0.3",
-        "karma-jasmine": "~4.0.1",
-        "karma-jasmine-html-reporter": "^1.7.0",
-        "ng-packagr": "^12.2.0",
-        "prettier": "^2.3.2",
-        "rxjs": "~6.6.0",
-        "ts-node": "~10.2.1",
-        "typescript": "4.3.5",
-        "yarn-audit-fix": "^6.4.4",
-        "zone.js": "~0.11.4"
-    },
-    "prettier": "@brightlayer-ui/prettier-config",
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/brightlayer-ui/angular-component-library.git"
-    },
-    "keywords": [
-        "angular",
-        "components",
-        "brightlayer-ui"
-    ],
-    "author": "brightlayer-ui <brightlayer-ui@eaton.com>",
-    "license": "BSD-3-Clause",
-    "bugs": {
-        "url": "https://github.com/brightlayer-ui/angular-component-library/issues"
-    },
-    "homepage": "https://github.com/brightlayer-ui/angular-component-library#readme",
-    "dependencies": {
-        "tslib": "^2.0.0"
-    }
+  "name": "@brightlayer-ui/angular-components",
+  "version": "6.0.2",
+  "description": "Angular components for Brightlayer UI applications",
+  "scripts": {
+    "ng": "ng",
+    "watch:storybook": "ng build -c storybook",
+    "watch:showcase": "ng build -c showcase",
+    "build": "ng build",
+    "test": "ng test",
+    "test:ci": "ng test --watch false --code-coverage",
+    "prettier": "prettier \"src/**/**.{ts,json,css,scss,html}\" --write",
+    "prettier:check": "prettier \"src/**/**.{ts,json,css,scss,html}\" --check",
+    "lint": "eslint \"src/**/**.ts\"",
+    "lint:fix": "eslint \"src/**/**.ts\" --fix",
+    "coverage": "yarn test --no-watch --code-coverage",
+    "tag:package": "cp ../CHANGELOG.md CHANGELOG.md && npx -p @brightlayer-ui/tag blui-tag -s -blui-angular-components"
+  },
+  "peerDependencies": {
+    "@angular/material": "^13.0.0",
+    "@angular/cdk": "^13.0.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^13.0.0",
+    "@angular/animations": "^13.0.0",
+    "@angular/cdk": "^13.0.0",
+    "@angular/cli": "^13.0.0",
+    "@angular/common": "^13.0.0",
+    "@angular/compiler": "^13.0.0",
+    "@angular/compiler-cli": "^13.0.0",
+    "@angular/core": "^13.0.0",
+    "@angular/forms": "^13.0.0",
+    "@angular/material": "^13.0.0",
+    "@angular/platform-browser": "^13.0.0",
+    "@angular/platform-browser-dynamic": "^13.0.0",
+    "@brightlayer-ui/eslint-config": "^3.0.0",
+    "@brightlayer-ui/prettier-config": "^1.0.3",
+    "@types/jasmine": "~3.9.0",
+    "@types/jasminewd2": "~2.0.10",
+    "@types/node": "^12.20.42",
+    "@typescript-eslint/eslint-plugin": "^5.10.0",
+    "@typescript-eslint/parser": "^5.10.0",
+    "codecov": "^3.8.3",
+    "codelyzer": "^6.0.2",
+    "eslint": "^8.7.0",
+    "eslint-config-prettier": "^8.3.0",
+    "jasmine-core": "~3.9.0",
+    "jasmine-spec-reporter": "~6.0.0",
+    "karma": "^6.3.4",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "^2.0.3",
+    "karma-jasmine": "~4.0.1",
+    "karma-jasmine-html-reporter": "^1.7.0",
+    "ng-packagr": "^13.0.0",
+    "prettier": "^2.5.1",
+    "rxjs": "~6.6.0",
+    "ts-node": "~10.2.1",
+    "typescript": "4.4.4",
+    "yarn-audit-fix": "^6.4.4",
+    "zone.js": "~0.11.4"
+  },
+  "prettier": "@brightlayer-ui/prettier-config",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brightlayer-ui/angular-component-library.git"
+  },
+  "keywords": [
+    "angular",
+    "components",
+    "brightlayer-ui"
+  ],
+  "author": "brightlayer-ui <brightlayer-ui@eaton.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/brightlayer-ui/angular-component-library/issues"
+  },
+  "homepage": "https://github.com/brightlayer-ui/angular-component-library#readme",
+  "dependencies": {
+    "tslib": "^2.0.0"
+  }
 }
