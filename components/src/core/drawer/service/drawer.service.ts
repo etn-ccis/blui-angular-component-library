@@ -20,6 +20,7 @@ export class DrawerService {
     drawerOpenObs = new Subject<boolean>();
     drawerSelectObs = new Subject<boolean>();
     drawerActiveItemChangeObs = new Subject<boolean>();
+    drawerNewNavItemInit = new Subject<void>();
 
     hasSideBorder(): boolean {
         return this.sideBorder;
@@ -111,6 +112,14 @@ export class DrawerService {
 
     drawerActiveItemChanges(): Observable<boolean> {
         return this.drawerActiveItemChangeObs;
+    }
+
+    drawerNewNavItemCreated(): Observable<void> {
+        return this.drawerNewNavItemInit;
+    }
+
+    emitNewNavItemCreated(): void {
+        this.drawerNewNavItemInit.next();
     }
 
     /** Each nav item has a unique id which is used to determine which item is selected. */

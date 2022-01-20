@@ -9,6 +9,10 @@ BGREEN='\033[1;32m' #BOLD
 GRAY='\033[1;30m'
 NC='\033[0m' # No Color
 
+if [ ! -f ./demos/showcase/package.json ];
+    then echo -e "${BBLUE}Emptying Showcase Folder${NC}" && rm -r ./demos/showcase/* && rm -rf ./demos/showcase/.git
+fi
+
 echo -e "${BLUE}Initializing Showcase Submodule...${NC}"
 if [ ! -f ./demos/showcase/package.json ];
     then git submodule init && git submodule update;

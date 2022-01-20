@@ -72,7 +72,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     /** Id of the scrollable element. This element is searched in the DOM `ngAfterViewInit`.  */
     @Input() scrollContainerId: string;
     /** Distance in pixels to scroll before collapsing toolbar. */
-    @Input() scrollThreshold;
+    @Input() scrollThreshold: number;
     /** Behavior of the App Bar
      *
      *  `collapsed` - Height set to `collapsedHeight` and does not respond to scroll distance
@@ -117,30 +117,23 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
         this.useDefaultCollapsedHeight = isNaN(this.collapsedHeight) || this.collapsedHeight === 0;
         this.expandedHeight = Number(this.expandedHeight);
         this.collapsedHeight = Number(this.collapsedHeight);
+
+        if (changes.scrollContainerClassName || changes.scrollContainerId || changes.scrollContainerElement) {
+            this._listenForScrollEvents();
+        }
+
         this._ref.detectChanges();
     }
 
     ngAfterViewInit(): void {
-        this._setScrollEl();
-        this._resizeOnModeChange();
-        this.viewInit = true;
-
-        if (this.scrollEl) {
-            this.scrollListener = fromEvent(this.scrollEl, 'scroll')
-                .pipe(throttle(() => interval(10)))
-                .subscribe(() => {
-                    this._resizeEl();
-                });
-
-            this.resizeListener = fromEvent(window, 'resize')
-                .pipe(throttle(() => interval(10)))
-                .subscribe(() => {
-                    this._resizeEl();
-                });
-        }
+        this._listenForScrollEvents();
     }
 
     ngOnDestroy(): void {
+        this._stopListeningForScrollEvents();
+    }
+
+    private _stopListeningForScrollEvents(): void {
         if (this.scrollListener) {
             this.scrollListener.unsubscribe();
         }
@@ -156,6 +149,26 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
             return `${this.collapsedHeight}px`;
         }
         return `${this._calcDefaultCollapsedHeight()}rem`;
+    }
+
+    private _listenForScrollEvents(): void {
+        this._setScrollEl();
+        this._resizeOnModeChange();
+        this._stopListeningForScrollEvents();
+        this.viewInit = true;
+        if (this.scrollEl) {
+            this.scrollListener = fromEvent(this.scrollEl, 'scroll')
+                .pipe(throttle(() => interval(10)))
+                .subscribe(() => {
+                    this._resizeEl();
+                });
+
+            this.resizeListener = fromEvent(window, 'resize')
+                .pipe(throttle(() => interval(10)))
+                .subscribe(() => {
+                    this._resizeEl();
+                });
+        }
     }
 
     private _resizeOnModeChange(): void {

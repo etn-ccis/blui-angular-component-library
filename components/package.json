@@ -1,6 +1,6 @@
 {
     "name": "@brightlayer-ui/angular-components",
-    "version": "6.0.1",
+    "version": "6.0.2",
     "description": "Angular components for Brightlayer UI applications",
     "scripts": {
         "ng": "ng",
@@ -16,7 +16,11 @@
         "coverage": "yarn test --no-watch --code-coverage",
         "tag:package": "cp ../CHANGELOG.md CHANGELOG.md && npx -p @brightlayer-ui/tag blui-tag -s -blui-angular-components"
     },
-    "peerDependencies": {},
+    "peerDependencies": {
+        "@angular/core": "^12.0.0",
+        "@angular/material": "^12.0.0",
+        "@angular/cdk": "^12.0.0"
+    },
     "devDependencies": {
         "@angular-devkit/build-angular": "~12.2.4",
         "@angular/animations": "~12.2.4",

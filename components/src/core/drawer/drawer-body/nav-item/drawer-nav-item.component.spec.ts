@@ -44,6 +44,7 @@ describe('DrawerNavItemComponent', () => {
     it('should enforce class naming conventions', () => {
         component.hasChildren = true;
         component.selected = true;
+        component.depth = 1;
         spyOn(component, 'isOpen').and.returnValue(true);
         spyOn(component, 'ngAfterContentInit').and.stub();
         spyOn(component, 'isEmpty').and.returnValue(true);
@@ -55,6 +56,7 @@ describe('DrawerNavItemComponent', () => {
             '.blui-drawer-nav-item-active-square',
             '.blui-drawer-nav-item-active',
             '.blui-drawer-nav-item-active-highlight',
+            '.blui-drawer-nav-item-depth-1',
         ];
         for (const className of classList) {
             count(fixture, className);

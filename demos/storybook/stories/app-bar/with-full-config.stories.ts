@@ -23,7 +23,7 @@ export const withFullConfig = (): any => ({
              [scrollContainerId]="scrollContainerId"
              [variant]="variant"
              (collapsedChange)="isCollapsed = $event">
-                 <button blui-icon mat-icon-button style="margin: 0 -12px">
+                 <button blui-icon mat-icon-button style="margin: 0 -8px">
                     <mat-icon>menu</mat-icon>
                  </button>
                  <blui-three-liner
@@ -33,7 +33,7 @@ export const withFullConfig = (): any => ({
                     style="margin: 0 40px"
                     [style.top.px]="isCollapsed ? 0 : expandedYOffset">
                  </blui-three-liner>
-                 <div blui-actions style="display: flex; margin: 0 -12px;">
+                 <div blui-actions style="display: flex; margin: 0 -8px;">
                     <mat-icon style="margin: 0 8px">light</mat-icon>
                     <mat-icon style="margin: 0 8px">face</mat-icon>
                     <mat-icon style="margin: 0 8px">home</mat-icon>

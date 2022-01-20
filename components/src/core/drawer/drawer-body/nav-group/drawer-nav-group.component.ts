@@ -1,4 +1,5 @@
 import {
+    AfterViewInit,
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
@@ -67,7 +68,7 @@ export type DrawerNavGroup = {
         class: 'blui-drawer-nav-group',
     },
 })
-export class DrawerNavGroupComponent extends StateListener implements Omit<DrawerNavGroup, 'items'> {
+export class DrawerNavGroupComponent extends StateListener implements Omit<DrawerNavGroup, 'items'>, AfterViewInit {
     /** Whether to show a dividing line below the title */
     @Input() divider = false;
     /** Component to render a group title */
@@ -78,9 +79,23 @@ export class DrawerNavGroupComponent extends StateListener implements Omit<Drawe
         super(drawerService, changeDetectorRef);
     }
 
-    ngAfterContentInit(): void {
-        for (const navItem of this.navItems) {
-            navItem.setNavItemDefaults();
+    /** Whenever a new navigation item is created async or conditionally,
+     * re-iterate through the navigation tree to assign the correct depth and top-level or nested state defaults to it. */
+    ngAfterViewInit(): void {
+        this._initializeNavItemDefaults(0, this.navItems);
+
+        // This is only called for async or conditionally loaded items.
+        this.drawerService.drawerNewNavItemCreated().subscribe(() => {
+            setTimeout(() => {
+                this._initializeNavItemDefaults(0, this.navItems);
+            });
+        });
+    }
+
+    private _initializeNavItemDefaults(depth: number, navItems: DrawerNavItemComponent[]): void {
+        for (const item of navItems) {
+            item.incrementDepth(depth);
+            this._initializeNavItemDefaults(depth + 1, item.nestedNavItems);
         }
     }
 }

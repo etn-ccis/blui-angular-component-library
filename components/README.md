@@ -11,3 +11,13 @@ yarn add @brightlayer-ui/angular-components
 ```
 
 > **NOTE**: This install command will not work until the component libraries are published to NPM. Until then you will need to follow the manual linking instructions.
+
+## Peer Dependencies
+
+The following peer dependencies are added to `package.json`:
+
+| Package Name      | Version |
+| ----------------- | ------- |
+| @angular/core     | ^12.0.0 |
+| @angular/material | ^12.0.0 |
+| @angular/cdk      | ^12.0.0 |
