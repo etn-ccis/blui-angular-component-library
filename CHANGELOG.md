@@ -1,5 +1,11 @@
 # Change Log
 
+## v6.0.3 (January 27, 2022)
+
+### Fixed
+
+-   Fixed `<blui-drawer-nav-item>` not responding to `expanded` input on initialization. ([#391](https://github.com/brightlayer-ui/angular-component-library/issues/391))
+
 ## v6.0.2 (January 20, 2022)
 
 ### Changed
