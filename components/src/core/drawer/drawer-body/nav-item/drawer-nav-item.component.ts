@@ -1,6 +1,5 @@
 import {
     AfterContentInit,
-    AfterViewInit,
     ChangeDetectorRef,
     Component,
     ContentChildren,
@@ -129,10 +128,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
         class: 'blui-drawer-nav-item',
     },
 })
-export class DrawerNavItemComponent
-    extends StateListener
-    implements Omit<DrawerNavItem, 'items'>, AfterContentInit, AfterViewInit
-{
+export class DrawerNavItemComponent extends StateListener implements Omit<DrawerNavItem, 'items'>, AfterContentInit {
     /** Sets the active item background shape
      *
      * `square` - Background shape takes the entire height of width of the NavItem.
@@ -220,21 +216,16 @@ export class DrawerNavItemComponent
         }
     }
 
-    ngAfterViewInit(): void {
-        this.handleExpand();
-    }
-
     ngAfterContentInit(): void {
         // If ContentChildren is self-inclusive (ng version < 9), filter self out using service-generated NavItem ID.
         this.nestedNavItems = this.nestedNavItems.filter((item: DrawerNavItemComponent) => item.id !== this.id);
     }
 
     handleExpand(): void {
-        if (!this.matExpansionPanel) {
-            return;
-        }
-
         setTimeout(() => {
+            if (!this.matExpansionPanel) {
+                return;
+            }
             // Persistent drawers will only expand if they the drawer is opened.
             // Temporary drawers will always have any expansion panels opened.
             if (this.expanded && (this.isOpen() || this.drawerService.getDrawerVariant() === 'temporary')) {
@@ -300,6 +291,9 @@ export class DrawerNavItemComponent
         }
         this.depth = parentDepth + 1;
         this.hasChildren = this.nestedNavItems && this.nestedNavItems.length > 0;
+        if (this.hasChildren && this.expanded === true) {
+            this.handleExpand();
+        }
         this.changeDetector.detectChanges();
     }
 
