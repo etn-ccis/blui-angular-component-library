@@ -5,11 +5,13 @@ import {
     Component,
     ContentChildren,
     Input,
+    OnDestroy,
     ViewEncapsulation,
 } from '@angular/core';
 import { DrawerNavItem, DrawerNavItemComponent } from '../nav-item/drawer-nav-item.component';
 import { DrawerService } from '../../service/drawer.service';
 import { StateListener } from '../../state-listener.component';
+import { Subscription } from 'rxjs';
 
 export type DrawerNavGroup = {
     divider?: boolean;
@@ -68,12 +70,17 @@ export type DrawerNavGroup = {
         class: 'blui-drawer-nav-group',
     },
 })
-export class DrawerNavGroupComponent extends StateListener implements Omit<DrawerNavGroup, 'items'>, AfterViewInit {
+export class DrawerNavGroupComponent
+    extends StateListener
+    implements Omit<DrawerNavGroup, 'items'>, AfterViewInit, OnDestroy
+{
     /** Whether to show a dividing line below the title */
     @Input() divider = false;
     /** Component to render a group title */
     @Input() title: string;
     @ContentChildren(DrawerNavItemComponent) navItems;
+
+    navItemLifeCycleListener: Subscription;
 
     constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
@@ -85,17 +92,25 @@ export class DrawerNavGroupComponent extends StateListener implements Omit<Drawe
         this._initializeNavItemDefaults(0, this.navItems);
 
         // This is only called for async or conditionally loaded items.
-        this.drawerService.drawerNewNavItemCreated().subscribe(() => {
+        this.navItemLifeCycleListener = this.drawerService.drawerNewNavItemCreated().subscribe(() => {
             setTimeout(() => {
                 this._initializeNavItemDefaults(0, this.navItems);
             });
         });
     }
 
+    ngOnDestroy(): void {
+        if (this.navItemLifeCycleListener) {
+            this.navItemLifeCycleListener.unsubscribe();
+        }
+    }
+
     private _initializeNavItemDefaults(depth: number, navItems: DrawerNavItemComponent[]): void {
         for (const item of navItems) {
-            item.incrementDepth(depth);
-            this._initializeNavItemDefaults(depth + 1, item.nestedNavItems);
+            if (item && !item.changeDetectorRef['destroyed']) {
+                item.incrementDepth(depth);
+                this._initializeNavItemDefaults(depth + 1, item.nestedNavItems);
+            }
         }
     }
 }
