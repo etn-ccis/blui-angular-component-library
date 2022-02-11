@@ -193,7 +193,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
      *  Depth is populated by iterating through the Drawer navigation tree.  See DrawerNavGroupComponent for details. */
     depth: number;
 
-    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
+    constructor(drawerService: DrawerService, public changeDetectorRef: ChangeDetectorRef) {
         super(drawerService, changeDetectorRef);
         this.id = drawerService.createNavItemID();
         this.drawerService.emitNewNavItemCreated();
