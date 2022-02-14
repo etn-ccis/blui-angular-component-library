@@ -21,18 +21,6 @@ module.exports = {
         '@brightlayer-ui/storybook-rtl-addon/register',
     ],
     webpackFinal: async (config, { configType })=> {
-        config.module.rules.push( { // Angular linker needed to link partial-ivy code
-            // See https://angular.io/guide/creating-libraries#consuming-partial-ivy-code-outside-the-angular-cli
-            test: /\.$/i,
-            use: {
-                loader: 'babel-loader',
-                options: {
-                    plugins: ['@angular/compiler-cli/linker/babel'],
-                    compact: false,
-                    cacheDirectory: true
-                }
-            }
-        });
         config.module.rules.push({
             include: [path.resolve(__dirname, '../stories')],
             exclude: [path.resolve(__dirname, '../node_modules')],

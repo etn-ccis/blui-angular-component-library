@@ -1754,10 +1754,10 @@
   resolved "https://registry.yarnpkg.com/@base2/pretty-print-object/-/pretty-print-object-1.0.0.tgz#860ce718b0b73f4009e153541faff2cb6b85d047"
   integrity sha512-4Th98KlMHr5+JkxfcoDT//6vY8vM+iSPrLNpHhRyLx2CFYi8e2RfqPLdpbnpo0Q5lQC5hNB79yes07zb02fvCw==
 
-"@brightlayer-ui/angular-components@^6.0.3":
-  version "6.0.3"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/angular-components/-/angular-components-6.0.3.tgz#06cd4086a722f070ad5a2cc1d7665135230874b8"
-  integrity sha512-63exaCDblyZsBEQdiU16/eoFZpVb7VjaRNwzh3PkK8GkBvjNQuFpw1V8d8F9NlMI7VbEqyimfnn/ViyscaXAjw==
+"@brightlayer-ui/angular-components@^6.0.4":
+  version "6.0.4"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/angular-components/-/angular-components-6.0.4.tgz#798fc4cece4aac90335f57267e983d43221609da"
+  integrity sha512-Ng9VHxZfpoURyQvI0l/mwOX8e4um7R3LtTI7KabAFjcV7UT6/tTcn7fGh1+XF6SY0x/S5x/BDiMM44zxAJv1Dg==
   dependencies:
     tslib "^2.0.0"
 
