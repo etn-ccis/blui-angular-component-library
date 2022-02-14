@@ -1,5 +1,9 @@
 # Change Log
 
+## v6.0.4 (February 14, 2022)
+
+-   Fixed change detection error in `<blui-drawer-nav-item>`([#397](https://github.com/brightlayer-ui/angular-component-library/issues/397)).
+
 ## v6.0.3 (January 27, 2022)
 
 ### Fixed
