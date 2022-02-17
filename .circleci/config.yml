@@ -5,7 +5,7 @@ orbs:
 jobs:
     build_library:
         docker:
-            - image: circleci/node:14.17-browsers
+            - image: cimg/node:14.19.0-browsers
         steps:
             - checkout
             - restore_cache:
@@ -55,7 +55,7 @@ jobs:
     coverage_report:
         working_directory: ~/angular-component-library
         docker:
-            - image: circleci/node:14.17-browsers
+            - image: cimg/node:14.19.0-browsers
         steps:
             - checkout
             - attach_workspace:
@@ -67,7 +67,7 @@ jobs:
     # Builds the Storybook app using @brightlayer-ui/angular-components persisted in /dist folder.
     build_storybook:
         docker:
-            - image: circleci/node:14.17-browsers
+            - image: cimg/node:14.19.0-browsers
         environment:
             - MASTER_BRANCH: master
             - DEV_BRANCH: dev
@@ -128,7 +128,7 @@ jobs:
     # Builds the Showcase app using @brightlayer-ui/angular-components persisted in /dist folder.
     build_showcase:
         docker:
-            - image: circleci/node:14.17-browsers
+            - image: cimg/node:14.19.0-browsers
         environment:
             - MASTER_BRANCH: master
         steps:
@@ -166,7 +166,7 @@ jobs:
 
     deploy_storybook:
         docker:
-            - image: circleci/node:14.17-browsers
+            - image: cimg/node:14.19.0-browsers
         environment:
             - MASTER_BRANCH: master
             - DEV_BRANCH: dev
@@ -209,7 +209,7 @@ jobs:
 
     publish:
       docker:
-        - image: circleci/node:14.17-browsers
+        - image: cimg/node:14.19.0-browsers
       steps:
         - checkout
         - attach_workspace:
@@ -225,7 +225,7 @@ jobs:
               yarn publish:package -b $CIRCLE_BRANCH
     tag:
       docker:
-        - image: circleci/node:14.17-browsers
+        - image: cimg/node:14.19.0-browsers
       steps:
         - checkout
         - gh/setup
