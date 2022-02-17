@@ -1,0 +1,61 @@
+@import '../utility/utility';
+
+[dir='rtl'] .blui-toolbar-menu-content {
+    .blui-toolbar-menu-icon-wrapper > * {
+        margin-right: -8px;
+        margin-left: 32px;
+    }
+    .blui-toolbar-menu-text-content-container {
+        padding-right: 0;
+    }
+}
+
+.blui-toolbar-menu {
+    display: flex;
+}
+.blui-toolbar-menu-content {
+    height: 4rem;
+    .blui-toolbar-menu-icon-wrapper > * {
+        margin-right: 32px;
+        margin-left: -8px;
+    }
+    @include scale-icon-button();
+}
+@media (max-width: 599px) {
+    .blui-toolbar-menu-content {
+        height: 3.5rem;
+    }
+}
+
+.blui-toolbar-menu-text-content-container {
+    display: block;
+    overflow: hidden;
+
+    .blui-toolbar-menu-title {
+        line-height: 1.6rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .blui-toolbar-menu-subtitle-container {
+        margin-top: -0.125rem;
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+
+        .blui-toolbar-menu-subtitle {
+            line-height: 1.3rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .blui-toolbar-menu-subtitle-icon {
+            margin: 0 0.25rem;
+            @include scale-icon-content();
+        }
+
+        .rotated-dropdown-arrow {
+            transform: rotate(180deg);
+        }
+    }
+}
