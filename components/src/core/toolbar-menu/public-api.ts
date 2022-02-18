@@ -1,2 +1,2 @@
-export * from './dropdown-toolbar.component';
-export * from './dropdown-toolbar.module';
+export * from './toolbar-menu.component';
+export * from './toolbar-menu.module';

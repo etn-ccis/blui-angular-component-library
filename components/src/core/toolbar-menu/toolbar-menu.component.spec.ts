@@ -9,7 +9,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
     template: `
-        <blui-toolbar-menu title="title" subtitle="subtitle">
+        <blui-toolbar-menu label="title" subtitle="subtitle">
             <button id="test-icon" mat-icon-button blui-icon>
                 <mat-icon>menu</mat-icon>
             </button>

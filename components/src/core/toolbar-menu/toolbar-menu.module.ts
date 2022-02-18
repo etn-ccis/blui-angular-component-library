@@ -6,19 +6,10 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatMenuModule } from '@angular/material/menu';
-import { SpacerModule } from '../utility/public-api';
 
 @NgModule({
     declarations: [ToolbarMenuComponent],
-    imports: [
-        CommonModule,
-        MatToolbarModule,
-        MatSelectModule,
-        MatFormFieldModule,
-        MatIconModule,
-        MatMenuModule,
-        SpacerModule,
-    ],
+    imports: [CommonModule, MatToolbarModule, MatSelectModule, MatFormFieldModule, MatIconModule, MatMenuModule],
     exports: [ToolbarMenuComponent],
 })
 export class ToolbarMenuModule {}
