@@ -9,7 +9,7 @@ import { ToolbarMenuModule } from './toolbar-menu.module';
 
 @Component({
     template: `
-        <blui-toolbar-menu label="title" subtitle="subtitle">
+        <blui-toolbar-menu label="title">
             <button id="test-icon" mat-icon-button blui-icon>
                 <mat-icon>menu</mat-icon>
             </button>
