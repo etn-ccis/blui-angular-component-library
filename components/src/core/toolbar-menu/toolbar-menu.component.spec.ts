@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { MatIconModule } from '@angular/material/icon';
-import { ToolbarMenuComponent } from './dropdown-toolbar.component';
-import { ToolbarMenuModule } from './dropdown-toolbar.module';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
 import { count } from '../../utils/test-utils';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToolbarMenuComponent } from './toolbar-menu.component';
+import { ToolbarMenuModule } from './toolbar-menu.module';
 
 @Component({
     template: `
@@ -13,7 +13,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
             <button id="test-icon" mat-icon-button blui-icon>
                 <mat-icon>menu</mat-icon>
             </button>
-            <div blui-menu id="test-menu">menu text</div>
+            <div blui-toolbar-menu-items id="test-menu">menu text</div>
         </blui-toolbar-menu>
     `,
 })
@@ -37,19 +37,11 @@ describe('ToolbarMenuComponent', () => {
         void expect(component).toBeTruthy();
     });
 
-    it('should render title', () => {
-        component.title = 'test title';
+    it('should render label', () => {
+        component.label = 'test title';
         fixture.detectChanges();
-        const title = fixture.debugElement.query(By.css('.blui-dropdown-toolbar-title'));
+        const title = fixture.debugElement.query(By.css('.blui-toolbar-menu-label'));
         void expect(title.nativeElement.innerHTML.trim()).toBe('test title');
-    });
-
-    it('should render subtitle', () => {
-        component.title = 'test title';
-        component.subtitle = 'test subtitle';
-        fixture.detectChanges();
-        const subtitle = fixture.debugElement.query(By.css('.blui-dropdown-toolbar-subtitle'));
-        void expect(subtitle.nativeElement.innerHTML.trim()).toBe('test subtitle');
     });
 
     it('should render icon', () => {
@@ -63,7 +55,7 @@ describe('ToolbarMenuComponent', () => {
 
     const clickMenu = (customFixture): void => {
         customFixture.detectChanges();
-        const menuTrigger = document.getElementsByClassName('blui-dropdown-toolbar-subtitle-container')[0];
+        const menuTrigger = document.getElementsByClassName('blui-toolbar-menu-trigger')[0];
         menuTrigger.dispatchEvent(new Event('click'));
         customFixture.detectChanges();
     };
@@ -82,10 +74,10 @@ describe('ToolbarMenuComponent', () => {
 
         // Non-overlay classes
         const classList = [
-            '.blui-dropdown-toolbar-content',
-            '.blui-dropdown-toolbar-icon-wrapper',
-            '.blui-dropdown-toolbar-title',
-            '.blui-dropdown-toolbar-subtitle',
+            '.blui-toolbar-menu',
+            '.blui-toolbar-menu-toggle-icon',
+            '.blui-toolbar-menu-label',
+            '.blui-toolbar-menu-trigger',
         ];
 
         for (const className of classList) {
@@ -93,6 +85,6 @@ describe('ToolbarMenuComponent', () => {
         }
 
         // Overlay classes
-        void expect(document.getElementsByClassName('blui-dropdown-toolbar-menu-wrapper').length).toBe(1);
+        void expect(document.getElementsByClassName('blui-toolbar-menu-menu-wrapper').length).toBe(1);
     });
 });

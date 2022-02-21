@@ -5,4 +5,9 @@
     .blui-rotated-dropdown-arrow {
         transform: rotate(180deg);
     }
+    .blui-toolbar-menu-trigger {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
 }

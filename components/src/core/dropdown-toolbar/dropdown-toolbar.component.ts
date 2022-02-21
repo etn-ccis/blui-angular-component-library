@@ -55,6 +55,7 @@ export class DropdownToolbarComponent {
     @ViewChild('menuTrigger') menuTrigger: MatMenuTrigger;
 
     ngOnInit(): void {
+        /* eslint-disable no-console */
         console.warn(
             'The Brighlayer UI DropdownToolbarComponent is deprecated as of v7.0.0 and we will removed in the next major release.  Please see the ToolbarMenu component documentation for an alternative.'
         );

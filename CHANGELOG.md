@@ -1,5 +1,15 @@
 # Change Log
 
+## 7.0.0 (Not Published)
+
+### Added
+
+-  Added `<blui-toolbar-menu>` component ([#374](https://github.com/brightlayer-ui/angular-component-library/issues/374)).
+
+### Changed
+
+-   Updated to Angular 13 for building the library.
+
 ## v6.0.4 (February 14, 2022)
 
 -   Fixed change detection error in `<blui-drawer-nav-item>`([#397](https://github.com/brightlayer-ui/angular-component-library/issues/397)).
