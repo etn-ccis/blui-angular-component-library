@@ -10,7 +10,9 @@ import { MatMenuTrigger } from '@angular/material/menu';
     selector: 'blui-toolbar-menu',
     encapsulation: ViewEncapsulation.None,
     template: `
-        <ng-content select="[blui-icon]"></ng-content>
+        <div class="blui-toolbar-icon-wrapper">
+            <ng-content select="[blui-icon]"></ng-content>
+        </div>
         <div [matMenuTriggerFor]="toolbarMenu" #menuTrigger="matMenuTrigger" class="blui-toolbar-menu-trigger">
             <div class="blui-toolbar-menu-label mat-body-1">{{ label }}</div>
             <mat-icon class="blui-toolbar-menu-toggle-icon" [class.blui-rotated-dropdown-arrow]="menuTrigger.menuOpen"

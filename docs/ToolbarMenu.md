@@ -63,3 +63,4 @@ Each Brightlayer UI component has classes which can be used to override componen
 | blui-toolbar-menu-toggle-icon                | Styles applied to the expand icon      |
 | blui-toolbar-menu-menu-wrapper               | Styles applied to the menu items       |
 | blui-toolbar-menu-trigger                    | Styles applied to the menu trigger     |
+| blui-toolbar-icon-wrapper                    | Styles applied to the icon wrapper     | 

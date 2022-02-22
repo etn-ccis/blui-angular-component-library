@@ -78,6 +78,7 @@ describe('ToolbarMenuComponent', () => {
             '.blui-toolbar-menu-toggle-icon',
             '.blui-toolbar-menu-label',
             '.blui-toolbar-menu-trigger',
+            '.blui-toolbar-icon-wrapper',
         ];
 
         for (const className of classList) {
