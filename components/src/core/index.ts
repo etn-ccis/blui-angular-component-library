@@ -11,3 +11,4 @@ export * from './dropdown-toolbar/public-api';
 export * from './three-liner/public-api';
 export * from './user-menu/public-api';
 export * from './mobile-stepper/public-api';
+export * from './toolbar-menu/public-api';
