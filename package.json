@@ -15,7 +15,7 @@
         "install:dependencies": "cd demos/showcase && yarn && cd ../storybook && yarn && cd ../../components && yarn",
         "link:components": "bash scripts/linkComponents.sh",
         "start:storybook": "yarn install:dependencies && yarn link:components && cd demos/storybook && yarn start",
-        "start:showcase": "yarn initialize && yarn install:dependencies && yarn link:components && cd demos/showcase && yarn start",
+        "start:showcase": "yarn initialize && yarn install:dependencies && cd components && yarn copy-to-showcase && cd ../demos/showcase && yarn start:lib",
         "lint": "cd components && yarn lint && cd ../demos/showcase && yarn lint && cd ../storybook && yarn lint",
         "lint:fix": "cd components && yarn lint:fix && cd ../demos/showcase && yarn lint:fix && cd ../storybook && yarn lint:fix",
         "prettier": "cd components && yarn prettier && cd ../demos/showcase && yarn prettier && cd ../storybook && yarn prettier",

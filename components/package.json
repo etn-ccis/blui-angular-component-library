@@ -4,9 +4,7 @@
   "description": "Angular components for Brightlayer UI applications",
   "scripts": {
     "ng": "ng",
-    "watch:showcase": "ng build -c showcase",
     "build": "ng build",
-    "watch": "ng build --watch",
     "test": "ng test",
     "test:ci": "ng test --watch false --code-coverage",
     "prettier": "prettier \"src/**/**.{ts,json,css,scss,html}\" --write",
@@ -14,7 +12,17 @@
     "lint": "eslint \"src/**/**.ts\"",
     "lint:fix": "eslint \"src/**/**.ts\" --fix",
     "coverage": "yarn test --no-watch --code-coverage",
+    "watch:showcase": "npm-watch",
+    "copy-to-showcase": "cp -r src/. ../demos/showcase/src/lib/",
     "tag:package": "cp ../CHANGELOG.md CHANGELOG.md && npx -p @brightlayer-ui/tag blui-tag -s -blui-angular-components"
+  },
+  "watch": {
+    "copy-to-showcase": {
+      "patterns": ["src"],
+      "extensions": "ts,html,scss",
+      "quiet": false,
+      "runOnChangeOnly": false
+    }
   },
   "peerDependencies": {
     "@angular/material": "^13.0.0",
@@ -51,6 +59,7 @@
     "karma-jasmine": "~4.0.1",
     "karma-jasmine-html-reporter": "^1.7.0",
     "ng-packagr": "^13.0.0",
+    "npm-watch": "^0.11.0",
     "prettier": "^2.5.1",
     "rxjs": "~6.6.0",
     "ts-node": "~10.2.1",
