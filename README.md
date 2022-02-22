@@ -48,6 +48,7 @@ The following table outlines which versions of Angular and Brightlayer UI resour
 | ---------------------------------- | ------------------------------ | ---------------------------- |
 | `^5.0.0`                           | `^6.1.0`                       | `^11.x`                      |
 | `^6.0.0`                           | `^6.3.0`                       | `^12.x`                      |
+| `^7.0.0`                           | `^7.0.0`                       | `^13.x`                      |
 
 ## Running the demo projects
 
