@@ -21,3 +21,5 @@ yarn-error.log*
 # test
 /components/coverage
 /components/.angular
+
+/demos/showcase/src/lib/
