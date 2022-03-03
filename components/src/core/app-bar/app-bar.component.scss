@@ -6,7 +6,7 @@
     z-index: 1000; /* Ensure that your app's content doesn't overlap the toolbar */
 }
 
-$transition: all .3s, color 0s, background-color 0s;
+$transition: all 0.3s, color 0s, background-color 0s;
 .blui-app-bar-content {
     min-height: unset;
     transition: $transition;
