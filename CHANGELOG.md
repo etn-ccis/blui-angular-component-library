@@ -10,6 +10,10 @@
 
 -   Updated to Angular 13 for building the library.
 
+### Fixed
+
+-   Fixed `<blui-app-bar>` and `<blui-three-liner>` applying transition to `color` and `background-color` style properties ([#395](https://github.com/brightlayer-ui/angular-component-library/issues/395)).
+
 ## v6.0.4 (February 14, 2022)
 
 -   Fixed change detection error in `<blui-drawer-nav-item>`([#397](https://github.com/brightlayer-ui/angular-component-library/issues/397)).
