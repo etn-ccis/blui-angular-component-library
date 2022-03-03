@@ -10,6 +10,9 @@
 
 -   Updated to Angular 13 for building the library.
 
+### Fixed
+
+-   Fixed container overflow in `<blui-empty-state>` ([#400](https://github.com/brightlayer-ui/angular-component-library/issues/400)).
 ## v6.0.4 (February 14, 2022)
 
 -   Fixed change detection error in `<blui-drawer-nav-item>`([#397](https://github.com/brightlayer-ui/angular-component-library/issues/397)).
