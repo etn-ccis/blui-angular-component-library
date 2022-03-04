@@ -13,6 +13,7 @@
 ### Fixed
 
 -   Fixed `<blui-app-bar>` and `<blui-three-liner>` applying transition to `color` and `background-color` style properties ([#395](https://github.com/brightlayer-ui/angular-component-library/issues/395)).
+-   Fixed `<blui-mobile-stepper>` not spanning full container width on Safari ([#404](https://github.com/brightlayer-ui/angular-component-library/issues/404)).
 
 ## v6.0.4 (February 14, 2022)
 
