@@ -13,6 +13,8 @@
 ### Fixed
 
 -   Fixed container overflow in `<blui-empty-state>` ([#400](https://github.com/brightlayer-ui/angular-component-library/issues/400)).
+-   Fixed `<blui-mobile-stepper>` not spanning full container width on Safari ([#404](https://github.com/brightlayer-ui/angular-component-library/issues/404)).
+
 ## v6.0.4 (February 14, 2022)
 
 -   Fixed change detection error in `<blui-drawer-nav-item>`([#397](https://github.com/brightlayer-ui/angular-component-library/issues/397)).
