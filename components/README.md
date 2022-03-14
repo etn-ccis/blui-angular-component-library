@@ -18,6 +18,6 @@ The following peer dependencies are added to `package.json`:
 
 | Package Name      | Version |
 | ----------------- | ------- |
-| @angular/core     | ^12.0.0 |
-| @angular/material | ^12.0.0 |
-| @angular/cdk      | ^12.0.0 |
+| @angular/core     | ^13.0.0 |
+| @angular/material | ^13.0.0 |
+| @angular/cdk      | ^13.0.0 |
