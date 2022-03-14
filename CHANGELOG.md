@@ -15,6 +15,7 @@
 -   Fixed container overflow in `<blui-empty-state>` ([#400](https://github.com/brightlayer-ui/angular-component-library/issues/400)).
 -   Fixed `<blui-app-bar>` and `<blui-three-liner>` applying transition to `color` and `background-color` style properties ([#395](https://github.com/brightlayer-ui/angular-component-library/issues/395)).
 -   Fixed `<blui-mobile-stepper>` not spanning full container width on Safari ([#404](https://github.com/brightlayer-ui/angular-component-library/issues/404)).
+-   Fixed `<blui-empty-state>` description not applying correct typography. ([#414](https://github.com/brightlayer-ui/angular-component-library/issues/414)).
 
 ## v6.0.4 (February 14, 2022)
 
