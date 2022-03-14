@@ -1,6 +1,6 @@
 # Change Log
 
-## 7.0.0 (Not Published)
+## 7.0.0 (March 14, 2022)
 
 ### Added
 
