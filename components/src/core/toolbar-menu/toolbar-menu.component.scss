@@ -1,0 +1,30 @@
+[dir='rtl'] .blui-toolbar-menu .mat-icon {
+    margin-left: 8px;
+    margin-right: 0px;
+}
+.blui-toolbar-menu {
+    display: flex;
+    align-items: center;
+
+    .blui-toolbar-menu-toggle-icon {
+        transition: transform 250ms;
+    }
+    .blui-rotated-dropdown-arrow {
+        transform: rotate(180deg);
+    }
+    .blui-toolbar-menu-trigger {
+        display: flex;
+        align-items: center;
+        cursor: pointer;
+    }
+    .blui-toolbar-menu-label {
+        line-height: 1rem;
+    }
+    .blui-toolbar-icon-wrapper .mat-icon {
+        font-size: 1rem;
+        width: 1rem;
+        line-height: 1rem;
+        height: 1rem;
+        margin-right: 8px;
+    }
+}

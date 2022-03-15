@@ -1,7 +1,7 @@
 # Brightlayer UI Angular Components
 
 [![](https://img.shields.io/circleci/project/github/brightlayer-ui/angular-component-library/master.svg?style=flat)](https://circleci.com/gh/brightlayer-ui/angular-component-library/tree/master)
-![npm](https://img.shields.io/npm/v/@brightlayer-ui/angular-components?label=%40brightlayer-ui%2Fangular-components)
+![npm](https://img.shields.io/npm/v/@brightlayer-ui/angular-components?label=%40brightlayer-ui%2Fangular-components) [![codecov](https://codecov.io/gh/brightlayer-ui/angular-component-library/branch/master/graph/badge.svg?token=DB9EMVFAFJ)](https://codecov.io/gh/brightlayer-ui/angular-component-library)
 
 This is a library of custom components for use in Brightlayer UI applications. For the most part, these components are meant to simplify building your application by providing re-usable components that implement common use cases in Brightlayer UI and eliminating the need to multiple teams to build their own components for these.
 
@@ -48,6 +48,7 @@ The following table outlines which versions of Angular and Brightlayer UI resour
 | ---------------------------------- | ------------------------------ | ---------------------------- |
 | `^5.0.0`                           | `^6.1.0`                       | `^11.x`                      |
 | `^6.0.0`                           | `^6.3.0`                       | `^12.x`                      |
+| `^7.0.0`                           | `^7.0.0`                       | `^13.x`                      |
 
 ## Running the demo projects
 

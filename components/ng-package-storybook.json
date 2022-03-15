@@ -1,6 +1,0 @@
-{
-  "dest": "../demos/storybook/node_modules/@brightlayer-ui/angular-components",
-  "lib": {
-    "entryFile": "src/index.ts"
-  }
-}

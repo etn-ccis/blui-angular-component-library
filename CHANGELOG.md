@@ -1,5 +1,22 @@
 # Change Log
 
+## 7.0.0 (March 14, 2022)
+
+### Added
+
+-  Added `<blui-toolbar-menu>` component ([#374](https://github.com/brightlayer-ui/angular-component-library/issues/374)).
+
+### Changed
+
+-   Updated to Angular 13 for building the library.
+
+### Fixed
+
+-   Fixed container overflow in `<blui-empty-state>` ([#400](https://github.com/brightlayer-ui/angular-component-library/issues/400)).
+-   Fixed `<blui-app-bar>` and `<blui-three-liner>` applying transition to `color` and `background-color` style properties ([#395](https://github.com/brightlayer-ui/angular-component-library/issues/395)).
+-   Fixed `<blui-mobile-stepper>` not spanning full container width on Safari ([#404](https://github.com/brightlayer-ui/angular-component-library/issues/404)).
+-   Fixed `<blui-empty-state>` description not applying correct typography. ([#414](https://github.com/brightlayer-ui/angular-component-library/issues/414)).
+
 ## v6.0.4 (February 14, 2022)
 
 -   Fixed change detection error in `<blui-drawer-nav-item>`([#397](https://github.com/brightlayer-ui/angular-component-library/issues/397)).
