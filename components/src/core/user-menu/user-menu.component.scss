@@ -26,16 +26,15 @@ $size: 2.5rem;
         align-self: center;
         @include scale-icon-content();
     }
+    .blui-user-menu-text-avatar {
+        margin-bottom: 0;
+        font-weight: 400;
+        line-height: $size;
+    }
 }
 
 mat-card.blui-user-menu-overlay {
     padding: 0;
-}
-
-.blui-user-menu-text-avatar {
-    margin-bottom: 0;
-    font-weight: 400;
-    line-height: $size;
 }
 
 .blui-user-menu-header mat-toolbar {
