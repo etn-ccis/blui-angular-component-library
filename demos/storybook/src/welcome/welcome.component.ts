@@ -37,7 +37,7 @@ const packageJSON = require('@brightlayer-ui/angular-components/package.json');
                 <section class="mat-typography">
                     <div class="mat-display-3">Brightlayer <strong>UI</strong></div>
                     <div class="mat-display-1">Angular Component Library</div>
-                    <div class="mat-h3" *ngIf="package.version">v{{ package.version }}</div>
+                    <div class="mat-h3" *ngIf="package.version">v7.0.0</div>
                     <div class="mat-h3 description">
                         Learn about and interact with our Brightlayer UI components using Storybook.
                     </div>
