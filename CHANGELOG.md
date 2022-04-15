@@ -1,10 +1,11 @@
 # Change Log
 
-## v7.0.1 (Not yet published)
+## v7.0.1 (April 15, 2022)
 
 ### Fixed
 
 -   Fixed avatar line-height in `<blui-user-menu>` component ([#419](https://github.com/brightlayer-ui/angular-component-library/issues/419)).
+
 ## v7.0.0 (March 14, 2022)
 
 ### Added
