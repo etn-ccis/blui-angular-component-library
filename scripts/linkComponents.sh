@@ -13,6 +13,7 @@ echo -e "${BLUE}Building components...${NC}"
 yarn build
 
 echo -en "${BLUE}Creating new folder in node_modules...${NC}"
+rm -rf ./demos/showcase/node_modules/.cache
 rm -rf "./demos/showcase/node_modules/@brightlayer-ui/angular-components"
 # rm -rf "./demos/storybook/node_modules/@brightlayer-ui/angular-components"
 mkdir -p "./demos/showcase/node_modules/@brightlayer-ui/angular-components"
