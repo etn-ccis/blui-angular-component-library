@@ -14,7 +14,7 @@ import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 import { Direction, Directionality } from '@angular/cdk/bidi';
 import { Subscription } from 'rxjs';
-import {MatDrawerMode} from "@angular/material/sidenav";
+import { MatDrawerMode } from '@angular/material/sidenav';
 
 export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' | 'rail';
 
