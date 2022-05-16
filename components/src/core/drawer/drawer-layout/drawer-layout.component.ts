@@ -14,6 +14,7 @@ import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 import { Direction, Directionality } from '@angular/cdk/bidi';
 import { Subscription } from 'rxjs';
+import {MatDrawerMode} from "@angular/material/sidenav";
 
 export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' | 'rail';
 
@@ -37,6 +38,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
                 [class.mat-elevation-z6]="!hasSideBorder()"
                 [style.width.rem]="isCollapsed() ? getCollapsedWidth() : toRem(width)"
                 [mode]="getMode()"
+                [disableClose]="true"
                 [opened]="isDrawerVisible()"
             >
                 <ng-content select="[blui-drawer]"></ng-content>
@@ -111,7 +113,7 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
         this.dirChangeSubscription.unsubscribe();
     }
 
-    getMode(): string {
+    getMode(): MatDrawerMode {
         return this.variant === 'temporary' ? 'over' : 'side';
     }
 

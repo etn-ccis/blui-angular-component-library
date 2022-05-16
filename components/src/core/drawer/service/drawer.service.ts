@@ -19,7 +19,7 @@ export class DrawerService {
 
     drawerOpenObs = new Subject<boolean>();
     drawerSelectObs = new Subject<boolean>();
-    drawerActiveItemChangeObs = new Subject<boolean>();
+    drawerActiveItemChangeObs = new Subject<void>();
     drawerNewNavItemInit = new Subject<void>();
 
     hasSideBorder(): boolean {
@@ -110,7 +110,7 @@ export class DrawerService {
         this.drawerActiveItemChangeObs.next();
     }
 
-    drawerActiveItemChanges(): Observable<boolean> {
+    drawerActiveItemChanges(): Observable<void> {
         return this.drawerActiveItemChangeObs;
     }
 
