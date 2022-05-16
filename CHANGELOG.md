@@ -1,5 +1,12 @@
 # Change Log
 
+## v7.0.2 (Not published yet)
+
+### Fixed 
+
+-  Fixed escape key disappearing `<blui-drawer>` ([#426](https://github.com/brightlayer-ui/angular-component-library/issues/426)).
+
+
 ## v7.0.1 (April 15, 2022)
 
 ### Fixed
