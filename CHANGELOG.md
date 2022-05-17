@@ -4,8 +4,8 @@
 
 ### Fixed 
 
--  Fixed escape key disappearing `<blui-drawer>` ([#426](https://github.com/brightlayer-ui/angular-component-library/issues/426)).
-
+- Fixed escape key permanently dismissing `<blui-drawer>` ([#426](https://github.com/brightlayer-ui/angular-component-library/issues/426)).
+- Fixed escape key permanently dismissing `<blui-user-menu>`. ([#434](https://github.com/brightlayer-ui/angular-component-library/issues/434)).
 
 ## v7.0.1 (April 15, 2022)
 
