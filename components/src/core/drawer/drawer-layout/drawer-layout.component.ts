@@ -9,6 +9,7 @@ import {
     Output,
     ViewChild,
     ViewEncapsulation,
+    SimpleChanges,
 } from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
@@ -82,6 +83,7 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     @ViewChild('remElement') remElement: ElementRef;
 
     isRtl = false;
+    hasTransitionedToTemporary = false;
     remSizePx: number;
     dirChangeSubscription = Subscription.EMPTY;
 
@@ -103,8 +105,24 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
         this.isRtl = this._dir.value === 'rtl';
     }
 
-    ngOnChanges(): void {
+    ngOnChanges(simpleChanges: SimpleChanges): void {
         this.drawerService.setDrawerVariant(this.variant);
+
+        // Whenever a drawer has transitioned from a closed persistent drawer to a temporary variant,
+        // this edge case prevents the drawer from being redrawn at an opened size before it dismissed.
+        if (simpleChanges && simpleChanges.variant) {
+            const variant = simpleChanges.variant;
+            if (
+                variant.currentValue === 'temporary' &&
+                (variant.previousValue === 'rail' || (variant.previousValue === 'persistent' && !this.isOpen()))
+            ) {
+                this.hasTransitionedToTemporary = true;
+                setTimeout(() => {
+                    this.hasTransitionedToTemporary = false;
+                }, 500);
+            }
+        }
+
         this.changeDetector.detectChanges();
     }
 
@@ -157,6 +175,7 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     isCollapsed(): boolean {
         if (this.variant === 'rail') return true; // Rail is always collapsed.
         if (this.variant === 'persistent') return !this.isOpen();
+        if (this.hasTransitionedToTemporary) return true;
         return false;
     }
 }
