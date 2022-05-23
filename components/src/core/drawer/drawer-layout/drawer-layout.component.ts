@@ -83,7 +83,10 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     @ViewChild('remElement') remElement: ElementRef;
 
     isRtl = false;
-    hasTransitionedToTemporary = false;
+
+    /** This is true whenever the drawer is in a collapsed state & its variant has been transitioned to temporary. */
+    hasCollapsedTransitionToTemporary = false;
+
     remSizePx: number;
     dirChangeSubscription = Subscription.EMPTY;
 
@@ -116,9 +119,9 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
                 variant.currentValue === 'temporary' &&
                 (variant.previousValue === 'rail' || (variant.previousValue === 'persistent' && !this.isOpen()))
             ) {
-                this.hasTransitionedToTemporary = true;
+                this.hasCollapsedTransitionToTemporary = true;
                 setTimeout(() => {
-                    this.hasTransitionedToTemporary = false;
+                    this.hasCollapsedTransitionToTemporary = false;
                 }, 500);
             }
         }
@@ -175,7 +178,7 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     isCollapsed(): boolean {
         if (this.variant === 'rail') return true; // Rail is always collapsed.
         if (this.variant === 'persistent') return !this.isOpen();
-        if (this.hasTransitionedToTemporary) return true;
+        if (this.hasCollapsedTransitionToTemporary) return true;
         return false;
     }
 }
