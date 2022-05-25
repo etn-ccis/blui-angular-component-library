@@ -25,7 +25,7 @@ export function requireContent(contentPairs: ContentPair[], component: any): voi
     });
 }
 
-function hasChildren(el: ElementRef): boolean {
+export function hasChildren(el: ElementRef): boolean {
     return el.nativeElement.children && el.nativeElement.children.length > 0;
 }
 

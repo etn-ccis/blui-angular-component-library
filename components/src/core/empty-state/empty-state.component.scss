@@ -16,10 +16,6 @@
         margin-bottom: 0;
     }
 
-    .blui-empty-state-description {
-        margin-bottom: 1rem;
-    }
-
     .blui-empty-state-title,
     .blui-empty-state-description {
         text-align: center;
@@ -35,6 +31,13 @@
             height: 100%;
             width: 100%;
             text-align: center;
+        }
+    }
+
+    .blui-empty-state-actions-wrapper {
+        margin-top: 1rem;
+        &.blui-empty-state-actions-wrapper-no-action {
+            margin-top: 0;
         }
     }
 
