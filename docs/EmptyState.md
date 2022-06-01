@@ -66,11 +66,12 @@ The following child elements are projected into `<blui-empty-state>`:
 
 Each Brightlayer UI component has classes which can be used to override component styles:
 
-| Name                                | Description                              |
-| ----------------------------------- | ---------------------------------------- |
-| blui-empty-state                    | Styles applied to the tag                |
-| blui-empty-state-content            | Styles applied to the root element       |
-| blui-empty-state-empty-icon-wrapper | Styles applied to the icon container     |
-| blui-empty-state-title              | Styles applied to the title @Input       |
-| blui-empty-state-description        | Styles applied to the description @Input |
-| blui-empty-state-actions-wrapper    | Styles applied to the actions container  |
+| Name                                       | Description                                  |
+|--------------------------------------------|----------------------------------------------|
+| blui-empty-state                           | Styles applied to the tag                    |
+| blui-empty-state-content                   | Styles applied to the root element           |
+| blui-empty-state-empty-icon-wrapper        | Styles applied to the icon container         |
+| blui-empty-state-title                     | Styles applied to the title @Input           |
+| blui-empty-state-description               | Styles applied to the description @Input     |
+| blui-empty-state-actions-wrapper           | Styles applied to the actions container      |
+| blui-empty-state-actions-wrapper-no-action | Styles applied to an empty actions container | 
