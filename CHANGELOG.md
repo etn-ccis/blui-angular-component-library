@@ -5,6 +5,7 @@
 ### Fixed 
 
 - Fixed escape key permanently dismissing `<blui-drawer>` ([#426](https://github.com/brightlayer-ui/angular-component-library/issues/426)).
+- Fixed `<blui-drawer-layout>` opening side nav when transitioning to a `temporary` state ([#82](https://github.com/brightlayer-ui/angular-component-library/issues/82)).
 - Fixed escape key permanently dismissing `<blui-user-menu>` ([#434](https://github.com/brightlayer-ui/angular-component-library/issues/434)).
 - Fixed `<blui-empty-state>` not being centered when a description is not provided ([#378](https://github.com/brightlayer-ui/angular-component-library/issues/378)).
 
