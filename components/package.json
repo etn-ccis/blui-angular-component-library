@@ -1,6 +1,6 @@
 {
   "name": "@brightlayer-ui/angular-components",
-  "version": "7.0.2-beta.3",
+  "version": "7.0.2",
   "description": "Angular components for Brightlayer UI applications",
   "scripts": {
     "ng": "ng",
