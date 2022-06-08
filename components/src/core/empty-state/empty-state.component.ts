@@ -1,5 +1,6 @@
 import {
     AfterViewInit,
+    ChangeDetectorRef,
     ChangeDetectionStrategy,
     Component,
     ElementRef,
@@ -7,7 +8,7 @@ import {
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
-import { requireContent } from '../../utils/utils';
+import { requireContent, hasChildren } from '../../utils/utils';
 
 /**
  * [EmptyState Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-empty-state--readme)
@@ -34,8 +35,16 @@ export class EmptyStateComponent implements AfterViewInit {
     /** Used to check if an icon has been provided ngAfterViewInit */
     @ViewChild('emptyIcon') emptyIcon: ElementRef;
 
+    @ViewChild('actionsRef') actionsRef: ElementRef;
+    hasAction = false;
+
+    constructor(private readonly _ref: ChangeDetectorRef) {}
+
     ngAfterViewInit(): void {
         const required = { selector: 'emptyIcon', ref: this.emptyIcon };
         requireContent([required], this);
+
+        this.hasAction = hasChildren(this.actionsRef);
+        this._ref.detectChanges();
     }
 }

@@ -9,11 +9,13 @@ import {
     Output,
     ViewChild,
     ViewEncapsulation,
+    SimpleChanges,
 } from '@angular/core';
 import { DrawerService } from '../service/drawer.service';
 import { StateListener } from '../state-listener.component';
 import { Direction, Directionality } from '@angular/cdk/bidi';
 import { Subscription } from 'rxjs';
+import { MatDrawerMode } from '@angular/material/sidenav';
 
 export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' | 'rail';
 
@@ -37,6 +39,7 @@ export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' |
                 [class.mat-elevation-z6]="!hasSideBorder()"
                 [style.width.rem]="isCollapsed() ? getCollapsedWidth() : toRem(width)"
                 [mode]="getMode()"
+                [disableClose]="true"
                 [opened]="isDrawerVisible()"
             >
                 <ng-content select="[blui-drawer]"></ng-content>
@@ -80,6 +83,10 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     @ViewChild('remElement') remElement: ElementRef;
 
     isRtl = false;
+
+    /** This is true whenever the drawer is in a collapsed state & its variant has been transitioned to temporary. */
+    hasCollapsedTransitionToTemporary = false;
+
     remSizePx: number;
     dirChangeSubscription = Subscription.EMPTY;
 
@@ -101,8 +108,24 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
         this.isRtl = this._dir.value === 'rtl';
     }
 
-    ngOnChanges(): void {
+    ngOnChanges(simpleChanges: SimpleChanges): void {
         this.drawerService.setDrawerVariant(this.variant);
+
+        // Whenever a drawer has transitioned from a closed persistent drawer to a temporary variant,
+        // this edge case prevents the drawer from being redrawn at an opened size before it dismissed.
+        if (simpleChanges && simpleChanges.variant) {
+            const variant = simpleChanges.variant;
+            if (
+                variant.currentValue === 'temporary' &&
+                (variant.previousValue === 'rail' || (variant.previousValue === 'persistent' && !this.isOpen()))
+            ) {
+                this.hasCollapsedTransitionToTemporary = true;
+                setTimeout(() => {
+                    this.hasCollapsedTransitionToTemporary = false;
+                }, 500);
+            }
+        }
+
         this.changeDetector.detectChanges();
     }
 
@@ -111,7 +134,7 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
         this.dirChangeSubscription.unsubscribe();
     }
 
-    getMode(): string {
+    getMode(): MatDrawerMode {
         return this.variant === 'temporary' ? 'over' : 'side';
     }
 
@@ -155,6 +178,7 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     isCollapsed(): boolean {
         if (this.variant === 'rail') return true; // Rail is always collapsed.
         if (this.variant === 'persistent') return !this.isOpen();
+        if (this.hasCollapsedTransitionToTemporary) return true;
         return false;
     }
 }

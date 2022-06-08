@@ -6,11 +6,15 @@
         <ng-content select="[blui-title]" *ngIf="!title"></ng-content>
         {{ title }}
     </h2>
-    <p class="blui-empty-state-description mat-subheading-2">
+    <p class="mat-subheading-2 blui-empty-state-description">
         <ng-content select="[blui-description]" *ngIf="!description"></ng-content>
         {{ description }}
     </p>
-    <div class="blui-empty-state-actions-wrapper">
+    <div
+        class="blui-empty-state-actions-wrapper"
+        [class.blui-empty-state-actions-wrapper-no-action]="!hasAction"
+        #actionsRef
+    >
         <ng-content select="[blui-actions]"></ng-content>
     </div>
 </div>

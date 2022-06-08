@@ -78,6 +78,7 @@ import { requireInput } from '../../utils/utils';
 
         <ng-template
             cdkConnectedOverlay
+            (overlayKeydown)="dismissViaEscape($event)"
             (backdropClick)="onClickMenuBackdrop()"
             [cdkConnectedOverlayPush]="true"
             [cdkConnectedOverlayHasBackdrop]="true"
@@ -215,10 +216,14 @@ export class UserMenuComponent implements OnInit, OnChanges, OnDestroy {
             hasBackdrop: true,
         });
 
-        bottomSheetRef.afterDismissed().subscribe((openMenu: boolean) => {
+        bottomSheetRef.afterDismissed().subscribe((openMenu: boolean | undefined) => {
             this.isBottomSheetDismissing = false;
-            this.isMenuOpen = openMenu;
+            this.isMenuOpen = Boolean(openMenu);
             this._ref.detectChanges();
+        });
+
+        bottomSheetRef.keydownEvents().subscribe((key: KeyboardEvent) => {
+            this.dismissViaEscape(key);
         });
 
         bottomSheetRef.backdropClick().subscribe(() => {
@@ -226,5 +231,11 @@ export class UserMenuComponent implements OnInit, OnChanges, OnDestroy {
             this.openChange.emit(false);
             this.backdropClick.emit();
         });
+    }
+
+    dismissViaEscape(e: KeyboardEvent): void {
+        if (e && e.key && e.key.toLowerCase() === 'escape') {
+            this.openChange.emit(false);
+        }
     }
 }
