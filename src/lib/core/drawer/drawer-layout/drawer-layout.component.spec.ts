@@ -1,7 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
 import { DrawerLayoutComponent, DrawerLayoutModule } from './public-api';
-import { count } from 'src/utils/test-utils';
+import { count } from 'src/lib/utils/test-utils';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({

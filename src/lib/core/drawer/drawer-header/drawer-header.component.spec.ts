@@ -4,7 +4,7 @@ import { DrawerHeaderModule } from './drawer-header.module';
 import { Component } from '@angular/core';
 import { MatIconModule } from '@angular/material/icon';
 import { By } from '@angular/platform-browser';
-import { count } from 'src/utils/test-utils';
+import { count } from 'src/lib/utils/test-utils';
 
 @Component({
     template: ` <blui-drawer-header title="title" subtitle="subtitle"></blui-drawer-header> `,

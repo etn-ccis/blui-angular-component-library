@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DrawerFooterComponent } from './drawer-footer.component';
 import { DrawerFooterModule } from './drawer-footer.module';
 import { Component } from '@angular/core';
-import { count } from 'src/utils/test-utils';
+import { count } from 'src/lib/utils/test-utils';
 
 @Component({
     template: `

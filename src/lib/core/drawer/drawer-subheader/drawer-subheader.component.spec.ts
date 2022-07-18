@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DrawerSubheaderComponent } from './drawer-subheader.component';
 import { DrawerSubheaderModule } from './drawer-subheader.module';
 import { Component } from '@angular/core';
-import { count } from 'src/utils/test-utils';
+import { count } from 'src/lib/utils/test-utils';
 
 @Component({
     template: `

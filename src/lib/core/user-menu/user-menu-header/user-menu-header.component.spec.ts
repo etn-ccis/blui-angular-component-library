@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UserMenuHeaderComponent } from './user-menu-header.component';
 import { Component } from '@angular/core';
 import { By } from '@angular/platform-browser';
-import { count } from 'src/utils/test-utils';
+import { count } from 'src/lib/utils/test-utils';
 import { UserMenuModule } from '../user-menu.module';
 import { MatIconModule } from '@angular/material/icon';
 

@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { DrawerNavItemComponent } from './drawer-nav-item.component';
 import { DrawerNavItemModule } from './drawer-nav-item.module';
 import { Component } from '@angular/core';
-import { count } from 'src/utils/test-utils';
+import { count } from 'src/lib/utils/test-utils';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @Component({
