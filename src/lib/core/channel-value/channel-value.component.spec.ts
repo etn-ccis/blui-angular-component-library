@@ -17,14 +17,12 @@ describe('ChannelValueComponent', () => {
     let component: ChannelValueComponent;
     let fixture: ComponentFixture<ChannelValueComponent>;
 
-    beforeEach(
-        waitForAsync(() => {
-            void TestBed.configureTestingModule({
-                declarations: [TestIcon],
-                imports: [ChannelValueModule],
-            }).compileComponents();
-        })
-    );
+    beforeEach(waitForAsync(() => {
+        void TestBed.configureTestingModule({
+            declarations: [TestIcon],
+            imports: [ChannelValueModule],
+        }).compileComponents();
+    }));
 
     beforeEach(() => {
         fixture = TestBed.createComponent(ChannelValueComponent);

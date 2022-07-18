@@ -72,14 +72,12 @@ describe('InfoListItemComponent', () => {
     let component: TestBasicUsage;
     let fixture: ComponentFixture<TestBasicUsage>;
 
-    beforeEach(
-        waitForAsync(() => {
-            void TestBed.configureTestingModule({
-                declarations: [TestBasicUsage, TestMissingTitle, TestIconComponent, TestLeftContent, TestRightContent],
-                imports: [InfoListItemModule],
-            }).compileComponents();
-        })
-    );
+    beforeEach(waitForAsync(() => {
+        void TestBed.configureTestingModule({
+            declarations: [TestBasicUsage, TestMissingTitle, TestIconComponent, TestLeftContent, TestRightContent],
+            imports: [InfoListItemModule],
+        }).compileComponents();
+    }));
 
     beforeEach(() => {
         fixture = TestBed.createComponent(TestBasicUsage);

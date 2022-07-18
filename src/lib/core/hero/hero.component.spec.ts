@@ -36,14 +36,12 @@ describe('HeroComponent', () => {
     let fixture: ComponentFixture<HeroComponent>;
     let component: HeroComponent;
 
-    beforeEach(
-        waitForAsync(() => {
-            void TestBed.configureTestingModule({
-                declarations: [TestChannelValue, TestPrimaryIcon, TestSecondaryIcon],
-                imports: [HeroModule, ChannelValueModule],
-            }).compileComponents();
-        })
-    );
+    beforeEach(waitForAsync(() => {
+        void TestBed.configureTestingModule({
+            declarations: [TestChannelValue, TestPrimaryIcon, TestSecondaryIcon],
+            imports: [HeroModule, ChannelValueModule],
+        }).compileComponents();
+    }));
 
     beforeEach(() => {
         fixture = TestBed.createComponent(HeroComponent);
