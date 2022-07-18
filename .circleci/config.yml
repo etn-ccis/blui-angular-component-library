@@ -88,8 +88,8 @@ jobs:
                       yarn install --frozen-lockfile
 
                       # Install the packed version of @brightlayer-ui/angular-components
-                      PACKAGED_VERSION=`node -p "require('../../dist/package.json').version"`
-                      yarn add ../../dist/brightlayer-ui-angular-components-$PACKAGED_VERSION.tgz
+                      PACKAGED_VERSION=`node -p "require('../dist/package.json').version"`
+                      yarn add ../dist/brightlayer-ui-angular-components-$PACKAGED_VERSION.tgz
             - save_cache:
                   name: Save Cache
                   paths:
@@ -100,8 +100,7 @@ jobs:
             - run:
                   name: Build Showcase
                   command: |
-                      cd showcase
-                      yarn build
+                      cd showcase && yarn build
 
     publish:
       docker:
