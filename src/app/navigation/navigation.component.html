@@ -1,0 +1,36 @@
+<blui-drawer-layout [variant]="getVariant()" (backdropClick)="closeDrawer()">
+    <blui-drawer blui-drawer [open]="isOpen()" [sideBorder]="true">
+        <blui-drawer-header title="Brightlayer UI" subtitle="Angular Project">
+            <button mat-icon-button blui-icon (click)="toggleDrawerOpen()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </blui-drawer-header>
+        <blui-drawer-body>
+            <blui-drawer-nav-group>
+                <blui-drawer-nav-item
+                    *ngFor="let navItem of navItems"
+                    [divider]="true"
+                    [title]="navItem.title"
+                    [selected]="navItem.title === getSelectedItem()"
+                    (select)="selectItem(navItem)"
+                >
+                    <mat-icon blui-icon>{{ navItem.icon }}</mat-icon>
+                </blui-drawer-nav-item>
+            </blui-drawer-nav-group>
+        </blui-drawer-body>
+    </blui-drawer>
+    <div blui-content class="drawer-content">
+        <mat-toolbar class="toolbar" color="primary">
+            <button
+                mat-icon-button
+                *ngIf="variant === 'temporary'"
+                (click)="openDrawer()"
+                style="margin-right: 16px; margin-left: -16px"
+            >
+                <mat-icon>menu</mat-icon>
+            </button>
+            <h2>{{ toolbarTitle }}</h2>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </div>
+</blui-drawer-layout>

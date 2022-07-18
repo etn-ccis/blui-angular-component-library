@@ -1,0 +1,47 @@
+<div class="home-root">
+    <div class="home-body" [style.backgroundColor]="bluiWhite[50]">
+        <div class="home-body-content">
+            <app-pxb-logo [color]="bluiBlue[500]" [size]="isSmall() ? 100 : 160"></app-pxb-logo>
+            <div class="home-title" [class.mat-display-3]="!isSmall()" [class.mat-display-1]="isSmall()">
+                Welcome to Brightlayer <span [style.color]="bluiBlue[500]">UI</span>.
+            </div>
+            <div class="mat-h3">Edit <strong>src/app/app.component.html</strong> and save to reload.</div>
+            <mat-divider style="width: 100%; margin: 24px"></mat-divider>
+            <div
+                fxLayout="column"
+                fxLayoutGap="8px"
+                fxLayout.gt-xs="row"
+                style="width: 100%; justify-content: space-between"
+            >
+                <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="8px">
+                    <a mat-button target="_blank" href="https://brightlayer-ui.github.io/">
+                        Brightlayer UI Documentation
+                    </a>
+                    <a mat-button target="_blank" href="https://brightlayer-ui.github.io/patterns">
+                        Design Pattern Descriptions
+                    </a>
+                    <a mat-button target="_blank" href="https://github.com/brightlayer-ui"> Visit Us On Github </a>
+                    <a mat-button target="_blank" href="https://brightlayer-ui.github.io/roadmap"> Release Roadmap </a>
+                </div>
+                <div fxLayout="column" fxLayoutAlign="start start" fxLayoutGap="8px">
+                    <a
+                        mat-button
+                        target="_blank"
+                        href="https://brightlayer-ui.github.io/development/frameworks-web/angular"
+                    >
+                        Angular Getting Started Guide
+                    </a>
+                    <a mat-button target="_blank" href="https://brightlayer-ui-components.github.io/angular">
+                        Brightlayer UI Angular Component Library
+                    </a>
+                    <a mat-button target="_blank" href="https://github.com/brightlayer-ui/angular-design-patterns">
+                        Design Pattern Source on Github
+                    </a>
+                    <a mat-button target="_blank" href="https://brightlayer-ui.github.io/community/contactus">
+                        Send Feedback or Suggestions
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
