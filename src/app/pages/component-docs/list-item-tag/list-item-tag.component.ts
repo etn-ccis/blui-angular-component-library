@@ -19,7 +19,12 @@ import { Component } from '@angular/core';
             <form>
                 <mat-form-field class="example-full-width" appearance="fill">
                     <mat-label>label: string</mat-label>
-                    <input matInput placeholder="Ex. Pizza" [(ngModel)]="label" [ngModelOptions]="{standalone: true}">
+                    <input
+                        matInput
+                        placeholder="Ex. Pizza"
+                        [(ngModel)]="label"
+                        [ngModelOptions]="{ standalone: true }"
+                    />
                 </mat-form-field>
             </form>
         </div>

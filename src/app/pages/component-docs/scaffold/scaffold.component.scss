@@ -10,7 +10,8 @@
         ::ng-deep .mat-tab-body:not(#mat-tab-content-0-2) {
             padding: 64px 32px 32px 32px;
         }
-        ::ng-deep .mat-tab-body-content, .mat-tab-body {
+        ::ng-deep .mat-tab-body-content,
+        .mat-tab-body {
             overflow: unset;
         }
 
@@ -19,8 +20,9 @@
             code {
                 background: wheat;
             }
-            pre[class*="language-"] {
-                &:before, &:after {
+            pre[class*='language-'] {
+                &:before,
+                &:after {
                     box-shadow: none;
                 }
             }
@@ -49,7 +51,8 @@
             }
             table {
                 width: 100%;
-                td, th {
+                td,
+                th {
                     border: solid 1px gray;
                 }
             }
