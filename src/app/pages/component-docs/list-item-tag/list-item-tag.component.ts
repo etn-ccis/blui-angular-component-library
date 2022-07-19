@@ -16,17 +16,7 @@ import { Component } from '@angular/core';
             <blui-list-item-tag [label]="label"></blui-list-item-tag>
         </div>
         <div knobs>
-            <form>
-                <mat-form-field class="example-full-width" appearance="fill">
-                    <mat-label>label: string</mat-label>
-                    <input
-                        matInput
-                        placeholder="Ex. Pizza"
-                        [(ngModel)]="label"
-                        [ngModelOptions]="{ standalone: true }"
-                    />
-                </mat-form-field>
-            </form>
+            <app-text-knob label="label" [(value)]="label"></app-text-knob>
         </div>
     </app-component-doc-scaffold>`,
     styleUrls: ['./list-item-tag.component.scss'],

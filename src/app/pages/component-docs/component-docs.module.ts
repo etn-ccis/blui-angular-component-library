@@ -11,9 +11,10 @@ import { ListItemTagModule } from '@brightlayer-ui/angular-components';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
+import { KnobTextComponent } from './knobs/knob-text.component';
 
 @NgModule({
-    declarations: [EmptyStateDocComponent, ListItemTagDocComponent, ScaffoldComponent],
+    declarations: [EmptyStateDocComponent, KnobTextComponent, ListItemTagDocComponent, ScaffoldComponent],
     imports: [
         AppCommonComponentsModule,
         CommonModule,
@@ -38,6 +39,6 @@ import { FormsModule } from '@angular/forms';
         ListItemTagModule,
         FormsModule,
     ],
-    exports: [EmptyStateDocComponent, ListItemTagDocComponent, ScaffoldComponent],
+    exports: [EmptyStateDocComponent, KnobTextComponent, ListItemTagDocComponent, ScaffoldComponent],
 })
 export class ComponentDocsModule {}
