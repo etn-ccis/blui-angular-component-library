@@ -151,8 +151,7 @@
               "inlineStyleLanguage": "scss",
               "assets": [
                 "src/favicon.ico",
-                "src/assets",
-                "../docs"
+                "src/assets"
               ],
               "styles": [
                 "src/styles.scss",
