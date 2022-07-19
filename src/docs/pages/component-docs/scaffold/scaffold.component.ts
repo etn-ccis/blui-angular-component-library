@@ -45,7 +45,6 @@ export class ScaffoldComponent {
         this._markdownService.getSource(`src/assets/md/${this.mdFileName}`).subscribe((data) => {
             this.md = data.replace('images/', 'src/assets/md/images/');
             console.log(this.md);
-
         });
     }
 }
