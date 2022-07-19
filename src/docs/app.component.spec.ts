@@ -9,7 +9,7 @@ describe('AppComponent', () => {
         }).compileComponents();
     });
 
-    it('should create the app', () => {
+    it('should create the md', () => {
         const fixture = TestBed.createComponent(AppComponent);
         const app = fixture.debugElement.componentInstance;
         void expect(app).toBeTruthy();

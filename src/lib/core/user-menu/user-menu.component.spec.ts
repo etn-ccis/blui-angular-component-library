@@ -8,7 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 /** Test component that contains an MatButton. */
 @Component({
-    selector: 'test-app',
+    selector: 'test-md',
     template: `
         <blui-user-menu avatarValue="HA" [(open)]="open">
             <div blui-menu-header>
@@ -23,7 +23,7 @@ class UserMenuCustomHeaderTest {
 
 /** Test component that contains an MatButton. */
 @Component({
-    selector: 'test-app',
+    selector: 'test-md',
     template: `
         <blui-user-menu avatarValue="HA" [(open)]="open">
             <mat-nav-list blui-menu-body>

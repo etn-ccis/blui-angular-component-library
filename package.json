@@ -43,7 +43,7 @@
     },
     "homepage": "https://github.com/brightlayer-ui/angular-component-library#readme",
     "directories": {
-        "doc": "docs"
+        "doc": "src/docs/md"
     },
     "peerDependencies": {
         "@angular/cdk": "^13.0.0",

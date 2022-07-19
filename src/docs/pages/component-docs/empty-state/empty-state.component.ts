@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-empty-state-doc',
+    selector: 'md-empty-state-doc',
     template: `<app-coming-soon></app-coming-soon>`,
     styleUrls: ['./empty-state.component.scss'],
 })

@@ -64,7 +64,7 @@ jobs:
                 file: './coverage/lcov.info'
                 token: dc22e69d-e76e-4c9c-92a4-92432b1033d4
 
-    # Builds the Showcase app using @brightlayer-ui/angular-components persisted in /dist folder.
+    # Builds the Showcase md using @brightlayer-ui/angular-components persisted in /dist folder.
     build_showcase:
         docker:
             - image: cimg/node:14.19.0-browsers

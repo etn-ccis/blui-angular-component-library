@@ -1,4 +1,4 @@
-// When adding items, updating navigation.component.ts & app.routing.ts
+// When adding items, updating navigation.component.ts & md.routing.ts
 
 export type NavItem = {
     title: string;

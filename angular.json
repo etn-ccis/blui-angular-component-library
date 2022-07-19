@@ -59,8 +59,8 @@
                 "src/assets",
                 {
                   "glob": "**/*",
-                  "input": "docs",
-                  "output": "src/assets/docs"
+                  "input": "src/docs/md",
+                  "output": "src/assets/md"
                 }
               ],
               "styles": [

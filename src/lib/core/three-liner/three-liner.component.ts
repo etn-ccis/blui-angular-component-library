@@ -13,7 +13,7 @@ import { isEmptyView } from '../../utils/utils';
  * [ThreeLiner Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-three-liner--readme)
  *
  * The `<blui-three-liner>` can display up to three lines of stylized text or other ng-content.
- * It is most commonly used within the context of a `<blui-app-bar>` component where the text can grow / shrink as the App Bar is expanded and collapsed.
+ * It is most commonly used within the context of a `<blui-md-bar>` component where the text can grow / shrink as the App Bar is expanded and collapsed.
  */
 @Component({
     selector: 'blui-three-liner',

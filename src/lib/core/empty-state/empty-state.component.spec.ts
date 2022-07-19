@@ -18,7 +18,7 @@ class EmptyStateBasicUsageComponent {
 }
 
 @Component({
-    selector: 'test-app',
+    selector: 'test-md',
     template: `
         <blui-empty-state class="withIcon">
             <span blui-empty-icon></span>

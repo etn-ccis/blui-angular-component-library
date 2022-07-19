@@ -33,12 +33,12 @@ describe('AppBarComponent', () => {
     it('should enforce class naming conventions', () => {
         fixture.detectChanges();
         const classList = [
-            '.blui-app-bar',
+            '.blui-md-bar',
             '.mat-elevation-z4',
-            '.blui-app-bar-content',
-            '.blui-app-bar-background',
-            '.blui-app-bar-collapsed',
-            '.blui-app-bar-body-wrapper',
+            '.blui-md-bar-content',
+            '.blui-md-bar-background',
+            '.blui-md-bar-collapsed',
+            '.blui-md-bar-body-wrapper',
         ];
         for (const className of classList) {
             count(fixture, className);

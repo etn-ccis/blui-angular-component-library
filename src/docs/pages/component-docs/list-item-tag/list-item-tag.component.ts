@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'app-list-item-tag-doc',
+    selector: 'md-list-item-tag-doc',
     template: ` <app-component-doc-scaffold mdFileName="ListItemTag.md">
         <div examples>
             <div>List Item Tag examples go here.</div>

@@ -3,7 +3,7 @@ import { blue, white } from '@brightlayer-ui/colors';
 import { ViewportService } from '../../services/viewport/viewport.service';
 
 @Component({
-    selector: 'app-home',
+    selector: 'md-home',
     templateUrl: './home.component.html',
     styleUrls: ['./home.component.scss'],
 })
