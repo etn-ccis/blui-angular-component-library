@@ -17,8 +17,6 @@ import { RouterModule } from '@angular/router';
 import { DrawerModule, EmptyStateModule } from '@brightlayer-ui/angular-components';
 
 //material modules
-import { MatFormFieldModule } from '@angular/material/form-field';
-
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
@@ -30,9 +28,6 @@ import { NavigationComponent } from './navigation/navigation.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ComponentDocsModule } from './pages/component-docs/component-docs.module';
 import { AppCommonComponentsModule } from './components/components.module';
-
-// Blui Lab
-import { PasswordStrengthCheckerModule } from '@blui-lab/angular';
 
 @NgModule({
     declarations: [AppComponent, HomeComponent, NavigationComponent],
@@ -48,11 +43,9 @@ import { PasswordStrengthCheckerModule } from '@blui-lab/angular';
         FlexLayoutModule,
         MatToolbarModule,
         MatButtonModule,
-        MatFormFieldModule,
         MatIconModule,
         DrawerModule,
-        EmptyStateModule,
-        PasswordStrengthCheckerModule,
+        EmptyStateModule
     ],
     bootstrap: [AppComponent],
 })
