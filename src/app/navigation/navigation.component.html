@@ -17,6 +17,17 @@
                     <mat-icon blui-icon>{{ navItem.icon }}</mat-icon>
                 </blui-drawer-nav-item>
             </blui-drawer-nav-group>
+            <blui-drawer-nav-group title="Components" [divider]="false">
+                <blui-drawer-nav-item
+                    *ngFor="let navItem of componentNavItems"
+                    [divider]="true"
+                    [title]="navItem.title"
+                    [hidePadding]="true"
+                    [selected]="navItem.title === getSelectedItem()"
+                    (select)="selectItem(navItem)"
+                >
+                </blui-drawer-nav-item>
+            </blui-drawer-nav-group>
         </blui-drawer-body>
     </blui-drawer>
     <div blui-content class="drawer-content">

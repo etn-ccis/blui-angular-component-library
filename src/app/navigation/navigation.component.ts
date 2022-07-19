@@ -4,7 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ViewportService } from '../services/viewport/viewport.service';
 import { DrawerStateService } from '../services/drawer-state/drawer-state.service';
-import { APP_NAV_ITEMS, NavItem } from './nav-items';
+import { APP_NAV_ITEMS, COMPONENT_NAV_ITEMS, NavItem } from './nav-items';
 
 @Component({
     selector: 'app-navigation',
@@ -15,7 +15,8 @@ export class NavigationComponent {
     toolbarTitle: string;
     routeListener: Subscription;
     variant: DrawerLayoutVariantType;
-    navItems = [APP_NAV_ITEMS.home, APP_NAV_ITEMS.page1, APP_NAV_ITEMS.page2];
+    navItems = [APP_NAV_ITEMS.home];
+    componentNavItems = [COMPONENT_NAV_ITEMS.emptyState, COMPONENT_NAV_ITEMS.listItemTag];
 
     constructor(
         private readonly _router: Router,
@@ -62,26 +63,25 @@ export class NavigationComponent {
             if (route instanceof NavigationEnd) {
                 switch (route.urlAfterRedirects) {
                     case `/${APP_NAV_ITEMS.home.route}`: {
-                        this.toolbarTitle = APP_NAV_ITEMS.home.title;
-                        this._stateService.setSelectedItem(APP_NAV_ITEMS.home.title);
-                        break;
+                        return this._setActiveRoute(APP_NAV_ITEMS.home.title);
                     }
-                    case `/${APP_NAV_ITEMS.page1.route}`: {
-                        this.toolbarTitle = APP_NAV_ITEMS.page1.title;
-                        this._stateService.setSelectedItem(APP_NAV_ITEMS.page1.title);
-                        break;
+                    case `/${COMPONENT_NAV_ITEMS.emptyState.route}`: {
+                        return this._setActiveRoute(COMPONENT_NAV_ITEMS.emptyState.title);
                     }
-                    case `/${APP_NAV_ITEMS.page2.route}`: {
-                        this.toolbarTitle = APP_NAV_ITEMS.page2.title;
-                        this._stateService.setSelectedItem(APP_NAV_ITEMS.page2.title);
-                        break;
+                    case `/${COMPONENT_NAV_ITEMS.listItemTag.route}`: {
+                        return this._setActiveRoute(COMPONENT_NAV_ITEMS.listItemTag.title);
                     }
                     default: {
-                        this.toolbarTitle = '';
+                        return this._setActiveRoute('');
                     }
                 }
             }
         });
+    }
+
+    private _setActiveRoute(title: string): void {
+        this.toolbarTitle = title;
+        this._stateService.setSelectedItem(title);
     }
 
     getVariant(): DrawerLayoutVariantType {

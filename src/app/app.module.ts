@@ -24,25 +24,19 @@ import { MatIconModule } from '@angular/material/icon';
 // app
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
-import { PxbLogoComponent } from './components/pxb-logo/pxb-logo.component';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HomeComponent } from './pages/home/home.component';
-import { PageTwoComponent } from './pages/page-two/page-two.component';
-import { PageOneComponent } from './pages/page-one/page-one.component';
+import { ComponentDocsModule } from './pages/component-docs/component-docs.module';
+import { AppCommonComponentsModule } from './components/components.module';
 
 @NgModule({
-    declarations: [
-        AppComponent,
-        HomeComponent,
-        NavigationComponent,
-        PageOneComponent,
-        PageTwoComponent,
-        PxbLogoComponent,
-    ],
+    declarations: [AppComponent, HomeComponent, NavigationComponent],
     imports: [
         AppRoutingModule,
         BrowserAnimationsModule,
         BrowserModule,
+        ComponentDocsModule,
+        AppCommonComponentsModule,
         CommonModule,
         FormsModule,
         RouterModule,

@@ -56,14 +56,29 @@
               "inlineStyleLanguage": "scss",
               "assets": [
                 "src/favicon.ico",
-                "src/assets"
+                "src/assets",
+                {
+                  "glob": "**/*",
+                  "input": "docs",
+                  "output": "src/assets/docs"
+                }
               ],
               "styles": [
                 "src/styles.scss",
+                "node_modules/prismjs/themes/prism-coy.css",
+                "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
+                "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.css",
                 "./node_modules/@brightlayer-ui/angular-themes/theme.scss",
                 "./node_modules/@brightlayer-ui/angular-themes/open-sans.scss"
               ],
-              "scripts": []
+              "scripts": [
+                "node_modules/marked/marked.min.js",
+                "node_modules/prismjs/prism.js",
+                "node_modules/prismjs/components/prism-csharp.min.js",
+                "node_modules/prismjs/components/prism-css.min.js",
+                "node_modules/prismjs/components/prism-typescript.js",
+                "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js"
+              ]
             },
             "configurations": {
               "production": {
@@ -71,12 +86,12 @@
                   {
                     "type": "initial",
                     "maximumWarning": "500kb",
-                    "maximumError": "1mb"
+                    "maximumError": "2mb"
                   },
                   {
                     "type": "anyComponentStyle",
-                    "maximumWarning": "2kb",
-                    "maximumError": "4kb"
+                    "maximumWarning": "10kb",
+                    "maximumError": "20kb"
                   }
                 ],
                 "fileReplacements": [
@@ -136,14 +151,16 @@
               "inlineStyleLanguage": "scss",
               "assets": [
                 "src/favicon.ico",
-                "src/assets"
+                "src/assets",
+                "../docs"
               ],
               "styles": [
                 "src/styles.scss",
                 "./node_modules/@brightlayer-ui/angular-themes/theme.scss",
                 "./node_modules/@brightlayer-ui/angular-themes/open-sans.scss"
               ],
-              "scripts": []
+              "scripts": [
+              ]
             }
           }
         }
