@@ -1,0 +1,76 @@
+.scaffold-container {
+    display: flex;
+    justify-content: center;
+    .tabs-container {
+        width: 100%;
+        max-width: 1200px;
+        ::ng-deep .mat-tab-label {
+            width: 100% !important;
+        }
+        ::ng-deep .mat-tab-body:not(#mat-tab-content-0-2) {
+            padding: 64px 32px 32px 32px;
+        }
+        ::ng-deep .mat-tab-body-content,
+        .mat-tab-body {
+            overflow: unset;
+        }
+
+        /* API (README) Section */
+        ::ng-deep .doc-tab-content {
+            code {
+                background: wheat;
+            }
+            pre[class*='language-'] {
+                &:before,
+                &:after {
+                    box-shadow: none;
+                }
+            }
+            pre code {
+                background: inherit;
+            }
+            @mixin divider-border() {
+                border-bottom: 1px solid rgb(213, 216, 218);
+                padding-bottom: 8px;
+            }
+            h1 {
+                color: blue;
+                font-size: 36px;
+            }
+            h2 {
+                font-size: 24px;
+                margin-top: 48px;
+                margin-bottom: 32px;
+                color: blue;
+                @include divider-border();
+            }
+            h3 {
+                color: blue;
+                font-size: 18px;
+                margin-top: 24px;
+            }
+            table {
+                width: 100%;
+                td,
+                th {
+                    border: solid 1px gray;
+                }
+            }
+        }
+    }
+    .playground-container {
+        display: flex;
+        height: 100%;
+    }
+    .props-container {
+        background-color: #e5e5e5;
+        width: 300px;
+        box-sizing: border-box;
+        min-height: calc(100vh - 64px - 48px - 1px);
+        padding: 16px;
+
+        ::ng-deep mat-form-field {
+            width: 100%;
+        }
+    }
+}

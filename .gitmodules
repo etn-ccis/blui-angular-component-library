@@ -1,4 +1,4 @@
-[submodule "demos/showcase"]
-	path = demos/showcase
-	url = https://github.com/brightlayer-ui/angular-showcase-demo
+[submodule "showcase"]
+	path = showcase
+	url = https://github.com/brightlayer-ui/angular-showcase-demo.git
 	branch = dev

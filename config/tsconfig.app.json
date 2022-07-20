@@ -1,0 +1,18 @@
+/* This configuration is used in the Demo Application & reads the local instance of @brightlayer-ui/angular-components */
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./out-tsc/app",
+    "types": [],
+    "paths": {
+      "@brightlayer-ui/angular-components": ["src/lib"],
+    }
+  },
+  "files": [
+    "../src/main.ts",
+    "../src/polyfills.ts"
+  ],
+  "include": [
+    "../src/**/*.d.ts"
+  ]
+}

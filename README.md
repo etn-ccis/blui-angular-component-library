@@ -50,6 +50,16 @@ The following table outlines which versions of Angular and Brightlayer UI resour
 | `^6.0.0`                           | `^6.3.0`                       | `^12.x`                      |
 | `^7.0.0`                           | `^7.0.0`                       | `^13.x`                      |
 
+## Peer Dependencies
+
+The following peer dependencies are added to `package.json`:
+
+| Package Name      | Version |
+| ----------------- | ------- |
+| @angular/core     | ^13.0.0 |
+| @angular/material | ^13.0.0 |
+| @angular/cdk      | ^13.0.0 |
+
 ## Running the demo projects
 
 This repository comes with two demo projects found within the `/demos` folder.
