@@ -19,16 +19,16 @@ import { Element } from '@angular/compiler';
 /**
  * [AppBar Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-app-bar--readme)
  *
- * The `<blui-md-bar>` component is a wrapper around the `<mat-toolbar>` that can be resized as the page is scrolled.
+ * The `<blui-app-bar>` component is a wrapper around the `<mat-toolbar>` that can be resized as the page is scrolled.
  * It supports three variants: `snap`, `collapsed`, and `expanded`.
  * */
 @Component({
-    selector: 'blui-md-bar',
+    selector: 'blui-app-bar',
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     styleUrls: ['./app-bar.component.scss'],
     host: {
-        class: 'blui-md-bar mat-elevation-z4',
+        class: 'blui-app-bar mat-elevation-z4',
     },
     template: `
         <mat-toolbar
@@ -65,7 +65,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
      * */
     @Input() expandedHeight = 200;
     // The thing that scrolls, we listen to this.
-    /** Scrollable element which dynamic md bar responds to.  This element is searched in the DOM `ngAfterViewInit`.*/
+    /** Scrollable element which dynamic app bar responds to.  This element is searched in the DOM `ngAfterViewInit`.*/
     @Input() scrollContainerElement: Element;
     /** Class name, index number of scrollable element. This element is searched in the DOM `ngAfterViewInit`. */
     @Input() scrollContainerClassName: { name: string; index: number };
