@@ -49,23 +49,23 @@ export class ListItemTagDocComponent {
     showComplexExampleCode = false;
 
     ngAfterViewInit(): void {
-        //@ts-ignore
-        window.Prism.highlightAll();
+        // We should move this functionality to a parent class so it's inherited.
         window.dispatchEvent(new Event('resize'));
 
-        addEventListener('resize', (event) => {
+        /**
+        addEventListener('resize', () => {
             //@ts-ignore
             window.Prism.highlightAll();
         });
+         */
     }
 
     toggleShowCodeButton(): void {
         this.showComplexExampleCode = !this.showComplexExampleCode;
+        // We should move this functionality to a parent class so it's inherited.
         setTimeout(() => {
-            console.log('doing resize');
             //@ts-ignore
             window.Prism.highlightAll();
-            window.dispatchEvent(new Event('resize'));
             window.dispatchEvent(new Event('resize'));
         });
     }
