@@ -45,7 +45,7 @@ import { AppCommonComponentsModule } from './components/components.module';
         MatButtonModule,
         MatIconModule,
         DrawerModule,
-        EmptyStateModule
+        EmptyStateModule,
     ],
     bootstrap: [AppComponent],
 })
