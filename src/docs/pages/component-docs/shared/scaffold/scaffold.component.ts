@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { MarkdownService } from 'ngx-markdown';
 
 @Component({
@@ -8,7 +8,9 @@ import { MarkdownService } from 'ngx-markdown';
             <div class="tabs-container">
                 <mat-tab-group style="width: 100%">
                     <mat-tab label="Examples">
-                        <ng-content select="[examples]"></ng-content>
+                        <div class="examples-tab-content-wrapper">
+                            <ng-content select="[examples]"></ng-content>
+                        </div>
                     </mat-tab>
                     <mat-tab label="API Docs">
                         <div class="doc-tab-content">
@@ -32,6 +34,7 @@ import { MarkdownService } from 'ngx-markdown';
         </div>
     `,
     styleUrls: ['./scaffold.component.scss'],
+    encapsulation: ViewEncapsulation.None,
 })
 export class ScaffoldComponent {
     @Input() useDefaultDocs = true;

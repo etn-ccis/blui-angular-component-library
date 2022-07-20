@@ -4,19 +4,19 @@
     .tabs-container {
         width: 100%;
         max-width: 1200px;
-        ::ng-deep .mat-tab-label {
+        .mat-tab-label {
             width: 100% !important;
         }
-        ::ng-deep .mat-tab-body:not(#mat-tab-content-0-2) {
+        .mat-tab-body:not(#mat-tab-content-0-2) {
             padding: 64px 32px 32px 32px;
         }
-        ::ng-deep .mat-tab-body-content,
+        .mat-tab-body-content,
         .mat-tab-body {
             overflow: unset;
         }
 
         /* API (README) Section */
-        ::ng-deep .doc-tab-content {
+        .doc-tab-content {
             code {
                 background: wheat;
             }
@@ -69,8 +69,12 @@
         min-height: calc(100vh - 64px - 48px - 1px);
         padding: 16px;
 
-        ::ng-deep mat-form-field {
+        mat-form-field {
             width: 100%;
         }
+    }
+    .examples-tab-content-wrapper > div {
+        display: flex;
+        flex-direction: column;
     }
 }

@@ -66,17 +66,16 @@
               "styles": [
                 "src/styles.scss",
                 "node_modules/prismjs/themes/prism-coy.css",
-                "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
                 "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.css",
+                "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
                 "./node_modules/@brightlayer-ui/angular-themes/theme.scss",
                 "./node_modules/@brightlayer-ui/angular-themes/open-sans.scss"
               ],
               "scripts": [
                 "node_modules/marked/marked.min.js",
                 "node_modules/prismjs/prism.js",
-                "node_modules/prismjs/components/prism-csharp.min.js",
-                "node_modules/prismjs/components/prism-css.min.js",
                 "node_modules/prismjs/components/prism-typescript.js",
+                "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.js",
                 "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js"
               ]
             },

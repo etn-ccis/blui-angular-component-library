@@ -27,7 +27,6 @@ import { AppRoutingModule } from './app.routing';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ComponentDocsModule } from './pages/component-docs/component-docs.module';
-import { AppCommonComponentsModule } from './components/components.module';
 
 @NgModule({
     declarations: [AppComponent, HomeComponent, NavigationComponent],
@@ -36,16 +35,15 @@ import { AppCommonComponentsModule } from './components/components.module';
         BrowserAnimationsModule,
         BrowserModule,
         ComponentDocsModule,
-        AppCommonComponentsModule,
         CommonModule,
-        FormsModule,
-        RouterModule,
-        FlexLayoutModule,
-        MatToolbarModule,
-        MatButtonModule,
-        MatIconModule,
         DrawerModule,
         EmptyStateModule,
+        FlexLayoutModule,
+        FormsModule,
+        MatButtonModule,
+        MatToolbarModule,
+        MatIconModule,
+        RouterModule,
     ],
     bootstrap: [AppComponent],
 })

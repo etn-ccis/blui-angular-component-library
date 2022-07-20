@@ -4,3 +4,28 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.api-docs-example-wrapper {
+    margin: 32px 0;
+    background-color: #eeeeee;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Prism Overrides */
+.line-highlight {
+    z-index: 2;
+}
+pre {
+    padding: 0 !important;
+    margin: 0 !important;
+    background-color: unset !important;
+}
+pre[class*='language-']:before {
+    display: none !important;
+}
+pre[class*='language-']:after {
+    display: none !important;
+}
