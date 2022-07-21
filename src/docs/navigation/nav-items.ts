@@ -15,6 +15,18 @@ const listItemTag: NavItem = {
     title: 'List Item Tag',
     route: 'list-item-tag',
 };
+const drawerNavGroup: NavItem = {
+    title: 'Drawer Nav Group',
+    route: 'drawer/nav-group',
+};
+const drawerHeader: NavItem = {
+    title: 'Drawer Header',
+    route: 'drawer/header',
+};
+const drawerFooter: NavItem = {
+    title: 'Drawer Footer',
+    route: 'drawer/footer',
+};
 const drawerNavItem: NavItem = {
     title: 'Drawer Nav Item',
     route: 'drawer/nav-item',
@@ -22,7 +34,7 @@ const drawerNavItem: NavItem = {
 const drawer = {
     title: 'Drawer',
     route: 'drawer',
-    children: [drawerNavItem],
+    children: [drawerHeader, drawerNavGroup, drawerNavItem, drawerFooter],
 };
 
 const home: NavItem = {
@@ -38,6 +50,9 @@ export const COMPONENT_NAV_ITEMS = {
 };
 export const DRAWER_NAV_ITEMS = {
     drawerNavItem,
+    drawerHeader,
+    drawerFooter,
+    drawerNavGroup,
 };
 export const APP_NAV_ITEMS = {
     home,

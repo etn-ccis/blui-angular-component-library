@@ -30,6 +30,12 @@ pre[class*='language-']:before {
 pre[class*='language-']:after {
     display: none !important;
 }
+pre[data-line] code {
+    padding-left: 1rem !important;
+}
+pre .line-highlight {
+    margin-top: -1rem !important;
+}
 
 pre > code {
     display: flex;

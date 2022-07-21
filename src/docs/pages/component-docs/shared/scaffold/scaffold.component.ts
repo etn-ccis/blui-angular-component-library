@@ -48,8 +48,7 @@ type TabName = 'example' | 'api' | 'playground';
 export class ScaffoldComponent {
     @Input() useDefaultDocs = true;
     @Input() mdFileName: string;
-
-    md: string;
+    @Input() md: string;
     currentTabIndex = 0;
 
     constructor(
@@ -59,9 +58,11 @@ export class ScaffoldComponent {
     ) {}
 
     ngOnInit(): void {
-        this._markdownService.getSource(`src/assets/md/${this.mdFileName}`).subscribe((data) => {
-            this.md = data.replace('images/', 'src/assets/md/images/');
-        });
+        if (this.mdFileName) {
+            this._markdownService.getSource(`src/assets/md/${this.mdFileName}`).subscribe((data) => {
+                this.md = data.replace('images/', 'src/assets/md/images/');
+            });
+        }
         this._route.queryParams.subscribe((params: Params) => {
             const tab = params.tab;
             if (tab) {

@@ -26,14 +26,8 @@ import { COMPLEX } from './examples/complex.component';
                         <code [innerHTML]="COMPLEX | language: 'html' | markdown"></code>
                     </pre>
                 </ng-container>
-                <button
-                    mat-stroked-button
-                    color="primary"
-                    style="width: 150px; margin-top: 8px"
-                    (click)="toggleShowCodeButton()"
-                >
-                    {{ showComplexExampleCode ? 'Hide' : 'Show' }} Code
-                </button>
+                <app-toggle-code-button style="margin-top: 8px" [(showCode)]="showComplexExampleCode">
+                </app-toggle-code-button>
             </div>
             <div playground>
                 <blui-list-item-tag [label]="label"></blui-list-item-tag>
@@ -55,22 +49,5 @@ export class ListItemTagDocComponent {
     ngAfterViewInit(): void {
         // We should move this functionality to a parent class so it's inherited.
         window.dispatchEvent(new Event('resize'));
-
-        /**
-        addEventListener('resize', () => {
-            //@ts-ignore
-            window.Prism.highlightAll();
-        });
-         */
-    }
-
-    toggleShowCodeButton(): void {
-        this.showComplexExampleCode = !this.showComplexExampleCode;
-        // We should move this functionality to a parent class so it's inherited.
-        setTimeout(() => {
-            //@ts-ignore
-            window.Prism.highlightAll();
-            window.dispatchEvent(new Event('resize'));
-        });
     }
 }

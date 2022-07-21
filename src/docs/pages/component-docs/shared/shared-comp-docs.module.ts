@@ -10,9 +10,10 @@ import { FormsModule } from '@angular/forms';
 import { KnobTextComponent } from './knobs/knob-text.component';
 import { AppCommonComponentsModule } from '../../../components/components.module';
 import { MatButtonModule } from '@angular/material/button';
+import { ToggleCodeButtonComponent } from './toggle-code-button/toggle-code-button.component';
 
 @NgModule({
-    declarations: [KnobTextComponent, ScaffoldComponent],
+    declarations: [KnobTextComponent, ScaffoldComponent, ToggleCodeButtonComponent],
     imports: [
         AppCommonComponentsModule,
         CommonModule,
@@ -38,6 +39,7 @@ import { MatButtonModule } from '@angular/material/button';
         }),
     ],
     exports: [
+        ToggleCodeButtonComponent,
         AppCommonComponentsModule,
         KnobTextComponent,
         ScaffoldComponent,

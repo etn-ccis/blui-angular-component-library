@@ -1,9 +1,9 @@
 import { Component } from '@angular/core';
-import { MarkdownSplitService } from '../../../../../services/markdown-split/markdown-split.service';
 import { MarkdownService } from 'ngx-markdown';
+import { MarkdownSplitService } from '../../../../../services/markdown-split/markdown-split.service';
 
 @Component({
-    selector: 'app-drawer-nav-item-doc',
+    selector: 'app-drawer-footer-doc',
     template: `
         <app-component-doc-scaffold [md]="md">
             <div examples>
@@ -17,9 +17,9 @@ import { MarkdownService } from 'ngx-markdown';
             </div>
         </app-component-doc-scaffold>
     `,
-    styleUrls: ['./drawer-nav-item-doc.component.scss'],
+    styleUrls: ['./drawer-footer-doc.component.scss'],
 })
-export class DrawerNavItemDocComponent {
+export class DrawerFooterDocComponent {
     md: string;
 
     constructor(
@@ -29,10 +29,9 @@ export class DrawerNavItemDocComponent {
 
     ngOnInit(): void {
         this._markdownService.getSource(`src/assets/md/Drawer.md`).subscribe((data) => {
-            const delimiterTop = '## Drawer Nav Item';
-            const delimiterBottom = '## Drawer Footer';
-            const subsection = this._splitService.subsection(data, delimiterTop, delimiterBottom);
-            this.md = subsection.replace('images/', 'src/assets/md/images/');
+            const delimiterTop = '## Drawer Footer';
+            const footerSection = this._splitService.subsection(data, delimiterTop);
+            this.md = footerSection.replace('images/', 'src/assets/md/images/');
         });
     }
 }

@@ -35,6 +35,11 @@ export class NavigationComponent {
     }
 
     selectItem(navItem: NavItem): void {
+        // Currently treats the top-level as non-navigation items.
+        if (navItem.children) {
+            return;
+        }
+
         this.navigate(navItem.route);
         if (this._viewportService.isSmall()) {
             this._stateService.setDrawerOpen(false);
@@ -61,28 +66,21 @@ export class NavigationComponent {
     private _listenForRouteChanges(): void {
         this.routeListener = this._router.events.subscribe((route) => {
             if (route instanceof NavigationEnd) {
-                switch (route.urlAfterRedirects.split('?')[0]) {
-                    case `/${APP_NAV_ITEMS.home.route}`: {
-                        return this._setActiveRoute(APP_NAV_ITEMS.home.title);
+                const currentRouteNoParams = route.urlAfterRedirects.split('?')[0];
+                const navSections = [APP_NAV_ITEMS, COMPONENT_NAV_ITEMS, DRAWER_NAV_ITEMS];
+                navSections.map((section) => {
+                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                    for (const [key, value] of Object.entries(section)) {
+                        if (currentRouteNoParams === `/${value.route}`) {
+                            return this._setActiveDrawerItem(value.title);
+                        }
                     }
-                    case `/${COMPONENT_NAV_ITEMS.emptyState.route}`: {
-                        return this._setActiveRoute(COMPONENT_NAV_ITEMS.emptyState.title);
-                    }
-                    case `/${COMPONENT_NAV_ITEMS.listItemTag.route}`: {
-                        return this._setActiveRoute(COMPONENT_NAV_ITEMS.listItemTag.title);
-                    }
-                    case `/${DRAWER_NAV_ITEMS.drawerNavItem.route}`: {
-                        return this._setActiveRoute(DRAWER_NAV_ITEMS.drawerNavItem.title);
-                    }
-                    default: {
-                        return this._setActiveRoute('');
-                    }
-                }
+                });
             }
         });
     }
 
-    private _setActiveRoute(title: string): void {
+    private _setActiveDrawerItem(title: string): void {
         this.toolbarTitle = title;
         this._stateService.setSelectedItem(title);
     }
