@@ -6,7 +6,7 @@ body {
 }
 
 .api-docs-example-wrapper {
-    margin: 32px 0;
+    margin: 32px 0 0 0;
     background-color: #eeeeee;
     padding: 32px;
     display: flex;
@@ -21,6 +21,7 @@ body {
 pre {
     padding: 0 !important;
     margin: 0 !important;
+    width: 100%;
     background-color: unset !important;
 }
 pre[class*='language-']:before {
@@ -28,4 +29,12 @@ pre[class*='language-']:before {
 }
 pre[class*='language-']:after {
     display: none !important;
+}
+
+pre > code {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: monospace !important;
+    font-size: 0.875rem !important;
 }

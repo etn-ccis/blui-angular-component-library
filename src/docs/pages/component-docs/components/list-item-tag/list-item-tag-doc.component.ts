@@ -13,7 +13,7 @@ import { COMPLEX } from './examples/complex.component';
                     <app-basic-list-item-tag-demo></app-basic-list-item-tag-demo>
                 </div>
 
-                <pre>
+                <pre style="display: flex">
                     <code [innerHTML]="BASIC | language: 'html' | markdown"></code>
                 </pre>
 
@@ -21,15 +21,19 @@ import { COMPLEX } from './examples/complex.component';
                 <div class="api-docs-example-wrapper">
                     <app-complex-list-item-tag-demo></app-complex-list-item-tag-demo>
                 </div>
-                <button mat-stroked-button color="primary" style="width: 150px" (click)="toggleShowCodeButton()">
-                    {{ showComplexExampleCode ? 'Hide' : 'Show' }} Code
-                </button>
-
                 <ng-container *ngIf="showComplexExampleCode">
-                    <pre data-line="6-16" class="language-html">
+                    <pre data-line="6-16" class="language-html" style="display: flex">
                         <code [innerHTML]="COMPLEX | language: 'html' | markdown"></code>
                     </pre>
                 </ng-container>
+                <button
+                    mat-stroked-button
+                    color="primary"
+                    style="width: 150px; margin-top: 8px"
+                    (click)="toggleShowCodeButton()"
+                >
+                    {{ showComplexExampleCode ? 'Hide' : 'Show' }} Code
+                </button>
             </div>
             <div playground>
                 <blui-list-item-tag [label]="label"></blui-list-item-tag>
