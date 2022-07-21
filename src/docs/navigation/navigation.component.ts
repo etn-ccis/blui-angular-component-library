@@ -4,7 +4,7 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ViewportService } from '../services/viewport/viewport.service';
 import { DrawerStateService } from '../services/drawer-state/drawer-state.service';
-import { APP_NAV_ITEMS, COMPONENT_NAV_ITEMS, NavItem } from './nav-items';
+import { APP_NAV_ITEMS, COMPONENT_NAV_ITEMS, DRAWER_NAV_ITEMS, NavItem } from './nav-items';
 
 @Component({
     selector: 'app-navigation',
@@ -16,7 +16,7 @@ export class NavigationComponent {
     routeListener: Subscription;
     variant: DrawerLayoutVariantType;
     navItems = [APP_NAV_ITEMS.home];
-    componentNavItems = [COMPONENT_NAV_ITEMS.emptyState, COMPONENT_NAV_ITEMS.listItemTag];
+    componentNavItems = [COMPONENT_NAV_ITEMS.drawer, COMPONENT_NAV_ITEMS.emptyState, COMPONENT_NAV_ITEMS.listItemTag];
 
     constructor(
         private readonly _router: Router,
@@ -61,7 +61,7 @@ export class NavigationComponent {
     private _listenForRouteChanges(): void {
         this.routeListener = this._router.events.subscribe((route) => {
             if (route instanceof NavigationEnd) {
-                switch (route.urlAfterRedirects) {
+                switch (route.urlAfterRedirects.split('?')[0]) {
                     case `/${APP_NAV_ITEMS.home.route}`: {
                         return this._setActiveRoute(APP_NAV_ITEMS.home.title);
                     }
@@ -70,6 +70,9 @@ export class NavigationComponent {
                     }
                     case `/${COMPONENT_NAV_ITEMS.listItemTag.route}`: {
                         return this._setActiveRoute(COMPONENT_NAV_ITEMS.listItemTag.title);
+                    }
+                    case `/${DRAWER_NAV_ITEMS.drawerNavItem.route}`: {
+                        return this._setActiveRoute(DRAWER_NAV_ITEMS.drawerNavItem.title);
                     }
                     default: {
                         return this._setActiveRoute('');
