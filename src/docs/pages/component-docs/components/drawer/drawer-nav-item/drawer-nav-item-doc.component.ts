@@ -3,7 +3,7 @@ import { MarkdownSplitService } from '../../../../../services/markdown-split/mar
 import { MarkdownService } from 'ngx-markdown';
 import { BASIC } from './examples/basic.component';
 import { WITH_ICONS } from './examples/with-icons.component';
-import {WITH_NESTED_ITEMS_NO_ICONS} from "./examples/with-nested-items-no-icons.component";
+import { WITH_NESTED_ITEMS_NO_ICONS } from './examples/with-nested-items-no-icons.component';
 import { WITH_NESTED_ITEMS } from './examples/with-nested-items.component';
 
 @Component({
