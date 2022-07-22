@@ -4,7 +4,8 @@ import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ViewportService } from '../services/viewport/viewport.service';
 import { DrawerStateService } from '../services/drawer-state/drawer-state.service';
-import { APP_NAV_ITEMS, COMPONENT_NAV_ITEMS, NavItem } from './nav-items';
+import { APP_NAV_ITEMS, COMPONENT_NAV_ITEMS, DRAWER_NAV_ITEMS, NavItem } from './nav-items';
+import { TabName } from '../pages/component-docs/shared/scaffold/scaffold.component';
 
 @Component({
     selector: 'app-navigation',
@@ -16,7 +17,7 @@ export class NavigationComponent {
     routeListener: Subscription;
     variant: DrawerLayoutVariantType;
     navItems = [APP_NAV_ITEMS.home];
-    componentNavItems = [COMPONENT_NAV_ITEMS.emptyState, COMPONENT_NAV_ITEMS.listItemTag];
+    componentNavItems = [COMPONENT_NAV_ITEMS.drawer, COMPONENT_NAV_ITEMS.emptyState, COMPONENT_NAV_ITEMS.listItemTag];
 
     constructor(
         private readonly _router: Router,
@@ -35,7 +36,13 @@ export class NavigationComponent {
     }
 
     selectItem(navItem: NavItem): void {
-        this.navigate(navItem.route);
+        // Currently treats the top-level as non-navigation items.
+        if (navItem.children) {
+            return;
+        }
+
+        const defaultTab: TabName = 'examples';
+        this.navigate(`${navItem.route}/${defaultTab}`);
         if (this._viewportService.isSmall()) {
             this._stateService.setDrawerOpen(false);
         }
@@ -57,29 +64,30 @@ export class NavigationComponent {
         return this._stateService.getSelectedItem();
     }
 
+    /** Returns angular route, but without the TabName at the end. */
+    private _getRouteMinusTab(): string {
+        return this._router.url.substr(0, this._router.url.lastIndexOf('/'));
+    }
+
     // Observes route changes and determines which BLUI Auth page to show via route name.
     private _listenForRouteChanges(): void {
         this.routeListener = this._router.events.subscribe((route) => {
             if (route instanceof NavigationEnd) {
-                switch (route.urlAfterRedirects) {
-                    case `/${APP_NAV_ITEMS.home.route}`: {
-                        return this._setActiveRoute(APP_NAV_ITEMS.home.title);
+                const currentRoute = this._getRouteMinusTab();
+                const navSections = [APP_NAV_ITEMS, COMPONENT_NAV_ITEMS, DRAWER_NAV_ITEMS];
+                navSections.map((section) => {
+                    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+                    for (const [key, value] of Object.entries(section)) {
+                        if (currentRoute === `/${value.route}`) {
+                            return this._setActiveDrawerItem(value.title);
+                        }
                     }
-                    case `/${COMPONENT_NAV_ITEMS.emptyState.route}`: {
-                        return this._setActiveRoute(COMPONENT_NAV_ITEMS.emptyState.title);
-                    }
-                    case `/${COMPONENT_NAV_ITEMS.listItemTag.route}`: {
-                        return this._setActiveRoute(COMPONENT_NAV_ITEMS.listItemTag.title);
-                    }
-                    default: {
-                        return this._setActiveRoute('');
-                    }
-                }
+                });
             }
         });
     }
 
-    private _setActiveRoute(title: string): void {
+    private _setActiveDrawerItem(title: string): void {
         this.toolbarTitle = title;
         this._stateService.setSelectedItem(title);
     }

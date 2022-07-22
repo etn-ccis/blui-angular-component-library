@@ -1,44 +1,21 @@
-import { NgModule, SecurityContext } from '@angular/core';
-import { ScaffoldComponent } from './scaffold/scaffold.component';
-import { ListItemTagDocComponent } from './list-item-tag/list-item-tag.component';
-import { EmptyStateDocComponent } from './empty-state/empty-state.component';
-import { AppCommonComponentsModule } from '../../components/components.module';
-import { MatTabsModule } from '@angular/material/tabs';
-import { MarkdownModule, MarkedOptions } from 'ngx-markdown';
-import { HttpClientModule } from '@angular/common/http';
-import { CommonModule } from '@angular/common';
-import { ListItemTagModule } from '@brightlayer-ui/angular-components';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
-import { KnobTextComponent } from './knobs/knob-text.component';
+import { NgModule } from '@angular/core';
+import { SharedCompDocsModule } from './shared/shared-comp-docs.module';
+import { EmptyStateDocModule } from './components/empty-state/empty-state-doc.module';
+import { ListItemTagDocModule } from './components/list-item-tag/list-item-tag-doc.module';
+import { DrawerNavItemDocModule } from './components/drawer/drawer-nav-item/drawer-nav-item-doc.module';
+import { DrawerNavGroupDocModule } from './components/drawer/drawer-nav-group/drawer-nav-group-doc.module';
+import { DrawerFooterDocModule } from './components/drawer/drawer-footer/drawer-footer-doc.module';
+import { DrawerHeaderDocModule } from './components/drawer/drawer-header/drawer-header-doc.module';
 
 @NgModule({
-    declarations: [EmptyStateDocComponent, KnobTextComponent, ListItemTagDocComponent, ScaffoldComponent],
-    imports: [
-        AppCommonComponentsModule,
-        CommonModule,
-        HttpClientModule,
-        MatFormFieldModule,
-        MatInputModule,
-        MatTabsModule,
-        MarkdownModule.forRoot({
-            loader: HttpClientModule,
-            sanitize: SecurityContext.NONE,
-            markedOptions: {
-                provide: MarkedOptions,
-                useValue: {
-                    gfm: true,
-                    breaks: false,
-                    pedantic: false,
-                    smartLists: true,
-                    smartypants: false,
-                },
-            },
-        }),
-        ListItemTagModule,
-        FormsModule,
+    exports: [
+        DrawerHeaderDocModule,
+        DrawerFooterDocModule,
+        DrawerNavGroupDocModule,
+        DrawerNavItemDocModule,
+        EmptyStateDocModule,
+        ListItemTagDocModule,
+        SharedCompDocsModule,
     ],
-    exports: [EmptyStateDocComponent, KnobTextComponent, ListItemTagDocComponent, ScaffoldComponent],
 })
 export class ComponentDocsModule {}

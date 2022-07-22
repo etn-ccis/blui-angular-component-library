@@ -17,8 +17,8 @@ imports: [
 ```
 
 ```html
-// your-component.html
-<blui-list-item-tag label="Sample Label" backgroundColor="black" fontColor="gold"> </blui-list-item-tag>
+<!-- your-component.html -->
+<blui-list-item-tag label="Sample Label" backgroundColor="black" fontColor="gold"></blui-list-item-tag>
 ```
 
 ## API

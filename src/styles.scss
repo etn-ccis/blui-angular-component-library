@@ -4,3 +4,45 @@ body {
     margin: 0;
     padding: 0;
 }
+
+.api-docs-example-wrapper {
+    margin: 32px 0 0 0;
+    background-color: #eeeeee;
+    padding: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Prism Overrides */
+.line-highlight {
+    z-index: 2;
+}
+
+/**
+pre {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100%;
+    background-color: unset !important;
+}
+pre[class*='language-']:before {
+    display: none !important;
+}
+pre[class*='language-']:after {
+    display: none !important;
+}
+pre[data-line] code {
+    padding-left: 1rem !important;
+}
+pre .line-highlight {
+    margin-top: -1rem !important;
+}
+
+pre > code {
+    display: flex;
+    width: 100%;
+    box-sizing: border-box;
+    font-family: monospace !important;
+    font-size: 0.875rem !important;
+} **/
