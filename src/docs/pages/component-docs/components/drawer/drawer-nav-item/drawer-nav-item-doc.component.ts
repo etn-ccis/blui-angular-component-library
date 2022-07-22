@@ -3,6 +3,8 @@ import { MarkdownSplitService } from '../../../../../services/markdown-split/mar
 import { MarkdownService } from 'ngx-markdown';
 import { BASIC } from './examples/basic.component';
 import { WITH_ICONS } from './examples/with-icons.component';
+import {WITH_NESTED_ITEMS_NO_ICONS} from "./examples/with-nested-items-no-icons.component";
+import { WITH_NESTED_ITEMS } from './examples/with-nested-items.component';
 
 @Component({
     selector: 'app-drawer-nav-item-doc',
@@ -24,6 +26,17 @@ import { WITH_ICONS } from './examples/with-icons.component';
                     </div>
                     <app-example-code [snippet]="WITH_ICONS"></app-example-code>
                 </div>
+
+                <div class="example-section">
+                    <div class="example-heading">Nested Drawer Items</div>
+                    <div class="example-demo-wrapper">
+                        <app-nav-item-with-nested-items-demo style="margin: 0 12px;">
+                        </app-nav-item-with-nested-items-demo>
+                        <app-nav-item-with-nested-items-no-icons-demo style="margin: 0 12px;">
+                        </app-nav-item-with-nested-items-no-icons-demo>
+                    </div>
+                    <app-example-code [snippet]="WITH_NESTED_ITEMS"></app-example-code>
+                </div>
             </div>
             <div playground>
                 <app-coming-soon></app-coming-soon>
@@ -39,6 +52,8 @@ export class DrawerNavItemDocComponent {
     md: string;
     BASIC = BASIC;
     WITH_ICONS = WITH_ICONS;
+    WITH_NESTED_ITEMS = WITH_NESTED_ITEMS;
+    WITH_NESTED_ITEMS_NO_ICONS = WITH_NESTED_ITEMS_NO_ICONS;
 
     constructor(
         private readonly _splitService: MarkdownSplitService,
