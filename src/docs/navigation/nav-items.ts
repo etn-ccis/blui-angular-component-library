@@ -9,31 +9,31 @@ export type NavItem = {
 
 const emptyState: NavItem = {
     title: 'Empty State',
-    route: 'empty-state',
+    route: 'components/empty-state',
 };
 const listItemTag: NavItem = {
     title: 'List Item Tag',
-    route: 'list-item-tag',
+    route: 'components/list-item-tag',
 };
 const drawerNavGroup: NavItem = {
     title: 'Drawer Nav Group',
-    route: 'drawer/nav-group',
+    route: 'components/drawer/nav-group',
 };
 const drawerHeader: NavItem = {
     title: 'Drawer Header',
-    route: 'drawer/header',
+    route: 'components/drawer/header',
 };
 const drawerFooter: NavItem = {
     title: 'Drawer Footer',
-    route: 'drawer/footer',
+    route: 'components/drawer/footer',
 };
 const drawerNavItem: NavItem = {
     title: 'Drawer Nav Item',
-    route: 'drawer/nav-item',
+    route: 'components/drawer/nav-item',
 };
 const drawer = {
     title: 'Drawer',
-    route: 'drawer',
+    route: 'components/drawer',
     children: [drawerHeader, drawerNavGroup, drawerNavItem, drawerFooter],
 };
 

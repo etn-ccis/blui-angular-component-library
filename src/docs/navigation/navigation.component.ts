@@ -5,6 +5,7 @@ import { Subscription } from 'rxjs';
 import { ViewportService } from '../services/viewport/viewport.service';
 import { DrawerStateService } from '../services/drawer-state/drawer-state.service';
 import { APP_NAV_ITEMS, COMPONENT_NAV_ITEMS, DRAWER_NAV_ITEMS, NavItem } from './nav-items';
+import { TabName } from '../pages/component-docs/shared/scaffold/scaffold.component';
 
 @Component({
     selector: 'app-navigation',
@@ -40,7 +41,8 @@ export class NavigationComponent {
             return;
         }
 
-        this.navigate(navItem.route);
+        const defaultTab: TabName = 'examples';
+        this.navigate(`${navItem.route}/${defaultTab}`);
         if (this._viewportService.isSmall()) {
             this._stateService.setDrawerOpen(false);
         }
@@ -62,16 +64,21 @@ export class NavigationComponent {
         return this._stateService.getSelectedItem();
     }
 
+    /** Returns angular route, but without the TabName at the end. */
+    private _getRouteMinusTab(): string {
+        return this._router.url.substr(0, this._router.url.lastIndexOf('/'));
+    }
+
     // Observes route changes and determines which BLUI Auth page to show via route name.
     private _listenForRouteChanges(): void {
         this.routeListener = this._router.events.subscribe((route) => {
             if (route instanceof NavigationEnd) {
-                const currentRouteNoParams = route.urlAfterRedirects.split('?')[0];
+                const currentRoute = this._getRouteMinusTab();
                 const navSections = [APP_NAV_ITEMS, COMPONENT_NAV_ITEMS, DRAWER_NAV_ITEMS];
                 navSections.map((section) => {
                     // eslint-disable-next-line @typescript-eslint/no-unused-vars
                     for (const [key, value] of Object.entries(section)) {
-                        if (currentRouteNoParams === `/${value.route}`) {
+                        if (currentRoute === `/${value.route}`) {
                             return this._setActiveDrawerItem(value.title);
                         }
                     }

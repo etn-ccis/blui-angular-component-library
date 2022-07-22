@@ -1,9 +1,10 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
 import { MarkdownService } from 'ngx-markdown';
-import { ActivatedRoute, Params, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabChangeEvent } from '@angular/material/tabs';
+import { Subscription } from 'rxjs';
 
-type TabName = 'example' | 'api' | 'playground';
+export type TabName = 'examples' | 'api-docs' | 'playground';
 
 @Component({
     selector: 'app-component-doc-scaffold',
@@ -13,7 +14,7 @@ type TabName = 'example' | 'api' | 'playground';
                 <mat-tab-group
                     style="width: 100%"
                     animationDuration="0ms"
-                    (selectedTabChange)="changeTab($event)"
+                    (selectedTabChange)="userChangeTab($event)"
                     [(selectedIndex)]="currentTabIndex"
                 >
                     <mat-tab label="Examples">
@@ -45,11 +46,13 @@ type TabName = 'example' | 'api' | 'playground';
     styleUrls: ['./scaffold.component.scss'],
     encapsulation: ViewEncapsulation.None,
 })
-export class ScaffoldComponent {
+export class ScaffoldComponent implements OnInit, OnDestroy {
     @Input() useDefaultDocs = true;
     @Input() mdFileName: string;
     @Input() md: string;
     currentTabIndex = 0;
+
+    routeListener: Subscription;
 
     constructor(
         private readonly _route: ActivatedRoute,
@@ -63,39 +66,49 @@ export class ScaffoldComponent {
                 this.md = data.replace('images/', 'src/assets/md/images/');
             });
         }
-        this._route.queryParams.subscribe((params: Params) => {
-            const tab = params.tab;
-            if (tab) {
-                this.currentTabIndex = this._tabNameToIndex(tab);
-            }
-        });
-        const hasTabParam = this._router.url.includes('tab=');
-        if (!hasTabParam) {
-            this.updateQueryParams('example');
+        const tab = this._getTabNameFromUrl();
+        this.updateRouteFromTab(tab);
+    }
+
+    ngOnDestroy(): void {
+        if (this.routeListener) {
+            this.routeListener.unsubscribe();
         }
     }
 
-    changeTab(event: MatTabChangeEvent): void {
+    /** Called when a user clicks a tab. */
+    userChangeTab(event: MatTabChangeEvent): void {
         const tabName = this._tabIndexToName(event.index);
-        this.updateQueryParams(tabName);
+        this.updateRouteFromTab(tabName);
     }
 
     /** Updates the URL to reflect tab name. */
-    updateQueryParams(tab: TabName): void {
-        void this._router.navigate([], {
-            relativeTo: this._route,
-            queryParams: {
-                tab,
-            },
+    updateRouteFromTab(tab: TabName): void {
+        const routeMinusTab = this._getRouteMinusTab();
+        void this._router.navigate([`${routeMinusTab}/${tab}`], {
             skipLocationChange: false,
+            replaceUrl: true,
         });
+        this.currentTabIndex = this._tabNameToIndex(tab);
+    }
+
+    /** Returns angular route, but without the TabName at the end. */
+    private _getRouteMinusTab(): string {
+        return this._router.url.substr(0, this._router.url.lastIndexOf('/'));
+    }
+
+    /** Returns current TabName */
+    private _getTabNameFromUrl(): TabName {
+        const route = this._router.url;
+        const everythingElse = this._getRouteMinusTab();
+        return route.replace(everythingElse, '').replace('/', '') as TabName;
     }
 
     private _tabIndexToName(index: number): TabName {
-        return index === 0 ? 'example' : index === 1 ? 'api' : 'playground';
+        return index === 0 ? 'examples' : index === 1 ? 'api-docs' : 'playground';
     }
 
     private _tabNameToIndex(name: TabName): number {
-        return name === 'example' ? 0 : name === 'api' ? 1 : 2;
+        return name === 'examples' ? 0 : name === 'api-docs' ? 1 : 2;
     }
 }

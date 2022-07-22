@@ -12,12 +12,12 @@ import { DrawerHeaderDocComponent } from './pages/component-docs/components/draw
 const routes: Routes = [
     { path: '', redirectTo: APP_NAV_ITEMS.home.route, pathMatch: 'full' },
     { path: APP_NAV_ITEMS.home.route, component: HomeComponent },
-    { path: COMPONENT_NAV_ITEMS.emptyState.route, component: EmptyStateDocComponent },
-    { path: COMPONENT_NAV_ITEMS.listItemTag.route, component: ListItemTagDocComponent },
-    { path: DRAWER_NAV_ITEMS.drawerNavItem.route, component: DrawerNavItemDocComponent },
-    { path: DRAWER_NAV_ITEMS.drawerNavGroup.route, component: DrawerNavGroupDocComponent },
-    { path: DRAWER_NAV_ITEMS.drawerFooter.route, component: DrawerFooterDocComponent },
-    { path: DRAWER_NAV_ITEMS.drawerHeader.route, component: DrawerHeaderDocComponent },
+    { path: `${COMPONENT_NAV_ITEMS.emptyState.route}/:tab`, component: EmptyStateDocComponent },
+    { path: `${COMPONENT_NAV_ITEMS.listItemTag.route}/:tab`, component: ListItemTagDocComponent },
+    { path: `${DRAWER_NAV_ITEMS.drawerNavItem.route}/:tab`, component: DrawerNavItemDocComponent },
+    { path: `${DRAWER_NAV_ITEMS.drawerNavGroup.route}/:tab`, component: DrawerNavGroupDocComponent },
+    { path: `${DRAWER_NAV_ITEMS.drawerFooter.route}/:tab`, component: DrawerFooterDocComponent },
+    { path: `${DRAWER_NAV_ITEMS.drawerHeader.route}/:tab`, component: DrawerHeaderDocComponent },
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
