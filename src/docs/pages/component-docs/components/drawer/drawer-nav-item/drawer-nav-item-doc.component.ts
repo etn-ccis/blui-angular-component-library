@@ -7,9 +7,8 @@ import { WITH_ICONS } from './examples/with-icons.component';
 @Component({
     selector: 'app-drawer-nav-item-doc',
     template: `
-        <app-component-doc-scaffold [md]="md">  
+        <app-component-doc-scaffold [md]="md">
             <div examples class="app-example">
-                
                 <div class="example-section">
                     <div class="example-heading">Basic Drawer Items</div>
                     <div class="example-demo-wrapper">
@@ -25,7 +24,6 @@ import { WITH_ICONS } from './examples/with-icons.component';
                     </div>
                     <app-example-code [snippet]="WITH_ICONS"></app-example-code>
                 </div>
-                
             </div>
             <div playground>
                 <app-coming-soon></app-coming-soon>

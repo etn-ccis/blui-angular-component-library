@@ -1,4 +1,4 @@
-import {Component, Input, ViewEncapsulation} from "@angular/core";
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 
 @Component({
     selector: 'app-example-code',
@@ -11,7 +11,7 @@ import {Component, Input, ViewEncapsulation} from "@angular/core";
         </pre>
     `,
     encapsulation: ViewEncapsulation.None,
-    styleUrls: ['example-code.component.scss']
+    styleUrls: ['example-code.component.scss'],
 })
 export class ExampleCodeComponent {
     @Input() snippet: string;

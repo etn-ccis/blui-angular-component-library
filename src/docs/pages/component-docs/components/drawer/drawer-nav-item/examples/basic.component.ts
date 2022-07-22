@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
-export const BASIC =
-`<blui-drawer style="width: 250px">
+export const BASIC = `<blui-drawer style="width: 250px">
     <blui-drawer-body>
         <blui-drawer-nav-group>
             <blui-drawer-nav-item title="Dashboard"></blui-drawer-nav-item>
