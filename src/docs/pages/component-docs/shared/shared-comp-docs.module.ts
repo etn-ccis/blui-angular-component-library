@@ -11,9 +11,10 @@ import { KnobTextComponent } from './knobs/knob-text.component';
 import { AppCommonComponentsModule } from '../../../components/components.module';
 import { MatButtonModule } from '@angular/material/button';
 import { ToggleCodeButtonComponent } from './toggle-code-button/toggle-code-button.component';
+import {ExampleCodeComponent} from "./example-code/example-code.component";
 
 @NgModule({
-    declarations: [KnobTextComponent, ScaffoldComponent, ToggleCodeButtonComponent],
+    declarations: [KnobTextComponent, ScaffoldComponent, ToggleCodeButtonComponent, ExampleCodeComponent],
     imports: [
         AppCommonComponentsModule,
         CommonModule,
@@ -39,6 +40,7 @@ import { ToggleCodeButtonComponent } from './toggle-code-button/toggle-code-butt
         }),
     ],
     exports: [
+        ExampleCodeComponent,
         ToggleCodeButtonComponent,
         AppCommonComponentsModule,
         KnobTextComponent,

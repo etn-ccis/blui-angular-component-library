@@ -1,0 +1,34 @@
+:host {
+  display: flex;
+}
+
+.app-example-code {
+  > code {
+    padding-left: 0 !important;
+  }
+  pre {
+    padding: 0 !important;
+    box-sizing: border-box;;
+    margin: 0 !important;
+    width: 100%;
+    .line-highlight {
+      margin-top: -1rem;
+    }
+  }
+  pre.language-html {
+    padding-left: 2rem!important;;
+  }
+  pre > code {
+    width: 100%;
+    box-sizing: border-box;
+    font-family: monospace !important;
+    font-size: 0.875rem !important; // If this gets adjusted, the .line-hightlight margin needs adjusted.
+  }
+  pre[class*='language-']:before {
+    display: none !important;
+  }
+  pre[class*='language-']:after {
+    display: none !important;
+  }
+}
+

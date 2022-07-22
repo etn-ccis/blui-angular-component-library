@@ -12,20 +12,13 @@ import { COMPLEX } from './examples/complex.component';
                 <div class="api-docs-example-wrapper">
                     <app-basic-list-item-tag-demo></app-basic-list-item-tag-demo>
                 </div>
-
-                <pre style="display: flex">
-                    <code [innerHTML]="BASIC | language: 'html' | markdown"></code>
-                </pre>
+                <app-example-code [snippet]="BASIC"></app-example-code>
 
                 <div class="mat-headline" style="margin-top: 64px">Complex Example</div>
                 <div class="api-docs-example-wrapper">
                     <app-complex-list-item-tag-demo></app-complex-list-item-tag-demo>
                 </div>
-                <ng-container *ngIf="showComplexExampleCode">
-                    <pre data-line="6-16" class="language-html" style="display: flex">
-                        <code [innerHTML]="COMPLEX | language: 'html' | markdown"></code>
-                    </pre>
-                </ng-container>
+                <app-example-code *ngIf="showComplexExampleCode" [snippet]="COMPLEX" dataLine="6-16"></app-example-code>
                 <app-toggle-code-button style="margin-top: 8px" [(showCode)]="showComplexExampleCode">
                 </app-toggle-code-button>
             </div>
