@@ -1,9 +1,15 @@
 .scaffold-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    position: relative;
     .tabs-container {
         width: 100%;
-        max-width: 1200px;
+        display: flex;
+        justify-content: center;
+        .mat-tab-group {
+            max-width: 1200px;
+        }
         .mat-tab-label {
             width: 100% !important;
         }

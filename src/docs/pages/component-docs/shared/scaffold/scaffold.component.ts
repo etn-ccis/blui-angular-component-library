@@ -10,6 +10,7 @@ export type TabName = 'examples' | 'api-docs' | 'playground';
     selector: 'app-component-doc-scaffold',
     template: `
         <div class="scaffold-container">
+            <div style="height: 48px; background: white; width: 100%; position: absolute; top: 0; left: 0;"></div>
             <div class="tabs-container">
                 <mat-tab-group
                     style="width: 100%"

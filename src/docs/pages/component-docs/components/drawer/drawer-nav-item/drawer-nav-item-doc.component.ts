@@ -1,13 +1,31 @@
 import { Component } from '@angular/core';
 import { MarkdownSplitService } from '../../../../../services/markdown-split/markdown-split.service';
 import { MarkdownService } from 'ngx-markdown';
+import { BASIC } from './examples/basic.component';
+import { WITH_ICONS } from './examples/with-icons.component';
 
 @Component({
     selector: 'app-drawer-nav-item-doc',
     template: `
-        <app-component-doc-scaffold [md]="md">
-            <div examples>
-                <app-coming-soon></app-coming-soon>
+        <app-component-doc-scaffold [md]="md">  
+            <div examples class="app-example">
+                
+                <div class="example-section">
+                    <div class="example-heading">Basic Drawer Items</div>
+                    <div class="example-demo-wrapper">
+                        <app-basic-drawer-nav-item-demo></app-basic-drawer-nav-item-demo>
+                    </div>
+                    <app-example-code [snippet]="BASIC"></app-example-code>
+                </div>
+
+                <div class="example-section">
+                    <div class="example-heading">Drawer Items With Icons</div>
+                    <div class="example-demo-wrapper">
+                        <app-nav-item-with-icons-demo></app-nav-item-with-icons-demo>
+                    </div>
+                    <app-example-code [snippet]="WITH_ICONS"></app-example-code>
+                </div>
+                
             </div>
             <div playground>
                 <app-coming-soon></app-coming-soon>
@@ -21,6 +39,8 @@ import { MarkdownService } from 'ngx-markdown';
 })
 export class DrawerNavItemDocComponent {
     md: string;
+    BASIC = BASIC;
+    WITH_ICONS = WITH_ICONS;
 
     constructor(
         private readonly _splitService: MarkdownSplitService,

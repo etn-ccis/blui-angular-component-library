@@ -1,3 +1,6 @@
+@use '@brightlayer-ui/colors/palette.scss' as blui;
+@use './themes/doc-light.scss';
+
 html,
 body {
     height: 100%;
@@ -5,20 +8,30 @@ body {
     padding: 0;
 }
 
-.api-docs-example-wrapper {
-    margin: 32px 0 0 0;
-    background-color: #eeeeee;
-    padding: 32px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.blui-blue {
+    @include doc-light.light-theme();
+}
+
+/** Examples Pages */
+.app-example {
+    .example-heading {
+        font-weight: 600;
+        font-size: 1.25rem;
+    }
+    .example-section {
+        margin-bottom: 64px;
+    }
+    .example-demo-wrapper {
+        margin: 32px 0 0 0;
+        background-color: #eeeeee;
+        padding: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 }
 
 /* Prism Overrides */
-.line-highlight {
-    z-index: 2;
-}
-
 /**
 pre {
     padding: 0 !important;

@@ -12,7 +12,8 @@
     margin: 0 !important;
     width: 100%;
     .line-highlight {
-      margin-top: -1rem;
+      z-index: 2;
+      margin-top: 0rem; // Adjust me when font-size of pre > code changes.
     }
   }
   pre.language-html {
@@ -22,7 +23,7 @@
     width: 100%;
     box-sizing: border-box;
     font-family: monospace !important;
-    font-size: 0.875rem !important; // If this gets adjusted, the .line-hightlight margin needs adjusted.
+    font-size: 1rem !important; // If this gets adjusted, the .line-hightlight margin needs adjusted.
   }
   pre[class*='language-']:before {
     display: none !important;

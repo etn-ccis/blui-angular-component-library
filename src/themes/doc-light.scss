@@ -1,0 +1,12 @@
+@use '@brightlayer-ui/colors/palette.scss' as blui;
+
+@mixin light-theme() {
+  $primary: map-get(blui.$blui-blue, 500);
+
+ .example-heading {
+   color: $primary;
+ }
+  .example-demo-wrapper {
+    background-color: map-get(blui.$blui-white, 200);
+  }
+}
