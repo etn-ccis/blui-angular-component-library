@@ -31,8 +31,17 @@ export type TabName = 'examples' | 'api-docs' | 'playground';
                     </mat-tab>
                     <mat-tab label="Playground">
                         <div class="playground-container">
-                            <div style="width: 100%">
-                                <ng-content select="[playground]"></ng-content>
+                            <div
+                                style="width: 100%; display: flex; flex-direction: column; justify-content: space-between;"
+                            >
+                                <div style="
+                                    height: 100%;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center">
+                                    <ng-content select="[playground]"></ng-content>
+                                </div>
+                                <ng-content select="[code]"></ng-content>
                             </div>
                             <div class="props-container">
                                 <div class="mat-headline" style="margin-bottom: 24px;">Props</div>

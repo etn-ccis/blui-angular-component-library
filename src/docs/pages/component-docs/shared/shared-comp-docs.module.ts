@@ -15,6 +15,8 @@ import { MatIconModule } from '@angular/material/icon';
 import { ViewCodeButtonComponent } from './buttons/view-code-button/view-code-button.component';
 import { CopyCodeButtonComponent } from './buttons/copy-code-button/copy-code-button.component';
 import { ToggleCodeButtonComponent } from './buttons/toggle-code-button/toggle-code-button.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { KnobBooleanComponent } from './knobs/knob-boolean.component';
 
 @NgModule({
     declarations: [
@@ -24,11 +26,13 @@ import { ToggleCodeButtonComponent } from './buttons/toggle-code-button/toggle-c
         ToggleCodeButtonComponent,
         ExampleCodeComponent,
         CopyCodeButtonComponent,
+        KnobBooleanComponent,
     ],
     imports: [
         AppCommonComponentsModule,
         CommonModule,
         MatIconModule,
+        MatCheckboxModule,
         HttpClientModule,
         MatFormFieldModule,
         MatInputModule,
@@ -61,6 +65,7 @@ import { ToggleCodeButtonComponent } from './buttons/toggle-code-button/toggle-c
         MatButtonModule,
         CommonModule,
         CopyCodeButtonComponent,
+        KnobBooleanComponent,
     ],
 })
 export class SharedCompDocsModule {}

@@ -6,9 +6,11 @@ import { BasicExampleComponent } from './examples/basic.component';
 import { WithIconsExampleComponent } from './examples/with-icons.component';
 import { WithNestedItemsComponent } from './examples/with-nested-items.component';
 import { WithSelectedItemComponent } from './examples/with-selected-item.component';
+import { PlaygroundComponent } from './examples/playground.component';
 
 @NgModule({
     declarations: [
+        PlaygroundComponent,
         DrawerNavItemDocComponent,
         WithIconsExampleComponent,
         BasicExampleComponent,

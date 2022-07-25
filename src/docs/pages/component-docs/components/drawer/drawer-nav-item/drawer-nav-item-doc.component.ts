@@ -82,10 +82,22 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
                 </div>
             </div>
             <div playground>
-                <app-coming-soon></app-coming-soon>
+                <app-nav-item-playground
+                    [title]="title"
+                    [subtitle]="subtitle"
+                    [chevron]="chevron"
+                    [divider]="divider"
+                    (codeChange)="generatedCode = $event"
+                ></app-nav-item-playground>
+            </div>
+            <div code>
+                <app-example-code [snippet]="generatedCode"></app-example-code>
             </div>
             <div knobs>
-                <app-coming-soon></app-coming-soon>
+                <app-text-knob label="title" [(value)]="title"></app-text-knob>
+                <app-text-knob label="subtitle" [(value)]="subtitle"></app-text-knob>
+                <app-boolean-knob label="chevron" [(value)]="chevron"></app-boolean-knob>
+                <app-boolean-knob label="divider" [(value)]="divider"></app-boolean-knob>
             </div>
         </app-component-doc-scaffold>
     `,
@@ -97,6 +109,13 @@ export class DrawerNavItemDocComponent {
     WITH_ICONS = WITH_ICONS;
     WITH_NESTED_ITEMS = WITH_NESTED_ITEMS;
     WITH_SELECTED_ITEM = WITH_SELECTED_ITEM;
+    generatedCode: string;
+
+    /* Default playground knobs */
+    title = 'title';
+    subtitle = 'subtitle';
+    chevron = true;
+    divider = true;
 
     constructor(
         private readonly _splitService: MarkdownSplitService,
