@@ -34,11 +34,13 @@ export type TabName = 'examples' | 'api-docs' | 'playground';
                             <div
                                 style="width: 100%; display: flex; flex-direction: column; justify-content: space-between;"
                             >
-                                <div style="
+                                <div
+                                    style="
                                     height: 100%;
                                     display: flex;
                                     justify-content: center;
-                                    align-items: center">
+                                    align-items: center"
+                                >
                                     <ng-content select="[playground]"></ng-content>
                                 </div>
                                 <ng-content select="[code]"></ng-content>
