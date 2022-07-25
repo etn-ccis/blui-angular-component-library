@@ -5,15 +5,15 @@ import { DrawerNavItemDocComponent } from './drawer-nav-item-doc.component';
 import { BasicExampleComponent } from './examples/basic.component';
 import { WithIconsExampleComponent } from './examples/with-icons.component';
 import { WithNestedItemsComponent } from './examples/with-nested-items.component';
-import { WithNestedItemsNoIconsComponent } from './examples/with-nested-items-no-icons.component';
+import { WithSelectedItemComponent } from './examples/with-selected-item.component';
 
 @NgModule({
     declarations: [
         DrawerNavItemDocComponent,
         WithIconsExampleComponent,
         BasicExampleComponent,
-        WithNestedItemsNoIconsComponent,
         WithNestedItemsComponent,
+        WithSelectedItemComponent,
     ],
     imports: [DrawerModule, SharedCompDocsModule],
 })

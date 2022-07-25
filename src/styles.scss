@@ -29,6 +29,16 @@ body {
         align-items: center;
         justify-content: center;
     }
+    .example-actions {
+        padding-top: 16px;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .example-description {
+        code {
+            background-color: #e7e7e7;
+        }
+    }
 }
 
 /* Prism Overrides */

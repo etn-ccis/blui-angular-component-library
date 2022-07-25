@@ -3,8 +3,8 @@ import { MarkdownSplitService } from '../../../../../services/markdown-split/mar
 import { MarkdownService } from 'ngx-markdown';
 import { BASIC } from './examples/basic.component';
 import { WITH_ICONS } from './examples/with-icons.component';
-import { WITH_NESTED_ITEMS_NO_ICONS } from './examples/with-nested-items-no-icons.component';
 import { WITH_NESTED_ITEMS } from './examples/with-nested-items.component';
+import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
 
 @Component({
     selector: 'app-drawer-nav-item-doc',
@@ -17,25 +17,68 @@ import { WITH_NESTED_ITEMS } from './examples/with-nested-items.component';
                         <app-basic-drawer-nav-item-demo></app-basic-drawer-nav-item-demo>
                     </div>
                     <app-example-code [snippet]="BASIC"></app-example-code>
+                    <div class="example-actions">
+                        <app-copy-code-button [code]="BASIC" style="margin-right: 1rem"></app-copy-code-button>
+                    </div>
                 </div>
 
                 <div class="example-section">
                     <div class="example-heading">Drawer Items With Icons</div>
+                    <div class="example-description">
+                        Drawer navigation items accept icons denoted with the <code>blui-icon</code> selector.
+                    </div>
                     <div class="example-demo-wrapper">
                         <app-nav-item-with-icons-demo></app-nav-item-with-icons-demo>
                     </div>
                     <app-example-code [snippet]="WITH_ICONS"></app-example-code>
+                    <div class="example-actions">
+                        <app-copy-code-button [code]="BASIC" style="margin-right: 1rem"></app-copy-code-button>
+                    </div>
                 </div>
 
                 <div class="example-section">
                     <div class="example-heading">Nested Drawer Items</div>
+                    <div class="example-description">
+                        Navigation items can be nested to allow for different levels of navigation. To create a nested
+                        navigation item, simply place a <code>&lt;blui-drawer-nav-item&gt;</code> inside of another. The
+                        <code>DrawerNavItemComponent</code> allows nested navigation up to 3 levels deep.
+                    </div>
                     <div class="example-demo-wrapper">
-                        <app-nav-item-with-nested-items-demo style="margin: 0 12px;">
-                        </app-nav-item-with-nested-items-demo>
-                        <app-nav-item-with-nested-items-no-icons-demo style="margin: 0 12px;">
-                        </app-nav-item-with-nested-items-no-icons-demo>
+                        <app-nav-item-with-nested-items-demo></app-nav-item-with-nested-items-demo>
                     </div>
                     <app-example-code [snippet]="WITH_NESTED_ITEMS"></app-example-code>
+                    <div class="example-actions">
+                        <app-copy-code-button
+                            [code]="WITH_NESTED_ITEMS"
+                            style="margin-right: 1rem"
+                        ></app-copy-code-button>
+                        <app-view-code-button
+                            examplePath="drawer/drawer-nav-item/examples/with-nested-items"
+                        ></app-view-code-button>
+                    </div>
+                </div>
+
+                <div class="example-section">
+                    <div class="example-heading">Selected Navigation Items</div>
+                    <div class="example-description">
+                        Navigation items must be supplied with a <code>[selected]</code> input to denote which item is
+                        active. The active highlighted shape can be adjusted via the
+                        <code>[activeItemBackgroundShape]</code> input to be either <code>square</code> (default) or
+                        <code>round</code>.
+                    </div>
+                    <div class="example-demo-wrapper">
+                        <app-nav-item-with-selected-item-demo></app-nav-item-with-selected-item-demo>
+                    </div>
+                    <app-example-code [snippet]="WITH_SELECTED_ITEM"></app-example-code>
+                    <div class="example-actions">
+                        <app-copy-code-button
+                            [code]="WITH_SELECTED_ITEM"
+                            style="margin-right: 1rem"
+                        ></app-copy-code-button>
+                        <app-view-code-button
+                            examplePath="drawer/drawer-nav-item/examples/with-selected-item"
+                        ></app-view-code-button>
+                    </div>
                 </div>
             </div>
             <div playground>
@@ -53,7 +96,7 @@ export class DrawerNavItemDocComponent {
     BASIC = BASIC;
     WITH_ICONS = WITH_ICONS;
     WITH_NESTED_ITEMS = WITH_NESTED_ITEMS;
-    WITH_NESTED_ITEMS_NO_ICONS = WITH_NESTED_ITEMS_NO_ICONS;
+    WITH_SELECTED_ITEM = WITH_SELECTED_ITEM;
 
     constructor(
         private readonly _splitService: MarkdownSplitService,

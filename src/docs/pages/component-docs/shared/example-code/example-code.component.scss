@@ -6,6 +6,9 @@
     > code {
         padding-left: 0 !important;
     }
+    > pre > code {
+        display: inline-flex;
+    }
     pre {
         padding: 0 !important;
         box-sizing: border-box;
