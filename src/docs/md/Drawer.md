@@ -148,12 +148,12 @@ Parent element (`<blui-drawer-header>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input   | Description                         | Type       | Required | Default |            |     |           |
-| -------- | ----------------------------------- | ---------- | -------- | ------- | ---------- | --- | --------- |
-| color    | Mat toolbar color variant           | `'primary' | 'accent' | 'warn'  | undefined` | no  | `primary` |
-| divider  | Show a divider below footer         | `boolean`  | no       | false   |            |     |           |
-| subtitle | The text to show on the second line | `string`   | no       |         |            |     |           |
-| title    | The text to show on the first line  | `string`   | no       |         |            |     |           |
+| @Input   | Description                         | Type      | Required | Default |            |     |           |
+| -------- | ----------------------------------- | --------- | -------- | ------- | ---------- | --- | --------- |
+| color    | Mat toolbar color variant           | 'primary' | 'accent' | 'warn'  | `undefined` | no  | `primary` |
+| divider  | Show a divider below footer         | `boolean` | no       | false   |            |     |           |
+| subtitle | The text to show on the second line | `string`  | no       |         |            |     |           |
+| title    | The text to show on the first line  | `string`  | no       |         |            |     |           |
 
 </div>
 

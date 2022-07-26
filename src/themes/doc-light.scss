@@ -9,4 +9,33 @@
     .example-demo-wrapper {
         background-color: map-get(blui.$blui-white, 200);
     }
+    .doc-tab-content {
+        h1,
+        h2,
+        h3 {
+            color: $primary;
+        }
+        h2 {
+            border-bottom: 1px solid rgb(213, 216, 218);
+        }
+        code {
+            background: map-get(blui.$blui-black, 50);
+        }
+        table {
+            * {
+                box-sizing: border-box;
+            }
+            tr th {
+                text-align: left;
+                margin: 0px;
+                padding: 6px 13px;
+                font-weight: bold;
+                border: 1px solid rgb(213, 216, 218);
+            }
+            tr td {
+                padding: 6px 13px;
+                border: 1px solid rgb(213, 216, 218);
+            }
+        }
+    }
 }
