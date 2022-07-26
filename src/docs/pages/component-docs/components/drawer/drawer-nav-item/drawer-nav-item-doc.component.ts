@@ -41,7 +41,7 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
                     <div class="example-description">
                         Navigation items can be nested to allow for different levels of navigation. To create a nested
                         navigation item, simply place a <code>&lt;blui-drawer-nav-item&gt;</code> inside of another. The
-                        <code>DrawerNavItemComponent</code> allows nested navigation up to 3 levels deep.
+                        <code>&lt;blui-drawer-nav-item&gt;</code> allows nested navigation up to 3 levels deep.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-nav-item-with-nested-items-demo></app-nav-item-with-nested-items-demo>
@@ -63,8 +63,8 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
                     <div class="example-description">
                         Navigation items must be supplied with a <code>[selected]</code> input to denote which item is
                         active. The active highlighted shape can be adjusted via the
-                        <code>[activeItemBackgroundShape]</code> input to be either <code>square</code> (default) or
-                        <code>round</code>.
+                        <code>[activeItemBackgroundShape]</code> input to be either "square" (default) or
+                        "round".
                     </div>
                     <div class="example-demo-wrapper">
                         <app-nav-item-with-selected-item-demo></app-nav-item-with-selected-item-demo>

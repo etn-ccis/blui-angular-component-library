@@ -1,4 +1,5 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import {Component, EventEmitter, Input, Output, ViewChild} from '@angular/core';
+import {DrawerComponent} from "@brightlayer-ui/angular-components";
 
 export const PLAYGROUND = `<blui-drawer style="width: 250px">
     <blui-drawer-body>
@@ -29,6 +30,13 @@ export class PlaygroundComponent {
     @Input() chevron: boolean;
     @Input() divider: boolean;
     @Output() codeChange = new EventEmitter<string>();
+
+
+    @ViewChild(DrawerComponent) drawer;
+
+    ngAfterViewInit(): void {
+        this.drawer.openOnHover = false;
+    }
 
     ngOnChanges(): void {
         this.codeChange.emit(this._createGeneratedCode());

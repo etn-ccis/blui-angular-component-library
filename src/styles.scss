@@ -8,6 +8,11 @@ body {
     padding: 0;
 }
 
+.mat-drawer-content {
+  //  overflow-x: overlay!important;
+    scrollbar-gutter: stable;
+}
+
 .blui-blue {
     @include doc-light.light-theme();
 }
@@ -38,6 +43,11 @@ body {
         code {
             background-color: #e7e7e7;
         }
+    }
+    app-example-code {
+        display: flex;
+        max-width: calc(100vw - 64px);  // 64px represents padding on container
+        overflow: auto;
     }
 }
 

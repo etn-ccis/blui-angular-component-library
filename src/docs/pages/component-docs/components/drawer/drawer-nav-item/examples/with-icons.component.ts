@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {DrawerComponent} from "@brightlayer-ui/angular-components";
 
 export const WITH_ICONS = `<blui-drawer style="width: 250px">
     <blui-drawer-body>
@@ -18,4 +19,11 @@ export const WITH_ICONS = `<blui-drawer style="width: 250px">
     selector: 'app-nav-item-with-icons-demo',
     template: WITH_ICONS,
 })
-export class WithIconsExampleComponent {}
+export class WithIconsExampleComponent {
+
+    @ViewChild(DrawerComponent) drawer;
+
+    ngAfterViewInit(): void {
+        this.drawer.openOnHover = false;
+    }
+}

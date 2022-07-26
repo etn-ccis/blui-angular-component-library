@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
+import {DrawerComponent} from "@brightlayer-ui/angular-components";
 
 export const WITH_NESTED_ITEMS = `<blui-drawer style="width: 250px">
     <blui-drawer-body>
@@ -22,4 +23,11 @@ export const WITH_NESTED_ITEMS = `<blui-drawer style="width: 250px">
     selector: 'app-nav-item-with-nested-items-demo',
     template: WITH_NESTED_ITEMS,
 })
-export class WithNestedItemsComponent {}
+export class WithNestedItemsComponent {
+
+    @ViewChild(DrawerComponent) drawer;
+
+    ngAfterViewInit(): void {
+        this.drawer.openOnHover = false;
+    }
+}
