@@ -2,7 +2,6 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    //  position: relative;
 
     .tabs-container.small .mat-tab-header {
         width: 100%;
@@ -33,7 +32,7 @@
             width: 100% !important;
         }
         .mat-tab-body:not(#mat-tab-content-0-2) {
-            padding: 64px 32px 32px 32px;
+            padding: 48px 32px 32px 32px;
         }
         .mat-tab-body-content,
         .mat-tab-body {
@@ -99,7 +98,6 @@
         }
     }
     .examples-tab-content-wrapper {
-        padding-top: 48px;
         > div {
             display: flex;
             flex-direction: column;

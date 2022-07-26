@@ -8,11 +8,6 @@ body {
     padding: 0;
 }
 
-.mat-drawer-content {
-    //  overflow-x: overlay!important;
-    scrollbar-gutter: stable;
-}
-
 .blui-blue {
     @include doc-light.light-theme();
 }
