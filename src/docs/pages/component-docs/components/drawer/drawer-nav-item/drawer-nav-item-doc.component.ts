@@ -63,8 +63,7 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
                     <div class="example-description">
                         Navigation items must be supplied with a <code>[selected]</code> input to denote which item is
                         active. The active highlighted shape can be adjusted via the
-                        <code>[activeItemBackgroundShape]</code> input to be either "square" (default) or
-                        "round".
+                        <code>[activeItemBackgroundShape]</code> input to be either "square" (default) or "round".
                     </div>
                     <div class="example-demo-wrapper">
                         <app-nav-item-with-selected-item-demo></app-nav-item-with-selected-item-demo>

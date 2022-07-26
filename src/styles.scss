@@ -9,7 +9,7 @@ body {
 }
 
 .mat-drawer-content {
-  //  overflow-x: overlay!important;
+    //  overflow-x: overlay!important;
     scrollbar-gutter: stable;
 }
 
@@ -46,7 +46,7 @@ body {
     }
     app-example-code {
         display: flex;
-        max-width: calc(100vw - 64px);  // 64px represents padding on container
+        max-width: calc(100vw - 64px); // 64px represents padding on container
         overflow: auto;
     }
 }

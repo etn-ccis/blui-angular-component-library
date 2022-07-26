@@ -1,5 +1,5 @@
-import {Component, ViewChild} from '@angular/core';
-import {DrawerComponent} from "@brightlayer-ui/angular-components";
+import { Component, ViewChild } from '@angular/core';
+import { DrawerComponent } from '@brightlayer-ui/angular-components';
 
 export const BASIC = `<blui-drawer style="width: 250px">
     <blui-drawer-body>
@@ -17,7 +17,6 @@ export const BASIC = `<blui-drawer style="width: 250px">
     template: BASIC,
 })
 export class BasicExampleComponent {
-
     @ViewChild(DrawerComponent) drawer;
 
     ngAfterViewInit(): void {
