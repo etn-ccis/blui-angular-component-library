@@ -1,5 +1,5 @@
 @use '@brightlayer-ui/colors/palette.scss' as blui;
-
+ 
 @mixin light-theme() {
     $primary: map-get(blui.$blui-blue, 500);
 
