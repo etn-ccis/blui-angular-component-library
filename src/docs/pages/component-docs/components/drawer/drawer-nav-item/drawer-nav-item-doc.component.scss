@@ -1,0 +1,5 @@
+::ng-deep {
+    .blui-drawer-content blui-drawer-body {
+        overflow: unset; // This is required for the demos, otherwise will need to specify the height on the drawer in each demo.
+    }
+}

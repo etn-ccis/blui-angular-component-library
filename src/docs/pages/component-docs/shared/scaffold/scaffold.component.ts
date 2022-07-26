@@ -3,6 +3,7 @@ import { MarkdownService } from 'ngx-markdown';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { Subscription } from 'rxjs';
+import { ViewportService } from '../../../../services/viewport/viewport.service';
 
 export type TabName = 'examples' | 'api-docs' | 'playground';
 
@@ -10,7 +11,11 @@ export type TabName = 'examples' | 'api-docs' | 'playground';
     selector: 'app-component-doc-scaffold',
     template: `
         <div class="scaffold-container">
-            <div class="tabs-container">
+            <div
+                style="height: 48px; background: white; width: 100%; position: sticky; left: 0; z-index: 999"
+                [style.top.px]="isSmall() ? 56 : 64"
+            ></div>
+            <div class="tabs-container" [class.small]="isSmall()">
                 <mat-tab-group
                     style="width: 100%"
                     animationDuration="0ms"
@@ -30,8 +35,19 @@ export type TabName = 'examples' | 'api-docs' | 'playground';
                     </mat-tab>
                     <mat-tab label="Playground">
                         <div class="playground-container">
-                            <div style="width: 100%">
-                                <ng-content select="[playground]"></ng-content>
+                            <div
+                                style="width: 100%; display: flex; flex-direction: column; justify-content: space-between;"
+                            >
+                                <div
+                                    style="
+                                    height: 100%;
+                                    display: flex;
+                                    justify-content: center;
+                                    align-items: center"
+                                >
+                                    <ng-content select="[playground]"></ng-content>
+                                </div>
+                                <ng-content select="[code]"></ng-content>
                             </div>
                             <div class="props-container">
                                 <div class="mat-headline" style="margin-bottom: 24px;">Props</div>
@@ -57,7 +73,8 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
     constructor(
         private readonly _route: ActivatedRoute,
         private readonly _router: Router,
-        private readonly _markdownService: MarkdownService
+        private readonly _markdownService: MarkdownService,
+        private readonly _viewportService: ViewportService
     ) {}
 
     ngOnInit(): void {
@@ -110,5 +127,9 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
 
     private _tabNameToIndex(name: TabName): number {
         return name === 'examples' ? 0 : name === 'api-docs' ? 1 : 2;
+    }
+
+    isSmall(): boolean {
+        return this._viewportService.isSmall();
     }
 }

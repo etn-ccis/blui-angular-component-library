@@ -10,13 +10,29 @@ import { FormsModule } from '@angular/forms';
 import { KnobTextComponent } from './knobs/knob-text.component';
 import { AppCommonComponentsModule } from '../../../components/components.module';
 import { MatButtonModule } from '@angular/material/button';
-import { ToggleCodeButtonComponent } from './toggle-code-button/toggle-code-button.component';
+import { ExampleCodeComponent } from './example-code/example-code.component';
+import { MatIconModule } from '@angular/material/icon';
+import { ViewCodeButtonComponent } from './buttons/view-code-button/view-code-button.component';
+import { CopyCodeButtonComponent } from './buttons/copy-code-button/copy-code-button.component';
+import { ToggleCodeButtonComponent } from './buttons/toggle-code-button/toggle-code-button.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { KnobBooleanComponent } from './knobs/knob-boolean.component';
 
 @NgModule({
-    declarations: [KnobTextComponent, ScaffoldComponent, ToggleCodeButtonComponent],
+    declarations: [
+        KnobTextComponent,
+        ScaffoldComponent,
+        ViewCodeButtonComponent,
+        ToggleCodeButtonComponent,
+        ExampleCodeComponent,
+        CopyCodeButtonComponent,
+        KnobBooleanComponent,
+    ],
     imports: [
         AppCommonComponentsModule,
         CommonModule,
+        MatIconModule,
+        MatCheckboxModule,
         HttpClientModule,
         MatFormFieldModule,
         MatInputModule,
@@ -39,13 +55,17 @@ import { ToggleCodeButtonComponent } from './toggle-code-button/toggle-code-butt
         }),
     ],
     exports: [
+        ExampleCodeComponent,
         ToggleCodeButtonComponent,
         AppCommonComponentsModule,
         KnobTextComponent,
         ScaffoldComponent,
+        ViewCodeButtonComponent,
         MarkdownModule,
         MatButtonModule,
         CommonModule,
+        CopyCodeButtonComponent,
+        KnobBooleanComponent,
     ],
 })
 export class SharedCompDocsModule {}

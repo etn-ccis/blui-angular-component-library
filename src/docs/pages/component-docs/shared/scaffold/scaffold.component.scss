@@ -1,14 +1,38 @@
 .scaffold-container {
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    .tabs-container {
+
+    .tabs-container.small .mat-tab-header {
         width: 100%;
         max-width: 1200px;
+    }
+    .tabs-container {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        .mat-tab-header {
+            height: 48px;
+            width: 100%;
+            position: sticky;
+            left: 0px;
+            top: 64px;
+            margin-top: -48px;
+            z-index: 5;
+            z-index: 1000;
+            max-width: 1200px;
+            @media only screen and (max-width: 999px) {
+                max-width: calc(100% - 350px); // Full screen width, minus drawer width
+            }
+        }
+        .mat-tab-group {
+            max-width: 1200px;
+        }
         .mat-tab-label {
             width: 100% !important;
         }
         .mat-tab-body:not(#mat-tab-content-0-2) {
-            padding: 64px 32px 32px 32px;
+            padding: 48px 32px 32px 32px;
         }
         .mat-tab-body-content,
         .mat-tab-body {
@@ -73,8 +97,10 @@
             width: 100%;
         }
     }
-    .examples-tab-content-wrapper > div {
-        display: flex;
-        flex-direction: column;
+    .examples-tab-content-wrapper {
+        > div {
+            display: flex;
+            flex-direction: column;
+        }
     }
 }
