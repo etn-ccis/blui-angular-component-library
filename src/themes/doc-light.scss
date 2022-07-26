@@ -1,5 +1,5 @@
 @use '@brightlayer-ui/colors/palette.scss' as blui;
- 
+
 @mixin light-theme() {
     $primary: map-get(blui.$blui-blue, 500);
 
@@ -25,16 +25,17 @@
             * {
                 box-sizing: border-box;
             }
+            $border: map-get(blui.$blui-black, 100);
             tr th {
                 text-align: left;
                 margin: 0px;
                 padding: 6px 13px;
                 font-weight: bold;
-                border: 1px solid rgb(213, 216, 218);
+                border: 1px solid $border;
             }
             tr td {
                 padding: 6px 13px;
-                border: 1px solid rgb(213, 216, 218);
+                border: 1px solid $border;
             }
         }
     }
