@@ -22,7 +22,7 @@
             background: map-get(blui.$blui-black, 50);
         }
         blockquote {
-            border-left-color: $primary!important;
+            border-left-color: $primary !important;
             background-color: map-get(blui.$blui-black, 50);
         }
         table {
@@ -44,7 +44,7 @@
             thead {
                 background-color: map-get(blui.$blui-white, 50);
             }
-            tbody tr:nth-child(odd){
+            tbody tr:nth-child(odd) {
                 background-color: map-get(blui.$blui-white, 50);
             }
         }
