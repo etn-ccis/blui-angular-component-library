@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { MarkdownService } from 'ngx-markdown';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabChangeEvent } from '@angular/material/tabs';
@@ -85,6 +85,13 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
         }
         const tab = this._getTabNameFromUrl();
         this.updateRouteFromTab(tab);
+    }
+
+    ngOnChanges(changes: SimpleChanges): void {
+        // Enhance the first H2 -> H1
+        if (changes.md && this.md) {
+            this.md = this.md.replace('## ', '# ');
+        }
     }
 
     ngOnDestroy(): void {

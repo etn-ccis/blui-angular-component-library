@@ -9,4 +9,47 @@
     .example-demo-wrapper {
         background-color: map-get(blui.$blui-white, 200);
     }
+    .doc-tab-content {
+        h1,
+        h2,
+        h3 {
+            color: $primary;
+        }
+        h2 {
+            border-bottom: 1px solid rgb(213, 216, 218);
+        }
+        code {
+            background: map-get(blui.$blui-black, 50);
+        }
+        blockquote {
+            border-left-color: $primary !important;
+            background-color: map-get(blui.$blui-black, 50);
+        }
+        table {
+            $border: map-get(blui.$blui-black, 100);
+            border: solid 1px $border;
+            * {
+                box-sizing: border-box;
+            }
+            tr td {
+                padding: 6px 13px;
+                border: unset;
+            }
+            tr {
+                border-bottom: 1px solid $border;
+            }
+            thead tr {
+                border-bottom: 1px solid $border !important;
+            }
+            thead {
+                background-color: map-get(blui.$blui-white, 100);
+            }
+            tbody tr:nth-child(odd) {
+                background-color: map-get(blui.$blui-white, 50);
+            }
+            tbody tr:nth-child(even) {
+                background-color: map-get(blui.$blui-white, 100);
+            }
+        }
+    }
 }
