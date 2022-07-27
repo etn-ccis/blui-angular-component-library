@@ -41,8 +41,15 @@
 
         /* API (README) Section */
         .doc-tab-content {
-            code {
-                background: wheat;
+            img {
+                margin: 16px 0px;
+            }
+            pre:first-of-type {
+                margin-bottom: 48px;
+            }
+            pre {
+                box-sizing: border-box;
+                max-width: calc(100vw - 64px);
             }
             pre[class*='language-'] {
                 &:before,
@@ -53,31 +60,57 @@
             pre code {
                 background: inherit;
             }
-            @mixin divider-border() {
-                border-bottom: 1px solid rgb(213, 216, 218);
-                padding-bottom: 8px;
+            code {
+                padding: 0 4px;
             }
             h1 {
-                color: blue;
                 font-size: 36px;
             }
             h2 {
+                padding-bottom: 8px;
                 font-size: 24px;
-                margin-top: 48px;
+                margin-top: 24px;
                 margin-bottom: 32px;
-                color: blue;
-                @include divider-border();
             }
             h3 {
-                color: blue;
                 font-size: 18px;
                 margin-top: 24px;
             }
-            table {
+            blockquote {
+                margin: 0;
+                border-left: solid 4px;
+                padding-left: 16px;
+                margin-bottom: 24px;
+            }
+            div {
                 width: 100%;
+                max-width: calc(100vw - 64px);
+                display: block;
+                margin-bottom: 24px;
+            }
+            table {
+                margin-bottom: 8px;
+                width: 100%;
+                box-sizing: border-box;
+                border-collapse: collapse;
+                tr th {
+                    border: unset;
+                    border-left: 0;
+                    border-right: 0;
+                }
+                tr {
+                    &:last-of-type {
+                        border-bottom: 0;
+                    }
+                }
+                tr th {
+                    text-align: left;
+                    font-weight: bold;
+                }
                 td,
                 th {
-                    border: solid 1px gray;
+                    font-size: 0.875rem;
+                    padding: 1rem;
                 }
             }
         }
