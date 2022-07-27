@@ -21,6 +21,10 @@
         code {
             background: map-get(blui.$blui-black, 50);
         }
+        blockquote {
+            border-left-color: $primary!important;
+            background-color: map-get(blui.$blui-black, 50);
+        }
         table {
             * {
                 box-sizing: border-box;

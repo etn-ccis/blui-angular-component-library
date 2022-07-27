@@ -41,6 +41,9 @@
 
         /* API (README) Section */
         .doc-tab-content {
+            img {
+                margin: 16px 0px;
+            }
             pre:first-of-type {
                 margin-bottom: 48px;
             }
@@ -66,16 +69,24 @@
             h2 {
                 padding-bottom: 8px;
                 font-size: 24px;
-                margin-top: 48px;
+                margin-top: 24px;
                 margin-bottom: 32px;
             }
             h3 {
                 font-size: 18px;
                 margin-top: 24px;
             }
+            blockquote {
+                margin: 0;
+                border-left: solid 4px;
+                padding-left: 16px;
+                margin-bottom: 24px;
+            }
             table {
+                display: block;
                 overflow: auto;
                 width: 100%;
+                box-sizing: border-box;
                 max-width: calc(100vw - 64px);
                 margin-bottom: 24px;
                 border-collapse: collapse;
