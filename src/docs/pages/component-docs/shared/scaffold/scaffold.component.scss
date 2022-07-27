@@ -82,13 +82,15 @@
                 padding-left: 16px;
                 margin-bottom: 24px;
             }
-            table {
+            div {
+                width: 100%;
+                max-width: calc(100vw - 64px);
                 display: block;
-                overflow: auto;
+                margin-bottom: 24px;
+            }
+            table {
                 width: 100%;
                 box-sizing: border-box;
-                max-width: calc(100vw - 64px);
-                margin-bottom: 24px;
                 border-collapse: collapse;
             }
         }

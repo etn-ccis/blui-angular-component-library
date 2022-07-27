@@ -34,9 +34,9 @@ Parent element (`<blui-drawer>`) attributes:
 | openOnHoverDelay              | Delay in milliseconds before a hover event opens the drawer (persistent variant only) | `number`  | no       | 500     |
 | sideBorder                    | Toggle a side border instead of shadow                                                | `boolean` | no       | false   |
 
-> \*\* The `condensed` attribute won't have any effect on the `<blui-drawer>` unless the `rail` variant is set on the `<blui-drawer-layout>` component. Each item in a navigation rail will be sized 72 x 72px. When using a `condensed` rail, each item will be sized 56 x 56px.
-
 </div>
+
+> \*\* The `condensed` attribute won't have any effect on the `<blui-drawer>` unless the `rail` variant is set on the `<blui-drawer-layout>` component. Each item in a navigation rail will be sized 72 x 72px. When using a `condensed` rail, each item will be sized 56 x 56px.
 
 The following child elements are projected into `<blui-drawer>`:
 
@@ -87,10 +87,10 @@ Parent element (`<blui-drawer-layout>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input  | Description             | Type         | Required     | Default     |         |     |     |
-| ------- | ----------------------- | ------------ | ------------ | ----------- | ------- | --- | --- |
-| variant | Sets the drawer variant | `'permanent' | 'persistent' | 'temporary' | 'rail'` | yes |     |
-| width   | Drawer pixel width      | `number`     | no           | 350         |         |     |     |
+| @Input  | Description             | Type        | Required     | Default     |         |     |     |
+| ------- | ----------------------- | ----------- | ------------ | ----------- |---------| --- | --- |
+| variant | Sets the drawer variant | 'permanent' | 'persistent' | 'temporary' | 'rail'  | yes |     |
+| width   | Drawer pixel width      | `number`    | no           | 350         |         |     |     |
 
 </div>
 

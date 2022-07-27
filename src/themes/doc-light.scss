@@ -41,6 +41,12 @@
                 padding: 6px 13px;
                 border: 1px solid $border;
             }
+            thead {
+                background-color: map-get(blui.$blui-white, 50);
+            }
+            tbody tr:nth-child(odd){
+                background-color: map-get(blui.$blui-white, 50);
+            }
         }
     }
 }
