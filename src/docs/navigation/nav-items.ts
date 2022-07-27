@@ -15,26 +15,38 @@ const listItemTag: NavItem = {
     title: 'List Item Tag',
     route: 'components/list-item-tag',
 };
-const drawerNavGroup: NavItem = {
-    title: 'Drawer Nav Group',
-    route: 'components/drawer/nav-group',
+const drawerDrawer: NavItem = {
+    title: 'Drawer',
+    route: 'components/drawer',
 };
 const drawerHeader: NavItem = {
     title: 'Drawer Header',
     route: 'components/drawer/header',
 };
-const drawerFooter: NavItem = {
-    title: 'Drawer Footer',
-    route: 'components/drawer/footer',
+const drawerSubheader: NavItem = {
+    title: 'Drawer Subheader',
+    route: 'components/drawer/subheader',
+};
+const drawerBody: NavItem = {
+    title: 'Drawer Body',
+    route: 'components/drawer/body',
+};
+const drawerNavGroup: NavItem = {
+    title: 'Drawer Nav Group',
+    route: 'components/drawer/nav-group',
 };
 const drawerNavItem: NavItem = {
     title: 'Drawer Nav Item',
     route: 'components/drawer/nav-item',
 };
+const drawerFooter: NavItem = {
+    title: 'Drawer Footer',
+    route: 'components/drawer/footer',
+};
 const drawer = {
     title: 'Drawer',
     route: 'components/drawer',
-    children: [drawerHeader, drawerNavGroup, drawerNavItem, drawerFooter],
+    children: [drawerDrawer, drawerHeader, drawerSubheader, drawerBody, drawerNavGroup, drawerNavItem, drawerFooter],
 };
 
 const home: NavItem = {
@@ -49,8 +61,11 @@ export const COMPONENT_NAV_ITEMS = {
     listItemTag,
 };
 export const DRAWER_NAV_ITEMS = {
+    drawerDrawer,
     drawerNavItem,
     drawerHeader,
+    drawerSubheader,
+    drawerBody,
     drawerFooter,
     drawerNavGroup,
 };

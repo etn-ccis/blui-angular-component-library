@@ -6,6 +6,9 @@ import { DrawerNavItemDocModule } from './components/drawer/drawer-nav-item/draw
 import { DrawerNavGroupDocModule } from './components/drawer/drawer-nav-group/drawer-nav-group-doc.module';
 import { DrawerFooterDocModule } from './components/drawer/drawer-footer/drawer-footer-doc.module';
 import { DrawerHeaderDocModule } from './components/drawer/drawer-header/drawer-header-doc.module';
+import { DrawerBodyDocModule } from './components/drawer/drawer-body/drawer-body-doc.module';
+import { DrawerSubheaderDocModule } from './components/drawer/drawer-subheader/drawer-subheader-doc.module';
+import { DrawerDocModule } from './components/drawer/drawer/drawer-doc.module';
 
 @NgModule({
     exports: [
@@ -13,6 +16,9 @@ import { DrawerHeaderDocModule } from './components/drawer/drawer-header/drawer-
         DrawerFooterDocModule,
         DrawerNavGroupDocModule,
         DrawerNavItemDocModule,
+        DrawerBodyDocModule,
+        DrawerSubheaderDocModule,
+        DrawerDocModule,
         EmptyStateDocModule,
         ListItemTagDocModule,
         SharedCompDocsModule,
