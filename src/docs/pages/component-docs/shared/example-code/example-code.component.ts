@@ -16,4 +16,8 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 export class ExampleCodeComponent {
     @Input() snippet: string;
     @Input() dataLine: string;
+
+    ngAfterViewInit(): void {
+        window.dispatchEvent(new Event('resize'));
+    }
 }

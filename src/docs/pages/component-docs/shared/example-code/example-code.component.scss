@@ -16,7 +16,8 @@
         width: 100%;
         .line-highlight {
             z-index: 2;
-            margin-top: 0rem; // Adjust me when font-size of pre > code changes.
+            margin-top: 1rem; // Adjust me when font-size of pre > code changes.
+            width: 100% !important;
         }
     }
     pre.language-html {

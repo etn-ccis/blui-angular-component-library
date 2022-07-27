@@ -21,7 +21,7 @@ import { WITH_ICON } from './examples/with-icon.component';
                     <div class="example-demo-wrapper">
                         <app-basic-drawer-header-demo></app-basic-drawer-header-demo>
                     </div>
-                    <app-example-code [snippet]="BASIC"></app-example-code>
+                    <app-example-code [snippet]="BASIC" dataLine="2"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="BASIC"></app-copy-code-button>
                     </div>
@@ -37,7 +37,7 @@ import { WITH_ICON } from './examples/with-icon.component';
                     <div class="example-demo-wrapper">
                         <app-with-subtitle-drawer-header-demo></app-with-subtitle-drawer-header-demo>
                     </div>
-                    <app-example-code [snippet]="WITH_SUBTITLE"></app-example-code>
+                    <app-example-code [snippet]="WITH_SUBTITLE" dataLine="2"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="WITH_SUBTITLE"></app-copy-code-button>
                     </div>
@@ -53,7 +53,7 @@ import { WITH_ICON } from './examples/with-icon.component';
                     <div class="example-demo-wrapper">
                         <app-with-icon-drawer-header-demo></app-with-icon-drawer-header-demo>
                     </div>
-                    <app-example-code [snippet]="WITH_ICON"></app-example-code>
+                    <app-example-code [snippet]="WITH_ICON" dataLine="3-5"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="WITH_ICON"></app-copy-code-button>
                     </div>
@@ -66,9 +66,9 @@ import { WITH_ICON } from './examples/with-icon.component';
                         Custom header content can be also be passed as a <code>blui-title-content</code> child.
                     </div>
                     <div class="example-demo-wrapper">
-                        <app-with-custom-content-drawer-header-demo></app-with-custom-content-drawer-header-demo>
+                        <app-with-custom-content-drawer-header-demo> </app-with-custom-content-drawer-header-demo>
                     </div>
-                    <app-example-code [snippet]="WITH_CUSTOM_CONTENT"></app-example-code>
+                    <app-example-code [snippet]="WITH_CUSTOM_CONTENT" dataLine="3-6"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="WITH_CUSTOM_CONTENT"></app-copy-code-button>
                     </div>
