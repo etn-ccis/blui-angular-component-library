@@ -192,14 +192,6 @@ Each Brightlayer UI component has classes which can be used to override componen
 
 The `<blui-drawer-subheader>` is an optional section that renders below the header and above the body of the `<blui-drawer>`. It can be used to support custom content (passed as children), such as filtering options or to display additional information.
 
-### Drawer Subheader Usage
-
-```html
-<blui-drawer-subheader>
-    <div>Custom Subheader Content goes here</div>
-</blui-drawer-subheader>
-```
-
 ### Drawer Subheader API
 
 Parent element (`<blui-drawer-subheader>`) attributes:
