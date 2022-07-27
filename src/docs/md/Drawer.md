@@ -132,16 +132,6 @@ Each Brightlayer UI component has classes which can be used to override componen
 
 The `<blui-drawer-header>` contains the content found at the top of the `<blui-drawer>`.
 
-### Drawer Header Usage
-
-```html
-<blui-drawer-header title="Brightlayer UI Drawer">
-    <button blui-icon mat-icon-button>
-        <mat-icon>menu</mat-icon>
-    </button>
-</blui-drawer-header>
-```
-
 ### Drawer Header API
 
 Parent element (`<blui-drawer-header>`) attributes:
