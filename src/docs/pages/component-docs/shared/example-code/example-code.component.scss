@@ -19,6 +19,10 @@
             margin-top: 1rem; // Adjust me when font-size of pre > code changes.
             width: 100% !important;
         }
+        .line-highlight::before,
+        .line-highlight::after {
+            display: none; // No line numbers
+        }
     }
     pre.language-html {
         padding-left: 2rem !important;
