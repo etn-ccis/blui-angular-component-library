@@ -9,9 +9,7 @@ export const COMPLEX = `<blui-drawer style="width: 250px">
                 <mat-label>Search</mat-label>
                 <input matInput placeholder="Search criteria">
                 <mat-icon matSuffix>search</mat-icon>
-                <mat-hint style="min-width: 360px">
-                    Sample search functionality
-                </mat-hint>
+                <mat-hint>Sample search functionality</mat-hint>
               </mat-form-field>
           </blui-drawer-subheader>
     </blui-drawer-body>
