@@ -51,9 +51,6 @@
                 box-sizing: border-box;
                 max-width: calc(100vw - 64px);
             }
-            code {
-                padding: 0 4px;
-            }
             pre[class*='language-'] {
                 &:before,
                 &:after {
@@ -62,6 +59,9 @@
             }
             pre code {
                 background: inherit;
+            }
+            code {
+                padding: 0 4px;
             }
             h1 {
                 font-size: 36px;
@@ -89,9 +89,28 @@
                 margin-bottom: 24px;
             }
             table {
+                margin-bottom: 8px;
                 width: 100%;
                 box-sizing: border-box;
                 border-collapse: collapse;
+                tr th {
+                    border: unset;
+                    border-left: 0;
+                    border-right: 0;
+                }
+                tr {
+                    &:last-of-type {
+                        border-bottom: 0;
+                    }
+                }
+                tr th {
+                    text-align: left;
+                    font-weight: bold;
+                }
+                td, th {
+                    font-size: 0.875rem;
+                    padding: 1rem;
+                }
             }
         }
     }
