@@ -3,6 +3,9 @@
 }
 
 .app-example-code {
+    * {
+        font-family: monospace !important;
+    }
     > code {
         padding-left: 0 !important;
     }
@@ -32,7 +35,6 @@
     pre > code {
         width: 100%;
         box-sizing: border-box;
-        font-family: monospace !important;
         font-size: 1rem !important; // If this gets adjusted, the .line-hightlight margin needs adjusted.
     }
     pre[class*='language-']:before {

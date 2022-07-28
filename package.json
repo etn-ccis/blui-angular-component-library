@@ -7,7 +7,7 @@
     "scripts": {
         "initialize": "bash scripts/initializeSubmodule.sh",
         "install:dependencies": "yarn && cd showcase && yarn",
-        "start": "ng serve demo -c development --open",
+        "start": "ng serve demo -c development --open --host 0.0.0.0",
         "start:npm": "ng serve demo -c npm --open",
         "start:showcase": "yarn initialize && yarn install:dependencies && cd showcase && yarn start",
         "build:demo": "rm -rf ./dist & ng build demo -c production",
