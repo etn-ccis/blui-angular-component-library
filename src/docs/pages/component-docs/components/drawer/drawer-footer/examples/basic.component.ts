@@ -11,7 +11,7 @@ export const BASIC = `<blui-drawer style="width: 250px">
     </blui-drawer-body>
     <blui-drawer-footer [hideContentOnCollapse]="false">
         <div style="height: 56px; display: flex; align-items: center; justify-content: center">
-            <i class="blui-eaton" style="font-size: 56px;"></i>
+            <i class="blui-eaton" style="font-size: 80px; margin-top: -32px"></i>
         </div>     
     </blui-drawer-footer>
 </blui-drawer>

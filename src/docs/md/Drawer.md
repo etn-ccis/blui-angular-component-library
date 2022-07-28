@@ -361,14 +361,6 @@ Each Brightlayer UI component has classes which can be used to override componen
 
 The `<blui-drawer-footer>` is an optional section that renders at the bottom of the `<blui-drawer>`. It can be used to add any custom content (as children).
 
-### Usage
-
-```html
-<blui-drawer-footer>
-    <div>Custom Footer goes here</div>
-</blui-drawer-footer>
-```
-
 ### Drawer Footer API
 
 Parent element (`<blui-drawer-footer>`) attributes:

@@ -12,12 +12,12 @@ import { BASIC } from './examples/basic.component';
                     <div class="example-heading">Basic Drawer Footer</div>
                     <div class="example-description">
                         A <code>&lt;blui-drawer-footer&gt;</code> appears at the bottom of a
-                        <code>&lt;blui-drawer&gt;</code> can be used to project custom content.
+                        <code>&lt;blui-drawer&gt;</code> can be used to display custom content.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-basic-drawer-footer-demo></app-basic-drawer-footer-demo>
                     </div>
-                    <app-example-code [snippet]="BASIC" dataLine="2"></app-example-code>
+                    <app-example-code [snippet]="BASIC" dataLine="9-13"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="BASIC"></app-copy-code-button>
                     </div>
