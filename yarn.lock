@@ -1241,6 +1241,11 @@
   optionalDependencies:
     eslint-plugin-react "^7.28.0"
 
+"@brightlayer-ui/icons@^1.10.0":
+  version "1.10.0"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/icons/-/icons-1.10.0.tgz#456c545457970e586a3cf5c7f2a7140d8cb5e840"
+  integrity sha512-Az/KOXmp47E4gwM2iIa+Y5AfLopNhLb6bynb30HfqQzlBszQKheHSCUgI1L81RPdqLZeaksFSMrcIiK91PoEaw==
+
 "@brightlayer-ui/prettier-config@^1.0.3":
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/@brightlayer-ui/prettier-config/-/prettier-config-1.0.3.tgz#e40a7ae7435c6fd5118acbf249080e0aa81e93af"
