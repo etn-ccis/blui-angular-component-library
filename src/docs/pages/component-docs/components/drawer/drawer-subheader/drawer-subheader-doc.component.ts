@@ -30,8 +30,12 @@ import { COMPLEX } from './examples/complex.component';
                 <div class="example-demo-wrapper">
                     <app-complex-drawer-subheader-demo></app-complex-drawer-subheader-demo>
                 </div>
-                <app-example-code [snippet]="COMPLEX" dataLine="3-11"></app-example-code>
+                <app-example-code [snippet]="COMPLEX" dataLine="3-15"></app-example-code>
                 <div class="example-actions">
+                    <app-view-code-button
+                        examplePath="drawer/drawer-subheader/complex"
+                        style="margin-right: 16px"
+                    ></app-view-code-button>
                     <app-copy-code-button [code]="COMPLEX"></app-copy-code-button>
                 </div>
             </div>

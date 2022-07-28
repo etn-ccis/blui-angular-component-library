@@ -1,21 +1,60 @@
-import { Component } from '@angular/core';
+import { Component, ViewEncapsulation } from '@angular/core';
+import { DrawerNavItem } from '@brightlayer-ui/angular-components';
 
-export const COMPLEX = `<blui-drawer style="width: 250px">
-    <blui-drawer-header title="Title"></blui-drawer-header>
+export const COMPLEX = `<blui-drawer style="width: 250px" [openOnHover]="false">
+    <blui-drawer-header title="Energy Co."></blui-drawer-header>
     <blui-drawer-subheader [hideContentOnCollapse]="false">
-          <mat-form-field appearance="outline"
-            style="width: 100%; padding: 8px 16px; box-sizing: border-box">
-            <mat-label>Search</mat-label>
-            <input matInput placeholder="Search criteria">
-            <mat-icon matSuffix>search</mat-icon>
-            <mat-hint>Sample search functionality</mat-hint>
-          </mat-form-field>
-      </blui-drawer-subheader>
+        <mat-form-field appearance="fill" style="height: 56px; width: 100%">
+            <mat-label>Organization</mat-label>
+            <mat-select panelClass="drawer-complex-subheader-demo">
+                <mat-option value="option1">ACME Co.</mat-option>
+                <mat-option value="option2">BLUI CO.</mat-option>
+                <mat-divider></mat-divider>
+                <mat-option value="option3" class="mat-hint">
+                    + Add a New Organization...
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+    </blui-drawer-subheader>
+    <blui-drawer-body>
+        <blui-drawer-nav-group>
+            <blui-drawer-nav-item *ngFor="let navItem of navItems" [title]="navItem.title">
+                <mat-icon blui-icon>{{ navItem.icon }}</mat-icon>
+            </blui-drawer-nav-item>
+        </blui-drawer-nav-group>
+    </blui-drawer-body>
 </blui-drawer>
 `;
 
 @Component({
     selector: 'app-complex-drawer-subheader-demo',
     template: COMPLEX,
+    encapsulation: ViewEncapsulation.None,
+    styles: [
+        `
+            .drawer-complex-subheader-demo {
+                max-width: 218px !important;
+            }
+            drawer-complex-subheader-demo .mat-select-panel {
+                box-sizing: content-box;
+                max-width: 250px !important;
+            }
+        `,
+    ],
 })
-export class ComplexComponent {}
+export class ComplexComponent {
+    navItems: DrawerNavItem[] = [
+        {
+            title: 'Dashboard',
+            icon: 'dashboard',
+        },
+        {
+            title: 'Locations',
+            icon: 'location_on',
+        },
+        {
+            title: 'Legal',
+            icon: 'copyright',
+        },
+    ];
+}
