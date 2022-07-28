@@ -14,6 +14,10 @@ body {
 
 /** Examples Pages */
 .app-example {
+    .blui-drawer-content blui-drawer-body {
+        overflow: unset; // This is required for the demos, otherwise will need to specify the height on the drawer in each demo.
+    }
+
     .example-heading {
         font-weight: 600;
         font-size: 1.25rem;
@@ -43,6 +47,7 @@ body {
         display: flex;
         max-width: calc(100vw - 64px); // 64px represents padding on container
         overflow: auto;
+        margin-top: 16px;
     }
 }
 

@@ -18,7 +18,7 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
                     </div>
                     <app-example-code [snippet]="BASIC"></app-example-code>
                     <div class="example-actions">
-                        <app-copy-code-button [code]="BASIC" style="margin-right: 1rem"></app-copy-code-button>
+                        <app-copy-code-button [code]="BASIC"></app-copy-code-button>
                     </div>
                 </div>
 
@@ -32,7 +32,7 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
                     </div>
                     <app-example-code [snippet]="WITH_ICONS"></app-example-code>
                     <div class="example-actions">
-                        <app-copy-code-button [code]="BASIC" style="margin-right: 1rem"></app-copy-code-button>
+                        <app-copy-code-button [code]="BASIC"></app-copy-code-button>
                     </div>
                 </div>
 
