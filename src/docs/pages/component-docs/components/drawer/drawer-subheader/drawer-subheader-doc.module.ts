@@ -5,11 +5,11 @@ import { DrawerSubheaderDocComponent } from './drawer-subheader-doc.component';
 import { BasicExampleComponent } from './examples/basic.component';
 import { ComplexComponent } from './examples/complex.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
 
 @NgModule({
     declarations: [DrawerSubheaderDocComponent, BasicExampleComponent, ComplexComponent],
-    imports: [DrawerModule, SharedCompDocsModule, MatFormFieldModule, MatInputModule],
+    imports: [DrawerModule, SharedCompDocsModule, MatFormFieldModule, MatSelectModule],
     exports: [DrawerSubheaderDocComponent],
 })
 export class DrawerSubheaderDocModule {}
