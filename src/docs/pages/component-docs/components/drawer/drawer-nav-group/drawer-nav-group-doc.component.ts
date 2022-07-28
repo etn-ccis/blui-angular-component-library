@@ -19,7 +19,7 @@ import { SPACER } from './examples/with-spacer.component';
                     <div class="example-demo-wrapper">
                         <app-basic-drawer-nav-group-demo></app-basic-drawer-nav-group-demo>
                     </div>
-                    <app-example-code [snippet]="BASIC"></app-example-code>
+                    <app-example-code [snippet]="BASIC" dataLine="3-6"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="BASIC"></app-copy-code-button>
                     </div>
@@ -33,7 +33,7 @@ import { SPACER } from './examples/with-spacer.component';
                     <div class="example-demo-wrapper">
                         <app-multiple-groups-nav-group-demo></app-multiple-groups-nav-group-demo>
                     </div>
-                    <app-example-code [snippet]="MULTIPLE_GROUPS"></app-example-code>
+                    <app-example-code [snippet]="MULTIPLE_GROUPS" dataLine="3-10"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="MULTIPLE_GROUPS"></app-copy-code-button>
                     </div>
@@ -47,7 +47,7 @@ import { SPACER } from './examples/with-spacer.component';
                     <div class="example-demo-wrapper">
                         <app-spacer-between-nav-group-demo></app-spacer-between-nav-group-demo>
                     </div>
-                    <app-example-code [snippet]="SPACER"></app-example-code>
+                    <app-example-code [snippet]="SPACER" dataLine="3-12"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="SPACER"></app-copy-code-button>
                     </div>
