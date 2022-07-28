@@ -238,14 +238,6 @@ Each Brightlayer UI component has classes which can be used to override componen
 
 A `<blui-drawer-nav-group>` is used inside of the `<blui-drawer-body>` to organize links and content. Each group consists of an (optional) group title and a series of NavItems.
 
-### Drawer NavGroup Usage
-
-```html
-<blui-drawer-nav-group title="Group Name">
-    <blui-drawer-nav-item></blui-drawer-nav-item>
-</blui-drawer-nav-group>
-```
-
 ### Drawer NavGroup API
 
 Parent element (`<blui-drawer-nav-group>`) attributes:
