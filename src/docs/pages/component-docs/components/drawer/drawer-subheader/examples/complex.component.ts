@@ -6,7 +6,7 @@ export const COMPLEX = `<blui-drawer style="width: 250px" [openOnHover]="false">
     <blui-drawer-subheader [hideContentOnCollapse]="false">
         <mat-form-field appearance="fill" style="height: 56px; width: 100%">
             <mat-label>Organization</mat-label>
-            <mat-select panelClass="drawer-complex-subheader-demo">
+            <mat-select panelClass="drawer-complex-subheader-demo" [(value)]="selected">
                 <mat-option value="option1">ACME Co.</mat-option>
                 <mat-option value="option2">BLUI CO.</mat-option>
                 <mat-divider></mat-divider>
@@ -43,6 +43,7 @@ export const COMPLEX = `<blui-drawer style="width: 250px" [openOnHover]="false">
     ],
 })
 export class ComplexComponent {
+    selected = 'option2';
     navItems: DrawerNavItem[] = [
         {
             title: 'Dashboard',
