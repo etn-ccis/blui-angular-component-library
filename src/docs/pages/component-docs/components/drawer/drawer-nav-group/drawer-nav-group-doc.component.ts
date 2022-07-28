@@ -13,7 +13,8 @@ import { SPACER } from './examples/with-spacer.component';
                 <div class="example-section">
                     <div class="example-heading">Basic Drawer Nav Group</div>
                     <div class="example-description">
-                        A <code>&lt;blui-drawer-nav-group&gt;</code> is a wrapper used to group multiple <code>&lt;blui-drawer-nav-item&gt;</code>.
+                        A <code>&lt;blui-drawer-nav-group&gt;</code> is a wrapper used to group multiple
+                        <code>&lt;blui-drawer-nav-item&gt;</code>.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-basic-drawer-nav-group-demo></app-basic-drawer-nav-group-demo>
@@ -26,7 +27,7 @@ import { SPACER } from './examples/with-spacer.component';
                 <div class="example-section">
                     <div class="example-heading">Multiple Drawer Nav Groups</div>
                     <div class="example-description">
-                        Multiple <code>&lt;blui-drawer-nav-group&gt;</code> can be passed into the 
+                        Multiple <code>&lt;blui-drawer-nav-group&gt;</code> can be passed into the
                         <code>&lt;blui-drawer-body&gt;</code> to better organize navigation items.
                     </div>
                     <div class="example-demo-wrapper">
@@ -45,7 +46,7 @@ import { SPACER } from './examples/with-spacer.component';
                     </div>
                     <div class="example-demo-wrapper">
                         <app-spacer-between-nav-group-demo></app-spacer-between-nav-group-demo>
-                    </div> 
+                    </div>
                     <app-example-code [snippet]="SPACER"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="SPACER"></app-copy-code-button>
