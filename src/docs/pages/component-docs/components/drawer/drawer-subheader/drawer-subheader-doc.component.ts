@@ -17,7 +17,7 @@ import { COMPLEX } from './examples/complex.component';
                 <div class="example-demo-wrapper">
                     <app-basic-drawer-subheader-demo></app-basic-drawer-subheader-demo>
                 </div>
-                <app-example-code [snippet]="BASIC"></app-example-code>
+                <app-example-code [snippet]="BASIC" dataLine="3-5"></app-example-code>
                 <div class="example-actions">
                     <app-copy-code-button [code]="BASIC"></app-copy-code-button>
                 </div>
@@ -30,7 +30,7 @@ import { COMPLEX } from './examples/complex.component';
                 <div class="example-demo-wrapper">
                     <app-complex-drawer-subheader-demo></app-complex-drawer-subheader-demo>
                 </div>
-                <app-example-code [snippet]="COMPLEX"></app-example-code>
+                <app-example-code [snippet]="COMPLEX" dataLine="3-11"></app-example-code>
                 <div class="example-actions">
                     <app-copy-code-button [code]="COMPLEX"></app-copy-code-button>
                 </div>
