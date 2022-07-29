@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MarkdownService } from 'ngx-markdown';
 import { MarkdownSplitService } from '../../../../../services/markdown-split/markdown-split.service';
 import { BASIC } from './examples/basic.component';
+import { COMPLEX } from './examples/complex.component';
 
 @Component({
     selector: 'app-drawer-footer-doc',
@@ -17,9 +18,19 @@ import { BASIC } from './examples/basic.component';
                     <div class="example-demo-wrapper">
                         <app-basic-drawer-footer-demo></app-basic-drawer-footer-demo>
                     </div>
-                    <app-example-code [snippet]="BASIC" dataLine="9-13"></app-example-code>
+                    <app-example-code [snippet]="BASIC" dataLine="9-11"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="BASIC"></app-copy-code-button>
+                    </div>
+                </div>
+                <div class="example-section">
+                    <div class="example-heading">Complex Drawer Footer</div>
+                    <div class="example-demo-wrapper">
+                        <app-complex-drawer-footer-demo></app-complex-drawer-footer-demo>
+                    </div>
+                    <app-example-code [snippet]="COMPLEX" dataLine="9-23"></app-example-code>
+                    <div class="example-actions">
+                        <app-copy-code-button [code]="COMPLEX"></app-copy-code-button>
                     </div>
                 </div>
             </div>
@@ -31,6 +42,7 @@ import { BASIC } from './examples/basic.component';
 export class DrawerFooterDocComponent {
     md: string;
     BASIC = BASIC;
+    COMPLEX = COMPLEX;
 
     constructor(
         private readonly _splitService: MarkdownSplitService,

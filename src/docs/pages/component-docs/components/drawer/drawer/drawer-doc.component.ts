@@ -40,7 +40,6 @@ import { FROM_LIST } from './examples/from-list.component';
                     <div class="example-description">
                         A <code>&lt;blui-drawer&gt;</code> can be broken down into the following subsections:
 
-
                         <ul>
                             <li>
                                 <code>
