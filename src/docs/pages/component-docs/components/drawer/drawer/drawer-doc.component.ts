@@ -86,7 +86,7 @@ import { FROM_LIST } from './examples/from-list.component';
 
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Drawer Complex</div>
+                    <div class="example-heading">Complex Drawer</div>
                     <div class="example-description">
                         As an alternative to structuring all navigation items within a template, navigation items can be
                         declared within a list and looped over to build a more complex <code>&lt;blui-drawer&gt;</code>.

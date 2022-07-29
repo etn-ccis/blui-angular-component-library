@@ -3,6 +3,10 @@
 @mixin light-theme() {
     $primary: map-get(blui.$blui-blue, 500);
 
+    a {
+        color: $primary!important;
+    }
+
     .example-heading {
         color: $primary;
     }
