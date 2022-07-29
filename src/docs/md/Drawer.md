@@ -8,14 +8,14 @@ The `<blui-drawer>` is used to organize content (typically navigation links) wit
 
 ### Drawer Usage
 
-```html
-// your-component.html
-<blui-drawer [open]="state.open">
-    <blui-drawer-header>Header content goes here</blui-drawer-header>
-    <blui-drawer-subheader>Subheader content goes here</blui-drawer-subheader>
-    <blui-drawer-body>Body content goes here</blui-drawer-body>
-    <blui-drawer-footer>Footer content goes here</blui-drawer-footer>
-</blui-drawer>
+```typescript
+// app.module.ts
+import { DrawerModule } from '@brightlayer-ui/angular-components';
+...
+imports: [
+    DrawerModule
+],
+...
 ```
 
 ### Drawer API

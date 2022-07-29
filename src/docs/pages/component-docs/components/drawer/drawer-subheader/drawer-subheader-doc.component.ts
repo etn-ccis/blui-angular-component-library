@@ -33,7 +33,7 @@ import { COMPLEX } from './examples/complex.component';
                 <app-example-code [snippet]="COMPLEX" dataLine="3-15"></app-example-code>
                 <div class="example-actions">
                     <app-view-code-button
-                        examplePath="drawer/drawer-subheader/complex"
+                        examplePath="drawer/subheader/complex"
                         style="margin-right: 16px"
                     ></app-view-code-button>
                     <app-copy-code-button [code]="COMPLEX"></app-copy-code-button>

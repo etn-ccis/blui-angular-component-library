@@ -72,6 +72,10 @@ export class NavigationComponent {
     // Observes route changes and determines which BLUI Auth page to show via route name.
     private _listenForRouteChanges(): void {
         this.routeListener = this._router.events.subscribe((route) => {
+            // Scroll to top of page.
+            const scrollEl = document.getElementsByClassName('mat-drawer-content')[0];
+            scrollEl.scrollTop = 0;
+
             if (route instanceof NavigationEnd) {
                 const currentRoute = this._getRouteMinusTab();
                 const navSections = [APP_NAV_ITEMS, COMPONENT_NAV_ITEMS, DRAWER_NAV_ITEMS];
