@@ -12,7 +12,7 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
         <app-component-doc-scaffold [md]="md">
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Basic Drawer Items</div>
+                    <div class="example-heading">Basic Drawer Nav Items</div>
                     <div class="example-demo-wrapper">
                         <app-basic-drawer-nav-item-demo></app-basic-drawer-nav-item-demo>
                     </div>
@@ -23,7 +23,7 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">Drawer Items With Icons</div>
+                    <div class="example-heading">Drawer Nav Items with Icons</div>
                     <div class="example-description">
                         Drawer navigation items accept icons denoted with the <code>blui-icon</code> selector.
                     </div>
@@ -37,7 +37,7 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">Nested Drawer Items</div>
+                    <div class="example-heading">Nested Drawer Nav Items</div>
                     <div class="example-description">
                         Navigation items can be nested to allow for different levels of navigation. To create a nested
                         navigation item, simply place a <code>&lt;blui-drawer-nav-item&gt;</code> inside of another. The
@@ -59,7 +59,7 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">Selected Navigation Items</div>
+                    <div class="example-heading">Selected Drawer Nav Item</div>
                     <div class="example-description">
                         Navigation items must be supplied with a <code>[selected]</code> input to denote which item is
                         active. The active highlighted shape can be adjusted via the
