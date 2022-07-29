@@ -16,7 +16,7 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
                     <div class="example-demo-wrapper">
                         <app-basic-drawer-nav-item-demo></app-basic-drawer-nav-item-demo>
                     </div>
-                    <app-example-code [snippet]="BASIC"></app-example-code>
+                    <app-example-code [snippet]="BASIC" dataLine="4-6"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="BASIC"></app-copy-code-button>
                     </div>
@@ -30,7 +30,7 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
                     <div class="example-demo-wrapper">
                         <app-nav-item-with-icons-demo></app-nav-item-with-icons-demo>
                     </div>
-                    <app-example-code [snippet]="WITH_ICONS"></app-example-code>
+                    <app-example-code [snippet]="WITH_ICONS" dataLine="4-9"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="BASIC"></app-copy-code-button>
                     </div>
@@ -46,7 +46,7 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
                     <div class="example-demo-wrapper">
                         <app-nav-item-with-nested-items-demo></app-nav-item-with-nested-items-demo>
                     </div>
-                    <app-example-code [snippet]="WITH_NESTED_ITEMS"></app-example-code>
+                    <app-example-code [snippet]="WITH_NESTED_ITEMS" dataLine="4-13"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button
                             [code]="WITH_NESTED_ITEMS"
@@ -68,7 +68,7 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
                     <div class="example-demo-wrapper">
                         <app-nav-item-with-selected-item-demo></app-nav-item-with-selected-item-demo>
                     </div>
-                    <app-example-code [snippet]="WITH_SELECTED_ITEM"></app-example-code>
+                    <app-example-code [snippet]="WITH_SELECTED_ITEM" dataLine="4-23"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button
                             [code]="WITH_SELECTED_ITEM"
