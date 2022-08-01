@@ -12,32 +12,32 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
         <app-component-doc-scaffold [md]="md">
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Basic Drawer Items</div>
+                    <div class="example-heading">Basic Drawer Nav Items</div>
                     <div class="example-demo-wrapper">
                         <app-basic-drawer-nav-item-demo></app-basic-drawer-nav-item-demo>
                     </div>
-                    <app-example-code [snippet]="BASIC"></app-example-code>
+                    <app-example-code [snippet]="BASIC" dataLine="4-6"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="BASIC"></app-copy-code-button>
                     </div>
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">Drawer Items With Icons</div>
+                    <div class="example-heading">Drawer Nav Items with Icons</div>
                     <div class="example-description">
                         Drawer navigation items accept icons denoted with the <code>blui-icon</code> selector.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-nav-item-with-icons-demo></app-nav-item-with-icons-demo>
                     </div>
-                    <app-example-code [snippet]="WITH_ICONS"></app-example-code>
+                    <app-example-code [snippet]="WITH_ICONS" dataLine="4-9"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="BASIC"></app-copy-code-button>
                     </div>
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">Nested Drawer Items</div>
+                    <div class="example-heading">Nested Drawer Nav Items</div>
                     <div class="example-description">
                         Navigation items can be nested to allow for different levels of navigation. To create a nested
                         navigation item, simply place a <code>&lt;blui-drawer-nav-item&gt;</code> inside of another. The
@@ -46,7 +46,7 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
                     <div class="example-demo-wrapper">
                         <app-nav-item-with-nested-items-demo></app-nav-item-with-nested-items-demo>
                     </div>
-                    <app-example-code [snippet]="WITH_NESTED_ITEMS"></app-example-code>
+                    <app-example-code [snippet]="WITH_NESTED_ITEMS" dataLine="4-13"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button
                             [code]="WITH_NESTED_ITEMS"
@@ -59,7 +59,7 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">Selected Navigation Items</div>
+                    <div class="example-heading">Selected Drawer Nav Item</div>
                     <div class="example-description">
                         Navigation items must be supplied with a <code>[selected]</code> input to denote which item is
                         active. The active highlighted shape can be adjusted via the
@@ -68,7 +68,7 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
                     <div class="example-demo-wrapper">
                         <app-nav-item-with-selected-item-demo></app-nav-item-with-selected-item-demo>
                     </div>
-                    <app-example-code [snippet]="WITH_SELECTED_ITEM"></app-example-code>
+                    <app-example-code [snippet]="WITH_SELECTED_ITEM" dataLine="4-23"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button
                             [code]="WITH_SELECTED_ITEM"

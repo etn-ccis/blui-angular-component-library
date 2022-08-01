@@ -39,40 +39,51 @@ import { FROM_LIST } from './examples/from-list.component';
                     <div class="example-heading">Drawer Anatomy</div>
                     <div class="example-description">
                         A <code>&lt;blui-drawer&gt;</code> can be broken down into the following subsections:
-                        <code>
-                            <a [routerLink]="createRouterLink(routes.drawerHeader.route)"
-                                >&lt;blui-drawer-header&gt;</a
-                            > </code
-                        >,
 
-                        <code>
-                            <a [routerLink]="createRouterLink(routes.drawerSubheader.route)"
-                                >&lt;blui-drawer-subheader&gt;</a
-                            > </code
-                        >,
-
-                        <code>
-                            <a [routerLink]="createRouterLink(routes.drawerBody.route)"
-                                >&lt;blui-drawer-body&gt;</a
-                            > </code
-                        >,
-
-                        <code>
-                            <a [routerLink]="createRouterLink(routes.drawerNavGroup.route)"
-                                >&lt;blui-drawer-nav-group&gt;</a
-                            > </code
-                        >,
-
-                        <code>
-                            <a [routerLink]="createRouterLink(routes.drawerNavItem.route)"
-                                >&lt;blui-drawer-nav-item&gt;</a
-                            > </code
-                        >, and
-                        <code>
-                            <a [routerLink]="createRouterLink(routes.drawerFooter.route)"
-                                >&lt;blui-drawer-footer&gt;</a
-                            > </code
-                        >.
+                        <ul>
+                            <li>
+                                <code>
+                                    <a [routerLink]="createRouterLink(routes.drawerHeader.route)">
+                                        &lt;blui-drawer-header&gt;
+                                    </a>
+                                </code>
+                            </li>
+                            <li>
+                                <code>
+                                    <a [routerLink]="createRouterLink(routes.drawerSubheader.route)">
+                                        &lt;blui-drawer-subheader&gt;
+                                    </a>
+                                </code>
+                            </li>
+                            <li>
+                                <code>
+                                    <a [routerLink]="createRouterLink(routes.drawerBody.route)">
+                                        &lt;blui-drawer-body&gt;
+                                    </a>
+                                </code>
+                            </li>
+                            <li>
+                                <code>
+                                    <a [routerLink]="createRouterLink(routes.drawerNavItem.route)">
+                                        &lt;blui-drawer-nav-item&gt;
+                                    </a>
+                                </code>
+                            </li>
+                            <li>
+                                <code>
+                                    <a [routerLink]="createRouterLink(routes.drawerNavGroup.route)">
+                                        &lt;blui-drawer-nav-group&gt;
+                                    </a>
+                                </code>
+                            </li>
+                            <li>
+                                <code>
+                                    <a [routerLink]="createRouterLink(routes.drawerFooter.route)">
+                                        &lt;blui-drawer-footer&gt;
+                                    </a>
+                                </code>
+                            </li>
+                        </ul>
                     </div>
                     <div class="example-demo-wrapper">
                         <app-anatomy-drawer-demo></app-anatomy-drawer-demo>
