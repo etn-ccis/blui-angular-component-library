@@ -19,6 +19,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { KnobBooleanComponent } from './knobs/knob-boolean.component';
 import {KnobColorComponent} from "./knobs/knob-color.component";
 import {ColorPickerModule} from "ngx-color-picker";
+import {KnobSelectComponent} from "./knobs/knob-select.component";
+import {MatSelectModule} from "@angular/material/select";
 
 @NgModule({
     declarations: [
@@ -29,7 +31,8 @@ import {ColorPickerModule} from "ngx-color-picker";
         ExampleCodeComponent,
         CopyCodeButtonComponent,
         KnobBooleanComponent,
-        KnobColorComponent
+        KnobColorComponent,
+        KnobSelectComponent
     ],
     imports: [
         AppCommonComponentsModule,
@@ -41,6 +44,7 @@ import {ColorPickerModule} from "ngx-color-picker";
         MatFormFieldModule,
         MatInputModule,
         MatTabsModule,
+        MatSelectModule,
         FormsModule,
         MatButtonModule,
         MarkdownModule.forRoot({
@@ -71,6 +75,7 @@ import {ColorPickerModule} from "ngx-color-picker";
         CopyCodeButtonComponent,
         KnobBooleanComponent,
         KnobColorComponent,
+        KnobSelectComponent,
     ],
 })
 export class SharedCompDocsModule {}

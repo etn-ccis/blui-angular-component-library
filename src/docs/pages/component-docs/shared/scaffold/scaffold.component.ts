@@ -47,7 +47,6 @@ export type TabName = 'examples' | 'api-docs' | 'playground';
                                 </div>
                             </div>
                             <div class="props-container">
-                                <div class="mat-headline" style="margin-bottom: 24px;">Props</div>
                                 <ng-content select="[knobs]"></ng-content>
                             </div>
                         </div>

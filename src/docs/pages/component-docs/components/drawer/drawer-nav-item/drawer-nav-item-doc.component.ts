@@ -99,6 +99,9 @@ import {ActiveItemBackgroundShape} from "@brightlayer-ui/angular-components";
                 <app-text-knob label="title" [(value)]="title"></app-text-knob>
                 <app-text-knob label="subtitle" [(value)]="subtitle"></app-text-knob>
                 <app-color-knob label="statusColor" [(value)]="statusColor"></app-color-knob>
+                <app-select-knob label="activeItemBackgroundShape" 
+                                 [options]="['square', 'round']" 
+                                 [(value)]="activeItemBackgroundShape"></app-select-knob>
                 <app-boolean-knob label="chevron" [(value)]="chevron"></app-boolean-knob>
                 <app-boolean-knob label="divider" [(value)]="divider"></app-boolean-knob>
                 <app-boolean-knob label="hidden" [(value)]="hidden"></app-boolean-knob>
@@ -118,15 +121,15 @@ export class DrawerNavItemDocComponent {
     generatedCode: string;
 
     /* Default playground knobs */
-    title = 'title';
-    subtitle = 'subtitle';
+    activeItemBackgroundShape: ActiveItemBackgroundShape = 'square';
     chevron = true;
     divider = true;
-    activeItemBackgroundShape: ActiveItemBackgroundShape = 'square';
     hidePadding = true;
     hidden = false;
     ripple = true;
-    statusColor: string = 'red';
+    statusColor = '#ffac00';
+    subtitle = 'subtitle';
+    title = 'title';
 
     constructor(
         private readonly _splitService: MarkdownSplitService,
