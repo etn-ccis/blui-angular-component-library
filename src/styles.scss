@@ -12,7 +12,8 @@ body {
     @include doc-light.light-theme();
 }
 // This is required for the demos, otherwise will need to specify the height on the drawer in each demo.
-.app-example, .playground-container {
+.app-example,
+.playground-container {
     .blui-drawer-content blui-drawer-body {
         overflow: unset;
     }
@@ -24,7 +25,6 @@ body {
 
 /** Examples Pages */
 .app-example {
-
     .example-heading {
         font-weight: 600;
         font-size: 1.25rem;

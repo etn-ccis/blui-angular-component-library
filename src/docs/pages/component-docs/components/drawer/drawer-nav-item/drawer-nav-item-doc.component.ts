@@ -1,11 +1,11 @@
-import {Component} from '@angular/core';
-import {MarkdownSplitService} from '../../../../../services/markdown-split/markdown-split.service';
-import {MarkdownService} from 'ngx-markdown';
-import {BASIC} from './examples/basic.component';
-import {WITH_ICONS} from './examples/with-icons.component';
-import {WITH_NESTED_ITEMS} from './examples/with-nested-items.component';
-import {WITH_SELECTED_ITEM} from './examples/with-selected-item.component';
-import {ActiveItemBackgroundShape} from "@brightlayer-ui/angular-components";
+import { Component } from '@angular/core';
+import { MarkdownSplitService } from '../../../../../services/markdown-split/markdown-split.service';
+import { MarkdownService } from 'ngx-markdown';
+import { BASIC } from './examples/basic.component';
+import { WITH_ICONS } from './examples/with-icons.component';
+import { WITH_NESTED_ITEMS } from './examples/with-nested-items.component';
+import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
+import { ActiveItemBackgroundShape } from '@brightlayer-ui/angular-components';
 
 @Component({
     selector: 'app-drawer-nav-item-doc',
@@ -99,9 +99,11 @@ import {ActiveItemBackgroundShape} from "@brightlayer-ui/angular-components";
                 <app-text-knob label="title" [(value)]="title"></app-text-knob>
                 <app-text-knob label="subtitle" [(value)]="subtitle"></app-text-knob>
                 <app-color-knob label="statusColor" [(value)]="statusColor"></app-color-knob>
-                <app-select-knob label="activeItemBackgroundShape" 
-                                 [options]="['square', 'round']" 
-                                 [(value)]="activeItemBackgroundShape"></app-select-knob>
+                <app-select-knob
+                    label="activeItemBackgroundShape"
+                    [options]="['square', 'round']"
+                    [(value)]="activeItemBackgroundShape"
+                ></app-select-knob>
                 <app-boolean-knob label="chevron" [(value)]="chevron"></app-boolean-knob>
                 <app-boolean-knob label="divider" [(value)]="divider"></app-boolean-knob>
                 <app-boolean-knob label="hidden" [(value)]="hidden"></app-boolean-knob>
