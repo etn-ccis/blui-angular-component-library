@@ -17,6 +17,8 @@ import { CopyCodeButtonComponent } from './buttons/copy-code-button/copy-code-bu
 import { ToggleCodeButtonComponent } from './buttons/toggle-code-button/toggle-code-button.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { KnobBooleanComponent } from './knobs/knob-boolean.component';
+import {KnobColorComponent} from "./knobs/knob-color.component";
+import {ColorPickerModule} from "ngx-color-picker";
 
 @NgModule({
     declarations: [
@@ -27,10 +29,12 @@ import { KnobBooleanComponent } from './knobs/knob-boolean.component';
         ExampleCodeComponent,
         CopyCodeButtonComponent,
         KnobBooleanComponent,
+        KnobColorComponent
     ],
     imports: [
         AppCommonComponentsModule,
         CommonModule,
+        ColorPickerModule,
         MatIconModule,
         MatCheckboxModule,
         HttpClientModule,
@@ -66,6 +70,7 @@ import { KnobBooleanComponent } from './knobs/knob-boolean.component';
         CommonModule,
         CopyCodeButtonComponent,
         KnobBooleanComponent,
+        KnobColorComponent,
     ],
 })
 export class SharedCompDocsModule {}

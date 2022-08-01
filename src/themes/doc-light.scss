@@ -12,6 +12,13 @@
     }
     .mat-drawer-content {
         background-color: map-get(blui.$blui-white, 50) !important;
+        .playground-live-example-wrapper {
+            background-color:  map-get(blui.$blui-white, 200) !important;
+        }
+        .props-container {
+            background-color: map-get(blui.$blui-white, 50);
+            border-right: solid 1px map-get(blui.$blui-gray, 50);
+        }
     }
     .doc-tab-content {
         h1,

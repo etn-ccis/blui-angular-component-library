@@ -118,9 +118,14 @@
     .playground-container {
         display: flex;
         height: 100%;
+        .playground-live-example-wrapper {
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
     }
     .props-container {
-        background-color: #e5e5e5;
         width: 300px;
         box-sizing: border-box;
         min-height: calc(100vh - 64px - 48px - 1px);

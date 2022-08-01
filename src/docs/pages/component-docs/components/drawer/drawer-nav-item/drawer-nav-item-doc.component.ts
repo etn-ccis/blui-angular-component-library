@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
-import { MarkdownSplitService } from '../../../../../services/markdown-split/markdown-split.service';
-import { MarkdownService } from 'ngx-markdown';
-import { BASIC } from './examples/basic.component';
-import { WITH_ICONS } from './examples/with-icons.component';
-import { WITH_NESTED_ITEMS } from './examples/with-nested-items.component';
-import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
+import {Component} from '@angular/core';
+import {MarkdownSplitService} from '../../../../../services/markdown-split/markdown-split.service';
+import {MarkdownService} from 'ngx-markdown';
+import {BASIC} from './examples/basic.component';
+import {WITH_ICONS} from './examples/with-icons.component';
+import {WITH_NESTED_ITEMS} from './examples/with-nested-items.component';
+import {WITH_SELECTED_ITEM} from './examples/with-selected-item.component';
+import {ActiveItemBackgroundShape} from "@brightlayer-ui/angular-components";
 
 @Component({
     selector: 'app-drawer-nav-item-doc',
@@ -80,23 +81,29 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
                     </div>
                 </div>
             </div>
-            <div playground>
-                <app-nav-item-playground
-                    [title]="title"
-                    [subtitle]="subtitle"
-                    [chevron]="chevron"
-                    [divider]="divider"
-                    (codeChange)="generatedCode = $event"
-                ></app-nav-item-playground>
-            </div>
-            <div code>
-                <app-example-code [snippet]="generatedCode"></app-example-code>
-            </div>
+            <app-nav-item-playground
+                playground
+                [activeItemBackgroundShape]="activeItemBackgroundShape"
+                [chevron]="chevron"
+                [divider]="divider"
+                [hidden]="hidden"
+                [hidePadding]="hidePadding"
+                [ripple]="ripple"
+                [statusColor]="statusColor"
+                [subtitle]="subtitle"
+                [title]="title"
+                (codeChange)="generatedCode = $event"
+            ></app-nav-item-playground>
+            <app-example-code code [snippet]="generatedCode"></app-example-code>
             <div knobs>
                 <app-text-knob label="title" [(value)]="title"></app-text-knob>
                 <app-text-knob label="subtitle" [(value)]="subtitle"></app-text-knob>
+                <app-color-knob label="statusColor" [(value)]="statusColor"></app-color-knob>
                 <app-boolean-knob label="chevron" [(value)]="chevron"></app-boolean-knob>
                 <app-boolean-knob label="divider" [(value)]="divider"></app-boolean-knob>
+                <app-boolean-knob label="hidden" [(value)]="hidden"></app-boolean-knob>
+                <app-boolean-knob label="hidePadding" [(value)]="hidePadding"></app-boolean-knob>
+                <app-boolean-knob label="ripple" [(value)]="ripple"></app-boolean-knob>
             </div>
         </app-component-doc-scaffold>
     `,
@@ -115,6 +122,11 @@ export class DrawerNavItemDocComponent {
     subtitle = 'subtitle';
     chevron = true;
     divider = true;
+    activeItemBackgroundShape: ActiveItemBackgroundShape = 'square';
+    hidePadding = true;
+    hidden = false;
+    ripple = true;
+    statusColor: string = 'red';
 
     constructor(
         private readonly _splitService: MarkdownSplitService,

@@ -36,18 +36,15 @@ export type TabName = 'examples' | 'api-docs' | 'playground';
                     <mat-tab label="Playground">
                         <div class="playground-container">
                             <div
-                                style="width: 100%; display: flex; flex-direction: column; justify-content: space-between;"
+                                style="width: 100%; display: flex; flex-direction: column;"
                             >
-                                <div
-                                    style="
-                                    height: 100%;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center"
-                                >
+                                <div class="playground-live-example-wrapper"
+                                    style="height: 60%">
                                     <ng-content select="[playground]"></ng-content>
                                 </div>
-                                <ng-content select="[code]"></ng-content>
+                                <div style="height: 40%; overflow: auto; box-sizing: border-box">
+                                    <ng-content select="[code]"></ng-content>
+                                </div>
                             </div>
                             <div class="props-container">
                                 <div class="mat-headline" style="margin-bottom: 24px;">Props</div>
