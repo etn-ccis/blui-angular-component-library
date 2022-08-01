@@ -10,8 +10,8 @@
     .example-heading {
         color: $primary;
     }
-    .example-demo-wrapper {
-        background-color: map-get(blui.$blui-white, 200);
+    .mat-drawer-content {
+        background-color: map-get(blui.$blui-white, 50) !important;
     }
     .doc-tab-content {
         h1,
