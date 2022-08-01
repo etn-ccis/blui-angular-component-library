@@ -105,10 +105,10 @@ export class UserMenuComponent implements OnInit, OnChanges, OnDestroy {
     @Input() avatarValue: string;
 
     /** Subtitle shown when menu is open */
-    @Input() menuSubtitle: string;
+    @Input() menuSubtitle: string | TemplateRef<any>;
 
     /** Title shown when menu is open */
-    @Input() menuTitle: string;
+    @Input() menuTitle: string | TemplateRef<any>;
 
     /** Where to render the menu relative to the avatar */
     @Input() positions = [
