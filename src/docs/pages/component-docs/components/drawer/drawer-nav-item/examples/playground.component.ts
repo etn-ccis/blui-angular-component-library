@@ -1,32 +1,29 @@
 import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
 import {ActiveItemBackgroundShape, DrawerComponent} from '@brightlayer-ui/angular-components';
 
-export const PLAYGROUND = `<blui-drawer style="width: 250px">
-    <blui-drawer-body>
-        <blui-drawer-nav-group>
-            <blui-drawer-nav-item 
-                [activeItemBackgroundShape]="activeItemBackgroundShape"
-                [chevron]="chevron"
-                [divider]="divider"
-                [hidden]="hidden"
-                [hidePadding]="hidePadding"
-                [ripple]="ripple"
-                [statusColor]="statusColor"
-                [subtitle]="subtitle"
-                [title]="title"
-                [selected]="true">
-            </blui-drawer-nav-item>
-            <blui-drawer-nav-item title="Item 2">
-            </blui-drawer-nav-item>
-            <blui-drawer-nav-item title="Item 3">
-            </blui-drawer-nav-item>
-        </blui-drawer-nav-group>
-    </blui-drawer-body>
-</blui-drawer>`;
-
 @Component({
     selector: 'app-nav-item-playground',
-    template: PLAYGROUND,
+    template: `
+        <blui-drawer style="width: 250px">
+            <blui-drawer-body>
+                <blui-drawer-nav-group>
+                    <blui-drawer-nav-item
+                            [activeItemBackgroundShape]="activeItemBackgroundShape"
+                            [chevron]="chevron"
+                            [divider]="divider"
+                            [hidden]="hidden"
+                            [hidePadding]="hidePadding"
+                            [ripple]="ripple"
+                            [statusColor]="statusColor"
+                            [subtitle]="subtitle"
+                            [title]="title"
+                            [selected]="true">
+                    </blui-drawer-nav-item>
+                    <blui-drawer-nav-item title="Item 2"></blui-drawer-nav-item>
+                    <blui-drawer-nav-item title="Item 3"></blui-drawer-nav-item>
+                </blui-drawer-nav-group>
+            </blui-drawer-body>
+        </blui-drawer>`,
 })
 export class PlaygroundComponent {
     @Input() title: string;
@@ -55,16 +52,16 @@ export class PlaygroundComponent {
     <blui-drawer-body>
         <blui-drawer-nav-group>
             <blui-drawer-nav-item 
-                title="${this.title}"
-                subtitle="${this.subtitle}"
+                activeItemBackgroundShape="${this.activeItemBackgroundShape}"
                 [chevron]="${this.chevron}"
                 [divider]="${this.divider}"
-                [activeItemBackgroundShape]="${this.activeItemBackgroundShape}"
                 [hidePadding]="${this.hidePadding}"
                 [hidden]="${this.hidden}"
                 [ripple]="${this.ripple}"
+                [selected]="true"
+                subtitle="${this.subtitle}"
                 [statusColor]="${this.statusColor}"
-                [selected]="true">
+                title="${this.title}">
             </blui-drawer-nav-item>
             <blui-drawer-nav-item title="Item 2"></blui-drawer-nav-item>
             <blui-drawer-nav-item title="Item 3"></blui-drawer-nav-item>

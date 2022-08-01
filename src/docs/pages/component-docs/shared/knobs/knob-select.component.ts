@@ -5,7 +5,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     template: `
         <mat-form-field appearance="fill">
             <mat-label>{{ label }}: string</mat-label>
-            <mat-select (valueChange)="valueChange.emit($event)">
+            <mat-select (valueChange)="valueChange.emit($event)" [(value)]="value">
                 <mat-option *ngFor="let options of options" [value]="options">
                     {{options}}
                 </mat-option>

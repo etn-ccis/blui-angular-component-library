@@ -5,6 +5,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     template: `
         <mat-form-field appearance="fill">
             <mat-label>{{ label }}: string</mat-label>
+            <mat-hint>{{hint}}</mat-hint>
             <input
                 matInput
                 [(ngModel)]="value"
@@ -15,7 +16,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
     `,
 })
 export class KnobTextComponent {
-    @Input() value;
-    @Input() label;
+    @Input() label: string;
+    @Input() hint: string;
+    @Input() value: string;
     @Output() valueChange = new EventEmitter<string>();
 }
