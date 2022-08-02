@@ -96,19 +96,40 @@ import { ActiveItemBackgroundShape } from '@brightlayer-ui/angular-components';
             ></app-nav-item-playground>
             <app-example-code code [snippet]="generatedCode"></app-example-code>
             <div knobs>
-                <app-text-knob label="title" [(value)]="title"></app-text-knob>
-                <app-text-knob label="subtitle" [(value)]="subtitle"></app-text-knob>
-                <app-color-knob label="statusColor" [(value)]="statusColor"></app-color-knob>
+                <app-text-knob label="title" [(value)]="title" hint="Text to show on the first line"></app-text-knob>
+                <app-text-knob
+                    label="subtitle"
+                    [(value)]="subtitle"
+                    hint="Text to show on the second line"
+                ></app-text-knob>
+                <app-color-knob
+                    label="statusColor"
+                    [(value)]="statusColor"
+                    hint="Border color that appears on the side"
+                ></app-color-knob>
                 <app-select-knob
                     label="activeItemBackgroundShape"
+                    hint="Selected item background highlight"
                     [options]="['square', 'round']"
                     [(value)]="activeItemBackgroundShape"
                 ></app-select-knob>
-                <app-boolean-knob label="chevron" [(value)]="chevron"></app-boolean-knob>
-                <app-boolean-knob label="divider" [(value)]="divider"></app-boolean-knob>
-                <app-boolean-knob label="hidden" [(value)]="hidden"></app-boolean-knob>
-                <app-boolean-knob label="hidePadding" [(value)]="hidePadding"></app-boolean-knob>
-                <app-boolean-knob label="ripple" [(value)]="ripple"></app-boolean-knob>
+                <app-boolean-knob label="chevron" [(value)]="chevron" hint="Show a chevron to side"></app-boolean-knob>
+                <app-boolean-knob
+                    label="divider"
+                    [(value)]="divider"
+                    hint="Show divider under nav item"
+                ></app-boolean-knob>
+                <app-boolean-knob label="hidden" [(value)]="hidden" hint="Hide nav item"></app-boolean-knob>
+                <app-boolean-knob
+                    label="hidePadding"
+                    [(value)]="hidePadding"
+                    hint="Allow padding, used with icons"
+                ></app-boolean-knob>
+                <app-boolean-knob
+                    label="ripple"
+                    [(value)]="ripple"
+                    hint="Allow ripple effect on click"
+                ></app-boolean-knob>
             </div>
         </app-component-doc-scaffold>
     `,

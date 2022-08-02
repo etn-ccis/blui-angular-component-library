@@ -18,6 +18,9 @@
         .props-container {
             background-color: map-get(blui.$blui-white, 50);
             border-right: solid 1px map-get(blui.$blui-gray, 50);
+            .knob-boolean-hint {
+                color: map-get(blui.$blui-gray, 500);
+            }
         }
     }
     .doc-tab-content {
