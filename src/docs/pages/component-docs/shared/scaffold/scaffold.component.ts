@@ -11,10 +11,11 @@ export type TabName = 'examples' | 'api-docs' | 'playground';
     selector: 'app-component-doc-scaffold',
     template: `
         <div class="scaffold-container">
-            <div
-                style="height: 48px; background: white; width: 100%; position: sticky; left: 0; z-index: 999"
-                [style.top.px]="isSmall() ? 56 : 64"
-            ></div>
+            <div class="fixed-tab-group-banner"
+                style="height: 50px; background: white; width: 100%; position: sticky; left: 0; z-index: 2"
+                [style.top.px]="isSmall() ? 56+1 : 64+1"
+            >
+            </div>
             <div class="tabs-container" [class.small]="isSmall()">
                 <mat-tab-group
                     style="width: 100%"
@@ -33,22 +34,22 @@ export type TabName = 'examples' | 'api-docs' | 'playground';
                             <ng-content select="[docs]"></ng-content>
                         </div>
                     </mat-tab>
-                    <mat-tab label="Playground">
-                        <div class="playground-container">
-                            <div style="width: 100%; display: flex; flex-direction: column;">
-                                <div class="playground-live-example-wrapper" style="height: 60%">
-                                    <ng-content select="[playground]"></ng-content>
-                                </div>
-                                <div style="height: 40%; overflow: auto; box-sizing: border-box">
-                                    <ng-content select="[code]"></ng-content>
-                                </div>
-                            </div>
-                            <div class="props-container">
-                                <ng-content select="[knobs]"></ng-content>
-                            </div>
-                        </div>
-                    </mat-tab>
+                    <mat-tab label="Playground"></mat-tab>
                 </mat-tab-group>
+            </div>
+            
+            <div class="playground-container" *ngIf="currentTabIndex === 2">
+                <div style="width: 100%; display: flex; flex-direction: column;">
+                    <div class="playground-live-example-wrapper" style="height: 50%">
+                        <ng-content select="[playground]"></ng-content>
+                    </div>
+                    <div style="height: 50%; overflow: auto; box-sizing: border-box">
+                        <ng-content select="[code]"></ng-content>
+                    </div>
+                </div>
+                <div class="props-container">
+                    <ng-content select="[knobs]"></ng-content>
+                </div>
             </div>
         </div>
     `,

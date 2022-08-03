@@ -21,6 +21,7 @@
             z-index: 5;
             z-index: 1000;
             max-width: 1200px;
+            border-bottom: 0!important;
             @media only screen and (max-width: 999px) {
                 max-width: calc(100% - 350px); // Full screen width, minus drawer width
             }
@@ -37,6 +38,14 @@
         .mat-tab-body-content,
         .mat-tab-body {
             overflow: unset;
+        }
+
+        /* Examples Section */
+        .examples-tab-content-wrapper {
+            > div {
+                display: flex;
+                flex-direction: column;
+            }
         }
 
         /* API (README) Section */
@@ -115,9 +124,16 @@
             }
         }
     }
+
+    /* Playground Tab */
+    $knobsWidth: 400px;
+    $playgroundHeight: calc(100vh - 64px - 48px - 2px);
     .playground-container {
+        min-height: $playgroundHeight;
         display: flex;
+        flex: 1 1 0px;
         height: 100%;
+        margin-right: $knobsWidth;
         .playground-live-example-wrapper {
             height: 50%;
             display: flex;
@@ -126,19 +142,16 @@
         }
     }
     .props-container {
-        width: 400px;
+        height: 100%;
+        max-height: $playgroundHeight;
+        width: $knobsWidth;
         box-sizing: border-box;
-        min-height: calc(100vh - 64px - 48px - 1px);
+        overflow: auto;
+        position: fixed;
+        right: 0;
         padding: 16px;
-
         mat-form-field {
             width: 100%;
-        }
-    }
-    .examples-tab-content-wrapper {
-        > div {
-            display: flex;
-            flex-direction: column;
         }
     }
 }

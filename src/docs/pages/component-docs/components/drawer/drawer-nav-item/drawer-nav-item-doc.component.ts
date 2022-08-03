@@ -83,6 +83,7 @@ import { ActiveItemBackgroundShape } from '@brightlayer-ui/angular-components';
             </div>
             <app-nav-item-playground
                 playground
+                [addIcon]="addIcon"
                 [activeItemBackgroundShape]="activeItemBackgroundShape"
                 [chevron]="chevron"
                 [divider]="divider"
@@ -113,6 +114,11 @@ import { ActiveItemBackgroundShape } from '@brightlayer-ui/angular-components';
                     [options]="['square', 'round']"
                     [(value)]="activeItemBackgroundShape"
                 ></app-select-knob>
+                <app-boolean-knob
+                        label="Add Icon"
+                        [(value)]="addIcon"
+                        hint="Render a navigation icon"
+                ></app-boolean-knob>
                 <app-boolean-knob label="chevron" [(value)]="chevron" hint="Show a chevron to side"></app-boolean-knob>
                 <app-boolean-knob
                     label="divider"
@@ -145,6 +151,7 @@ export class DrawerNavItemDocComponent {
 
     /* Default playground knobs */
     activeItemBackgroundShape: ActiveItemBackgroundShape = 'square';
+    addIcon = false;
     chevron = true;
     divider = true;
     hidePadding = true;

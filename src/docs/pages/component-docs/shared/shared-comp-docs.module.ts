@@ -21,6 +21,7 @@ import { KnobColorComponent } from './knobs/knob-color.component';
 import { ColorPickerModule } from 'ngx-color-picker';
 import { KnobSelectComponent } from './knobs/knob-select.component';
 import { MatSelectModule } from '@angular/material/select';
+import {MatDividerModule} from "@angular/material/divider";
 
 @NgModule({
     declarations: [
@@ -61,6 +62,7 @@ import { MatSelectModule } from '@angular/material/select';
                 },
             },
         }),
+        MatDividerModule,
     ],
     exports: [
         ExampleCodeComponent,

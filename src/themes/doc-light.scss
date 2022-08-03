@@ -23,6 +23,9 @@
             }
         }
     }
+    .fixed-tab-group-banner {
+        border-bottom: solid 1px map-get(blui.$blui-gray, 50);
+    }
     .doc-tab-content {
         h1,
         h2,

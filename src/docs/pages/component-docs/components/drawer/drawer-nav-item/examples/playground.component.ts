@@ -18,6 +18,7 @@ import { ActiveItemBackgroundShape, DrawerComponent } from '@brightlayer-ui/angu
                     [title]="title"
                     [selected]="true"
                 >
+                    <mat-icon *ngIf="addIcon" blui-icon>home</mat-icon>
                 </blui-drawer-nav-item>
                 <blui-drawer-nav-item title="Item 2"></blui-drawer-nav-item>
                 <blui-drawer-nav-item title="Item 3"></blui-drawer-nav-item>
@@ -35,6 +36,7 @@ export class PlaygroundComponent {
     @Input() hidden: boolean;
     @Input() ripple: boolean;
     @Input() statusColor: string;
+    @Input() addIcon: boolean;
     @Output() codeChange = new EventEmitter<string>();
 
     @ViewChild(DrawerComponent) drawer;
@@ -45,6 +47,10 @@ export class PlaygroundComponent {
 
     ngOnChanges(): void {
         this.codeChange.emit(this._createGeneratedCode());
+    }
+
+    private _addOptionalMenuIcon(): string {
+        return this.addIcon ? '\n\t\t\t\t\t<mat-icon blui-icon>home</mat-icon>' : ''
     }
 
     private _createGeneratedCode(): string {
@@ -61,7 +67,7 @@ export class PlaygroundComponent {
                 [selected]="true"
                 subtitle="${this.subtitle}"
                 [statusColor]="${this.statusColor}"
-                title="${this.title}">
+                title="${this.title}">${this._addOptionalMenuIcon()}
             </blui-drawer-nav-item>
             <blui-drawer-nav-item title="Item 2"></blui-drawer-nav-item>
             <blui-drawer-nav-item title="Item 3"></blui-drawer-nav-item>
