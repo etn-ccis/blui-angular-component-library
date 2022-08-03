@@ -11,8 +11,11 @@
         width: 100%;
         display: flex;
         justify-content: center;
+        .mat-tab-label {
+            height: 50px;
+        }
         .mat-tab-header {
-            height: 48px;
+            height: 52px;
             width: 100%;
             position: sticky;
             left: 0px;
@@ -32,9 +35,6 @@
         .mat-tab-label {
             width: 100% !important;
         }
-        .mat-tab-body:not(#mat-tab-content-0-2) {
-            padding: 48px 32px 32px 32px;
-        }
         .mat-tab-body-content,
         .mat-tab-body {
             overflow: unset;
@@ -42,6 +42,7 @@
 
         /* Examples Section */
         .examples-tab-content-wrapper {
+            padding: 48px 32px 32px 32px;
             > div {
                 display: flex;
                 flex-direction: column;
@@ -50,6 +51,7 @@
 
         /* API (README) Section */
         .doc-tab-content {
+            padding: 48px 32px 32px 32px;
             img {
                 margin: 16px 0px;
             }

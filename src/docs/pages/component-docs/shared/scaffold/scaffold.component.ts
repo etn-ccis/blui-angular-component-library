@@ -12,8 +12,8 @@ export type TabName = 'examples' | 'api-docs' | 'playground';
     template: `
         <div class="scaffold-container">
             <div class="fixed-tab-group-banner"
-                style="height: 50px; background: white; width: 100%; position: sticky; left: 0; z-index: 2"
-                [style.top.px]="isSmall() ? 56+1 : 64+1"
+                style="height: 48px; background: white; width: 100%; position: sticky; left: 0; z-index: 2"
+                [style.top.px]="isSmall() ? 56 : 68"
             >
             </div>
             <div class="tabs-container" [class.small]="isSmall()">
