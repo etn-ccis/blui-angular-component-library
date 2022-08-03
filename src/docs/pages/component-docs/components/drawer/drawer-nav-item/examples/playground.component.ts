@@ -70,11 +70,12 @@ export class PlaygroundComponent implements OnDestroy {
     }
 
     private _addOptionalMenuIcon(): string {
-        return this.inputs.addIcon ? '\n\t\t\t\t<mat-icon blui-icon>home</mat-icon>' : '';
+        return this.inputs.addIcon.value ? '\n\t\t\t\t<mat-icon blui-icon>home</mat-icon>' : '';
     }
 
     private _createGeneratedCode(): string {
-        const code = `<blui-drawer style="width: 250px">
+        const code = `
+<blui-drawer style="width: 250px">
     <blui-drawer-body>
         <blui-drawer-nav-group>
             <blui-drawer-nav-item 
@@ -97,6 +98,7 @@ export class PlaygroundComponent implements OnDestroy {
         </blui-drawer-nav-group>
     </blui-drawer-body>
 </blui-drawer>`;
+
         return this._playgroundService.removeEmptyLines(code);
     }
 }
