@@ -4,8 +4,18 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { Subscription } from 'rxjs';
 import { ViewportService } from '../../../../services/viewport/viewport.service';
+import { PlaygroundService } from '../../../../services/playground/playground.service';
 
 export type TabName = 'examples' | 'api-docs' | 'playground';
+
+export type Knob = {
+    label?: string;
+    value: any;
+    componentDefault?: string | boolean | number;
+    type: 'string' | 'color' | 'select' | 'number' | 'boolean';
+    hint: string;
+    options?: string[];
+};
 
 @Component({
     selector: 'app-component-doc-scaffold',
@@ -48,7 +58,37 @@ export type TabName = 'examples' | 'api-docs' | 'playground';
                     </div>
                 </div>
                 <div class="props-container">
-                    <ng-content select="[knobs]"></ng-content>
+                    <ng-container *ngFor="let key of getKeys()">
+                        <app-select-knob
+                            *ngIf="knobs[key].type === 'select'"
+                            [label]="knobs[key].label || key"
+                            [options]="knobs[key].options"
+                            [(value)]="knobs[key].value"
+                            [hint]="knobs[key].hint"
+                            (valueChange)="emitKnobChange(knobs)"
+                        ></app-select-knob>
+                        <app-color-knob
+                            *ngIf="knobs[key].type === 'color'"
+                            [label]="knobs[key].label || key"
+                            [(value)]="knobs[key].value"
+                            [hint]="knobs[key].hint"
+                            (valueChange)="emitKnobChange(knobs)"
+                        ></app-color-knob>
+                        <app-text-knob
+                            *ngIf="knobs[key].type === 'string'"
+                            [label]="knobs[key].label || key"
+                            [(value)]="knobs[key].value"
+                            [hint]="knobs[key].hint"
+                            (valueChange)="emitKnobChange(knobs)"
+                        ></app-text-knob>
+                        <app-boolean-knob
+                            *ngIf="knobs[key].type === 'boolean'"
+                            [label]="knobs[key].label || key"
+                            [(value)]="knobs[key].value"
+                            [hint]="knobs[key].hint"
+                            (valueChange)="emitKnobChange(knobs)"
+                        ></app-boolean-knob>
+                    </ng-container>
                 </div>
             </div>
         </div>
@@ -60,16 +100,23 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
     @Input() useDefaultDocs = true;
     @Input() mdFileName: string;
     @Input() md: string;
+    @Input() knobs: { [key: string]: Knob };
+
     currentTabIndex = 0;
 
     routeListener: Subscription;
 
     constructor(
+        private readonly _playgroundService: PlaygroundService,
         private readonly _route: ActivatedRoute,
         private readonly _router: Router,
         private readonly _markdownService: MarkdownService,
         private readonly _viewportService: ViewportService
     ) {}
+
+    getKeys(): any {
+        return Object.keys(this.knobs);
+    }
 
     ngOnInit(): void {
         if (this.mdFileName) {
@@ -108,6 +155,11 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
             replaceUrl: true,
         });
         this.currentTabIndex = this._tabNameToIndex(tab);
+    }
+
+    /** Emits an event whenever a knob has been udpated. */
+    emitKnobChange(knobs: { [key: string]: Knob }): void {
+        this._playgroundService.knobChange.next(knobs);
     }
 
     /** Returns angular route, but without the TabName at the end. */

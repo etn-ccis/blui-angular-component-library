@@ -5,12 +5,12 @@ import { BASIC } from './examples/basic.component';
 import { WITH_ICONS } from './examples/with-icons.component';
 import { WITH_NESTED_ITEMS } from './examples/with-nested-items.component';
 import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
-import { ActiveItemBackgroundShape } from '@brightlayer-ui/angular-components';
+import { NavItemPlaygroundKnobs } from './examples/playground.component';
 
 @Component({
     selector: 'app-drawer-nav-item-doc',
     template: `
-        <app-component-doc-scaffold [md]="md">
+        <app-component-doc-scaffold [md]="md" [knobs]="knobs">
             <div examples class="app-example">
                 <div class="example-section">
                     <div class="example-heading">Basic Drawer Nav Items</div>
@@ -83,60 +83,10 @@ import { ActiveItemBackgroundShape } from '@brightlayer-ui/angular-components';
             </div>
             <app-nav-item-playground
                 playground
-                [addIcon]="addIcon"
-                [activeItemBackgroundShape]="activeItemBackgroundShape"
-                [chevron]="chevron"
-                [divider]="divider"
-                [hidden]="hidden"
-                [hidePadding]="hidePadding"
-                [ripple]="ripple"
-                [statusColor]="statusColor"
-                [subtitle]="subtitle"
-                [title]="title"
+                [inputs]="knobs"
                 (codeChange)="generatedCode = $event"
             ></app-nav-item-playground>
             <app-example-code code [snippet]="generatedCode"></app-example-code>
-            <div knobs>
-                <app-text-knob label="title" [(value)]="title" hint="Text to show on the first line"></app-text-knob>
-                <app-text-knob
-                    label="subtitle"
-                    [(value)]="subtitle"
-                    hint="Text to show on the second line"
-                ></app-text-knob>
-                <app-color-knob
-                    label="statusColor"
-                    [(value)]="statusColor"
-                    hint="Border color that appears on the side"
-                ></app-color-knob>
-                <app-select-knob
-                    label="activeItemBackgroundShape"
-                    hint="Selected item background highlight"
-                    [options]="['square', 'round']"
-                    [(value)]="activeItemBackgroundShape"
-                ></app-select-knob>
-                <app-boolean-knob
-                    label="Add Icon"
-                    [(value)]="addIcon"
-                    hint="Render a navigation icon"
-                ></app-boolean-knob>
-                <app-boolean-knob label="chevron" [(value)]="chevron" hint="Show a chevron to side"></app-boolean-knob>
-                <app-boolean-knob
-                    label="divider"
-                    [(value)]="divider"
-                    hint="Show divider under nav item"
-                ></app-boolean-knob>
-                <app-boolean-knob label="hidden" [(value)]="hidden" hint="Hide nav item"></app-boolean-knob>
-                <app-boolean-knob
-                    label="hidePadding"
-                    [(value)]="hidePadding"
-                    hint="Allow padding, used with icons"
-                ></app-boolean-knob>
-                <app-boolean-knob
-                    label="ripple"
-                    [(value)]="ripple"
-                    hint="Allow ripple effect on click"
-                ></app-boolean-knob>
-            </div>
         </app-component-doc-scaffold>
     `,
     styleUrls: ['./drawer-nav-item-doc.component.scss'],
@@ -150,16 +100,71 @@ export class DrawerNavItemDocComponent {
     generatedCode: string;
 
     /* Default playground knobs */
-    activeItemBackgroundShape: ActiveItemBackgroundShape = 'square';
-    addIcon = false;
-    chevron = true;
-    divider = true;
-    hidePadding = true;
-    hidden = false;
-    ripple = true;
-    statusColor = '#ffac00';
-    subtitle = 'subtitle';
-    title = 'title';
+    knobs: NavItemPlaygroundKnobs = {
+        title: {
+            value: 'title',
+            type: 'string',
+            hint: 'Text to show on the first line',
+        },
+        subtitle: {
+            value: 'subtitle',
+            type: 'string',
+            hint: 'Text to show on the second line',
+        },
+        statusColor: {
+            value: '#ffac00',
+            type: 'color',
+            hint: 'Border color that appears on the side',
+        },
+        activeItemBackgroundShape: {
+            value: 'square',
+            componentDefault: 'square',
+            type: 'select',
+            options: ['square', 'round'],
+            hint: 'Selected item background highlight',
+        },
+        addIcon: {
+            label: 'Add Icon',
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Render a navigation icon',
+        },
+        chevron: {
+            value: true,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Show a chevron to side',
+        },
+        divider: {
+            value: true,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Show divider under nav item',
+        },
+        hidden: {
+            value: false,
+            type: 'boolean',
+            hint: 'Hide nav item',
+        },
+        hidePadding: {
+            value: true,
+            type: 'boolean',
+            hint: 'Allow padding, used with icons',
+        },
+        ripple: {
+            value: true,
+            componentDefault: true,
+            type: 'boolean',
+            hint: 'Allow ripple effect on click',
+        },
+        selected: {
+            value: true,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Mark selected item as active',
+        },
+    };
 
     constructor(
         private readonly _splitService: MarkdownSplitService,

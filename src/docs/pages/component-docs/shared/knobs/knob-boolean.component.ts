@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
             <mat-checkbox style="margin-left: 1rem" [(ngModel)]="value" (ngModelChange)="valueChange.emit(value)">{{
                 label
             }}</mat-checkbox>
-            <div class="knob-boolean-hint mat-caption" style="padding-left: 1rem">{{ hint }}</div>
+            <div class="knob-boolean-hint mat-caption" style="padding-left: 2.5rem">{{ hint }}</div>
         </div>
     `,
 })

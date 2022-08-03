@@ -1,24 +1,41 @@
-import { Component, EventEmitter, Input, Output, ViewChild } from '@angular/core';
-import { ActiveItemBackgroundShape, DrawerComponent } from '@brightlayer-ui/angular-components';
+import { Component, EventEmitter, Input, OnDestroy, Output, ViewChild } from '@angular/core';
+import { DrawerComponent } from '@brightlayer-ui/angular-components';
+import { PlaygroundService } from '../../../../../../services/playground/playground.service';
+import { Subscription } from 'rxjs';
+import { Knob } from '../../../../shared/scaffold/scaffold.component';
+
+export type NavItemPlaygroundKnobs = {
+    title: Knob;
+    subtitle: Knob;
+    chevron: Knob;
+    divider: Knob;
+    activeItemBackgroundShape: Knob;
+    hidden: Knob;
+    hidePadding: Knob;
+    ripple: Knob;
+    statusColor: Knob;
+    addIcon: Knob;
+    selected: Knob;
+};
 
 @Component({
     selector: 'app-nav-item-playground',
-    template: ` <blui-drawer style="width: 250px">
+    template: ` <blui-drawer style="width: 250px" *ngIf="inputs">
         <blui-drawer-body>
             <blui-drawer-nav-group>
                 <blui-drawer-nav-item
-                    [activeItemBackgroundShape]="activeItemBackgroundShape"
-                    [chevron]="chevron"
-                    [divider]="divider"
-                    [hidden]="hidden"
-                    [hidePadding]="hidePadding"
-                    [ripple]="ripple"
-                    [statusColor]="statusColor"
-                    [subtitle]="subtitle"
-                    [title]="title"
-                    [selected]="true"
+                    [activeItemBackgroundShape]="inputs.activeItemBackgroundShape.value"
+                    [chevron]="inputs.chevron.value"
+                    [divider]="inputs.divider.value"
+                    [hidden]="inputs.hidden.value"
+                    [hidePadding]="inputs.hidePadding.value"
+                    [ripple]="inputs.ripple.value"
+                    [statusColor]="inputs.statusColor.value"
+                    [subtitle]="inputs.subtitle.value"
+                    [title]="inputs.title.value"
+                    [selected]="inputs.selected.value"
                 >
-                    <mat-icon *ngIf="addIcon" blui-icon>home</mat-icon>
+                    <mat-icon *ngIf="inputs.addIcon.value" blui-icon>home</mat-icon>
                 </blui-drawer-nav-item>
                 <blui-drawer-nav-item title="Item 2"></blui-drawer-nav-item>
                 <blui-drawer-nav-item title="Item 3"></blui-drawer-nav-item>
@@ -26,53 +43,60 @@ import { ActiveItemBackgroundShape, DrawerComponent } from '@brightlayer-ui/angu
         </blui-drawer-body>
     </blui-drawer>`,
 })
-export class PlaygroundComponent {
-    @Input() title: string;
-    @Input() subtitle: string;
-    @Input() chevron: boolean;
-    @Input() divider: boolean;
-    @Input() activeItemBackgroundShape: ActiveItemBackgroundShape;
-    @Input() hidePadding: boolean;
-    @Input() hidden: boolean;
-    @Input() ripple: boolean;
-    @Input() statusColor: string;
-    @Input() addIcon: boolean;
+export class PlaygroundComponent implements OnDestroy {
+    @Input() inputs: NavItemPlaygroundKnobs;
     @Output() codeChange = new EventEmitter<string>();
 
     @ViewChild(DrawerComponent) drawer;
 
+    knobListener: Subscription;
+
+    constructor(private readonly _playgroundService: PlaygroundService) {
+        this.knobListener = this._playgroundService.knobChange.subscribe((updatedKnobs: NavItemPlaygroundKnobs) => {
+            this.inputs = updatedKnobs;
+            this.codeChange.emit(this._createGeneratedCode());
+        });
+    }
+
     ngAfterViewInit(): void {
+        this.codeChange.emit(this._createGeneratedCode());
         this.drawer.openOnHover = false;
     }
 
-    ngOnChanges(): void {
-        this.codeChange.emit(this._createGeneratedCode());
+    ngOnDestroy(): void {
+        if (this.knobListener) {
+            this.knobListener.unsubscribe();
+        }
     }
 
     private _addOptionalMenuIcon(): string {
-        return this.addIcon ? '\n\t\t\t\t\t<mat-icon blui-icon>home</mat-icon>' : '';
+        return this.inputs.addIcon ? '\n\t\t\t\t<mat-icon blui-icon>home</mat-icon>' : '';
     }
 
     private _createGeneratedCode(): string {
-        return `<blui-drawer style="width: 250px">
+        const code = `<blui-drawer style="width: 250px">
     <blui-drawer-body>
         <blui-drawer-nav-group>
             <blui-drawer-nav-item 
-                activeItemBackgroundShape="${this.activeItemBackgroundShape}"
-                [chevron]="${this.chevron}"
-                [divider]="${this.divider}"
-                [hidePadding]="${this.hidePadding}"
-                [hidden]="${this.hidden}"
-                [ripple]="${this.ripple}"
-                [selected]="true"
-                subtitle="${this.subtitle}"
-                [statusColor]="${this.statusColor}"
-                title="${this.title}">${this._addOptionalMenuIcon()}
+                ${this._playgroundService.addOptionalProp(this.inputs, 'title')}
+                ${this._playgroundService.addOptionalProp(this.inputs, 'subtitle')}
+                ${this._playgroundService.addOptionalProp(this.inputs, 'statusColor')}
+                ${this._playgroundService.addOptionalProp(this.inputs, 'activeItemBackgroundShape')}
+                ${this._playgroundService.addOptionalProp(this.inputs, 'chevron')}
+                ${this._playgroundService.addOptionalProp(this.inputs, 'divider')}
+                ${this._playgroundService.addOptionalProp(this.inputs, 'hidePadding')}
+                ${this._playgroundService.addOptionalProp(this.inputs, 'hidden')}
+                ${this._playgroundService.addOptionalProp(this.inputs, 'ripple')}
+                ${this._playgroundService.addOptionalProp(this.inputs, 'divider')}
+                ${this._playgroundService.addOptionalProp(this.inputs, 'selected')}
+            >
+                ${this._addOptionalMenuIcon()}
             </blui-drawer-nav-item>
             <blui-drawer-nav-item title="Item 2"></blui-drawer-nav-item>
             <blui-drawer-nav-item title="Item 3"></blui-drawer-nav-item>
         </blui-drawer-nav-group>
     </blui-drawer-body>
 </blui-drawer>`;
+        return this._playgroundService.removeEmptyLines(code);
     }
 }
