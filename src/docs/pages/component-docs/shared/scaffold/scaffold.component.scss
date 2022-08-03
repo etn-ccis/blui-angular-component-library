@@ -12,7 +12,7 @@
         display: flex;
         justify-content: center;
         .mat-tab-label {
-            height: 50px;
+           // height: 50px;
         }
         .mat-tab-header {
             height: 52px;
@@ -23,11 +23,8 @@
             margin-top: -48px;
             z-index: 5;
             z-index: 1000;
-            max-width: 1200px;
+            max-width: 100%;
             border-bottom: 0!important;
-            @media only screen and (max-width: 999px) {
-                max-width: calc(100% - 350px); // Full screen width, minus drawer width
-            }
         }
         .mat-tab-group {
             max-width: 1200px;
@@ -129,7 +126,7 @@
 
     /* Playground Tab */
     $knobsWidth: 400px;
-    $playgroundHeight: calc(100vh - 64px - 48px - 2px);
+    $playgroundHeight: calc(100vh - 64px - 52px);
     .playground-container {
         min-height: $playgroundHeight;
         display: flex;

@@ -43,7 +43,7 @@ export class NavigationComponent {
 
         const defaultTab: TabName = 'examples';
         this.navigate(`${navItem.route}/${defaultTab}`);
-        if (this._viewportService.isSmall()) {
+        if (this._viewportService.isMedium()) {
             this._stateService.setDrawerOpen(false);
         }
     }
@@ -97,12 +97,12 @@ export class NavigationComponent {
     }
 
     getVariant(): DrawerLayoutVariantType {
-        if (this.variant === 'permanent' && this._viewportService.isSmall()) {
+        if (this.variant === 'permanent' && this._viewportService.isMedium()) {
             this._stateService.setDrawerOpen(false);
-        } else if (this.variant === 'temporary' && !this._viewportService.isSmall()) {
+        } else if (this.variant === 'temporary' && !this._viewportService.isMedium()) {
             this._stateService.setDrawerOpen(true);
         }
-        this.variant = this._viewportService.isSmall() ? 'temporary' : 'permanent';
+        this.variant = this._viewportService.isMedium() ? 'temporary' : 'permanent';
         return this.variant;
     }
 }
