@@ -144,6 +144,7 @@ export class DrawerNavItemDocComponent {
         },
         hidden: {
             value: false,
+            componentDefault: false,
             type: 'boolean',
             hint: 'Hide nav item',
         },

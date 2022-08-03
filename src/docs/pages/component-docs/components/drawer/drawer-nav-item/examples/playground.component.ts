@@ -88,7 +88,6 @@ export class PlaygroundComponent implements OnDestroy {
                 ${this._playgroundService.addOptionalProp(this.inputs, 'hidePadding')}
                 ${this._playgroundService.addOptionalProp(this.inputs, 'hidden')}
                 ${this._playgroundService.addOptionalProp(this.inputs, 'ripple')}
-                ${this._playgroundService.addOptionalProp(this.inputs, 'divider')}
                 ${this._playgroundService.addOptionalProp(this.inputs, 'selected')}
             >
                 ${this._addOptionalMenuIcon()}
