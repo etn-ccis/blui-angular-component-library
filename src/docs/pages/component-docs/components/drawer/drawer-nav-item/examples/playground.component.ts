@@ -50,7 +50,7 @@ export class PlaygroundComponent {
     }
 
     private _addOptionalMenuIcon(): string {
-        return this.addIcon ? '\n\t\t\t\t\t<mat-icon blui-icon>home</mat-icon>' : ''
+        return this.addIcon ? '\n\t\t\t\t\t<mat-icon blui-icon>home</mat-icon>' : '';
     }
 
     private _createGeneratedCode(): string {

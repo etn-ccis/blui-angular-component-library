@@ -11,11 +11,11 @@ export type TabName = 'examples' | 'api-docs' | 'playground';
     selector: 'app-component-doc-scaffold',
     template: `
         <div class="scaffold-container">
-            <div class="fixed-tab-group-banner"
+            <div
+                class="fixed-tab-group-banner"
                 style="height: 48px; background: white; width: 100%; position: sticky; left: 0; z-index: 2"
                 [style.top.px]="isSmall() ? 60 : 68"
-            >
-            </div>
+            ></div>
             <div class="tabs-container" [class.small]="isSmall()">
                 <mat-tab-group
                     style="width: 100%"
@@ -37,7 +37,7 @@ export type TabName = 'examples' | 'api-docs' | 'playground';
                     <mat-tab label="Playground"></mat-tab>
                 </mat-tab-group>
             </div>
-            
+
             <div class="playground-container" *ngIf="currentTabIndex === 2">
                 <div style="width: 100%; display: flex; flex-direction: column;">
                     <div class="playground-live-example-wrapper" style="height: 50%">

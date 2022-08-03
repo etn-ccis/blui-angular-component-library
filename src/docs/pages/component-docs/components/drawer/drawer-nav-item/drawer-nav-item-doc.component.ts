@@ -115,9 +115,9 @@ import { ActiveItemBackgroundShape } from '@brightlayer-ui/angular-components';
                     [(value)]="activeItemBackgroundShape"
                 ></app-select-knob>
                 <app-boolean-knob
-                        label="Add Icon"
-                        [(value)]="addIcon"
-                        hint="Render a navigation icon"
+                    label="Add Icon"
+                    [(value)]="addIcon"
+                    hint="Render a navigation icon"
                 ></app-boolean-knob>
                 <app-boolean-knob label="chevron" [(value)]="chevron" hint="Show a chevron to side"></app-boolean-knob>
                 <app-boolean-knob
