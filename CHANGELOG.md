@@ -5,6 +5,7 @@
 ### Fixed
 
 - Fixed incorrect styling of nested `<mat-drawer-content>` ([#463](https://github.com/brightlayer-ui/angular-component-library/issues/463)).
+- Fixed `<blui-drawer>` sharing a single instance of drawer state ([#453](https://github.com/brightlayer-ui/angular-component-library/issues/453)).
 
 ## v7.0.2 (June 8, 2022)
 

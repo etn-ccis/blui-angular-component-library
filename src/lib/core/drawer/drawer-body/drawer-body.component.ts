@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ViewEncapsulation } from '@angular/core';
-import { StateListener } from '../state-listener.component';
-import { DrawerService } from '../service/drawer.service';
+import { DrawerStateManagerService, StateListener } from '../state-listener.component';
 
 /**
  * The `<blui-drawer-body>` is a wrapper for the main content of the Drawer.
@@ -32,7 +31,7 @@ import { DrawerService } from '../service/drawer.service';
     },
 })
 export class DrawerBodyComponent extends StateListener {
-    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
-        super(drawerService, changeDetectorRef);
+    constructor(stateManagerService: DrawerStateManagerService, changeDetectorRef: ChangeDetectorRef) {
+        super(stateManagerService, changeDetectorRef);
     }
 }

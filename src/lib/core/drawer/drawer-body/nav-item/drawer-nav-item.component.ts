@@ -11,8 +11,7 @@ import {
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
-import { DrawerService } from '../../service/drawer.service';
-import { StateListener } from '../../state-listener.component';
+import { DrawerStateManagerService, StateListener } from '../../state-listener.component';
 import { isEmptyView } from '../../../../utils/utils';
 import { MatExpansionPanel } from '@angular/material/expansion';
 
@@ -193,14 +192,14 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
      *  Depth is populated by iterating through the Drawer navigation tree.  See DrawerNavGroupComponent for details. */
     depth: number;
 
-    constructor(drawerService: DrawerService, public changeDetectorRef: ChangeDetectorRef) {
-        super(drawerService, changeDetectorRef);
-        this.id = drawerService.createNavItemID();
-        this.drawerService.emitNewNavItemCreated();
-        this.drawerService.drawerOpenChanges().subscribe(() => {
+    constructor(stateManagerService: DrawerStateManagerService, public changeDetectorRef: ChangeDetectorRef) {
+        super(stateManagerService, changeDetectorRef);
+        this.id = this.drawerState.createNavItemID();
+        this.drawerState.emitNewNavItemCreated();
+        this.drawerState.drawerOpenChanges().subscribe(() => {
             this.handleExpand();
         });
-        this.drawerService.drawerActiveItemChanges().subscribe(() => {
+        this.drawerState.drawerActiveItemChanges().subscribe(() => {
             if (this.navItemEl) {
                 this.manageActiveItemTreeHighlight();
             }
@@ -209,7 +208,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
 
     ngOnChanges(changes: SimpleChanges): void {
         if (changes.selected) {
-            this.drawerService.emitChangeActiveItemEvent();
+            this.drawerState.emitChangeActiveItemEvent();
         }
         if (changes.expanded !== undefined && !changes.expanded.isFirstChange() && this.matExpansionPanel) {
             this.handleExpand();
@@ -228,7 +227,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
             }
             // Persistent drawers will only expand if they the drawer is opened.
             // Temporary drawers will always have any expansion panels opened.
-            if (this.expanded && (this.isOpen() || this.drawerService.getDrawerVariant() === 'temporary')) {
+            if (this.expanded && (this.isOpen() || this.drawerState.getDrawerVariant() === 'temporary')) {
                 this.matExpansionPanel.open();
             } else {
                 this.matExpansionPanel.close();
@@ -237,15 +236,15 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     }
 
     isRail(): boolean {
-        return this.drawerService.getDrawerVariant() === 'rail';
+        return this.drawerState.getDrawerVariant() === 'rail';
     }
 
     isRailCondensed(): boolean {
-        return this.drawerService.isRailCondensed();
+        return this.drawerState.isRailCondensed();
     }
 
     showTooltipOnRailHover(): boolean {
-        return !this.drawerService.isDisableRailTooltip();
+        return !this.drawerState.isDisableRailTooltip();
     }
 
     /** Whenever the selected item in the drawer state changes, we need to check to see we should apply a hierarchical highlight. */
@@ -255,7 +254,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
         }
 
         this.navItemEl.nativeElement.classList.remove('blui-drawer-nav-item-active-tree');
-        if (this.drawerService.hasDisableActiveItemParentStyles()) {
+        if (this.drawerState.hasDisableActiveItemParentStyles()) {
             return;
         }
 
@@ -273,7 +272,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     }
 
     listenForDrawerChanges(): void {
-        this.drawerOpenListener = this.drawerService.drawerOpenChanges().subscribe(() => {
+        this.drawerOpenListener = this.drawerState.drawerOpenChanges().subscribe(() => {
             // Two detections are required to get the custom icons to work.
             // First tick causes the icons to container to reappear.
             // Second tick handles isEmpty function calls.
@@ -310,7 +309,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     }
 
     selectItem(): void {
-        this.drawerService.select(this.hasChildren);
+        this.drawerState.select(this.hasChildren);
         this.select.emit();
         if (this.hasChildren) {
             this.toggleNestedNavItems();

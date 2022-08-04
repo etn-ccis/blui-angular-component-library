@@ -10,12 +10,13 @@ import {
     ViewChild,
     ViewEncapsulation,
     SimpleChanges,
+    ContentChild,
 } from '@angular/core';
-import { DrawerService } from '../service/drawer.service';
-import { StateListener } from '../state-listener.component';
+import { DrawerStateManagerService, StateListener } from '../state-listener.component';
 import { Direction, Directionality } from '@angular/cdk/bidi';
 import { Subscription } from 'rxjs';
 import { MatDrawerMode } from '@angular/material/sidenav';
+import { DrawerComponent } from '../drawer.component';
 
 export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' | 'rail';
 
@@ -90,14 +91,16 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     remSizePx: number;
     dirChangeSubscription = Subscription.EMPTY;
 
+    @ContentChild(DrawerComponent) drawer: DrawerComponent;
+
     content: HTMLElement;
 
     constructor(
-        drawerService: DrawerService,
+        stateManagerService: DrawerStateManagerService,
         changeDetectorRef: ChangeDetectorRef,
         private readonly _dir: Directionality
     ) {
-        super(drawerService, changeDetectorRef);
+        super(stateManagerService, changeDetectorRef);
         this.dirChangeSubscription = _dir.change.subscribe((direction: Direction) => {
             this.isRtl = direction === 'rtl';
             changeDetectorRef.detectChanges();
@@ -106,10 +109,16 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
 
     ngAfterViewInit(): void {
         this.isRtl = this._dir.value === 'rtl';
+        // Drawer Layout gets its DrawerState instance from its immediate DrawerComponent child.
+        this.drawerState = this.drawer.drawerState;
+        this.drawerState.setDrawerVariant(this.variant);
+        this.changeDetector.detectChanges();
     }
 
     ngOnChanges(simpleChanges: SimpleChanges): void {
-        this.drawerService.setDrawerVariant(this.variant);
+        if (this.drawerState) {
+            this.drawerState.setDrawerVariant(this.variant);
+        }
 
         // Whenever a drawer has transitioned from a closed persistent drawer to a temporary variant,
         // this edge case prevents the drawer from being redrawn at an opened size before it dismissed.
@@ -147,11 +156,11 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     }
 
     hasSideBorder(): boolean {
-        return this.drawerService.hasSideBorder();
+        return this.drawerState.hasSideBorder();
     }
 
     closeDrawer(): void {
-        this.drawerService.setDrawerOpen(false);
+        this.drawerState.setDrawerOpen(false);
         this.backdropClick.emit();
     }
 
@@ -169,7 +178,7 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     }
 
     getCollapsedWidth(): number {
-        return this.variant === 'rail' && !this.drawerService.isRailCondensed()
+        return this.variant === 'rail' && !this.drawerState.isRailCondensed()
             ? 3.5 + this.toRem(16) // Rail (default)
             : 1.5 + this.toRem(32); //  Rail (condensed) || closed persistent
     }

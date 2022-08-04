@@ -7,8 +7,7 @@ import {
     ViewChild,
     ElementRef,
 } from '@angular/core';
-import { DrawerService } from '../service/drawer.service';
-import { StateListener } from '../state-listener.component';
+import { DrawerStateManagerService, StateListener } from '../state-listener.component';
 import { isEmptyView } from '../../../utils/utils';
 
 /**
@@ -65,11 +64,11 @@ export class DrawerHeaderComponent extends StateListener {
 
     isEmpty = (el: ElementRef): boolean => isEmptyView(el);
 
-    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
-        super(drawerService, changeDetectorRef);
+    constructor(stateManagerService: DrawerStateManagerService, changeDetectorRef: ChangeDetectorRef) {
+        super(stateManagerService, changeDetectorRef);
     }
 
     isRail(): boolean {
-        return this.drawerService.getDrawerVariant() === 'rail';
+        return this.drawerState.getDrawerVariant() === 'rail';
     }
 }
