@@ -11,7 +11,6 @@ export class DrawerState {
     private sideBorder: boolean;
     private disableRailTooltip: boolean;
     private openOnHover: boolean;
-    private numberOfDrawerInstances = 0;
 
     private readonly drawerOpenObs = new Subject<boolean>();
     private readonly drawerSelectObs = new Subject<boolean>();
@@ -20,15 +19,6 @@ export class DrawerState {
 
     hasSideBorder(): boolean {
         return this.sideBorder;
-    }
-
-    incrementNumberOfDrawerInstances(): number {
-        this.numberOfDrawerInstances = this.numberOfDrawerInstances + 1;
-        return this.numberOfDrawerInstances;
-    }
-
-    getNumberOfDrawerInstances(): number {
-        return this.numberOfDrawerInstances;
     }
 
     setSideBorder(sideBorder: boolean): void {
