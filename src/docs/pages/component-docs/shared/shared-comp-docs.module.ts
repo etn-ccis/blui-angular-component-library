@@ -17,6 +17,11 @@ import { CopyCodeButtonComponent } from './buttons/copy-code-button/copy-code-bu
 import { ToggleCodeButtonComponent } from './buttons/toggle-code-button/toggle-code-button.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { KnobBooleanComponent } from './knobs/knob-boolean.component';
+import { KnobColorComponent } from './knobs/knob-color.component';
+import { ColorPickerModule } from 'ngx-color-picker';
+import { KnobSelectComponent } from './knobs/knob-select.component';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDividerModule } from '@angular/material/divider';
 
 @NgModule({
     declarations: [
@@ -27,16 +32,20 @@ import { KnobBooleanComponent } from './knobs/knob-boolean.component';
         ExampleCodeComponent,
         CopyCodeButtonComponent,
         KnobBooleanComponent,
+        KnobColorComponent,
+        KnobSelectComponent,
     ],
     imports: [
         AppCommonComponentsModule,
         CommonModule,
+        ColorPickerModule,
         MatIconModule,
         MatCheckboxModule,
         HttpClientModule,
         MatFormFieldModule,
         MatInputModule,
         MatTabsModule,
+        MatSelectModule,
         FormsModule,
         MatButtonModule,
         MarkdownModule.forRoot({
@@ -53,6 +62,7 @@ import { KnobBooleanComponent } from './knobs/knob-boolean.component';
                 },
             },
         }),
+        MatDividerModule,
     ],
     exports: [
         ExampleCodeComponent,
@@ -66,6 +76,8 @@ import { KnobBooleanComponent } from './knobs/knob-boolean.component';
         CommonModule,
         CopyCodeButtonComponent,
         KnobBooleanComponent,
+        KnobColorComponent,
+        KnobSelectComponent,
     ],
 })
 export class SharedCompDocsModule {}

@@ -11,8 +11,11 @@
         width: 100%;
         display: flex;
         justify-content: center;
+        .mat-tab-label {
+            // height: 50px;
+        }
         .mat-tab-header {
-            height: 48px;
+            height: 52px;
             width: 100%;
             position: sticky;
             left: 0px;
@@ -20,10 +23,8 @@
             margin-top: -48px;
             z-index: 5;
             z-index: 1000;
-            max-width: 1200px;
-            @media only screen and (max-width: 999px) {
-                max-width: calc(100% - 350px); // Full screen width, minus drawer width
-            }
+            max-width: 100%;
+            border-bottom: 0 !important;
         }
         .mat-tab-group {
             max-width: 1200px;
@@ -31,16 +32,23 @@
         .mat-tab-label {
             width: 100% !important;
         }
-        .mat-tab-body:not(#mat-tab-content-0-2) {
-            padding: 48px 32px 32px 32px;
-        }
         .mat-tab-body-content,
         .mat-tab-body {
             overflow: unset;
         }
 
+        /* Examples Section */
+        .examples-tab-content-wrapper {
+            padding: 48px 32px 32px 32px;
+            > div {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
         /* API (README) Section */
         .doc-tab-content {
+            padding: 48px 32px 32px 32px;
             img {
                 margin: 16px 0px;
             }
@@ -115,25 +123,34 @@
             }
         }
     }
-    .playground-container {
-        display: flex;
-        height: 100%;
-    }
-    .props-container {
-        background-color: #e5e5e5;
-        width: 300px;
-        box-sizing: border-box;
-        min-height: calc(100vh - 64px - 48px - 1px);
-        padding: 16px;
 
-        mat-form-field {
-            width: 100%;
+    /* Playground Tab */
+    $knobsWidth: 400px;
+    $playgroundHeight: calc(100vh - 64px - 52px);
+    .playground-container {
+        min-height: $playgroundHeight;
+        display: flex;
+        flex: 1 1 0px;
+        height: 100%;
+        margin-right: $knobsWidth;
+        .playground-live-example-wrapper {
+            height: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
         }
     }
-    .examples-tab-content-wrapper {
-        > div {
-            display: flex;
-            flex-direction: column;
+    .props-container {
+        height: 100%;
+        max-height: $playgroundHeight;
+        width: $knobsWidth;
+        box-sizing: border-box;
+        overflow: auto;
+        position: fixed;
+        right: 0;
+        padding: 16px;
+        mat-form-field {
+            width: 100%;
         }
     }
 }

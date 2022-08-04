@@ -5,11 +5,12 @@ import { BASIC } from './examples/basic.component';
 import { WITH_ICONS } from './examples/with-icons.component';
 import { WITH_NESTED_ITEMS } from './examples/with-nested-items.component';
 import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
+import { NavItemPlaygroundKnobs } from './examples/playground.component';
 
 @Component({
     selector: 'app-drawer-nav-item-doc',
     template: `
-        <app-component-doc-scaffold [md]="md">
+        <app-component-doc-scaffold [md]="md" [knobs]="knobs">
             <div examples class="app-example">
                 <div class="example-section">
                     <div class="example-heading">Basic Drawer Nav Items</div>
@@ -80,24 +81,12 @@ import { WITH_SELECTED_ITEM } from './examples/with-selected-item.component';
                     </div>
                 </div>
             </div>
-            <div playground>
-                <app-nav-item-playground
-                    [title]="title"
-                    [subtitle]="subtitle"
-                    [chevron]="chevron"
-                    [divider]="divider"
-                    (codeChange)="generatedCode = $event"
-                ></app-nav-item-playground>
-            </div>
-            <div code>
-                <app-example-code [snippet]="generatedCode"></app-example-code>
-            </div>
-            <div knobs>
-                <app-text-knob label="title" [(value)]="title"></app-text-knob>
-                <app-text-knob label="subtitle" [(value)]="subtitle"></app-text-knob>
-                <app-boolean-knob label="chevron" [(value)]="chevron"></app-boolean-knob>
-                <app-boolean-knob label="divider" [(value)]="divider"></app-boolean-knob>
-            </div>
+            <app-nav-item-playground
+                playground
+                [inputs]="knobs"
+                (codeChange)="generatedCode = $event"
+            ></app-nav-item-playground>
+            <app-example-code code [snippet]="generatedCode"></app-example-code>
         </app-component-doc-scaffold>
     `,
     styleUrls: ['./drawer-nav-item-doc.component.scss'],
@@ -111,10 +100,72 @@ export class DrawerNavItemDocComponent {
     generatedCode: string;
 
     /* Default playground knobs */
-    title = 'title';
-    subtitle = 'subtitle';
-    chevron = true;
-    divider = true;
+    knobs: NavItemPlaygroundKnobs = {
+        title: {
+            value: 'title',
+            type: 'string',
+            hint: 'Text to show on the first line',
+        },
+        subtitle: {
+            value: 'subtitle',
+            type: 'string',
+            hint: 'Text to show on the second line',
+        },
+        statusColor: {
+            value: '#ffac00',
+            type: 'color',
+            hint: 'Border color that appears on the side',
+        },
+        activeItemBackgroundShape: {
+            value: 'square',
+            componentDefault: 'square',
+            type: 'select',
+            options: ['square', 'round'],
+            hint: 'Selected item background highlight',
+        },
+        addIcon: {
+            label: 'Add Icon',
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Render a navigation icon',
+        },
+        chevron: {
+            value: true,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Show a chevron to side',
+        },
+        divider: {
+            value: true,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Show divider under nav item',
+        },
+        hidden: {
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Hide nav item',
+        },
+        hidePadding: {
+            value: true,
+            type: 'boolean',
+            hint: 'Allow padding, used with icons',
+        },
+        ripple: {
+            value: true,
+            componentDefault: true,
+            type: 'boolean',
+            hint: 'Allow ripple effect on click',
+        },
+        selected: {
+            value: true,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Mark selected item as active',
+        },
+    };
 
     constructor(
         private readonly _splitService: MarkdownSplitService,

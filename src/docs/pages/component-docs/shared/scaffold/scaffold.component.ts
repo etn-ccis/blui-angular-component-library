@@ -4,16 +4,27 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabChangeEvent } from '@angular/material/tabs';
 import { Subscription } from 'rxjs';
 import { ViewportService } from '../../../../services/viewport/viewport.service';
+import { PlaygroundService } from '../../../../services/playground/playground.service';
 
 export type TabName = 'examples' | 'api-docs' | 'playground';
+
+export type Knob = {
+    label?: string;
+    value: any;
+    componentDefault?: string | boolean | number;
+    type: 'string' | 'color' | 'select' | 'number' | 'boolean';
+    hint: string;
+    options?: string[];
+};
 
 @Component({
     selector: 'app-component-doc-scaffold',
     template: `
         <div class="scaffold-container">
             <div
-                style="height: 48px; background: white; width: 100%; position: sticky; left: 0; z-index: 999"
-                [style.top.px]="isSmall() ? 56 : 64"
+                class="fixed-tab-group-banner"
+                style="height: 48px; background: white; width: 100%; position: sticky; left: 0; z-index: 2"
+                [style.top.px]="isSmall() ? 60 : 68"
             ></div>
             <div class="tabs-container" [class.small]="isSmall()">
                 <mat-tab-group
@@ -33,29 +44,52 @@ export type TabName = 'examples' | 'api-docs' | 'playground';
                             <ng-content select="[docs]"></ng-content>
                         </div>
                     </mat-tab>
-                    <mat-tab label="Playground">
-                        <div class="playground-container">
-                            <div
-                                style="width: 100%; display: flex; flex-direction: column; justify-content: space-between;"
-                            >
-                                <div
-                                    style="
-                                    height: 100%;
-                                    display: flex;
-                                    justify-content: center;
-                                    align-items: center"
-                                >
-                                    <ng-content select="[playground]"></ng-content>
-                                </div>
-                                <ng-content select="[code]"></ng-content>
-                            </div>
-                            <div class="props-container">
-                                <div class="mat-headline" style="margin-bottom: 24px;">Props</div>
-                                <ng-content select="[knobs]"></ng-content>
-                            </div>
-                        </div>
-                    </mat-tab>
+                    <mat-tab label="Playground"></mat-tab>
                 </mat-tab-group>
+            </div>
+
+            <div class="playground-container" *ngIf="currentTabIndex === 2">
+                <div style="width: 100%; display: flex; flex-direction: column;">
+                    <div class="playground-live-example-wrapper" style="height: 50%">
+                        <ng-content select="[playground]"></ng-content>
+                    </div>
+                    <div style="height: 50%; overflow: auto; box-sizing: border-box">
+                        <ng-content select="[code]"></ng-content>
+                    </div>
+                </div>
+                <div class="props-container">
+                    <ng-container *ngFor="let key of getKeys()">
+                        <app-select-knob
+                            *ngIf="knobs[key].type === 'select'"
+                            [label]="knobs[key].label || key"
+                            [options]="knobs[key].options"
+                            [(value)]="knobs[key].value"
+                            [hint]="knobs[key].hint"
+                            (valueChange)="emitKnobChange(knobs)"
+                        ></app-select-knob>
+                        <app-color-knob
+                            *ngIf="knobs[key].type === 'color'"
+                            [label]="knobs[key].label || key"
+                            [(value)]="knobs[key].value"
+                            [hint]="knobs[key].hint"
+                            (valueChange)="emitKnobChange(knobs)"
+                        ></app-color-knob>
+                        <app-text-knob
+                            *ngIf="knobs[key].type === 'string'"
+                            [label]="knobs[key].label || key"
+                            [(value)]="knobs[key].value"
+                            [hint]="knobs[key].hint"
+                            (valueChange)="emitKnobChange(knobs)"
+                        ></app-text-knob>
+                        <app-boolean-knob
+                            *ngIf="knobs[key].type === 'boolean'"
+                            [label]="knobs[key].label || key"
+                            [(value)]="knobs[key].value"
+                            [hint]="knobs[key].hint"
+                            (valueChange)="emitKnobChange(knobs)"
+                        ></app-boolean-knob>
+                    </ng-container>
+                </div>
             </div>
         </div>
     `,
@@ -66,16 +100,23 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
     @Input() useDefaultDocs = true;
     @Input() mdFileName: string;
     @Input() md: string;
+    @Input() knobs: { [key: string]: Knob };
+
     currentTabIndex = 0;
 
     routeListener: Subscription;
 
     constructor(
+        private readonly _playgroundService: PlaygroundService,
         private readonly _route: ActivatedRoute,
         private readonly _router: Router,
         private readonly _markdownService: MarkdownService,
         private readonly _viewportService: ViewportService
     ) {}
+
+    getKeys(): any {
+        return Object.keys(this.knobs);
+    }
 
     ngOnInit(): void {
         if (this.mdFileName) {
@@ -114,6 +155,11 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
             replaceUrl: true,
         });
         this.currentTabIndex = this._tabNameToIndex(tab);
+    }
+
+    /** Emits an event whenever a knob has been udpated. */
+    emitKnobChange(knobs: { [key: string]: Knob }): void {
+        this._playgroundService.knobChange.next(knobs);
     }
 
     /** Returns angular route, but without the TabName at the end. */
