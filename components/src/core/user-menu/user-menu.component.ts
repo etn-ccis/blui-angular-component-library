@@ -59,6 +59,7 @@ import { requireInput } from '../../utils/utils';
             <blui-user-menu-header
                 *ngIf="menuTitle"
                 class="blui-user-menu-header"
+                id="id"
                 [title]="menuTitle"
                 [subtitle]="menuSubtitle"
                 [divider]="true"
@@ -105,10 +106,10 @@ export class UserMenuComponent implements OnInit, OnChanges, OnDestroy {
     @Input() avatarValue: string;
 
     /** Subtitle shown when menu is open */
-    @Input() menuSubtitle: string | TemplateRef<any>;
+    @Input() menuSubtitle: string;
 
     /** Title shown when menu is open */
-    @Input() menuTitle: string | TemplateRef<any>;
+    @Input() menuTitle: string;
 
     /** Where to render the menu relative to the avatar */
     @Input() positions = [
