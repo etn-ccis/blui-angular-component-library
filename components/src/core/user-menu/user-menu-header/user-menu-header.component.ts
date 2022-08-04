@@ -21,8 +21,8 @@ import { isEmptyView } from '../../../utils/utils';
                     <ng-content select="[blui-icon]"></ng-content>
                 </div>
                 <div *ngIf="title" class="blui-user-menu-header-title-wrapper">
-                    <div class="blui-user-menu-header-title">{{ title }}</div>
-                    <div *ngIf="subtitle" class="blui-user-menu-header-subtitle mat-subheading-2">{{ subtitle }}</div>
+                    <div id="{{id}}-title" class="blui-user-menu-header-title">{{ title }}</div>
+                    <div *ngIf="subtitle" id="{{id}}-subtitle" class="blui-user-menu-header-subtitle mat-subheading-2">{{ subtitle }}</div>
                 </div>
                 <ng-content select="[blui-title-content]"></ng-content>
             </div>
@@ -49,6 +49,8 @@ export class UserMenuHeaderComponent {
     @Input() subtitle: string;
     /** The text to show on the first line */
     @Input() title: string;
+    /** Menu id */
+    @Input() id: string;
 
     @ViewChild('icon', { static: true }) iconEl: ElementRef;
 

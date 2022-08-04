@@ -5,7 +5,8 @@ import { invertRTL } from '../../src/utils';
 export const withMenuHeader = (): any => ({
     template: `
         <blui-user-menu 
-            avatarValue="AV" 
+            avatarValue="AV"
+            [id]="id"
             [menuTitle]="menuTitle" 
             [menuSubtitle]="menuSubtitle"
             [(open)]="open">
@@ -21,6 +22,7 @@ export const withMenuHeader = (): any => ({
     props: {
         open: false,
         items: items,
+        id: 'my-awesome-menu',
         menuTitle: text('menuTitle', 'Sample Title'),
         menuSubtitle: text('menuSubtitle', 'Sample subtitle'),
         invertRTL: invertRTL,
