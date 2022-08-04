@@ -1,5 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import { DrawerComponent } from '@brightlayer-ui/angular-components';
+import { Component } from '@angular/core';
 
 export const SPACER = `<blui-drawer style="width: 250px; height: 350px">
     <blui-drawer-body>
@@ -21,10 +20,4 @@ export const SPACER = `<blui-drawer style="width: 250px; height: 350px">
     selector: 'app-spacer-between-nav-group-demo',
     template: SPACER,
 })
-export class WithSpacerComponent {
-    @ViewChild(DrawerComponent) drawer;
-
-    ngAfterViewInit(): void {
-        this.drawer.openOnHover = false;
-    }
-}
+export class WithSpacerComponent {}

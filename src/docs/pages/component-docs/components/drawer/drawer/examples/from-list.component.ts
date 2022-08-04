@@ -1,5 +1,5 @@
-import { Component, ViewChild } from '@angular/core';
-import { DrawerComponent, DrawerNavItem } from '@brightlayer-ui/angular-components';
+import { Component } from '@angular/core';
+import { DrawerNavItem } from '@brightlayer-ui/angular-components';
 import * as Colors from '@brightlayer-ui/colors';
 
 export const FROM_LIST = `<blui-drawer style="width: 300px; height: 620px; overflow: auto">
@@ -42,8 +42,6 @@ type Group = {
     template: FROM_LIST,
 })
 export class FromListComponent {
-    @ViewChild(DrawerComponent) drawer;
-
     selectedItem: string;
 
     Colors = Colors;
@@ -112,10 +110,6 @@ export class FromListComponent {
             },
         ],
     };
-
-    ngAfterViewInit(): void {
-        this.drawer.openOnHover = false;
-    }
 
     setActive(navItem: DrawerNavItem): void {
         this.selectedItem = navItem.title;
