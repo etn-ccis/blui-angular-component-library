@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, Output, ViewChild } from '@angular/core';
-import { DrawerComponent } from '@brightlayer-ui/angular-components';
+import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { PlaygroundService } from '../../../../../../services/playground/playground.service';
 import { Subscription } from 'rxjs';
 import { Knob } from '../../../../shared/scaffold/scaffold.component';
@@ -10,20 +9,25 @@ export type HeaderPlaygroundKnobs = {
     subtitle: Knob;
     title: Knob;
     showIcon: Knob;
+    showCustomContent: Knob;
 };
 
 @Component({
     selector: 'app-header-playground',
     template: ` <blui-drawer style="width: 250px">
-        <blui-drawer-header 
-                [color]="inputs.color.value"
-                [divider]="inputs.divider.value"
-                [subtitle]="inputs.subtitle.value"
-                [title]="inputs.title.value"
+        <blui-drawer-header
+            [color]="inputs.color.value"
+            [divider]="inputs.divider.value"
+            [subtitle]="inputs.showCustomContent.value ? undefined : inputs.subtitle.value"
+            [title]="inputs.showCustomContent.value ? undefined : inputs.title.value"
         >
             <button blui-icon mat-icon-button *ngIf="inputs.showIcon.value">
                 <mat-icon>menu</mat-icon>
             </button>
+            <div blui-title-content *ngIf="inputs.showCustomContent.value">
+                <div class="mat-h4" style="margin: 12px 0 -8px 0">Customizable</div>
+                <div class="mat-h2" style="margin: 0">Header Content</div>
+            </div>
         </blui-drawer-header>
         <blui-drawer-body>
             <blui-drawer-nav-group>
@@ -38,8 +42,6 @@ export class PlaygroundComponent implements OnDestroy {
     @Input() inputs: HeaderPlaygroundKnobs;
     @Output() codeChange = new EventEmitter<string>();
 
-    @ViewChild(DrawerComponent) drawer;
-
     knobListener: Subscription;
     open = true;
 
@@ -51,8 +53,9 @@ export class PlaygroundComponent implements OnDestroy {
     }
 
     ngAfterViewInit(): void {
-        this.codeChange.emit(this._createGeneratedCode());
-        this.drawer.openOnHover = false;
+        setTimeout(() => {
+            this.codeChange.emit(this._createGeneratedCode());
+        });
     }
 
     ngOnDestroy(): void {
@@ -61,15 +64,38 @@ export class PlaygroundComponent implements OnDestroy {
         }
     }
 
+    private _getMenuIcon(): string {
+        if (this.inputs.showIcon.value) {
+            return `
+        <button blui-icon mat-icon-button>
+            <mat-icon>menu</mat-icon>
+        </button>`;
+        }
+        return '';
+    }
+
+    private _getCustomHeaderContent(): string {
+        if (this.inputs.showCustomContent.value) {
+            return `
+        <div blui-title-content>
+            <div class="mat-h4" style="margin: 12px 0 -8px 0">Customizable</div>
+            <div class="mat-h2" style="margin: 0">Header Content</div>
+        </div>`;
+        }
+        return '';
+    }
+
     private _createGeneratedCode(): string {
         const code = `
 <blui-drawer style="width: 250px">
     <blui-drawer-header
-        ${this._playgroundService.addOptionalProp(this.inputs, 'title')}
-        ${this._playgroundService.addOptionalProp(this.inputs, 'subtitle')}
+        ${this.inputs.showCustomContent.value ? '' : this._playgroundService.addOptionalProp(this.inputs, 'title')}
+        ${this.inputs.showCustomContent.value ? '' : this._playgroundService.addOptionalProp(this.inputs, 'subtitle')}
         ${this._playgroundService.addOptionalProp(this.inputs, 'color')}
         ${this._playgroundService.addOptionalProp(this.inputs, 'divider')}
     >
+    ${this._getMenuIcon()}
+    ${this._getCustomHeaderContent()}
     </blui-drawer-header>
     <blui-drawer-body>
         <blui-drawer-nav-group>

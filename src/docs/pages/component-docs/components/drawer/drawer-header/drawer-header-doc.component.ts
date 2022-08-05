@@ -5,7 +5,7 @@ import { BASIC } from './examples/basic.component';
 import { WITH_CUSTOM_CONTENT } from './examples/with-custom-content.component';
 import { WITH_SUBTITLE } from './examples/with-subtitle.component';
 import { WITH_ICON } from './examples/with-icon.component';
-import {HeaderPlaygroundKnobs} from "./examples/playground.component";
+import { HeaderPlaygroundKnobs } from './examples/playground.component';
 
 @Component({
     selector: 'app-drawer-header-doc',
@@ -76,9 +76,9 @@ import {HeaderPlaygroundKnobs} from "./examples/playground.component";
                 </div>
             </div>
             <app-header-playground
-                    playground
-                    [inputs]="knobs"
-                    (codeChange)="generatedCode = $event"
+                playground
+                [inputs]="knobs"
+                (codeChange)="generatedCode = $event"
             ></app-header-playground>
             <app-example-code code [snippet]="generatedCode"></app-example-code>
         </app-component-doc-scaffold>
@@ -118,11 +118,19 @@ export class DrawerHeaderDocComponent {
             hint: 'Show divider under nav item',
         },
         showIcon: {
+            label: 'Show Icon',
             value: true,
             componentDefault: false,
             type: 'boolean',
             hint: 'Show a header icon',
-        }
+        },
+        showCustomContent: {
+            label: 'Show Title Content',
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Show custom header content',
+        },
     };
 
     constructor(
