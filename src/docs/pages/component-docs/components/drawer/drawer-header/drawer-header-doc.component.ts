@@ -109,13 +109,13 @@ export class DrawerHeaderDocComponent {
             value: 'primary',
             type: 'select',
             options: ['primary', 'secondary', 'warn', undefined],
-            hint: 'Border color that appears on the side',
+            hint: 'Themed background color for the header toolbar',
         },
         divider: {
             value: true,
             componentDefault: false,
             type: 'boolean',
-            hint: 'Show divider under nav item',
+            hint: 'Show divider under header',
         },
         showIcon: {
             label: 'Show Icon',
