@@ -55,7 +55,6 @@ export class StateListener implements OnInit, OnDestroy {
     }
 
     public isOpen(): boolean {
-        // console.log(this.drawerService.getNumberOfDrawerInstances());
         return this.drawerState.isDrawerOpen();
     }
 
