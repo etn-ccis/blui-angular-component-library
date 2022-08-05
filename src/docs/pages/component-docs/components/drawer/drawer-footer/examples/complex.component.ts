@@ -1,5 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import { DrawerComponent } from '@brightlayer-ui/angular-components';
+import { Component } from '@angular/core';
 
 export const COMPLEX = `<blui-drawer style="width: 250px">
     <blui-drawer-body>
@@ -31,10 +30,4 @@ export const COMPLEX = `<blui-drawer style="width: 250px">
     selector: 'app-complex-drawer-footer-demo',
     template: COMPLEX,
 })
-export class ComplexExampleComponent {
-    @ViewChild(DrawerComponent) drawer;
-
-    ngAfterViewInit(): void {
-        this.drawer.openOnHover = false;
-    }
-}
+export class ComplexExampleComponent {}

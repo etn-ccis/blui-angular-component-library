@@ -9,8 +9,7 @@ import {
     ViewEncapsulation,
 } from '@angular/core';
 import { DrawerNavItem, DrawerNavItemComponent } from '../nav-item/drawer-nav-item.component';
-import { DrawerService } from '../../service/drawer.service';
-import { StateListener } from '../../state-listener.component';
+import { DrawerStateManagerService, StateListener } from '../../state-listener.component';
 import { Subscription } from 'rxjs';
 
 export type DrawerNavGroup = {
@@ -82,8 +81,8 @@ export class DrawerNavGroupComponent
 
     navItemLifeCycleListener: Subscription;
 
-    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
-        super(drawerService, changeDetectorRef);
+    constructor(stateManagerService: DrawerStateManagerService, changeDetectorRef: ChangeDetectorRef) {
+        super(stateManagerService, changeDetectorRef);
     }
 
     /** Whenever a new navigation item is created async or conditionally,
@@ -92,7 +91,7 @@ export class DrawerNavGroupComponent
         this._initializeNavItemDefaults(0, this.navItems);
 
         // This is only called for async or conditionally loaded items.
-        this.navItemLifeCycleListener = this.drawerService.drawerNewNavItemCreated().subscribe(() => {
+        this.navItemLifeCycleListener = this.drawerState.drawerNewNavItemCreated().subscribe(() => {
             setTimeout(() => {
                 this._initializeNavItemDefaults(0, this.navItems);
             });

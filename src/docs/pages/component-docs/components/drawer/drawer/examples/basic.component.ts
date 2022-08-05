@@ -1,5 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import { DrawerComponent } from '@brightlayer-ui/angular-components';
+import { Component } from '@angular/core';
 
 export const BASIC = `<blui-drawer style="width: 250px">
     <blui-drawer-header title="Title"></blui-drawer-header>
@@ -17,10 +16,4 @@ export const BASIC = `<blui-drawer style="width: 250px">
     selector: 'app-basic-drawer-demo',
     template: BASIC,
 })
-export class BasicExampleComponent {
-    @ViewChild(DrawerComponent) drawer;
-
-    ngAfterViewInit(): void {
-        this.drawer.openOnHover = false;
-    }
-}
+export class BasicExampleComponent {}

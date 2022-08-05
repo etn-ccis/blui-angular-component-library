@@ -1,5 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
-import { DrawerComponent } from '@brightlayer-ui/angular-components';
+import { Component } from '@angular/core';
 
 export const WITH_SELECTED_ITEM = `<blui-drawer style="width: 250px">
     <blui-drawer-body>
@@ -33,13 +32,7 @@ export const WITH_SELECTED_ITEM = `<blui-drawer style="width: 250px">
     template: WITH_SELECTED_ITEM,
 })
 export class WithSelectedItemComponent {
-    @ViewChild(DrawerComponent) drawer;
-
     selectedId = 1;
-
-    ngAfterViewInit(): void {
-        this.drawer.openOnHover = false;
-    }
 
     selectItem(id: number): void {
         this.selectedId = id;

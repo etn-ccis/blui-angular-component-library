@@ -7,8 +7,7 @@ import {
     OnInit,
     ViewEncapsulation,
 } from '@angular/core';
-import { DrawerService } from './service/drawer.service';
-import { StateListener } from './state-listener.component';
+import { DrawerStateManagerService, StateListener } from './state-listener.component';
 import { Subscription } from 'rxjs';
 
 /**
@@ -61,7 +60,7 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
      * */
     @Input() disableActiveItemParentStyles = false;
     /** State for the drawer */
-    @Input() open: boolean;
+    @Input() open = true;
     /** Automatically open the drawer on hover when closed (persistent variant only) */
     @Input() openOnHover = true;
     /** Delay in milliseconds before a hover event opens the drawer (persistent variant only)
@@ -78,30 +77,31 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
     hoverDelayTimeout: any;
     drawerSelectionListener: Subscription;
 
-    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
-        super(drawerService, changeDetectorRef);
+    /** Drawer component instantiates a new DrawerState object when it is constructed. */
+    constructor(stateManagerService: DrawerStateManagerService, changeDetectorRef: ChangeDetectorRef) {
+        super(stateManagerService, changeDetectorRef, true);
     }
 
     ngOnInit(): void {
-        this.drawerService.setDrawerOpen(this.open);
+        this.drawerState.setDrawerOpen(this.open);
         this.listenForDrawerChanges();
         this.listenForDrawerSelection();
     }
 
     // This broadcasts changes to all of the drawer state listeners.
     ngOnChanges(): void {
-        this.drawerService.setSideBorder(this.sideBorder);
-        this.drawerService.setDrawerOpen(this.open);
-        this.drawerService.setIsCondensed(this.condensed);
-        this.drawerService.setDisableRailTooltip(this.disableRailTooltip);
-        this.drawerService.setDisableActiveItemParentStyles(this.disableActiveItemParentStyles);
-        this.drawerService.setOpenOnHover(this.openOnHover);
+        this.drawerState.setSideBorder(this.sideBorder);
+        this.drawerState.setDrawerOpen(this.open);
+        this.drawerState.setIsCondensed(this.condensed);
+        this.drawerState.setDisableRailTooltip(this.disableRailTooltip);
+        this.drawerState.setDisableActiveItemParentStyles(this.disableActiveItemParentStyles);
+        this.drawerState.setOpenOnHover(this.openOnHover);
     }
 
     hoverDrawer(): void {
         if (!this.open && this.openOnHover) {
             this.hoverDelayTimeout = setTimeout(() => {
-                this.drawerService.setDrawerTempOpen(true);
+                this.drawerState.setDrawerTempOpen(true);
                 this.changeDetector.detectChanges();
             }, this.openOnHoverDelay);
         }
@@ -110,8 +110,8 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
     unhoverDrawer(): void {
         if (this.openOnHover) {
             clearTimeout(this.hoverDelayTimeout);
-            if (this.drawerService.isTempOpen()) {
-                this.drawerService.setDrawerTempOpen(false);
+            if (this.drawerState.isTempOpen()) {
+                this.drawerState.setDrawerTempOpen(false);
                 this.changeDetector.detectChanges();
             }
         }
@@ -120,15 +120,15 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
     // Close drawer on selection if drawer is only temporarily opened.
     // Expanding nested navitems when temporarily opened will not close the drawer.
     listenForDrawerSelection(): void {
-        this.drawerSelectionListener = this.drawerService.drawerSelectionChanges().subscribe((hasChildren) => {
-            if (this.drawerService.isTempOpen() && !hasChildren) {
-                this.drawerService.setDrawerTempOpen(false);
+        this.drawerSelectionListener = this.drawerState.drawerSelectionChanges().subscribe((hasChildren) => {
+            if (this.drawerState.isTempOpen() && !hasChildren) {
+                this.drawerState.setDrawerTempOpen(false);
                 this.changeDetector.detectChanges();
             }
         });
     }
 
     isTemporaryVariant(): boolean {
-        return this.drawerService.getDrawerVariant() === 'temporary';
+        return this.drawerState.getDrawerVariant() === 'temporary';
     }
 }

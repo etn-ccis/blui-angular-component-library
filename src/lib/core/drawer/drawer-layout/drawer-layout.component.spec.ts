@@ -1,13 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Component } from '@angular/core';
-import { DrawerLayoutComponent, DrawerLayoutModule } from './public-api';
+import { DrawerLayoutComponent } from './public-api';
 import { count } from 'src/lib/utils/test-utils';
 import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import { DrawerModule } from '../drawer.module';
 
 @Component({
     template: `
-        <blui-drawer-layout [variant]="'persistent'">
-            <div blui-drawer id="test-drawer"></div>
+        <blui-drawer-layout variant="persistent">
+            <blui-drawer blui-drawer id="test-drawer"></blui-drawer>
             <div blui-content id="test-content"></div>
         </blui-drawer-layout>
     `,
@@ -21,7 +22,7 @@ describe('DrawerLayoutComponent', () => {
     beforeEach(() => {
         void TestBed.configureTestingModule({
             declarations: [DrawerRenderTest],
-            imports: [DrawerLayoutModule, NoopAnimationsModule],
+            imports: [DrawerModule, NoopAnimationsModule],
         }).compileComponents();
         fixture = TestBed.createComponent(DrawerLayoutComponent);
         component = fixture.componentInstance;
@@ -31,11 +32,6 @@ describe('DrawerLayoutComponent', () => {
 
     afterEach(() => {
         fixture.destroy();
-    });
-
-    it('should create', () => {
-        fixture.detectChanges();
-        void expect(component).toBeTruthy();
     });
 
     it('should render the drawer', () => {

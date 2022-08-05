@@ -1,6 +1,5 @@
 import { ChangeDetectionStrategy, Component, ViewEncapsulation, ChangeDetectorRef, Input } from '@angular/core';
-import { DrawerService } from '../service/drawer.service';
-import { StateListener } from '../state-listener.component';
+import { DrawerStateManagerService, StateListener } from '../state-listener.component';
 
 /**
  * [DrawerSubheader Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-drawer--readme)
@@ -38,7 +37,7 @@ export class DrawerSubheaderComponent extends StateListener {
      * */
     @Input() hideContentOnCollapse = true;
 
-    constructor(drawerService: DrawerService, changeDetectorRef: ChangeDetectorRef) {
-        super(drawerService, changeDetectorRef);
+    constructor(stateManagerService: DrawerStateManagerService, changeDetectorRef: ChangeDetectorRef) {
+        super(stateManagerService, changeDetectorRef);
     }
 }
