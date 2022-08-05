@@ -6,6 +6,7 @@ import { BasicExampleComponent } from './examples/basic.component';
 import { WithCustomContentComponent } from './examples/with-custom-content.component';
 import { WithSubtitleComponent } from './examples/with-subtitle.component';
 import { WithIconComponent } from './examples/with-icon.component';
+import {PlaygroundComponent} from "./examples/playground.component";
 
 @NgModule({
     declarations: [
@@ -14,6 +15,7 @@ import { WithIconComponent } from './examples/with-icon.component';
         WithCustomContentComponent,
         WithSubtitleComponent,
         WithIconComponent,
+        PlaygroundComponent,
     ],
     imports: [DrawerModule, SharedCompDocsModule],
     exports: [DrawerHeaderDocComponent],

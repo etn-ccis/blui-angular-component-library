@@ -5,11 +5,12 @@ import { BASIC } from './examples/basic.component';
 import { WITH_CUSTOM_CONTENT } from './examples/with-custom-content.component';
 import { WITH_SUBTITLE } from './examples/with-subtitle.component';
 import { WITH_ICON } from './examples/with-icon.component';
+import {HeaderPlaygroundKnobs} from "./examples/playground.component";
 
 @Component({
     selector: 'app-drawer-header-doc',
     template: `
-        <app-component-doc-scaffold [md]="md">
+        <app-component-doc-scaffold [md]="md" [knobs]="knobs">
             <div examples class="app-example">
                 <div class="example-section">
                     <div class="example-heading">Basic Drawer Header</div>
@@ -74,7 +75,12 @@ import { WITH_ICON } from './examples/with-icon.component';
                     </div>
                 </div>
             </div>
-            <div playground></div>
+            <app-header-playground
+                    playground
+                    [inputs]="knobs"
+                    (codeChange)="generatedCode = $event"
+            ></app-header-playground>
+            <app-example-code code [snippet]="generatedCode"></app-example-code>
         </app-component-doc-scaffold>
     `,
     styleUrls: ['./drawer-header-doc.component.scss'],
@@ -85,6 +91,39 @@ export class DrawerHeaderDocComponent {
     WITH_SUBTITLE = WITH_SUBTITLE;
     WITH_ICON = WITH_ICON;
     WITH_CUSTOM_CONTENT = WITH_CUSTOM_CONTENT;
+    generatedCode: string;
+
+    /* Default playground knobs */
+    knobs: HeaderPlaygroundKnobs = {
+        title: {
+            value: 'title',
+            type: 'string',
+            hint: 'Text to show on the first line',
+        },
+        subtitle: {
+            value: 'subtitle',
+            type: 'string',
+            hint: 'Text to show on the second line',
+        },
+        color: {
+            value: 'primary',
+            type: 'select',
+            options: ['primary', 'secondary', 'warn', undefined],
+            hint: 'Border color that appears on the side',
+        },
+        divider: {
+            value: true,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Show divider under nav item',
+        },
+        showIcon: {
+            value: true,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Show a header icon',
+        }
+    };
 
     constructor(
         private readonly _splitService: MarkdownSplitService,
