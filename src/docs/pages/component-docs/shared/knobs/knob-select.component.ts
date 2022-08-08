@@ -7,13 +7,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
             <mat-label>{{ label }}: string</mat-label>
             <mat-hint>{{ hint }}</mat-hint>
             <mat-select (valueChange)="valueChange.emit($event)" [(value)]="value">
-                <mat-option *ngFor="let option of options" [value]="option">
-                    <ng-container *ngIf="option">
-                        {{ option }}
-                    </ng-container>
-
+                <mat-option *ngFor="let option of options" [value]="option" [class.emptySelectOption]="!option">
                     <ng-container *ngIf="!option">
                         <i>(Empty)</i>
+                    </ng-container>
+                    <ng-container *ngIf="option">
+                        {{ option }}
                     </ng-container>
                 </mat-option>
             </mat-select>

@@ -108,7 +108,7 @@ export class DrawerHeaderDocComponent {
         color: {
             value: 'primary',
             type: 'select',
-            options: ['primary', 'secondary', 'warn', undefined],
+            options: [undefined, 'primary', 'secondary', 'warn'],
             hint: 'Themed background color for the header toolbar',
         },
         divider: {

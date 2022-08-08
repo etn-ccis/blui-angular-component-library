@@ -2,11 +2,15 @@
 
 @mixin light-theme() {
     $primary: map-get(blui.$blui-blue, 500);
+    $divider: rgba(map-get(blui.$blui-black, 500), 0.12);
 
     a {
         color: $primary !important;
     }
 
+    .emptySelectOption {
+        border-bottom: solid 1px $divider;
+    }
     .example-heading {
         color: $primary;
     }
@@ -17,7 +21,7 @@
         }
         .props-container {
             background-color: map-get(blui.$blui-white, 50);
-            border-right: solid 1px map-get(blui.$blui-gray, 50);
+            border-right: solid 1px $divider;
             .knob-boolean-hint {
                 color: map-get(blui.$blui-gray, 500);
             }
@@ -25,7 +29,7 @@
     }
     .fixed-tab-group-banner {
         box-sizing: border-box;
-        border-bottom: solid 1px map-get(blui.$blui-gray, 100);
+        border-bottom: solid 1px $divider;
     }
     .doc-tab-content {
         h1,
