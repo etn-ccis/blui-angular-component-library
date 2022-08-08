@@ -13,7 +13,7 @@ export type HeaderPlaygroundKnobs = {
 
 @Component({
     selector: 'app-header-playground',
-    template: ` <blui-drawer [open]="open" style="width: 100%">
+    template: ` <blui-drawer style="width: 250px">
         <blui-drawer-header
             [color]="inputs.color.value"
             [divider]="inputs.divider.value"
