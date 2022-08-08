@@ -6,9 +6,10 @@ import { BasicExampleComponent } from './examples/basic.component';
 import { ComplexComponent } from './examples/complex.component';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
+import { PlaygroundComponent } from './examples/playground.component';
 
 @NgModule({
-    declarations: [DrawerSubheaderDocComponent, BasicExampleComponent, ComplexComponent],
+    declarations: [DrawerSubheaderDocComponent, BasicExampleComponent, ComplexComponent, PlaygroundComponent],
     imports: [DrawerModule, SharedCompDocsModule, MatFormFieldModule, MatSelectModule],
     exports: [DrawerSubheaderDocComponent],
 })
