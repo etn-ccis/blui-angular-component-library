@@ -124,13 +124,6 @@ export class DrawerHeaderDocComponent {
             type: 'boolean',
             hint: 'Show a header icon',
         },
-        showCustomContent: {
-            label: 'Show Title Content',
-            value: false,
-            componentDefault: false,
-            type: 'boolean',
-            hint: 'Show custom header content',
-        },
     };
 
     constructor(
