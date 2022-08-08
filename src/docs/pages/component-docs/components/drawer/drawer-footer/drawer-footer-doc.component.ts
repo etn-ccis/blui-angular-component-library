@@ -3,7 +3,7 @@ import { MarkdownService } from 'ngx-markdown';
 import { MarkdownSplitService } from '../../../../../services/markdown-split/markdown-split.service';
 import { BASIC } from './examples/basic.component';
 import { COMPLEX } from './examples/complex.component';
-import {SubheaderPlaygroundKnobs} from "../drawer-subheader/examples/playground.component";
+import { SubheaderPlaygroundKnobs } from '../drawer-subheader/examples/playground.component';
 
 @Component({
     selector: 'app-drawer-footer-doc',
@@ -37,9 +37,9 @@ import {SubheaderPlaygroundKnobs} from "../drawer-subheader/examples/playground.
             </div>
 
             <app-footer-playground
-                    playground
-                    [inputs]="knobs"
-                    (codeChange)="generatedCode = $event"
+                playground
+                [inputs]="knobs"
+                (codeChange)="generatedCode = $event"
             ></app-footer-playground>
             <app-example-code code [snippet]="generatedCode"></app-example-code>
         </app-component-doc-scaffold>

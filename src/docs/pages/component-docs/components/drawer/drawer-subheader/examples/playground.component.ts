@@ -63,7 +63,11 @@ export class PlaygroundComponent implements OnDestroy {
             <mat-icon>menu</mat-icon>
         </button>
     </blui-drawer-header>
-    <blui-drawer-subheader${this._playgroundService.addOptionalProp(this.inputs, 'divider', true)}${this._playgroundService.addOptionalProp(this.inputs, 'hideContentOnCollapse', true)}>
+    <blui-drawer-subheader${this._playgroundService.addOptionalProp(
+        this.inputs,
+        'divider',
+        true
+    )}${this._playgroundService.addOptionalProp(this.inputs, 'hideContentOnCollapse', true)}>
         <div style="padding: 16px; min-width: 250px">Custom Content Here</div>
     </blui-drawer-subheader>
 </blui-drawer>`;
