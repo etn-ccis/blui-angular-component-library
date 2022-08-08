@@ -60,7 +60,7 @@ export class DrawerSubheaderDocComponent {
     knobs: SubheaderPlaygroundKnobs = {
         divider: {
             value: true,
-            componentDefault: false,
+            componentDefault: true,
             type: 'boolean',
             hint: 'Show divider under subheader',
         },

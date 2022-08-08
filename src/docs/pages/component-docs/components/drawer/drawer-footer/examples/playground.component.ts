@@ -9,19 +9,23 @@ export type SubheaderPlaygroundKnobs = {
 };
 
 @Component({
-    selector: 'app-subheader-playground',
+    selector: 'app-footer-playground',
     template: `<blui-drawer *ngIf="inputs" [open]="open">
         <blui-drawer-header title="Header Title">
             <button blui-icon mat-icon-button (click)="toggleDrawer()">
                 <mat-icon>menu</mat-icon>
             </button>
         </blui-drawer-header>
-        <blui-drawer-subheader
-            [divider]="inputs.divider.value"
-            [hideContentOnCollapse]="inputs.hideContentOnCollapse.value"
-        >
-            <div style="padding: 16px; min-width: 250px">Custom Content Here</div>
-        </blui-drawer-subheader>
+        <blui-drawer-body>
+            <blui-drawer-nav-group>
+                <blui-drawer-nav-item title="Nav Item"></blui-drawer-nav-item>
+            </blui-drawer-nav-group>
+        </blui-drawer-body>
+        <blui-drawer-footer 
+                [hideContentOnCollapse]="inputs.hideContentOnCollapse.value" 
+                [divider]="inputs.divider.value"> 
+            <div style="padding: 16px">Footer Content Here</div>
+        </blui-drawer-footer>
     </blui-drawer>`,
 })
 export class PlaygroundComponent implements OnDestroy {
@@ -63,9 +67,14 @@ export class PlaygroundComponent implements OnDestroy {
             <mat-icon>menu</mat-icon>
         </button>
     </blui-drawer-header>
-    <blui-drawer-subheader${this._playgroundService.addOptionalProp(this.inputs, 'divider', true)}${this._playgroundService.addOptionalProp(this.inputs, 'hideContentOnCollapse', true)}>
-        <div style="padding: 16px; min-width: 250px">Custom Content Here</div>
-    </blui-drawer-subheader>
+    <blui-drawer-body>
+        <blui-drawer-nav-group>
+            <blui-drawer-nav-item title="Nav Item"></blui-drawer-nav-item>
+        </blui-drawer-nav-group>
+    </blui-drawer-body>
+    <blui-footer${this._playgroundService.addOptionalProp(this.inputs, 'divider', true)}${this._playgroundService.addOptionalProp(this.inputs, 'hideContentOnCollapse', true)}>
+        <div style="padding: 16px">Footer Content Here</div>
+    </blui-footer>
 </blui-drawer>`;
 
         return this._playgroundService.removeEmptyLines(code);
