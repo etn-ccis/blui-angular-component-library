@@ -1,12 +1,4 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    Input,
-    ViewEncapsulation,
-    ChangeDetectorRef,
-    ViewChild,
-    ElementRef,
-} from '@angular/core';
+import { Component, Input, ViewEncapsulation, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 import { DrawerStateManagerService, StateListener } from '../state-listener.component';
 import { isEmptyView } from '../../../utils/utils';
 
@@ -17,7 +9,6 @@ import { isEmptyView } from '../../../utils/utils';
  */
 @Component({
     selector: 'blui-drawer-header',
-    changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
         <mat-toolbar

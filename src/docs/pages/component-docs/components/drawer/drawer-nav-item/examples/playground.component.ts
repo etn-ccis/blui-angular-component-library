@@ -1,5 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, Output, ViewChild } from '@angular/core';
-import { DrawerComponent } from '@brightlayer-ui/angular-components';
+import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core';
 import { PlaygroundService } from '../../../../../../services/playground/playground.service';
 import { Subscription } from 'rxjs';
 import { Knob } from '../../../../shared/scaffold/scaffold.component';
@@ -47,8 +46,6 @@ export class PlaygroundComponent implements OnDestroy {
     @Input() inputs: NavItemPlaygroundKnobs;
     @Output() codeChange = new EventEmitter<string>();
 
-    @ViewChild(DrawerComponent) drawer;
-
     knobListener: Subscription;
 
     constructor(private readonly _playgroundService: PlaygroundService) {
@@ -59,8 +56,9 @@ export class PlaygroundComponent implements OnDestroy {
     }
 
     ngAfterViewInit(): void {
-        this.codeChange.emit(this._createGeneratedCode());
-        this.drawer.openOnHover = false;
+        setTimeout(() => {
+            this.codeChange.emit(this._createGeneratedCode());
+        });
     }
 
     ngOnDestroy(): void {
