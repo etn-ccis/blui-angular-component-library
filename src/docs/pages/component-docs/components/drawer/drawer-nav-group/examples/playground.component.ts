@@ -73,6 +73,12 @@ export class PlaygroundComponent implements OnDestroy {
             'title',
             true
         )}${this._playgroundService.addOptionalProp(this.inputs, 'divider', true)}>
+            <blui-drawer-nav-item title="Nav Item 1">
+                <mat-icon blui-icon>looks_one</mat-icon>
+            </blui-drawer-nav-item>
+            <blui-drawer-nav-item title="Nav Item 2">
+                <mat-icon blui-icon>looks_two</mat-icon>
+            </blui-drawer-nav-item>
         </blui-drawer-nav-group>
     </blui-drawer-body>
 </blui-drawer>`;
