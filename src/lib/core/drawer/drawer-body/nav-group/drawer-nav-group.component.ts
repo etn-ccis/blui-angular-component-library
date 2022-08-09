@@ -58,7 +58,7 @@ export type DrawerNavGroup = {
             >
                 {{ title }}
             </div>
-            <ng-content select="blui-title-content"></ng-content>
+            <ng-content select="[blui-title-content]"></ng-content>
             <mat-divider *ngIf="divider"></mat-divider>
             <mat-nav-list>
                 <ng-content select="blui-drawer-nav-item"></ng-content>

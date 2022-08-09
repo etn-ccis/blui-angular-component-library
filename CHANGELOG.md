@@ -8,6 +8,7 @@
 - Fixed `<blui-drawer>` sharing a single instance of drawer state ([#453](https://github.com/brightlayer-ui/angular-component-library/issues/453)).
 - Fixed `<blui-drawer-header>` not responding to dynamic icon content. ([#473](https://github.com/brightlayer-ui/angular-component-library/issues/473)).
 - Fixed `<blui-drawer-layout>` styles affecting deep nested`<blui-drawer>` children  ([#472](https://github.com/brightlayer-ui/angular-component-library/issues/472)).
+- Fixed `blui-title-content` not showing in `<blui-nav-group>`  ([#475](https://github.com/brightlayer-ui/angular-component-library/issues/475)).
 
 ## v7.0.2 (June 8, 2022)
 
