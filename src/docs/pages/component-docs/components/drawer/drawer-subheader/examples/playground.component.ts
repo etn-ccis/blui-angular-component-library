@@ -20,7 +20,7 @@ export type SubheaderPlaygroundKnobs = {
             [divider]="inputs.divider.value"
             [hideContentOnCollapse]="inputs.hideContentOnCollapse.value"
         >
-            <div style="padding: 16px; min-width: 250px">Custom Content Here</div>
+            <div style="padding: 16px; min-width: 250px">Subheader Content Here</div>
         </blui-drawer-subheader>
     </blui-drawer>`,
 })
@@ -68,7 +68,9 @@ export class PlaygroundComponent implements OnDestroy {
         'divider',
         true
     )}${this._playgroundService.addOptionalProp(this.inputs, 'hideContentOnCollapse', true)}>
-        <div style="padding: 16px; min-width: 250px">Custom Content Here</div>
+        <div style="padding: 16px; min-width: 250px">
+            Subheader Content Here
+        </div>
     </blui-drawer-subheader>
 </blui-drawer>`;
 
