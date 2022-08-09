@@ -91,7 +91,7 @@ export class DrawerNavGroupDocComponent {
     /* Default playground knobs */
     knobs: NavGroupPlaygroundKnobs = {
         title: {
-            value: 'Group 1',
+            value: 'Title',
             type: 'string',
             componentDefault: '',
             hint: 'Title that appears above nav items',
