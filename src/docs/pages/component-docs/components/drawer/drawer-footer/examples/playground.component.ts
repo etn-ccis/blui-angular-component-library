@@ -25,9 +25,7 @@ export type SubheaderPlaygroundKnobs = {
             [hideContentOnCollapse]="inputs.hideContentOnCollapse.value"
             [divider]="inputs.divider.value"
         >
-            <div style="padding: 16px; min-width: 250px">
-                Footer Content Here
-            </div>
+            <div style="padding: 16px; min-width: 250px">Footer Content Here</div>
         </blui-drawer-footer>
     </blui-drawer>`,
 })
