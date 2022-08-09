@@ -3,10 +3,11 @@ import { MarkdownSplitService } from '../../../../../services/markdown-split/mar
 import { MarkdownService } from 'ngx-markdown';
 import { BASIC } from './examples/basic.component';
 import { COMPLEX } from './examples/complex.component';
+import { SubheaderPlaygroundKnobs } from './examples/playground.component';
 
 @Component({
     selector: 'app-subheader-body-doc',
-    template: `<app-component-doc-scaffold [md]="md">
+    template: `<app-component-doc-scaffold [md]="md" [knobs]="knobs">
         <div examples class="app-example">
             <div class="example-section">
                 <div class="example-heading">Basic Drawer Subheader</div>
@@ -40,9 +41,12 @@ import { COMPLEX } from './examples/complex.component';
                 </div>
             </div>
         </div>
-        <div playground></div>
-        <div code></div>
-        <div knobs></div>
+        <app-subheader-playground
+            playground
+            [inputs]="knobs"
+            (codeChange)="generatedCode = $event"
+        ></app-subheader-playground>
+        <app-example-code code [snippet]="generatedCode"></app-example-code>
     </app-component-doc-scaffold> `,
     styleUrls: ['./drawer-subheader-doc.component.scss'],
 })
@@ -50,6 +54,23 @@ export class DrawerSubheaderDocComponent {
     md: string;
     BASIC = BASIC;
     COMPLEX = COMPLEX;
+    generatedCode: string;
+
+    /* Default playground knobs */
+    knobs: SubheaderPlaygroundKnobs = {
+        divider: {
+            value: true,
+            componentDefault: true,
+            type: 'boolean',
+            hint: 'Show divider under subheader',
+        },
+        hideContentOnCollapse: {
+            value: true,
+            componentDefault: true,
+            type: 'boolean',
+            hint: 'Hide content when the drawer is collapsed',
+        },
+    };
 
     constructor(
         private readonly _splitService: MarkdownSplitService,
