@@ -10,25 +10,23 @@ export type NavGroupPlaygroundKnobs = {
 
 @Component({
     selector: 'app-nav-group-playground',
-    template: `
-        <blui-drawer [open]="open">
-            <blui-drawer-header title="Header Title">
-                <button blui-icon mat-icon-button (click)="toggleDrawer()">
-                    <mat-icon>menu</mat-icon>
-                </button>
-            </blui-drawer-header>
-            <blui-drawer-body>
-                <blui-drawer-nav-group  [divider]="inputs.divider.value"> 
-                    <div blui-title-content>Custom Nav Group Title Content</div>
-                    <blui-drawer-nav-item title="Nav Item 1">
-                        <mat-icon blui-icon>looks_one</mat-icon>
-                    </blui-drawer-nav-item>
-                    <blui-drawer-nav-item title="Nav Item 2">
-                        <mat-icon blui-icon>looks_two</mat-icon>
-                    </blui-drawer-nav-item>
-                </blui-drawer-nav-group>
-            </blui-drawer-body>
-        </blui-drawer>`,
+    template: ` <blui-drawer [open]="open">
+        <blui-drawer-header title="Header Title">
+            <button blui-icon mat-icon-button (click)="toggleDrawer()">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </blui-drawer-header>
+        <blui-drawer-body>
+            <blui-drawer-nav-group [title]="inputs.title.value" [divider]="inputs.divider.value">
+                <blui-drawer-nav-item title="Nav Item 1">
+                    <mat-icon blui-icon>looks_one</mat-icon>
+                </blui-drawer-nav-item>
+                <blui-drawer-nav-item title="Nav Item 2">
+                    <mat-icon blui-icon>looks_two</mat-icon>
+                </blui-drawer-nav-item>
+            </blui-drawer-nav-group>
+        </blui-drawer-body>
+    </blui-drawer>`,
 })
 export class PlaygroundComponent implements OnDestroy {
     @Input() inputs: NavGroupPlaygroundKnobs;
@@ -70,8 +68,11 @@ export class PlaygroundComponent implements OnDestroy {
         </button>
     </blui-drawer-header>
     <blui-drawer-body>
-        <blui-drawer-nav-group>
-            <blui-drawer-nav-item title="Nav Item"></blui-drawer-nav-item>
+        <blui-drawer-nav-group${this._playgroundService.addOptionalProp(
+            this.inputs,
+            'title',
+            true
+        )}${this._playgroundService.addOptionalProp(this.inputs, 'divider', true)}>
         </blui-drawer-nav-group>
     </blui-drawer-body>
 </blui-drawer>`;

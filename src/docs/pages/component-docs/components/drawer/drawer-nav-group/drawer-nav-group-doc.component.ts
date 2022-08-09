@@ -1,10 +1,11 @@
-import {Component} from '@angular/core';
-import {MarkdownSplitService} from '../../../../../services/markdown-split/markdown-split.service';
-import {MarkdownService} from 'ngx-markdown';
-import {BASIC} from './examples/basic.component';
-import {MULTIPLE_GROUPS} from './examples/multiple-groups.component';
-import {SPACER} from './examples/with-spacer.component';
-import {NavGroupPlaygroundKnobs} from "./examples/playground.component";
+import { Component } from '@angular/core';
+import { MarkdownSplitService } from '../../../../../services/markdown-split/markdown-split.service';
+import { MarkdownService } from 'ngx-markdown';
+import { BASIC } from './examples/basic.component';
+import { MULTIPLE_GROUPS } from './examples/multiple-groups.component';
+import { SPACER } from './examples/with-spacer.component';
+import { NavGroupPlaygroundKnobs } from './examples/playground.component';
+import { CUSTOM_CONTENT } from './examples/with-custom-content.component';
 
 @Component({
     selector: 'app-drawer-nav-group-doc',
@@ -53,12 +54,26 @@ import {NavGroupPlaygroundKnobs} from "./examples/playground.component";
                         <app-copy-code-button [code]="SPACER"></app-copy-code-button>
                     </div>
                 </div>
+
+                <div class="example-section">
+                    <div class="example-heading">Custom Nav Group Title Content</div>
+                    <div class="example-description">
+                        Custom title content can be also be passed as a <code>blui-title-content</code> child.
+                    </div>
+                    <div class="example-demo-wrapper">
+                        <app-custom-content-nav-group-demo></app-custom-content-nav-group-demo>
+                    </div>
+                    <app-example-code [snippet]="CUSTOM_CONTENT" dataLine="4-11"></app-example-code>
+                    <div class="example-actions">
+                        <app-copy-code-button [code]="CUSTOM_CONTENT"></app-copy-code-button>
+                    </div>
+                </div>
             </div>
 
             <app-nav-group-playground
-                    playground
-                    [inputs]="knobs"
-                    (codeChange)="generatedCode = $event"
+                playground
+                [inputs]="knobs"
+                (codeChange)="generatedCode = $event"
             ></app-nav-group-playground>
             <app-example-code code [snippet]="generatedCode"></app-example-code>
         </app-component-doc-scaffold>
@@ -70,6 +85,7 @@ export class DrawerNavGroupDocComponent {
     BASIC = BASIC;
     MULTIPLE_GROUPS = MULTIPLE_GROUPS;
     SPACER = SPACER;
+    CUSTOM_CONTENT = CUSTOM_CONTENT;
     generatedCode: string;
 
     /* Default playground knobs */
@@ -77,11 +93,12 @@ export class DrawerNavGroupDocComponent {
         title: {
             value: 'Group 1',
             type: 'string',
-            hint: 'Title that appears in above nav items',
+            componentDefault: '',
+            hint: 'Title that appears above nav items',
         },
         divider: {
             value: true,
-            componentDefault: true,
+            componentDefault: false,
             type: 'boolean',
             hint: 'Show divider under nav group',
         },
