@@ -94,7 +94,7 @@ export class DrawerNavGroupDocComponent {
             value: 'Title',
             type: 'string',
             componentDefault: '',
-            hint: 'Title that appears above nav items',
+            hint: 'Nav group section title',
         },
         divider: {
             value: true,
