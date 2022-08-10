@@ -245,9 +245,9 @@ Parent element (`<blui-drawer-nav-group>`) attributes:
 <div style="overflow: auto;">
 
 | @input  | Description                          | Type      | Required | Default |
-| ------- | ------------------------------------ | --------- | -------- | ------- |
+| ------- |--------------------------------------| --------- | -------- | ------- |
 | divider | Divider that appears under the title | `boolean` | no       | false   |
-| title   | Component to render a group title    | `string`  | no       |         |
+| title   | Nav group section title              | `string`  | no       |         |
 
 </div>
 

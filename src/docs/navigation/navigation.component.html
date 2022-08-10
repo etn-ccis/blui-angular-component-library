@@ -24,7 +24,6 @@
                 >
                     <blui-drawer-nav-item
                         *ngFor="let nestedNavItem of navItem.children"
-                        [divider]="true"
                         [title]="nestedNavItem.title"
                         [hidePadding]="false"
                         [selected]="nestedNavItem.title === getSelectedItem()"
