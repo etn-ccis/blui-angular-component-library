@@ -100,7 +100,7 @@ export class DrawerNavGroupDocComponent {
             value: true,
             componentDefault: false,
             type: 'boolean',
-            hint: 'Show divider under nav group',
+            hint: 'Divider that appears under the title',
         },
     };
 
