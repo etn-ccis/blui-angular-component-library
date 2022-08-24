@@ -33,7 +33,7 @@ The library can be built by running the following command. The resulting output 
 ```
 yarn build
 ```
-
+test
 There is also a demo project (/component-demo) in this repository that shows the components in use. You can automatically build the component library and link them to the node modules for the demo by running:
 
 ```
