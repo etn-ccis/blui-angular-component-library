@@ -130,9 +130,8 @@ export class DrawerHeaderDocComponent {
             title: 'Required',
             knobs: this.knobs,
             defaultExpanded: true,
-        }
-    ]
-
+        },
+    ];
 
     constructor(
         private readonly _splitService: MarkdownSplitService,

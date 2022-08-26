@@ -6,9 +6,12 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
         class: 'app-example-code',
     },
     template: `
-        <pre style="display: flex" [attr.data-line]="dataLine" 
-             (mouseenter)="isHoverSnippet=true"
-             (mouseleave)="isHoverSnippet=false">
+        <pre
+            style="display: flex"
+            [attr.data-line]="dataLine"
+            (mouseenter)="isHoverSnippet = true"
+            (mouseleave)="isHoverSnippet = false"
+        >
             <code [innerHTML]="snippet | language: 'html' | markdown"></code>
             <app-copy-code-button [code]="snippet" *ngIf="copyButtonOnHover && isHoverSnippet"
                   style="position: absolute; bottom: 16px; right: 420px;"></app-copy-code-button>

@@ -151,9 +151,10 @@
         padding: 16px;
 
         .mat-expansion-panel .mat-expansion-panel-header.mat-expanded {
-            border-bottom: 0!important;
+            border-bottom: 0 !important;
         }
-        .mat-expansion-panel-body, .mat-expansion-panel-header {
+        .mat-expansion-panel-body,
+        .mat-expansion-panel-header {
             padding: 0 8px;
         }
 
