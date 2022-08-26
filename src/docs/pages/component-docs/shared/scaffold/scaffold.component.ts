@@ -12,6 +12,7 @@ export type Knob = {
     label?: string;
     value: any;
     componentDefault?: string | boolean | number;
+    range?: { min: number; max: number };
     type: 'string' | 'color' | 'select' | 'number' | 'boolean';
     hint: string;
     options?: string[];
@@ -95,6 +96,15 @@ export type Knob = {
                                     [hint]="group.knobs[key].hint"
                                     (valueChange)="emitKnobChange()"
                                 ></app-boolean-knob>
+                                <app-number-knob
+                                    *ngIf="group.knobs[key].type === 'number'"
+                                    [label]="group.knobs[key].label || key"
+                                    [(value)]="group.knobs[key].value"
+                                    [max]="group.knobs[key].range.max"
+                                    [min]="group.knobs[key].range.min"
+                                    [hint]="group.knobs[key].hint"
+                                    (valueChange)="emitKnobChange()"
+                                ></app-number-knob>
                             </ng-container>
                         </mat-expansion-panel>
                     </mat-accordion>

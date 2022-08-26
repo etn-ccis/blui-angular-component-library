@@ -15,6 +15,8 @@ export type NavItemPlaygroundKnobs = {
     statusColor: Knob;
     addIcon: Knob;
     selected: Knob;
+
+    slide: Knob; // test
 };
 
 @Component({

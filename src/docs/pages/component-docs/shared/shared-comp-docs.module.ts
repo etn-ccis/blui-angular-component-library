@@ -23,6 +23,9 @@ import { KnobSelectComponent } from './knobs/knob-select.component';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDividerModule } from '@angular/material/divider';
 import { MatExpansionModule } from '@angular/material/expansion';
+import { KnobNumberComponent } from './knobs/knob-number.component';
+import { MatSliderModule } from '@angular/material/slider';
+import { OverlayModule } from '@angular/cdk/overlay';
 
 @NgModule({
     declarations: [
@@ -35,6 +38,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
         KnobBooleanComponent,
         KnobColorComponent,
         KnobSelectComponent,
+        KnobNumberComponent,
     ],
     imports: [
         AppCommonComponentsModule,
@@ -45,6 +49,8 @@ import { MatExpansionModule } from '@angular/material/expansion';
         MatExpansionModule,
         HttpClientModule,
         MatFormFieldModule,
+        MatSliderModule,
+        OverlayModule,
         MatInputModule,
         MatTabsModule,
         MatSelectModule,
@@ -80,6 +86,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
         KnobBooleanComponent,
         KnobColorComponent,
         KnobSelectComponent,
+        KnobNumberComponent,
     ],
 })
 export class SharedCompDocsModule {}

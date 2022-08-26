@@ -165,6 +165,13 @@ export class DrawerNavItemDocComponent {
             type: 'boolean',
             hint: 'Mark selected item as active',
         },
+        slide: {
+            value: 20,
+            componentDefault: 20,
+            range: { min: 10, max: 50 },
+            type: 'number',
+            hint: 'Mark selected item as active',
+        },
     };
     knobGroups = [
         {
