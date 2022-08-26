@@ -1,7 +1,7 @@
 .app-example-code {
     display: flex;
     height: 100%;
-    * {
+    code, pre {
         font-family: monospace !important;
     }
     > code {
