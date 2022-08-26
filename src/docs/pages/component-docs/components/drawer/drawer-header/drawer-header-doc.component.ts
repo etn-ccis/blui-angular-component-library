@@ -10,7 +10,7 @@ import { HeaderPlaygroundKnobs } from './examples/playground.component';
 @Component({
     selector: 'app-drawer-header-doc',
     template: `
-        <app-component-doc-scaffold [md]="md" [knobs]="knobs" [knobGroups]="knobGroups">
+        <app-component-doc-scaffold [md]="md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
                     <div class="example-heading">Basic Drawer Header</div>
@@ -127,7 +127,7 @@ export class DrawerHeaderDocComponent {
     };
     knobGroups = [
         {
-            title: 'Required',
+            title: 'Properties',
             knobs: this.knobs,
             defaultExpanded: true,
         },

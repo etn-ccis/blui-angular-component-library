@@ -12,7 +12,7 @@
         color: $primary !important;
     }
 
-    app-copy-code-button .mat-button-base.mat-stroked-button.mat-primary {
+    .playground-container app-copy-code-button .mat-button-base.mat-stroked-button.mat-primary {
         color: map-get(blui.$blui-blue, 200);
         border-color: map-get(blui.$blui-blue, 200);
     }

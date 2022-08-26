@@ -7,7 +7,7 @@ import { SubheaderPlaygroundKnobs } from './examples/playground.component';
 
 @Component({
     selector: 'app-subheader-body-doc',
-    template: `<app-component-doc-scaffold [md]="md" [knobs]="knobs">
+    template: `<app-component-doc-scaffold [md]="md" [knobGroups]="knobGroups">
         <div examples class="app-example">
             <div class="example-section">
                 <div class="example-heading">Basic Drawer Subheader</div>
@@ -71,6 +71,13 @@ export class DrawerSubheaderDocComponent {
             hint: 'Hide content when the drawer is collapsed',
         },
     };
+    knobGroups = [
+        {
+            title: 'Properties',
+            knobs: this.knobs,
+            defaultExpanded: true,
+        },
+    ];
 
     constructor(
         private readonly _splitService: MarkdownSplitService,
