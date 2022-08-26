@@ -58,37 +58,46 @@ export type Knob = {
                     </div>
                 </div>
                 <div class="props-container">
-                    <ng-container *ngFor="let key of getKeys()">
-                        <app-select-knob
-                            *ngIf="knobs[key].type === 'select'"
-                            [label]="knobs[key].label || key"
-                            [options]="knobs[key].options"
-                            [(value)]="knobs[key].value"
-                            [hint]="knobs[key].hint"
-                            (valueChange)="emitKnobChange(knobs)"
-                        ></app-select-knob>
-                        <app-color-knob
-                            *ngIf="knobs[key].type === 'color'"
-                            [label]="knobs[key].label || key"
-                            [(value)]="knobs[key].value"
-                            [hint]="knobs[key].hint"
-                            (valueChange)="emitKnobChange(knobs)"
-                        ></app-color-knob>
-                        <app-text-knob
-                            *ngIf="knobs[key].type === 'string'"
-                            [label]="knobs[key].label || key"
-                            [(value)]="knobs[key].value"
-                            [hint]="knobs[key].hint"
-                            (valueChange)="emitKnobChange(knobs)"
-                        ></app-text-knob>
-                        <app-boolean-knob
-                            *ngIf="knobs[key].type === 'boolean'"
-                            [label]="knobs[key].label || key"
-                            [(value)]="knobs[key].value"
-                            [hint]="knobs[key].hint"
-                            (valueChange)="emitKnobChange(knobs)"
-                        ></app-boolean-knob>
-                    </ng-container>
+                    <mat-accordion *ngFor="let group of knobGroups">
+                        <mat-expansion-panel [expanded]="group.defaultExpanded" class="mat-elevation-z0">
+                            <mat-expansion-panel-header>
+                                <mat-panel-title>
+                                    {{ group.title }}
+                                </mat-panel-title>
+                            </mat-expansion-panel-header>
+                            <ng-container *ngFor="let key of getKeys()">
+                                <app-select-knob
+                                        *ngIf="knobs[key].type === 'select'"
+                                        [label]="knobs[key].label || key"
+                                        [options]="knobs[key].options"
+                                        [(value)]="knobs[key].value"
+                                        [hint]="knobs[key].hint"
+                                        (valueChange)="emitKnobChange(knobs)"
+                                ></app-select-knob>
+                                <app-color-knob
+                                        *ngIf="knobs[key].type === 'color'"
+                                        [label]="knobs[key].label || key"
+                                        [(value)]="knobs[key].value"
+                                        [hint]="knobs[key].hint"
+                                        (valueChange)="emitKnobChange(knobs)"
+                                ></app-color-knob>
+                                <app-text-knob
+                                        *ngIf="knobs[key].type === 'string'"
+                                        [label]="knobs[key].label || key"
+                                        [(value)]="knobs[key].value"
+                                        [hint]="knobs[key].hint"
+                                        (valueChange)="emitKnobChange(knobs)"
+                                ></app-text-knob>
+                                <app-boolean-knob
+                                        *ngIf="knobs[key].type === 'boolean'"
+                                        [label]="knobs[key].label || key"
+                                        [(value)]="knobs[key].value"
+                                        [hint]="knobs[key].hint"
+                                        (valueChange)="emitKnobChange(knobs)"
+                                ></app-boolean-knob>
+                            </ng-container>
+                        </mat-expansion-panel>
+                    </mat-accordion>
                 </div>
             </div>
         </div>
@@ -101,6 +110,8 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
     @Input() mdFileName: string;
     @Input() md: string;
     @Input() knobs: { [key: string]: Knob };
+    @Input() knobGroups: Array<{ title: string, knobs: [key: string], defaultExpanded: boolean; }>;
+
 
     currentTabIndex = 0;
 

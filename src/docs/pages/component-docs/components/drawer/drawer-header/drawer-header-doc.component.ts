@@ -10,7 +10,7 @@ import { HeaderPlaygroundKnobs } from './examples/playground.component';
 @Component({
     selector: 'app-drawer-header-doc',
     template: `
-        <app-component-doc-scaffold [md]="md" [knobs]="knobs">
+        <app-component-doc-scaffold [md]="md" [knobs]="knobs" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
                     <div class="example-heading">Basic Drawer Header</div>
@@ -125,6 +125,14 @@ export class DrawerHeaderDocComponent {
             hint: 'Show a header icon',
         },
     };
+    knobGroups = [
+        {
+            title: 'Required',
+            knobs: this.knobs,
+            defaultExpanded: true,
+        }
+    ]
+
 
     constructor(
         private readonly _splitService: MarkdownSplitService,

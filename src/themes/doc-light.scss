@@ -4,6 +4,10 @@
     $primary: map-get(blui.$blui-blue, 500);
     $divider: rgba(map-get(blui.$blui-black, 500), 0.12);
 
+    .primary {
+        color: $primary;
+    }
+
     a {
         color: $primary !important;
     }
