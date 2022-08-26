@@ -75,7 +75,7 @@ import { CUSTOM_CONTENT } from './examples/with-custom-content.component';
                 [inputs]="knobs"
                 (codeChange)="generatedCode = $event"
             ></app-nav-group-playground>
-            <app-example-code code [snippet]="generatedCode"></app-example-code>
+            <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
         </app-component-doc-scaffold>
     `,
     styleUrls: ['./drawer-nav-group-doc.component.scss'],

@@ -61,7 +61,7 @@ export type Knob = {
                     <mat-accordion *ngFor="let group of knobGroups">
                         <mat-expansion-panel [expanded]="group.defaultExpanded" class="mat-elevation-z0">
                             <mat-expansion-panel-header>
-                                <mat-panel-title>
+                                <mat-panel-title class="blui-subtitle-1">
                                     {{ group.title }}
                                 </mat-panel-title>
                             </mat-expansion-panel-header>

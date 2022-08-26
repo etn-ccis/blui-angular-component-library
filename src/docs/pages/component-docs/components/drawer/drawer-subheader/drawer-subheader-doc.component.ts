@@ -46,7 +46,7 @@ import { SubheaderPlaygroundKnobs } from './examples/playground.component';
             [inputs]="knobs"
             (codeChange)="generatedCode = $event"
         ></app-subheader-playground>
-        <app-example-code code [snippet]="generatedCode"></app-example-code>
+        <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
     </app-component-doc-scaffold> `,
     styleUrls: ['./drawer-subheader-doc.component.scss'],
 })
