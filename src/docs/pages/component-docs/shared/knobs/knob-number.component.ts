@@ -38,7 +38,7 @@ import { MatSliderChange } from '@angular/material/slider';
             <div style="padding-top: 12px">
                 <div style="margin-left: -16px; padding: 0 8px" class="slider-knob-overlay divider-border">
                     <mat-slider
-                        style="width: 334px"
+                        style="width: 332px"
                         [(ngModel)]="value"
                         [min]="min"
                         [max]="max"

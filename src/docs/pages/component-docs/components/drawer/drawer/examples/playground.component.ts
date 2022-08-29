@@ -178,7 +178,6 @@ export class PlaygroundComponent implements OnDestroy {
     private _createGeneratedCode(): string {
         const code = `
 <blui-drawer
-    *ngIf="inputs"
     ${this._playgroundService.addOptionalProp(this.inputs, 'disableActiveItemParentStyles')}
     [open]="${this.inputs.open.value}"
     ${this._playgroundService.addOptionalProp(this.inputs, 'openOnHover')}
