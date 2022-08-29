@@ -133,7 +133,7 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
         private readonly _viewportService: ViewportService
     ) {}
 
-    getKeys(knobs): any {
+    getKeys(knobs: { [key: string]: Knob }): any {
         return Object.keys(knobs || {});
     }
 
