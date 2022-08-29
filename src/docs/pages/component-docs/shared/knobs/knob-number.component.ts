@@ -4,27 +4,28 @@ import { MatSliderChange } from '@angular/material/slider';
 @Component({
     selector: 'app-number-knob',
     template: `
-        <mat-form-field
-            appearance="fill"
-            style="margin-bottom: 1rem"
-            (mouseenter)="isHoverInput = true"
-            (mouseleave)="isHoverInput = false"
-        >
-            <mat-label>{{ label }}: string</mat-label>
-            <mat-hint>{{ hint }}</mat-hint>
-            <input
-                type="number"
-                [max]="max"
-                [min]="min"
-                cdkOverlayOrigin
-                #trigger="cdkOverlayOrigin"
-                matInput
-                [(ngModel)]="value"
-                (ngModelChange)="valueChange.emit($event)"
-                [ngModelOptions]="{ standalone: true }"
+        <div style="position: relative">
+            <div
+                style="opacity: 0; z-index: 2; width: 310px; height: 60px; position: absolute"
                 (click)="isOpen = true"
-            />
-        </mat-form-field>
+            ></div>
+            <mat-form-field appearance="fill" style="margin-bottom: 1rem" #input>
+                <mat-label>{{ label }}: string</mat-label>
+                <mat-hint>{{ hint }}</mat-hint>
+                <input
+                    type="number"
+                    [max]="max"
+                    [min]="min"
+                    cdkOverlayOrigin
+                    #trigger="cdkOverlayOrigin"
+                    [class.hiddenArrows]="isOpen"
+                    matInput
+                    [(ngModel)]="value"
+                    (ngModelChange)="valueChange.emit($event)"
+                    [ngModelOptions]="{ standalone: true }"
+                />
+            </mat-form-field>
+        </div>
 
         <ng-template
             cdkConnectedOverlay
@@ -47,6 +48,21 @@ import { MatSliderChange } from '@angular/material/slider';
             </div>
         </ng-template>
     `,
+    styles: [
+        `
+            /* Chrome, Safari, Edge, Opera */
+            .hiddenArrows::-webkit-outer-spin-button,
+            .hiddenArrows::-webkit-inner-spin-button {
+                -webkit-appearance: none;
+                margin: 0;
+            }
+
+            /* Firefox */
+            .hiddenArrows[type='number'] {
+                -moz-appearance: textfield;
+            }
+        `,
+    ],
 })
 export class KnobNumberComponent {
     @Input() max: number;
@@ -57,17 +73,12 @@ export class KnobNumberComponent {
     @Output() valueChange = new EventEmitter<number>();
 
     isOpen: boolean;
-    isHoverInput: boolean;
 
     updateValue(e: MatSliderChange): void {
         this.value = e.value;
     }
 
     clickedBackdrop(): void {
-        console.log('hi');
-        if (this.isHoverInput) {
-            return;
-        }
         this.isOpen = false;
     }
 }
