@@ -4,25 +4,20 @@ import { MarkdownService } from 'ngx-markdown';
 import { BASIC } from './examples/basic.component';
 import { ANATOMY } from './examples/anatomy.component';
 import { DRAWER_NAV_ITEMS } from '../../../../../navigation/nav-items';
-import { TabName } from '../../../shared/scaffold/scaffold.component';
 import { FROM_LIST } from './examples/from-list.component';
+import { DrawerPlaygroundKnobs } from './examples/playground.component';
+import { TabName } from '../../../shared/scaffold/scaffold.component';
 
 @Component({
     selector: 'app-drawer-doc',
     template: `
-        <app-component-doc-scaffold [md]="md">
+        <app-component-doc-scaffold [md]="md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
                     <div class="example-heading">Basic Drawer</div>
                     <div class="example-description">
                         A <code>&lt;blui-drawer&gt;</code> is a navigation menu that appears to the side of an
                         application.
-                        <!--<code>&lt;blui-drawer-header&gt;</code>, 
-                        <code>&lt;blui-drawer-subheader&gt;</code>, 
-                        <code>&lt;blui-drawer-body&gt;</code>,
-                        <code>&lt;blui-drawer-nav-group&gt;</code>,
-                        <code>&lt;blui-drawer-nav-item&gt;</code>,
-                        <code>&lt;blui-drawer-footer&gt;</code> -->
                     </div>
                     <div class="example-demo-wrapper">
                         <app-basic-drawer-demo></app-basic-drawer-demo>
@@ -115,7 +110,13 @@ import { FROM_LIST } from './examples/from-list.component';
                     </div>
                 </div>
             </div>
-            <div playground></div>
+
+            <app-drawer-playground
+                playground
+                [inputs]="knobs"
+                (codeChange)="generatedCode = $event"
+            ></app-drawer-playground>
+            <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
         </app-component-doc-scaffold>
     `,
     styleUrls: ['./drawer-doc.component.scss'],
@@ -125,8 +126,49 @@ export class DrawerDocComponent {
     BASIC = BASIC;
     ANATOMY = ANATOMY;
     FROM_LIST = FROM_LIST;
-
     routes = DRAWER_NAV_ITEMS;
+    generatedCode: string;
+
+    /* Default playground knobs */
+    knobs: DrawerPlaygroundKnobs = {
+        disableActiveItemParentStyles: {
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'NavItems will not have a bold title when a child NavItem is selected',
+        },
+        openOnHover: {
+            value: true,
+            componentDefault: true,
+            type: 'boolean',
+            hint: 'Automatically open the drawer on hover when closed (persistent variant only)',
+        },
+        open: {
+            value: true,
+            type: 'boolean',
+            hint: 'State for the drawer',
+        },
+        sideBorder: {
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Toggle a side border instead of shadow',
+        },
+        openOnHoverDelay: {
+            value: 500,
+            componentDefault: 500,
+            type: 'number',
+            hint: 'Delay in milliseconds before a hover event opens the drawer (persistent variant only)',
+            range: { min: 50, max: 2000 },
+        },
+    };
+    knobGroups = [
+        {
+            title: 'Properties',
+            knobs: this.knobs,
+            defaultExpanded: true,
+        },
+    ];
 
     constructor(
         private readonly _splitService: MarkdownSplitService,

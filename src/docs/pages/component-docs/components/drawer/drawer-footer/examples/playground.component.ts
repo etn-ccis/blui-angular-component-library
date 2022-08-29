@@ -3,7 +3,7 @@ import { PlaygroundService } from '../../../../../../services/playground/playgro
 import { Subscription } from 'rxjs';
 import { Knob } from '../../../../shared/scaffold/scaffold.component';
 
-export type SubheaderPlaygroundKnobs = {
+export type DrawerFooterPlaygroundKnobs = {
     divider: Knob;
     hideContentOnCollapse: Knob;
 };
@@ -30,17 +30,19 @@ export type SubheaderPlaygroundKnobs = {
     </blui-drawer>`,
 })
 export class PlaygroundComponent implements OnDestroy {
-    @Input() inputs: SubheaderPlaygroundKnobs;
+    @Input() inputs: DrawerFooterPlaygroundKnobs;
     @Output() codeChange = new EventEmitter<string>();
 
     open = true;
     knobListener: Subscription;
 
     constructor(private readonly _playgroundService: PlaygroundService) {
-        this.knobListener = this._playgroundService.knobChange.subscribe((updatedKnobs: SubheaderPlaygroundKnobs) => {
-            this.inputs = updatedKnobs;
-            this.codeChange.emit(this._createGeneratedCode());
-        });
+        this.knobListener = this._playgroundService.knobChange.subscribe(
+            (updatedKnobs: DrawerFooterPlaygroundKnobs) => {
+                this.inputs = updatedKnobs;
+                this.codeChange.emit(this._createGeneratedCode());
+            }
+        );
     }
 
     ngAfterViewInit(): void {
