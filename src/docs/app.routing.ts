@@ -11,12 +11,14 @@ import { DrawerHeaderDocComponent } from './pages/component-docs/components/draw
 import { DrawerBodyDocComponent } from './pages/component-docs/components/drawer/drawer-body/drawer-body-doc.component';
 import { DrawerSubheaderDocComponent } from './pages/component-docs/components/drawer/drawer-subheader/drawer-subheader-doc.component';
 import { DrawerDocComponent } from './pages/component-docs/components/drawer/drawer/drawer-doc.component';
+import { DrawerLayoutDocComponent } from './pages/component-docs/components/drawer/drawer-layout/drawer-layout-doc.component';
 
 const routes: Routes = [
     { path: '', redirectTo: APP_NAV_ITEMS.home.route, pathMatch: 'full' },
     { path: APP_NAV_ITEMS.home.route, component: HomeComponent },
     { path: `${COMPONENT_NAV_ITEMS.emptyState.route}/:tab`, component: EmptyStateDocComponent },
     { path: `${COMPONENT_NAV_ITEMS.listItemTag.route}/:tab`, component: ListItemTagDocComponent },
+    { path: `${DRAWER_NAV_ITEMS.drawerLayout.route}/:tab`, component: DrawerLayoutDocComponent },
     { path: `${DRAWER_NAV_ITEMS.drawerDrawer.route}/:tab`, component: DrawerDocComponent },
     { path: `${DRAWER_NAV_ITEMS.drawerHeader.route}/:tab`, component: DrawerHeaderDocComponent },
     { path: `${DRAWER_NAV_ITEMS.drawerSubheader.route}/:tab`, component: DrawerSubheaderDocComponent },

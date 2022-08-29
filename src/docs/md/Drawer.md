@@ -70,7 +70,7 @@ Each Brightlayer UI component has classes which can be used to override componen
 
 ## Drawer Layout
 
-The `<blui-drawer-layout>` component is a wrapper around the [Angular Material Sidenav](https://material.angular.io/components/sidenav/overview) that adds specific Brightlayer UI functionality and styling. The `<blui-drawer-layout>` component is used to provide the appropriate resizing behavior for your main application content when used in conjunction with a Brightlayer UI `<blui-drawer>`. It accepts a drawer and content as child elements;
+The `<blui-drawer-layout>` component is a wrapper around the [Angular Material Sidenav](https://material.angular.io/components/sidenav/overview) that adds specific Brightlayer UI functionality and styling. The `<blui-drawer-layout>` component is used to provide the appropriate resizing behavior for your main application content when used in conjunction with a Brightlayer UI `<blui-drawer>`. It accepts a drawer and content as child elements.
 
 ### Drawer Layout Usage
 
@@ -96,9 +96,9 @@ Parent element (`<blui-drawer-layout>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Output       | Description                                            | Type                 |
-| ------------- | ------------------------------------------------------ | -------------------- |
-| backdropClick | Event triggered on `'temporary` variant backdrop click | `EventEmitter<void>` |
+| @Output       | Description                                             | Type                 |
+| ------------- |---------------------------------------------------------| -------------------- |
+| backdropClick | Event triggered on `'temporary'` variant backdrop click | `EventEmitter<void>` |
 
 </div>
 
