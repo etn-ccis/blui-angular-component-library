@@ -42,6 +42,8 @@ import { MatSliderChange } from '@angular/material/slider';
                         [(ngModel)]="value"
                         [min]="min"
                         [max]="max"
+                        [tickInterval]="tickInterval"
+                        [step]="step"
                         (input)="updateValue($event)"
                     ></mat-slider>
                 </div>
@@ -67,6 +69,8 @@ import { MatSliderChange } from '@angular/material/slider';
 export class KnobNumberComponent {
     @Input() max: number;
     @Input() min: number;
+    @Input() tickInterval: number;
+    @Input() step: number;
     @Input() value;
     @Input() hint;
     @Input() label;

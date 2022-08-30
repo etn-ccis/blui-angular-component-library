@@ -21,13 +21,13 @@ type Group = {
 @Component({
     selector: 'app-drawer-playground',
     template: ` <blui-drawer
+        class="app-drawer-playground-drawer"
         *ngIf="inputs"
         [open]="inputs.open.value"
         [disableActiveItemParentStyles]="inputs.disableActiveItemParentStyles.value"
         [openOnHoverDelay]="inputs.openOnHoverDelay.value"
         [openOnHover]="inputs.openOnHover.value"
         [sideBorder]="inputs.sideBorder.value"
-        style="overflow: auto"
     >
         <blui-drawer-header title="Brightlayer UI" subtitle="Drawer Component">
             <button mat-icon-button blui-icon>
@@ -75,6 +75,9 @@ type Group = {
         `
             :host {
                 height: 100%;
+            }
+            ::ng-deep .app-drawer-playground-drawer .blui-drawer-content blui-drawer-body {
+                overflow: auto !important;
             }
         `,
     ],
@@ -183,7 +186,6 @@ export class PlaygroundComponent implements OnDestroy {
     ${this._playgroundService.addOptionalProp(this.inputs, 'openOnHover')}
     ${this._playgroundService.addOptionalProp(this.inputs, 'openOnHoverDelay')}
     ${this._playgroundService.addOptionalProp(this.inputs, 'sideBorder')}
-    style="overflow: auto"
 >
     <blui-drawer-header title="Brightlayer UI" subtitle="Drawer Component">
         <button mat-icon-button blui-icon>
