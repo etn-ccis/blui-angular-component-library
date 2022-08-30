@@ -8,7 +8,7 @@ import { PermanentVariantExampleComponent } from './examples/permanent.component
 import { TemporaryVariantExampleComponent } from './examples/temporary.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RailVariantExampleComponent } from './examples/rail.component';
-import {RailCondensedVariantExampleComponent} from "./examples/rail-condensed.component";
+import { RailCondensedVariantExampleComponent } from './examples/rail-condensed.component';
 
 @NgModule({
     declarations: [

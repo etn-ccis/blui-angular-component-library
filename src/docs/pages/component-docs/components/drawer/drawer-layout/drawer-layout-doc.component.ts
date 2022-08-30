@@ -79,8 +79,8 @@ import { TEMPORARY } from './examples/temporary.component';
                 <div class="example-section">
                     <div class="example-heading">Rail Condensed Variant</div>
                     <div class="example-description">
-                        The <code>rail</code> variant can be <code>condensed</code> so that it only displays icons.  
-                        Each navigation item will show a tooltip when hovered while in this mode. 
+                        The <code>rail</code> variant can be <code>condensed</code> so that it only displays icons. Each
+                        navigation item will show a tooltip when hovered while in this mode.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-rail-condensed-drawer-layout-demo></app-rail-condensed-drawer-layout-demo>
@@ -125,7 +125,7 @@ export class DrawerLayoutDocComponent {
             componentDefault: 350,
             type: 'number',
             hint: 'Sets the drawer width',
-            range: { min: 50, max: 500 },
+            range: { min: 50, max: 500, step: 50, tickInterval: 1 },
         },
     };
     knobGroups = [

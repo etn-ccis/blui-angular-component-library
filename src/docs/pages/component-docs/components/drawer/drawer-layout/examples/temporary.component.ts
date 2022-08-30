@@ -1,4 +1,4 @@
-import {Component} from '@angular/core';
+import { Component } from '@angular/core';
 
 export const TEMPORARY = `<blui-drawer-layout variant="temporary" (backdropClick)="open=false">
     <blui-drawer blui-drawer [open]="open">

@@ -13,7 +13,7 @@ export type DrawerLayoutPlaygroundProps = {
     template: `<blui-drawer-layout [variant]="inputs.variant.value" [width]="inputs.width.value">
         <blui-drawer blui-drawer [open]="open">
             <blui-drawer-header title="Title" *ngIf="inputs.variant.value !== 'rail'">
-                <button mat-icon-button blui-icon (click)="open=!open">
+                <button mat-icon-button blui-icon (click)="open = !open">
                     <mat-icon>menu</mat-icon>
                 </button>
             </blui-drawer-header>
@@ -33,7 +33,7 @@ export type DrawerLayoutPlaygroundProps = {
         </blui-drawer>
         <div blui-content>
             <mat-toolbar color="primary" *ngIf="inputs.variant.value === 'temporary'">
-                <button style="margin-left: -8px" mat-icon-button blui-icon (click)="open=!open">
+                <button style="margin-left: -8px" mat-icon-button blui-icon (click)="open = !open">
                     <mat-icon>menu</mat-icon>
                 </button>
                 <div style="margin-left: 8px">Toolbar</div>
