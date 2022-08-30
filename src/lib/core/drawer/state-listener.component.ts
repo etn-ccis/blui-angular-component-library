@@ -9,15 +9,15 @@ const stateMap = new Map<number, DrawerState>();
     providedIn: 'root',
 })
 export class DrawerStateManagerService {
-    private numberOfDrawerInstances = 0;
+    private numberOfDrawerStateInstances = 0;
 
-    incrementNumberOfDrawerInstances(): number {
-        this.numberOfDrawerInstances = this.numberOfDrawerInstances + 1;
-        return this.numberOfDrawerInstances;
+    incrementNumberOfDrawerStateInstances(): number {
+        this.numberOfDrawerStateInstances++;
+        return this.numberOfDrawerStateInstances;
     }
 
-    getNumberOfDrawerInstances(): number {
-        return this.numberOfDrawerInstances;
+    getNumberOfDrawerStateInstances(): number {
+        return this.numberOfDrawerStateInstances;
     }
 }
 
@@ -31,17 +31,18 @@ export class StateListener implements OnInit, OnDestroy {
         protected changeDetector: ChangeDetectorRef,
         public createNewStateListener = false
     ) {
-        if (createNewStateListener || !stateMap.has(drawerStateManagerService.getNumberOfDrawerInstances())) {
+        const currentDrawerStateId = drawerStateManagerService.getNumberOfDrawerStateInstances();
+        if (createNewStateListener || !stateMap.has(currentDrawerStateId)) {
             this._createNewDrawerServiceInstance();
         } else {
-            this.drawerState = stateMap.get(drawerStateManagerService.getNumberOfDrawerInstances());
+            this.drawerState = stateMap.get(currentDrawerStateId);
         }
     }
 
     private _createNewDrawerServiceInstance(): void {
-        this.drawerStateManagerService.incrementNumberOfDrawerInstances();
+        this.drawerStateManagerService.incrementNumberOfDrawerStateInstances();
         const newDrawerStateInstance = new DrawerState();
-        const drawerId = this.drawerStateManagerService.getNumberOfDrawerInstances();
+        const drawerId = this.drawerStateManagerService.getNumberOfDrawerStateInstances();
         stateMap.set(drawerId, newDrawerStateInstance);
         this.drawerState = newDrawerStateInstance;
     }

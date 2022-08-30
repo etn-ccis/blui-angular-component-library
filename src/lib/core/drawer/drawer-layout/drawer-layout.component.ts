@@ -17,6 +17,7 @@ import { Direction, Directionality } from '@angular/cdk/bidi';
 import { Subscription } from 'rxjs';
 import { MatDrawerMode } from '@angular/material/sidenav';
 import { DrawerComponent } from '../drawer.component';
+import {DrawerState} from "../drawerState";
 
 export type DrawerLayoutVariantType = 'permanent' | 'persistent' | 'temporary' | 'rail';
 
@@ -100,7 +101,8 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
         changeDetectorRef: ChangeDetectorRef,
         private readonly _dir: Directionality
     ) {
-        super(stateManagerService, changeDetectorRef);
+        // The DrawerState that is created by the DrawerLayout is temporary & replaced by the DrawerState found by its Drawer child.
+        super(stateManagerService, changeDetectorRef, true);
         this.dirChangeSubscription = _dir.change.subscribe((direction: Direction) => {
             this.isRtl = direction === 'rtl';
             changeDetectorRef.detectChanges();

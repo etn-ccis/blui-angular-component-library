@@ -3,15 +3,16 @@ import { MarkdownService } from 'ngx-markdown';
 import { MarkdownSplitService } from '../../../../../services/markdown-split/markdown-split.service';
 import { PERMANENT } from './examples/permanent.component';
 import { PERSISTENT } from './examples/persistent.component';
-import { DrawerFooterPlaygroundKnobs } from './examples/playground.component';
+import { DrawerLayoutPlaygroundProps } from './examples/playground.component';
+import { RAIL_CONDENSED } from './examples/rail-condensed.component';
 import { RAIL } from './examples/rail.component';
 import { TEMPORARY } from './examples/temporary.component';
 
 @Component({
     selector: 'app-drawer-layout-doc',
     template: `
-        <app-component-doc-scaffold [md]="md" [knobGroups]="knobGroups">
-            <div examples class="app-example drawer-layout-examples">
+        <app-component-doc-scaffold [md]="md" [knobGroups]="knobGroups" class="drawer-layout-examples">
+            <div examples class="app-example">
                 <div class="example-section">
                     <div class="example-heading">Drawer Layout</div>
                     <div class="example-description">
@@ -75,6 +76,20 @@ import { TEMPORARY } from './examples/temporary.component';
                         <app-copy-code-button [code]="RAIL"></app-copy-code-button>
                     </div>
                 </div>
+                <div class="example-section">
+                    <div class="example-heading">Rail Condensed Variant</div>
+                    <div class="example-description">
+                        The <code>rail</code> variant can be <code>condensed</code> so that it only displays icons.  
+                        Each navigation item will show a tooltip when hovered while in this mode. 
+                    </div>
+                    <div class="example-demo-wrapper">
+                        <app-rail-condensed-drawer-layout-demo></app-rail-condensed-drawer-layout-demo>
+                    </div>
+                    <app-example-code [snippet]="RAIL_CONDENSED"></app-example-code>
+                    <div class="example-actions">
+                        <app-copy-code-button [code]="RAIL_CONDENSED"></app-copy-code-button>
+                    </div>
+                </div>
             </div>
 
             <app-layout-playground
@@ -94,21 +109,23 @@ export class DrawerLayoutDocComponent {
     PERSISTENT = PERSISTENT;
     TEMPORARY = TEMPORARY;
     RAIL = RAIL;
+    RAIL_CONDENSED = RAIL_CONDENSED;
     generatedCode: string;
 
     /* Default playground knobs */
-    knobs: DrawerFooterPlaygroundKnobs = {
-        divider: {
-            value: true,
-            componentDefault: true,
-            type: 'boolean',
-            hint: 'Show divider under subheader',
+    knobs: DrawerLayoutPlaygroundProps = {
+        variant: {
+            value: 'persistent',
+            type: 'select',
+            options: ['persistent', 'permanent', 'temporary', 'rail'],
+            hint: 'Sets the drawer variant',
         },
-        hideContentOnCollapse: {
-            value: true,
-            componentDefault: true,
-            type: 'boolean',
-            hint: 'Hide content when the drawer is collapsed',
+        width: {
+            value: 350,
+            componentDefault: 350,
+            type: 'number',
+            hint: 'Sets the drawer width',
+            range: { min: 50, max: 500 },
         },
     };
     knobGroups = [
