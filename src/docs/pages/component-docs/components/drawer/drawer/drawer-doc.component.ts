@@ -159,7 +159,7 @@ export class DrawerDocComponent {
             componentDefault: 500,
             type: 'number',
             hint: 'Delay in milliseconds before a hover event opens the drawer (persistent variant only)',
-            range: { min: 50, max: 2000 },
+            range: { min: 100, max: 1000, tickInterval: 1, step: 100 },
         },
     };
     knobGroups = [
