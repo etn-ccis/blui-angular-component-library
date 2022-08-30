@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { DrawerLayoutDocModule } from './drawer-layout-doc.module';
 import { DrawerLayoutDocComponent } from './drawer-layout-doc.component';
 
-describe('DrawerNavItemDoc', () => {
+describe('DrawerLayoutDoc', () => {
     beforeEach(() => {
         void TestBed.configureTestingModule({
             imports: [DrawerLayoutDocModule, RouterTestingModule],

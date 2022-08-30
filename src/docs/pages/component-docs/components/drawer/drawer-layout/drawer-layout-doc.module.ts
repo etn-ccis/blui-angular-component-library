@@ -9,6 +9,7 @@ import { TemporaryVariantExampleComponent } from './examples/temporary.component
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { RailVariantExampleComponent } from './examples/rail.component';
 import { RailCondensedVariantExampleComponent } from './examples/rail-condensed.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
     declarations: [
@@ -20,7 +21,7 @@ import { RailCondensedVariantExampleComponent } from './examples/rail-condensed.
         PlaygroundComponent,
         RailCondensedVariantExampleComponent,
     ],
-    imports: [DrawerModule, SharedCompDocsModule, MatToolbarModule],
+    imports: [DrawerModule, BrowserAnimationsModule, SharedCompDocsModule, MatToolbarModule],
     exports: [DrawerLayoutDocComponent],
 })
 export class DrawerLayoutDocModule {}
