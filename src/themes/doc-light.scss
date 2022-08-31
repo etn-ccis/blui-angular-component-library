@@ -5,7 +5,7 @@
     $divider: rgba(map-get(blui.$blui-black, 500), 0.12);
 
     .primary {
-        color: $primary;
+        color: $primary !important;
     }
 
     a {

@@ -77,7 +77,7 @@ import { HeaderPlaygroundKnobs } from './examples/playground.component';
             </div>
             <app-header-playground
                 playground
-                [inputs]="knobs"
+                [inputs]="allProps"
                 (codeChange)="generatedCode = $event"
             ></app-header-playground>
             <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
@@ -94,7 +94,7 @@ export class DrawerHeaderDocComponent {
     generatedCode: string;
 
     /* Default playground knobs */
-    knobs: HeaderPlaygroundKnobs = {
+    optionalProps: Partial<HeaderPlaygroundKnobs> = {
         title: {
             value: 'title',
             type: 'string',
@@ -117,19 +117,27 @@ export class DrawerHeaderDocComponent {
             type: 'boolean',
             hint: 'Show divider under header',
         },
+    };
+    otherProps: Partial<HeaderPlaygroundKnobs> = {
         showIcon: {
-            label: 'Show Icon',
+            label: 'Add Icon',
             value: true,
             componentDefault: false,
             type: 'boolean',
             hint: 'Show a header icon',
         },
     };
+    allProps = Object.assign({}, this.otherProps, this.optionalProps);
     knobGroups = [
         {
-            title: 'Properties',
-            knobs: this.knobs,
+            title: 'Optional Properties',
+            knobs: this.optionalProps,
             defaultExpanded: true,
+        },
+        {
+            title: 'Other Properties',
+            knobs: this.otherProps,
+            defaultExpanded: false,
         },
     ];
 

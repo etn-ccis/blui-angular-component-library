@@ -73,7 +73,7 @@ export class DrawerSubheaderDocComponent {
     };
     knobGroups = [
         {
-            title: 'Properties',
+            title: 'Optional Properties',
             knobs: this.knobs,
             defaultExpanded: true,
         },
