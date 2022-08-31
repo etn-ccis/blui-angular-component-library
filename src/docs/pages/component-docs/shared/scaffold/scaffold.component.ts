@@ -135,6 +135,8 @@ export type Knob = {
                     [(value)]="knob.value"
                     [max]="knob.range.max"
                     [min]="knob.range.min"
+                    [tickInterval]="knob.range.tickInterval"
+                    [step]="knob.range.step"
                     [hint]="knob.hint"
                     (valueChange)="emitKnobChange()"
                 ></app-number-knob>
