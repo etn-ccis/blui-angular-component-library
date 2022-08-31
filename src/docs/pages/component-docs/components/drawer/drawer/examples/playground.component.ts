@@ -156,13 +156,11 @@ export class PlaygroundComponent implements OnDestroy {
         </button>
     </blui-drawer-header>
     <blui-drawer-body>
-        <ng-container *ngFor="let navGroup of [group1, group2]; let first = first">
-            <blui-drawer-nav-group [title]="navGroup.title" [divider]="true">
+        <ng-container *ngFor="let navGroup of [group1]; let first = first">
+            <blui-drawer-nav-group>
                 <blui-drawer-nav-item
                     *ngFor="let navItem of navGroup.items"
                     [title]="navItem.title"
-                    [subtitle]="navItem.subtitle"
-                    [statusColor]="navItem.statusColor"
                     [selected]="selectedItem === navItem.title"
                     (select)="setActive(navItem)"
                 >
@@ -176,7 +174,6 @@ export class PlaygroundComponent implements OnDestroy {
                     </blui-drawer-nav-item>
                 </blui-drawer-nav-item>
             </blui-drawer-nav-group>
-            <blui-spacer *ngIf="first"></blui-spacer>
         </ng-container>
     </blui-drawer-body>
     <blui-drawer-footer [hideContentOnCollapse]="true">
