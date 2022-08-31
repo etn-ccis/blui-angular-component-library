@@ -13,7 +13,7 @@ export type HeaderPlaygroundKnobs = {
 
 @Component({
     selector: 'app-header-playground',
-    template: ` <blui-drawer style="width: 250px">
+    template: ` <blui-drawer>
         <blui-drawer-header
             [color]="inputs.color.value"
             [divider]="inputs.divider.value"
@@ -84,7 +84,7 @@ export class PlaygroundComponent implements OnDestroy {
 
     private _createGeneratedCode(): string {
         const code = `
-<blui-drawer style="width: 250px">
+<blui-drawer>
     <blui-drawer-header
         ${this._playgroundService.addOptionalProp(this.inputs, 'title')}
         ${this._playgroundService.addOptionalProp(this.inputs, 'subtitle')}

@@ -19,7 +19,7 @@ export type NavItemPlaygroundKnobs = {
 
 @Component({
     selector: 'app-nav-item-playground',
-    template: ` <blui-drawer style="width: 250px" *ngIf="inputs">
+    template: ` <blui-drawer *ngIf="inputs">
         <blui-drawer-body>
             <blui-drawer-nav-group>
                 <blui-drawer-nav-item
@@ -73,7 +73,7 @@ export class PlaygroundComponent implements OnDestroy {
 
     private _createGeneratedCode(): string {
         const code = `
-<blui-drawer style="width: 250px">
+<blui-drawer>
     <blui-drawer-body>
         <blui-drawer-nav-group>
             <blui-drawer-nav-item 
