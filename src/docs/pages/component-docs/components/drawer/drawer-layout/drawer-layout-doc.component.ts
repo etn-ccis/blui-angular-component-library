@@ -7,6 +7,8 @@ import { DrawerLayoutPlaygroundProps } from './examples/playground.component';
 import { RAIL_CONDENSED } from './examples/rail-condensed.component';
 import { RAIL } from './examples/rail.component';
 import { TEMPORARY } from './examples/temporary.component';
+import { DrawerPlaygroundKnobs } from '../drawer/examples/playground.component';
+import { Knob } from '../../../shared/scaffold/scaffold.component';
 
 @Component({
     selector: 'app-drawer-layout-doc',
@@ -130,17 +132,36 @@ export class DrawerLayoutDocComponent {
             range: { min: 50, max: 500, step: 50, tickInterval: 1 },
         },
     };
-    allKnobs = Object.assign({}, this.required, this.optional);
+    drawerOptionalProps: { [key: string]: Knob } = {
+        condensed: {
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'condensed',
+        },
+        disableRailTooltip: {
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Hide tooltips on hover for the rail variant',
+        },
+    };
+    allKnobs = Object.assign({}, this.required, this.optional, this.drawerOptionalProps);
     knobGroups = [
         {
-            title: 'Required',
+            title: 'Required Properties',
             knobs: this.required,
             defaultExpanded: true,
         },
         {
-            title: 'Optional',
+            title: 'Optional Properties',
             knobs: this.optional,
             defaultExpanded: true,
+        },
+        {
+            title: 'Drawer Properties',
+            knobs: this.drawerOptionalProps,
+            defaultExpanded: false,
         },
     ];
 

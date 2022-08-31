@@ -122,14 +122,12 @@ export class PlaygroundComponent implements OnDestroy {
     constructor(private readonly _playgroundService: PlaygroundService) {
         this.knobListener = this._playgroundService.knobChange.subscribe((updatedKnobs: DrawerPlaygroundKnobs) => {
             this.inputs = updatedKnobs;
-            this.codeChange.emit(this._createGeneratedCode());
+            this._emitNewCodeChanges();
         });
     }
 
     ngAfterViewInit(): void {
-        setTimeout(() => {
-            this.codeChange.emit(this._createGeneratedCode());
-        });
+        this._emitNewCodeChanges();
     }
 
     ngOnDestroy(): void {
@@ -137,8 +135,15 @@ export class PlaygroundComponent implements OnDestroy {
             this.knobListener.unsubscribe();
         }
     }
+
     setActive(navItem: DrawerNavItem): void {
         this.selectedItem = navItem.title;
+    }
+
+    private _emitNewCodeChanges(): void {
+        setTimeout(() => {
+            this.codeChange.emit(this._createGeneratedCode());
+        });
     }
 
     private _createGeneratedCode(): string {
