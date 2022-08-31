@@ -34,7 +34,7 @@ export type Knob = {
                     (selectedTabChange)="userChangeTab($event)"
                     [(selectedIndex)]="currentTabIndex"
                 >
-                    <mat-tab label="Examples">
+                    <mat-tab label="Examples" *ngIf="hasExamples">
                         <div class="examples-tab-content-wrapper">
                             <ng-content select="[examples]"></ng-content>
                         </div>
@@ -45,7 +45,7 @@ export type Knob = {
                             <ng-content select="[docs]"></ng-content>
                         </div>
                     </mat-tab>
-                    <mat-tab label="Playground"></mat-tab>
+                    <mat-tab label="Playground" *ngIf="hasPlayground"></mat-tab>
                 </mat-tab-group>
             </div>
 
@@ -147,6 +147,8 @@ export type Knob = {
     encapsulation: ViewEncapsulation.None,
 })
 export class ScaffoldComponent implements OnInit, OnDestroy {
+    @Input() hasExamples = true;
+    @Input() hasPlayground = true;
     @Input() useDefaultDocs = true;
     @Input() mdFileName: string;
     @Input() md: string;

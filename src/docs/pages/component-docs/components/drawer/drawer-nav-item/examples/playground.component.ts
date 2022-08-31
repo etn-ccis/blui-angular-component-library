@@ -19,7 +19,7 @@ export type NavItemPlaygroundKnobs = {
 
 @Component({
     selector: 'app-nav-item-playground',
-    template: ` <blui-drawer style="width: 250px" *ngIf="inputs">
+    template: ` <blui-drawer *ngIf="inputs">
         <blui-drawer-body>
             <blui-drawer-nav-group>
                 <blui-drawer-nav-item
@@ -51,14 +51,12 @@ export class PlaygroundComponent implements OnDestroy {
     constructor(private readonly _playgroundService: PlaygroundService) {
         this.knobListener = this._playgroundService.knobChange.subscribe((updatedKnobs: NavItemPlaygroundKnobs) => {
             this.inputs = updatedKnobs;
-            this.codeChange.emit(this._createGeneratedCode());
+            this._emitNewCodeChanges();
         });
     }
 
     ngAfterViewInit(): void {
-        setTimeout(() => {
-            this.codeChange.emit(this._createGeneratedCode());
-        });
+        this._emitNewCodeChanges();
     }
 
     ngOnDestroy(): void {
@@ -67,13 +65,19 @@ export class PlaygroundComponent implements OnDestroy {
         }
     }
 
+    private _emitNewCodeChanges(): void {
+        setTimeout(() => {
+            this.codeChange.emit(this._createGeneratedCode());
+        });
+    }
+
     private _addOptionalMenuIcon(): string {
         return this.inputs.addIcon.value ? '\n\t\t\t\t<mat-icon blui-icon>home</mat-icon>' : '';
     }
 
     private _createGeneratedCode(): string {
         const code = `
-<blui-drawer style="width: 250px">
+<blui-drawer>
     <blui-drawer-body>
         <blui-drawer-nav-group>
             <blui-drawer-nav-item 
