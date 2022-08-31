@@ -150,18 +150,18 @@ export class DrawerDocComponent {
             type: 'boolean',
             hint: 'Automatically open the drawer on hover when closed (persistent variant only)',
         },
-        sideBorder: {
-            value: false,
-            componentDefault: false,
-            type: 'boolean',
-            hint: 'Toggle a side border instead of shadow',
-        },
         openOnHoverDelay: {
             value: 500,
             componentDefault: 500,
             type: 'number',
             hint: 'Delay in milliseconds before a hover event opens the drawer (persistent variant only)',
             range: { min: 100, max: 1000, tickInterval: 1, step: 100 },
+        },
+        sideBorder: {
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Toggle a side border instead of shadow',
         },
     };
     allKnobs = Object.assign({}, this.requiredKnobs, this.optionalKnobs);
