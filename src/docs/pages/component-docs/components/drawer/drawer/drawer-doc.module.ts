@@ -6,9 +6,10 @@ import { BasicExampleComponent } from './examples/basic.component';
 import { AnatomyComponent } from './examples/anatomy.component';
 import { RouterModule } from '@angular/router';
 import { FromListComponent } from './examples/from-list.component';
+import { PlaygroundComponent } from './examples/playground.component';
 
 @NgModule({
-    declarations: [DrawerDocComponent, BasicExampleComponent, AnatomyComponent, FromListComponent],
+    declarations: [DrawerDocComponent, BasicExampleComponent, AnatomyComponent, FromListComponent, PlaygroundComponent],
     imports: [DrawerModule, SpacerModule, SharedCompDocsModule, RouterModule],
     exports: [DrawerDocComponent],
 })

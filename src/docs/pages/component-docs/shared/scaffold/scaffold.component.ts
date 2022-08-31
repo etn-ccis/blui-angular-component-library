@@ -12,7 +12,7 @@ export type Knob = {
     label?: string;
     value: any;
     componentDefault?: string | boolean | number;
-    range?: { min: number; max: number };
+    range?: { min: number; max: number; tickInterval: number; step: number };
     type: 'string' | 'color' | 'select' | 'number' | 'boolean';
     hint: string;
     options?: string[];
@@ -135,6 +135,8 @@ export type Knob = {
                     [(value)]="knob.value"
                     [max]="knob.range.max"
                     [min]="knob.range.min"
+                    [tickInterval]="knob.range.tickInterval"
+                    [step]="knob.range.step"
                     [hint]="knob.hint"
                     (valueChange)="emitKnobChange()"
                 ></app-number-knob>

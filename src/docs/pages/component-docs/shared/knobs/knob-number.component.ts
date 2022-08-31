@@ -32,10 +32,12 @@ import { MatSliderChange } from '@angular/material/slider';
             <div style="padding-top: 12px">
                 <div style="margin-left: -16px; padding: 0 8px" class="slider-knob-overlay divider-border">
                     <mat-slider
-                        style="width: 334px"
+                        style="width: 332px"
                         [(ngModel)]="value"
                         [min]="min"
                         [max]="max"
+                        [tickInterval]="tickInterval"
+                        [step]="step"
                         (input)="updateValue($event)"
                     ></mat-slider>
                 </div>
@@ -61,6 +63,8 @@ import { MatSliderChange } from '@angular/material/slider';
 export class KnobNumberComponent {
     @Input() max: number;
     @Input() min: number;
+    @Input() tickInterval: number;
+    @Input() step: number;
     @Input() value;
     @Input() hint;
     @Input() label;
@@ -70,6 +74,7 @@ export class KnobNumberComponent {
 
     updateValue(e: MatSliderChange): void {
         this.value = e.value;
+        this.valueChange.emit(e.value);
     }
 
     clickedBackdrop(): void {
