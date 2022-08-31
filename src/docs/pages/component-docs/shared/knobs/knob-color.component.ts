@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-color-knob',
@@ -7,17 +8,13 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
             <mat-form-field appearance="fill" style="margin-bottom: 1rem" blui-input>
                 <mat-label>{{ label }}: color</mat-label>
                 <mat-hint>{{ hint }}</mat-hint>
-                <input
-                    matInput
-                    [(ngModel)]="value"
-                    (ngModelChange)="valueChange.emit($event)"
-                    [ngModelOptions]="{ standalone: true }"
-                />
+                <mat-error *ngIf="colorInput.errors?.['colorInvalid']"> Color value not recognized </mat-error>
+                <input matInput [formControl]="colorInput" [(ngModel)]="value" (ngModelChange)="updateValue($event)" />
                 <button
                     mat-icon-button
                     matSuffix
                     style="cursor: pointer; padding-bottom: 4px; margin-right: 0;"
-                    [style.marginTop.px]="isValidColor() ? -4 : 0"
+                    [style.marginTop.px]="hasValidColor ? -4 : 0"
                     [style.borderBottomColor]="value"
                     [cpPosition]="'bottom'"
                     [cpPositionOffset]="'-750px'"
@@ -25,12 +22,12 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
                     (colorPickerChange)="valueChange.emit($event)"
                     [(colorPicker)]="value"
                 >
-                    <mat-icon>{{ isValidColor() ? 'colorize' : 'question_mark' }}</mat-icon>
+                    <mat-icon>{{ hasValidColor ? 'colorize' : 'question_mark' }}</mat-icon>
                 </button>
             </mat-form-field>
             <div
                 class="divider-border"
-                *ngIf="isValidColor()"
+                *ngIf="hasValidColor"
                 style="position: absolute; z-index: 3; width: 40px; height: 8px; top: 40px; right: 12px; box-sizing: border-box"
                 [style.backgroundColor]="value"
             ></div>
@@ -43,9 +40,24 @@ export class KnobColorComponent {
     @Input() label;
     @Output() valueChange = new EventEmitter<string>();
 
-    isValidColor(): boolean {
+    hasValidColor: boolean;
+    colorInput = new FormControl('', []);
+
+    updateValue(e: string): void {
+        this.value = e;
+        this.valueChange.emit(e);
+        this.hasValidColor = this._checkValidColor();
+        if (this.hasValidColor) {
+            this.colorInput.setErrors(null);
+        } else {
+            this.colorInput.setErrors({ colorInvalid: true });
+        }
+    }
+
+    private _checkValidColor(): boolean {
         const s = new Option().style;
         s.color = this.value;
-        return s.color !== '';
+        const valid = s.color !== '';
+        return valid;
     }
 }

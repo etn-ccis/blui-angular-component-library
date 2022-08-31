@@ -105,7 +105,7 @@ export class DrawerNavGroupDocComponent {
     };
     knobGroups = [
         {
-            title: 'Properties',
+            title: 'Optional Props',
             knobs: this.knobs,
             defaultExpanded: true,
         },

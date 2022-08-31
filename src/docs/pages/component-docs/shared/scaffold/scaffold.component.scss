@@ -150,6 +150,10 @@
         right: 0;
         padding: 16px;
 
+        input,
+        .mat-select-value-text {
+            font-family: monospace;
+        }
         .mat-expansion-panel .mat-expansion-panel-header.mat-expanded {
             border-bottom: 0 !important;
         }
