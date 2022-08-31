@@ -151,9 +151,18 @@
         padding: 16px;
 
         input,
+        .mat-checkbox-label,
         .mat-select-value-text {
             font-family: monospace;
         }
+        .non-prop {
+            input,
+            .mat-checkbox-label,
+            .mat-select-value-text {
+                font-family: inherit;
+            }
+        }
+
         .mat-expansion-panel .mat-expansion-panel-header.mat-expanded {
             border-bottom: 0 !important;
         }

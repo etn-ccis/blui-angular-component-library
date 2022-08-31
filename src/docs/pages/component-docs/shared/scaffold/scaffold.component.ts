@@ -99,44 +99,46 @@ export type Knob = {
         </div>
 
         <ng-template #interactiveKnob let-knob="knob" let-key="key">
-            <app-select-knob
-                *ngIf="knob.type === 'select'"
-                [label]="knob.label || key"
-                [options]="knob.options"
-                [(value)]="knob.value"
-                [hint]="knob.hint"
-                (valueChange)="emitKnobChange()"
-            ></app-select-knob>
-            <app-color-knob
-                *ngIf="knob.type === 'color'"
-                [label]="knob.label || key"
-                [(value)]="knob.value"
-                [hint]="knob.hint"
-                (valueChange)="emitKnobChange()"
-            ></app-color-knob>
-            <app-text-knob
-                *ngIf="knob.type === 'string'"
-                [label]="knob.label || key"
-                [(value)]="knob.value"
-                [hint]="knob.hint"
-                (valueChange)="emitKnobChange()"
-            ></app-text-knob>
-            <app-boolean-knob
-                *ngIf="knob.type === 'boolean'"
-                [label]="knob.label || key"
-                [(value)]="knob.value"
-                [hint]="knob.hint"
-                (valueChange)="emitKnobChange()"
-            ></app-boolean-knob>
-            <app-number-knob
-                *ngIf="knob.type === 'number'"
-                [label]="knob.label || key"
-                [(value)]="knob.value"
-                [max]="knob.range.max"
-                [min]="knob.range.min"
-                [hint]="knob.hint"
-                (valueChange)="emitKnobChange()"
-            ></app-number-knob>
+            <div [class.non-prop]="knob.label?.indexOf(' ') > 0">
+                <app-select-knob
+                    *ngIf="knob.type === 'select'"
+                    [label]="knob.label || key"
+                    [options]="knob.options"
+                    [(value)]="knob.value"
+                    [hint]="knob.hint"
+                    (valueChange)="emitKnobChange()"
+                ></app-select-knob>
+                <app-color-knob
+                    *ngIf="knob.type === 'color'"
+                    [label]="knob.label || key"
+                    [(value)]="knob.value"
+                    [hint]="knob.hint"
+                    (valueChange)="emitKnobChange()"
+                ></app-color-knob>
+                <app-text-knob
+                    *ngIf="knob.type === 'string'"
+                    [label]="knob.label || key"
+                    [(value)]="knob.value"
+                    [hint]="knob.hint"
+                    (valueChange)="emitKnobChange()"
+                ></app-text-knob>
+                <app-boolean-knob
+                    *ngIf="knob.type === 'boolean'"
+                    [label]="knob.label || key"
+                    [(value)]="knob.value"
+                    [hint]="knob.hint"
+                    (valueChange)="emitKnobChange()"
+                ></app-boolean-knob>
+                <app-number-knob
+                    *ngIf="knob.type === 'number'"
+                    [label]="knob.label || key"
+                    [(value)]="knob.value"
+                    [max]="knob.range.max"
+                    [min]="knob.range.min"
+                    [hint]="knob.hint"
+                    (valueChange)="emitKnobChange()"
+                ></app-number-knob>
+            </div>
         </ng-template>
     `,
     styleUrls: ['./scaffold.component.scss'],

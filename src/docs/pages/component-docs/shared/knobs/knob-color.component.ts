@@ -55,6 +55,10 @@ export class KnobColorComponent {
     }
 
     private _checkValidColor(): boolean {
+        if (!this.value) {
+            return true;
+        }
+
         const s = new Option().style;
         s.color = this.value;
         const valid = s.color !== '';

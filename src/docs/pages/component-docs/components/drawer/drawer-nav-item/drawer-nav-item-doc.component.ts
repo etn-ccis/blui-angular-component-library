@@ -83,7 +83,7 @@ import { NavItemPlaygroundKnobs } from './examples/playground.component';
             </div>
             <app-nav-item-playground
                 playground
-                [inputs]="knobs"
+                [inputs]="allProps"
                 (codeChange)="generatedCode = $event"
             ></app-nav-item-playground>
             <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
@@ -100,7 +100,7 @@ export class DrawerNavItemDocComponent {
     generatedCode: string;
 
     /* Default playground knobs */
-    knobs: NavItemPlaygroundKnobs = {
+    optionalKnobs: Partial<NavItemPlaygroundKnobs> = {
         title: {
             value: 'title',
             type: 'string',
@@ -122,13 +122,6 @@ export class DrawerNavItemDocComponent {
             type: 'select',
             options: ['square', 'round'],
             hint: 'Selected item background highlight',
-        },
-        addIcon: {
-            label: 'Add Icon',
-            value: false,
-            componentDefault: false,
-            type: 'boolean',
-            hint: 'Render a navigation icon',
         },
         chevron: {
             value: true,
@@ -166,11 +159,26 @@ export class DrawerNavItemDocComponent {
             hint: 'Mark selected item as active',
         },
     };
+    otherKnobs: Partial<NavItemPlaygroundKnobs> = {
+        addIcon: {
+            label: 'Add Icon',
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Render a navigation icon',
+        },
+    };
+    allProps = Object.assign({}, this.otherKnobs, this.optionalKnobs);
     knobGroups = [
         {
-            title: 'Optional Props',
-            knobs: this.knobs,
+            title: 'Optional Properties',
+            knobs: this.optionalKnobs,
             defaultExpanded: true,
+        },
+        {
+            title: 'Other Properties',
+            knobs: this.otherKnobs,
+            defaultExpanded: false,
         },
     ];
 

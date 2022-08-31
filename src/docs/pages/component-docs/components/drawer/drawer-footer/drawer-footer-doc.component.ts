@@ -69,7 +69,7 @@ export class DrawerFooterDocComponent {
     };
     knobGroups = [
         {
-            title: 'Optional Props',
+            title: 'Optional Properties',
             knobs: this.knobs,
             defaultExpanded: true,
         },
