@@ -13,7 +13,7 @@ export type HeaderPlaygroundKnobs = {
 
 @Component({
     selector: 'app-header-playground',
-    template: ` <blui-drawer style="width: 250px">
+    template: ` <blui-drawer>
         <blui-drawer-header
             [color]="inputs.color.value"
             [divider]="inputs.divider.value"
@@ -43,20 +43,24 @@ export class PlaygroundComponent implements OnDestroy {
     constructor(private readonly _playgroundService: PlaygroundService) {
         this.knobListener = this._playgroundService.knobChange.subscribe((updatedKnobs: HeaderPlaygroundKnobs) => {
             this.inputs = updatedKnobs;
-            this.codeChange.emit(this._createGeneratedCode());
+            this._emitNewCodeChanges();
         });
     }
 
     ngAfterViewInit(): void {
-        setTimeout(() => {
-            this.codeChange.emit(this._createGeneratedCode());
-        });
+        this._emitNewCodeChanges();
     }
 
     ngOnDestroy(): void {
         if (this.knobListener) {
             this.knobListener.unsubscribe();
         }
+    }
+
+    private _emitNewCodeChanges(): void {
+        setTimeout(() => {
+            this.codeChange.emit(this._createGeneratedCode());
+        });
     }
 
     private _getMenuIcon(): string {
@@ -69,22 +73,9 @@ export class PlaygroundComponent implements OnDestroy {
         return '';
     }
 
-    /*
-    private _getCustomHeaderContent(): string {
-        if (this.inputs.showCustomContent.value) {
-            return `
-        <div blui-title-content>
-            <div class="mat-h4" style="margin: 12px 0 -8px 0">Customizable</div>
-            <div class="mat-h2" style="margin: 0">Header Content</div>
-        </div>`;
-        }
-        return '';
-    }
-    */
-
     private _createGeneratedCode(): string {
         const code = `
-<blui-drawer style="width: 250px">
+<blui-drawer>
     <blui-drawer-header
         ${this._playgroundService.addOptionalProp(this.inputs, 'title')}
         ${this._playgroundService.addOptionalProp(this.inputs, 'subtitle')}

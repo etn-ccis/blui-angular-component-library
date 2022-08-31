@@ -6,7 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CommonModule } from '@angular/common';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { KnobTextComponent } from './knobs/knob-text.component';
 import { AppCommonComponentsModule } from '../../../components/components.module';
 import { MatButtonModule } from '@angular/material/button';
@@ -71,6 +71,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
             },
         }),
         MatDividerModule,
+        ReactiveFormsModule,
     ],
     exports: [
         ExampleCodeComponent,

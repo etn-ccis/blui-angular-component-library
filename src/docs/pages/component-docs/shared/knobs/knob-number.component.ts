@@ -4,28 +4,22 @@ import { MatSliderChange } from '@angular/material/slider';
 @Component({
     selector: 'app-number-knob',
     template: `
-        <div style="position: relative">
-            <div
-                style="opacity: 0; z-index: 2; width: 310px; height: 60px; position: absolute"
-                (click)="isOpen = true"
-            ></div>
-            <mat-form-field appearance="fill" style="margin-bottom: 1rem" #input>
-                <mat-label>{{ label }}: string</mat-label>
-                <mat-hint>{{ hint }}</mat-hint>
-                <input
-                    type="number"
-                    [max]="max"
-                    [min]="min"
-                    cdkOverlayOrigin
-                    #trigger="cdkOverlayOrigin"
-                    [class.hiddenArrows]="isOpen"
-                    matInput
-                    [(ngModel)]="value"
-                    (ngModelChange)="valueChange.emit($event)"
-                    [ngModelOptions]="{ standalone: true }"
-                />
-            </mat-form-field>
-        </div>
+        <mat-form-field appearance="fill" style="margin-bottom: 1rem" #input (click)="isOpen = true">
+            <mat-label>{{ label }}: string</mat-label>
+            <mat-hint>{{ hint }}</mat-hint>
+            <input
+                type="number"
+                [max]="max"
+                [min]="min"
+                cdkOverlayOrigin
+                #trigger="cdkOverlayOrigin"
+                [class.hiddenArrows]="true"
+                matInput
+                [(ngModel)]="value"
+                (ngModelChange)="valueChange.emit($event)"
+                [ngModelOptions]="{ standalone: true }"
+            />
+        </mat-form-field>
 
         <ng-template
             cdkConnectedOverlay

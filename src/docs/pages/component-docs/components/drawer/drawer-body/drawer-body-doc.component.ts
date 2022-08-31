@@ -5,7 +5,7 @@ import { MarkdownService } from 'ngx-markdown';
 @Component({
     selector: 'app-drawer-body-doc',
     template: `
-        <app-component-doc-scaffold [md]="md">
+        <app-component-doc-scaffold [md]="md" [hasExamples]="false" [hasPlayground]="false">
             <div examples>
                 <app-coming-soon></app-coming-soon>
             </div>

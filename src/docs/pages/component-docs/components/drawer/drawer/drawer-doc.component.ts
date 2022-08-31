@@ -113,7 +113,7 @@ import { TabName } from '../../../shared/scaffold/scaffold.component';
 
             <app-drawer-playground
                 playground
-                [inputs]="knobs"
+                [inputs]="allKnobs"
                 (codeChange)="generatedCode = $event"
             ></app-drawer-playground>
             <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
@@ -130,7 +130,14 @@ export class DrawerDocComponent {
     generatedCode: string;
 
     /* Default playground knobs */
-    knobs: DrawerPlaygroundKnobs = {
+    requiredKnobs: Partial<DrawerPlaygroundKnobs> = {
+        open: {
+            value: true,
+            type: 'boolean',
+            hint: 'State for the drawer',
+        },
+    };
+    optionalKnobs: Partial<DrawerPlaygroundKnobs> = {
         disableActiveItemParentStyles: {
             value: false,
             componentDefault: false,
@@ -143,17 +150,6 @@ export class DrawerDocComponent {
             type: 'boolean',
             hint: 'Automatically open the drawer on hover when closed (persistent variant only)',
         },
-        open: {
-            value: true,
-            type: 'boolean',
-            hint: 'State for the drawer',
-        },
-        sideBorder: {
-            value: false,
-            componentDefault: false,
-            type: 'boolean',
-            hint: 'Toggle a side border instead of shadow',
-        },
         openOnHoverDelay: {
             value: 500,
             componentDefault: 500,
@@ -161,11 +157,23 @@ export class DrawerDocComponent {
             hint: 'Delay in milliseconds before a hover event opens the drawer (persistent variant only)',
             range: { min: 100, max: 1000, tickInterval: 1, step: 100 },
         },
+        sideBorder: {
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Toggle a side border instead of shadow',
+        },
     };
+    allKnobs = Object.assign({}, this.requiredKnobs, this.optionalKnobs);
     knobGroups = [
         {
-            title: 'Properties',
-            knobs: this.knobs,
+            title: 'Required Properties',
+            knobs: this.requiredKnobs,
+            defaultExpanded: true,
+        },
+        {
+            title: 'Optional Properties',
+            knobs: this.optionalKnobs,
             defaultExpanded: true,
         },
     ];

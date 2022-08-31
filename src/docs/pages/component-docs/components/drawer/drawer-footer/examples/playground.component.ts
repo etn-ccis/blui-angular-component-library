@@ -40,15 +40,13 @@ export class PlaygroundComponent implements OnDestroy {
         this.knobListener = this._playgroundService.knobChange.subscribe(
             (updatedKnobs: DrawerFooterPlaygroundKnobs) => {
                 this.inputs = updatedKnobs;
-                this.codeChange.emit(this._createGeneratedCode());
+                this._emitNewCodeChanges();
             }
         );
     }
 
     ngAfterViewInit(): void {
-        setTimeout(() => {
-            this.codeChange.emit(this._createGeneratedCode());
-        });
+        this._emitNewCodeChanges();
     }
 
     ngOnDestroy(): void {
@@ -60,6 +58,12 @@ export class PlaygroundComponent implements OnDestroy {
     toggleDrawer(): void {
         this.open = !this.open;
         this.codeChange.emit(this._createGeneratedCode());
+    }
+
+    private _emitNewCodeChanges(): void {
+        setTimeout(() => {
+            this.codeChange.emit(this._createGeneratedCode());
+        });
     }
 
     private _createGeneratedCode(): string {

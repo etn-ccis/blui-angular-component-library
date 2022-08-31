@@ -34,7 +34,7 @@ export type Knob = {
                     (selectedTabChange)="userChangeTab($event)"
                     [(selectedIndex)]="currentTabIndex"
                 >
-                    <mat-tab label="Examples">
+                    <mat-tab label="Examples" *ngIf="hasExamples">
                         <div class="examples-tab-content-wrapper">
                             <ng-content select="[examples]"></ng-content>
                         </div>
@@ -45,79 +45,110 @@ export type Knob = {
                             <ng-content select="[docs]"></ng-content>
                         </div>
                     </mat-tab>
-                    <mat-tab label="Playground"></mat-tab>
+                    <mat-tab label="Playground" *ngIf="hasPlayground"></mat-tab>
                 </mat-tab-group>
             </div>
 
             <div class="playground-container" *ngIf="currentTabIndex === 2">
                 <div style="width: 100%; display: flex; flex-direction: column;">
-                    <div class="playground-live-example-wrapper" style="height: 50%">
+                    <div class="playground-live-example-wrapper" style="height: 70%">
                         <ng-content select="[playground]"></ng-content>
                     </div>
-                    <div style="height: 50%; overflow: auto; box-sizing: border-box">
+                    <div style="height: 30%; overflow: auto; box-sizing: border-box">
                         <ng-content select="[code]"></ng-content>
                     </div>
                 </div>
                 <div class="props-container">
-                    <mat-accordion *ngFor="let group of knobGroups">
-                        <mat-expansion-panel [expanded]="group.defaultExpanded" class="mat-elevation-z0">
-                            <mat-expansion-panel-header>
-                                <mat-panel-title class="blui-subtitle-1">
-                                    {{ group.title }}
-                                </mat-panel-title>
-                            </mat-expansion-panel-header>
-                            <ng-container *ngFor="let key of getKeys(group.knobs)">
-                                <app-select-knob
-                                    *ngIf="group.knobs[key].type === 'select'"
-                                    [label]="group.knobs[key].label || key"
-                                    [options]="group.knobs[key].options"
-                                    [(value)]="group.knobs[key].value"
-                                    [hint]="group.knobs[key].hint"
-                                    (valueChange)="emitKnobChange()"
-                                ></app-select-knob>
-                                <app-color-knob
-                                    *ngIf="group.knobs[key].type === 'color'"
-                                    [label]="group.knobs[key].label || key"
-                                    [(value)]="group.knobs[key].value"
-                                    [hint]="group.knobs[key].hint"
-                                    (valueChange)="emitKnobChange()"
-                                ></app-color-knob>
-                                <app-text-knob
-                                    *ngIf="group.knobs[key].type === 'string'"
-                                    [label]="group.knobs[key].label || key"
-                                    [(value)]="group.knobs[key].value"
-                                    [hint]="group.knobs[key].hint"
-                                    (valueChange)="emitKnobChange()"
-                                ></app-text-knob>
-                                <app-boolean-knob
-                                    *ngIf="group.knobs[key].type === 'boolean'"
-                                    [label]="group.knobs[key].label || key"
-                                    [(value)]="group.knobs[key].value"
-                                    [hint]="group.knobs[key].hint"
-                                    (valueChange)="emitKnobChange()"
-                                ></app-boolean-knob>
-                                <app-number-knob
-                                    *ngIf="group.knobs[key].type === 'number'"
-                                    [label]="group.knobs[key].label || key"
-                                    [(value)]="group.knobs[key].value"
-                                    [max]="group.knobs[key].range.max"
-                                    [min]="group.knobs[key].range.min"
-                                    [step]="group.knobs[key].range.step"
-                                    [tickInterval]="group.knobs[key].range.tickInterval"
-                                    [hint]="group.knobs[key].hint"
-                                    (valueChange)="emitKnobChange()"
-                                ></app-number-knob>
-                            </ng-container>
-                        </mat-expansion-panel>
-                    </mat-accordion>
+                    <ng-container *ngIf="knobGroups.length > 1">
+                        <mat-accordion *ngFor="let group of knobGroups">
+                            <mat-expansion-panel [expanded]="group.defaultExpanded" class="mat-elevation-z0">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title class="blui-subtitle-1 primary">
+                                        {{ group.title }}
+                                    </mat-panel-title>
+                                </mat-expansion-panel-header>
+                                <ng-container *ngFor="let key of getKeys(group.knobs)">
+                                    <ng-template
+                                        *ngTemplateOutlet="
+                                            interactiveKnob;
+                                            context: { knob: group.knobs[key], key: key }
+                                        "
+                                    >
+                                    </ng-template>
+                                </ng-container>
+                            </mat-expansion-panel>
+                        </mat-accordion>
+                    </ng-container>
+
+                    <ng-container *ngIf="knobGroups.length === 1">
+                        <div class="blui-subtitle-1 primary" style="margin-bottom: 16px;">
+                            {{ knobGroups[0].title }}
+                        </div>
+                        <ng-container *ngFor="let key of getKeys(knobGroups[0].knobs)">
+                            <ng-template
+                                *ngTemplateOutlet="
+                                    interactiveKnob;
+                                    context: { knob: knobGroups[0].knobs[key], key: key }
+                                "
+                            >
+                            </ng-template>
+                        </ng-container>
+                    </ng-container>
                 </div>
             </div>
         </div>
+
+        <ng-template #interactiveKnob let-knob="knob" let-key="key">
+            <div [class.non-prop]="knob.label?.indexOf(' ') > 0">
+                <app-select-knob
+                    *ngIf="knob.type === 'select'"
+                    [label]="knob.label || key"
+                    [options]="knob.options"
+                    [(value)]="knob.value"
+                    [hint]="knob.hint"
+                    (valueChange)="emitKnobChange()"
+                ></app-select-knob>
+                <app-color-knob
+                    *ngIf="knob.type === 'color'"
+                    [label]="knob.label || key"
+                    [(value)]="knob.value"
+                    [hint]="knob.hint"
+                    (valueChange)="emitKnobChange()"
+                ></app-color-knob>
+                <app-text-knob
+                    *ngIf="knob.type === 'string'"
+                    [label]="knob.label || key"
+                    [(value)]="knob.value"
+                    [hint]="knob.hint"
+                    (valueChange)="emitKnobChange()"
+                ></app-text-knob>
+                <app-boolean-knob
+                    *ngIf="knob.type === 'boolean'"
+                    [label]="knob.label || key"
+                    [(value)]="knob.value"
+                    [hint]="knob.hint"
+                    (valueChange)="emitKnobChange()"
+                ></app-boolean-knob>
+                <app-number-knob
+                    *ngIf="knob.type === 'number'"
+                    [label]="knob.label || key"
+                    [(value)]="knob.value"
+                    [max]="knob.range.max"
+                    [min]="knob.range.min"
+                    [tickInterval]="knob.range.tickInterval"
+                    [step]="knob.range.step"
+                    [hint]="knob.hint"
+                    (valueChange)="emitKnobChange()"
+                ></app-number-knob>
+            </div>
+        </ng-template>
     `,
     styleUrls: ['./scaffold.component.scss'],
     encapsulation: ViewEncapsulation.None,
 })
 export class ScaffoldComponent implements OnInit, OnDestroy {
+    @Input() hasExamples = true;
+    @Input() hasPlayground = true;
     @Input() useDefaultDocs = true;
     @Input() mdFileName: string;
     @Input() md: string;
