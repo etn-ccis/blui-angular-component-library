@@ -94,7 +94,7 @@ import { TEMPORARY } from './examples/temporary.component';
 
             <app-layout-playground
                 playground
-                [inputs]="knobs"
+                [inputs]="allKnobs"
                 (codeChange)="generatedCode = $event"
             ></app-layout-playground>
             <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
@@ -113,13 +113,15 @@ export class DrawerLayoutDocComponent {
     generatedCode: string;
 
     /* Default playground knobs */
-    knobs: DrawerLayoutPlaygroundProps = {
+    required: Partial<DrawerLayoutPlaygroundProps> = {
         variant: {
             value: 'persistent',
             type: 'select',
             options: ['persistent', 'permanent', 'temporary', 'rail'],
             hint: 'Sets the drawer variant',
         },
+    };
+    optional: Partial<DrawerLayoutPlaygroundProps> = {
         width: {
             value: 350,
             componentDefault: 350,
@@ -128,10 +130,16 @@ export class DrawerLayoutDocComponent {
             range: { min: 50, max: 500, step: 50, tickInterval: 1 },
         },
     };
+    allKnobs = Object.assign({}, this.required, this.optional);
     knobGroups = [
         {
-            title: 'Properties',
-            knobs: this.knobs,
+            title: 'Required',
+            knobs: this.required,
+            defaultExpanded: true,
+        },
+        {
+            title: 'Optional',
+            knobs: this.optional,
             defaultExpanded: true,
         },
     ];

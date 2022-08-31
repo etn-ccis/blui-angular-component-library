@@ -10,7 +10,11 @@ export type DrawerLayoutPlaygroundProps = {
 
 @Component({
     selector: 'app-layout-playground',
-    template: `<blui-drawer-layout [variant]="inputs.variant.value" [width]="inputs.width.value">
+    template: `<blui-drawer-layout
+        [variant]="inputs.variant.value"
+        [width]="inputs.width.value"
+        (backdropClick)="open = true"
+    >
         <blui-drawer blui-drawer [open]="open">
             <blui-drawer-header title="Title" *ngIf="inputs.variant.value !== 'rail'">
                 <button mat-icon-button blui-icon (click)="open = !open">
