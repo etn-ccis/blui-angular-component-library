@@ -51,20 +51,24 @@ export class PlaygroundComponent implements OnDestroy {
     constructor(private readonly _playgroundService: PlaygroundService) {
         this.knobListener = this._playgroundService.knobChange.subscribe((updatedKnobs: NavItemPlaygroundKnobs) => {
             this.inputs = updatedKnobs;
-            this.codeChange.emit(this._createGeneratedCode());
+            this._emitNewCodeChanges();
         });
     }
 
     ngAfterViewInit(): void {
-        setTimeout(() => {
-            this.codeChange.emit(this._createGeneratedCode());
-        });
+        this._emitNewCodeChanges();
     }
 
     ngOnDestroy(): void {
         if (this.knobListener) {
             this.knobListener.unsubscribe();
         }
+    }
+
+    private _emitNewCodeChanges(): void {
+        setTimeout(() => {
+            this.codeChange.emit(this._createGeneratedCode());
+        });
     }
 
     private _addOptionalMenuIcon(): string {
