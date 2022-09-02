@@ -7,8 +7,7 @@ import { DrawerLayoutPlaygroundProps } from './examples/playground.component';
 import { RAIL_CONDENSED } from './examples/rail-condensed.component';
 import { RAIL } from './examples/rail.component';
 import { TEMPORARY } from './examples/temporary.component';
-import { DrawerPlaygroundKnobs } from '../drawer/examples/playground.component';
-import { Knob } from '../../../shared/scaffold/scaffold.component';
+ import { Knob } from '../../../shared/scaffold/scaffold.component';
 
 @Component({
     selector: 'app-drawer-layout-doc',
