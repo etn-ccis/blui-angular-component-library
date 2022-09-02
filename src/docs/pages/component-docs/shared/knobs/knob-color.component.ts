@@ -6,7 +6,7 @@ import { FormControl } from '@angular/forms';
     template: `
         <div style="position: relative">
             <mat-form-field appearance="fill" style="margin-bottom: 1rem" blui-input>
-                <mat-label>{{ label }}: color</mat-label>
+                <mat-label>{{ label }}: string</mat-label>
                 <mat-hint>{{ hint }}</mat-hint>
                 <mat-error *ngIf="colorInput.errors?.['colorInvalid']"> Color value not recognized </mat-error>
                 <input matInput [formControl]="colorInput" [(ngModel)]="value" (ngModelChange)="updateValue($event)" />

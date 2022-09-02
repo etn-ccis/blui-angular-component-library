@@ -3,7 +3,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 @Component({
     selector: 'app-boolean-knob',
     template: `
-        <div style="margin-bottom: 1rem">
+        <div style="margin-bottom: 1rem; margin-left: -1rem">
             <mat-checkbox style="margin-left: 1rem" [(ngModel)]="value" (ngModelChange)="valueChange.emit(value)">{{
                 label
             }}</mat-checkbox>
