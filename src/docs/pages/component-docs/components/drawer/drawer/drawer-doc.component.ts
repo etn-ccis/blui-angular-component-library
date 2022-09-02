@@ -103,7 +103,7 @@ import { TabName } from '../../../shared/scaffold/scaffold.component';
                     <app-example-code [snippet]="FROM_LIST"></app-example-code>
                     <div class="example-actions">
                         <app-view-code-button
-                            examplePath="drawer/drawer/from-list"
+                            examplePath="drawer/drawer/examples/from-list"
                             style="margin-right: 16px"
                         ></app-view-code-button>
                         <app-copy-code-button [code]="FROM_LIST"></app-copy-code-button>

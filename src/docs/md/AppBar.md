@@ -45,7 +45,7 @@ imports: [ AppBarModule ]
 <div style="overflow: auto;">
 
 | @Input                   | Description                                            | Type                                      | Required | Default                          |
-| ------------------------ | ------------------------------------------------------ | ----------------------------------------- | -------- | -------------------------------- |
+| ------------------------ |--------------------------------------------------------| ----------------------------------------- | -------- | -------------------------------- |
 | collapsedHeight          | Height of the AppBar when collapsed                    | `number`                                  | no       | theme default                    |
 | color                    | Color variant which is passed to the `<mat-toolbar>`   | `'primary'` \| `'accent'` \| `'warn'`     | no       | 'primary'                        |
 | expandedHeight           | Height of the AppBar when expanded                     | `number`                                  | no       | 200                              |
@@ -54,7 +54,7 @@ imports: [ AppBarModule ]
 | scrollContainerClassName | Class name, index number of scrollable element         | `{ name: string, index: number }`         | no       |                                  |
 | scrollContainerId        | Id of the scrollable element                           | `string`                                  | no       |                                  |
 | scrollThreshold          | Distance in pixels to scroll before collapsing toolbar | `number`                                  | no       | expandedHeight - collapsedHeight |
-| variant                  | Behavior of the App Bar                                | `'expanded'` \| `'collapsed'` \| `'snap'` | no       | 'snap'                           |
+| variant                  | Behavior of the App Bar                                | `'expanded'` \| `'collapsed'` \| `'snap'` | no       | 'collapsed'                      |
 
 </div>
 
