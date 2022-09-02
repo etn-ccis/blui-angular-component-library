@@ -25,17 +25,6 @@ imports: [
 ],
 ```
 
-```html
-// your-component.html
-<blui-empty-state title="No Devices Found">
-    <mat-icon blui-empty-icon>notifications_none</mat-icon>
-    <button mat-raised-button color="primary" blui-actions>
-        <mat-icon>add_circle</mat-icon>
-        ADD DEVICE
-    </button>
-</blui-empty-state>
-```
-
 ## API
 
 Parent element (`<blui-empty-state>`) attributes:
