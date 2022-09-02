@@ -39,7 +39,13 @@
 
         /* Examples Section */
         .examples-tab-content-wrapper {
-            padding: 48px 32px 32px 32px;
+            padding: 48px 0px 32px 0px;
+
+            @media only screen and (max-width: 1590px) {
+                margin-left: 32px;
+                margin-right: 32px;
+            }
+
             > div {
                 display: flex;
                 flex-direction: column;
@@ -162,6 +168,9 @@
             .mat-select-value-text {
                 font-family: inherit;
             }
+            app-boolean-knob .type {
+                display: none;
+            }
         }
 
         .mat-expansion-panel .mat-expansion-panel-header.mat-expanded {
@@ -174,6 +183,11 @@
 
         mat-form-field {
             width: 100%;
+        }
+
+        /* Manual Knob Adjustments */
+        .openOnHoverDelay {
+            margin-bottom: 2rem !important;
         }
     }
 }

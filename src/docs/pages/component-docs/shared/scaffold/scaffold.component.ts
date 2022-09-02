@@ -60,7 +60,7 @@ export type Knob = {
                 </div>
                 <div class="props-container">
                     <ng-container *ngIf="knobGroups.length > 1">
-                        <mat-accordion *ngFor="let group of knobGroups">
+                        <mat-accordion *ngFor="let group of knobGroups; let last = last">
                             <mat-expansion-panel [expanded]="group.defaultExpanded" class="mat-elevation-z0">
                                 <mat-expansion-panel-header>
                                     <mat-panel-title class="blui-subtitle-1 primary">
@@ -77,6 +77,7 @@ export type Knob = {
                                     </ng-template>
                                 </ng-container>
                             </mat-expansion-panel>
+                            <mat-divider *ngIf="!last" style="margin-left: -16px; margin-right: -16px"></mat-divider>
                         </mat-accordion>
                     </ng-container>
 

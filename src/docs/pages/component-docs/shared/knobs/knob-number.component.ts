@@ -4,8 +4,8 @@ import { MatSliderChange } from '@angular/material/slider';
 @Component({
     selector: 'app-number-knob',
     template: `
-        <mat-form-field appearance="fill" style="margin-bottom: 1rem" #input (click)="isOpen = true">
-            <mat-label>{{ label }}: string</mat-label>
+        <mat-form-field appearance="fill" style="margin-bottom: 1rem" #input (click)="isOpen = true" [class]="label">
+            <mat-label>{{ label }}: number</mat-label>
             <mat-hint>{{ hint }}</mat-hint>
             <input
                 type="number"
