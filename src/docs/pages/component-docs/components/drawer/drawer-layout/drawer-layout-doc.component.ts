@@ -136,7 +136,7 @@ export class DrawerLayoutDocComponent {
             value: false,
             componentDefault: false,
             type: 'boolean',
-            hint: 'condensed',
+            hint: 'Skinny view for rail variant',
         },
         disableRailTooltip: {
             value: false,
