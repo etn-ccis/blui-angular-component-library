@@ -168,7 +168,7 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
     ) {}
 
     getKeys(knobs: { [key: string]: Knob }): any {
-        return Object.keys(knobs || {});
+        return Object.keys(knobs || {}).sort();
     }
 
     ngOnInit(): void {
