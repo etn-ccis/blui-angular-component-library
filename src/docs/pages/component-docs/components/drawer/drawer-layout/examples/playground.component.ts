@@ -44,7 +44,7 @@ export type DrawerLayoutPlaygroundProps = {
         </blui-drawer>
         <div blui-content>
             <mat-toolbar color="primary" *ngIf="inputs.variant.value === 'temporary'">
-                <button style="margin-left: -8px" mat-icon-button blui-icon (click)="toggleDrawer()">
+                <button style="margin-left: -8px" mat-icon-button (click)="toggleDrawer()">
                     <mat-icon>menu</mat-icon>
                 </button>
                 <div style="margin-left: 8px">Toolbar</div>
@@ -95,7 +95,7 @@ export class PlaygroundComponent implements OnDestroy {
         if (this.inputs.variant.value === 'temporary') {
             return `
         <mat-toolbar color="primary">
-            <button style="margin-left: -8px" mat-icon-button blui-icon (click)="open = !open">
+            <button style="margin-left: -8px" mat-icon-button (click)="open = !open">
                 <mat-icon>menu</mat-icon>
             </button>
             <div style="margin-left: 8px">Toolbar</div>
