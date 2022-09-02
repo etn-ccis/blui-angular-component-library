@@ -5,7 +5,6 @@
             <blui-drawer-nav-group>
                 <blui-drawer-nav-item
                     *ngFor="let navItem of navItems"
-                    [divider]="true"
                     [title]="navItem.title"
                     [selected]="navItem.title === getSelectedItem()"
                     (select)="selectItem(navItem)"
@@ -16,7 +15,6 @@
             <blui-drawer-nav-group title="Components" [divider]="false">
                 <blui-drawer-nav-item
                     *ngFor="let navItem of componentNavItems"
-                    [divider]="true"
                     [title]="navItem.title"
                     [hidePadding]="true"
                     [selected]="navItem.title === getSelectedItem()"
@@ -35,7 +33,7 @@
         </blui-drawer-body>
     </blui-drawer>
     <div blui-content class="drawer-content">
-        <mat-toolbar class="toolbar" color="primary">
+        <mat-toolbar class="toolbar">
             <button
                 mat-icon-button
                 *ngIf="variant === 'temporary'"

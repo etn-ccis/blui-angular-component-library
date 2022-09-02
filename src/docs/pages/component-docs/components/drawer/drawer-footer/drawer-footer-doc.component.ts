@@ -3,12 +3,12 @@ import { MarkdownService } from 'ngx-markdown';
 import { MarkdownSplitService } from '../../../../../services/markdown-split/markdown-split.service';
 import { BASIC } from './examples/basic.component';
 import { COMPLEX } from './examples/complex.component';
-import { SubheaderPlaygroundKnobs } from '../drawer-subheader/examples/playground.component';
+import { DrawerFooterPlaygroundKnobs } from './examples/playground.component';
 
 @Component({
     selector: 'app-drawer-footer-doc',
     template: `
-        <app-component-doc-scaffold [md]="md" [knobs]="knobs">
+        <app-component-doc-scaffold [md]="md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
                     <div class="example-heading">Basic Drawer Footer</div>
@@ -41,7 +41,7 @@ import { SubheaderPlaygroundKnobs } from '../drawer-subheader/examples/playgroun
                 [inputs]="knobs"
                 (codeChange)="generatedCode = $event"
             ></app-footer-playground>
-            <app-example-code code [snippet]="generatedCode"></app-example-code>
+            <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
         </app-component-doc-scaffold>
     `,
     styleUrls: ['./drawer-footer-doc.component.scss'],
@@ -53,7 +53,7 @@ export class DrawerFooterDocComponent {
     generatedCode: string;
 
     /* Default playground knobs */
-    knobs: SubheaderPlaygroundKnobs = {
+    knobs: DrawerFooterPlaygroundKnobs = {
         divider: {
             value: true,
             componentDefault: true,
@@ -67,6 +67,13 @@ export class DrawerFooterDocComponent {
             hint: 'Hide content when the drawer is collapsed',
         },
     };
+    knobGroups = [
+        {
+            title: 'Optional Properties',
+            knobs: this.knobs,
+            defaultExpanded: true,
+        },
+    ];
 
     constructor(
         private readonly _splitService: MarkdownSplitService,

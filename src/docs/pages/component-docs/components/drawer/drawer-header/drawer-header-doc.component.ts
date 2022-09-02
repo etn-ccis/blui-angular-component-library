@@ -10,7 +10,7 @@ import { HeaderPlaygroundKnobs } from './examples/playground.component';
 @Component({
     selector: 'app-drawer-header-doc',
     template: `
-        <app-component-doc-scaffold [md]="md" [knobs]="knobs">
+        <app-component-doc-scaffold [md]="md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
                     <div class="example-heading">Basic Drawer Header</div>
@@ -77,10 +77,10 @@ import { HeaderPlaygroundKnobs } from './examples/playground.component';
             </div>
             <app-header-playground
                 playground
-                [inputs]="knobs"
+                [inputs]="allProps"
                 (codeChange)="generatedCode = $event"
             ></app-header-playground>
-            <app-example-code code [snippet]="generatedCode"></app-example-code>
+            <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
         </app-component-doc-scaffold>
     `,
     styleUrls: ['./drawer-header-doc.component.scss'],
@@ -94,7 +94,7 @@ export class DrawerHeaderDocComponent {
     generatedCode: string;
 
     /* Default playground knobs */
-    knobs: HeaderPlaygroundKnobs = {
+    optionalProps: Partial<HeaderPlaygroundKnobs> = {
         title: {
             value: 'title',
             type: 'string',
@@ -117,14 +117,29 @@ export class DrawerHeaderDocComponent {
             type: 'boolean',
             hint: 'Show divider under header',
         },
+    };
+    otherProps: Partial<HeaderPlaygroundKnobs> = {
         showIcon: {
-            label: 'Show Icon',
+            label: 'Add Icon',
             value: true,
             componentDefault: false,
             type: 'boolean',
             hint: 'Show a header icon',
         },
     };
+    allProps = Object.assign({}, this.otherProps, this.optionalProps);
+    knobGroups = [
+        {
+            title: 'Optional Properties',
+            knobs: this.optionalProps,
+            defaultExpanded: true,
+        },
+        {
+            title: 'Other Properties',
+            knobs: this.otherProps,
+            defaultExpanded: false,
+        },
+    ];
 
     constructor(
         private readonly _splitService: MarkdownSplitService,

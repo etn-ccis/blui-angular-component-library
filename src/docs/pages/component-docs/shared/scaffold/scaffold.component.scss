@@ -39,7 +39,13 @@
 
         /* Examples Section */
         .examples-tab-content-wrapper {
-            padding: 48px 32px 32px 32px;
+            padding: 48px 0px 32px 0px;
+
+            @media only screen and (max-width: 1590px) {
+                margin-left: 32px;
+                margin-right: 32px;
+            }
+
             > div {
                 display: flex;
                 flex-direction: column;
@@ -134,6 +140,7 @@
         height: 100%;
         margin-right: $knobsWidth;
         .playground-live-example-wrapper {
+            padding: 1rem;
             height: 50%;
             display: flex;
             justify-content: center;
@@ -149,8 +156,38 @@
         position: fixed;
         right: 0;
         padding: 16px;
+
+        input,
+        .mat-checkbox-label,
+        .mat-select-value-text {
+            font-family: monospace;
+        }
+        .non-prop {
+            input,
+            .mat-checkbox-label,
+            .mat-select-value-text {
+                font-family: inherit;
+            }
+            app-boolean-knob .type {
+                display: none;
+            }
+        }
+
+        .mat-expansion-panel .mat-expansion-panel-header.mat-expanded {
+            border-bottom: 0 !important;
+        }
+        .mat-expansion-panel-body,
+        .mat-expansion-panel-header {
+            padding: 0 8px;
+        }
+
         mat-form-field {
             width: 100%;
+        }
+
+        /* Manual Knob Adjustments */
+        .openOnHoverDelay {
+            margin-bottom: 2rem !important;
         }
     }
 }

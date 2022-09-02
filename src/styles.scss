@@ -11,6 +11,7 @@ body {
 .blui-blue {
     @include doc-light.light-theme();
 }
+
 // This is required for the demos, otherwise will need to specify the height on the drawer in each demo.
 .app-example,
 .playground-container {
@@ -22,7 +23,6 @@ body {
 .color-picker .arrow.arrow-bottom {
     display: none;
 }
-
 /** Examples Pages */
 .app-example {
     .example-heading {
