@@ -168,6 +168,9 @@
             .mat-select-value-text {
                 font-family: inherit;
             }
+            app-boolean-knob .type {
+                display: none;
+            }
         }
 
         .mat-expansion-panel .mat-expansion-panel-header.mat-expanded {
