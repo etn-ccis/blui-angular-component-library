@@ -23,23 +23,6 @@ imports: [ AppBarModule ]
 ...
 ```
 
-```html
-// your-component.html 
-// Default: AppBar will resize between collapsedHeight and expandedHeight as the window is scrolled
-<blui-app-bar variant="snap"></blui-app-bar>
-
-// App Bar will stay fixed at the collapsedHeight size
-<blui-app-bar variant="collapsed"></blui-app-bar>
-
-// App Bar will stay fixed at the expandedHeight size
-<blui-app-bar variant="expanded"></blui-app-bar>
-
-// AppBar with Three Liner component
-<blui-app-bar variant="snap">
-    <blui-three-liner title="title" subtitle="subtitle" info="info"></blui-three-liner>
-</blui-app-bar>
-```
-
 ## API
 
 <div style="overflow: auto;">
