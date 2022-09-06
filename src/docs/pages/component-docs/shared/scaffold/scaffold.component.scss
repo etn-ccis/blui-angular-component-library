@@ -155,7 +155,8 @@
         overflow: auto;
         position: fixed;
         right: 0;
-        padding: 16px;
+        // padding: 16px;
+        padding: 16px 0;
 
         input,
         .mat-checkbox-label,
@@ -178,7 +179,7 @@
         }
         .mat-expansion-panel-body,
         .mat-expansion-panel-header {
-            padding: 0 8px;
+            padding: 0 24px;
         }
 
         mat-form-field {

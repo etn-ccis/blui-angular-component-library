@@ -39,6 +39,9 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
+        max-width: calc(100vw - 64px); // 64px represents padding on container
+        box-sizing: border-box;
+        overflow: auto;
     }
     .example-actions {
         padding-top: 16px;

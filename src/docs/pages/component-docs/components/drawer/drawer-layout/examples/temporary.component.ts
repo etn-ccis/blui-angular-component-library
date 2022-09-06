@@ -3,8 +3,8 @@ import { Component } from '@angular/core';
 export const TEMPORARY = `<blui-drawer-layout variant="temporary" (backdropClick)="open=false">
     <blui-drawer blui-drawer [open]="open">
         <blui-drawer-header title="Title">
-            <button mat-icon-button blui-icon (click)="open=!open">
-                <mat-icon>menu</mat-icon>
+            <button mat-icon-button blui-icon (click)="open=!open" style="margin-right: 8px">
+                <mat-icon>close</mat-icon>
             </button>
         </blui-drawer-header> 
         <blui-drawer-body>
@@ -20,7 +20,7 @@ export const TEMPORARY = `<blui-drawer-layout variant="temporary" (backdropClick
             <button style="margin-left: -8px" mat-icon-button blui-icon (click)="open=!open">
                 <mat-icon>menu</mat-icon>
             </button>
-            <div style="margin-left: 8px">Toolbar</div>
+            <div style="margin-left: 24px">Toolbar</div>
         </mat-toolbar>
         <div style="padding: 1rem">
             App Content Here.

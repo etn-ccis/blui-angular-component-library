@@ -72,15 +72,6 @@ Each Brightlayer UI component has classes which can be used to override componen
 
 The `<blui-drawer-layout>` component is a wrapper around the [Angular Material Sidenav](https://material.angular.io/components/sidenav/overview) that adds specific Brightlayer UI functionality and styling. The `<blui-drawer-layout>` component is used to provide the appropriate resizing behavior for your main application content when used in conjunction with a Brightlayer UI `<blui-drawer>`. It accepts a drawer and content as child elements.
 
-### Drawer Layout Usage
-
-```html
-<blui-drawer-layout>
-    <blui-drawer blui-drawer>Drawer goes here</blui-drawer>
-    <div blui-content>Content goes here</div>
-</blui-drawer-layout>
-```
-
 ### Drawer Layout API
 
 Parent element (`<blui-drawer-layout>`) attributes:
