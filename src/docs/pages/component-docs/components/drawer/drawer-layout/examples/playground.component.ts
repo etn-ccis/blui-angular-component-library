@@ -25,7 +25,7 @@ export type DrawerLayoutPlaygroundProps = {
         >
             <blui-drawer-header title="Title" *ngIf="inputs.variant.value !== 'rail'">
                 <button mat-icon-button blui-icon (click)="toggleDrawer()">
-                    <mat-icon>menu</mat-icon>
+                    <mat-icon>{{ getDrawerIcon() }}</mat-icon>
                 </button>
             </blui-drawer-header>
             <blui-drawer-body>
@@ -47,7 +47,7 @@ export type DrawerLayoutPlaygroundProps = {
                 <button style="margin-left: -8px" mat-icon-button (click)="toggleDrawer()">
                     <mat-icon>menu</mat-icon>
                 </button>
-                <div style="margin-left: 8px">Toolbar</div>
+                <div style="margin-left: 24px">Toolbar</div>
             </mat-toolbar>
             <div style="padding: 1rem">App Content Here.</div>
         </div>
@@ -77,6 +77,10 @@ export class PlaygroundComponent implements OnDestroy {
         }
     }
 
+    getDrawerIcon(): string {
+        return this.inputs.variant.value === 'temporary' ? 'close' : 'menu';
+    }
+
     toggleDrawer(): void {
         if (this.inputs.variant.value === 'permanent') {
             return;
@@ -98,7 +102,7 @@ export class PlaygroundComponent implements OnDestroy {
             <button style="margin-left: -8px" mat-icon-button (click)="open = !open">
                 <mat-icon>menu</mat-icon>
             </button>
-            <div style="margin-left: 8px">Toolbar</div>
+            <div style="margin-left: 24px">Toolbar</div>
         </mat-toolbar>`;
         }
         return '';
@@ -109,7 +113,7 @@ export class PlaygroundComponent implements OnDestroy {
             return `
         <blui-drawer-header title="Title">
             <button mat-icon-button blui-icon (click)="open=!open">
-                <mat-icon>menu</mat-icon>
+                <mat-icon>${this.getDrawerIcon()}</mat-icon>
             </button>
         </blui-drawer-header>`;
         }
