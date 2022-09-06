@@ -11,6 +11,10 @@ const appBar: NavItem = {
     title: 'App Bar',
     route: 'components/app-bar',
 };
+const hero: NavItem = {
+    title: 'Hero',
+    route: 'components/hero',
+};
 const emptyState: NavItem = {
     title: 'Empty State',
     route: 'components/empty-state',
@@ -76,6 +80,7 @@ export const COMPONENT_NAV_ITEMS = {
     appBar,
     drawer,
     emptyState,
+    hero,
     listItemTag,
 };
 export const DRAWER_NAV_ITEMS = {

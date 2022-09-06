@@ -21,6 +21,7 @@ export class NavigationComponent {
         COMPONENT_NAV_ITEMS.appBar,
         COMPONENT_NAV_ITEMS.drawer,
         COMPONENT_NAV_ITEMS.emptyState,
+        COMPONENT_NAV_ITEMS.hero,
         COMPONENT_NAV_ITEMS.listItemTag,
     ];
 

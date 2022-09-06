@@ -11,6 +11,7 @@ import { DrawerSubheaderDocModule } from './components/drawer/drawer-subheader/d
 import { DrawerDocModule } from './components/drawer/drawer/drawer-doc.module';
 import { DrawerLayoutDocModule } from './components/drawer/drawer-layout/drawer-layout-doc.module';
 import { AppBarDocModule } from './components/app-bar/app-bar-doc.module';
+import {HeroDocModule} from "./components/hero/hero-doc.module";
 
 @NgModule({
     exports: [
@@ -24,6 +25,7 @@ import { AppBarDocModule } from './components/app-bar/app-bar-doc.module';
         DrawerSubheaderDocModule,
         DrawerDocModule,
         EmptyStateDocModule,
+        HeroDocModule,
         ListItemTagDocModule,
         SharedCompDocsModule,
     ],
