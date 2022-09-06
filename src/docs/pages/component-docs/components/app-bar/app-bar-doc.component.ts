@@ -67,15 +67,15 @@ import { THREE_LINER } from './examples/three-liner.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">App Bar with ThreeLiner Component</div>
+                    <div class="example-heading">App Bar with Custom Content</div>
                     <div class="example-description">
-                        A <code>&lt;blui-app-bar&gt;</code> can accept a <code>&lt;blui-three-liner&gt;</code> to
-                        conditionally render tersiary data.
+                        A <code>&lt;blui-app-bar&gt;</code> can accept a <code>blui-icon</code>,
+                        <code>blui-actions</code> and custom content.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-three-liner-app-bar-demo></app-three-liner-app-bar-demo>
                     </div>
-                    <app-example-code [snippet]="THREE_LINER" dataLine="9-11"></app-example-code>
+                    <app-example-code [snippet]="THREE_LINER" dataLine="9-19"></app-example-code>
                     <div class="example-actions">
                         <app-view-code-button
                             examplePath="app-bar/examples/three-liner"

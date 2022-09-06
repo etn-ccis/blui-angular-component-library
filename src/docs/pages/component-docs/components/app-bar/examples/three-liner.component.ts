@@ -18,7 +18,7 @@ export const THREE_LINER = `<div id="app-bar-three-liner-example" class="three-l
             <mat-icon style="margin: 0 8px">light</mat-icon>
             <mat-icon style="margin: 0 8px">face</mat-icon>
             <mat-icon style="margin: 0 8px">home</mat-icon>
-         </div>
+        </div>
     </blui-app-bar>
     <div class="content-body">{{ filler }}</div>
 </div>

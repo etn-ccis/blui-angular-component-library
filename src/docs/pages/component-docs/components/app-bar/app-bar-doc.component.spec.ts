@@ -1,11 +1,12 @@
 import { TestBed } from '@angular/core/testing';
-import { AppBarDocModule } from './empty-state-doc.module';
-import { AppBarDocComponent } from './empty-state-doc.component';
+import { AppBarDocModule } from './app-bar-doc.module';
+import { AppBarDocComponent } from './app-bar-doc.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
-describe('EmptyStateDocComponent', () => {
+describe('AppBarDocComponent', () => {
     beforeEach(() => {
         void TestBed.configureTestingModule({
-            imports: [AppBarDocModule],
+            imports: [AppBarDocModule, RouterTestingModule],
         }).compileComponents();
     });
 
