@@ -49,7 +49,7 @@ export type Knob = {
                 </mat-tab-group>
             </div>
 
-            <div class="playground-container" *ngIf="currentTabIndex === 2">
+            <div class="playground-container" *ngIf="currentTabIndex === 2" [class.md]="isMedium()">
                 <div style="width: 100%; display: flex; flex-direction: column;">
                     <div class="playground-live-example-wrapper" style="height: 70%">
                         <ng-content select="[playground]"></ng-content>
@@ -77,11 +77,11 @@ export type Knob = {
                                     </ng-template>
                                 </ng-container>
                             </mat-expansion-panel>
-                            <mat-divider *ngIf="!last" style="margin-left: -16px; margin-right: -16px"></mat-divider>
+                            <mat-divider *ngIf="!last"></mat-divider>
                         </mat-accordion>
                     </ng-container>
 
-                    <ng-container *ngIf="knobGroups.length === 1">
+                    <div style="padding: 0 24px" *ngIf="knobGroups.length === 1">
                         <div class="blui-subtitle-1 primary" style="margin-bottom: 16px;">
                             {{ knobGroups[0].title }}
                         </div>
@@ -94,7 +94,7 @@ export type Knob = {
                             >
                             </ng-template>
                         </ng-container>
-                    </ng-container>
+                    </div>
                 </div>
             </div>
         </div>
@@ -168,13 +168,13 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
     ) {}
 
     getKeys(knobs: { [key: string]: Knob }): any {
-        return Object.keys(knobs || {});
+        return Object.keys(knobs || {}).sort();
     }
 
     ngOnInit(): void {
         if (this.mdFileName) {
             this._markdownService.getSource(`src/assets/md/${this.mdFileName}`).subscribe((data) => {
-                this.md = data.replace('images/', 'src/assets/md/images/');
+                this.md = data.replace(/images/g, `src/assets/md/images/`);
             });
         }
         const tab = this._getTabNameFromUrl();
@@ -239,5 +239,9 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
 
     isSmall(): boolean {
         return this._viewportService.isSmall();
+    }
+
+    isMedium(): boolean {
+        return this._viewportService.isMedium();
     }
 }
