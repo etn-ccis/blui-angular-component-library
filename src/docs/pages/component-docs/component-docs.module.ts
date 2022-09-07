@@ -12,6 +12,7 @@ import { DrawerDocModule } from './components/drawer/drawer/drawer-doc.module';
 import { DrawerLayoutDocModule } from './components/drawer/drawer-layout/drawer-layout-doc.module';
 import { AppBarDocModule } from './components/app-bar/app-bar-doc.module';
 import { HeroDocModule } from './components/hero/hero-doc.module';
+import { MobileStepperDocModule } from './components/mobile-stepper/mobile-stepper-doc.module';
 
 @NgModule({
     exports: [
@@ -27,6 +28,7 @@ import { HeroDocModule } from './components/hero/hero-doc.module';
         EmptyStateDocModule,
         HeroDocModule,
         ListItemTagDocModule,
+        MobileStepperDocModule,
         SharedCompDocsModule,
     ],
 })

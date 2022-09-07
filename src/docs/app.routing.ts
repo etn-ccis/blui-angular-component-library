@@ -14,6 +14,7 @@ import { DrawerDocComponent } from './pages/component-docs/components/drawer/dra
 import { DrawerLayoutDocComponent } from './pages/component-docs/components/drawer/drawer-layout/drawer-layout-doc.component';
 import { AppBarDocComponent } from './pages/component-docs/components/app-bar/app-bar-doc.component';
 import { HeroDocComponent } from './pages/component-docs/components/hero/hero-doc.component';
+import { MobileStepperDocComponent } from './pages/component-docs/components/mobile-stepper/mobile-stepper-doc.component';
 
 const routes: Routes = [
     { path: '', redirectTo: APP_NAV_ITEMS.home.route, pathMatch: 'full' },
@@ -30,6 +31,7 @@ const routes: Routes = [
     { path: `${DRAWER_NAV_ITEMS.drawerNavGroup.route}/:tab`, component: DrawerNavGroupDocComponent },
     { path: `${DRAWER_NAV_ITEMS.drawerNavItem.route}/:tab`, component: DrawerNavItemDocComponent },
     { path: `${DRAWER_NAV_ITEMS.drawerFooter.route}/:tab`, component: DrawerFooterDocComponent },
+    { path: `${COMPONENT_NAV_ITEMS.mobileStepper.route}/:tab`, component: MobileStepperDocComponent },
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
