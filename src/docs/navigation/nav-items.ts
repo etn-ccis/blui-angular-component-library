@@ -11,6 +11,10 @@ const appBar: NavItem = {
     title: 'App Bar',
     route: 'components/app-bar',
 };
+const channelValue: NavItem = {
+    title: 'Channel Value',
+    route: 'components/channel-value',
+};
 const hero: NavItem = {
     title: 'Hero',
     route: 'components/hero',
@@ -78,6 +82,7 @@ const home: NavItem = {
 
 export const COMPONENT_NAV_ITEMS = {
     appBar,
+    channelValue,
     drawer,
     emptyState,
     hero,

@@ -8,6 +8,7 @@ import { ValueUnitsComponent } from './examples/value-units.component';
 import { ChannelValueChildrenComponent } from './examples/channel-value-children.component';
 import { IconDiffsComponent } from './examples/icon-diffs.component';
 import { WithinBannerComponent } from './examples/within-banner.component';
+import {RouterModule} from "@angular/router";
 
 @NgModule({
     declarations: [
@@ -18,7 +19,7 @@ import { WithinBannerComponent } from './examples/within-banner.component';
         ChannelValueChildrenComponent,
         WithinBannerComponent,
     ],
-    imports: [HeroModule, ChannelValueModule, SharedCompDocsModule, MatIconModule],
+    imports: [HeroModule, ChannelValueModule, SharedCompDocsModule, MatIconModule, RouterModule],
     exports: [HeroDocComponent],
 })
 export class HeroDocModule {}
