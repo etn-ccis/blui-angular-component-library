@@ -5,7 +5,7 @@ import { CV_CHILDREN } from './examples/channel-value-children.component';
 import { ICON_DIFFS } from './examples/icon-diffs.component';
 import { WITH_BANNER } from './examples/within-banner.component';
 import { COMPONENT_NAV_ITEMS } from 'src/docs/navigation/nav-items';
-import {TabName} from "../../shared/scaffold/scaffold.component";
+import { TabName } from '../../shared/scaffold/scaffold.component';
 
 @Component({
     selector: 'app-hero-doc',
@@ -15,8 +15,8 @@ import {TabName} from "../../shared/scaffold/scaffold.component";
                 <div class="example-section">
                     <div class="example-heading">Basic Hero</div>
                     <div class="example-description">
-                        The <code>&lt;blui-hero&gt;</code> accepts a <code>label</code> input and
-                        a <code>blui-primary</code> icon content.
+                        The <code>&lt;blui-hero&gt;</code> accepts a <code>label</code> input and a
+                        <code>blui-primary</code> icon content.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-basic-hero-demo></app-basic-hero-demo>
@@ -30,7 +30,8 @@ import {TabName} from "../../shared/scaffold/scaffold.component";
                 <div class="example-section">
                     <div class="example-heading">Hero with Value and Units</div>
                     <div class="example-description">
-                        The <code>&lt;blui-hero&gt;</code> accepts an optional <code>value</code> and <code>units</code> input to commonly display metric data.
+                        The <code>&lt;blui-hero&gt;</code> accepts an optional <code>value</code> and
+                        <code>units</code> input to commonly display metric data.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-value-units-hero-demo></app-value-units-hero-demo>
@@ -44,7 +45,7 @@ import {TabName} from "../../shared/scaffold/scaffold.component";
                 <div class="example-section">
                     <div class="example-heading">Hero with ChannelValue Children</div>
                     <div class="example-description">
-                        The <code>&lt;blui-hero&gt;</code> can accept a 
+                        The <code>&lt;blui-hero&gt;</code> can accept a
                         <code>
                             <a [routerLink]="createRouterLink(routes.channelValue.route)">&lt;blui-channel-value&gt;</a>
                         </code>
@@ -62,7 +63,8 @@ import {TabName} from "../../shared/scaffold/scaffold.component";
                 <div class="example-section">
                     <div class="example-heading">Heroes with a HeroBanner</div>
                     <div class="example-description">
-                        The <code>&lt;blui-hero-banner&gt;</code> can be used to wrap multiple <code>&lt;blui-hero&gt;</code>.
+                        The <code>&lt;blui-hero-banner&gt;</code> can be used to wrap multiple
+                        <code>&lt;blui-hero&gt;</code>.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-with-banner-hero-demo></app-with-banner-hero-demo>
@@ -76,8 +78,8 @@ import {TabName} from "../../shared/scaffold/scaffold.component";
                 <div class="example-section">
                     <div class="example-heading">Hero with Icon Size and Image Types</div>
                     <div class="example-description">
-                        The <code>&lt;blui-hero&gt;</code> supports multiple image 
-                        types and has an <code>iconSize</code> input to scale.
+                        The <code>&lt;blui-hero&gt;</code> supports multiple image types and has an
+                        <code>iconSize</code> input to scale.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-icon-diffs-hero-demo></app-icon-diffs-hero-demo>

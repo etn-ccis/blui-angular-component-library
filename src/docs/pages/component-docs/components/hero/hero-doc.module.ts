@@ -8,7 +8,7 @@ import { ValueUnitsComponent } from './examples/value-units.component';
 import { ChannelValueChildrenComponent } from './examples/channel-value-children.component';
 import { IconDiffsComponent } from './examples/icon-diffs.component';
 import { WithinBannerComponent } from './examples/within-banner.component';
-import {RouterModule} from "@angular/router";
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
