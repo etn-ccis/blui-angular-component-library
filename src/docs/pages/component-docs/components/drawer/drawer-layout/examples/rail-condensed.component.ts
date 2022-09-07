@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-export const RAIL_CONDENSED = `<blui-drawer-layout variant="rail">
+export const RAIL_CONDENSED = `<blui-drawer-layout variant="rail" class="condensed-rail-example">
     <blui-drawer blui-drawer [open]="true" [condensed]="true">
         <blui-drawer-body>
             <blui-drawer-nav-group>

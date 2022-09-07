@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 
-export const PERSISTENT = `
-<blui-drawer-layout variant="persistent">
+export const PERSISTENT = `<blui-drawer-layout variant="persistent">
     <blui-drawer blui-drawer [open]="open">
-        <blui-drawer-header title="Title">
+        <blui-drawer-header title="Title"> 
             <button mat-icon-button blui-icon (click)="open=!open">
                 <mat-icon>menu</mat-icon>
             </button>
