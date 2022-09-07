@@ -1,5 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HeroDocModule } from './hero-doc.module';
+import { HeroDocComponent } from './hero-doc.component';
 
 describe('HeroDocComponent', () => {
     beforeEach(() => {
