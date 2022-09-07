@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-export const COLLAPSED = `<div id="app-bar-basic-example" class="scroll-container">
+export const COLLAPSED = `<div class="scroll-container">
     <blui-app-bar variant="collapsed">
         <div>Content</div>
     </blui-app-bar>

@@ -10,21 +10,21 @@ import { THREE_LINER } from './examples/three-liner.component';
         <app-component-doc-scaffold mdFileName="AppBar.md">
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">App Bar with Snap Variant</div>
+                    <div class="example-heading">App Bar with Collapsed Variant</div>
                     <div class="example-description">
-                        A <code>&lt;blui-app-bar&gt;</code> will resize between <code>collapsedHeight</code> and
-                        <code>expandedHeight</code> as the window is scrolled.
+                        A <code>&lt;blui-app-bar&gt;</code> with a <code>collapsed</code> variant will stay fixed at the
+                        <code>collapsedHeight</code> size.
                     </div>
                     <div class="example-demo-wrapper">
-                        <app-snap-app-bar-demo></app-snap-app-bar-demo>
+                        <app-collapsed-app-bar-demo></app-collapsed-app-bar-demo>
                     </div>
-                    <app-example-code [snippet]="SNAP" dataLine="2-9"></app-example-code>
+                    <app-example-code [snippet]="COLLAPSED" dataLine="2-4"></app-example-code>
                     <div class="example-actions">
                         <app-view-code-button
-                            examplePath="app-bar/examples/snap"
+                            examplePath="app-bar/examples/collapsed"
                             style="margin-right: 16px"
                         ></app-view-code-button>
-                        <app-copy-code-button [code]="SNAP"></app-copy-code-button>
+                        <app-copy-code-button [code]="COLLAPSED"></app-copy-code-button>
                     </div>
                 </div>
 
@@ -48,21 +48,21 @@ import { THREE_LINER } from './examples/three-liner.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">App Bar with Collapsed Variant</div>
+                    <div class="example-heading">App Bar with Snap Variant</div>
                     <div class="example-description">
-                        A <code>&lt;blui-app-bar&gt;</code> with a <code>collapsed</code> variant will stay fixed at the
-                        <code>collapsedHeight</code> size.
+                        A <code>&lt;blui-app-bar&gt;</code> will resize between <code>collapsedHeight</code> and
+                        <code>expandedHeight</code> as the window is scrolled.
                     </div>
                     <div class="example-demo-wrapper">
-                        <app-collapsed-app-bar-demo></app-collapsed-app-bar-demo>
+                        <app-snap-app-bar-demo></app-snap-app-bar-demo>
                     </div>
-                    <app-example-code [snippet]="COLLAPSED" dataLine="2-4"></app-example-code>
+                    <app-example-code [snippet]="SNAP" dataLine="2-9"></app-example-code>
                     <div class="example-actions">
                         <app-view-code-button
-                            examplePath="app-bar/examples/collapsed"
+                            examplePath="app-bar/examples/snap"
                             style="margin-right: 16px"
                         ></app-view-code-button>
-                        <app-copy-code-button [code]="COLLAPSED"></app-copy-code-button>
+                        <app-copy-code-button [code]="SNAP"></app-copy-code-button>
                     </div>
                 </div>
 

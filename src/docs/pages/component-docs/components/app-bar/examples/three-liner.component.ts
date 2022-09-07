@@ -8,16 +8,16 @@ export const THREE_LINER = `<div id="app-bar-three-liner-example" class="three-l
         scrollThreshold="100" 
         scrollContainerId="app-bar-three-liner-example"
         (collapsedChange)="isCollapsed = $event">
-        <button blui-icon mat-icon-button style="margin: 0 16px 0 -8px">
+        <button blui-icon mat-icon-button style="margin: 0 24px 0 -8px">
             <mat-icon>menu</mat-icon>
         </button>
         <blui-three-liner title="Title" subtitle="Subtitle" info="Info"
             [style.top.px]="isCollapsed ? 0 : 80">
         </blui-three-liner>
         <div blui-actions style="display: flex; margin: 0 -8px;">
-            <mat-icon style="margin: 0 8px">light</mat-icon>
-            <mat-icon style="margin: 0 8px">face</mat-icon>
-            <mat-icon style="margin: 0 8px">home</mat-icon>
+            <mat-icon style="margin: 0 8px">search</mat-icon>
+            <mat-icon style="margin: 0 8px">download</mat-icon>
+            <mat-icon style="margin: 0 8px">more_vert</mat-icon>
         </div>
     </blui-app-bar>
     <div class="content-body">{{ filler }}</div>
