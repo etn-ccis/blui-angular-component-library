@@ -7,7 +7,6 @@ import { BasicExampleComponent } from './examples/basic.component';
 import { ValueUnitsComponent } from './examples/value-units.component';
 import { ChannelValueChildrenComponent } from './examples/channel-value-children.component';
 import { IconDiffsComponent } from './examples/icon-diffs.component';
-import { NgProgressIconsModule } from '@brightlayer-ui/ng-progress-icons';
 import { WithinBannerComponent } from './examples/within-banner.component';
 
 @NgModule({
@@ -19,7 +18,7 @@ import { WithinBannerComponent } from './examples/within-banner.component';
         ChannelValueChildrenComponent,
         WithinBannerComponent,
     ],
-    imports: [HeroModule, NgProgressIconsModule, ChannelValueModule, SharedCompDocsModule, MatIconModule],
+    imports: [HeroModule, ChannelValueModule, SharedCompDocsModule, MatIconModule],
     exports: [HeroDocComponent],
 })
 export class HeroDocModule {}
