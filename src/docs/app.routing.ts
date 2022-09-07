@@ -13,7 +13,7 @@ import { DrawerSubheaderDocComponent } from './pages/component-docs/components/d
 import { DrawerDocComponent } from './pages/component-docs/components/drawer/drawer/drawer-doc.component';
 import { DrawerLayoutDocComponent } from './pages/component-docs/components/drawer/drawer-layout/drawer-layout-doc.component';
 import { AppBarDocComponent } from './pages/component-docs/components/app-bar/app-bar-doc.component';
-import {HeroDocComponent} from "./pages/component-docs/components/hero/hero-doc.component";
+import { HeroDocComponent } from './pages/component-docs/components/hero/hero-doc.component';
 
 const routes: Routes = [
     { path: '', redirectTo: APP_NAV_ITEMS.home.route, pathMatch: 'full' },
