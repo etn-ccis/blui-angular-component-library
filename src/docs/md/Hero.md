@@ -26,22 +26,6 @@ imports: [
 ],
 ```
 
-```html
-// your-component.html 
-// Simple usage via Hero attributes
-<blui-hero label="Healthy" value="96" units="/100" unitSpace="hide">
-    <mat-icon blui-primary>timer</mat-icon>
-    <mat-icon blui-secondary>trending_up</mat-icon>
-</blui-hero>
-
-// Complex example with multiple values as children
-<blui-hero label="Load">
-    <mat-icon blui-primary>timer</mat-icon>
-    <blui-channel-value value="1" units="h" unitSpace="hide"></blui-channel-value>
-    <blui-channel-value value="26" units="m" unitSpace="hide"></blui-channel-value>
-</blui-hero>
-```
-
 ## Hero API
 
 Parent element (`<blui-hero>`) attributes:
@@ -95,15 +79,6 @@ import { HeroModule } from '@brightlayer-ui/angular-components';
 imports: [
     HeroModule
 ],
-```
-
-```html
-<!-- your-component.html -->
-<blui-hero-banner [divider]="true">
-    <blui-hero [label]="'label'">
-        <i blui-primary class="blui-grade_a"></i>
-    </blui-hero>
-</blui-hero-banner>
 ```
 
 ## Hero Banner API

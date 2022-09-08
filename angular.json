@@ -61,6 +61,11 @@
                   "glob": "**/*",
                   "input": "src/docs/md",
                   "output": "src/assets/md"
+                },
+                {
+                  "glob": "icons.svg",
+                  "input": "./node_modules/@brightlayer-ui/icons-svg",
+                  "output": "./assets/blui-icons"
                 }
               ],
               "styles": [
