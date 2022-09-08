@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { COMPONENT_NAV_ITEMS } from 'src/docs/navigation/nav-items';
 import { BASIC } from './examples/basic.component';
 import { WITH_ICON } from './examples/icon.component';
-import {PREFIX} from "./examples/prefix.component";
+import { PREFIX } from './examples/prefix.component';
 
 @Component({
     selector: 'app-hero-doc',
@@ -38,11 +38,11 @@ import {PREFIX} from "./examples/prefix.component";
                         <app-copy-code-button [code]="ICON"></app-copy-code-button>
                     </div>
                 </div>
-                
+
                 <div class="example-section">
                     <div class="example-heading">Channel Value with Prefix</div>
                     <div class="example-description">
-                        The <code>&lt;blui-channel-value&gt;</code> accepts an optional <code>prefix</code> 
+                        The <code>&lt;blui-channel-value&gt;</code> accepts an optional <code>prefix</code>
                         property that will show the icon before its value.
                     </div>
                     <div class="example-demo-wrapper">
