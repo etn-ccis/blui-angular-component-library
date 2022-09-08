@@ -24,14 +24,14 @@ export type DrawerLayoutPlaygroundProps = {
             [disableRailTooltip]="inputs.disableRailTooltip.value"
         >
             <blui-drawer-header title="Title" *ngIf="inputs.variant.value !== 'rail'">
-                <button mat-icon-button blui-icon (click)="toggleDrawer()">
+                <button mat-icon-button blui-icon (click)="toggleDrawer()" *ngIf="inputs.variant.value !== 'permanent'">
                     <mat-icon>{{ getDrawerIcon() }}</mat-icon>
                 </button>
             </blui-drawer-header>
             <blui-drawer-body>
                 <blui-drawer-nav-group>
-                    <blui-drawer-nav-item title="Dashboard">
-                        <mat-icon blui-icon>dashboard</mat-icon>
+                    <blui-drawer-nav-item title="Devices">
+                        <mat-icon blui-icon>devices</mat-icon>
                     </blui-drawer-nav-item>
                     <blui-drawer-nav-item title="Locations">
                         <mat-icon blui-icon>place</mat-icon>
@@ -108,13 +108,22 @@ export class PlaygroundComponent implements OnDestroy {
         return '';
     }
 
+    private _renderOptionalHeaderIcon(): string {
+        if (this.inputs.variant.value === 'permanent') {
+            return '';
+        }
+        return `
+            <button mat-icon-button blui-icon (click)="open=!open">
+                <mat-icon>${this.getDrawerIcon()}</mat-icon>
+            </button>   
+        `;
+    }
+
     private _renderOptionalHeader(): string {
         if (this.inputs.variant.value !== 'rail') {
             return `
         <blui-drawer-header title="Title">
-            <button mat-icon-button blui-icon (click)="open=!open">
-                <mat-icon>${this.getDrawerIcon()}</mat-icon>
-            </button>
+            ${this._renderOptionalHeaderIcon()}
         </blui-drawer-header>`;
         }
         return '';
@@ -135,8 +144,8 @@ export class PlaygroundComponent implements OnDestroy {
         ${this._renderOptionalHeader()}
         <blui-drawer-body>
             <blui-drawer-nav-group>
-                <blui-drawer-nav-item title="Dashboard">
-                    <mat-icon blui-icon>dashboard</mat-icon>
+                <blui-drawer-nav-item title="Devices">
+                    <mat-icon blui-icon>devices</mat-icon>
                 </blui-drawer-nav-item>
                 <blui-drawer-nav-item title="Locations">
                     <mat-icon blui-icon>place</mat-icon>
