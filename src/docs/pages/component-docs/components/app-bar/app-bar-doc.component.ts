@@ -10,7 +10,7 @@ import { THREE_LINER } from './examples/three-liner.component';
         <app-component-doc-scaffold mdFileName="AppBar.md">
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading blui-headline-4" style="margin-bottom: 1rem">App Bar</div>
+                    <div class="example-page-title">App Bar</div>
                     <div class="example-description">
                         The <code>&lt;blui-app-bar&gt;</code> supports multiple variants - 'collapsed', 'expanded', and
                         'snap'.
