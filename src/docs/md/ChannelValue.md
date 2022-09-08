@@ -25,13 +25,6 @@ imports: [
 ],
 ```
 
-```html
-// your-component.html
-<blui-channel-value class="content" value="65" units="%" [prefix]="true">
-    <mat-icon>trending_up</mat-icon>
-</blui-channel-value>
-```
-
 ## API
 
 Parent element (`<blui-channel-value>`) attributes:

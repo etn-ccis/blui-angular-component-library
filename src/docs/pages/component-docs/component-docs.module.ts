@@ -13,10 +13,12 @@ import { DrawerLayoutDocModule } from './components/drawer/drawer-layout/drawer-
 import { AppBarDocModule } from './components/app-bar/app-bar-doc.module';
 import { HeroDocModule } from './components/hero/hero-doc.module';
 import { MobileStepperDocModule } from './components/mobile-stepper/mobile-stepper-doc.module';
+import { ChannelValueDocModule } from './components/channel-value/channel-value-doc.module';
 
 @NgModule({
     exports: [
         AppBarDocModule,
+        ChannelValueDocModule,
         DrawerHeaderDocModule,
         DrawerFooterDocModule,
         DrawerNavGroupDocModule,
