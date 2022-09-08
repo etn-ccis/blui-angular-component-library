@@ -52,6 +52,13 @@
             }
         }
 
+        .doc-tab-content, .example-description {
+            code {
+                padding: 0 4px;
+                border-radius: 2px;
+            }
+        }
+
         /* API (README) Section */
         .doc-tab-content {
             padding: 48px 32px 32px 32px;
@@ -73,9 +80,6 @@
             }
             pre code {
                 background: inherit;
-            }
-            code {
-                padding: 0 4px;
             }
             h1 {
                 font-size: 36px;
