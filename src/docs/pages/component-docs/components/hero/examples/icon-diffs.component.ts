@@ -8,7 +8,7 @@ export const ICON_DIFFS = `<blui-hero-banner *ngFor="let size of [36, 48, 72]">
     <blui-hero label="mat icon" [value]="size + 'px'" [iconSize]="size">
         <mat-icon blui-primary>schedule</mat-icon>
     </blui-hero>
-    <blui-hero label="icon font" [value]="size + 'px'"  [iconSize]="size">
+    <blui-hero label="icon font" [value]="size + 'px'" [iconSize]="size">
         <i blui-primary class="blui-current_circled"></i>
     </blui-hero>
     <blui-hero label="PNG" [value]="size + 'px'" [iconSize]="size">
