@@ -33,7 +33,8 @@
     .emptySelectOption {
         border-bottom: solid 1px $divider;
     }
-    .example-heading {
+    .example-heading,
+    .example-page-title {
         color: $primary;
     }
     .mat-drawer-content {

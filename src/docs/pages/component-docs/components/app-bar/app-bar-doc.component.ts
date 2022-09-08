@@ -10,7 +10,14 @@ import { THREE_LINER } from './examples/three-liner.component';
         <app-component-doc-scaffold mdFileName="AppBar.md">
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">App Bar with Collapsed Variant</div>
+                    <div class="example-page-title">App Bar</div>
+                    <div class="example-description">
+                        The <code>&lt;blui-app-bar&gt;</code> supports multiple variants - 'collapsed', 'expanded', and
+                        'snap'.
+                    </div>
+                </div>
+                <div class="example-section">
+                    <div class="example-heading">Collapsed Variant</div>
                     <div class="example-description">
                         A <code>&lt;blui-app-bar&gt;</code> with a <code>collapsed</code> variant will stay fixed at the
                         <code>collapsedHeight</code> size.
@@ -29,7 +36,7 @@ import { THREE_LINER } from './examples/three-liner.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">App Bar with Expanded Variant</div>
+                    <div class="example-heading">Expanded Variant</div>
                     <div class="example-description">
                         A <code>&lt;blui-app-bar&gt;</code> with an <code>expanded</code> variant will stay fixed at the
                         <code>expandedHeight</code> size.
@@ -48,7 +55,7 @@ import { THREE_LINER } from './examples/three-liner.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">App Bar with Snap Variant</div>
+                    <div class="example-heading">Snap Variant</div>
                     <div class="example-description">
                         A <code>&lt;blui-app-bar&gt;</code> will resize between <code>collapsedHeight</code> and
                         <code>expandedHeight</code> as the window is scrolled.
