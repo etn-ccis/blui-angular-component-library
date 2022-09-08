@@ -13,10 +13,10 @@ import { DOTS } from './examples/dots.component';
                     <div class="example-heading">Basic Mobile Stepper</div>
                     <div class="example-description">
                         The <code>&lt;blui-mobile-stepper&gt;</code> shows a user their progress while completing a
-                        workflow.
+                        workflow. Back and Next buttons can be projected to navigate through the steps.
                     </div>
                     <div class="example-demo-wrapper">
-                        <app-basic-mobile-stepper-demo></app-basic-mobile-stepper-demo>
+                        <app-basic-mobile-stepper-demo style="padding: 0.5rem"></app-basic-mobile-stepper-demo>
                     </div>
                     <app-example-code [snippet]="BASIC"></app-example-code>
                     <div class="example-actions">
