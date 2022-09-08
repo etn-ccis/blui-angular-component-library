@@ -6,6 +6,7 @@ import { ICON_DIFFS } from './examples/icon-diffs.component';
 import { WITH_BANNER } from './examples/within-banner.component';
 import { COMPONENT_NAV_ITEMS } from 'src/docs/navigation/nav-items';
 import { TabName } from '../../shared/scaffold/scaffold.component';
+import {WITH_ICON} from "./examples/with-icon.component";
 
 @Component({
     selector: 'app-hero-doc',
@@ -61,6 +62,20 @@ import { TabName } from '../../shared/scaffold/scaffold.component';
                 </div>
 
                 <div class="example-section">
+                    <div class="example-heading">Hero with a Secondary Icon</div>
+                    <div class="example-description">
+                        The <code>&lt;blui-hero&gt;</code> accepts an optional <code>blui-secondary</code> icon.
+                    </div>
+                    <div class="example-demo-wrapper">
+                        <app-with-icon-hero-demo></app-with-icon-hero-demo>
+                    </div>
+                    <app-example-code [snippet]="WITH_ICON" dataLine="3"></app-example-code>
+                    <div class="example-actions">
+                        <app-copy-code-button [code]="WITH_ICON"></app-copy-code-button>
+                    </div>
+                </div>
+                
+                <div class="example-section">
                     <div class="example-heading">Heroes with a HeroBanner</div>
                     <div class="example-description">
                         The <code>&lt;blui-hero-banner&gt;</code> can be used to wrap multiple
@@ -101,6 +116,7 @@ export class HeroDocComponent {
     VALUE_UNITS = VALUE_AND_UNITS;
     CV_CHILDREN = CV_CHILDREN;
     ICON_DIFFS = ICON_DIFFS;
+    WITH_ICON = WITH_ICON;
     WITH_BANNER = WITH_BANNER;
 
     createRouterLink(route: string): string {
