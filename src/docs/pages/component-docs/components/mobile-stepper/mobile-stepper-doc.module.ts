@@ -7,9 +7,10 @@ import { RouterModule } from '@angular/router';
 import { MobileStepperDocComponent } from './mobile-stepper-doc.component';
 import { TextComponent } from './examples/text.component';
 import { ProgressComponent } from './examples/progress.component';
+import {DotsComponent} from "./examples/dots.component";
 
 @NgModule({
-    declarations: [MobileStepperDocComponent, BasicExampleComponent, TextComponent, ProgressComponent],
+    declarations: [MobileStepperDocComponent, DotsComponent, BasicExampleComponent, TextComponent, ProgressComponent],
     imports: [MobileStepperModule, SharedCompDocsModule, MatIconModule, RouterModule],
     exports: [MobileStepperDocComponent],
 })
