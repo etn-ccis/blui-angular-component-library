@@ -7,5 +7,4 @@ export const BASIC = `<blui-mobile-stepper [steps]="4" [activeStep]="0"></blui-m
     selector: 'app-basic-mobile-stepper-demo',
     template: BASIC,
 })
-export class BasicExampleComponent {
-}
+export class BasicExampleComponent {}

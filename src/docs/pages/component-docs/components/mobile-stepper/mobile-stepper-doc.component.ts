@@ -8,7 +8,6 @@ import { DOTS } from './examples/dots.component';
     selector: 'app-mobile-stepper-doc',
     template: `
         <app-component-doc-scaffold mdFileName="MobileStepper.md">
-
             <div examples class="app-example">
                 <div class="example-section">
                     <div class="example-heading">Basic Mobile Stepper</div>
@@ -25,11 +24,12 @@ import { DOTS } from './examples/dots.component';
                     </div>
                 </div>
             </div>
-            
+
             <div examples class="app-example">
                 <div class="example-section">
                     <div class="example-heading">Dots Mobile Stepper</div>
-                    <div class="example-description">The default <code>variant</code> shows dots as a progress indicator.
+                    <div class="example-description">
+                        The default <code>variant</code> shows dots as a progress indicator.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-dots-mobile-stepper-demo></app-dots-mobile-stepper-demo>

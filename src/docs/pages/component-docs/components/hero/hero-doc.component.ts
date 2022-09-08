@@ -6,7 +6,7 @@ import { ICON_DIFFS } from './examples/icon-diffs.component';
 import { WITH_BANNER } from './examples/within-banner.component';
 import { COMPONENT_NAV_ITEMS } from 'src/docs/navigation/nav-items';
 import { TabName } from '../../shared/scaffold/scaffold.component';
-import {WITH_ICON} from "./examples/with-icon.component";
+import { WITH_ICON } from './examples/with-icon.component';
 
 @Component({
     selector: 'app-hero-doc',
@@ -74,7 +74,7 @@ import {WITH_ICON} from "./examples/with-icon.component";
                         <app-copy-code-button [code]="WITH_ICON"></app-copy-code-button>
                     </div>
                 </div>
-                
+
                 <div class="example-section">
                     <div class="example-heading">Heroes with a HeroBanner</div>
                     <div class="example-description">

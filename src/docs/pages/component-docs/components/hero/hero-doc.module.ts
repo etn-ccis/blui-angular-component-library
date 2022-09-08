@@ -9,7 +9,7 @@ import { ChannelValueChildrenComponent } from './examples/channel-value-children
 import { IconDiffsComponent } from './examples/icon-diffs.component';
 import { WithinBannerComponent } from './examples/within-banner.component';
 import { RouterModule } from '@angular/router';
-import {WithIconComponent} from "./examples/with-icon.component";
+import { WithIconComponent } from './examples/with-icon.component';
 
 @NgModule({
     declarations: [
