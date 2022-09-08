@@ -19,10 +19,12 @@ export class NavigationComponent {
     navItems = [APP_NAV_ITEMS.home];
     componentNavItems = [
         COMPONENT_NAV_ITEMS.appBar,
+        COMPONENT_NAV_ITEMS.channelValue,
         COMPONENT_NAV_ITEMS.drawer,
         COMPONENT_NAV_ITEMS.emptyState,
         COMPONENT_NAV_ITEMS.hero,
         COMPONENT_NAV_ITEMS.listItemTag,
+        COMPONENT_NAV_ITEMS.mobileStepper,
     ];
 
     constructor(

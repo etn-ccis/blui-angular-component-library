@@ -19,6 +19,10 @@ const hero: NavItem = {
     title: 'Hero',
     route: 'components/hero',
 };
+const mobileStepper: NavItem = {
+    title: 'Mobile Stepper',
+    route: 'components/mobile-stepper',
+};
 const emptyState: NavItem = {
     title: 'Empty State',
     route: 'components/empty-state',
@@ -87,6 +91,7 @@ export const COMPONENT_NAV_ITEMS = {
     emptyState,
     hero,
     listItemTag,
+    mobileStepper,
 };
 export const DRAWER_NAV_ITEMS = {
     drawerLayout,

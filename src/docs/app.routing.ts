@@ -14,11 +14,14 @@ import { DrawerDocComponent } from './pages/component-docs/components/drawer/dra
 import { DrawerLayoutDocComponent } from './pages/component-docs/components/drawer/drawer-layout/drawer-layout-doc.component';
 import { AppBarDocComponent } from './pages/component-docs/components/app-bar/app-bar-doc.component';
 import { HeroDocComponent } from './pages/component-docs/components/hero/hero-doc.component';
+import { MobileStepperDocComponent } from './pages/component-docs/components/mobile-stepper/mobile-stepper-doc.component';
+import { ChannelValueDocComponent } from './pages/component-docs/components/channel-value/channel-value-doc.component';
 
 const routes: Routes = [
     { path: '', redirectTo: APP_NAV_ITEMS.home.route, pathMatch: 'full' },
     { path: APP_NAV_ITEMS.home.route, component: HomeComponent },
     { path: `${COMPONENT_NAV_ITEMS.appBar.route}/:tab`, component: AppBarDocComponent },
+    { path: `${COMPONENT_NAV_ITEMS.channelValue.route}/:tab`, component: ChannelValueDocComponent },
     { path: `${COMPONENT_NAV_ITEMS.emptyState.route}/:tab`, component: EmptyStateDocComponent },
     { path: `${COMPONENT_NAV_ITEMS.hero.route}/:tab`, component: HeroDocComponent },
     { path: `${COMPONENT_NAV_ITEMS.listItemTag.route}/:tab`, component: ListItemTagDocComponent },
@@ -30,6 +33,7 @@ const routes: Routes = [
     { path: `${DRAWER_NAV_ITEMS.drawerNavGroup.route}/:tab`, component: DrawerNavGroupDocComponent },
     { path: `${DRAWER_NAV_ITEMS.drawerNavItem.route}/:tab`, component: DrawerNavItemDocComponent },
     { path: `${DRAWER_NAV_ITEMS.drawerFooter.route}/:tab`, component: DrawerFooterDocComponent },
+    { path: `${COMPONENT_NAV_ITEMS.mobileStepper.route}/:tab`, component: MobileStepperDocComponent },
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],

@@ -17,36 +17,6 @@ imports: [
 ],
 ```
 
-```ts
-// your-component.ts
-activeStep = 0;
-steps = 4;
-```
-
-```html
-// your-component.html
-<blui-mobile-stepper [steps]="steps" [activeStep]="activeStep">
-    <button
-        blui-back-button
-        mat-stroked-button
-        color="primary"
-        [disabled]="activeStep === 0"
-        (click)="activeStep = activeStep - 1;"
-    >
-        Back
-    </button>
-    <button
-        blui-next-button
-        mat-flat-button
-        color="primary"
-        [disabled]="activeStep === steps - 1"
-        (click)="activeStep = activeStep + 1;"
-    >
-        Next
-    </button>
-</blui-mobile-stepper>
-```
-
 ## API
 
 Parent element (`<blui-mobile-stepper>`) attributes:
