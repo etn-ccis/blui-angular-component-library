@@ -10,9 +10,11 @@ import { DrawerBodyDocModule } from './components/drawer/drawer-body/drawer-body
 import { DrawerSubheaderDocModule } from './components/drawer/drawer-subheader/drawer-subheader-doc.module';
 import { DrawerDocModule } from './components/drawer/drawer/drawer-doc.module';
 import { DrawerLayoutDocModule } from './components/drawer/drawer-layout/drawer-layout-doc.module';
+import { AppBarDocModule } from './components/app-bar/app-bar-doc.module';
 
 @NgModule({
     exports: [
+        AppBarDocModule,
         DrawerHeaderDocModule,
         DrawerFooterDocModule,
         DrawerNavGroupDocModule,

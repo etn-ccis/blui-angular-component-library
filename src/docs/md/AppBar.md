@@ -23,29 +23,12 @@ imports: [ AppBarModule ]
 ...
 ```
 
-```html
-// your-component.html 
-// Default: AppBar will resize between collapsedHeight and expandedHeight as the window is scrolled
-<blui-app-bar variant="snap"></blui-app-bar>
-
-// App Bar will stay fixed at the collapsedHeight size
-<blui-app-bar variant="collapsed"></blui-app-bar>
-
-// App Bar will stay fixed at the expandedHeight size
-<blui-app-bar variant="expanded"></blui-app-bar>
-
-// AppBar with Three Liner component
-<blui-app-bar variant="snap">
-    <blui-three-liner title="title" subtitle="subtitle" info="info"></blui-three-liner>
-</blui-app-bar>
-```
-
 ## API
 
 <div style="overflow: auto;">
 
 | @Input                   | Description                                            | Type                                      | Required | Default                          |
-| ------------------------ | ------------------------------------------------------ | ----------------------------------------- | -------- | -------------------------------- |
+| ------------------------ |--------------------------------------------------------| ----------------------------------------- | -------- | -------------------------------- |
 | collapsedHeight          | Height of the AppBar when collapsed                    | `number`                                  | no       | theme default                    |
 | color                    | Color variant which is passed to the `<mat-toolbar>`   | `'primary'` \| `'accent'` \| `'warn'`     | no       | 'primary'                        |
 | expandedHeight           | Height of the AppBar when expanded                     | `number`                                  | no       | 200                              |
@@ -54,7 +37,7 @@ imports: [ AppBarModule ]
 | scrollContainerClassName | Class name, index number of scrollable element         | `{ name: string, index: number }`         | no       |                                  |
 | scrollContainerId        | Id of the scrollable element                           | `string`                                  | no       |                                  |
 | scrollThreshold          | Distance in pixels to scroll before collapsing toolbar | `number`                                  | no       | expandedHeight - collapsedHeight |
-| variant                  | Behavior of the App Bar                                | `'expanded'` \| `'collapsed'` \| `'snap'` | no       | 'snap'                           |
+| variant                  | Behavior of the App Bar                                | `'expanded'` \| `'collapsed'` \| `'snap'` | no       | 'collapsed'                      |
 
 </div>
 

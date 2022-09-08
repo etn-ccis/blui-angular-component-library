@@ -17,7 +17,12 @@ export class NavigationComponent {
     routeListener: Subscription;
     variant: DrawerLayoutVariantType;
     navItems = [APP_NAV_ITEMS.home];
-    componentNavItems = [COMPONENT_NAV_ITEMS.drawer, COMPONENT_NAV_ITEMS.emptyState, COMPONENT_NAV_ITEMS.listItemTag];
+    componentNavItems = [
+        COMPONENT_NAV_ITEMS.appBar,
+        COMPONENT_NAV_ITEMS.drawer,
+        COMPONENT_NAV_ITEMS.emptyState,
+        COMPONENT_NAV_ITEMS.listItemTag,
+    ];
 
     constructor(
         private readonly _router: Router,

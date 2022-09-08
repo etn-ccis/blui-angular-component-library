@@ -174,7 +174,10 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
     ngOnInit(): void {
         if (this.mdFileName) {
             this._markdownService.getSource(`src/assets/md/${this.mdFileName}`).subscribe((data) => {
-                this.md = data.replace(/images/g, `src/assets/md/images/`);
+                let adjusted = data;
+                adjusted = adjusted.replace(/images/g, `src/assets/md/images/`);
+                adjusted = adjusted.replace(/gifs/g, `src/assets/md/gifs/`);
+                this.md = adjusted;
             });
         }
         const tab = this._getTabNameFromUrl();
