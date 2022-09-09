@@ -7,9 +7,10 @@ import { ChannelValueDocComponent } from './channel-value-doc.component';
 import { BasicExampleComponent } from './examples/basic.component';
 import { IconComponent } from './examples/icon.component';
 import { PrefixComponent } from './examples/prefix.component';
+import { UnitSpaceComponent } from './examples/unit-space.component';
 
 @NgModule({
-    declarations: [ChannelValueDocComponent, BasicExampleComponent, IconComponent, PrefixComponent],
+    declarations: [ChannelValueDocComponent, BasicExampleComponent, IconComponent, PrefixComponent, UnitSpaceComponent],
     imports: [ChannelValueModule, SharedCompDocsModule, MatIconModule, RouterModule],
     exports: [ChannelValueDocComponent],
 })
