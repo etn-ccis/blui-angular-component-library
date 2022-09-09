@@ -96,7 +96,7 @@ export const COMPONENT_NAV_ITEMS = {
     hero,
     listItemTag,
     mobileStepper,
-    userMenu
+    userMenu,
 };
 export const DRAWER_NAV_ITEMS = {
     drawerLayout,

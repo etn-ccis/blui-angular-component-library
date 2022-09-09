@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 export const MENU_HEADER = `<blui-user-menu 
-    avatarValue="AV" 
+    avatarValue="MH" 
     menuTitle="Sample Title"
     menuSubtitle="Sample Subtitle"
     [(open)]="open">
@@ -13,7 +13,7 @@ export const MENU_HEADER = `<blui-user-menu
     </mat-nav-list>
 </blui-user-menu> 
 `;
- 
+
 @Component({
     selector: 'app-menu-header-user-menu-demo',
     template: MENU_HEADER,

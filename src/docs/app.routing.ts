@@ -16,7 +16,7 @@ import { AppBarDocComponent } from './pages/component-docs/components/app-bar/ap
 import { HeroDocComponent } from './pages/component-docs/components/hero/hero-doc.component';
 import { MobileStepperDocComponent } from './pages/component-docs/components/mobile-stepper/mobile-stepper-doc.component';
 import { ChannelValueDocComponent } from './pages/component-docs/components/channel-value/channel-value-doc.component';
-import {UserMenuDocComponent} from "./pages/component-docs/components/user-menu/user-menu-doc.component";
+import { UserMenuDocComponent } from './pages/component-docs/components/user-menu/user-menu-doc.component';
 
 const routes: Routes = [
     { path: '', redirectTo: APP_NAV_ITEMS.home.route, pathMatch: 'full' },

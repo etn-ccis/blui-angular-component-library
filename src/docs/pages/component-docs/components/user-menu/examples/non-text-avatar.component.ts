@@ -21,7 +21,7 @@ export const NON_TEXT_AVATAR = `<div style="display: flex; justify-content: spac
     </blui-user-menu> 
 </div>
 `;
- 
+
 @Component({
     selector: 'app-non-text-avatar-user-menu-demo',
     template: NON_TEXT_AVATAR,

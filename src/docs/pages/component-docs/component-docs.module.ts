@@ -14,7 +14,7 @@ import { AppBarDocModule } from './components/app-bar/app-bar-doc.module';
 import { HeroDocModule } from './components/hero/hero-doc.module';
 import { MobileStepperDocModule } from './components/mobile-stepper/mobile-stepper-doc.module';
 import { ChannelValueDocModule } from './components/channel-value/channel-value-doc.module';
-import {UserMenuDocModule} from "./components/user-menu/user-menu-doc.module";
+import { UserMenuDocModule } from './components/user-menu/user-menu-doc.module';
 
 @NgModule({
     exports: [
@@ -33,7 +33,7 @@ import {UserMenuDocModule} from "./components/user-menu/user-menu-doc.module";
         ListItemTagDocModule,
         MobileStepperDocModule,
         SharedCompDocsModule,
-        UserMenuDocModule
+        UserMenuDocModule,
     ],
 })
 export class ComponentDocsModule {}

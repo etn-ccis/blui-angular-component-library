@@ -9,7 +9,7 @@ export const BASIC = `<blui-user-menu avatarValue="AV" [(open)]="open">
     </mat-nav-list>
 </blui-user-menu> 
 `;
- 
+
 @Component({
     selector: 'app-basic-user-menu-demo',
     template: BASIC,

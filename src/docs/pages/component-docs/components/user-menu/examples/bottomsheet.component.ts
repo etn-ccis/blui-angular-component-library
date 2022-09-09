@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-export const FROM_LIST = `<blui-user-menu avatarValue="AV" [(open)]="open">
+export const BOTTOMSHEET = `<blui-user-menu avatarValue="BS" [(open)]="open" [useBottomSheetAt]="3000">
     <mat-nav-list blui-menu-body [style.paddingTop.px]="0">
         <blui-info-list-item *ngFor="let item of items" [dense]="true" (click)="open = false">
             <mat-icon blui-icon>{{item.icon}}</mat-icon>
@@ -11,11 +11,12 @@ export const FROM_LIST = `<blui-user-menu avatarValue="AV" [(open)]="open">
 `;
 
 @Component({
-    selector: 'app-from-list-user-menu-demo',
-    template: FROM_LIST,
+    selector: 'app-bottom-sheet-user-menu-demo',
+    template: BOTTOMSHEET,
 })
-export class FromListComponent {
+export class BottomsheetComponent {
     open = false;
+
     items = [
         {
             title: 'Settings',

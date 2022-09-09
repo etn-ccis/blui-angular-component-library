@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import {UserMenuDocModule} from "./user-menu-doc.module";
-import {UserMenuDocComponent} from "./user-menu-doc.component";
+import { UserMenuDocModule } from './user-menu-doc.module';
+import { UserMenuDocComponent } from './user-menu-doc.component';
 
 describe('UserMenuComponent', () => {
     beforeEach(() => {
