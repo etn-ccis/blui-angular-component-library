@@ -58,7 +58,7 @@ import { UNIT_SPACE } from './examples/unit-space.component';
                 <div class="example-section">
                     <div class="example-heading">Channel Value with Different Units</div>
                     <div class="example-description">
-                        The <code>&lt;blui-channel-value&gt;</code> will automatically place a hide between a
+                        The <code>&lt;blui-channel-value&gt;</code> will hide the whitespace by default between a
                         <code>value</code> and its <code>units</code> when the units '%', '°F', '°C', '°' or '$' are
                         used. This behavior can be overridden via the optional <code>unitSpace</code> input.
                     </div>
