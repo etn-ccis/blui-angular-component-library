@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { COMPONENT_NAV_ITEMS } from 'src/docs/navigation/nav-items';
 import { BASIC } from './examples/basic.component';
 import { WITH_ICON } from './examples/icon.component';
+import { PREFIX } from './examples/prefix.component';
+import { UNIT_SPACE } from './examples/unit-space.component';
 
 @Component({
     selector: 'app-hero-doc',
@@ -37,6 +39,37 @@ import { WITH_ICON } from './examples/icon.component';
                         <app-copy-code-button [code]="ICON"></app-copy-code-button>
                     </div>
                 </div>
+
+                <div class="example-section">
+                    <div class="example-heading">Channel Value with Prefix</div>
+                    <div class="example-description">
+                        The <code>&lt;blui-channel-value&gt;</code> accepts an optional <code>prefix</code>
+                        property that will show the icon before its value.
+                    </div>
+                    <div class="example-demo-wrapper">
+                        <app-prefix-channel-value-demo></app-prefix-channel-value-demo>
+                    </div>
+                    <app-example-code [snippet]="PREFIX"></app-example-code>
+                    <div class="example-actions">
+                        <app-copy-code-button [code]="PREFIX"></app-copy-code-button>
+                    </div>
+                </div>
+
+                <div class="example-section">
+                    <div class="example-heading">Channel Value with Different Units</div>
+                    <div class="example-description">
+                        The <code>&lt;blui-channel-value&gt;</code> will hide the whitespace by default between a
+                        <code>value</code> and its <code>units</code> when the units '%', '°F', '°C', '°' or '$' are
+                        used. This behavior can be overridden via the optional <code>unitSpace</code> input.
+                    </div>
+                    <div class="example-demo-wrapper">
+                        <app-unit-space-channel-value-demo></app-unit-space-channel-value-demo>
+                    </div>
+                    <app-example-code [snippet]="UNIT_SPACE"></app-example-code>
+                    <div class="example-actions">
+                        <app-copy-code-button [code]="UNIT_SPACE"></app-copy-code-button>
+                    </div>
+                </div>
             </div>
         </app-component-doc-scaffold>
     `,
@@ -46,4 +79,6 @@ export class ChannelValueDocComponent {
     routes = COMPONENT_NAV_ITEMS;
     BASIC = BASIC;
     ICON = WITH_ICON;
+    PREFIX = PREFIX;
+    UNIT_SPACE = UNIT_SPACE;
 }
