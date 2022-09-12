@@ -29,36 +29,6 @@ imports: [
 ...
 ```
 
-```ts
-let open = false;
-const items = [
-    {
-        title: 'Account',
-        icon: 'settings',
-    },
-    {
-        title: 'Contact Us',
-        icon: 'mail',
-    },
-    {
-        title: 'Log Out',
-        icon: 'logout',
-    },
-];
-```
-
-```html
-// your-component.html
-<blui-user-menu avatarValue="HA" menuTitle="Sample Title" [(open)]="open">
-    <mat-nav-list blui-menu-body>
-        <blui-info-list-item *ngFor="let item of items" [dense]="true" (click)="open=false">
-            <mat-icon blui-icon>{{item.icon}}</mat-icon>
-            <div blui-title>{{item.title}}</div>
-        </blui-info-list-item>
-    </mat-nav-list>
-</blui-user-menu>
-```
-
 ## API
 
 Parent element (`<blui-user-menu>`) attributes:

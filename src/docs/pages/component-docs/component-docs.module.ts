@@ -15,6 +15,7 @@ import { MobileStepperDocModule } from './components/mobile-stepper/mobile-stepp
 import { ChannelValueDocModule } from './components/channel-value/channel-value-doc.module';
 import { EmptyStateDocModule } from './components/empty-state/empty-state-doc.module';
 import { InfoListItemDocModule } from './components/info-list-item/info-list-item-doc.module';
+import { UserMenuDocModule } from './components/user-menu/user-menu-doc.module';
 
 @NgModule({
     exports: [
@@ -34,6 +35,7 @@ import { InfoListItemDocModule } from './components/info-list-item/info-list-ite
         ListItemTagDocModule,
         MobileStepperDocModule,
         SharedCompDocsModule,
+        UserMenuDocModule,
     ],
 })
 export class ComponentDocsModule {}

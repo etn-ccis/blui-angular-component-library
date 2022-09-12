@@ -17,6 +17,7 @@ import { MobileStepperDocComponent } from './pages/component-docs/components/mob
 import { ChannelValueDocComponent } from './pages/component-docs/components/channel-value/channel-value-doc.component';
 import { EmptyStateDocComponent } from './pages/component-docs/components/empty-state/empty-state-doc.component';
 import { InfoListItemDocComponent } from './pages/component-docs/components/info-list-item/info-list-item-doc.component';
+import { UserMenuDocComponent } from './pages/component-docs/components/user-menu/user-menu-doc.component';
 
 const routes: Routes = [
     { path: '', redirectTo: APP_NAV_ITEMS.home.route, pathMatch: 'full' },
@@ -36,6 +37,7 @@ const routes: Routes = [
     { path: `${COMPONENT_NAV_ITEMS.emptyState.route}/:tab`, component: EmptyStateDocComponent },
     { path: `${COMPONENT_NAV_ITEMS.infoListItem.route}/:tab`, component: InfoListItemDocComponent },
     { path: `${COMPONENT_NAV_ITEMS.mobileStepper.route}/:tab`, component: MobileStepperDocComponent },
+    { path: `${COMPONENT_NAV_ITEMS.userMenu.route}/:tab`, component: UserMenuDocComponent },
 ];
 @NgModule({
     imports: [RouterModule.forRoot(routes)],
