@@ -119,10 +119,10 @@ export class PlaygroundComponent implements OnDestroy {
     ${this._playgroundService.addOptionalProp(this.inputs, 'disabled')}
     ${this._playgroundService.addOptionalProp(this.inputs, 'hidePadding')}
     ${this._playgroundService.addOptionalProp(this.inputs, 'iconAlign')}
-    ${this._playgroundService.addOptionalProp(this.inputs, 'statusColor')}
     ${this._playgroundService.addOptionalProp(this.inputs, 'wrapInfo')}
     ${this._playgroundService.addOptionalProp(this.inputs, 'wrapSubtitle')}
     ${this._playgroundService.addOptionalProp(this.inputs, 'wrapTitle')}
+    ${this._playgroundService.addOptionalProp(this.inputs, 'statusColor')}>
     ${this._getOptionalIcon()}
     <div blui-title>${this.inputs.title.value}</div>
     ${this._getOptionalSubtitle()}
