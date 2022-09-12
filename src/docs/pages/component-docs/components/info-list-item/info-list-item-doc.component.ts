@@ -14,9 +14,8 @@ import { WITHIN_LIST } from './examples/within-list.component';
             <div class="example-section">
                 <div class="example-heading">Basic InfoListItem</div>
                 <div class="example-description">
-                    The <code>&lt;blui-info-list-item&gt;</code> is commonly placed within a
-                    <code>&lt;mat-list&gt;</code> to arrange the content of individual items. A minimal example accepts
-                    a <code>blui-title</code> content.
+                    The <code>&lt;blui-info-list-item&gt;</code> is intended to be used in List Views. A minimal example
+                    accepts a <code>blui-title</code> content.
                 </div>
                 <div class="example-demo-wrapper">
                     <app-basic-info-list-item-demo></app-basic-info-list-item-demo>
