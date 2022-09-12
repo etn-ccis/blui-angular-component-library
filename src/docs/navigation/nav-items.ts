@@ -19,6 +19,10 @@ const hero: NavItem = {
     title: 'Hero',
     route: 'components/hero',
 };
+const infoListItem: NavItem = {
+    title: 'Info List Item',
+    route: 'components/info-list-item',
+};
 const mobileStepper: NavItem = {
     title: 'Mobile Stepper',
     route: 'components/mobile-stepper',
@@ -89,6 +93,7 @@ export const COMPONENT_NAV_ITEMS = {
     channelValue,
     drawer,
     emptyState,
+    infoListItem,
     hero,
     listItemTag,
     mobileStepper,

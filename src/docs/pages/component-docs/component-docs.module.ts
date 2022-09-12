@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { SharedCompDocsModule } from './shared/shared-comp-docs.module';
-import { EmptyStateDocModule } from './components/empty-state/empty-state-doc.module';
 import { ListItemTagDocModule } from './components/list-item-tag/list-item-tag-doc.module';
 import { DrawerNavItemDocModule } from './components/drawer/drawer-nav-item/drawer-nav-item-doc.module';
 import { DrawerNavGroupDocModule } from './components/drawer/drawer-nav-group/drawer-nav-group-doc.module';
@@ -14,6 +13,8 @@ import { AppBarDocModule } from './components/app-bar/app-bar-doc.module';
 import { HeroDocModule } from './components/hero/hero-doc.module';
 import { MobileStepperDocModule } from './components/mobile-stepper/mobile-stepper-doc.module';
 import { ChannelValueDocModule } from './components/channel-value/channel-value-doc.module';
+import { EmptyStateDocModule } from './components/empty-state/empty-state-doc.module';
+import { InfoListItemDocModule } from './components/info-list-item/info-list-item-doc.module';
 
 @NgModule({
     exports: [
@@ -29,6 +30,7 @@ import { ChannelValueDocModule } from './components/channel-value/channel-value-
         DrawerDocModule,
         EmptyStateDocModule,
         HeroDocModule,
+        InfoListItemDocModule,
         ListItemTagDocModule,
         MobileStepperDocModule,
         SharedCompDocsModule,

@@ -15,14 +15,6 @@ imports: [
   ],
 ```
 
-```html
-// your-component.html
-<blui-info-list-item divider="full" [statusColor]="colors.green[500]">
-    <div blui-title>Info List Item</div>
-    <mat-icon [style.color]="colors.green[500]" blui-icon>eco</mat-icon>
-</blui-info-list-item>
-```
-
 ## API
 
 Parent element (`<blui-info-list-item>`) attributes:
