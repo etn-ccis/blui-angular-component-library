@@ -25,6 +25,7 @@ export class NavigationComponent {
         COMPONENT_NAV_ITEMS.hero,
         COMPONENT_NAV_ITEMS.listItemTag,
         COMPONENT_NAV_ITEMS.mobileStepper,
+        COMPONENT_NAV_ITEMS.userMenu,
     ];
 
     constructor(
