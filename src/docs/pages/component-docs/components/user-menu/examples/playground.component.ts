@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core
 import { Subscription } from 'rxjs';
 import { Knob } from '../../../shared/scaffold/scaffold.component';
 import { PlaygroundService } from '../../../../../services/playground/playground.service';
+import { ConnectionPositionPair } from '@angular/cdk/overlay';
 
 export type UserMenuPlaygroundKnobs = {
     avatarImage: Knob;
@@ -13,6 +14,10 @@ export type UserMenuPlaygroundKnobs = {
 
     // Other
     showAvatarImage: Knob;
+    originX: Knob;
+    originY: Knob;
+    overlayX: Knob;
+    overlayY: Knob;
 };
 
 @Component({
@@ -26,6 +31,7 @@ export type UserMenuPlaygroundKnobs = {
             [menuTitle]="inputs.menuTitle.value"
             [menuSubtitle]="inputs.menuSubtitle.value"
             [useBottomSheetAt]="inputs.useBottomSheetAt.value"
+            [positions]="positions"
         >
             <mat-nav-list blui-menu-body [style.paddingTop.px]="0">
                 <blui-info-list-item (click)="open = false" [dense]="true">
@@ -50,10 +56,23 @@ export class PlaygroundComponent implements OnDestroy {
 
     knobListener: Subscription;
     open = true;
+    positions: ConnectionPositionPair[];
 
     constructor(private readonly _playgroundService: PlaygroundService) {
         this.knobListener = this._playgroundService.knobChange.subscribe((updatedKnobs: UserMenuPlaygroundKnobs) => {
             this.inputs = updatedKnobs;
+            this.positions = [
+                new ConnectionPositionPair(
+                    {
+                        originX: this.inputs.originX.value,
+                        originY: this.inputs.originY.value,
+                    },
+                    {
+                        overlayX: this.inputs.overlayX.value,
+                        overlayY: this.inputs.overlayY.value,
+                    }
+                ),
+            ];
             this.emitNewCodeChanges();
         });
     }

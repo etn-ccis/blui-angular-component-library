@@ -212,6 +212,30 @@ export class UserMenuDocComponent {
             type: 'boolean',
             hint: '',
         },
+        overlayX: {
+            value: 'start',
+            type: 'select',
+            hint: 'X-axis attachment point for connected overlay. ',
+            options: ['start', 'end', 'center'],
+        },
+        overlayY: {
+            value: 'top',
+            type: 'select',
+            hint: 'Y-axis attachment point for connected overlay',
+            options: ['top', 'bottom', 'center'],
+        },
+        originX: {
+            value: 'start',
+            type: 'select',
+            hint: 'X-axis attachment point for connected overlay origin',
+            options: ['start', 'end', 'center'],
+        },
+        originY: {
+            value: 'top',
+            type: 'select',
+            hint: 'Y-axis attachment point for connected overlay origin',
+            options: ['top', 'bottom', 'center'],
+        },
     };
     allProps = Object.assign({}, this.requiredProps, this.optionalProps, this.otherProps);
     knobGroups = [
