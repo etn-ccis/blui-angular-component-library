@@ -13,6 +13,7 @@ import { WithinToolbarComponent } from './examples/within-toolbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { PlacementOptionsComponent } from './examples/placement-options.component';
 import { BottomsheetComponent } from './examples/bottomsheet.component';
+import { PlaygroundComponent } from './examples/playground.component';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { BottomsheetComponent } from './examples/bottomsheet.component';
         CustomHeaderComponent,
         PlacementOptionsComponent,
         BottomsheetComponent,
+        PlaygroundComponent,
     ],
     imports: [
         UserMenuModule,

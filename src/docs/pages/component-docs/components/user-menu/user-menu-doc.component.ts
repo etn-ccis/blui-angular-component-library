@@ -8,11 +8,12 @@ import { CUSTOM_HEADER } from './examples/custom-header.component';
 import { WITHIN_TOOLBAR } from './examples/within-toolbar.component';
 import { PLACEMENT } from './examples/placement-options.component';
 import { BOTTOMSHEET } from './examples/bottomsheet.component';
+import { UserMenuPlaygroundKnobs } from './examples/playground.component';
 
 @Component({
     selector: 'app-user-menu-doc',
     template: `
-        <app-component-doc-scaffold mdFileName="UserMenu.md">
+        <app-component-doc-scaffold mdFileName="UserMenu.md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
                     <div class="example-heading">Basic User Menu</div>
@@ -146,6 +147,13 @@ import { BOTTOMSHEET } from './examples/bottomsheet.component';
                     </div>
                 </div>
             </div>
+
+            <app-user-menu-playground
+                playground
+                [inputs]="allProps"
+                (codeChange)="generatedCode = $event"
+            ></app-user-menu-playground>
+            <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
         </app-component-doc-scaffold>
     `,
     styleUrls: ['./user-menu-doc.component.scss'],
@@ -161,4 +169,91 @@ export class UserMenuDocComponent {
     WITHIN_TOOLBAR = WITHIN_TOOLBAR;
     PLACEMENT = PLACEMENT;
     BOTTOMSHEET = BOTTOMSHEET;
+    generatedCode: string;
+
+    requiredProps: Partial<UserMenuPlaygroundKnobs> = {
+        open: {
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Controls whether the user menu is opened or closed',
+        },
+    };
+
+    optionalProps: Partial<UserMenuPlaygroundKnobs> = {
+        avatarValue: {
+            value: 'AV',
+            type: 'string',
+            hint: 'Text value for avatar',
+        },
+        menuTitle: {
+            value: 'Menu Title',
+            type: 'string',
+            hint: 'Title shown when menu is open',
+        },
+        menuSubtitle: {
+            value: 'Menu Subtitle',
+            type: 'string',
+            hint: 'Subtitle shown when menu is open',
+        },
+        useBottomSheetAt: {
+            value: 600,
+            componentDefault: 600,
+            type: 'number',
+            hint: 'Window pixel width at which the responsive bottom sheet menu is triggered',
+            range: { min: 0, max: 2500, step: 100, tickInterval: 1 },
+        },
+    };
+
+    otherProps: Partial<UserMenuPlaygroundKnobs> = {
+        showAvatarImage: {
+            label: 'Show Avatar Image',
+            value: false,
+            type: 'boolean',
+            hint: '',
+        },
+        /*
+        overlayX: {
+            value: 'start',
+            type: 'select',
+            hint: 'X-axis attachment point for connected overlay. ',
+            options: ['start', 'end', 'center'],
+        },
+        overlayY: {
+            value: 'top',
+            type: 'select',
+            hint: 'Y-axis attachment point for connected overlay',
+            options: ['top', 'bottom', 'center'],
+        },
+        originX: {
+            value: 'start',
+            type: 'select',
+            hint: 'X-axis attachment point for connected overlay origin',
+            options: ['start', 'end', 'center'],
+        },
+        originY: {
+            value: 'top',
+            type: 'select',
+            hint: 'Y-axis attachment point for connected overlay origin',
+            options: ['top', 'bottom', 'center'],
+        }, */
+    };
+    allProps = Object.assign({}, this.requiredProps, this.optionalProps, this.otherProps);
+    knobGroups = [
+        {
+            title: 'Required Properties',
+            knobs: this.requiredProps,
+            defaultExpanded: true,
+        },
+        {
+            title: 'Optional Properties',
+            knobs: this.optionalProps,
+            defaultExpanded: true,
+        },
+        {
+            title: 'Other Properties',
+            knobs: this.otherProps,
+            defaultExpanded: false,
+        },
+    ];
 }
