@@ -3,7 +3,7 @@ import { TEXT } from './examples/text.component';
 import { PROGRESS } from './examples/progress.component';
 import { BASIC } from './examples/basic.component';
 import { DOTS } from './examples/dots.component';
-import {MobileStepperPlaygroundKnobs} from "./examples/playground.component";
+import { MobileStepperPlaygroundKnobs } from './examples/playground.component';
 
 @Component({
     selector: 'app-mobile-stepper-doc',
@@ -86,9 +86,9 @@ import {MobileStepperPlaygroundKnobs} from "./examples/playground.component";
                 </div>
             </div>
             <app-mobile-stepper-playground
-                    playground
-                    [inputs]="allProps"
-                    (codeChange)="generatedCode = $event"
+                playground
+                [inputs]="allProps"
+                (codeChange)="generatedCode = $event"
             ></app-mobile-stepper-playground>
             <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
         </app-component-doc-scaffold>
@@ -102,7 +102,6 @@ export class MobileStepperDocComponent {
     PROGRESS = PROGRESS;
 
     generatedCode: string;
-
 
     /* Default playground knobs */
     requiredProps: Partial<MobileStepperPlaygroundKnobs> = {
@@ -129,8 +128,25 @@ export class MobileStepperDocComponent {
             options: ['dots', 'progress', 'text'],
             hint: 'Which type of indicator to use',
         },
-    }
-    allProps = Object.assign({}, this.requiredProps, this.optionalProps);
+    };
+
+    otherProps: Partial<MobileStepperPlaygroundKnobs> = {
+        showNext: {
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            label: 'Show Next Button',
+            hint: '',
+        },
+        showBack: {
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            label: 'Show Back Button',
+            hint: '',
+        },
+    };
+    allProps = Object.assign({}, this.requiredProps, this.optionalProps, this.otherProps);
     knobGroups = [
         {
             title: 'Required Properties',
@@ -141,6 +157,11 @@ export class MobileStepperDocComponent {
             title: 'Optional Properties',
             knobs: this.optionalProps,
             defaultExpanded: true,
+        },
+        {
+            title: 'Other Properties',
+            knobs: this.otherProps,
+            defaultExpanded: false,
         },
     ];
 }
