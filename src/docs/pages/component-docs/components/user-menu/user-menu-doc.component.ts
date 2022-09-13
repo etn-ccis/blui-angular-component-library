@@ -212,6 +212,7 @@ export class UserMenuDocComponent {
             type: 'boolean',
             hint: '',
         },
+        /*
         overlayX: {
             value: 'start',
             type: 'select',
@@ -235,7 +236,7 @@ export class UserMenuDocComponent {
             type: 'select',
             hint: 'Y-axis attachment point for connected overlay origin',
             options: ['top', 'bottom', 'center'],
-        },
+        }, */
     };
     allProps = Object.assign({}, this.requiredProps, this.optionalProps, this.otherProps);
     knobGroups = [

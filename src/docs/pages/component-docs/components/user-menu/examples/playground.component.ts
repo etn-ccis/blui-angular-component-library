@@ -31,7 +31,6 @@ export type UserMenuPlaygroundKnobs = {
             [menuTitle]="inputs.menuTitle.value"
             [menuSubtitle]="inputs.menuSubtitle.value"
             [useBottomSheetAt]="inputs.useBottomSheetAt.value"
-            [positions]="positions"
         >
             <mat-nav-list blui-menu-body [style.paddingTop.px]="0">
                 <blui-info-list-item (click)="open = false" [dense]="true">
@@ -56,11 +55,12 @@ export class PlaygroundComponent implements OnDestroy {
 
     knobListener: Subscription;
     open = true;
-    positions: ConnectionPositionPair[];
+   // positions: ConnectionPositionPair[];
 
     constructor(private readonly _playgroundService: PlaygroundService) {
         this.knobListener = this._playgroundService.knobChange.subscribe((updatedKnobs: UserMenuPlaygroundKnobs) => {
             this.inputs = updatedKnobs;
+            /*
             this.positions = [
                 new ConnectionPositionPair(
                     {
@@ -72,7 +72,7 @@ export class PlaygroundComponent implements OnDestroy {
                         overlayY: this.inputs.overlayY.value,
                     }
                 ),
-            ];
+            ]; */
             this.emitNewCodeChanges();
         });
     }
