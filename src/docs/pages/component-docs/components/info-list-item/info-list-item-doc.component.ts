@@ -7,6 +7,7 @@ import { SUBTITLE } from './examples/with-subtitle.component';
 import { RIGHT_CONTENT } from './examples/with-right-content.component';
 import { WITHIN_LIST } from './examples/within-list.component';
 import { InfoListItemPlaygroundKnobs } from './examples/playground.component';
+import { DENSE } from './examples/dense.component';
 
 @Component({
     selector: 'app-info-list-item-doc',
@@ -24,6 +25,20 @@ import { InfoListItemPlaygroundKnobs } from './examples/playground.component';
                 <app-example-code [snippet]="BASIC" dataLine="2"></app-example-code>
                 <div class="example-actions">
                     <app-copy-code-button [code]="BASIC"></app-copy-code-button>
+                </div>
+            </div>
+            <div class="example-section">
+                <div class="example-heading">Dense InfoListItem</div>
+                <div class="example-description">
+                    The <code>&lt;blui-info-list-item&gt;</code> accepts an optional <code>dense</code> input to make
+                    the row skinnier.
+                </div>
+                <div class="example-demo-wrapper">
+                    <app-dense-info-list-item-demo></app-dense-info-list-item-demo>
+                </div>
+                <app-example-code [snippet]="DENSE" dataLine="1"></app-example-code>
+                <div class="example-actions">
+                    <app-copy-code-button [code]="DENSE"></app-copy-code-button>
                 </div>
             </div>
             <div class="example-section">
@@ -87,8 +102,8 @@ import { InfoListItemPlaygroundKnobs } from './examples/playground.component';
             <div class="example-section">
                 <div class="example-heading">InfoListItem with Right Content</div>
                 <div class="example-description">
-                    The <code>&lt;blui-info-list-item&gt;</code> accepts an optional <code>blui-right-content</code> at
-                    the right edge of the item.
+                    The <code>&lt;blui-info-list-item&gt;</code> accepts an optional <code>blui-right-content</code>
+                    which renders at the right edge of the item.
                 </div>
                 <div class="example-demo-wrapper">
                     <app-with-right-content-info-list-item-demo></app-with-right-content-info-list-item-demo>
@@ -133,6 +148,7 @@ export class InfoListItemDocComponent {
     LEFT_CONTENT = LEFT_CONTENT;
     RIGHT_CONTENT = RIGHT_CONTENT;
     WITHIN_LIST = WITHIN_LIST;
+    DENSE = DENSE;
     generatedCode: string;
 
     requiredProps: Partial<InfoListItemPlaygroundKnobs> = {

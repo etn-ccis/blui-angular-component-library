@@ -11,6 +11,7 @@ import { WithLeftContentComponent } from './examples/with-left-content.component
 import { WithRightContentComponent } from './examples/with-right-content.component';
 import { WithinListComponent } from './examples/within-list.component';
 import { PlaygroundComponent } from './examples/playground.component';
+import { DenseComponent } from './examples/dense.component';
 
 @NgModule({
     declarations: [
@@ -23,6 +24,7 @@ import { PlaygroundComponent } from './examples/playground.component';
         WithRightContentComponent,
         WithinListComponent,
         PlaygroundComponent,
+        DenseComponent,
     ],
     imports: [InfoListItemModule, ChannelValueModule, SharedCompDocsModule, MatIconModule],
     exports: [InfoListItemDocComponent],
