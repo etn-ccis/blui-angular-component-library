@@ -4,6 +4,8 @@ import { PlaygroundService } from '../../../../../services/playground/playground
 import { Knob } from '../../../shared/scaffold/scaffold.component';
 
 export type EmptyStatePlaygroundKnobs = {
+    icon: Knob;
+
     title: Knob;
     description: Knob;
 
@@ -14,7 +16,7 @@ export type EmptyStatePlaygroundKnobs = {
 @Component({
     selector: 'app-empty-state-playground',
     template: `<blui-empty-state [title]="inputs.title.value" [description]="inputs.description.value">
-        <mat-icon blui-empty-icon>devices</mat-icon>
+        <mat-icon blui-empty-icon>{{ inputs.icon.value }}</mat-icon>
         <button blui-actions blui-inline mat-stroked-button color="primary" *ngIf="inputs.showAction.value">
             <mat-icon>add</mat-icon>
             <span>Add Device</span>
@@ -65,7 +67,7 @@ export class PlaygroundComponent implements OnDestroy {
         const code = `<blui-empty-state 
     ${this._playgroundService.addOptionalProp(this.inputs, 'description')}
     title="${this.inputs.title.value}">
-    <mat-icon blui-empty-icon>devices</mat-icon>
+    <mat-icon blui-empty-icon>${this.inputs.icon.value}</mat-icon>
     ${this._getActions()}
 </blui-empty-state>`;
 

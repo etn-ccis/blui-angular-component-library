@@ -54,7 +54,7 @@ import { EmptyStatePlaygroundKnobs } from './examples/playground.component';
             <div class="example-section">
                 <div class="example-heading">Empty State with Content Projection</div>
                 <div class="example-description">
-                    The <code>&lt;blui-empty-state&gt;</code> alternately accepts <code>blui-title</code> and
+                    The <code>&lt;blui-empty-state&gt;</code> alternatively accepts <code>blui-title</code> and
                     <code>blui-description</code> content.
                 </div>
                 <div class="example-demo-wrapper">
@@ -99,6 +99,16 @@ export class EmptyStateDocComponent {
     WITHIN_CARD = WITHIN_CARD;
 
     generatedCode: string;
+
+    requiredProps: Partial<EmptyStatePlaygroundKnobs> = {
+        icon: {
+            value: 'devices',
+            type: 'select',
+            options: ['devices', 'sensors_off', 'router'],
+            hint: 'The large icon to display',
+        },
+    };
+
     optionalProps: Partial<EmptyStatePlaygroundKnobs> = {
         title: {
             value: 'No Devices',
@@ -120,8 +130,13 @@ export class EmptyStateDocComponent {
             label: 'Show Action',
         },
     };
-    allProps = Object.assign({}, this.optionalProps, this.otherProps);
+    allProps = Object.assign({}, this.requiredProps, this.optionalProps, this.otherProps);
     knobGroups = [
+        {
+            title: 'Required Properties',
+            knobs: this.requiredProps,
+            defaultExpanded: true,
+        },
         {
             title: 'Optional Properties',
             knobs: this.optionalProps,
