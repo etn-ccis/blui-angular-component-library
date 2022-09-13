@@ -2,7 +2,6 @@ import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core
 import { Subscription } from 'rxjs';
 import { Knob } from '../../../shared/scaffold/scaffold.component';
 import { PlaygroundService } from '../../../../../services/playground/playground.service';
-import { ConnectionPositionPair } from '@angular/cdk/overlay';
 
 export type UserMenuPlaygroundKnobs = {
     avatarImage: Knob;
