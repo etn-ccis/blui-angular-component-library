@@ -190,7 +190,7 @@ export class InfoListItemDocComponent {
             hint: 'Icon alignment when avatar is set to false',
         },
         info: {
-            value: 'More information here...',
+            value: 'More information goes here',
             type: 'string',
             hint: 'Content to render for the third line of text',
         },
