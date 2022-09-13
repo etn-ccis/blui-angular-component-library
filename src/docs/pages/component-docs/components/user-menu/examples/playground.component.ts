@@ -55,7 +55,7 @@ export class PlaygroundComponent implements OnDestroy {
 
     knobListener: Subscription;
     open = true;
-   // positions: ConnectionPositionPair[];
+    // positions: ConnectionPositionPair[];
 
     constructor(private readonly _playgroundService: PlaygroundService) {
         this.knobListener = this._playgroundService.knobChange.subscribe((updatedKnobs: UserMenuPlaygroundKnobs) => {
