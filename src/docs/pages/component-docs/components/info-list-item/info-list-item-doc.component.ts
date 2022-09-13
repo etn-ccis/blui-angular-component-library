@@ -6,10 +6,11 @@ import { STATUS } from './examples/with-status.component';
 import { SUBTITLE } from './examples/with-subtitle.component';
 import { RIGHT_CONTENT } from './examples/with-right-content.component';
 import { WITHIN_LIST } from './examples/within-list.component';
+import { InfoListItemPlaygroundKnobs } from './examples/playground.component';
 
 @Component({
     selector: 'app-info-list-item-doc',
-    template: `<app-component-doc-scaffold [md]="md" mdFileName="InfoListItem.md">
+    template: `<app-component-doc-scaffold [md]="md" mdFileName="InfoListItem.md" [knobGroups]="knobGroups">
         <div examples class="app-example">
             <div class="example-section">
                 <div class="example-heading">Basic InfoListItem</div>
@@ -112,6 +113,14 @@ import { WITHIN_LIST } from './examples/within-list.component';
                 </div>
             </div>
         </div>
+
+        <app-info-list-item-playground
+            class="info-list-item-playground"
+            playground
+            [inputs]="allProps"
+            (codeChange)="generatedCode = $event"
+        ></app-info-list-item-playground>
+        <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
     </app-component-doc-scaffold> `,
     styleUrls: ['./info-list-item-doc.component.scss'],
 })
@@ -124,4 +133,121 @@ export class InfoListItemDocComponent {
     LEFT_CONTENT = LEFT_CONTENT;
     RIGHT_CONTENT = RIGHT_CONTENT;
     WITHIN_LIST = WITHIN_LIST;
+    generatedCode: string;
+
+    requiredProps: Partial<InfoListItemPlaygroundKnobs> = {
+        title: {
+            value: 'Info List Item',
+            type: 'string',
+            hint: 'Content to render for the title',
+        },
+    };
+
+    /* Default playground knobs */
+    optionalProps: Partial<InfoListItemPlaygroundKnobs> = {
+        avatar: {
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Show a colored background for the icon',
+        },
+        chevron: {
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Add a chevron icon on the right',
+        },
+        dense: {
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Smaller height row with less padding\t',
+        },
+        divider: {
+            value: undefined,
+            componentDefault: undefined,
+            type: 'select',
+            options: [undefined, 'full', 'partial'],
+            hint: 'Show a row separator below the row',
+        },
+        disabled: {
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Disable the list item',
+        },
+        hidePadding: {
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Remove left padding if no icon is used',
+        },
+        iconAlign: {
+            value: 'left',
+            componentDefault: 'left',
+            type: 'select',
+            options: ['left', 'center', 'right'],
+            hint: 'Icon alignment when avatar is set to false',
+        },
+        info: {
+            value: 'More information goes here',
+            type: 'string',
+            hint: 'Content to render for the third line of text',
+        },
+        statusColor: {
+            value: '#007bc1',
+            componentDefault: '',
+            type: 'color',
+            hint: 'Left border color',
+        },
+        subtitle: {
+            value: 'with all customizable properties',
+            type: 'string',
+            hint: 'Content to render for the subtitle',
+        },
+        wrapInfo: {
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Whether to wrap info on overflow rather than using ellipsis',
+        },
+        wrapSubtitle: {
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Whether to wrap subtitle on overflow rather than using ellipsis',
+        },
+        wrapTitle: {
+            value: false,
+            componentDefault: false,
+            type: 'boolean',
+            hint: 'Whether to wrap title on overflow rather than using ellipsis',
+        },
+    };
+
+    otherProps = {
+        showIcon: {
+            label: 'Show Icon',
+            value: true,
+            type: 'boolean',
+        },
+    };
+    allProps = Object.assign({}, this.requiredProps, this.optionalProps, this.otherProps);
+    knobGroups = [
+        {
+            title: 'Required Properties',
+            knobs: this.requiredProps,
+            defaultExpanded: true,
+        },
+        {
+            title: 'Optional Properties',
+            knobs: this.optionalProps,
+            defaultExpanded: false,
+        },
+        {
+            title: 'Other Properties',
+            knobs: this.otherProps,
+            defaultExpanded: false,
+        },
+    ];
 }

@@ -10,6 +10,7 @@ import { WithStatusComponent } from './examples/with-status.component';
 import { WithLeftContentComponent } from './examples/with-left-content.component';
 import { WithRightContentComponent } from './examples/with-right-content.component';
 import { WithinListComponent } from './examples/within-list.component';
+import { PlaygroundComponent } from './examples/playground.component';
 
 @NgModule({
     declarations: [
@@ -21,6 +22,7 @@ import { WithinListComponent } from './examples/within-list.component';
         WithLeftContentComponent,
         WithRightContentComponent,
         WithinListComponent,
+        PlaygroundComponent,
     ],
     imports: [InfoListItemModule, ChannelValueModule, SharedCompDocsModule, MatIconModule],
     exports: [InfoListItemDocComponent],
