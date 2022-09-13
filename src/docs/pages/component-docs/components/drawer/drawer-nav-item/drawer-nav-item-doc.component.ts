@@ -49,13 +49,11 @@ import { NavItemPlaygroundKnobs } from './examples/playground.component';
                     </div>
                     <app-example-code [snippet]="WITH_NESTED_ITEMS" dataLine="4-13"></app-example-code>
                     <div class="example-actions">
-                        <app-copy-code-button
-                            [code]="WITH_NESTED_ITEMS"
-                            style="margin-right: 1rem"
-                        ></app-copy-code-button>
                         <app-view-code-button
+                            style="margin-right: 1rem"
                             examplePath="drawer/drawer-nav-item/examples/with-nested-items"
                         ></app-view-code-button>
+                        <app-copy-code-button [code]="WITH_NESTED_ITEMS"></app-copy-code-button>
                     </div>
                 </div>
 
@@ -71,13 +69,11 @@ import { NavItemPlaygroundKnobs } from './examples/playground.component';
                     </div>
                     <app-example-code [snippet]="WITH_SELECTED_ITEM" dataLine="4-23"></app-example-code>
                     <div class="example-actions">
-                        <app-copy-code-button
-                            [code]="WITH_SELECTED_ITEM"
-                            style="margin-right: 1rem"
-                        ></app-copy-code-button>
                         <app-view-code-button
+                            style="margin-right: 1rem"
                             examplePath="drawer/drawer-nav-item/examples/with-selected-item"
                         ></app-view-code-button>
+                        <app-copy-code-button [code]="WITH_SELECTED_ITEM"></app-copy-code-button>
                     </div>
                 </div>
             </div>
