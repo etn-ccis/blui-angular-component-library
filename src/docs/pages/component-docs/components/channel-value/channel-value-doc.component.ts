@@ -100,7 +100,7 @@ export class ChannelValueDocComponent {
 
     optionalProps: Partial<ChannelValuePlaygroundKnobs> = {
         units: {
-            value: '$',
+            value: 'kWh',
             type: 'string',
             componentDefault: '',
             hint: 'Text to display for the units',
