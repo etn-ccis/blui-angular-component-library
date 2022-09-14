@@ -7,7 +7,7 @@ import { WITH_BANNER } from './examples/within-banner.component';
 import { COMPONENT_NAV_ITEMS } from 'src/docs/navigation/nav-items';
 import { TabName } from '../../shared/scaffold/scaffold.component';
 import { WITH_ICON } from './examples/with-icon.component';
-import {HeroPlaygroundKnobs} from "./examples/playground.component";
+import { HeroPlaygroundKnobs } from './examples/playground.component';
 
 @Component({
     selector: 'app-hero-doc',
@@ -107,9 +107,9 @@ import {HeroPlaygroundKnobs} from "./examples/playground.component";
                 </div>
             </div>
             <app-hero-playground
-                    playground
-                    [inputs]="allProps"
-                    (codeChange)="generatedCode = $event"
+                playground
+                [inputs]="allProps"
+                (codeChange)="generatedCode = $event"
             ></app-hero-playground>
             <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
         </app-component-doc-scaffold>
@@ -138,29 +138,29 @@ export class HeroDocComponent {
 
     optionalProps: Partial<HeroPlaygroundKnobs> = {
         value: {
-            componentDefault: "",
+            componentDefault: '',
             value: '470',
             type: 'string',
             hint: 'The value for the channel',
         },
         units: {
-            componentDefault: "",
+            componentDefault: '',
             value: 'RPM',
             type: 'string',
             hint: 'Text to show after the value',
         },
         iconSize: {
-            componentDefault: "",
+            componentDefault: 36,
             value: 36,
             type: 'number',
             range: { min: 1, max: 96, step: 1, tickInterval: 1 },
             hint: 'The size of the primary icon',
         },
         unitSpace: {
-            componentDefault: "auto",
-            value: 'RPM',
+            componentDefault: 'auto',
+            value: 'auto',
             type: 'select',
-            options: [ 'auto', 'hide', 'show' ],
+            options: ['auto', 'hide', 'show'],
             hint: 'Show/Hide spacing between the value and units',
         },
     };

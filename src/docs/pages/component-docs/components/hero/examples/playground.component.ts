@@ -4,7 +4,6 @@ import { PlaygroundService } from '../../../../../services/playground/playground
 import { Knob } from '../../../shared/scaffold/scaffold.component';
 
 export type HeroPlaygroundKnobs = {
-
     label: Knob;
 
     // Optional
@@ -62,7 +61,15 @@ export class PlaygroundComponent implements OnDestroy {
     }
 
     private _createGeneratedCode(): string {
-        const code = `hello`;
+        const code = `<blui-hero
+    ${this._playgroundService.addOptionalProp(this.inputs, 'unitSpace')}
+    ${this._playgroundService.addOptionalProp(this.inputs, 'units')}
+    ${this._playgroundService.addOptionalProp(this.inputs, 'value')}
+    ${this._playgroundService.addOptionalProp(this.inputs, 'iconSize')}
+    [label]="${this.inputs.label.value}">
+    ${this.inputs.showPrimary.value ? '<i blui-primary class="blui-fan"></i>' : ''}
+    ${this.inputs.showSecondary.value ? '<mat-icon blui-secondary>trending_up</mat-icon>' : ''}
+</blui-hero>`;
 
         return this._playgroundService.removeEmptyLines(code);
     }
