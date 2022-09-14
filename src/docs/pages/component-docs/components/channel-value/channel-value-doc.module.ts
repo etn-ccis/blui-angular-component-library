@@ -8,9 +8,17 @@ import { BasicExampleComponent } from './examples/basic.component';
 import { IconComponent } from './examples/icon.component';
 import { PrefixComponent } from './examples/prefix.component';
 import { UnitSpaceComponent } from './examples/unit-space.component';
+import { PlaygroundComponent } from './examples/playground.component';
 
 @NgModule({
-    declarations: [ChannelValueDocComponent, BasicExampleComponent, IconComponent, PrefixComponent, UnitSpaceComponent],
+    declarations: [
+        ChannelValueDocComponent,
+        BasicExampleComponent,
+        IconComponent,
+        PrefixComponent,
+        UnitSpaceComponent,
+        PlaygroundComponent,
+    ],
     imports: [ChannelValueModule, SharedCompDocsModule, MatIconModule, RouterModule],
     exports: [ChannelValueDocComponent],
 })
