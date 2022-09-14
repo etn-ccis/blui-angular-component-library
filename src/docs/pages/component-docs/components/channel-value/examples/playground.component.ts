@@ -8,6 +8,7 @@ export type ChannelValuePlaygroundKnobs = {
 
     units: Knob;
     unitSpace: Knob;
+    prefix: Knob;
 
     // Optional
     showIcon: Knob;
@@ -18,6 +19,7 @@ export type ChannelValuePlaygroundKnobs = {
     template: `<blui-channel-value
         [value]="inputs.value.value"
         [units]="inputs.units.value"
+        [prefix]="inputs.prefix.value"
         [unitSpace]="inputs.unitSpace.value"
     >
         <mat-icon *ngIf="inputs.showIcon.value">check_circle</mat-icon>
@@ -59,7 +61,9 @@ export class PlaygroundComponent implements OnDestroy {
             this.inputs,
             'units',
             true
-        )} unitSpace="${this.inputs.unitSpace.value}">
+        )}${this._playgroundService.addOptionalProp(this.inputs, 'prefix', true)} unitSpace="${
+            this.inputs.unitSpace.value
+        }">
     ${this.inputs.showIcon.value ? '<mat-icon>check_circle</mat-icon>' : ''}
 </blui-channel-value>`;
 

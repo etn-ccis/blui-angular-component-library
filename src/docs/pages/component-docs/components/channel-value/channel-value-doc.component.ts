@@ -111,6 +111,12 @@ export class ChannelValueDocComponent {
             options: ['auto', 'hide', 'show'],
             hint: 'Show/Hide spacing between the value and units',
         },
+        prefix: {
+            componentDefault: false,
+            value: false,
+            type: 'boolean',
+            hint: 'If true, shows units before the value',
+        },
     };
     otherProps: Partial<ChannelValuePlaygroundKnobs> = {
         showIcon: {
