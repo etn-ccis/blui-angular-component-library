@@ -10,6 +10,7 @@ import { IconDiffsComponent } from './examples/icon-diffs.component';
 import { WithinBannerComponent } from './examples/within-banner.component';
 import { RouterModule } from '@angular/router';
 import { WithIconComponent } from './examples/with-icon.component';
+import {PlaygroundComponent} from "./examples/playground.component";
 
 @NgModule({
     declarations: [
@@ -20,6 +21,7 @@ import { WithIconComponent } from './examples/with-icon.component';
         WithIconComponent,
         ChannelValueChildrenComponent,
         WithinBannerComponent,
+        PlaygroundComponent,
     ],
     imports: [HeroModule, ChannelValueModule, SharedCompDocsModule, MatIconModule, RouterModule],
     exports: [HeroDocComponent],
