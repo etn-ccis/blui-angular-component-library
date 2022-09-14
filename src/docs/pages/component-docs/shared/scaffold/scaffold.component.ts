@@ -215,9 +215,27 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
 
     /** Emits an event whenever a knob has been udpated. */
     emitKnobChange(): void {
+        this._handleUniqueMobileStepperKnobs();
+
+        // Check for mobile stepper
+        this._handleUniqueMobileStepperKnobs();
+
         const knobs = {};
         this.knobGroups.map((group) => Object.assign(knobs, group.knobs));
         this._playgroundService.knobChange.next(knobs);
+    }
+
+    /** Mobile stepper has a unique knob relation where `activeStep` must update based on the number of `steps` available. */
+    private _handleUniqueMobileStepperKnobs(): void {
+        if (this.mdFileName === 'MobileStepper.md') {
+            const required = this.knobGroups[0].knobs as { [key: string]: Knob };
+            if (required.activeStep && required.steps) {
+                required.activeStep.range = { min: 0, max: required.steps.value - 1, tickInterval: 1, step: 1 };
+                if (required.activeStep.value >= required.steps.value) {
+                    required.activeStep.value = required.steps.value - 1;
+                }
+            }
+        }
     }
 
     /** Returns angular route, but without the TabName at the end. */
