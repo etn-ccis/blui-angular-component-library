@@ -7,11 +7,12 @@ import { WITH_BANNER } from './examples/within-banner.component';
 import { COMPONENT_NAV_ITEMS } from 'src/docs/navigation/nav-items';
 import { TabName } from '../../shared/scaffold/scaffold.component';
 import { WITH_ICON } from './examples/with-icon.component';
+import { HeroPlaygroundKnobs } from './examples/playground.component';
 
 @Component({
     selector: 'app-hero-doc',
     template: `
-        <app-component-doc-scaffold mdFileName="Hero.md">
+        <app-component-doc-scaffold mdFileName="Hero.md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
                     <div class="example-heading">Basic Hero</div>
@@ -105,6 +106,12 @@ import { WITH_ICON } from './examples/with-icon.component';
                     </div>
                 </div>
             </div>
+            <app-hero-playground
+                playground
+                [inputs]="allProps"
+                (codeChange)="generatedCode = $event"
+            ></app-hero-playground>
+            <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
         </app-component-doc-scaffold>
     `,
     styleUrls: ['./hero-doc.component.scss'],
@@ -118,6 +125,77 @@ export class HeroDocComponent {
     ICON_DIFFS = ICON_DIFFS;
     WITH_ICON = WITH_ICON;
     WITH_BANNER = WITH_BANNER;
+
+    generatedCode: string;
+
+    requiredProps: Partial<HeroPlaygroundKnobs> = {
+        label: {
+            value: 'Velocity',
+            type: 'string',
+            hint: 'The text shown below the Channel Value',
+        },
+    };
+
+    optionalProps: Partial<HeroPlaygroundKnobs> = {
+        value: {
+            componentDefault: '',
+            value: '470',
+            type: 'string',
+            hint: 'The value for the channel',
+        },
+        units: {
+            componentDefault: '',
+            value: 'RPM',
+            type: 'string',
+            hint: 'Text to show after the value',
+        },
+        iconSize: {
+            componentDefault: 36,
+            value: 36,
+            type: 'number',
+            range: { min: 1, max: 96, step: 1, tickInterval: 1 },
+            hint: 'The size of the primary icon',
+        },
+        unitSpace: {
+            componentDefault: 'auto',
+            value: 'auto',
+            type: 'select',
+            options: ['auto', 'hide', 'show'],
+            hint: 'Show/Hide spacing between the value and units',
+        },
+    };
+    otherProps: Partial<HeroPlaygroundKnobs> = {
+        showPrimary: {
+            value: true,
+            type: 'boolean',
+            hint: 'Show primary icon',
+            label: 'Show Primary',
+        },
+        showSecondary: {
+            value: true,
+            type: 'boolean',
+            hint: 'Show optional secondary icon',
+            label: 'Show Secondary',
+        },
+    };
+    allProps = Object.assign({}, this.requiredProps, this.optionalProps, this.otherProps);
+    knobGroups = [
+        {
+            title: 'Required Properties',
+            knobs: this.requiredProps,
+            defaultExpanded: true,
+        },
+        {
+            title: 'Optional Properties',
+            knobs: this.optionalProps,
+            defaultExpanded: true,
+        },
+        {
+            title: 'Other Properties',
+            knobs: this.otherProps,
+            defaultExpanded: true,
+        },
+    ];
 
     createRouterLink(route: string): string {
         const tab: TabName = 'examples';
