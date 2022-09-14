@@ -4,10 +4,11 @@ import { WITH_DESCRIPTION } from './examples/with-description.component';
 import { WITH_ACTIONS } from './examples/with-actions.component';
 import { WITH_CONTENT } from './examples/with-content.component';
 import { WITHIN_CARD } from './examples/within-card.component';
+import { EmptyStatePlaygroundKnobs } from './examples/playground.component';
 
 @Component({
     selector: 'app-empty-state-doc',
-    template: `<app-component-doc-scaffold [md]="md" mdFileName="EmptyState.md">
+    template: `<app-component-doc-scaffold [md]="md" mdFileName="EmptyState.md" [knobGroups]="knobGroups">
         <div examples class="app-example">
             <div class="example-section">
                 <div class="example-heading">Basic Empty State</div>
@@ -53,7 +54,7 @@ import { WITHIN_CARD } from './examples/within-card.component';
             <div class="example-section">
                 <div class="example-heading">Empty State with Content Projection</div>
                 <div class="example-description">
-                    The <code>&lt;blui-empty-state&gt;</code> alternately accepts <code>blui-title</code> and
+                    The <code>&lt;blui-empty-state&gt;</code> alternatively accepts <code>blui-title</code> and
                     <code>blui-description</code> content.
                 </div>
                 <div class="example-demo-wrapper">
@@ -79,6 +80,12 @@ import { WITHIN_CARD } from './examples/within-card.component';
                 </div>
             </div>
         </div>
+        <app-empty-state-playground
+            playground
+            [inputs]="allProps"
+            (codeChange)="generatedCode = $event"
+        ></app-empty-state-playground>
+        <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
     </app-component-doc-scaffold> `,
     styleUrls: ['./empty-state-doc.component.scss'],
 })
@@ -90,4 +97,55 @@ export class EmptyStateDocComponent {
     WITH_ACTIONS = WITH_ACTIONS;
     WITH_CONTENT = WITH_CONTENT;
     WITHIN_CARD = WITHIN_CARD;
+
+    generatedCode: string;
+
+    requiredProps: Partial<EmptyStatePlaygroundKnobs> = {
+        icon: {
+            value: 'devices',
+            type: 'select',
+            options: ['devices', 'sensors_off', 'router'],
+            hint: 'The large icon to display',
+        },
+    };
+
+    optionalProps: Partial<EmptyStatePlaygroundKnobs> = {
+        title: {
+            value: 'No Devices',
+            type: 'string',
+            hint: 'The primary text to display (first line)',
+        },
+        description: {
+            componentDefault: '',
+            value: 'Check your network connection',
+            type: 'string',
+            hint: 'The secondary text to display (second line)',
+        },
+    };
+    otherProps: Partial<EmptyStatePlaygroundKnobs> = {
+        showAction: {
+            value: true,
+            type: 'boolean',
+            hint: '',
+            label: 'Show Action',
+        },
+    };
+    allProps = Object.assign({}, this.requiredProps, this.optionalProps, this.otherProps);
+    knobGroups = [
+        {
+            title: 'Required Properties',
+            knobs: this.requiredProps,
+            defaultExpanded: true,
+        },
+        {
+            title: 'Optional Properties',
+            knobs: this.optionalProps,
+            defaultExpanded: true,
+        },
+        {
+            title: 'Other Properties',
+            knobs: this.otherProps,
+            defaultExpanded: true,
+        },
+    ];
 }

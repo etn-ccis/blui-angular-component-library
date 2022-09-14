@@ -10,6 +10,7 @@ import { WithContentComponent } from './examples/with-content.component';
 import { WithinCardComponent } from './examples/within-card.component';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { PlaygroundComponent } from './examples/playground.component';
 
 @NgModule({
     declarations: [
@@ -19,6 +20,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
         WithActionsComponent,
         WithContentComponent,
         WithinCardComponent,
+        PlaygroundComponent,
     ],
     imports: [EmptyStateModule, SharedCompDocsModule, MatIconModule, MatExpansionModule, BrowserAnimationsModule],
     exports: [EmptyStateDocComponent],
