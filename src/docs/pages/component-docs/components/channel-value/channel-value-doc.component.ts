@@ -4,11 +4,12 @@ import { BASIC } from './examples/basic.component';
 import { WITH_ICON } from './examples/icon.component';
 import { PREFIX } from './examples/prefix.component';
 import { UNIT_SPACE } from './examples/unit-space.component';
+import { ChannelValuePlaygroundKnobs } from './examples/playground.component';
 
 @Component({
     selector: 'app-hero-doc',
     template: `
-        <app-component-doc-scaffold mdFileName="ChannelValue.md">
+        <app-component-doc-scaffold mdFileName="ChannelValue.md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
                     <div class="example-heading">Basic Channel Value</div>
@@ -71,6 +72,12 @@ import { UNIT_SPACE } from './examples/unit-space.component';
                     </div>
                 </div>
             </div>
+            <app-channel-value-playground
+                playground
+                [inputs]="allProps"
+                (codeChange)="generatedCode = $event"
+            ></app-channel-value-playground>
+            <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
         </app-component-doc-scaffold>
     `,
     styleUrls: ['./channel-value-doc.component.scss'],
@@ -81,4 +88,54 @@ export class ChannelValueDocComponent {
     ICON = WITH_ICON;
     PREFIX = PREFIX;
     UNIT_SPACE = UNIT_SPACE;
+    generatedCode: string;
+
+    requiredProps: Partial<ChannelValuePlaygroundKnobs> = {
+        value: {
+            value: '12',
+            type: 'string',
+            hint: 'Text to display for the value',
+        },
+    };
+
+    optionalProps: Partial<ChannelValuePlaygroundKnobs> = {
+        units: {
+            value: '$',
+            type: 'string',
+            componentDefault: '',
+            hint: 'Text to display for the units',
+        },
+        unitSpace: {
+            value: 'auto',
+            type: 'select',
+            options: ['auto', 'hide', 'show'],
+            hint: 'Show/Hide spacing between the value and units',
+        },
+    };
+    otherProps: Partial<ChannelValuePlaygroundKnobs> = {
+        showIcon: {
+            value: true,
+            type: 'boolean',
+            hint: '',
+            label: 'Show Icon',
+        },
+    };
+    allProps = Object.assign({}, this.requiredProps, this.optionalProps, this.otherProps);
+    knobGroups = [
+        {
+            title: 'Required Properties',
+            knobs: this.requiredProps,
+            defaultExpanded: true,
+        },
+        {
+            title: 'Optional Properties',
+            knobs: this.optionalProps,
+            defaultExpanded: true,
+        },
+        {
+            title: 'Other Properties',
+            knobs: this.otherProps,
+            defaultExpanded: true,
+        },
+    ];
 }
