@@ -1,4 +1,4 @@
-import { Component, Input, OnDestroy, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit, SimpleChanges, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { MarkdownService } from 'ngx-markdown';
 import { ActivatedRoute, Router } from '@angular/router';
 import { MatTabChangeEvent } from '@angular/material/tabs';
@@ -36,7 +36,8 @@ export type Knob = {
                 >
                     <mat-tab label="Examples" *ngIf="hasExamples">
                         <div class="examples-tab-content-wrapper">
-                            <ng-content select="[examples]"></ng-content>
+                            <ng-content *ngIf="!examplesRef" select="[examples]"></ng-content>
+                            <template [ngTemplateOutlet]="examplesRef"></template>
                         </div>
                     </mat-tab>
                     <mat-tab label="API Docs">
@@ -52,7 +53,8 @@ export type Knob = {
             <div class="playground-container" *ngIf="currentTabIndex === 2" [class.md]="isMedium()">
                 <div style="width: 100%; display: flex; flex-direction: column;">
                     <div class="playground-live-example-wrapper" style="height: 70%">
-                        <ng-content select="[playground]"></ng-content>
+                        <ng-content *ngIf="!playgroundRef" select="[playground]"></ng-content>
+                        <template [ngTemplateOutlet]="playgroundRef"></template>
                     </div>
                     <div style="height: 30%; overflow: auto; box-sizing: border-box">
                         <ng-content select="[code]"></ng-content>
@@ -153,7 +155,11 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
     @Input() useDefaultDocs = true;
     @Input() mdFileName: string;
     @Input() md: string;
+    @Input() examplesRef: TemplateRef<any>;
+    @Input() playgroundRef: TemplateRef<any>;
     @Input() knobGroups: Array<{ title: string; knobs: { [key: string]: Knob }; defaultExpanded: boolean }>;
+
+
 
     currentTabIndex = 0;
 
