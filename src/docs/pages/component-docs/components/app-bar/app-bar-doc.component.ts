@@ -3,11 +3,12 @@ import { COLLAPSED } from './examples/collapsed.component';
 import { EXPANDED } from './examples/expanded.component';
 import { SNAP } from './examples/snap.component';
 import { THREE_LINER } from './examples/three-liner.component';
+import {AppBarPlaygroundKnobs} from "./examples/playground.component";
 
 @Component({
     selector: 'app-app-bar-doc',
     template: `
-        <app-component-doc-scaffold mdFileName="AppBar.md">
+        <app-component-doc-scaffold mdFileName="AppBar.md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
                     <div class="example-page-title">App Bar</div>
@@ -92,6 +93,12 @@ import { THREE_LINER } from './examples/three-liner.component';
                     </div>
                 </div>
             </div>
+            <app-app-bar-playground
+                    playground
+                    [inputs]="allProps"
+                    (codeChange)="generatedCode = $event"
+            ></app-app-bar-playground>
+            <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
         </app-component-doc-scaffold>
     `,
     styleUrls: ['./app-bar-doc.component.scss'],
@@ -101,4 +108,47 @@ export class AppBarDocComponent {
     COLLAPSED = COLLAPSED;
     EXPANDED = EXPANDED;
     THREE_LINER = THREE_LINER;
+    generatedCode: string;
+
+
+    optionalProps: Partial<AppBarPlaygroundKnobs> = {
+        expandedHeight: {
+            value: 200,
+            type: 'number',
+            hint: 'Height of the AppBar when expanded',
+            range: { min: 50, max: 300, step: 1, tickInterval: 1 },
+        },
+        collapsedHeight: {
+            value: 64,
+            type: 'number',
+            hint: 'Height of the AppBar when collapsed',
+            range: { min: 56, max: 100, step: 1, tickInterval: 1 },
+        },
+        scrollThreshold: {
+            value: 100,
+            type: 'number',
+            hint: 'Height of the AppBar when collapsed',
+            range: { min: 50, max: 400, step: 10, tickInterval: 1 },
+        },
+        variant: {
+            value: 'collapsed',
+            type: 'select',
+            options: ['expanded', 'collapsed', 'snap'],
+            hint: 'Behavior of the App Bar',
+        },
+        color: {
+            value: 'primary',
+            type: 'select',
+            options: ['primary', 'accent', 'warn'],
+            hint: 'Color variant which is passed to the <mat-toolbar>',
+        },
+    };
+    allProps = Object.assign({},  this.optionalProps);
+    knobGroups = [
+        {
+            title: 'Optional Properties',
+            knobs: this.optionalProps,
+            defaultExpanded: true,
+        },
+    ];
 }

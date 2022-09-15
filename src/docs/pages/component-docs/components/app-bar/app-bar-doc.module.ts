@@ -7,9 +7,10 @@ import { SnapAppBarComponent } from './examples/snap.component';
 import { ExpandedComponent } from './examples/expanded.component';
 import { CollapsedComponent } from './examples/collapsed.component';
 import { MatIconModule } from '@angular/material/icon';
+import {PlaygroundComponent} from "./examples/playground.component";
 
 @NgModule({
-    declarations: [AppBarDocComponent, SnapAppBarComponent, ExpandedComponent, CollapsedComponent, ThreeLinerComponent],
+    declarations: [AppBarDocComponent, SnapAppBarComponent, ExpandedComponent, CollapsedComponent, ThreeLinerComponent, PlaygroundComponent],
     imports: [AppBarModule, ThreeLinerModule, SharedCompDocsModule, MatIconModule],
     exports: [AppBarDocComponent],
 })
