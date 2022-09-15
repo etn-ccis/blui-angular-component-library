@@ -128,7 +128,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
     ngAfterViewInit(): void {
         setTimeout(() => {
             this._listenForScrollEvents();
-        })
+        });
     }
 
     ngOnDestroy(): void {

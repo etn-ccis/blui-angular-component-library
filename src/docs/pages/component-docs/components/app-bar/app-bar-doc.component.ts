@@ -3,27 +3,31 @@ import { COLLAPSED } from './examples/collapsed.component';
 import { EXPANDED } from './examples/expanded.component';
 import { SNAP } from './examples/snap.component';
 import { THREE_LINER } from './examples/three-liner.component';
-import {AppBarPlaygroundKnobs} from "./examples/playground.component";
+import { AppBarPlaygroundKnobs } from './examples/playground.component';
 
 @Component({
     selector: 'app-app-bar-doc',
     template: `
-        <app-component-doc-scaffold mdFileName="AppBar.md" [knobGroups]="knobGroups" 
-            [playgroundRef]="playground" [examplesRef]="examples">
+        <app-component-doc-scaffold
+            mdFileName="AppBar.md"
+            [knobGroups]="knobGroups"
+            [playgroundRef]="playground"
+            [examplesRef]="examples"
+        >
             <ng-template #examples>
                 <div class="app-example">
                     <div class="example-section">
                         <div class="example-page-title">App Bar</div>
                         <div class="example-description">
-                            The <code>&lt;blui-app-bar&gt;</code> supports multiple variants - 'collapsed', 'expanded', and
-                            'snap'.
+                            The <code>&lt;blui-app-bar&gt;</code> supports multiple variants - 'collapsed', 'expanded',
+                            and 'snap'.
                         </div>
                     </div>
                     <div class="example-section">
                         <div class="example-heading">Collapsed Variant</div>
                         <div class="example-description">
-                            A <code>&lt;blui-app-bar&gt;</code> with a <code>collapsed</code> variant will stay fixed at the
-                            <code>collapsedHeight</code> size.
+                            A <code>&lt;blui-app-bar&gt;</code> with a <code>collapsed</code> variant will stay fixed at
+                            the <code>collapsedHeight</code> size.
                         </div>
                         <div class="example-demo-wrapper">
                             <app-collapsed-app-bar-demo></app-collapsed-app-bar-demo>
@@ -37,12 +41,12 @@ import {AppBarPlaygroundKnobs} from "./examples/playground.component";
                             <app-copy-code-button [code]="COLLAPSED"></app-copy-code-button>
                         </div>
                     </div>
-    
+
                     <div class="example-section">
                         <div class="example-heading">Expanded Variant</div>
                         <div class="example-description">
-                            A <code>&lt;blui-app-bar&gt;</code> with an <code>expanded</code> variant will stay fixed at the
-                            <code>expandedHeight</code> size.
+                            A <code>&lt;blui-app-bar&gt;</code> with an <code>expanded</code> variant will stay fixed at
+                            the <code>expandedHeight</code> size.
                         </div>
                         <div class="example-demo-wrapper">
                             <app-expanded-app-bar-demo></app-expanded-app-bar-demo>
@@ -56,7 +60,7 @@ import {AppBarPlaygroundKnobs} from "./examples/playground.component";
                             <app-copy-code-button [code]="EXPANDED"></app-copy-code-button>
                         </div>
                     </div>
-    
+
                     <div class="example-section">
                         <div class="example-heading">Snap Variant</div>
                         <div class="example-description">
@@ -75,7 +79,7 @@ import {AppBarPlaygroundKnobs} from "./examples/playground.component";
                             <app-copy-code-button [code]="SNAP"></app-copy-code-button>
                         </div>
                     </div>
-    
+
                     <div class="example-section">
                         <div class="example-heading">App Bar with Custom Content</div>
                         <div class="example-description">
@@ -98,11 +102,11 @@ import {AppBarPlaygroundKnobs} from "./examples/playground.component";
             </ng-template>
             <ng-template #playground>
                 <app-app-bar-playground
-                        [inputs]="allProps"
-                        (codeChange)="generatedCode = $event"
+                    [inputs]="allProps"
+                    (codeChange)="generatedCode = $event"
                 ></app-app-bar-playground>
             </ng-template>
-                <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
+            <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
         </app-component-doc-scaffold>
     `,
     styleUrls: ['./app-bar-doc.component.scss'],
@@ -147,7 +151,7 @@ export class AppBarDocComponent {
             hint: 'Color variant which is passed to the <mat-toolbar>',
         },
     };
-    allProps = Object.assign({},  this.optionalProps);
+    allProps = Object.assign({}, this.optionalProps);
     knobGroups = [
         {
             title: 'Optional Properties',

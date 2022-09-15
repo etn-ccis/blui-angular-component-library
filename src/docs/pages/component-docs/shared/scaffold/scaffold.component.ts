@@ -159,8 +159,6 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
     @Input() playgroundRef: TemplateRef<any>;
     @Input() knobGroups: Array<{ title: string; knobs: { [key: string]: Knob }; defaultExpanded: boolean }>;
 
-
-
     currentTabIndex = 0;
 
     routeListener: Subscription;

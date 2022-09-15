@@ -36,12 +36,12 @@ export type AppBarPlaygroundKnobs = {
             [scrollThreshold]="inputs.scrollThreshold.value"
             [color]="inputs.color.value"
             scrollContainerId="app-bar-playground-example"
-            (collapsedChange)="isCollapsed = $event">
+            (collapsedChange)="isCollapsed = $event"
+        >
             <button blui-icon mat-icon-button style="margin: 0 24px 0 -8px">
                 <mat-icon>menu</mat-icon>
             </button>
-            <blui-three-liner title="Title" subtitle="Subtitle" info="Info"
-                              [style.top.px]="isCollapsed ? 0 : 80">
+            <blui-three-liner title="Title" subtitle="Subtitle" info="Info" [style.top.px]="isCollapsed ? 0 : 80">
             </blui-three-liner>
             <div blui-actions style="display: flex; margin: 0 -8px;">
                 <mat-icon style="margin: 0 8px">search</mat-icon>
