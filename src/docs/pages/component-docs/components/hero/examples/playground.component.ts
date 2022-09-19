@@ -5,6 +5,7 @@ import { Knob } from '../../../shared/scaffold/scaffold.component';
 
 export type HeroPlaygroundKnobs = {
     label: Knob;
+    primaryIcon: Knob;
 
     // Optional
     unitSpace: Knob;
@@ -14,7 +15,6 @@ export type HeroPlaygroundKnobs = {
 
     // Other
     showSecondary: Knob;
-    showPrimary: Knob;
 };
 
 @Component({
@@ -26,7 +26,7 @@ export type HeroPlaygroundKnobs = {
         [value]="inputs.value.value"
         [iconSize]="inputs.iconSize.value"
     >
-        <i blui-primary class="blui-fan" *ngIf="inputs.showPrimary.value"></i>
+        <i blui-primary [class]="inputs.primaryIcon.value"></i>
         <mat-icon blui-secondary *ngIf="inputs.showSecondary.value">trending_up</mat-icon>
     </blui-hero>`,
 })
@@ -67,7 +67,7 @@ export class PlaygroundComponent implements OnDestroy {
     ${this._playgroundService.addOptionalProp(this.inputs, 'value')}
     ${this._playgroundService.addOptionalProp(this.inputs, 'iconSize')}
     [label]="${this.inputs.label.value}">
-    ${this.inputs.showPrimary.value ? '<i blui-primary class="blui-fan"></i>' : ''}
+    <i blui-primary class="${this.inputs.primaryIcon.value}"></i>
     ${this.inputs.showSecondary.value ? '<mat-icon blui-secondary>trending_up</mat-icon>' : ''}
 </blui-hero>`;
 

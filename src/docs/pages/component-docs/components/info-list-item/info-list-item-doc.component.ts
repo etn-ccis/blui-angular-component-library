@@ -116,8 +116,10 @@ import { DENSE } from './examples/dense.component';
             <div class="example-section">
                 <div class="example-heading">InfoListItem in a List</div>
                 <div class="example-description">
-                    The <code>&lt;blui-info-list-item&gt;</code> typically appear in a list which contains multiple rows
-                    of data.
+                    The <code>&lt;blui-info-list-item&gt;</code> typically appears in an
+                    <a href="https://material.angular.io/components/list/overview" target="_blank"
+                        >Angular Material List</a
+                    >. To make each row clickable, place the items within a <code>&lt;mat-nav-list&gt;</code>.
                 </div>
                 <div class="example-demo-wrapper">
                     <app-within-list-info-list-item-demo></app-within-list-info-list-item-demo>
