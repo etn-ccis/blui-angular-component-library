@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-export const WITHIN_LIST = `<mat-nav-list [style.paddingTop.px]="0">
+export const WITHIN_LIST = `<mat-list [style.paddingTop.px]="0">
     <blui-info-list-item divider="partial" iconAlign="center" dense="true" statusColor="#2ca618">
         <div blui-title>Status</div>
         <i blui-icon class="blui-device_activating" style="color: #2ca618"></i>
@@ -29,7 +29,7 @@ export const WITHIN_LIST = `<mat-nav-list [style.paddingTop.px]="0">
             <blui-channel-value value="15" units="A"></blui-channel-value>
         </span>
     </blui-info-list-item>
-</mat-nav-list>
+</mat-list>
 `;
 
 @Component({

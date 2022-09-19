@@ -27,6 +27,10 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
                     </div>
                     <app-example-code [snippet]="BASIC"></app-example-code>
                     <div class="example-actions">
+                        <app-view-code-button
+                            examplePath="user-menu/examples/basic"
+                            style="margin-right: 16px"
+                        ></app-view-code-button>
                         <app-copy-code-button [code]="BASIC"></app-copy-code-button>
                     </div>
                 </div>

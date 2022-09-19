@@ -134,6 +134,13 @@ export class HeroDocComponent {
             type: 'string',
             hint: 'The text shown below the Channel Value',
         },
+        primaryIcon: {
+            value: 'blui-fan',
+            hint: 'Show primary icon',
+            label: 'Show Primary',
+            type: 'select',
+            options: ['blui-fan', 'blui-fan_circled', 'blui-air_conditioner'],
+        },
     };
 
     optionalProps: Partial<HeroPlaygroundKnobs> = {
@@ -165,12 +172,6 @@ export class HeroDocComponent {
         },
     };
     otherProps: Partial<HeroPlaygroundKnobs> = {
-        showPrimary: {
-            value: true,
-            type: 'boolean',
-            hint: 'Show primary icon',
-            label: 'Show Primary',
-        },
         showSecondary: {
             value: true,
             type: 'boolean',
