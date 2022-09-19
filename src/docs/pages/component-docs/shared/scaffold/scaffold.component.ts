@@ -35,7 +35,7 @@ export type Knob = {
                     [(selectedIndex)]="currentTabIndex"
                 >
                     <mat-tab label="Examples" *ngIf="hasExamples">
-                        <div class="examples-tab-content-wrapper">
+                        <div class="examples-tab-content-wrapper" *ngIf="currentTabIndex === 0">
                             <ng-content *ngIf="!examplesRef" select="[examples]"></ng-content>
                             <template [ngTemplateOutlet]="examplesRef"></template>
                         </div>

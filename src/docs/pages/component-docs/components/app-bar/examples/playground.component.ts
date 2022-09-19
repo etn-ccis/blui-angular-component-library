@@ -88,7 +88,29 @@ export class PlaygroundComponent implements OnDestroy {
     }
 
     private _createGeneratedCode(): string {
-        const code = `ddd`;
+        const code = `<div class="scroll-container" id="app-bar-playground-example">
+    <blui-app-bar
+        ${this._playgroundService.addOptionalProp(this.inputs, 'variant')}
+        ${this._playgroundService.addOptionalProp(this.inputs, 'expandedHeight')}
+        ${this._playgroundService.addOptionalProp(this.inputs, 'collapsedHeight')}
+        ${this._playgroundService.addOptionalProp(this.inputs, 'scrollThreshold')}
+        ${this._playgroundService.addOptionalProp(this.inputs, 'color')}
+        scrollContainerId="app-bar-playground-example"
+        (collapsedChange)="isCollapsed = $event"
+    >
+        <button blui-icon mat-icon-button style="margin: 0 24px 0 -8px">
+            <mat-icon>menu</mat-icon>
+        </button>
+        <blui-three-liner title="Title" subtitle="Subtitle" info="Info" [style.top.px]="isCollapsed ? 0 : 80">
+        </blui-three-liner>
+        <div blui-actions style="display: flex; margin: 0 -8px;">
+            <mat-icon style="margin: 0 8px">search</mat-icon>
+            <mat-icon style="margin: 0 8px">download</mat-icon>
+            <mat-icon style="margin: 0 8px">more_vert</mat-icon>
+        </div>
+    </blui-app-bar>
+    <div class="content-body">Lorem ipsum...</div>
+</div>`;
 
         return this._playgroundService.removeEmptyLines(code);
     }

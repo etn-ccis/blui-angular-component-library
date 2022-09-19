@@ -9,6 +9,7 @@
 - Fixed `<blui-drawer-header>` not responding to dynamic icon content. ([#473](https://github.com/brightlayer-ui/angular-component-library/issues/473)).
 - Fixed `<blui-drawer-layout>` styles affecting deep nested`<blui-drawer>` children  ([#472](https://github.com/brightlayer-ui/angular-component-library/issues/472)).
 - Fixed `blui-title-content` not showing in `<blui-nav-group>`  ([#475](https://github.com/brightlayer-ui/angular-component-library/issues/475)).
+- Fixed `blui-app-bar` not listening to scroll containers when rendered in a `<ng-template>` ([#508](https://github.com/brightlayer-ui/angular-component-library/issues/508)).
 
 ## v7.0.2 (June 8, 2022)
 
