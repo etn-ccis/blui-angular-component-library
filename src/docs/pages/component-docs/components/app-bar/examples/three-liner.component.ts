@@ -15,7 +15,7 @@ export const THREE_LINER = `<div id="app-bar-three-liner-example" class="three-l
         <blui-three-liner title="Title" subtitle="Subtitle" info="Info"
             [style.top.px]="isCollapsed ? 0 : 80">
         </blui-three-liner>
-        <div blui-actions style="display: flex; gap: 16px; margin-right: -8px">
+        <div blui-actions style="display: flex; gap: 16px">
             <mat-icon>search</mat-icon>
             <mat-icon>download</mat-icon>
             <mat-icon>more_vert</mat-icon>
