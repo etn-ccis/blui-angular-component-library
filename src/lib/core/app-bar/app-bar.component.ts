@@ -127,6 +127,12 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
 
     ngAfterViewInit(): void {
         this._listenForScrollEvents();
+        setTimeout(() => {
+            // Used to listen for content rendered in ng-template.
+            if (!this.scrollEl) {
+                this._listenForScrollEvents();
+            }
+        });
     }
 
     ngOnDestroy(): void {
@@ -156,6 +162,7 @@ export class AppBarComponent implements OnInit, AfterViewInit, OnChanges, OnDest
         this._resizeOnModeChange();
         this._stopListeningForScrollEvents();
         this.viewInit = true;
+
         if (this.scrollEl) {
             this.scrollListener = fromEvent(this.scrollEl, 'scroll')
                 .pipe(throttle(() => interval(10)))
