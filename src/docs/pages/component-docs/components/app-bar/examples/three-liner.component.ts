@@ -15,10 +15,10 @@ export const THREE_LINER = `<div id="app-bar-three-liner-example" class="three-l
         <blui-three-liner title="Title" subtitle="Subtitle" info="Info"
             [style.top.px]="isCollapsed ? 0 : 80">
         </blui-three-liner>
-        <div blui-actions style="display: flex; margin: 0 -8px;">
-            <mat-icon style="margin: 0 8px">search</mat-icon>
-            <mat-icon style="margin: 0 8px">download</mat-icon>
-            <mat-icon style="margin: 0 8px">more_vert</mat-icon>
+        <div blui-actions style="display: flex; gap: 16px; margin-right: -8px">
+            <mat-icon>search</mat-icon>
+            <mat-icon>download</mat-icon>
+            <mat-icon>more_vert</mat-icon>
         </div>
     </blui-app-bar>
     <div class="content-body">{{ filler }}</div>

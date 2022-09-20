@@ -120,6 +120,7 @@ export class AppBarDocComponent {
     optionalProps: Partial<AppBarPlaygroundKnobs> = {
         expandedHeight: {
             value: 200,
+            componentDefault: 200,
             type: 'number',
             hint: 'Height of the AppBar when expanded',
             range: { min: 50, max: 300, step: 1, tickInterval: 1 },
@@ -133,7 +134,7 @@ export class AppBarDocComponent {
         scrollThreshold: {
             value: 100,
             type: 'number',
-            hint: 'Height of the AppBar when collapsed',
+            hint: 'Distance in pixels to scroll before collapsing toolbar',
             range: { min: 50, max: 400, step: 10, tickInterval: 1 },
         },
         variant: {
@@ -145,6 +146,7 @@ export class AppBarDocComponent {
         },
         color: {
             value: 'primary',
+            componentDefault: 'primary',
             type: 'select',
             options: ['primary', 'accent', 'warn'],
             hint: 'Color variant which is passed to the <mat-toolbar>',
