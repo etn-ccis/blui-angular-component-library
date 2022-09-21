@@ -4,13 +4,12 @@ The `<blui-three-liner>` can display up to three lines of stylized text or other
 
 ## Usage
 
-```html
-// your-component.html
-<blui-three-liner
-    [title]="'Title Text / Page Title'"
-    [subtitle]="'Subtitle Text / Second Line of Text'"
-    [info]="'Info Text / Third Line of Text'"
-/>
+```typescript
+// app.module.ts
+import { ThreeLinerModule } from '@brightlayer-ui/angular-components';
+...
+imports: [ ThreeLinerModule ]
+...
 ```
 
 ## API
