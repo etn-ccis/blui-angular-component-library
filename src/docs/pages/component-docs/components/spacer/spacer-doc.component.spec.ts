@@ -1,9 +1,9 @@
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
-import { SpacerDocModule } from './mobile-stepper-doc.module';
-import { SpacerDocComponent } from './mobile-stepper-doc.component';
+import { SpacerDocModule } from './spacer-doc.module';
+import { SpacerDocComponent } from './spacer-doc.component';
 
-describe('MobileStepperDoc', () => {
+describe('SpacerDocComponent', () => {
     beforeEach(() => {
         void TestBed.configureTestingModule({
             imports: [SpacerDocModule, RouterTestingModule],
