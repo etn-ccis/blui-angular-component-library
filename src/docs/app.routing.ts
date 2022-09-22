@@ -13,11 +13,12 @@ import { DrawerDocComponent } from './pages/component-docs/components/drawer/dra
 import { DrawerLayoutDocComponent } from './pages/component-docs/components/drawer/drawer-layout/drawer-layout-doc.component';
 import { AppBarDocComponent } from './pages/component-docs/components/app-bar/app-bar-doc.component';
 import { HeroDocComponent } from './pages/component-docs/components/hero/hero-doc.component';
-import { MobileStepperDocComponent } from './pages/component-docs/components/mobile-stepper/mobile-stepper-doc.component';
 import { ChannelValueDocComponent } from './pages/component-docs/components/channel-value/channel-value-doc.component';
 import { EmptyStateDocComponent } from './pages/component-docs/components/empty-state/empty-state-doc.component';
 import { InfoListItemDocComponent } from './pages/component-docs/components/info-list-item/info-list-item-doc.component';
 import { UserMenuDocComponent } from './pages/component-docs/components/user-menu/user-menu-doc.component';
+import { MobileStepperDocComponent } from './pages/component-docs/components/mobile-stepper/mobile-stepper-doc.component';
+import { SpacerDocComponent } from './pages/component-docs/components/spacer/spacer-doc.component';
 import { ThreeLinerDocComponent } from './pages/component-docs/components/three-liner/three-liner-doc.component';
 
 const routes: Routes = [
@@ -39,6 +40,7 @@ const routes: Routes = [
     { path: `${COMPONENT_NAV_ITEMS.infoListItem.route}/:tab`, component: InfoListItemDocComponent },
     { path: `${COMPONENT_NAV_ITEMS.mobileStepper.route}/:tab`, component: MobileStepperDocComponent },
     { path: `${COMPONENT_NAV_ITEMS.threeLiner.route}/:tab`, component: ThreeLinerDocComponent },
+    { path: `${COMPONENT_NAV_ITEMS.spacer.route}/:tab`, component: SpacerDocComponent },
     { path: `${COMPONENT_NAV_ITEMS.userMenu.route}/:tab`, component: UserMenuDocComponent },
 ];
 @NgModule({

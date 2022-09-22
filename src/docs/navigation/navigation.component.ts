@@ -26,6 +26,7 @@ export class NavigationComponent {
         COMPONENT_NAV_ITEMS.infoListItem,
         COMPONENT_NAV_ITEMS.listItemTag,
         COMPONENT_NAV_ITEMS.mobileStepper,
+        COMPONENT_NAV_ITEMS.spacer,
         COMPONENT_NAV_ITEMS.threeLiner,
         COMPONENT_NAV_ITEMS.userMenu,
     ];

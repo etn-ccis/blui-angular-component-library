@@ -16,6 +16,7 @@ import { ChannelValueDocModule } from './components/channel-value/channel-value-
 import { EmptyStateDocModule } from './components/empty-state/empty-state-doc.module';
 import { InfoListItemDocModule } from './components/info-list-item/info-list-item-doc.module';
 import { UserMenuDocModule } from './components/user-menu/user-menu-doc.module';
+import { SpacerDocModule } from './components/spacer/spacer-doc.module';
 import { ThreeLinerDocModule } from './components/three-liner/three-liner-doc.module';
 
 @NgModule({
@@ -37,6 +38,7 @@ import { ThreeLinerDocModule } from './components/three-liner/three-liner-doc.mo
         MobileStepperDocModule,
         SharedCompDocsModule,
         ThreeLinerDocModule,
+        SpacerDocModule,
         UserMenuDocModule,
     ],
 })

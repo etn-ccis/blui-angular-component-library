@@ -18,14 +18,6 @@ imports: [
 ...
 ```
 
-```html
-// your-component.html // using flex layout
-<blui-spacer></blui-spacer>
-
-// using pixels
-<blui-spacer width="50"></blui-spacer>
-```
-
 ## API
 
 Parent element (`<blui-spacer>`) attributes:
