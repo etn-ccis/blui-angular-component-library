@@ -4,9 +4,13 @@ import * as Colors from '@brightlayer-ui/colors';
 export const COMPLEX = `<blui-three-liner>
     <div blui-title>title</div>
     <div blui-subtitle>subtitle</div>
-    <blui-channel-value blui-info value="123" units="hz">
-        <mat-icon>trending_up</mat-icon>
-    </blui-channel-value>
+    <blui-toolbar-menu blui-info label="info">
+        <ng-container blui-toolbar-menu-items>
+            <button mat-menu-item>Menu Item 1</button>
+            <button mat-menu-item>Menu Item 2</button>
+            <button mat-menu-item>Menu Item 3</button>
+        </ng-container>
+    </blui-toolbar-menu>
 </blui-three-liner>`;
 
 @Component({
