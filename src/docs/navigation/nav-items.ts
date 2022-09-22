@@ -39,6 +39,10 @@ const listItemTag: NavItem = {
     title: 'List Item Tag',
     route: 'components/list-item-tag',
 };
+const spacer: NavItem = {
+    title: 'Spacer',
+    route: 'components/spacer',
+};
 const drawerDrawer: NavItem = {
     title: 'Drawer',
     route: 'components/drawer',
@@ -101,6 +105,7 @@ export const COMPONENT_NAV_ITEMS = {
     hero,
     listItemTag,
     mobileStepper,
+    spacer,
     userMenu,
 };
 export const DRAWER_NAV_ITEMS = {
