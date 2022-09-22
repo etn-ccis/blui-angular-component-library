@@ -5,6 +5,7 @@ import { MatTabChangeEvent } from '@angular/material/tabs';
 import { Subscription } from 'rxjs';
 import { ViewportService } from '../../../../services/viewport/viewport.service';
 import { PlaygroundService } from '../../../../services/playground/playground.service';
+import { COMPONENT_NAV_ITEMS } from '../../../../navigation/nav-items';
 
 export type TabName = 'examples' | 'api-docs' | 'playground';
 
@@ -181,6 +182,7 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
                 let adjusted = data;
                 adjusted = adjusted.replace(/images/g, `src/assets/md/images/`);
                 adjusted = adjusted.replace(/gifs/g, `src/assets/md/gifs/`);
+                adjusted = this.updateCompDocLinks(adjusted);
                 this.md = adjusted;
             });
         }
@@ -199,6 +201,30 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
         if (this.routeListener) {
             this.routeListener.unsubscribe();
         }
+    }
+
+    /** Replaces comp doc MD links with links to example pages */
+    updateCompDocLinks(md: string): string {
+        const matches = md.match(/\(([^)]+)\)/gm);
+        if (!matches) {
+            return md;
+        }
+        let adjusted = md;
+        matches.map((match) => {
+            const modified = match.replace('(', '').replace(')', '');
+            const examples = '/examples';
+            const origin = window.location.origin;
+            if (modified.includes('AppBar')) {
+                adjusted = adjusted.replace(modified, `${origin}/${COMPONENT_NAV_ITEMS.appBar.route}${examples}`);
+            }
+            if (modified.includes('Hero')) {
+                adjusted = adjusted.replace(modified, `${origin}/${COMPONENT_NAV_ITEMS.hero.route}${examples}`);
+            }
+            if (modified.includes('ChannelValue')) {
+                adjusted = adjusted.replace(modified, `${origin}/${COMPONENT_NAV_ITEMS.channelValue.route}${examples}`);
+            }
+        });
+        return adjusted;
     }
 
     /** Called when a user clicks a tab. */

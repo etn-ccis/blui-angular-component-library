@@ -23,6 +23,10 @@ const infoListItem: NavItem = {
     title: 'Info List Item',
     route: 'components/info-list-item',
 };
+const threeLiner: NavItem = {
+    title: 'Three Liner',
+    route: 'components/three-liner',
+};
 const userMenu: NavItem = {
     title: 'User Menu',
     route: 'components/user-menu',
@@ -105,6 +109,7 @@ export const COMPONENT_NAV_ITEMS = {
     hero,
     listItemTag,
     mobileStepper,
+    threeLiner,
     spacer,
     userMenu,
 };
