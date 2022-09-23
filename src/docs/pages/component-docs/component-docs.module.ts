@@ -18,6 +18,7 @@ import { InfoListItemDocModule } from './components/info-list-item/info-list-ite
 import { UserMenuDocModule } from './components/user-menu/user-menu-doc.module';
 import { SpacerDocModule } from './components/spacer/spacer-doc.module';
 import { ThreeLinerDocModule } from './components/three-liner/three-liner-doc.module';
+import { ScoreCardDocModule } from './components/score-card/score-card-doc.module';
 
 @NgModule({
     exports: [
@@ -38,7 +39,9 @@ import { ThreeLinerDocModule } from './components/three-liner/three-liner-doc.mo
         MobileStepperDocModule,
         SharedCompDocsModule,
         ThreeLinerDocModule,
+        ScoreCardDocModule,
         SpacerDocModule,
+
         UserMenuDocModule,
     ],
 })
