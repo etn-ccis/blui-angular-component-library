@@ -10,7 +10,7 @@ import { COMPONENT_NAV_ITEMS } from '../../../../navigation/nav-items';
 @Component({
     selector: 'app-spacer-doc',
     template: `
-        <app-component-doc-scaffold mdFileName="Spacer.md" [hasPlayground]="false">
+        <app-component-doc-scaffold mdFileName="ScoreCard.md">
             <div examples class="app-example">
                 <div class="example-section">
                     <div class="example-heading">Basic Score Card</div>

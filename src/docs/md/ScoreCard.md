@@ -23,36 +23,6 @@ imports: [
 ...
 ```
 
-```html
-// your-component.html // Example with basic body content, action items, and a score badge
-<blui-score-card
-    [headerTitle]="'Substation 3'"
-    [headerSubtitle]="'Normal'"
-    [headerInfo]="'4 Devices'"
-    [badgeOffset]="-76"
->
-    <ng-container blui-action-items>
-        <mat-icon>search</mat-icon>
-        <mat-icon>more_vert</mat-icon>
-    </ng-container>
-
-    <mat-list blui-body>
-        <mat-list-item>Body Content</mat-list-item>
-    </mat-list>
-
-    <blui-hero
-        blui-badge
-        [label]="'Grade'"
-        [value]="'98'"
-        [units]="'/100'"
-        [iconSize]="'large'"
-        [iconBackgroundColor]="'white'"
-    >
-        <i blui-primary class="blui-grade_a"></i>
-    </blui-hero>
-</blui-score-card>
-```
-
 ## API
 
 Parent element (`<blui-score-card>`) attributes:
