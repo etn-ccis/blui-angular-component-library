@@ -25,9 +25,9 @@ export type ScoreCardPlaygroundKnobs = {
         [badgeOffset]="inputs.badgeOffset.value"
     >
         <ng-container blui-action-items>
-            <mat-icon>search</mat-icon>
-            <mat-icon>mail</mat-icon>
-            <mat-icon>notifications</mat-icon>
+            <mat-icon>star</mat-icon>
+            <mat-icon>settings</mat-icon>
+            <mat-icon>more_vert</mat-icon>
         </ng-container>
         <mat-list blui-body>
             <mat-list-item style="height: 2.5rem">
@@ -126,9 +126,9 @@ export class PlaygroundComponent implements OnDestroy {
     ${this._playgroundService.addOptionalProp(this.inputs, 'badgeOffset')}
     [headerTitle]="${this.inputs.headerTitle.value}">
    <ng-container blui-action-items>
-        <mat-icon>search</mat-icon>
-        <mat-icon>mail</mat-icon>
-        <mat-icon>notifications</mat-icon>
+        <mat-icon>star</mat-icon>
+        <mat-icon>settings</mat-icon>
+        <mat-icon>more_vert</mat-icon>
     </ng-container>
     <mat-list blui-body>
         <mat-list-item style="height: 2.5rem">
