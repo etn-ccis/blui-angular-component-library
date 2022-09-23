@@ -8,7 +8,7 @@ export const WITH_SCORE_BADGE = `<blui-score-card style="width: 350px"
     <mat-list blui-body>
         <mat-list-item>Body Content</mat-list-item>
     </mat-list>
-    <blui-hero blui-badge label="Grade" value="98" units="/100" [iconSize]="72">
+    <blui-hero blui-badge label="Grade" value="98" units="/100" [iconSize]="72" unitSpace="hide">
         <i blui-primary class="blui-grade_a"></i>
     </blui-hero>
     <blui-info-list-item blui-action-row [hidePadding]="true" [dense]="true" [chevron]="true">
