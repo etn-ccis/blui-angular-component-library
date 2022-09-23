@@ -2,9 +2,9 @@ import { Component } from '@angular/core';
 
 export const WITH_ACTIONS = `<blui-score-card style="width: 350px" class="with-actions" headerTitle="Header Actions">
    <ng-container blui-action-items>
-        <mat-icon>search</mat-icon>
-        <mat-icon>mail</mat-icon>
-        <mat-icon>notifications</mat-icon>
+        <mat-icon>star</mat-icon>
+        <mat-icon>settings</mat-icon>
+        <mat-icon>more_vert</mat-icon>
     </ng-container>
     <mat-list blui-body>
         <mat-list-item>Body Content</mat-list-item>
