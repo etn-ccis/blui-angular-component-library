@@ -132,7 +132,7 @@ export class PlaygroundComponent implements OnDestroy {
     </ng-container>
     <mat-list blui-body>
         <mat-list-item style="height: 2.5rem">
-            <p mat-line style="font-weight: 400">0 Alarms</p>
+            <p mat-line>0 Alarms</p>
             <mat-icon mat-list-icon>notifications</mat-icon>
         </mat-list-item>
         <mat-list-item style="height: 2.5rem">
@@ -140,7 +140,7 @@ export class PlaygroundComponent implements OnDestroy {
             <mat-icon mat-list-icon>list_alt</mat-icon>
         </mat-list-item>
         <mat-list-item style="height: 2.5rem; margin-bottom: 4px">
-            <p mat-line style="font-weight: 400">Online</p>
+            <p mat-line>Online</p>
             <mat-icon mat-list-icon>cloud</mat-icon>
         </mat-list-item>
     </mat-list>
