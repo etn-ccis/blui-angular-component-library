@@ -11,6 +11,10 @@ const appBar: NavItem = {
     title: 'App Bar',
     route: 'components/app-bar',
 };
+const scoreCard: NavItem = {
+    title: 'Score Card',
+    route: 'components/score-card',
+};
 const channelValue: NavItem = {
     title: 'Channel Value',
     route: 'components/channel-value',
@@ -110,6 +114,7 @@ export const COMPONENT_NAV_ITEMS = {
     listItemTag,
     mobileStepper,
     threeLiner,
+    scoreCard,
     spacer,
     userMenu,
 };
