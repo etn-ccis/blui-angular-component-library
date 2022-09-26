@@ -6,11 +6,12 @@ import { WITH_HEROES } from './examples/with-heroes.component';
 import { WITH_SCORE_BADGE } from './examples/with-score-badge.component';
 import { TabName } from '../../shared/scaffold/scaffold.component';
 import { COMPONENT_NAV_ITEMS } from '../../../../navigation/nav-items';
+import { ScoreCardPlaygroundKnobs } from './examples/playground.component';
 
 @Component({
     selector: 'app-spacer-doc',
     template: `
-        <app-component-doc-scaffold mdFileName="ScoreCard.md">
+        <app-component-doc-scaffold mdFileName="ScoreCard.md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
                     <div class="example-heading">Basic Score Card</div>
@@ -101,6 +102,12 @@ import { COMPONENT_NAV_ITEMS } from '../../../../navigation/nav-items';
                     </div>
                 </div>
             </div>
+            <app-score-card-playground
+                playground
+                [inputs]="allProps"
+                (codeChange)="generatedCode = $event"
+            ></app-score-card-playground>
+            <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
         </app-component-doc-scaffold>
     `,
     styleUrls: ['./score-card-doc.component.scss'],
@@ -112,6 +119,66 @@ export class ScoreCardDocComponent {
     WITH_ACTIONS = WITH_ACTIONS;
     WITH_HEROES = WITH_HEROES;
     WITH_SCORE_BADGE = WITH_SCORE_BADGE;
+
+    generatedCode: string;
+
+    requiredProps: Partial<ScoreCardPlaygroundKnobs> = {
+        headerTitle: {
+            componentDefault: '',
+            value: 'Substation 3',
+            type: 'string',
+            hint: 'The first line of text in the header',
+        },
+    };
+
+    optionalProps: Partial<ScoreCardPlaygroundKnobs> = {
+        headerSubtitle: {
+            componentDefault: '',
+            value: 'Normal',
+            type: 'string',
+            hint: 'The second line of text in the header',
+        },
+        headerInfo: {
+            componentDefault: '',
+            value: '4 Devices',
+            type: 'string',
+            hint: 'The third line of text in the header',
+        },
+        badgeOffset: {
+            componentDefault: 0,
+            value: -54,
+            type: 'number',
+            range: { min: -100, max: 100, step: 1, tickInterval: 1 },
+            hint: 'Vertical offset for the badge content',
+        },
+    };
+
+    otherProps: Partial<ScoreCardPlaygroundKnobs> = {
+        numberOfHeroes: {
+            value: 1,
+            type: 'number',
+            range: { min: 0, max: 2, step: 1, tickInterval: 1 },
+            hint: '',
+        },
+    };
+    allProps = Object.assign({}, this.requiredProps, this.optionalProps, this.otherProps);
+    knobGroups = [
+        {
+            title: 'Required Properties',
+            knobs: this.requiredProps,
+            defaultExpanded: true,
+        },
+        {
+            title: 'Optional Properties',
+            knobs: this.optionalProps,
+            defaultExpanded: true,
+        },
+        {
+            title: 'Other Properties',
+            knobs: this.otherProps,
+            defaultExpanded: false,
+        },
+    ];
 
     createRouterLink(route: string): string {
         const tab: TabName = 'examples';

@@ -10,6 +10,7 @@ import { MultiLineComponent } from './examples/multi-line.component';
 import { WithActionsComponent } from './examples/with-actions.component';
 import { WithHeroesComponent } from './examples/with-heroes.component';
 import { WithScoreBadgeComponent } from './examples/with-score-badge.component';
+import { PlaygroundComponent } from './examples/playground.component';
 
 @NgModule({
     declarations: [
@@ -19,6 +20,7 @@ import { WithScoreBadgeComponent } from './examples/with-score-badge.component';
         WithHeroesComponent,
         MultiLineComponent,
         WithActionsComponent,
+        PlaygroundComponent,
     ],
     imports: [
         ScoreCardModule,
