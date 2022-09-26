@@ -19,6 +19,7 @@ import { UserMenuDocModule } from './components/user-menu/user-menu-doc.module';
 import { SpacerDocModule } from './components/spacer/spacer-doc.module';
 import { ThreeLinerDocModule } from './components/three-liner/three-liner-doc.module';
 import { ScoreCardDocModule } from './components/score-card/score-card-doc.module';
+import { ToolbarMenuDocModule } from './components/toolbar-menu/toolbar-menu-doc.module';
 
 @NgModule({
     exports: [
@@ -40,6 +41,7 @@ import { ScoreCardDocModule } from './components/score-card/score-card-doc.modul
         SharedCompDocsModule,
         ThreeLinerDocModule,
         ScoreCardDocModule,
+        ToolbarMenuDocModule,
         SpacerDocModule,
 
         UserMenuDocModule,

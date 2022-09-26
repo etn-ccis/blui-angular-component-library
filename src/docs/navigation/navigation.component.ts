@@ -29,6 +29,7 @@ export class NavigationComponent {
         COMPONENT_NAV_ITEMS.scoreCard,
         COMPONENT_NAV_ITEMS.spacer,
         COMPONENT_NAV_ITEMS.threeLiner,
+        COMPONENT_NAV_ITEMS.toolbarMenu,
         COMPONENT_NAV_ITEMS.userMenu,
     ];
 

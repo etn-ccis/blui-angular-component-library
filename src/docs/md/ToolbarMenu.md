@@ -17,22 +17,6 @@ imports: [
   ],
 ```
 
-```html
-// your-component.html
-<mat-toolbar color="primary">
-    <blui-toolbar-menu label="label">
-        <button mat-icon-button blui-icon>
-            <mat-icon>menu</mat-icon>
-        </button>
-        <ng-container blui-toolbar-menu-items>
-            <button mat-menu-item>Menu Item 1</button>
-            <button mat-menu-item>Menu Item 2</button>
-            <button mat-menu-item>Menu Item 3</button>
-        </ng-container>
-    </blui-toolbar-menu>
-</mat-toolbar>
-```
-
 ## API
 
 Parent element (`<blui-toolbar-menu>`) attributes:

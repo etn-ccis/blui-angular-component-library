@@ -47,6 +47,10 @@ const listItemTag: NavItem = {
     title: 'List Item Tag',
     route: 'components/list-item-tag',
 };
+const toolbarMenu: NavItem = {
+    title: 'Toolbar Menu',
+    route: 'components/toolbar-menu',
+};
 const spacer: NavItem = {
     title: 'Spacer',
     route: 'components/spacer',
@@ -116,6 +120,7 @@ export const COMPONENT_NAV_ITEMS = {
     threeLiner,
     scoreCard,
     spacer,
+    toolbarMenu,
     userMenu,
 };
 export const DRAWER_NAV_ITEMS = {
