@@ -10,7 +10,7 @@
         "start": "ng serve demo -c development --open --host 0.0.0.0",
         "start:npm": "ng serve demo -c npm --open",
         "start:showcase": "yarn initialize && yarn install:dependencies && cd showcase && yarn start",
-        "build:demo": "rm -rf ./dist & ng build demo -c production",
+        "build:demo": "ng build demo -c production",
         "build:lib": "bash scripts/buildLib.sh",
         "prettier": "prettier \"src/**/**.{ts,js,json,css,scss,html}\" --write",
         "prettier:check": "prettier \"src/**/**.{ts,js,json,css,scss,html}\" --check",

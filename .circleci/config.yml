@@ -102,6 +102,75 @@ jobs:
                   command: |
                       cd showcase && yarn build
 
+    # Builds the Storybook app using @brightlayer-ui/angular-components persisted in /dist folder.
+    build_documentation_site:
+      docker:
+        - image: cimg/node:14.19.0-browsers
+      steps:
+        - checkout
+        - attach_workspace:
+            at: .
+        - restore_cache:
+            keys:
+              - v2-dependencies-angular-{{ checksum "yarn.lock" }}
+        - run:
+            name: Install Dependencies
+            command: yarn
+        - attach_workspace:
+            at: .
+        - run:
+            name: Build Documentation Site
+            command: |
+              yarn build:demo
+              # master and dev branches should configure Google Analytics IDs before the build.
+              # if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
+              #   STORYBOOK_GA_ID=$MASTER_GA
+              # fi
+              # if [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
+              #   STORYBOOK_GA_ID=$DEV_GA
+              # fi
+              cd build
+              touch .nojekyll
+        - persist_to_workspace:
+            root: .
+            paths:
+              - build
+
+    deploy_documentation_site:
+      docker:
+        - image: cimg/node:14.19.0-browsers
+      environment:
+        - MASTER_BRANCH: master
+        - DEV_BRANCH: dev
+        - DEV_TARGET: https://github.com/brightlayer-ui-components/angular-dev
+        - MASTER_TARGET: https://github.com/brightlayer-ui-components/angular
+        - GH_EMAIL: brightlayer-ui@eaton.com
+        - GH_NAME: Brightlayer UI Agent
+      steps:
+        - checkout
+        - attach_workspace:
+            at: .
+        - run:
+            name: Deploy Documentation Site
+            command: |
+              git config --global user.email "$GH_EMAIL"
+              git config --global user.name "$GH_NAME"
+              cd demos/storybook
+              if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
+                git clone $MASTER_TARGET out
+              # elif [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
+              else [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
+                git clone $DEV_TARGET out
+              fi
+              cd out
+              git rm -rf .
+              cd ..
+              cp -a build/. out/.
+              cd out
+              git add -A
+              git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
+              git push
+
     publish:
       docker:
         - image: cimg/node:14.19.0-browsers
@@ -118,6 +187,7 @@ jobs:
             name: Publish @brightlayer-ui/angular-components
             command:  |
               yarn publish:package -b $CIRCLE_BRANCH
+
     tag:
       docker:
         - image: cimg/node:14.19.0-browsers
@@ -137,14 +207,26 @@ workflows:
             - build_showcase:
                 requires:
                     - build_library
+            - build_documentation_site:
+                 requires:
+                   - build_library
+            - deploy_documentation_site:
+                 requires:
+                   - build_documentation_site
+                 filters:
+                    branches:
+                       only:
+                         - master
+                         - dev
             - publish:
                 requires:
-                    - build_showcase
+                  - build_documentation_site
+                  - build_showcase
                 filters:
-                    branches:
-                        only:
-                            - master
-                            - dev
+                  branches:
+                    only:
+                      - master
+                      - dev
             - tag:
                 requires:
                     - publish
