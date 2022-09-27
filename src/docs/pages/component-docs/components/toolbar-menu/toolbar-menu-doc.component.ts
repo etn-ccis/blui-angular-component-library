@@ -51,7 +51,7 @@ import { ToolbarMenuPlaygroundKnobs } from './examples/playground.component';
                     <div class="example-demo-wrapper">
                         <app-within-toolbar-toolbar-menu-demo></app-within-toolbar-toolbar-menu-demo>
                     </div>
-                    <app-example-code [snippet]="WITHIN_TOOLBAR"></app-example-code>
+                    <app-example-code [snippet]="WITHIN_TOOLBAR" dataLine="7-13"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="WITHIN_TOOLBAR"></app-copy-code-button>
                     </div>
