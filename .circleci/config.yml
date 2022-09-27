@@ -155,7 +155,6 @@ jobs:
             command: |
               git config --global user.email "$GH_EMAIL"
               git config --global user.name "$GH_NAME"
-              cd demos/storybook
               if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
                 git clone $MASTER_TARGET out
               # elif [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
