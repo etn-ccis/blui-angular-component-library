@@ -121,7 +121,12 @@ jobs:
         - run:
             name: Build Documentation Site
             command: |
-              yarn build:demo
+              if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
+                yarn build:demo --base-href=/angular/
+              else
+                yarn build:demo --base-href=/angular-dev/
+              fi
+              
               # master and dev branches should configure Google Analytics IDs before the build.
               # if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
               #   STORYBOOK_GA_ID=$MASTER_GA
