@@ -158,7 +158,7 @@ jobs:
               if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
                 git clone $MASTER_TARGET out
               # elif [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
-              else; then
+              else
                 git clone $DEV_TARGET out
               fi
               cd out
