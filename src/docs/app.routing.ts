@@ -21,6 +21,7 @@ import { MobileStepperDocComponent } from './pages/component-docs/components/mob
 import { SpacerDocComponent } from './pages/component-docs/components/spacer/spacer-doc.component';
 import { ThreeLinerDocComponent } from './pages/component-docs/components/three-liner/three-liner-doc.component';
 import { ScoreCardDocComponent } from './pages/component-docs/components/score-card/score-card-doc.component';
+import { ToolbarMenuDocComponent } from './pages/component-docs/components/toolbar-menu/toolbar-menu-doc.component';
 
 const routes: Routes = [
     { path: '', redirectTo: APP_NAV_ITEMS.home.route, pathMatch: 'full' },
@@ -43,6 +44,7 @@ const routes: Routes = [
     { path: `${COMPONENT_NAV_ITEMS.threeLiner.route}/:tab`, component: ThreeLinerDocComponent },
     { path: `${COMPONENT_NAV_ITEMS.scoreCard.route}/:tab`, component: ScoreCardDocComponent },
     { path: `${COMPONENT_NAV_ITEMS.spacer.route}/:tab`, component: SpacerDocComponent },
+    { path: `${COMPONENT_NAV_ITEMS.toolbarMenu.route}/:tab`, component: ToolbarMenuDocComponent },
     { path: `${COMPONENT_NAV_ITEMS.userMenu.route}/:tab`, component: UserMenuDocComponent },
 ];
 @NgModule({
