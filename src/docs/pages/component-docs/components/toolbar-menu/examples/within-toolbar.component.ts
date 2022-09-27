@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 
 export const WITHIN_TOOLBAR = `<mat-toolbar color="primary" style="width: 300px">
-    <button mat-icon-button style="margin-right: 16px">
+    <button mat-icon-button style="margin: 0 24px 0 -8px">
         <mat-icon>menu</mat-icon>
     </button>
     <div>
