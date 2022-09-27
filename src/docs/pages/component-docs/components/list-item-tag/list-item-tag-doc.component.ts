@@ -1,46 +1,108 @@
 import { Component } from '@angular/core';
 import { BASIC } from './examples/basic.component';
 import { COMPLEX } from './examples/complex.component';
+import { TabName } from '../../shared/scaffold/scaffold.component';
+import { COMPONENT_NAV_ITEMS } from '../../../../navigation/nav-items';
+import { ListItemTagPlaygroundKnobs } from './examples/playground.component';
 
 @Component({
     selector: 'app-list-item-tag-doc',
     template: `
-        <app-component-doc-scaffold mdFileName="ListItemTag.md">
-            <div examples>
-                <div class="mat-headline">Basic Example</div>
-
-                <div class="api-docs-example-wrapper">
-                    <app-basic-list-item-tag-demo></app-basic-list-item-tag-demo>
+        <app-component-doc-scaffold mdFileName="ListItemTag.md" [knobGroups]="knobGroups">
+            <div examples class="app-example">
+                <div class="example-section">
+                    <div class="example-heading">Basic List Item Tag</div>
+                    <div class="example-description">
+                        The <code>&lt;blui-list-item-tag&gt;</code> accepts a <code>label</code> input to display status
+                        information.
+                    </div>
+                    <div class="example-demo-wrapper">
+                        <app-basic-list-item-tag-demo></app-basic-list-item-tag-demo>
+                    </div>
+                    <app-example-code [snippet]="BASIC"></app-example-code>
+                    <div class="example-actions">
+                        <app-copy-code-button [code]="BASIC"></app-copy-code-button>
+                    </div>
                 </div>
-                <app-example-code [snippet]="BASIC"></app-example-code>
-
-                <div class="mat-headline" style="margin-top: 64px">Complex Example</div>
-                <div class="api-docs-example-wrapper">
-                    <app-complex-list-item-tag-demo></app-complex-list-item-tag-demo>
+                <div class="example-section">
+                    <div class="example-heading">List Item Tag within an Info List Item</div>
+                    <div class="example-description">
+                        The <code>&lt;blui-list-item-tag&gt;</code> commonly appears within a
+                        <code>
+                            <a [routerLink]="createRouterLink(routes.infoListItem.route)"
+                                >&lt;blui-info-list-item&gt;</a
+                            > </code
+                        >.
+                    </div>
+                    <div class="example-demo-wrapper">
+                        <app-complex-list-item-tag-demo></app-complex-list-item-tag-demo>
+                    </div>
+                    <app-example-code [snippet]="COMPLEX" dataLine="6-16"></app-example-code>
+                    <div class="example-actions">
+                        <app-copy-code-button [code]="COMPLEX"></app-copy-code-button>
+                    </div>
                 </div>
-                <app-example-code *ngIf="showComplexExampleCode" [snippet]="COMPLEX" dataLine="6-16"></app-example-code>
-                <app-toggle-code-button style="margin-top: 8px" [(showCode)]="showComplexExampleCode">
-                </app-toggle-code-button>
             </div>
-            <div playground>
-                <blui-list-item-tag [label]="label"></blui-list-item-tag>
-            </div>
-            <div knobs>
-                <app-text-knob label="label" [(value)]="label"></app-text-knob>
-            </div>
+            <app-list-item-tag-playground
+                playground
+                [inputs]="allProps"
+                (codeChange)="generatedCode = $event"
+            ></app-list-item-tag-playground>
+            <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
         </app-component-doc-scaffold>
     `,
     styleUrls: ['./list-item-tag-doc.component.scss'],
 })
 export class ListItemTagDocComponent {
+    routes = COMPONENT_NAV_ITEMS;
     label = 'label';
     BASIC = BASIC;
     COMPLEX = COMPLEX;
+    generatedCode: string;
 
-    showComplexExampleCode = false;
+    requiredProps: Partial<ListItemTagPlaygroundKnobs> = {
+        label: {
+            value: 'Velocity',
+            type: 'string',
+            hint: 'The label text',
+        },
+    };
+
+    optionalProps: Partial<ListItemTagPlaygroundKnobs> = {
+        fontColor: {
+            type: 'color',
+            hint: 'The label text',
+            value: '',
+            componentDefault: '',
+        },
+        backgroundColor: {
+            type: 'color',
+            hint: 'Color of the label background',
+            value: '',
+            componentDefault: '',
+        },
+    };
+    allProps = Object.assign({}, this.requiredProps, this.optionalProps);
+    knobGroups = [
+        {
+            title: 'Required Properties',
+            knobs: this.requiredProps,
+            defaultExpanded: true,
+        },
+        {
+            title: 'Optional Properties',
+            knobs: this.optionalProps,
+            defaultExpanded: true,
+        },
+    ];
 
     ngAfterViewInit(): void {
         // We should move this functionality to a parent class so it's inherited.
         window.dispatchEvent(new Event('resize'));
+    }
+
+    createRouterLink(route: string): string {
+        const tab: TabName = 'examples';
+        return `/${route}/${tab}`;
     }
 }
