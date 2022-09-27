@@ -126,6 +126,7 @@ jobs:
               else
                 yarn build:demo --base-href=/angular-dev/
               fi
+              cp src/404.html build
               
               # master and dev branches should configure Google Analytics IDs before the build.
               # if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
