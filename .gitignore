@@ -22,3 +22,5 @@ coverage
 .angular
 
 /showcase/src/lib/
+
+build
