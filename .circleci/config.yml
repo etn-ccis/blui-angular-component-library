@@ -217,11 +217,11 @@ workflows:
             - deploy_documentation_site:
                 requires:
                    - build_documentation_site
-                      filters:
-                         branches:
-                           only:
-                            - master
-                            - dev
+                filters:
+                   branches:
+                     only:
+                      - master
+                      - dev
             - publish:
                 requires:
                   - build_documentation_site
