@@ -212,16 +212,16 @@ workflows:
                 requires:
                     - build_library
             - build_documentation_site:
-                 requires:
+                requires:
                    - build_library
             - deploy_documentation_site:
-                 requires:
+                requires:
                    - build_documentation_site
-                  filters:
-                    branches:
-                       only:
-                         - master
-                         - dev
+                      filters:
+                         branches:
+                           only:
+                            - master
+                            - dev
             - publish:
                 requires:
                   - build_documentation_site
