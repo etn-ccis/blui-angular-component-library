@@ -34,11 +34,6 @@ The library can be built by running the following command. The resulting output 
 yarn build
 ```
 
-There is also a demo project (/component-demo) in this repository that shows the components in use. You can automatically build the component library and link them to the node modules for the demo by running:
-
-```
-yarn link:components
-```
 
 ## Compatibility
 
@@ -60,24 +55,20 @@ The following peer dependencies are added to `package.json`:
 | @angular/material | ^13.0.0 |
 | @angular/cdk      | ^13.0.0 |
 
-## Running the demo projects
+## Running the Demo Projects
 
-This repository comes with two demo projects found within the `/demos` folder.
-The first is a [Storybook](https://storybook.js.org/) application that allows you to see the components in isolation and interact with their properties. The second is a Showcase project that shows a combination of components in the context of a realistic interface.
+To start the documentation site that is included in this repository, run:
 
-You can build, link, and start the demo applications in a single step by calling either
+```
+yarn start
+```
+
+The second demo is a Showcase project that shows a combination of components in the context of a realistic interface.  To start the showcase, run: 
 
 ```
 yarn start:showcase
 ```
 
-or
-
-```
-yarn start:storybook
-```
-
-from the root directory.
 
 ## Using the Components
 

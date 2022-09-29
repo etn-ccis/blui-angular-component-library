@@ -74,7 +74,11 @@ export type Knob = {
                                     <ng-template
                                         *ngTemplateOutlet="
                                             interactiveKnob;
-                                            context: { knob: group.knobs[key], key: key }
+                                            context: { 
+                                                knob: group.knobs[key], 
+                                                key: key,
+                                                required: isRequired(group.title) 
+                                            }
                                         "
                                     >
                                     </ng-template>
@@ -92,7 +96,11 @@ export type Knob = {
                             <ng-template
                                 *ngTemplateOutlet="
                                     interactiveKnob;
-                                    context: { knob: knobGroups[0].knobs[key], key: key }
+                                    context: { 
+                                        knob: knobGroups[0].knobs[key], 
+                                        key: key, 
+                                        required: isRequired(knobGroups[0].title) 
+                                    }
                                 "
                             >
                             </ng-template>
@@ -102,13 +110,14 @@ export type Knob = {
             </div>
         </div>
 
-        <ng-template #interactiveKnob let-knob="knob" let-key="key">
+        <ng-template #interactiveKnob let-knob="knob" let-key="key" let-required="required">
             <div [class.non-prop]="knob.label?.indexOf(' ') > 0">
                 <app-select-knob
                     *ngIf="knob.type === 'select'"
                     [label]="knob.label || key"
                     [options]="knob.options"
                     [(value)]="knob.value"
+                    [isRequired]="required"
                     [hint]="knob.hint"
                     (valueChange)="emitKnobChange()"
                 ></app-select-knob>
@@ -123,12 +132,14 @@ export type Knob = {
                     *ngIf="knob.type === 'string'"
                     [label]="knob.label || key"
                     [(value)]="knob.value"
+                    [isRequired]="required"
                     [hint]="knob.hint"
                     (valueChange)="emitKnobChange()"
                 ></app-text-knob>
                 <app-boolean-knob
                     *ngIf="knob.type === 'boolean'"
                     [label]="knob.label || key"
+                    [isRequired]="required"
                     [(value)]="knob.value"
                     [hint]="knob.hint"
                     (valueChange)="emitKnobChange()"
@@ -201,6 +212,10 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
         if (this.routeListener) {
             this.routeListener.unsubscribe();
         }
+    }
+
+    isRequired(title: string): boolean {
+        return title === 'Required Properties';
     }
 
     /** Replaces comp doc MD links with links to example pages */
