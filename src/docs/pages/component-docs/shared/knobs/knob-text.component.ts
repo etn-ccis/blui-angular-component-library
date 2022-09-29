@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import {FormControl, Validators} from "@angular/forms";
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-text-knob',
@@ -9,12 +9,7 @@ import {FormControl, Validators} from "@angular/forms";
             <mat-hint *ngIf="isRequired && value">{{ hint }}</mat-hint>
             <mat-hint *ngIf="isRequired && !value">{{ label }} is required</mat-hint>
             <mat-hint *ngIf="!isRequired">{{ hint }}</mat-hint>
-            <input
-                matInput
-                [(ngModel)]="value"
-                (ngModelChange)="valueChange.emit($event)"
-                [formControl]="control"
-            />
+            <input matInput [(ngModel)]="value" (ngModelChange)="valueChange.emit($event)" [formControl]="control" />
         </mat-form-field>
     `,
 })
@@ -27,7 +22,6 @@ export class KnobTextComponent {
     control: FormControl;
 
     ngOnInit(): void {
-       this.control = new FormControl('', [ this.isRequired ? Validators.required : undefined]);
+        this.control = new FormControl('', [this.isRequired ? Validators.required : undefined]);
     }
-
 }

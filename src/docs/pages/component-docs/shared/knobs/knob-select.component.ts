@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import {FormControl, Validators} from "@angular/forms";
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-select-knob',
@@ -30,6 +30,6 @@ export class KnobSelectComponent {
     control: FormControl;
 
     ngOnInit(): void {
-        this.control = new FormControl('', [ this.isRequired ? Validators.required : undefined]);
+        this.control = new FormControl('', [this.isRequired ? Validators.required : undefined]);
     }
 }

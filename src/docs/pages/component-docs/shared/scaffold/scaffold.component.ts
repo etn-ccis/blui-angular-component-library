@@ -74,10 +74,10 @@ export type Knob = {
                                     <ng-template
                                         *ngTemplateOutlet="
                                             interactiveKnob;
-                                            context: { 
-                                                knob: group.knobs[key], 
+                                            context: {
+                                                knob: group.knobs[key],
                                                 key: key,
-                                                required: isRequired(group.title) 
+                                                required: isRequired(group.title)
                                             }
                                         "
                                     >
@@ -96,10 +96,10 @@ export type Knob = {
                             <ng-template
                                 *ngTemplateOutlet="
                                     interactiveKnob;
-                                    context: { 
-                                        knob: knobGroups[0].knobs[key], 
-                                        key: key, 
-                                        required: isRequired(knobGroups[0].title) 
+                                    context: {
+                                        knob: knobGroups[0].knobs[key],
+                                        key: key,
+                                        required: isRequired(knobGroups[0].title)
                                     }
                                 "
                             >
