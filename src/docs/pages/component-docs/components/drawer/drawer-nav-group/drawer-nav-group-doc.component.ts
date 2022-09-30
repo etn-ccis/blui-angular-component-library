@@ -13,24 +13,10 @@ import { CUSTOM_CONTENT } from './examples/with-custom-content.component';
         <app-component-doc-scaffold [md]="md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Basic Drawer Nav Group</div>
+                    <div class="example-heading">Drawer Nav Group</div>
                     <div class="example-description">
-                        A <code>&lt;blui-drawer-nav-group&gt;</code> is a wrapper used to group multiple
-                        <code>&lt;blui-drawer-nav-item&gt;</code>.
-                    </div>
-                    <div class="example-demo-wrapper">
-                        <app-basic-drawer-nav-group-demo></app-basic-drawer-nav-group-demo>
-                    </div>
-                    <app-example-code [snippet]="BASIC" dataLine="3-6"></app-example-code>
-                    <div class="example-actions">
-                        <app-copy-code-button [code]="BASIC"></app-copy-code-button>
-                    </div>
-                </div>
-                <div class="example-section">
-                    <div class="example-heading">Multiple Drawer Nav Groups</div>
-                    <div class="example-description">
-                        Multiple <code>&lt;blui-drawer-nav-group&gt;</code> can be passed into the
-                        <code>&lt;blui-drawer-body&gt;</code> to better organize navigation items.
+                        A <code>&lt;blui-drawer-nav-group&gt;</code> organizes related navigation items together.
+                        You can have as many groups as needed. 
                     </div>
                     <div class="example-demo-wrapper">
                         <app-multiple-groups-nav-group-demo></app-multiple-groups-nav-group-demo>
@@ -42,23 +28,25 @@ import { CUSTOM_CONTENT } from './examples/with-custom-content.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">Spacing Nav Groups</div>
+                    <div class="example-heading">Spacing the Groups</div>
                     <div class="example-description">
-                        A <code>&lt;blui-spacer&gt;</code> can be used to add space between navigation groups.
+                        If you want to add an extra space between your groups, 
+                        you can use a <code>&lt;blui-spacer&gt;</code> component.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-spacer-between-nav-group-demo></app-spacer-between-nav-group-demo>
                     </div>
-                    <app-example-code [snippet]="SPACER" dataLine="3-12"></app-example-code>
+                    <app-example-code [snippet]="SPACER" dataLine="7"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="SPACER"></app-copy-code-button>
                     </div>
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">Custom Nav Group Title Content</div>
+                    <div class="example-heading">Customizing the Title</div>
                     <div class="example-description">
-                        Custom title content can be also be passed as a <code>blui-title-content</code> child.
+                        By default, each nav group has a simple string as the title.
+                        You can customize this and pass in your own content via <code>blui-title-content</code>.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-custom-content-nav-group-demo></app-custom-content-nav-group-demo>

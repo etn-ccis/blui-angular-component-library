@@ -13,56 +13,25 @@ import { NavItemPlaygroundKnobs } from './examples/playground.component';
         <app-component-doc-scaffold [md]="md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Basic Drawer Nav Items</div>
+                    <div class="example-heading">Drawer Nav Item</div>
+                    <div class="example-description">
+                        The <code>&lt;blui-drawer-nav-item&gt;</code> represents a single list item in the navigation drawer.
+                        Nav items can contain any combination of title, subtitle and icon.
+                    </div>
+
                     <div class="example-demo-wrapper">
                         <app-basic-drawer-nav-item-demo></app-basic-drawer-nav-item-demo>
                     </div>
-                    <app-example-code [snippet]="BASIC" dataLine="4-6"></app-example-code>
+                    <app-example-code [snippet]="BASIC" dataLine="4-12"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="BASIC"></app-copy-code-button>
                     </div>
                 </div>
-
                 <div class="example-section">
-                    <div class="example-heading">Drawer Nav Items with Icons</div>
+                    <div class="example-heading">Selecting a Nav Item</div>
                     <div class="example-description">
-                        Drawer navigation items accept icons denoted with the <code>blui-icon</code> selector.
-                    </div>
-                    <div class="example-demo-wrapper">
-                        <app-nav-item-with-icons-demo></app-nav-item-with-icons-demo>
-                    </div>
-                    <app-example-code [snippet]="WITH_ICONS" dataLine="4-9"></app-example-code>
-                    <div class="example-actions">
-                        <app-copy-code-button [code]="BASIC"></app-copy-code-button>
-                    </div>
-                </div>
-
-                <div class="example-section">
-                    <div class="example-heading">Nested Drawer Nav Items</div>
-                    <div class="example-description">
-                        Navigation items can be nested to allow for different levels of navigation. To create a nested
-                        navigation item, simply place a <code>&lt;blui-drawer-nav-item&gt;</code> inside of another. The
-                        <code>&lt;blui-drawer-nav-item&gt;</code> allows nested navigation up to 3 levels deep.
-                    </div>
-                    <div class="example-demo-wrapper">
-                        <app-nav-item-with-nested-items-demo></app-nav-item-with-nested-items-demo>
-                    </div>
-                    <app-example-code [snippet]="WITH_NESTED_ITEMS" dataLine="4-13"></app-example-code>
-                    <div class="example-actions">
-                        <app-view-code-button
-                            style="margin-right: 1rem"
-                            examplePath="drawer/drawer-nav-item/examples/with-nested-items"
-                        ></app-view-code-button>
-                        <app-copy-code-button [code]="WITH_NESTED_ITEMS"></app-copy-code-button>
-                    </div>
-                </div>
-
-                <div class="example-section">
-                    <div class="example-heading">Selected Drawer Nav Item</div>
-                    <div class="example-description">
-                        Navigation items must be supplied with a <code>[selected]</code> input to denote which item is
-                        active. The active highlighted shape can be adjusted via the
-                        <code>[activeItemBackgroundShape]</code> input to be either "square" (default) or "round".
+                        Navigation items can be highlighted with an active state by setting the <code>selected</code> input. 
+                        The shape of the highlight can be either "square" (default) or "round".
                     </div>
                     <div class="example-demo-wrapper">
                         <app-nav-item-with-selected-item-demo></app-nav-item-with-selected-item-demo>
@@ -70,10 +39,28 @@ import { NavItemPlaygroundKnobs } from './examples/playground.component';
                     <app-example-code [snippet]="WITH_SELECTED_ITEM" dataLine="4-23"></app-example-code>
                     <div class="example-actions">
                         <app-view-code-button
-                            style="margin-right: 1rem"
-                            examplePath="drawer/drawer-nav-item/examples/with-selected-item"
+                                style="margin-right: 1rem"
+                                examplePath="drawer/drawer-nav-item/examples/with-selected-item"
                         ></app-view-code-button>
                         <app-copy-code-button [code]="WITH_SELECTED_ITEM"></app-copy-code-button>
+                    </div>
+                </div>
+                <div class="example-section">
+                    <div class="example-heading">Nesting the Nav Items</div>
+                    <div class="example-description">
+                        Navigation items can be nested to allow for a multi-level navigation heirarchy. 
+                        The <code>&lt;blui-drawer-nav-item&gt;</code> allows nested navigation up to 3 levels deep.
+                    </div>
+                    <div class="example-demo-wrapper">
+                        <app-nav-item-with-nested-items-demo></app-nav-item-with-nested-items-demo>
+                    </div>
+                    <app-example-code [snippet]="WITH_NESTED_ITEMS" dataLine="4-7"></app-example-code>
+                    <div class="example-actions">
+                        <app-view-code-button
+                            style="margin-right: 1rem"
+                            examplePath="drawer/drawer-nav-item/examples/with-nested-items"
+                        ></app-view-code-button>
+                        <app-copy-code-button [code]="WITH_NESTED_ITEMS"></app-copy-code-button>
                     </div>
                 </div>
             </div>

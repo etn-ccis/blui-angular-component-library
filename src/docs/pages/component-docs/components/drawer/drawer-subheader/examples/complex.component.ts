@@ -10,7 +10,7 @@ export const COMPLEX = `<blui-drawer style="width: 250px" [openOnHover]="false">
                 <mat-option value="option1">ACME Co.</mat-option>
                 <mat-option value="option2">BLUI CO.</mat-option>
                 <mat-divider></mat-divider>
-                <mat-option value="option3" class="mat-hint">
+                <mat-option value="option3" [disabled]="true">
                     + Add a New Organization...
                 </mat-option>
             </mat-select>

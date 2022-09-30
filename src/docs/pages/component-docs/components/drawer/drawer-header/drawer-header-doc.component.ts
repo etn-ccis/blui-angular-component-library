@@ -13,48 +13,15 @@ import { HeaderPlaygroundKnobs } from './examples/playground.component';
         <app-component-doc-scaffold [md]="md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Basic Drawer Header</div>
+                    <div class="example-heading">Drawer Header</div>
                     <div class="example-description">
-                        A <code>&lt;blui-drawer-header&gt;</code> appears at the top of a
-                        <code>&lt;blui-drawer&gt;</code> can be used to provide context to an application through a
-                        <code>title</code> input or a branding image.
-                    </div>
-                    <div class="example-demo-wrapper">
-                        <app-basic-drawer-header-demo></app-basic-drawer-header-demo>
-                    </div>
-                    <app-example-code [snippet]="BASIC" dataLine="2"></app-example-code>
-                    <div class="example-actions">
-                        <app-copy-code-button [code]="BASIC"></app-copy-code-button>
-                    </div>
-                </div>
-            </div>
-            <div examples class="app-example">
-                <div class="example-section">
-                    <div class="example-heading">Drawer Header with Subtitle</div>
-                    <div class="example-description">
-                        A <code>&lt;blui-drawer-header&gt;</code> accepts a <code>title</code> and
-                        <code>subtitle</code> input.
-                    </div>
-                    <div class="example-demo-wrapper">
-                        <app-with-subtitle-drawer-header-demo></app-with-subtitle-drawer-header-demo>
-                    </div>
-                    <app-example-code [snippet]="WITH_SUBTITLE" dataLine="2"></app-example-code>
-                    <div class="example-actions">
-                        <app-copy-code-button [code]="WITH_SUBTITLE"></app-copy-code-button>
-                    </div>
-                </div>
-            </div>
-            <div examples class="app-example">
-                <div class="example-section">
-                    <div class="example-heading">Drawer Header with Icon</div>
-                    <div class="example-description">
-                        A <code>&lt;blui-drawer-header&gt;</code> accepts a <code>blui-icon</code> content child which
-                        can be used to manage the <code>&lt;blui-drawer&gt;</code> opened state.
+                        The <code>&lt;blui-drawer-header&gt;</code> appears at the top of a drawer.
+                        It is commonly used to show your application title and holds controls for the drawer.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-with-icon-drawer-header-demo></app-with-icon-drawer-header-demo>
                     </div>
-                    <app-example-code [snippet]="WITH_ICON" dataLine="3-5"></app-example-code>
+                    <app-example-code [snippet]="WITH_ICON"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="WITH_ICON"></app-copy-code-button>
                     </div>
@@ -62,9 +29,9 @@ import { HeaderPlaygroundKnobs } from './examples/playground.component';
             </div>
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Drawer Header with Custom Content</div>
+                    <div class="example-heading">Customizing the Title Content</div>
                     <div class="example-description">
-                        Custom header content can be also be passed as a <code>blui-title-content</code> child.
+                        If you want to display more than just a title and subtitle, you can pass custom content via <code>blui-title-content</code>.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-with-custom-content-drawer-header-demo> </app-with-custom-content-drawer-header-demo>

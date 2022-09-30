@@ -11,17 +11,29 @@ import { AppBarPlaygroundKnobs } from './examples/playground.component';
         <ng-template #examples>
             <div class="app-example">
                 <div class="example-section">
-                    <div class="example-page-title">App Bar</div>
-                    <div class="example-description">
-                        The <code>&lt;blui-app-bar&gt;</code> supports multiple variants - 'collapsed', 'expanded', and
-                        'snap'.
+
+                    <div class="example-section">
+                        <div class="example-heading">Collapsible App Bar</div>
+                        <div class="example-description">
+                            A <code>&lt;blui-app-bar&gt;</code> is an extenion of the 
+                            Angular Material Toolbar that can expand and collapse as you scroll the page.
+                        </div>
+                        <div class="example-demo-wrapper">
+                            <app-snap-app-bar-demo></app-snap-app-bar-demo>
+                        </div>
+                        <app-example-code [snippet]="SNAP" dataLine="2-9"></app-example-code>
+                        <div class="example-actions">
+                            <app-view-code-button
+                                    examplePath="app-bar/examples/snap"
+                                    style="margin-right: 16px"
+                            ></app-view-code-button>
+                            <app-copy-code-button [code]="SNAP"></app-copy-code-button>
+                        </div>
                     </div>
-                </div>
-                <div class="example-section">
-                    <div class="example-heading">Collapsed Variant</div>
+                    <div class="example-heading">Permanently Collapsed</div>
                     <div class="example-description">
-                        A <code>&lt;blui-app-bar&gt;</code> with a <code>collapsed</code> variant will stay fixed at the
-                        <code>collapsedHeight</code> size.
+                        Setting the variant to <code>'collapsed'</code> will lock the the App Bar
+                        at its collapsed size and it will behave like a default toolbar. 
                     </div>
                     <div class="example-demo-wrapper">
                         <app-collapsed-app-bar-demo></app-collapsed-app-bar-demo>
@@ -37,10 +49,10 @@ import { AppBarPlaygroundKnobs } from './examples/playground.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">Expanded Variant</div>
+                    <div class="example-heading">Permanently Expanded</div>
                     <div class="example-description">
-                        A <code>&lt;blui-app-bar&gt;</code> with an <code>expanded</code> variant will stay fixed at the
-                        <code>expandedHeight</code> size.
+                        Setting the variant to <code>'expanded'</code> will lock the the App Bar
+                        at its expanded size.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-expanded-app-bar-demo></app-expanded-app-bar-demo>
@@ -56,29 +68,11 @@ import { AppBarPlaygroundKnobs } from './examples/playground.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">Snap Variant</div>
+                    <div class="example-heading">Adding Additional Content</div>
                     <div class="example-description">
-                        A <code>&lt;blui-app-bar&gt;</code> will resize between <code>collapsedHeight</code> and
-                        <code>expandedHeight</code> as the window is scrolled.
-                    </div>
-                    <div class="example-demo-wrapper">
-                        <app-snap-app-bar-demo></app-snap-app-bar-demo>
-                    </div>
-                    <app-example-code [snippet]="SNAP" dataLine="2-9"></app-example-code>
-                    <div class="example-actions">
-                        <app-view-code-button
-                            examplePath="app-bar/examples/snap"
-                            style="margin-right: 16px"
-                        ></app-view-code-button>
-                        <app-copy-code-button [code]="SNAP"></app-copy-code-button>
-                    </div>
-                </div>
-
-                <div class="example-section">
-                    <div class="example-heading">App Bar with Custom Content</div>
-                    <div class="example-description">
-                        A <code>&lt;blui-app-bar&gt;</code> can accept a <code>blui-icon</code>,
-                        <code>blui-actions</code> and custom content.
+                        You can nest content inside of the App Bar. 
+                        The App Bar reserves space for icons on both the left (<code>blui-icon</code>) 
+                        and right side (<code>blui-actions</code>).
                     </div>
                     <div class="example-demo-wrapper">
                         <app-three-liner-app-bar-demo></app-three-liner-app-bar-demo>
