@@ -22,6 +22,6 @@ export class KnobTextComponent {
     control: FormControl;
 
     ngOnInit(): void {
-        this.control = new FormControl(this.value, [this.isRequired ? Validators.required : undefined]);
+        this.control = new FormControl(this.value, this.isRequired ? [Validators.required] : []);
     }
 }
