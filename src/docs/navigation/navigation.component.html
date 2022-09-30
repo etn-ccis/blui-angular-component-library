@@ -1,6 +1,14 @@
 <blui-drawer-layout [variant]="getVariant()" (backdropClick)="closeDrawer()">
     <blui-drawer blui-drawer [open]="isOpen()" [sideBorder]="true">
-        <blui-drawer-header title="Brightlayer User Interface" subtitle="Developer Docs (angular)"></blui-drawer-header>
+        <blui-drawer-header>
+            <div blui-title-content>
+                <div class="mat-subheading-2">Brightlayer UI</div>
+                <div>
+
+                    <div class="mat-body-2">Developer Docs</div>
+                </div>
+            </div>
+        </blui-drawer-header>
         <blui-drawer-body>
             <blui-drawer-nav-group>
                 <blui-drawer-nav-item
