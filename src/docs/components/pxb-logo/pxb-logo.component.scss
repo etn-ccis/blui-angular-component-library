@@ -1,0 +1,9 @@
+@keyframes pxb-logo-spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.pxb-logo {
+    animation: pxb-logo-spin 2500ms linear infinite;
+}

@@ -1,0 +1,100 @@
+@use '@brightlayer-ui/colors/palette.scss' as blui;
+
+@mixin light-theme() {
+    $primary: map-get(blui.$blui-blue, 500);
+    $divider: rgba(map-get(blui.$blui-black, 500), 0.12);
+
+    .primary {
+        color: $primary !important;
+    }
+
+    a {
+        color: $primary !important;
+    }
+
+    .divider-border {
+        border: solid 1px $divider;
+    }
+
+    .slider-knob-overlay {
+        background-color: map-get(blui.$blui-white, 50);
+    }
+
+    .playground-container app-copy-code-button .mat-button-base.mat-stroked-button.mat-primary {
+        color: map-get(blui.$blui-blue, 200);
+        border-color: map-get(blui.$blui-blue, 200);
+        background-color: #2d2d2d;
+    }
+
+    .props-container {
+        border-left: solid 1px $divider;
+    }
+
+    .emptySelectOption {
+        border-bottom: solid 1px $divider;
+    }
+    .example-heading,
+    .example-page-title {
+        color: $primary;
+    }
+    .mat-drawer-content {
+        background-color: map-get(blui.$blui-white, 50) !important;
+        .playground-live-example-wrapper {
+            background-color: map-get(blui.$blui-white, 200) !important;
+        }
+        .props-container {
+            background-color: map-get(blui.$blui-white, 50);
+            border-right: solid 1px $divider;
+            .knob-boolean-hint {
+                color: map-get(blui.$blui-gray, 500);
+            }
+        }
+    }
+    .fixed-tab-group-banner {
+        box-sizing: border-box;
+        border-bottom: solid 1px $divider;
+    }
+    .doc-tab-content {
+        h1,
+        h2,
+        h3 {
+            color: $primary;
+        }
+        h2 {
+            border-bottom: 1px solid rgb(213, 216, 218);
+        }
+        code {
+            background: map-get(blui.$blui-black, 50);
+        }
+        blockquote {
+            border-left-color: $primary !important;
+            background-color: map-get(blui.$blui-black, 50);
+        }
+        table {
+            $border: map-get(blui.$blui-black, 100);
+            border: solid 1px $border;
+            * {
+                box-sizing: border-box;
+            }
+            tr td {
+                padding: 6px 13px;
+                border: unset;
+            }
+            tr {
+                border-bottom: 1px solid $border;
+            }
+            thead tr {
+                border-bottom: 1px solid $border !important;
+            }
+            thead {
+                background-color: map-get(blui.$blui-white, 100);
+            }
+            tbody tr:nth-child(odd) {
+                background-color: map-get(blui.$blui-white, 50);
+            }
+            tbody tr:nth-child(even) {
+                background-color: map-get(blui.$blui-white, 100);
+            }
+        }
+    }
+}

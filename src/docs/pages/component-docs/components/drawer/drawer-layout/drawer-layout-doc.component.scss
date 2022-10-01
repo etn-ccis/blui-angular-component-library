@@ -1,0 +1,32 @@
+.drawer-layout-examples {
+    .blui-drawer-layout {
+        height: 240px;
+        width: 100%;
+        &.rail-example {
+            height: calc(72px * 3 + 2px);
+        }
+        &.condensed-rail-example {
+            height: calc(56px * 3);
+        }
+    }
+}
+.drawer-layout-examples {
+    .playground-live-example-wrapper {
+        padding: 1rem 0 !important;
+    }
+    .playground-live-example-wrapper,
+    app-layout-playground {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .playground-container .blui-drawer-layout {
+        height: 350px;
+        width: calc(100vw - 850px);
+        max-width: 700px;
+    }
+    .playground-container.md .blui-drawer-layout {
+        width: calc(100vw - 500px - 32px);
+    }
+}

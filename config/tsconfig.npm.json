@@ -1,0 +1,16 @@
+/* This configuration is used in the Demo Application & reads the published instance of @blui-lab/angular, found in node_modules. */
+{
+  "extends": "../tsconfig.json",
+  "compilerOptions": {
+      "paths": {
+          "@brightlayer-ui/angular-components": ["node_modules/@brightlayer-ui/angular-components"],
+      }
+  },
+  "files": [
+    "../src/main.ts",
+    "../src/polyfills.ts"
+  ],
+  "include": [
+    "../src/**/*.d.ts"
+  ]
+}

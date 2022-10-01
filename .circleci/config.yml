@@ -12,26 +12,24 @@ jobs:
             - browser-tools/install-browser-tools
             - restore_cache:
                   keys:
-                      - v2-dependencies-angular-{{ checksum "components/yarn.lock" }}
+                      - v2-dependencies-angular-{{ checksum "yarn.lock" }}
             - run:
                   name: Install Dependencies
                   command: |
-                      cd components
                       yarn install --frozen-lockfile
             - save_cache:
                   name: Save Cache
                   paths:
-                      - components/node_modules
-                  key: v2-dependencies-angular-{{ checksum "components/yarn.lock" }}
+                      - node_modules
+                  key: v2-dependencies-angular-{{ checksum "yarn.lock" }}
             - run:
                   name: Prettier Check
                   command: |
-                      cd components
                       yarn prettier:check
             - run:
                   name: Lint
                   command: |
-                      cd components && yarn lint
+                      yarn lint
             - run:
                   name: Test
                   command: |
@@ -39,7 +37,7 @@ jobs:
             - run:
                   name: Build Library
                   command: |
-                      yarn build
+                      yarn build:lib
             - run:
                   name: Test Artifacts
                   command: |
@@ -53,7 +51,7 @@ jobs:
                   root: .
                   paths:
                       - dist
-                      - components/coverage
+                      - coverage
     coverage_report:
         working_directory: ~/angular-component-library
         docker:
@@ -63,71 +61,10 @@ jobs:
             - attach_workspace:
                 at: .
             - codecov/upload:
-                file: './components/coverage/lcov.info'
+                file: './coverage/lcov.info'
                 token: dc22e69d-e76e-4c9c-92a4-92432b1033d4
 
-    # Builds the Storybook app using @brightlayer-ui/angular-components persisted in /dist folder.
-    build_storybook:
-        docker:
-            - image: cimg/node:14.19.0-browsers
-        environment:
-            - MASTER_BRANCH: master
-            - DEV_BRANCH: dev
-        steps:
-            - checkout
-            - attach_workspace:
-                  at: .
-            - restore_cache:
-                  keys:
-                      - v2-dependencies-angular-{{ checksum "demos/storybook/yarn.lock" }}
-            - run:
-                  name: Install Dependencies
-                  command: |
-                      cd demos/storybook
-                      yarn install --frozen-lockfile
-
-                      # Install the packed version of @brightlayer-ui/angular-components
-                      PACKAGED_VERSION=`node -p "require('../../dist/package.json').version"`
-                      yarn add ../../dist/brightlayer-ui-angular-components-$PACKAGED_VERSION.tgz
-            - save_cache:
-                  name: Save Cache
-                  paths:
-                      - demos/storybook/node_modules
-                  key: v2-dependencies-angular-{{ checksum "demos/storybook/yarn.lock" }}
-            - attach_workspace:
-                  at: .
-            - run:
-                  name: Prettier Check
-                  command: |
-                      cd demos/storybook
-                      yarn prettier:check
-            - run:
-                  name: Lint
-                  command: |
-                      cd demos/storybook
-                      yarn lint
-            - run:
-                  name: Build Storybook
-                  command: |
-                      cd demos/storybook
-
-                      # master and dev branches should configure Google Analytics IDs before the build.
-                      if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
-                        STORYBOOK_GA_ID=$MASTER_GA
-                      fi
-                      if [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
-                        STORYBOOK_GA_ID=$DEV_GA
-                      fi
-
-                      yarn build-storybook
-                      cd storybook-static
-                      touch .nojekyll
-            - persist_to_workspace:
-                  root: .
-                  paths:
-                      - demos/storybook/storybook-static
-
-    # Builds the Showcase app using @brightlayer-ui/angular-components persisted in /dist folder.
+    # Builds the Showcase md using @brightlayer-ui/angular-components persisted in /dist folder.
     build_showcase:
         docker:
             - image: cimg/node:14.19.0-browsers
@@ -143,71 +80,100 @@ jobs:
                       git submodule init && git submodule update
             - restore_cache:
                   keys:
-                      - v2-dependencies-angular-{{ checksum "demos/showcase/yarn.lock" }}
+                      - v2-dependencies-angular-{{ checksum "showcase/yarn.lock" }}
             - run:
                   name: Install Dependencies
                   command: |
-                      cd demos/showcase
+                      cd showcase
                       yarn install --frozen-lockfile
 
                       # Install the packed version of @brightlayer-ui/angular-components
-                      PACKAGED_VERSION=`node -p "require('../../dist/package.json').version"`
-                      yarn add ../../dist/brightlayer-ui-angular-components-$PACKAGED_VERSION.tgz
+                      PACKAGED_VERSION=`node -p "require('../dist/package.json').version"`
+                      yarn add ../dist/brightlayer-ui-angular-components-$PACKAGED_VERSION.tgz
             - save_cache:
                   name: Save Cache
                   paths:
-                      - demos/showcase/node_modules
-                  key: v2-dependencies-angular-{{ checksum "demos/showcase/yarn.lock" }}
+                      - showcase/node_modules
+                  key: v2-dependencies-angular-{{ checksum "showcase/yarn.lock" }}
             - attach_workspace:
                   at: .
             - run:
                   name: Build Showcase
                   command: |
-                      cd demos/showcase
-                      yarn build
+                      cd showcase && yarn build
 
-    deploy_storybook:
-        docker:
-            - image: cimg/node:14.19.0-browsers
-        environment:
-            - MASTER_BRANCH: master
-            - DEV_BRANCH: dev
-            - DEV_TARGET: https://github.com/brightlayer-ui-components/angular-dev
-            - MASTER_TARGET: https://github.com/brightlayer-ui-components/angular
-            - GH_EMAIL: brightlayer-ui@eaton.com
-            - GH_NAME: Brightlayer UI Agent
-        steps:
-            - checkout
-            - attach_workspace:
-                at: .
-            - run:
-                  name: Deploy Storybook
-                  command: |
-                      git config --global user.email "$GH_EMAIL"
-                      git config --global user.name "$GH_NAME"
+    # Builds the Storybook app using @brightlayer-ui/angular-components persisted in /dist folder.
+    build_documentation_site:
+      docker:
+        - image: cimg/node:14.19.0-browsers
+      steps:
+        - checkout
+        - attach_workspace:
+            at: .
+        - restore_cache:
+            keys:
+              - v2-dependencies-angular-{{ checksum "yarn.lock" }}
+        - run:
+            name: Install Dependencies
+            command: yarn
+        - attach_workspace:
+            at: .
+        - run:
+            name: Build Documentation Site
+            command: |
+              if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
+                yarn build:demo --base-href=/angular/
+              else
+                yarn build:demo --base-href=/angular-dev/
+              fi
+              cp src/404.html build
+              
+              # master and dev branches should configure Google Analytics IDs before the build.
+              # if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
+              #   STORYBOOK_GA_ID=$MASTER_GA
+              # fi
+              # if [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
+              #   STORYBOOK_GA_ID=$DEV_GA
+              # fi
+              cd build
+              touch .nojekyll
+        - persist_to_workspace:
+            root: .
+            paths:
+              - build
 
-                      cd demos/storybook
-
-                      if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
-                        git clone $MASTER_TARGET out
-                      elif [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
-                        git clone $DEV_TARGET out
-                      else
-                        echo Deploying feature branch to firebase: https://blui-storybook-ng-feature.web.app/index.html
-                        yarn run deploy:feature
-                        exit 0
-                      fi
-
-                      cd out
-                      git rm -rf .
-                      cd ..
-
-                      cp -a storybook-static/. out/.
-                      cd out
-
-                      git add -A
-                      git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
-                      git push
+    deploy_documentation_site:
+      docker:
+        - image: cimg/node:14.19.0-browsers
+      environment:
+        - MASTER_BRANCH: master
+        - DEV_BRANCH: dev
+        - DEV_TARGET: https://github.com/brightlayer-ui-components/angular-dev
+        - MASTER_TARGET: https://github.com/brightlayer-ui-components/angular
+        - GH_EMAIL: brightlayer-ui@eaton.com
+        - GH_NAME: Brightlayer UI Agent
+      steps:
+        - checkout
+        - attach_workspace:
+            at: .
+        - run:
+            name: Deploy Documentation Site
+            command: |
+              git config --global user.email "$GH_EMAIL"
+              git config --global user.name "$GH_NAME"
+              if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
+                git clone $MASTER_TARGET out
+              else
+                git clone $DEV_TARGET out
+              fi
+              cd out
+              git rm -rf .
+              cd ..
+              cp -a build/. out/.
+              cd out
+              git add -A
+              git commit -m "Automated deployment to GitHub Pages: ${CIRCLE_SHA1}" --allow-empty
+              git push
 
     publish:
       docker:
@@ -225,6 +191,7 @@ jobs:
             name: Publish @brightlayer-ui/angular-components
             command:  |
               yarn publish:package -b $CIRCLE_BRANCH
+
     tag:
       docker:
         - image: cimg/node:14.19.0-browsers
@@ -244,21 +211,26 @@ workflows:
             - build_showcase:
                 requires:
                     - build_library
-          #  - build_storybook:
-          #      requires:
-          #          - build_library
-          #  - deploy_storybook:
-          #      requires:
-          #          - build_storybook
+            - build_documentation_site:
+                requires:
+                   - build_library
+            - deploy_documentation_site:
+                requires:
+                   - build_documentation_site
+                filters:
+                   branches:
+                     only:
+                      - master
+                      - dev
             - publish:
                 requires:
-                   # - build_storybook
-                    - build_showcase
+                  - build_documentation_site
+                  - build_showcase
                 filters:
-                    branches:
-                        only:
-                            - master
-                            - dev
+                  branches:
+                    only:
+                      - master
+                      - dev
             - tag:
                 requires:
                     - publish
