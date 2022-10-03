@@ -13,7 +13,7 @@ import { MobileStepperPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Basic Mobile Stepper</div>
                     <div class="example-description">
-                        The <code>&lt;blui-mobile-stepper&gt;</code> shows a user their progress while completing a
+                        A <code>&lt;blui-mobile-stepper&gt;</code> shows a user their progress while completing a
                         workflow. Back and Next buttons can be projected to navigate through the steps.
                     </div>
                     <div class="example-demo-wrapper">
@@ -28,9 +28,9 @@ import { MobileStepperPlaygroundKnobs } from './examples/playground.component';
 
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Dots Mobile Stepper</div>
+                    <div class="example-heading">Progress as Dots</div>
                     <div class="example-description">
-                        The default <code>variant</code> shows dots as a progress indicator.
+                        The Mobile Stepper, by default, indicates progress using a dots.  The active step is denoted with an alternative color.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-dots-mobile-stepper-demo></app-dots-mobile-stepper-demo>
@@ -48,14 +48,14 @@ import { MobileStepperPlaygroundKnobs } from './examples/playground.component';
 
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Text Mobile Stepper</div>
+                    <div class="example-heading">Progress as Text</div>
                     <div class="example-description">
-                        The <code>&lt;blui-mobile-stepper&gt;</code> supports a 'text' <code>variant</code>.
+                        A Mobile Stepper can indicate progress as raw text.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-text-mobile-stepper-demo></app-text-mobile-stepper-demo>
                     </div>
-                    <app-example-code [snippet]="TEXT"></app-example-code>
+                    <app-example-code [snippet]="TEXT" dataLine="1"></app-example-code>
                     <div class="example-actions">
                         <app-view-code-button
                             examplePath="mobile-stepper/examples/text"
@@ -68,14 +68,14 @@ import { MobileStepperPlaygroundKnobs } from './examples/playground.component';
 
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Progress Mobile Stepper</div>
+                    <div class="example-heading">Progress as a Bar</div>
                     <div class="example-description">
-                        The <code>&lt;blui-mobile-stepper&gt;</code> supports a 'progress' <code>variant</code>.
+                        A Mobile Stepper can indicate progress using an <a href="https://material.angular.io/components/progress-bar/overview" target="_blank">Angular Material Progress Bar</a>.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-progress-mobile-stepper-demo></app-progress-mobile-stepper-demo>
                     </div>
-                    <app-example-code [snippet]="PROGRESS"></app-example-code>
+                    <app-example-code [snippet]="PROGRESS" dataLine="4"></app-example-code>
                     <div class="example-actions">
                         <app-view-code-button
                             examplePath="mobile-stepper/examples/progress"
