@@ -17,7 +17,7 @@ import { TabName } from '../../../shared/scaffold/scaffold.component';
                     <div class="example-heading">Drawer</div>
                     <div class="example-description">
                         
-                        A <code>&lt;blui-drawer&gt;</code> is a navigational element that holds links to different pages in your application.
+                        The <code>&lt;blui-drawer&gt;</code> is a navigational element that holds links to different pages in your application.
                         It organizes content into: 
                         
                         <ul>

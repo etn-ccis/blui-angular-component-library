@@ -15,7 +15,7 @@ import { NavItemPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Drawer Nav Item</div>
                     <div class="example-description">
-                        The <code>&lt;blui-drawer-nav-item&gt;</code> represents a single list item in the navigation drawer.
+                        A <code>&lt;blui-drawer-nav-item&gt;</code> represents a single list item in the navigation drawer.
                         Nav items can contain any combination of title, subtitle and icon.
                     </div>
 

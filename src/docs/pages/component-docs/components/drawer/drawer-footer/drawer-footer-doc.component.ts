@@ -27,7 +27,7 @@ import { DrawerFooterPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Drawer Footer</div>
                     <div class="example-description">
-                        A <code>&lt;blui-drawer-footer&gt;</code> appears at the bottom of drawer and is used to display custom content.
+                        The <code>&lt;blui-drawer-footer&gt;</code> appears at the bottom of drawer and is used to display custom content.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-complex-drawer-footer-demo></app-complex-drawer-footer-demo>
