@@ -31,7 +31,7 @@ cd angular-component-library
 The library can be built by running the following command. The resulting output will be in the /dist folder.
 
 ```
-yarn build
+yarn build:lib
 ```
 
 
@@ -57,13 +57,13 @@ The following peer dependencies are added to `package.json`:
 
 ## Running the Demo Projects
 
-To start the documentation site that is included in this repository, run:
+To start the [documentation site](https://brightlayer-ui-components.github.io/angular) that is included in this repository, run:
 
 ```
 yarn start
 ```
 
-The second demo is a Showcase project that shows a combination of components in the context of a realistic interface.  To start the showcase, run: 
+The second demo is a [showcase project](https://blui-angular-showcase.web.app/) that shows a combination of components in the context of a realistic interface.  To start the showcase, run: 
 
 ```
 yarn start:showcase

@@ -23,5 +23,6 @@ export class KnobTextComponent {
 
     ngOnInit(): void {
         this.control = new FormControl(this.value, this.isRequired ? [Validators.required] : []);
+        this.control.markAsTouched();
     }
 }
