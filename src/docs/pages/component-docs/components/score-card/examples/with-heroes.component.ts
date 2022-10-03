@@ -15,9 +15,6 @@ export const WITH_HEROES = `<blui-score-card style="width: 350px"
             <i blui-primary class="blui-moisture"></i>
         </blui-hero>
     </blui-hero-banner>
-    <blui-info-list-item blui-action-row [hidePadding]="true" [dense]="true" [chevron]="true">
-        <div blui-title>View Location</div>
-    </blui-info-list-item>
 </blui-score-card> 
 `;
 

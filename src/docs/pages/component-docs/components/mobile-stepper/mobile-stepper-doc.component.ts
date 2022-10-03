@@ -15,25 +15,15 @@ import { MobileStepperPlaygroundKnobs } from './examples/playground.component';
                     <div class="example-description">
                         A <code>&lt;blui-mobile-stepper&gt;</code> shows a user their progress while completing a
                         workflow. Back and Next buttons can be projected to navigate through the steps.
-                    </div>
-                    <div class="example-demo-wrapper">
-                        <app-basic-mobile-stepper-demo style="padding: 0.5rem"></app-basic-mobile-stepper-demo>
-                    </div>
-                    <app-example-code [snippet]="BASIC"></app-example-code>
-                    <div class="example-actions">
-                        <app-copy-code-button [code]="BASIC"></app-copy-code-button>
-                    </div>
-                </div>
-            </div>
-
-            <div examples class="app-example">
-                <div class="example-section">
-                    <div class="example-heading">Progress as Dots</div>
-                    <div class="example-description">
-                        The Mobile Stepper, by default, indicates progress using a dots.  The active step is denoted with an alternative color.
+                        You can configure the Mobile Stepper to show progress via dots, 
+                        text or using an 
+                        <a href="https://material.angular.io/components/progress-bar/overview" target="_blank">
+                            Angular Material Progress Bar
+                        </a>.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-dots-mobile-stepper-demo></app-dots-mobile-stepper-demo>
+                        FIX ME!
                     </div>
                     <app-example-code [snippet]="DOTS"></app-example-code>
                     <div class="example-actions">
@@ -42,46 +32,6 @@ import { MobileStepperPlaygroundKnobs } from './examples/playground.component';
                             style="margin-right: 16px"
                         ></app-view-code-button>
                         <app-copy-code-button [code]="DOTS"></app-copy-code-button>
-                    </div>
-                </div>
-            </div>
-
-            <div examples class="app-example">
-                <div class="example-section">
-                    <div class="example-heading">Progress as Text</div>
-                    <div class="example-description">
-                        A Mobile Stepper can indicate progress as raw text.
-                    </div>
-                    <div class="example-demo-wrapper">
-                        <app-text-mobile-stepper-demo></app-text-mobile-stepper-demo>
-                    </div>
-                    <app-example-code [snippet]="TEXT" dataLine="1"></app-example-code>
-                    <div class="example-actions">
-                        <app-view-code-button
-                            examplePath="mobile-stepper/examples/text"
-                            style="margin-right: 16px"
-                        ></app-view-code-button>
-                        <app-copy-code-button [code]="TEXT"></app-copy-code-button>
-                    </div>
-                </div>
-            </div>
-
-            <div examples class="app-example">
-                <div class="example-section">
-                    <div class="example-heading">Progress as a Bar</div>
-                    <div class="example-description">
-                        A Mobile Stepper can indicate progress using an <a href="https://material.angular.io/components/progress-bar/overview" target="_blank">Angular Material Progress Bar</a>.
-                    </div>
-                    <div class="example-demo-wrapper">
-                        <app-progress-mobile-stepper-demo></app-progress-mobile-stepper-demo>
-                    </div>
-                    <app-example-code [snippet]="PROGRESS" dataLine="4"></app-example-code>
-                    <div class="example-actions">
-                        <app-view-code-button
-                            examplePath="mobile-stepper/examples/progress"
-                            style="margin-right: 16px"
-                        ></app-view-code-button>
-                        <app-copy-code-button [code]="PROGRESS"></app-copy-code-button>
                     </div>
                 </div>
             </div>

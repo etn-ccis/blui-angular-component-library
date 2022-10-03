@@ -18,7 +18,7 @@ import { ScoreCardPlaygroundKnobs } from './examples/playground.component';
                     <div class="example-description">
                         <div>
                             A <code>&lt;blui-score-card&gt;</code> is a card component that calls attention to
-                            particular values. It accepts custom header and body content.
+                            particular values.  It is frequently seen on dashboard interfaces.
                         </div>
                     </div>
                     <div class="example-demo-wrapper">
@@ -30,34 +30,12 @@ import { ScoreCardPlaygroundKnobs } from './examples/playground.component';
                     </div>
                 </div>
                 <div class="example-section">
-                    <div class="example-heading">Adding Actions</div>
-                    <div class="example-description">
-                        <div>
-                            A Score Card can be interacted with.  
-                            To add actions, provide a <code>blui-action-item</code> and / or
-                            <code>blui-action-row</code> content.
-                        </div>
-                    </div>
-                    <div class="example-demo-wrapper">
-                        <app-custom-header-score-card-demo></app-custom-header-score-card-demo>
-                    </div>
-                    <app-example-code [snippet]="WITH_ACTIONS" dataLine="2-5, 10-12"></app-example-code>
-                    <div class="example-actions">
-                        <app-view-code-button
-                            examplePath="mobile-stepper/examples/with-actions"
-                            style="margin-right: 16px"
-                        ></app-view-code-button>
-                        <app-copy-code-button [code]="WITH_ACTIONS"></app-copy-code-button>
-                    </div>
-                </div>
-                <div class="example-section">
                     <div class="example-heading">Adding a Badge</div>
                     <div class="example-description">
                         <div>
-                            A Score Card accepts a <code>blui-badge</code>
-                            content to display detailed metrics. A
-                            <a [routerLink]="createRouterLink(routes.hero.route)">Hero Component</a>
-                            is commonly used here.
+                            A Score Card reserves space for <code>blui-badge</code> content.  
+                            This space is commonly used to show 
+                            <a [routerLink]="createRouterLink(routes.hero.route)">Heroes</a>.
                         </div>
                     </div>
                     <div class="example-demo-wrapper">
@@ -81,6 +59,23 @@ import { ScoreCardPlaygroundKnobs } from './examples/playground.component';
                     <app-example-code [snippet]="WITH_SCORE_BADGE" dataLine="5, 9-11"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="WITH_SCORE_BADGE"></app-copy-code-button>
+                    </div>
+                </div>
+                <div class="example-section">
+                    <div class="example-heading">Adding Actions</div>
+                    <div class="example-description">
+                        <div>
+                            A Score Card can be interacted with.
+                            To add actions, provide a <code>blui-action-item</code> and / or
+                            <code>blui-action-row</code> content.
+                        </div>
+                    </div>
+                    <div class="example-demo-wrapper">
+                        <app-custom-header-score-card-demo></app-custom-header-score-card-demo>
+                    </div>
+                    <app-example-code [snippet]="WITH_ACTIONS" dataLine="4-8, 17-19"></app-example-code>
+                    <div class="example-actions">
+                        <app-copy-code-button [code]="WITH_ACTIONS"></app-copy-code-button>
                     </div>
                 </div>
             </div>
