@@ -16,7 +16,7 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
         <app-component-doc-scaffold mdFileName="UserMenu.md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Basic User Menu</div>
+                    <div class="example-heading">User Menu</div>
                     <div class="example-description">
                         The <code>&lt;blui-user-menu&gt;</code> accepts an <code>avatar</code> input and a
                         <code>blui-menu-body</code> overlay content. The <code>open</code> input is used to manage
@@ -36,7 +36,7 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">User Menu with non-text Avatars</div>
+                    <div class="example-heading">Supporting Alternative Avatar Formats</div>
                     <div class="example-description">
                         The <code>&lt;blui-user-menu&gt;</code> supports non-text avatars.
                     </div>
@@ -54,7 +54,7 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">User Menu with a Menu Header</div>
+                    <div class="example-heading">Adding a Menu Header</div>
                     <div class="example-description">
                         The <code>&lt;blui-user-menu&gt;</code> can create an optional menu header through the
                         <code>menuTitle</code> and <code>menuSubtitle</code> inputs.
@@ -73,7 +73,7 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">User Menu with a Custom Header</div>
+                    <div class="example-heading">Customizing the Menu Header</div>
                     <div class="example-description">
                         A custom menu header can be added by providing a <code>blui-menu-header</code> content.
                     </div>
@@ -91,7 +91,7 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">User Menu with Placement Options</div>
+                    <div class="example-heading">Adjusting the Overlay Placement</div>
                     <div class="example-description">
                         The <code>&lt;blui-user-menu&gt;</code> inherits the <code>positions</code> input from
                         <a href="https://material.angular.io/cdk/overlay/api#ConnectionPositionPair" target="_blank"
@@ -113,7 +113,7 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">Responsive User Menu</div>
+                    <div class="example-heading">User Menu as a Bottom Sheet</div>
                     <div class="example-description">
                         The <code>&lt;blui-user-menu&gt;</code> by default renders (or transitions if already opened) as
                         a bottomsheet if the window width is less than 600px. The <code>useBottomSheetAt</code> property

@@ -11,10 +11,10 @@ import { ThreeLinerPlaygroundKnobs } from './examples/playground.component';
         <app-component-doc-scaffold mdFileName="ThreeLiner.md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Basic ThreeLiner</div>
+                    <div class="example-heading">ThreeLiner</div>
                     <div class="example-description">
                         The <code>&lt;blui-three-liner&gt;</code> is commonly used within a
-                        <code> <a [routerLink]="createRouterLink(routes.appBar.route)">&lt;blui-app-bar&gt;</a> </code>.
+                        <a [routerLink]="createRouterLink(routes.appBar.route)">App Bar</a>.
                         It accepts a <code>title</code>, <code>subtitle</code> and <code>info</code> input.
                     </div>
                     <div class="example-demo-wrapper">
@@ -26,9 +26,9 @@ import { ThreeLinerPlaygroundKnobs } from './examples/playground.component';
                     </div>
                 </div>
                 <div class="example-section">
-                    <div class="example-heading">ThreeLiner with Custom Content</div>
+                    <div class="example-heading">Adding Custom Content</div>
                     <div class="example-description">
-                        The <code>&lt;blui-three-liner&gt;</code> can alternately accept custom content for each line.
+                        The Three Liner can alternately accept custom content for each line.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-complex-three-liner></app-complex-three-liner>

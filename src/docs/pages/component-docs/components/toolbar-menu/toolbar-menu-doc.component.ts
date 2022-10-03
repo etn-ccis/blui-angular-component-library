@@ -12,7 +12,7 @@ import { ToolbarMenuPlaygroundKnobs } from './examples/playground.component';
         <app-component-doc-scaffold mdFileName="ToolbarMenu.md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Basic Toolbar Menu</div>
+                    <div class="example-heading">Toolbar Menu</div>
                     <div class="example-description">
                         <div>
                             The <code>&lt;blui-toolbar-menu&gt;</code> accepts a <code>label</code> input and a

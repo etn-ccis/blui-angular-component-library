@@ -11,7 +11,7 @@ import { MobileStepperPlaygroundKnobs } from './examples/playground.component';
         <app-component-doc-scaffold mdFileName="MobileStepper.md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Basic Mobile Stepper</div>
+                    <div class="example-heading">Mobile Stepper</div>
                     <div class="example-description">
                         A <code>&lt;blui-mobile-stepper&gt;</code> shows a user their progress while completing a
                         workflow. Back and Next buttons can be projected to navigate through the steps.
