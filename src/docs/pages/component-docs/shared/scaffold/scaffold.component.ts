@@ -148,6 +148,7 @@ export type Knob = {
                     *ngIf="knob.type === 'number'"
                     [label]="knob.label || key"
                     [(value)]="knob.value"
+                    [isRequired]="required"
                     [max]="knob.range.max"
                     [min]="knob.range.min"
                     [tickInterval]="knob.range.tickInterval"
