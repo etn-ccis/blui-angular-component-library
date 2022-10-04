@@ -61,6 +61,10 @@ export class NavigationComponent {
         }
     }
 
+    isMedium(): boolean {
+        return this._viewportService.isMedium();
+    }
+
     toggleDrawerOpen(): void {
         this._stateService.setDrawerOpen(!this._stateService.getDrawerOpen());
     }
@@ -110,12 +114,12 @@ export class NavigationComponent {
     }
 
     getVariant(): DrawerLayoutVariantType {
-        if (this.variant === 'permanent' && this._viewportService.isMedium()) {
+        if (this.variant === 'permanent' && this.isMedium()) {
             this._stateService.setDrawerOpen(false);
-        } else if (this.variant === 'temporary' && !this._viewportService.isMedium()) {
+        } else if (this.variant === 'temporary' && !this.isMedium()) {
             this._stateService.setDrawerOpen(true);
         }
-        this.variant = this._viewportService.isMedium() ? 'temporary' : 'permanent';
+        this.variant = this.isMedium() ? 'temporary' : 'permanent';
         return this.variant;
     }
 }

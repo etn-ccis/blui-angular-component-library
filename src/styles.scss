@@ -38,6 +38,7 @@ body {
     .example-section {
         margin-bottom: 64px;
     }
+    $codeExampleMaxWidth: min(1200px, calc(100vw - 64px)); // 64px represents padding on container
     .example-demo-wrapper {
         margin: 16px 0 0 0;
         background-color: #eeeeee;
@@ -45,7 +46,6 @@ body {
         display: flex;
         align-items: center;
         justify-content: center;
-        max-width: calc(100vw - 64px); // 64px represents padding on container
         box-sizing: border-box;
         overflow: auto;
     }
@@ -61,37 +61,18 @@ body {
     }
     app-example-code {
         display: flex;
-        max-width: calc(100vw - 64px); // 64px represents padding on container
         overflow: auto;
         margin-top: 16px;
     }
 }
 
-/* Prism Overrides */
-/**
-pre {
-    padding: 0 !important;
-    margin: 0 !important;
-    width: 100%;
-    background-color: unset !important;
+.app-example {
+    app-example-code, .example-demo-wrapper {
+        max-width: min(1200px, calc(100vw - 350px - 64px));
+    }
 }
-pre[class*='language-']:before {
-    display: none !important;
+.md .app-example {
+    app-example-code, .example-demo-wrapper {
+        max-width: calc(100vw - 64px);
+    }
 }
-pre[class*='language-']:after {
-    display: none !important;
-}
-pre[data-line] code {
-    padding-left: 1rem !important;
-}
-pre .line-highlight {
-    margin-top: -1rem !important;
-}
-
-pre > code {
-    display: flex;
-    width: 100%;
-    box-sizing: border-box;
-    font-family: monospace !important;
-    font-size: 0.875rem !important;
-} **/
