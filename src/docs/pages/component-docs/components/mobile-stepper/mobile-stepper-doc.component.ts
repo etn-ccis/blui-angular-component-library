@@ -23,9 +23,8 @@ import { MobileStepperPlaygroundKnobs } from './examples/playground.component';
                     </div>
                     <div class="example-demo-wrapper">
                         <app-dots-mobile-stepper-demo></app-dots-mobile-stepper-demo>
-                        FIX ME!
                     </div>
-                    <app-example-code [snippet]="DOTS"></app-example-code>
+                    <app-example-code [snippet]="DOTS" dataLine="13, 18, 23"></app-example-code>
                     <div class="example-actions">
                         <app-view-code-button
                             examplePath="mobile-stepper/examples/dots"

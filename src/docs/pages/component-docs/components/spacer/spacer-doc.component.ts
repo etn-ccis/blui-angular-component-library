@@ -13,17 +13,10 @@ import { TabName } from '../../shared/scaffold/scaffold.component';
                     <div class="example-heading">Spacer with Flex</div>
                     <div class="example-description">
                         <div>
-                            The <code>&lt;blui-spacer&gt;</code> adds space between elements. It accepts a
-                            <code>flex</code> input that determines how much relative space to consume.
-                        </div>
-                        <div>
-                            For a more contextual example, see how a <code>&lt;blui-spacer&gt;</code> can be used to
-                            separate multiple
-                            <code
-                                ><a [routerLink]="createRouterLink(routes.drawerNavGroup.route)"
-                                    >&lt;blui-drawer-nav-group&gt;</a
-                                ></code
-                            >.
+                            A <code>&lt;blui-spacer&gt;</code> is a utility component that adds space between elements (such as
+                            <a [routerLink]="createRouterLink(routes.drawerNavGroup.route)"
+                            >Drawer Nav Groups</a>).
+                            The Spacer is typically used in a flex layout. 
                         </div>
                     </div>
                     <div class="example-demo-wrapper">
@@ -37,8 +30,7 @@ import { TabName } from '../../shared/scaffold/scaffold.component';
                 <div class="example-section">
                     <div class="example-heading">Spacer with Pixels</div>
                     <div class="example-description">
-                        The <code>&lt;blui-spacer&gt;</code> also accepts a <code>height</code> and <code>width</code>
-                        input that specifies the number of pixels to consume.
+                        A Spacer can also be given fixed dimensions instead of flex.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-pixel-spacer-demo></app-pixel-spacer-demo>

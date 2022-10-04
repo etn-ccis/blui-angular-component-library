@@ -65,9 +65,9 @@ import { ScoreCardPlaygroundKnobs } from './examples/playground.component';
                     <div class="example-heading">Adding Actions</div>
                     <div class="example-description">
                         <div>
-                            A Score Card can be interacted with.
-                            To add actions, provide a <code>blui-action-item</code> and / or
-                            <code>blui-action-row</code> content.
+                            A Score Card can be interactive.
+                            Actions can be added in the header through the <code>blui-action-item</code> content 
+                            or at the bottom of the card via the <code>blui-action-row</code>. 
                         </div>
                     </div>
                     <div class="example-demo-wrapper">
