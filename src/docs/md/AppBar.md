@@ -25,6 +25,9 @@ imports: [ AppBarModule ]
 
 ## API
 
+Parent element (`<blui-app-bar>`) attributes:
+
+
 <div style="overflow: auto;">
 
 | @Input                   | Description                                            | Type                                      | Required | Default                          |
