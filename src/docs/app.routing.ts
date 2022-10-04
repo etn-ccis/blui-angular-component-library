@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { APP_NAV_ITEMS, COMPONENT_NAV_ITEMS, DRAWER_NAV_ITEMS } from './navigation/nav-items';
-import { HomeComponent } from './pages/home/home.component';
+import { COMPONENT_NAV_ITEMS, DRAWER_NAV_ITEMS } from './navigation/nav-items';
 import { ListItemTagDocComponent } from './pages/component-docs/components/list-item-tag/list-item-tag-doc.component';
 import { DrawerNavItemDocComponent } from './pages/component-docs/components/drawer/drawer-nav-item/drawer-nav-item-doc.component';
 import { DrawerNavGroupDocComponent } from './pages/component-docs/components/drawer/drawer-nav-group/drawer-nav-group-doc.component';
@@ -24,8 +23,7 @@ import { ScoreCardDocComponent } from './pages/component-docs/components/score-c
 import { ToolbarMenuDocComponent } from './pages/component-docs/components/toolbar-menu/toolbar-menu-doc.component';
 
 const routes: Routes = [
-    { path: '', redirectTo: APP_NAV_ITEMS.home.route, pathMatch: 'full' },
-    { path: APP_NAV_ITEMS.home.route, component: HomeComponent },
+    { path: '', redirectTo: `${COMPONENT_NAV_ITEMS.appBar.route}/examples`, pathMatch: 'full' },
     { path: `${COMPONENT_NAV_ITEMS.appBar.route}/:tab`, component: AppBarDocComponent },
     { path: `${COMPONENT_NAV_ITEMS.channelValue.route}/:tab`, component: ChannelValueDocComponent },
     { path: `${COMPONENT_NAV_ITEMS.hero.route}/:tab`, component: HeroDocComponent },

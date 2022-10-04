@@ -16,7 +16,6 @@ export class NavigationComponent {
     toolbarTitle: string;
     routeListener: Subscription;
     variant: DrawerLayoutVariantType;
-    navItems = [APP_NAV_ITEMS.home];
     componentNavItems = [
         COMPONENT_NAV_ITEMS.appBar,
         COMPONENT_NAV_ITEMS.channelValue,

@@ -1,6 +1,6 @@
 <blui-drawer-layout [variant]="getVariant()" (backdropClick)="closeDrawer()">
-    <blui-drawer blui-drawer [open]="isOpen()" [sideBorder]="true">
-        <blui-drawer-header class="app-navigation-drawer">
+    <blui-drawer blui-drawer [open]="isOpen()" [sideBorder]="true" class="app-navigation-drawer">
+        <blui-drawer-header>
             <div blui-title-content style="display: flex; flex-direction: column; justify-content: center">
                 <div class="mat-subheading-1">Brightlayer User Interface</div>
                 <div style="display: flex; align-items: center">
@@ -19,16 +19,6 @@
             </div>
         </blui-drawer-header>
         <blui-drawer-body>
-            <blui-drawer-nav-group>
-                <blui-drawer-nav-item
-                    *ngFor="let navItem of navItems"
-                    [title]="navItem.title"
-                    [selected]="navItem.title === getSelectedItem()"
-                    (select)="selectItem(navItem)"
-                >
-                    <mat-icon blui-icon>{{ navItem.icon }}</mat-icon>
-                </blui-drawer-nav-item>
-            </blui-drawer-nav-group>
             <blui-drawer-nav-group title="Components" [divider]="false">
                 <blui-drawer-nav-item
                     *ngFor="let navItem of componentNavItems"

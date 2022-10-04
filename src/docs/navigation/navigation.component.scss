@@ -21,6 +21,11 @@
     background-size: contain;
     background-position: right center;
 }
+
+::ng-deep .app-navigation-drawer .blui-drawer-nav-group-title {
+    color: map-get(blui.$blui-blue, 500) !important;
+}
+
 .framework-chip {
     margin-left: 12px;
     .mat-standard-chip {
