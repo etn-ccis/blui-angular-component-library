@@ -1,12 +1,15 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-number-knob',
     template: `
         <mat-form-field appearance="fill" style="margin-bottom: 1rem" #input (click)="isOpen = true" [class]="label">
             <mat-label>{{ label }}: number</mat-label>
-            <mat-hint>{{ hint }}</mat-hint>
+            <mat-hint *ngIf="isRequired && value">{{ hint }}</mat-hint>
+            <mat-hint *ngIf="isRequired && !value">{{ label }} is required</mat-hint>
+            <mat-hint *ngIf="!isRequired">{{ hint }}</mat-hint>
             <input
                 type="number"
                 [max]="max"
@@ -14,10 +17,10 @@ import { MatSliderChange } from '@angular/material/slider';
                 cdkOverlayOrigin
                 #trigger="cdkOverlayOrigin"
                 [class.hiddenArrows]="true"
+                [formControl]="control"
                 matInput
                 [(ngModel)]="value"
                 (ngModelChange)="valueChange.emit($event)"
-                [ngModelOptions]="{ standalone: true }"
             />
         </mat-form-field>
 
@@ -68,9 +71,16 @@ export class KnobNumberComponent {
     @Input() value;
     @Input() hint;
     @Input() label;
+    @Input() isRequired: boolean;
     @Output() valueChange = new EventEmitter<number>();
+    control: FormControl;
 
     isOpen: boolean;
+
+    ngOnInit(): void {
+        this.control = new FormControl(this.value, this.isRequired ? [Validators.required] : []);
+        this.control.markAsTouched();
+    }
 
     updateValue(e: MatSliderChange): void {
         this.value = e.value;
