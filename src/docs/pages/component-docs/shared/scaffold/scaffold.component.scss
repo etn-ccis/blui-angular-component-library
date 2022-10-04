@@ -167,6 +167,7 @@
         .mat-checkbox-label,
         .mat-select-value-text {
             font-family: monospace;
+            white-space: pre-wrap;
         }
         .non-prop {
             input,
