@@ -1,11 +1,20 @@
 <blui-drawer-layout [variant]="getVariant()" (backdropClick)="closeDrawer()">
     <blui-drawer blui-drawer [open]="isOpen()" [sideBorder]="true">
-        <blui-drawer-header>
-            <div blui-title-content>
-                <div class="mat-subheading-2">Brightlayer UI</div>
-                <div>
-
+        <blui-drawer-header class="app-navigation-drawer">
+            <div blui-title-content style="display: flex; flex-direction: column; justify-content: center">
+                <div class="mat-subheading-1">Brightlayer User Interface</div>
+                <div style="display: flex; align-items: center">
                     <div class="mat-body-2">Developer Docs</div>
+                    <mat-chip-list class="framework-chip">
+                        <mat-chip>
+                            <img
+                                matChipAvatar
+                                src="../../assets/angular-shield.svg"
+                                style="background-color: unset; height: 16px; width: 16px"
+                            />
+                            <div class="mat-overline">Angular</div>
+                        </mat-chip>
+                    </mat-chip-list>
                 </div>
             </div>
         </blui-drawer-header>

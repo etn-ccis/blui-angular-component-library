@@ -1,3 +1,5 @@
+@use '@brightlayer-ui/colors/palette.scss' as blui;
+
 .toolbar {
     position: sticky;
     position: -webkit-sticky;
@@ -11,4 +13,21 @@
     flex-direction: column;
     height: 100%;
     min-height: 100vh;
+}
+
+::ng-deep .app-navigation-drawer .blui-drawer-header-background {
+    background-image: linear-gradient(to right, rgb(0, 123, 193) 22.4%, rgba(0, 123, 193, 0.2) 100%),
+        url('../../assets/box-background.png');
+    background-size: contain;
+    background-position: right center;
+}
+.framework-chip {
+    margin-left: 12px;
+    .mat-standard-chip {
+        min-height: 24px;
+        margin: 0;
+    }
+    div {
+        color: map-get(blui.$blui-blue, 500) !important;
+    }
 }
