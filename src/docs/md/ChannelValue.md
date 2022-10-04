@@ -5,9 +5,7 @@ The `<blui-channel-value>` component is used to display a channel value (and uni
 Icons are passed in as a child element of the `<blui-channel-value>` component.
 
 <div style="text-align:center; margin-bottom:20px">
-    <img width="100%" style="max-width: 600px" alt="Channel Value in Hero" src="./images/heroes.png">
-    <hr/>
-    <img width="100%" style="max-width: 600px" alt="Channel Value in a list item" src="./images/channelValue.png">
+    <img width="100%" style="max-width: 400px" alt="Channel Value in a list item" src="./images/channelValue.png">
 </div>
 
 ## Usage
