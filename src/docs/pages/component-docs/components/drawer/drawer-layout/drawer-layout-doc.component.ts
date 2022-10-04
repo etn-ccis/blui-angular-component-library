@@ -17,14 +17,14 @@ import { Knob } from '../../../shared/scaffold/scaffold.component';
                 <div class="example-section">
                     <div class="example-heading">Drawer Layout</div>
                     <div class="example-description">
-                        The <code>&lt;blui-drawer-layout&gt;</code> manages the behavior of a 
-                        navigation drawer and the main applicaton content.
+                        The <code>&lt;blui-drawer-layout&gt;</code> manages the behavior of a navigation drawer and the
+                        main applicaton content.
                     </div>
                 </div>
                 <div class="example-section">
                     <div class="example-heading">Permanent Drawer</div>
                     <div class="example-description">
-                        The <code>'permanent'</code> drawer is full-sized and always visible. 
+                        The <code>'permanent'</code> drawer is full-sized and always visible.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-permanent-drawer-layout-demo></app-permanent-drawer-layout-demo>
@@ -37,8 +37,8 @@ import { Knob } from '../../../shared/scaffold/scaffold.component';
                 <div class="example-section">
                     <div class="example-heading">Persistent Drawer</div>
                     <div class="example-description">
-                        The <code>'persistent'</code> drawer can be opened and closed.  
-                        When opened, it pushes the main application content.
+                        The <code>'persistent'</code> drawer can be opened and closed. When opened, it pushes the main
+                        application content.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-persistent-drawer-layout-demo></app-persistent-drawer-layout-demo>
@@ -51,9 +51,9 @@ import { Knob } from '../../../shared/scaffold/scaffold.component';
                 <div class="example-section">
                     <div class="example-heading">Temporary Drawer</div>
                     <div class="example-description">
-                        The <code>'temporary'</code> drawer is hidden until it is opened.  
-                        When open, it appears as an overlay on top of the application content. 
-                        This is typically used on smaller screens and mobile devices. 
+                        The <code>'temporary'</code> drawer is hidden until it is opened. When open, it appears as an
+                        overlay on top of the application content. This is typically used on smaller screens and mobile
+                        devices.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-temporary-drawer-layout-demo></app-temporary-drawer-layout-demo>
@@ -66,8 +66,9 @@ import { Knob } from '../../../shared/scaffold/scaffold.component';
                 <div class="example-section">
                     <div class="example-heading">Navigation Rail</div>
                     <div class="example-description">
-                        The <code>'rail'</code> variant is always opened but takes up less space than a full-sized drawer. 
-\                    </div>
+                        The <code>'rail'</code> variant is always opened but takes up less space than a full-sized
+                        drawer.
+                    </div>
                     <div class="example-demo-wrapper">
                         <app-rail-drawer-layout-demo></app-rail-drawer-layout-demo>
                     </div>
@@ -79,9 +80,9 @@ import { Knob } from '../../../shared/scaffold/scaffold.component';
                 <div class="example-section">
                     <div class="example-heading">Condensed Navigation Rail</div>
                     <div class="example-description">
-                        You can make the rail even smaller by setting the 
-                        <code>condensed</code> input on the <code>&lt;blui-drawer&gt;</code>.
-                        This will hide the labels and show only the icons.
+                        You can make the rail even smaller by setting the
+                        <code>condensed</code> input on the <code>&lt;blui-drawer&gt;</code>. This will hide the labels
+                        and show only the icons.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-rail-condensed-drawer-layout-demo></app-rail-condensed-drawer-layout-demo>

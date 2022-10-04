@@ -15,8 +15,8 @@ import { CUSTOM_CONTENT } from './examples/with-custom-content.component';
                 <div class="example-section">
                     <div class="example-heading">Drawer Nav Group</div>
                     <div class="example-description">
-                        A <code>&lt;blui-drawer-nav-group&gt;</code> organizes related navigation items together.
-                        You can have as many groups as needed. 
+                        A <code>&lt;blui-drawer-nav-group&gt;</code> organizes related navigation items together. You
+                        can have as many groups as needed.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-multiple-groups-nav-group-demo></app-multiple-groups-nav-group-demo>
@@ -30,8 +30,8 @@ import { CUSTOM_CONTENT } from './examples/with-custom-content.component';
                 <div class="example-section">
                     <div class="example-heading">Spacing the Groups</div>
                     <div class="example-description">
-                        If you want to add an extra space between your groups, 
-                        you can use a <code>&lt;blui-spacer&gt;</code> component.
+                        If you want to add an extra space between your groups, you can use a
+                        <code>&lt;blui-spacer&gt;</code> component.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-spacer-between-nav-group-demo></app-spacer-between-nav-group-demo>
@@ -45,8 +45,8 @@ import { CUSTOM_CONTENT } from './examples/with-custom-content.component';
                 <div class="example-section">
                     <div class="example-heading">Customizing the Title</div>
                     <div class="example-description">
-                        By default, each nav group has a simple string as the title.
-                        You can customize this and pass in your own content via <code>blui-title-content</code>.
+                        By default, each nav group has a simple string as the title. You can customize this and pass in
+                        your own content via <code>blui-title-content</code>.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-custom-content-nav-group-demo></app-custom-content-nav-group-demo>

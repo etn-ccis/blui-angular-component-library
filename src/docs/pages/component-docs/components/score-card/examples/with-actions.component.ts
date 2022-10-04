@@ -24,6 +24,6 @@ export const WITH_ACTIONS = `<blui-score-card style="width: 350px"
 
 @Component({
     selector: 'app-custom-header-score-card-demo',
-    template: WITH_ACTIONS
+    template: WITH_ACTIONS,
 })
 export class WithActionsComponent {}

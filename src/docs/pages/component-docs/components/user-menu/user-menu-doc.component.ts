@@ -19,11 +19,11 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
                     <div class="example-heading">User Menu</div>
                     <div class="example-description">
                         The <code>&lt;blui-user-menu&gt;</code> is a combination of an avatar and menu that is used to
-                        hold user account-related information and actions.
-                        It is typically located in the top corner of your application within a toolbar.
+                        hold user account-related information and actions. It is typically located in the top corner of
+                        your application within a toolbar.
                     </div>
                     <div class="example-demo-wrapper">
-                        <app-in-toolbar-user-menu-demo></app-in-toolbar-user-menu-demo>                    
+                        <app-in-toolbar-user-menu-demo></app-in-toolbar-user-menu-demo>
                     </div>
                     <app-example-code [snippet]="WITHIN_TOOLBAR" dataLine="4-11"></app-example-code>
                     <div class="example-actions">
@@ -56,9 +56,8 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Adding a Menu Header</div>
                     <div class="example-description">
-                        You can add a header to the top of the menu by passing in 
-                        values for <code>menuTitle</code> and <code>menuSubtitle</code>.
-                        The avatar will also appear in the menu header.
+                        You can add a header to the top of the menu by passing in values for <code>menuTitle</code> and
+                        <code>menuSubtitle</code>. The avatar will also appear in the menu header.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-menu-header-user-menu-demo></app-menu-header-user-menu-demo>
@@ -76,8 +75,8 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Customizing the Menu Header</div>
                     <div class="example-description">
-                        If you want to supply your own custom menu header, you 
-                        can pass in content via  <code>blui-menu-header</code>.
+                        If you want to supply your own custom menu header, you can pass in content via
+                        <code>blui-menu-header</code>.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-custom-header-user-menu-demo></app-custom-header-user-menu-demo>
@@ -118,8 +117,9 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Using a Bottom Sheet</div>
                     <div class="example-description">
-                        On larger screens the User Menu opens as a dropdown, but on smaller screens it opens as a bottomsheet.
-                        You can customize the point where this transition occurs via the <code>useBottomSheetAt</code> input (default of 600px).
+                        On larger screens the User Menu opens as a dropdown, but on smaller screens it opens as a
+                        bottomsheet. You can customize the point where this transition occurs via the
+                        <code>useBottomSheetAt</code> input (default of 600px).
                     </div>
                     <div class="example-demo-wrapper">
                         <app-bottom-sheet-user-menu-demo></app-bottom-sheet-user-menu-demo>

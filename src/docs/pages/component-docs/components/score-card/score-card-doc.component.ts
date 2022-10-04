@@ -18,7 +18,7 @@ import { ScoreCardPlaygroundKnobs } from './examples/playground.component';
                     <div class="example-description">
                         <div>
                             A <code>&lt;blui-score-card&gt;</code> is a card component that calls attention to
-                            particular values.  It is frequently seen on dashboard interfaces.
+                            particular values. It is frequently seen on dashboard interfaces.
                         </div>
                     </div>
                     <div class="example-demo-wrapper">
@@ -33,9 +33,8 @@ import { ScoreCardPlaygroundKnobs } from './examples/playground.component';
                     <div class="example-heading">Adding a Badge</div>
                     <div class="example-description">
                         <div>
-                            A Score Card reserves space for <code>blui-badge</code> content.  
-                            This space is commonly used to show 
-                            <a [routerLink]="createRouterLink(routes.hero.route)">Heroes</a>.
+                            A Score Card reserves space for <code>blui-badge</code> content. This space is commonly used
+                            to show <a [routerLink]="createRouterLink(routes.hero.route)">Heroes</a>.
                         </div>
                     </div>
                     <div class="example-demo-wrapper">
@@ -49,9 +48,7 @@ import { ScoreCardPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Adjusting the Badge</div>
                     <div class="example-description">
-                        <div>
-                            The badge position can be adjusted via the <code>badgeOffset</code> input.
-                        </div>
+                        <div>The badge position can be adjusted via the <code>badgeOffset</code> input.</div>
                     </div>
                     <div class="example-demo-wrapper">
                         <app-with-score-badge-score-card-demo></app-with-score-badge-score-card-demo>
@@ -65,9 +62,9 @@ import { ScoreCardPlaygroundKnobs } from './examples/playground.component';
                     <div class="example-heading">Adding Actions</div>
                     <div class="example-description">
                         <div>
-                            A Score Card can be interactive.
-                            Actions can be added in the header through the <code>blui-action-item</code> content 
-                            or at the bottom of the card via the <code>blui-action-row</code>. 
+                            A Score Card can be interactive. Actions can be added in the header through the
+                            <code>blui-action-item</code> content or at the bottom of the card via the
+                            <code>blui-action-row</code>.
                         </div>
                     </div>
                     <div class="example-demo-wrapper">

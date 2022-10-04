@@ -13,9 +13,8 @@ import { ThreeLinerPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Three Liner</div>
                     <div class="example-description">
-                        A <code>&lt;blui-three-liner&gt;</code> shows three lines of stylized text.
-                        It is commonly used within an
-                        <a [routerLink]="createRouterLink(routes.appBar.route)">App Bar</a>.
+                        A <code>&lt;blui-three-liner&gt;</code> shows three lines of stylized text. It is commonly used
+                        within an <a [routerLink]="createRouterLink(routes.appBar.route)">App Bar</a>.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-basic-three-liner></app-basic-three-liner>

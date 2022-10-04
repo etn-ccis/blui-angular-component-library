@@ -14,9 +14,7 @@ import { ToolbarMenuPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Toolbar Menu</div>
                     <div class="example-description">
-                        <div>
-                            A <code>&lt;blui-toolbar-menu&gt;</code> adds a menu to a text element. 
-                        </div>
+                        <div>A <code>&lt;blui-toolbar-menu&gt;</code> adds a menu to a text element.</div>
                     </div>
                     <div class="example-demo-wrapper">
                         <app-basic-toolbar-menu-demo></app-basic-toolbar-menu-demo>
@@ -29,9 +27,7 @@ import { ToolbarMenuPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Adding an Icon</div>
                     <div class="example-description">
-                        <div>
-                            You can add icons to the front of the Toolbar Menu. 
-                        </div>
+                        <div>You can add icons to the front of the Toolbar Menu.</div>
                     </div>
                     <div class="example-demo-wrapper">
                         <app-with-icon-toolbar-menu-demo></app-with-icon-toolbar-menu-demo>
@@ -44,7 +40,8 @@ import { ToolbarMenuPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Common Use In Toolbars</div>
                     <div class="example-description">
-                        Toolbar Menus are typically used in toolbar subtitles for toggling different views, locations, etc.
+                        Toolbar Menus are typically used in toolbar subtitles for toggling different views, locations,
+                        etc.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-within-toolbar-toolbar-menu-demo></app-within-toolbar-toolbar-menu-demo>

@@ -19,8 +19,8 @@ import { HeroPlaygroundKnobs } from './examples/playground.component';
                     <div class="example-description">
                         A <code>&lt;blui-hero&gt;</code> is used to call attention to a particular value or parameter.
                         It adds some additional visual elements onto a
-                        <a [routerLink]="createRouterLink(routes.channelValue.route)">Channel Value</a>.
-                        When showing multiple hereos, they are typically placed within a Hero Banner to help with layout. 
+                        <a [routerLink]="createRouterLink(routes.channelValue.route)">Channel Value</a>. When showing
+                        multiple hereos, they are typically placed within a Hero Banner to help with layout.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-value-units-hero-demo></app-value-units-hero-demo>
@@ -34,8 +34,8 @@ import { HeroPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Showing Multiple ChannelValues</div>
                     <div class="example-description">
-                        By default, a Hero renders a single Channel Value.  
-                        If you need to support multiple Channel Values, you can pass them in as content.
+                        By default, a Hero renders a single Channel Value. If you need to support multiple Channel
+                        Values, you can pass them in as content.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-channel-value-children-hero-demo></app-channel-value-children-hero-demo>
@@ -49,8 +49,8 @@ import { HeroPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Adding a Channel Value Icon</div>
                     <div class="example-description">
-                        If you want to include an inline icon with the ChannelValue, 
-                        provide it via  <code>blui-secondary</code>.
+                        If you want to include an inline icon with the ChannelValue, provide it via
+                        <code>blui-secondary</code>.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-with-icon-hero-demo></app-with-icon-hero-demo>

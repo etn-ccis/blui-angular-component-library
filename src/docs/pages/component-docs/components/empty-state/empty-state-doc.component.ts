@@ -13,8 +13,8 @@ import { EmptyStatePlaygroundKnobs } from './examples/playground.component';
             <div class="example-section">
                 <div class="example-heading">Empty State</div>
                 <div class="example-description">
-                    A <code>&lt;blui-empty-state&gt;</code> is a placeholder element that you 
-                    can show when there is no data or content is missing.
+                    A <code>&lt;blui-empty-state&gt;</code> is a placeholder element that you can show when there is no
+                    data or content is missing.
                 </div>
                 <div class="example-demo-wrapper">
                     <app-with-description-empty-state-demo></app-with-description-empty-state-demo>
@@ -27,8 +27,8 @@ import { EmptyStatePlaygroundKnobs } from './examples/playground.component';
             <div class="example-section">
                 <div class="example-heading">Adding an Action</div>
                 <div class="example-description">
-                    If you want to provide your users with a call-to-action, 
-                    you can pass in custom content via <code>blui-actions</code>.
+                    If you want to provide your users with a call-to-action, you can pass in custom content via
+                    <code>blui-actions</code>.
                 </div>
                 <div class="example-demo-wrapper">
                     <app-with-actions-empty-state-demo></app-with-actions-empty-state-demo>

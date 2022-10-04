@@ -14,7 +14,8 @@ import { ChannelValuePlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Channel Value</div>
                     <div class="example-description">
-                        The <code>&lt;blui-channel-value&gt;</code> is used to show a particular measurement or parameter.
+                        The <code>&lt;blui-channel-value&gt;</code> is used to show a particular measurement or
+                        parameter.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-basic-channel-value-demo></app-basic-channel-value-demo>
@@ -28,7 +29,7 @@ import { ChannelValuePlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Adding an Icon</div>
                     <div class="example-description">
-                        You can add an optional icon to show trends or to highlight the category of the value. 
+                        You can add an optional icon to show trends or to highlight the category of the value.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-icon-channel-value-demo></app-icon-channel-value-demo>
@@ -41,9 +42,9 @@ import { ChannelValuePlaygroundKnobs } from './examples/playground.component';
 
                 <div class="example-section">
                     <div class="example-heading">Flipping the Units</div>
-                    <div class="example-description">\
-                        Some measurements may require the units to appear before the value. 
-                        This can be achieved by setting the <code>prefix</code> input.
+                    <div class="example-description">
+                        Some measurements may require the units to appear before the value. This can be achieved by
+                        setting the <code>prefix</code> input.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-prefix-channel-value-demo></app-prefix-channel-value-demo>
@@ -57,10 +58,9 @@ import { ChannelValuePlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Units & Spacing</div>
                     <div class="example-description">
-                        Some measurements require a space between the value and units, and some do not. 
-                        
-                        The Channel Value handles this automatically for common units, 
-                        but you can override this behavior through the <code>unitSpace</code> input.
+                        Some measurements require a space between the value and units, and some do not. The Channel
+                        Value handles this automatically for common units, but you can override this behavior through
+                        the <code>unitSpace</code> input.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-unit-space-channel-value-demo></app-unit-space-channel-value-demo>

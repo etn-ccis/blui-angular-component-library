@@ -16,42 +16,27 @@ import { TabName } from '../../../shared/scaffold/scaffold.component';
                 <div class="example-section">
                     <div class="example-heading">Drawer</div>
                     <div class="example-description">
-                        
-                        The <code>&lt;blui-drawer&gt;</code> is a navigational element that holds links to different pages in your application.
-                        It organizes content into: 
-                        
+                        The <code>&lt;blui-drawer&gt;</code> is a navigational element that holds links to different
+                        pages in your application. It organizes content into:
+
                         <ul>
                             <li>
-                                    <a [routerLink]="createRouterLink(routes.drawerHeader.route)">
-                                        Drawer Header
-                                    </a>
+                                <a [routerLink]="createRouterLink(routes.drawerHeader.route)"> Drawer Header </a>
                             </li>
                             <li>
-                                    <a [routerLink]="createRouterLink(routes.drawerSubheader.route)">
-                                        Drawer Subheader
-                                    </a>
+                                <a [routerLink]="createRouterLink(routes.drawerSubheader.route)"> Drawer Subheader </a>
                             </li>
                             <li>
-                                    <a [routerLink]="createRouterLink(routes.drawerBody.route)">
-                                        Drawer Body
-                                    </a>
+                                <a [routerLink]="createRouterLink(routes.drawerBody.route)"> Drawer Body </a>
                             </li>
                             <li>
-                                    <a [routerLink]="createRouterLink(routes.drawerNavItem.route)">
-                                        Drawer Nav Item
-                                    </a>
+                                <a [routerLink]="createRouterLink(routes.drawerNavItem.route)"> Drawer Nav Item </a>
                             </li>
                             <li>
-                                    <a [routerLink]="createRouterLink(routes.drawerNavGroup.route)">
-                                        Drawer Nav Group
-                                    </a>
+                                <a [routerLink]="createRouterLink(routes.drawerNavGroup.route)"> Drawer Nav Group </a>
                             </li>
                             <li>
-                                
-                                    <a [routerLink]="createRouterLink(routes.drawerFooter.route)">
-                                        Drawer Footer
-                                    </a>
-                                
+                                <a [routerLink]="createRouterLink(routes.drawerFooter.route)"> Drawer Footer </a>
                             </li>
                         </ul>
                     </div>
@@ -69,8 +54,8 @@ import { TabName } from '../../../shared/scaffold/scaffold.component';
                 <div class="example-section">
                     <div class="example-heading">Customing the Drawer</div>
                     <div class="example-description">
-                        The Drawer is highly customizable for organizing and styling your items.
-                        Navigation items can be declared within a list to simplify your templates and to make customization easier.
+                        The Drawer is highly customizable for organizing and styling your items. Navigation items can be
+                        declared within a list to simplify your templates and to make customization easier.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-from-list-drawer-demo></app-from-list-drawer-demo>

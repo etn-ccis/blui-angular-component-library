@@ -11,12 +11,11 @@ import { AppBarPlaygroundKnobs } from './examples/playground.component';
         <ng-template #examples>
             <div class="app-example">
                 <div class="example-section">
-
                     <div class="example-section">
                         <div class="example-heading">Collapsible App Bar</div>
                         <div class="example-description">
-                            A <code>&lt;blui-app-bar&gt;</code> is an extenion of the 
-                            Angular Material Toolbar that can expand and collapse as you scroll the page.
+                            A <code>&lt;blui-app-bar&gt;</code> is an extenion of the Angular Material Toolbar that can
+                            expand and collapse as you scroll the page.
                         </div>
                         <div class="example-demo-wrapper">
                             <app-snap-app-bar-demo></app-snap-app-bar-demo>
@@ -24,16 +23,16 @@ import { AppBarPlaygroundKnobs } from './examples/playground.component';
                         <app-example-code [snippet]="SNAP" dataLine="2-9"></app-example-code>
                         <div class="example-actions">
                             <app-view-code-button
-                                    examplePath="app-bar/examples/snap"
-                                    style="margin-right: 16px"
+                                examplePath="app-bar/examples/snap"
+                                style="margin-right: 16px"
                             ></app-view-code-button>
                             <app-copy-code-button [code]="SNAP"></app-copy-code-button>
                         </div>
                     </div>
                     <div class="example-heading">Permanently Collapsed</div>
                     <div class="example-description">
-                        Setting the variant to <code>'collapsed'</code> will lock the the App Bar
-                        at its collapsed size and it will behave like a default toolbar. 
+                        Setting the variant to <code>'collapsed'</code> will lock the the App Bar at its collapsed size
+                        and it will behave like a default toolbar.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-collapsed-app-bar-demo></app-collapsed-app-bar-demo>
@@ -51,8 +50,7 @@ import { AppBarPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Permanently Expanded</div>
                     <div class="example-description">
-                        Setting the variant to <code>'expanded'</code> will lock the the App Bar
-                        at its expanded size.
+                        Setting the variant to <code>'expanded'</code> will lock the the App Bar at its expanded size.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-expanded-app-bar-demo></app-expanded-app-bar-demo>
@@ -70,9 +68,8 @@ import { AppBarPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Adding Additional Content</div>
                     <div class="example-description">
-                        You can nest content inside of the App Bar. 
-                        The App Bar reserves space for icons on both the left (<code>blui-icon</code>) 
-                        and right side (<code>blui-actions</code>).
+                        You can nest content inside of the App Bar. The App Bar reserves space for icons on both the
+                        left (<code>blui-icon</code>) and right side (<code>blui-actions</code>).
                     </div>
                     <div class="example-demo-wrapper">
                         <app-three-liner-app-bar-demo></app-three-liner-app-bar-demo>

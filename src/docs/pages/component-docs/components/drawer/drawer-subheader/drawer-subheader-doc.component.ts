@@ -12,7 +12,8 @@ import { SubheaderPlaygroundKnobs } from './examples/playground.component';
             <div class="example-section">
                 <div class="example-heading">Drawer Subheader</div>
                 <div class="example-description">
-                    The <code>&lt;blui-drawer-subheader&gt;</code> allows you to pass custom content that will appear directly below the drawer header.
+                    The <code>&lt;blui-drawer-subheader&gt;</code> allows you to pass custom content that will appear
+                    directly below the drawer header.
                 </div>
                 <div class="example-demo-wrapper">
                     <app-basic-drawer-subheader-demo></app-basic-drawer-subheader-demo>

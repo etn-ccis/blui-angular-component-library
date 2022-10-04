@@ -15,8 +15,8 @@ import { HeaderPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Drawer Header</div>
                     <div class="example-description">
-                        The <code>&lt;blui-drawer-header&gt;</code> appears at the top of a drawer.
-                        It is commonly used to show your application title and holds controls for the drawer.
+                        The <code>&lt;blui-drawer-header&gt;</code> appears at the top of a drawer. It is commonly used
+                        to show your application title and holds controls for the drawer.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-with-icon-drawer-header-demo></app-with-icon-drawer-header-demo>
@@ -31,7 +31,8 @@ import { HeaderPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Customizing the Title Content</div>
                     <div class="example-description">
-                        If you want to display more than just a title and subtitle, you can pass custom content via <code>blui-title-content</code>.
+                        If you want to display more than just a title and subtitle, you can pass custom content via
+                        <code>blui-title-content</code>.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-with-custom-content-drawer-header-demo> </app-with-custom-content-drawer-header-demo>
