@@ -143,9 +143,13 @@ export class DrawerDocComponent {
         private readonly _markdownService: MarkdownService
     ) {}
 
+
     ngOnInit(): void {
         this._markdownService.getSource(`src/assets/md/Drawer.md`).subscribe((data) => {
-            this.md = data.replace('images/', 'src/assets/md/images/');
+            const delimiterTop = '## Drawer';
+            const delimiterBottom = '## Drawer Layout';
+            const subsection = this._splitService.subsection(data, delimiterTop, delimiterBottom);
+            this.md = subsection.replace('images/', 'src/assets/md/images/');
         });
     }
 
