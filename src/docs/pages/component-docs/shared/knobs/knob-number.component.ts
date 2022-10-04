@@ -19,7 +19,6 @@ import { FormControl, Validators } from '@angular/forms';
                 [class.hiddenArrows]="true"
                 [formControl]="control"
                 matInput
-                [(ngModel)]="value"
                 (ngModelChange)="valueChange.emit($event)"
             />
         </mat-form-field>

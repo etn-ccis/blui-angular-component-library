@@ -9,7 +9,7 @@ import { FormControl } from '@angular/forms';
                 <mat-label>{{ label }}: string</mat-label>
                 <mat-hint>{{ hint }}</mat-hint>
                 <mat-error *ngIf="colorInput.errors?.['colorInvalid']"> Color value not recognized </mat-error>
-                <input matInput [formControl]="colorInput" [(ngModel)]="value" (ngModelChange)="updateValue($event)" />
+                <input matInput [formControl]="colorInput" (ngModelChange)="updateValue($event)" />
                 <button
                     mat-icon-button
                     matSuffix
