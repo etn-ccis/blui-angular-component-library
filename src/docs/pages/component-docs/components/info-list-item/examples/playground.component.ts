@@ -98,14 +98,14 @@ export class PlaygroundComponent implements OnDestroy {
 
     private _getOptionalSubtitle(): string {
         if (this.inputs.subtitle.value) {
-            return `<div blui-subtitle>${this.inputs.subtitle.value}</mat-icon>`;
+            return `<div blui-subtitle>${this.inputs.subtitle.value}</div>`;
         }
         return '';
     }
 
     private _getOptionalInfo(): string {
         if (this.inputs.info.value) {
-            return `<div blui-info>${this.inputs.info.value}</mat-icon>`;
+            return `<div blui-info>${this.inputs.info.value}</div>`;
         }
         return '';
     }
