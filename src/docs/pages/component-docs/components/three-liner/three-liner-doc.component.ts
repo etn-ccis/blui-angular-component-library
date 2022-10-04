@@ -11,11 +11,10 @@ import { ThreeLinerPlaygroundKnobs } from './examples/playground.component';
         <app-component-doc-scaffold mdFileName="ThreeLiner.md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Basic ThreeLiner</div>
+                    <div class="example-heading">Three Liner</div>
                     <div class="example-description">
-                        The <code>&lt;blui-three-liner&gt;</code> is commonly used within a
-                        <code> <a [routerLink]="createRouterLink(routes.appBar.route)">&lt;blui-app-bar&gt;</a> </code>.
-                        It accepts a <code>title</code>, <code>subtitle</code> and <code>info</code> input.
+                        A <code>&lt;blui-three-liner&gt;</code> shows three lines of stylized text. It is commonly used
+                        within an <a [routerLink]="createRouterLink(routes.appBar.route)">App Bar</a>.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-basic-three-liner></app-basic-three-liner>
@@ -26,14 +25,14 @@ import { ThreeLinerPlaygroundKnobs } from './examples/playground.component';
                     </div>
                 </div>
                 <div class="example-section">
-                    <div class="example-heading">ThreeLiner with Custom Content</div>
+                    <div class="example-heading">Adding Custom Content</div>
                     <div class="example-description">
-                        The <code>&lt;blui-three-liner&gt;</code> can alternately accept custom content for each line.
+                        If you want to display more than simple strings, you can pass custom content for each line.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-complex-three-liner></app-complex-three-liner>
                     </div>
-                    <app-example-code [snippet]="COMPLEX"></app-example-code>
+                    <app-example-code [snippet]="COMPLEX" dataLine="2-8"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="COMPLEX"></app-copy-code-button>
                     </div>

@@ -15,43 +15,27 @@ import { HeroPlaygroundKnobs } from './examples/playground.component';
         <app-component-doc-scaffold mdFileName="Hero.md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Basic Hero</div>
+                    <div class="example-heading">Hero</div>
                     <div class="example-description">
-                        The <code>&lt;blui-hero&gt;</code> accepts a <code>label</code> input and a
-                        <code>blui-primary</code> icon content.
-                    </div>
-                    <div class="example-demo-wrapper">
-                        <app-basic-hero-demo></app-basic-hero-demo>
-                    </div>
-                    <app-example-code [snippet]="BASIC"></app-example-code>
-                    <div class="example-actions">
-                        <app-copy-code-button [code]="BASIC"></app-copy-code-button>
-                    </div>
-                </div>
-
-                <div class="example-section">
-                    <div class="example-heading">Hero with Value and Units</div>
-                    <div class="example-description">
-                        The <code>&lt;blui-hero&gt;</code> accepts an optional <code>value</code> and
-                        <code>units</code> input to commonly display metric data.
+                        A <code>&lt;blui-hero&gt;</code> is used to call attention to a particular value or parameter.
+                        It adds some additional visual elements onto a
+                        <a [routerLink]="createRouterLink(routes.channelValue.route)">Channel Value</a>. When showing
+                        multiple hereos, they are typically placed within a Hero Banner to help with layout.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-value-units-hero-demo></app-value-units-hero-demo>
                     </div>
-                    <app-example-code [snippet]="VALUE_UNITS"></app-example-code>
+                    <app-example-code [snippet]="VALUE_UNITS" dataLine="2-4"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="VALUE_UNITS"></app-copy-code-button>
                     </div>
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">Hero with ChannelValue Children</div>
+                    <div class="example-heading">Showing Multiple ChannelValues</div>
                     <div class="example-description">
-                        The <code>&lt;blui-hero&gt;</code> can accept a
-                        <code>
-                            <a [routerLink]="createRouterLink(routes.channelValue.route)">&lt;blui-channel-value&gt;</a>
-                        </code>
-                        as an alternative to <code>value</code> and <code>units</code>.
+                        By default, a Hero renders a single Channel Value. If you need to support multiple Channel
+                        Values, you can pass them in as content.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-channel-value-children-hero-demo></app-channel-value-children-hero-demo>
@@ -63,9 +47,10 @@ import { HeroPlaygroundKnobs } from './examples/playground.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">Hero with a Secondary Icon</div>
+                    <div class="example-heading">Adding a Channel Value Icon</div>
                     <div class="example-description">
-                        The <code>&lt;blui-hero&gt;</code> accepts an optional <code>blui-secondary</code> icon.
+                        If you want to include an inline icon with the ChannelValue, provide it via
+                        <code>blui-secondary</code>.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-with-icon-hero-demo></app-with-icon-hero-demo>
@@ -77,25 +62,9 @@ import { HeroPlaygroundKnobs } from './examples/playground.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">Heroes with a HeroBanner</div>
+                    <div class="example-heading">Icon Formatting</div>
                     <div class="example-description">
-                        The <code>&lt;blui-hero-banner&gt;</code> can be used to wrap multiple
-                        <code>&lt;blui-hero&gt;</code>.
-                    </div>
-                    <div class="example-demo-wrapper">
-                        <app-with-banner-hero-demo></app-with-banner-hero-demo>
-                    </div>
-                    <app-example-code [snippet]="WITH_BANNER"></app-example-code>
-                    <div class="example-actions">
-                        <app-copy-code-button [code]="WITH_BANNER"></app-copy-code-button>
-                    </div>
-                </div>
-
-                <div class="example-section">
-                    <div class="example-heading">Hero with Icon Size and Image Types</div>
-                    <div class="example-description">
-                        The <code>&lt;blui-hero&gt;</code> supports multiple image types and has an
-                        <code>iconSize</code> input to scale.
+                        The primary icon of a Hero can be provided in a variety of formats and sizes.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-icon-diffs-hero-demo></app-icon-diffs-hero-demo>

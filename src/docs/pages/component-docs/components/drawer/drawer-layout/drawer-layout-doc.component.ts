@@ -17,16 +17,14 @@ import { Knob } from '../../../shared/scaffold/scaffold.component';
                 <div class="example-section">
                     <div class="example-heading">Drawer Layout</div>
                     <div class="example-description">
-                        The <code>&lt;blui-drawer-layout&gt;</code> manages how a <code>&lt;blui-drawer&gt;</code> and
-                        its application content is displayed. It supports four different <code>variant</code> options -
-                        'permanent', 'persistent', 'temporary', and 'rail'.
+                        The <code>&lt;blui-drawer-layout&gt;</code> manages the behavior of a navigation drawer and the
+                        main applicaton content.
                     </div>
                 </div>
                 <div class="example-section">
-                    <div class="example-heading">Permanent Variant</div>
+                    <div class="example-heading">Permanent Drawer</div>
                     <div class="example-description">
-                        The <code>permanent</code> variant is used when a <code>&lt;blui-drawer&gt;</code> is never
-                        intended to dismiss from the screen.
+                        The <code>'permanent'</code> drawer is full-sized and always visible.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-permanent-drawer-layout-demo></app-permanent-drawer-layout-demo>
@@ -37,10 +35,10 @@ import { Knob } from '../../../shared/scaffold/scaffold.component';
                     </div>
                 </div>
                 <div class="example-section">
-                    <div class="example-heading">Persistent Variant</div>
+                    <div class="example-heading">Persistent Drawer</div>
                     <div class="example-description">
-                        The <code>persistent</code> variant allows a <code>&lt;blui-drawer&gt;</code> to open and close,
-                        but never fully exits the screen.
+                        The <code>'persistent'</code> drawer can be opened and closed. When opened, it pushes the main
+                        application content.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-persistent-drawer-layout-demo></app-persistent-drawer-layout-demo>
@@ -51,10 +49,11 @@ import { Knob } from '../../../shared/scaffold/scaffold.component';
                     </div>
                 </div>
                 <div class="example-section">
-                    <div class="example-heading">Temporary Variant</div>
+                    <div class="example-heading">Temporary Drawer</div>
                     <div class="example-description">
-                        The <code>temporary</code> variant allows a <code>&lt;blui-drawer&gt;</code> to enter the screen
-                        from the left side as an overlay.
+                        The <code>'temporary'</code> drawer is hidden until it is opened. When open, it appears as an
+                        overlay on top of the application content. This is typically used on smaller screens and mobile
+                        devices.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-temporary-drawer-layout-demo></app-temporary-drawer-layout-demo>
@@ -65,9 +64,10 @@ import { Knob } from '../../../shared/scaffold/scaffold.component';
                     </div>
                 </div>
                 <div class="example-section">
-                    <div class="example-heading">Rail Variant</div>
+                    <div class="example-heading">Navigation Rail</div>
                     <div class="example-description">
-                        The <code>rail</code> variant is similar to a collapsed <code>persistent</code> state.
+                        The <code>'rail'</code> variant is always opened but takes up less space than a full-sized
+                        drawer.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-rail-drawer-layout-demo></app-rail-drawer-layout-demo>
@@ -78,15 +78,16 @@ import { Knob } from '../../../shared/scaffold/scaffold.component';
                     </div>
                 </div>
                 <div class="example-section">
-                    <div class="example-heading">Rail Condensed Variant</div>
+                    <div class="example-heading">Condensed Navigation Rail</div>
                     <div class="example-description">
-                        The <code>rail</code> variant can be <code>condensed</code> so that it only displays icons. Each
-                        navigation item will show a tooltip when hovered while in this mode.
+                        You can make the rail even smaller by setting the
+                        <code>condensed</code> input on the <code>&lt;blui-drawer&gt;</code>. This will hide the labels
+                        and show only the icons.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-rail-condensed-drawer-layout-demo></app-rail-condensed-drawer-layout-demo>
                     </div>
-                    <app-example-code [snippet]="RAIL_CONDENSED"></app-example-code>
+                    <app-example-code [snippet]="RAIL_CONDENSED" dataLine="2"></app-example-code>
                     <div class="example-actions">
                         <app-copy-code-button [code]="RAIL_CONDENSED"></app-copy-code-button>
                     </div>

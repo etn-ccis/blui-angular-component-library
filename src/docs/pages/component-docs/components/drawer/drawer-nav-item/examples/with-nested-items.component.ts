@@ -7,9 +7,7 @@ export const WITH_NESTED_ITEMS = `<blui-drawer style="width: 250px">
                 <blui-drawer-nav-item title="By Type"></blui-drawer-nav-item> 
                 <blui-drawer-nav-item title="By State"></blui-drawer-nav-item> 
             </blui-drawer-nav-item>
-            <blui-drawer-nav-item title="Reports" [hidePadding]="true">
-                <blui-drawer-nav-item title="Local"></blui-drawer-nav-item> 
-                <blui-drawer-nav-item title="Regional"></blui-drawer-nav-item> 
+            <blui-drawer-nav-item title="Reports" [hidePadding]="true">     
             </blui-drawer-nav-item>
             <blui-drawer-nav-item title="Users" [hidePadding]="true">
             </blui-drawer-nav-item>

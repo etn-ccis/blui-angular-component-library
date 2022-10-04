@@ -10,10 +10,10 @@ import { SubheaderPlaygroundKnobs } from './examples/playground.component';
     template: `<app-component-doc-scaffold [md]="md" [knobGroups]="knobGroups">
         <div examples class="app-example">
             <div class="example-section">
-                <div class="example-heading">Basic Drawer Subheader</div>
+                <div class="example-heading">Drawer Subheader</div>
                 <div class="example-description">
-                    The <code>&lt;blui-drawer-subheader&gt;</code> appears below the
-                    <code>&lt;blui-drawer-header&gt;</code> and is an optional section for rendering custom content.
+                    The <code>&lt;blui-drawer-subheader&gt;</code> allows you to pass custom content that will appear
+                    directly below the drawer header.
                 </div>
                 <div class="example-demo-wrapper">
                     <app-basic-drawer-subheader-demo></app-basic-drawer-subheader-demo>
@@ -27,7 +27,10 @@ import { SubheaderPlaygroundKnobs } from './examples/playground.component';
 
         <div examples class="app-example">
             <div class="example-section">
-                <div class="example-heading">Complex Drawer Subheader</div>
+                <div class="example-heading">Interactive Subheader</div>
+                <div class="example-description">
+                    The subheader will accept any content but is commonly used for dropdowns or content toggles.
+                </div>
                 <div class="example-demo-wrapper">
                     <app-complex-drawer-subheader-demo></app-complex-drawer-subheader-demo>
                 </div>

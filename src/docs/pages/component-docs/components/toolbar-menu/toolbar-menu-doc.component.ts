@@ -12,12 +12,9 @@ import { ToolbarMenuPlaygroundKnobs } from './examples/playground.component';
         <app-component-doc-scaffold mdFileName="ToolbarMenu.md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Basic Toolbar Menu</div>
+                    <div class="example-heading">Toolbar Menu</div>
                     <div class="example-description">
-                        <div>
-                            The <code>&lt;blui-toolbar-menu&gt;</code> accepts a <code>label</code> input and a
-                            <code>blui-toolbar-menu-items</code> content as a selection menu overlay.
-                        </div>
+                        <div>A <code>&lt;blui-toolbar-menu&gt;</code> adds a menu to a text element.</div>
                     </div>
                     <div class="example-demo-wrapper">
                         <app-basic-toolbar-menu-demo></app-basic-toolbar-menu-demo>
@@ -28,12 +25,9 @@ import { ToolbarMenuPlaygroundKnobs } from './examples/playground.component';
                     </div>
                 </div>
                 <div class="example-section">
-                    <div class="example-heading">ToolbarMenu with Icon</div>
+                    <div class="example-heading">Adding an Icon</div>
                     <div class="example-description">
-                        <div>
-                            The <code>&lt;blui-toolbar-menu&gt;</code> optionally accepts a <code>blui-icon</code> that
-                            appears at the front of the dropdown.
-                        </div>
+                        <div>You can add icons to the front of the Toolbar Menu.</div>
                     </div>
                     <div class="example-demo-wrapper">
                         <app-with-icon-toolbar-menu-demo></app-with-icon-toolbar-menu-demo>
@@ -44,9 +38,10 @@ import { ToolbarMenuPlaygroundKnobs } from './examples/playground.component';
                     </div>
                 </div>
                 <div class="example-section">
-                    <div class="example-heading">ToolbarMenu within Toolbar</div>
+                    <div class="example-heading">Common Use In Toolbars</div>
                     <div class="example-description">
-                        <div>The <code>&lt;blui-toolbar-menu&gt;</code> commonly appears within a toolbar.</div>
+                        Toolbar Menus are typically used in toolbar subtitles for toggling different views, locations,
+                        etc.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-within-toolbar-toolbar-menu-demo></app-within-toolbar-toolbar-menu-demo>

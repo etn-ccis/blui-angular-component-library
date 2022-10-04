@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-export const BOTTOMSHEET = `<blui-user-menu avatarValue="BS" [(open)]="open" [useBottomSheetAt]="3000">
+export const BOTTOMSHEET = `<blui-user-menu avatarValue="BS" [(open)]="open" [useBottomSheetAt]="100_000">
     <mat-nav-list blui-menu-body [style.paddingTop.px]="0">
         <blui-info-list-item *ngFor="let item of items" [dense]="true" (click)="open = false">
             <mat-icon blui-icon>{{item.icon}}</mat-icon>

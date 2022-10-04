@@ -11,10 +11,11 @@ import { ListItemTagPlaygroundKnobs } from './examples/playground.component';
         <app-component-doc-scaffold mdFileName="ListItemTag.md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Basic List Item Tag</div>
+                    <div class="example-heading">List Item Tag</div>
                     <div class="example-description">
-                        The <code>&lt;blui-list-item-tag&gt;</code> accepts a <code>label</code> input to display status
-                        information.
+                        A <code>&lt;blui-list-item-tag&gt;</code> is a stylized text element used for labeling. Text and
+                        background colors are customizable via <code>fontColor</code> and
+                        <code>backgroundColor</code> inputs.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-basic-list-item-tag-demo></app-basic-list-item-tag-demo>
@@ -25,14 +26,10 @@ import { ListItemTagPlaygroundKnobs } from './examples/playground.component';
                     </div>
                 </div>
                 <div class="example-section">
-                    <div class="example-heading">List Item Tag within an Info List Item</div>
+                    <div class="example-heading">Using within an Info List Item</div>
                     <div class="example-description">
                         The <code>&lt;blui-list-item-tag&gt;</code> commonly appears within a
-                        <code>
-                            <a [routerLink]="createRouterLink(routes.infoListItem.route)"
-                                >&lt;blui-info-list-item&gt;</a
-                            > </code
-                        >.
+                        <a [routerLink]="createRouterLink(routes.infoListItem.route)">Info List Item</a>.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-complex-list-item-tag-demo></app-complex-list-item-tag-demo>
