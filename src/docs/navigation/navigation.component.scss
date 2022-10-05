@@ -16,11 +16,11 @@
 }
 
 ::ng-deep .app-navigation-drawer .blui-drawer-header-background {
-    background-image: linear-gradient(90deg, #007BC1 22.4%, rgba(0, 123, 193, 0.2) 100%),
+    background-image: linear-gradient(90deg, #007bc1 22.4%, rgba(0, 123, 193, 0.2) 100%),
         url('../../assets/box-background.png');
     background-size: contain;
     background-position: right center;
-    opacity: 1!important;
+    opacity: 1 !important;
 }
 .framework-chip {
     margin-left: 12px;
