@@ -18,9 +18,12 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">User Menu</div>
                     <div class="example-description">
-                        The <code>&lt;blui-user-menu&gt;</code> is a combination of an avatar and menu that is used to
-                        hold user account-related information and actions. It is typically located in the top corner of
-                        your application within a toolbar.
+                        The <code>&lt;blui-user-menu&gt;</code> is a combination of an avatar and
+                        <a href="https://material.angular.io/components/menu/overview" target="_blank"
+                            >Angular Material Menu</a
+                        >
+                        that is used to hold user account-related information and actions. It is typically located in
+                        the top corner of your application within a toolbar.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-in-toolbar-user-menu-demo></app-in-toolbar-user-menu-demo>

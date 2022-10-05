@@ -17,12 +17,12 @@ export const DOTS = `<ng-template #nextButton>
         <ng-template [ngTemplateOutlet]="nextButton" blui-next-button></ng-template> 
     </blui-mobile-stepper>
     
-    <blui-mobile-stepper [steps]="4" [activeStep]="activeStep" variant="progress">
+    <blui-mobile-stepper [steps]="4" [activeStep]="activeStep" variant="text">
         <ng-template [ngTemplateOutlet]="backButton" blui-back-button></ng-template> 
         <ng-template [ngTemplateOutlet]="nextButton" blui-next-button></ng-template> 
     </blui-mobile-stepper>
     
-    <blui-mobile-stepper [steps]="4" [activeStep]="activeStep" variant="text">
+    <blui-mobile-stepper [steps]="4" [activeStep]="activeStep" variant="progress">
         <ng-template [ngTemplateOutlet]="backButton" blui-back-button></ng-template> 
         <ng-template [ngTemplateOutlet]="nextButton" blui-next-button></ng-template> 
     </blui-mobile-stepper>

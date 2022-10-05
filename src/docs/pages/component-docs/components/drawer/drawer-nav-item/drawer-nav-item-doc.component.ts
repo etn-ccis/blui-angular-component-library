@@ -49,7 +49,7 @@ import { NavItemPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Nesting the Nav Items</div>
                     <div class="example-description">
-                        Navigation items can be nested to allow for a multi-level navigation heirarchy. The
+                        Navigation items can be nested to allow for a multi-level navigation hierarchy. The
                         <code>&lt;blui-drawer-nav-item&gt;</code> allows nested navigation up to 3 levels deep.
                     </div>
                     <div class="example-demo-wrapper">

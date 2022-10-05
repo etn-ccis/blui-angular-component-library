@@ -28,7 +28,7 @@ import { ListItemTagPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Using within an Info List Item</div>
                     <div class="example-description">
-                        The <code>&lt;blui-list-item-tag&gt;</code> commonly appears within a
+                        The <code>&lt;blui-list-item-tag&gt;</code> commonly appears within an
                         <a [routerLink]="createRouterLink(routes.infoListItem.route)">Info List Item</a>.
                     </div>
                     <div class="example-demo-wrapper">

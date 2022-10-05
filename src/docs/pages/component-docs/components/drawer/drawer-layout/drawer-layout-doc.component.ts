@@ -18,7 +18,7 @@ import { Knob } from '../../../shared/scaffold/scaffold.component';
                     <div class="example-heading">Drawer Layout</div>
                     <div class="example-description">
                         The <code>&lt;blui-drawer-layout&gt;</code> manages the behavior of a navigation drawer and the
-                        main applicaton content.
+                        main application content.
                     </div>
                 </div>
                 <div class="example-section">
@@ -81,8 +81,8 @@ import { Knob } from '../../../shared/scaffold/scaffold.component';
                     <div class="example-heading">Condensed Navigation Rail</div>
                     <div class="example-description">
                         You can make the rail even smaller by setting the
-                        <code>condensed</code> input on the <code>&lt;blui-drawer&gt;</code>. This will hide the labels
-                        and show only the icons.
+                        <code>condensed</code> input on the <code>&lt;blui-drawer&gt;</code>. This will hide the
+                        navigation item titles and show only the icons.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-rail-condensed-drawer-layout-demo></app-rail-condensed-drawer-layout-demo>
