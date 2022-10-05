@@ -120,7 +120,7 @@ export class ScoreCardDocComponent {
         },
         badgeOffset: {
             componentDefault: 0,
-            value: -54,
+            value: -80,
             type: 'number',
             range: { min: -100, max: 100, step: 1, tickInterval: 1 },
             hint: 'Vertical offset for the badge content',
