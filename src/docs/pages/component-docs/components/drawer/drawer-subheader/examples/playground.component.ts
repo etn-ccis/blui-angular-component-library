@@ -22,6 +22,13 @@ export type SubheaderPlaygroundKnobs = {
         >
             <div style="padding: 16px; min-width: 250px">Subheader Content Here</div>
         </blui-drawer-subheader>
+        <blui-drawer-body>
+            <blui-drawer-nav-group>
+                <blui-drawer-nav-item title="Dashboard">
+                    <mat-icon blui-icon>dashboard</mat-icon>
+                </blui-drawer-nav-item>
+            </blui-drawer-nav-group>
+        </blui-drawer-body>
     </blui-drawer>`,
 })
 export class PlaygroundComponent implements OnDestroy {
@@ -76,6 +83,13 @@ export class PlaygroundComponent implements OnDestroy {
             Subheader Content Here
         </div>
     </blui-drawer-subheader>
+    <blui-drawer-body>
+        <blui-drawer-nav-group>
+            <blui-drawer-nav-item title="Dashboard">
+                <mat-icon blui-icon>dashboard</mat-icon>
+            </blui-drawer-nav-item>
+        </blui-drawer-nav-group>
+    </blui-drawer-body>
 </blui-drawer>`;
 
         return this._playgroundService.removeEmptyLines(code);
