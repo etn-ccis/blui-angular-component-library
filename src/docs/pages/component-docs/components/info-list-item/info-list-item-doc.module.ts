@@ -7,11 +7,10 @@ import { InfoListItemDocComponent } from './info-list-item-doc.component';
 import { WithSubtitleComponent } from './examples/with-subtitle.component';
 import { WithIconComponent } from './examples/with-icon.component';
 import { WithStatusComponent } from './examples/with-status.component';
-import { WithLeftContentComponent } from './examples/with-left-content.component';
-import { WithRightContentComponent } from './examples/with-right-content.component';
 import { WithinListComponent } from './examples/within-list.component';
 import { PlaygroundComponent } from './examples/playground.component';
 import { DenseComponent } from './examples/dense.component';
+import {WithLeftRightContentComponent} from "./examples/with-left-right-content.component";
 
 @NgModule({
     declarations: [
@@ -20,8 +19,7 @@ import { DenseComponent } from './examples/dense.component';
         WithSubtitleComponent,
         WithIconComponent,
         WithStatusComponent,
-        WithLeftContentComponent,
-        WithRightContentComponent,
+        WithLeftRightContentComponent,
         WithinListComponent,
         PlaygroundComponent,
         DenseComponent,
