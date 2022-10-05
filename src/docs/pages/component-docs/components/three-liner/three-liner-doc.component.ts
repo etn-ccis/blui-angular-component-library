@@ -59,16 +59,19 @@ export class ThreeLinerDocComponent {
         title: {
             value: 'Title',
             type: 'string',
+            componentDefault: '',
             hint: 'First line content',
         },
         subtitle: {
             value: 'Subtitle',
             type: 'string',
+            componentDefault: '',
             hint: 'Second line content',
         },
         info: {
             value: 'Info',
             type: 'string',
+            componentDefault: '',
             hint: 'Third line content',
         },
     };
