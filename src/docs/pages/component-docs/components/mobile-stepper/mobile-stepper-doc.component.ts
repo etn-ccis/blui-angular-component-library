@@ -17,7 +17,7 @@ import { MobileStepperPlaygroundKnobs } from './examples/playground.component';
                         workflow. Back and Next buttons can be projected to navigate through the steps. You can
                         configure the Mobile Stepper to show progress via dots, text or an
                         <a href="https://material.angular.io/components/progress-bar/overview" target="_blank">
-                            Angular Material Progress Bar </a
+                            Angular Material Progress Bar</a
                         >.
                     </div>
                     <div class="example-demo-wrapper">
