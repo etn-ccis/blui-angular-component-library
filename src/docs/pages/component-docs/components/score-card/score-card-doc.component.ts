@@ -4,7 +4,7 @@ import { MULTI_LINE } from './examples/multi-line.component';
 import { WITH_ACTIONS } from './examples/with-actions.component';
 import { WITH_HEROES } from './examples/with-heroes.component';
 import { WITH_SCORE_BADGE } from './examples/with-score-badge.component';
-import { TabName } from '../../shared/scaffold/scaffold.component';
+import { Tab } from '../../shared/scaffold/scaffold.component';
 import { COMPONENT_NAV_ITEMS } from '../../../../navigation/nav-items';
 import { ScoreCardPlaygroundKnobs } from './examples/playground.component';
 
@@ -155,7 +155,7 @@ export class ScoreCardDocComponent {
     ];
 
     createRouterLink(route: string): string {
-        const tab: TabName = 'examples';
+        const tab: Tab = 'examples';
         return `/${route}/${tab}`;
     }
 }

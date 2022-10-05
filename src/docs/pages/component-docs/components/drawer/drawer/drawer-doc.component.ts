@@ -6,7 +6,7 @@ import { ANATOMY } from './examples/anatomy.component';
 import { DRAWER_NAV_ITEMS } from '../../../../../navigation/nav-items';
 import { FROM_LIST } from './examples/from-list.component';
 import { DrawerPlaygroundKnobs } from './examples/playground.component';
-import { TabName } from '../../../shared/scaffold/scaffold.component';
+import { Tab } from '../../../shared/scaffold/scaffold.component';
 
 @Component({
     selector: 'app-drawer-doc',
@@ -154,7 +154,7 @@ export class DrawerDocComponent {
     }
 
     createRouterLink(route: string): string {
-        const tab: TabName = 'examples';
+        const tab: Tab = 'examples';
         return `/${route}/${tab}`;
     }
 }

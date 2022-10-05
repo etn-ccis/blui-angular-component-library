@@ -5,7 +5,8 @@ import { Subscription } from 'rxjs';
 import { ViewportService } from '../services/viewport/viewport.service';
 import { DrawerStateService } from '../services/drawer-state/drawer-state.service';
 import { APP_NAV_ITEMS, COMPONENT_NAV_ITEMS, DRAWER_NAV_ITEMS, NavItem } from './nav-items';
-import { TabName } from '../pages/component-docs/shared/scaffold/scaffold.component';
+import { Tab } from '../pages/component-docs/shared/scaffold/scaffold.component';
+import {TabService} from "../services/tab/tab.service";
 
 @Component({
     selector: 'app-navigation',
@@ -35,7 +36,8 @@ export class NavigationComponent {
     constructor(
         private readonly _router: Router,
         private readonly _viewportService: ViewportService,
-        private readonly _stateService: DrawerStateService
+        private readonly _stateService: DrawerStateService,
+        private readonly _tabService: TabService,
     ) {
         this._listenForRouteChanges();
     }
@@ -54,8 +56,7 @@ export class NavigationComponent {
             return;
         }
 
-        const defaultTab: TabName = 'examples';
-        this.navigate(`${navItem.route}/${defaultTab}`);
+        this.navigate(`${navItem.route}/${this._tabService.getPreviousTab()}`);
         if (this._viewportService.isMedium()) {
             this._stateService.setDrawerOpen(false);
         }

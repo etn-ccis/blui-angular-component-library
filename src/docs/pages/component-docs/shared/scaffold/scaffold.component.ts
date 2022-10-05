@@ -6,8 +6,9 @@ import { Subscription } from 'rxjs';
 import { ViewportService } from '../../../../services/viewport/viewport.service';
 import { PlaygroundService } from '../../../../services/playground/playground.service';
 import { COMPONENT_NAV_ITEMS } from '../../../../navigation/nav-items';
+import {TabService} from "../../../../services/tab/tab.service";
 
-export type TabName = 'examples' | 'api-docs' | 'playground';
+export type Tab = 'examples' | 'api-docs' | 'playground';
 
 export type Knob = {
     label?: string;
@@ -181,7 +182,8 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
         private readonly _route: ActivatedRoute,
         private readonly _router: Router,
         private readonly _markdownService: MarkdownService,
-        private readonly _viewportService: ViewportService
+        private readonly _viewportService: ViewportService,
+        private readonly _tabService: TabService
     ) {}
 
     getKeys(knobs: { [key: string]: Knob }): any {
@@ -198,7 +200,16 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
                 this.md = adjusted;
             });
         }
-        const tab = this._getTabNameFromUrl();
+        let tab = this._getTabNameFromUrl();
+
+        // Handle improper tab changes scenarios.
+        if (tab === 'playground' && !this.hasPlayground) {
+            tab = 'examples';
+        }
+        if (tab === 'examples' && !this.hasExamples) {
+            tab = 'api-docs';
+        }
+        this._tabService.setActiveTab(tab);
         this.updateRouteFromTab(tab);
     }
 
@@ -246,11 +257,12 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
     /** Called when a user clicks a tab. */
     userChangeTab(event: MatTabChangeEvent): void {
         const tabName = this._tabIndexToName(event.index);
+        this._tabService.setActiveTab(tabName);
         this.updateRouteFromTab(tabName);
     }
 
     /** Updates the URL to reflect tab name. */
-    updateRouteFromTab(tab: TabName): void {
+    updateRouteFromTab(tab: Tab): void {
         const routeMinusTab = this._getRouteMinusTab();
         void this._router.navigate([`${routeMinusTab}/${tab}`], {
             skipLocationChange: false,
@@ -290,17 +302,17 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
     }
 
     /** Returns current TabName */
-    private _getTabNameFromUrl(): TabName {
+    private _getTabNameFromUrl(): Tab {
         const route = this._router.url;
         const everythingElse = this._getRouteMinusTab();
-        return route.replace(everythingElse, '').replace('/', '') as TabName;
+        return route.replace(everythingElse, '').replace('/', '') as Tab;
     }
 
-    private _tabIndexToName(index: number): TabName {
+    private _tabIndexToName(index: number): Tab {
         return index === 0 ? 'examples' : index === 1 ? 'api-docs' : 'playground';
     }
 
-    private _tabNameToIndex(name: TabName): number {
+    private _tabNameToIndex(name: Tab): number {
         return name === 'examples' ? 0 : name === 'api-docs' ? 1 : 2;
     }
 

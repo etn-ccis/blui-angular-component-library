@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { BASIC } from './examples/basic.component';
-import { TabName } from '../../shared/scaffold/scaffold.component';
+import { Tab } from '../../shared/scaffold/scaffold.component';
 import { COMPONENT_NAV_ITEMS } from '../../../../navigation/nav-items';
 import { WITH_ICON } from './examples/with-icon.component';
 import { WITHIN_TOOLBAR } from './examples/within-toolbar.component';
@@ -110,7 +110,7 @@ export class ToolbarMenuDocComponent {
     ];
 
     createRouterLink(route: string): string {
-        const tab: TabName = 'examples';
+        const tab: Tab = 'examples';
         return `/${route}/${tab}`;
     }
 }
