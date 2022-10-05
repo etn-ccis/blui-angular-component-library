@@ -24,15 +24,15 @@ Parent element (`<blui-drawer>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input                        | Description                                                                           | Type      | Required | Default |
-| ----------------------------- | ------------------------------------------------------------------------------------- | --------- | -------- | ------- |
-| condensed                     | Skinny view for `rail` variant                                                        | `boolean` | no       | false   |
-| disableRailTooltip            | Hide tooltips on hover for the `rail` variant                                         | `boolean` | no       | false   |
-| disableActiveItemParentStyles | If true, NavItems will not have a bold title when a child NavItem is selected         | `boolean` | no       | false   |
-| openOnHover                   | Automatically open the drawer on hover when closed (persistent variant only)          | `boolean` | no       | true    |
-| open                          | State for the drawer                                                                  | `boolean` | yes      |         |
-| openOnHoverDelay              | Delay in milliseconds before a hover event opens the drawer (persistent variant only) | `number`  | no       | 500     |
-| sideBorder                    | Toggle a side border instead of shadow                                                | `boolean` | no       | false   |
+| @Input                        | Description                                                                                   | Type      | Required | Default |
+| ----------------------------- |-----------------------------------------------------------------------------------------------| --------- | -------- | ------- |
+| condensed                     | Skinny view for `rail` variant                                                                | `boolean` | no       | false   |
+| disableRailTooltip            | Hide tooltips on hover for the `rail` variant                                                 | `boolean` | no       | false   |
+| disableActiveItemParentStyles | If true, Drawer Nav Items will not have a bold title when a child Drawer Nav Item is selected | `boolean` | no       | false   |
+| openOnHover                   | Automatically open the drawer on hover when closed (persistent variant only)                  | `boolean` | no       | true    |
+| open                          | State for the drawer                                                                          | `boolean` | yes      |         |
+| openOnHoverDelay              | Delay in milliseconds before a hover event opens the drawer (persistent variant only)         | `number`  | no       | 500     |
+| sideBorder                    | Toggle a side border instead of shadow                                                        | `boolean` | no       | false   |
 
 </div>
 
@@ -227,7 +227,7 @@ Each Brightlayer UI component has classes which can be used to override componen
 
 ## Drawer Nav Group
 
-A `<blui-drawer-nav-group>` is used inside of the `<blui-drawer-body>` to organize links and content. Each group consists of an (optional) group title and a series of NavItems.
+A `<blui-drawer-nav-group>` is used inside of the `<blui-drawer-body>` to organize links and content. Each group consists of an (optional) group title and a series of Drawer Nav Items.
 
 ### Drawer NavGroup API
 
@@ -271,7 +271,7 @@ Each Brightlayer UI component has classes which can be used to override componen
 
 The `<blui-drawer-nav-item>` is a wrapper to the `<blui-info-list-item>` that is meant to be used within a `<blui-nav-group>`.
 
-### Drawer NavItem API
+### Drawer Nav Item API
 
 Parent element (`<blui-drawer-nav-item>`) attributes:
 
@@ -314,7 +314,7 @@ The following child element is projected into `<blui-drawer-nav-item>`:
 
 </div>
 
-### Drawer NavItem Classes
+### Drawer Nav Item Classes
 
 Each Brightlayer UI component has classes which can be used to override component styles:
 
