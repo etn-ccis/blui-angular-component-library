@@ -29,7 +29,9 @@ import { TabName } from '../../shared/scaffold/scaffold.component';
                 </div>
                 <div class="example-section">
                     <div class="example-heading">Spacer with Pixels</div>
-                    <div class="example-description">A Spacer can also be given fixed dimensions instead of flex.</div>
+                    <div class="example-description">
+                        A Spacer can also be given fixed dimensions instead of flex for static layouts.
+                    </div>
                     <div class="example-demo-wrapper">
                         <app-pixel-spacer-demo></app-pixel-spacer-demo>
                     </div>

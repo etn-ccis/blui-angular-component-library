@@ -14,7 +14,7 @@ import { DENSE } from './examples/dense.component';
     template: `<app-component-doc-scaffold [md]="md" mdFileName="InfoListItem.md" [knobGroups]="knobGroups">
         <div examples class="app-example">
             <div class="example-section">
-                <div class="example-heading">InfoListItem</div>
+                <div class="example-heading">Info List Item</div>
                 <div class="example-description">
                     A <code>&lt;blui-info-list-item&gt;</code> is a wrapper around the Material List Item that provides
                     convenient styling and content arrangement options. A basic use case displays a combination of
@@ -46,8 +46,8 @@ import { DENSE } from './examples/dense.component';
                 <div class="example-heading">Indicating Status</div>
                 <div class="example-description">
                     You can apply a status to a list item using the <code>statusColor</code> input. This will apply a
-                    colored stripe on the side of the list item. This can be paired with the <code>avatar</code> input
-                    to add additional highlighting around the icon.
+                    colored stripe on the side of the list item and can be paired with the <code>avatar</code> input to
+                    add additional highlighting around the icon.
                 </div>
                 <div class="example-demo-wrapper">
                     <app-with-status-info-list-item-demo></app-with-status-info-list-item-demo>

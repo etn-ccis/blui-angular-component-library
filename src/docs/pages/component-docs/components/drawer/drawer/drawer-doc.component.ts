@@ -52,7 +52,7 @@ import { TabName } from '../../../shared/scaffold/scaffold.component';
 
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Customing the Drawer</div>
+                    <div class="example-heading">Customizing the Drawer</div>
                     <div class="example-description">
                         The Drawer is highly customizable for organizing and styling your items. Navigation items can be
                         declared within a list to simplify your templates and to make customization easier.
