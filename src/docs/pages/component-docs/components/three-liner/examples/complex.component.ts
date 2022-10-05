@@ -1,9 +1,7 @@
 import { Component } from '@angular/core';
 import * as Colors from '@brightlayer-ui/colors';
 
-export const COMPLEX = `<blui-three-liner>
-    <div blui-title>title</div>
-    <div blui-subtitle>subtitle</div>
+export const COMPLEX = `<blui-three-liner title="title" subtitle="subtitle">
     <blui-toolbar-menu blui-info label="info">
         <ng-container blui-toolbar-menu-items>
             <button mat-menu-item>Menu Item 1</button>

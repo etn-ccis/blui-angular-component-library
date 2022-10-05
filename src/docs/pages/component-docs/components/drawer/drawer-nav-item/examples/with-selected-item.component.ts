@@ -32,7 +32,7 @@ export const WITH_SELECTED_ITEM = `<blui-drawer style="width: 250px">
     template: WITH_SELECTED_ITEM,
 })
 export class WithSelectedItemComponent {
-    selectedId = 1;
+    selectedId = 2;
 
     selectItem(id: number): void {
         this.selectedId = id;

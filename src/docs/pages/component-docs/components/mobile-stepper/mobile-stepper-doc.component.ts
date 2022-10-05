@@ -11,77 +11,25 @@ import { MobileStepperPlaygroundKnobs } from './examples/playground.component';
         <app-component-doc-scaffold mdFileName="MobileStepper.md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Basic Mobile Stepper</div>
+                    <div class="example-heading">Mobile Stepper</div>
                     <div class="example-description">
-                        The <code>&lt;blui-mobile-stepper&gt;</code> shows a user their progress while completing a
-                        workflow. Back and Next buttons can be projected to navigate through the steps.
-                    </div>
-                    <div class="example-demo-wrapper">
-                        <app-basic-mobile-stepper-demo style="padding: 0.5rem"></app-basic-mobile-stepper-demo>
-                    </div>
-                    <app-example-code [snippet]="BASIC"></app-example-code>
-                    <div class="example-actions">
-                        <app-copy-code-button [code]="BASIC"></app-copy-code-button>
-                    </div>
-                </div>
-            </div>
-
-            <div examples class="app-example">
-                <div class="example-section">
-                    <div class="example-heading">Dots Mobile Stepper</div>
-                    <div class="example-description">
-                        The default <code>variant</code> shows dots as a progress indicator.
+                        A <code>&lt;blui-mobile-stepper&gt;</code> shows a user their progress while completing a
+                        workflow. Back and Next buttons can be projected to navigate through the steps. You can
+                        configure the Mobile Stepper to show progress via dots, text or an
+                        <a href="https://material.angular.io/components/progress-bar/overview" target="_blank">
+                            Angular Material Progress Bar</a
+                        >.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-dots-mobile-stepper-demo></app-dots-mobile-stepper-demo>
                     </div>
-                    <app-example-code [snippet]="DOTS"></app-example-code>
+                    <app-example-code [snippet]="DOTS" dataLine="13, 18, 23"></app-example-code>
                     <div class="example-actions">
                         <app-view-code-button
                             examplePath="mobile-stepper/examples/dots"
                             style="margin-right: 16px"
                         ></app-view-code-button>
                         <app-copy-code-button [code]="DOTS"></app-copy-code-button>
-                    </div>
-                </div>
-            </div>
-
-            <div examples class="app-example">
-                <div class="example-section">
-                    <div class="example-heading">Text Mobile Stepper</div>
-                    <div class="example-description">
-                        The <code>&lt;blui-mobile-stepper&gt;</code> supports a 'text' <code>variant</code>.
-                    </div>
-                    <div class="example-demo-wrapper">
-                        <app-text-mobile-stepper-demo></app-text-mobile-stepper-demo>
-                    </div>
-                    <app-example-code [snippet]="TEXT"></app-example-code>
-                    <div class="example-actions">
-                        <app-view-code-button
-                            examplePath="mobile-stepper/examples/text"
-                            style="margin-right: 16px"
-                        ></app-view-code-button>
-                        <app-copy-code-button [code]="TEXT"></app-copy-code-button>
-                    </div>
-                </div>
-            </div>
-
-            <div examples class="app-example">
-                <div class="example-section">
-                    <div class="example-heading">Progress Mobile Stepper</div>
-                    <div class="example-description">
-                        The <code>&lt;blui-mobile-stepper&gt;</code> supports a 'progress' <code>variant</code>.
-                    </div>
-                    <div class="example-demo-wrapper">
-                        <app-progress-mobile-stepper-demo></app-progress-mobile-stepper-demo>
-                    </div>
-                    <app-example-code [snippet]="PROGRESS"></app-example-code>
-                    <div class="example-actions">
-                        <app-view-code-button
-                            examplePath="mobile-stepper/examples/progress"
-                            style="margin-right: 16px"
-                        ></app-view-code-button>
-                        <app-copy-code-button [code]="PROGRESS"></app-copy-code-button>
                     </div>
                 </div>
             </div>

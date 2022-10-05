@@ -14,67 +14,40 @@ import { DENSE } from './examples/dense.component';
     template: `<app-component-doc-scaffold [md]="md" mdFileName="InfoListItem.md" [knobGroups]="knobGroups">
         <div examples class="app-example">
             <div class="example-section">
-                <div class="example-heading">Basic InfoListItem</div>
+                <div class="example-heading">Info List Item</div>
                 <div class="example-description">
-                    The <code>&lt;blui-info-list-item&gt;</code> is intended to be used in List Views. A minimal example
-                    accepts a <code>blui-title</code> content.
+                    A <code>&lt;blui-info-list-item&gt;</code> is a wrapper around the Material List Item that provides
+                    convenient styling and content arrangement options. A basic use case displays a combination of
+                    title, subtitle, and icon.
                 </div>
                 <div class="example-demo-wrapper">
                     <app-basic-info-list-item-demo></app-basic-info-list-item-demo>
                 </div>
-                <app-example-code [snippet]="BASIC" dataLine="2"></app-example-code>
+                <app-example-code [snippet]="BASIC"></app-example-code>
                 <div class="example-actions">
                     <app-copy-code-button [code]="BASIC"></app-copy-code-button>
                 </div>
             </div>
             <div class="example-section">
-                <div class="example-heading">Dense InfoListItem</div>
+                <div class="example-heading">Showing Lots of List Items</div>
                 <div class="example-description">
-                    The <code>&lt;blui-info-list-item&gt;</code> accepts an optional <code>dense</code> input to make
-                    the row skinnier.
+                    When showing many list items, you can use the <code>dense</code> input to reduce their vertical
+                    padding and fit more list items on the page.
                 </div>
                 <div class="example-demo-wrapper">
                     <app-dense-info-list-item-demo></app-dense-info-list-item-demo>
                 </div>
-                <app-example-code [snippet]="DENSE" dataLine="1"></app-example-code>
+                <app-example-code [snippet]="DENSE"></app-example-code>
                 <div class="example-actions">
                     <app-copy-code-button [code]="DENSE"></app-copy-code-button>
                 </div>
             </div>
             <div class="example-section">
-                <div class="example-heading">InfoListItem with Subtitle</div>
+                <div class="example-heading">Indicating Status</div>
                 <div class="example-description">
-                    The <code>&lt;blui-info-list-item&gt;</code> accepts an optional <code>blui-subtitle</code>
-                    content that appears on the second line.
-                </div>
-                <div class="example-demo-wrapper">
-                    <app-with-subtitle-info-list-item-demo></app-with-subtitle-info-list-item-demo>
-                </div>
-                <app-example-code [snippet]="SUBTITLE" dataLine="3"></app-example-code>
-                <div class="example-actions">
-                    <app-copy-code-button [code]="SUBTITLE"></app-copy-code-button>
-                </div>
-            </div>
-            <div class="example-section">
-                <div class="example-heading">InfoListItem with Icon</div>
-                <div class="example-description">
-                    The <code>&lt;blui-info-list-item&gt;</code> accepts an optional <code>blui-icon</code>
-                    content that will appear to the left.
-                </div>
-                <div class="example-demo-wrapper">
-                    <app-with-icon-info-list-item-demo></app-with-icon-info-list-item-demo>
-                </div>
-                <app-example-code [snippet]="ICON" dataLine="4"></app-example-code>
-                <div class="example-actions">
-                    <app-copy-code-button [code]="ICON"></app-copy-code-button>
-                </div>
-            </div>
-            <div class="example-section">
-                <div class="example-heading">InfoListItem with Status</div>
-                <div class="example-description">
-                    The <code>&lt;blui-info-list-item&gt;</code> accepts an optional <code>statusColor</code> input that
-                    adds a status stripe to the left side of the row. This can be paired with the
-                    <code>avatar</code> input to add a padding and color around the <code>blui-icon</code>.
+                    You can apply a status to a list item using the <code>statusColor</code> input. This will apply a
+                    colored stripe on the side of the list item and can be paired with the <code>avatar</code> input to
+                    add additional highlighting around the icon.
                 </div>
                 <div class="example-demo-wrapper">
                     <app-with-status-info-list-item-demo></app-with-status-info-list-item-demo>
@@ -85,41 +58,25 @@ import { DENSE } from './examples/dense.component';
                 </div>
             </div>
             <div class="example-section">
-                <div class="example-heading">InfoListItem with Left Content</div>
+                <div class="example-heading">Adding Additional Content</div>
                 <div class="example-description">
-                    The <code>&lt;blui-info-list-item&gt;</code> accepts an optional
-                    <code>blui-left-content</code> which renders between a <code>blui-icon</code> and
-                    <code>blui-title</code>.
+                    If you want to show additional content in the list item, such as a timestamp or action buttons,
+                    these can be provided through <code>blui-left-content</code> and / or
+                    <code>blui-right-content</code>.
                 </div>
                 <div class="example-demo-wrapper">
                     <app-with-left-content-info-list-item-demo></app-with-left-content-info-list-item-demo>
                 </div>
-                <app-example-code [snippet]="LEFT_CONTENT" dataLine="5-8"></app-example-code>
+                <app-example-code [snippet]="LEFT_CONTENT" dataLine="3-6, 9"></app-example-code>
                 <div class="example-actions">
                     <app-copy-code-button [code]="LEFT_CONTENT"></app-copy-code-button>
                 </div>
             </div>
             <div class="example-section">
-                <div class="example-heading">InfoListItem with Right Content</div>
+                <div class="example-heading">Clickable List Items</div>
                 <div class="example-description">
-                    The <code>&lt;blui-info-list-item&gt;</code> accepts an optional <code>blui-right-content</code>
-                    which renders at the right edge of the item.
-                </div>
-                <div class="example-demo-wrapper">
-                    <app-with-right-content-info-list-item-demo></app-with-right-content-info-list-item-demo>
-                </div>
-                <app-example-code [snippet]="RIGHT_CONTENT" dataLine="5"></app-example-code>
-                <div class="example-actions">
-                    <app-copy-code-button [code]="RIGHT_CONTENT"></app-copy-code-button>
-                </div>
-            </div>
-            <div class="example-section">
-                <div class="example-heading">InfoListItem in a List</div>
-                <div class="example-description">
-                    The <code>&lt;blui-info-list-item&gt;</code> typically appears in an
-                    <a href="https://material.angular.io/components/list/overview" target="_blank"
-                        >Angular Material List</a
-                    >. To make each row clickable, place the items within a <code>&lt;mat-nav-list&gt;</code>.
+                    If you want your list items to navigate elsewhere in your application, place them within a
+                    <code>&lt;mat-nav-list&gt;</code>.
                 </div>
                 <div class="example-demo-wrapper">
                     <app-within-list-info-list-item-demo></app-within-list-info-list-item-demo>

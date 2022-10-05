@@ -16,29 +16,32 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
         <app-component-doc-scaffold mdFileName="UserMenu.md" [knobGroups]="knobGroups">
             <div examples class="app-example">
                 <div class="example-section">
-                    <div class="example-heading">Basic User Menu</div>
+                    <div class="example-heading">User Menu</div>
                     <div class="example-description">
-                        The <code>&lt;blui-user-menu&gt;</code> accepts an <code>avatar</code> input and a
-                        <code>blui-menu-body</code> overlay content. The <code>open</code> input is used to manage
-                        state.
+                        The <code>&lt;blui-user-menu&gt;</code> is a combination of an avatar and
+                        <a href="https://material.angular.io/components/menu/overview" target="_blank"
+                            >Angular Material Menu</a
+                        >
+                        that is used to hold user account-related information and actions. It is typically located in
+                        the top corner of your application within a toolbar.
                     </div>
                     <div class="example-demo-wrapper">
-                        <app-basic-user-menu-demo></app-basic-user-menu-demo>
+                        <app-in-toolbar-user-menu-demo></app-in-toolbar-user-menu-demo>
                     </div>
-                    <app-example-code [snippet]="BASIC"></app-example-code>
+                    <app-example-code [snippet]="WITHIN_TOOLBAR" dataLine="4-11"></app-example-code>
                     <div class="example-actions">
                         <app-view-code-button
-                            examplePath="user-menu/examples/basic"
+                            examplePath="user-menu/examples/within-toolbar"
                             style="margin-right: 16px"
                         ></app-view-code-button>
-                        <app-copy-code-button [code]="BASIC"></app-copy-code-button>
+                        <app-copy-code-button [code]="WITHIN_TOOLBAR"></app-copy-code-button>
                     </div>
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">User Menu with non-text Avatars</div>
+                    <div class="example-heading">Alternative Avatar Formats</div>
                     <div class="example-description">
-                        The <code>&lt;blui-user-menu&gt;</code> supports non-text avatars.
+                        The User Menu supports multiple avatar formats (text, icon, image).
                     </div>
                     <div class="example-demo-wrapper">
                         <app-non-text-avatar-user-menu-demo></app-non-text-avatar-user-menu-demo>
@@ -54,10 +57,10 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">User Menu with a Menu Header</div>
+                    <div class="example-heading">Adding a Menu Header</div>
                     <div class="example-description">
-                        The <code>&lt;blui-user-menu&gt;</code> can create an optional menu header through the
-                        <code>menuTitle</code> and <code>menuSubtitle</code> inputs.
+                        You can add a header to the top of the menu by passing in values for <code>menuTitle</code> and
+                        <code>menuSubtitle</code>. The avatar will also appear in the menu header.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-menu-header-user-menu-demo></app-menu-header-user-menu-demo>
@@ -73,9 +76,10 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
                 </div>
 
                 <div class="example-section">
-                    <div class="example-heading">User Menu with a Custom Header</div>
+                    <div class="example-heading">Customizing the Menu Header</div>
                     <div class="example-description">
-                        A custom menu header can be added by providing a <code>blui-menu-header</code> content.
+                        If you want to supply your own custom menu header, you can pass in content via
+                        <code>blui-menu-header</code>.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-custom-header-user-menu-demo></app-custom-header-user-menu-demo>
@@ -90,8 +94,9 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
                     </div>
                 </div>
 
+                <!--
                 <div class="example-section">
-                    <div class="example-heading">User Menu with Placement Options</div>
+                    <div class="example-heading">Adjusting the Overlay Placement</div>
                     <div class="example-description">
                         The <code>&lt;blui-user-menu&gt;</code> inherits the <code>positions</code> input from
                         <a href="https://material.angular.io/cdk/overlay/api#ConnectionPositionPair" target="_blank"
@@ -110,14 +115,14 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
                         ></app-view-code-button>
                         <app-copy-code-button [code]="PLACEMENT"></app-copy-code-button>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="example-section">
-                    <div class="example-heading">Responsive User Menu</div>
+                    <div class="example-heading">Using a Bottom Sheet</div>
                     <div class="example-description">
-                        The <code>&lt;blui-user-menu&gt;</code> by default renders (or transitions if already opened) as
-                        a bottomsheet if the window width is less than 600px. The <code>useBottomSheetAt</code> property
-                        is used to adjust the screen width where this transition occurs.
+                        On larger screens the User Menu opens as a dropdown, but on smaller screens it opens as a
+                        bottomsheet. You can customize the point where this transition occurs via the
+                        <code>useBottomSheetAt</code> input (default of 600px).
                     </div>
                     <div class="example-demo-wrapper">
                         <app-bottom-sheet-user-menu-demo></app-bottom-sheet-user-menu-demo>
@@ -132,6 +137,7 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
                     </div>
                 </div>
 
+                <!--
                 <div class="example-section">
                     <div class="example-heading">User Menu within a Toolbar</div>
                     <div class="example-description">
@@ -150,6 +156,7 @@ import { UserMenuPlaygroundKnobs } from './examples/playground.component';
                         <app-copy-code-button [code]="WITHIN_TOOLBAR"></app-copy-code-button>
                     </div>
                 </div>
+                -->
             </div>
 
             <app-user-menu-playground

@@ -1,5 +1,6 @@
 .example-demo-wrapper {
-    > * {
-        background-color: white;
+    ::ng-deep .blui-mobile-stepper {
+        background-color: white !important;
+        margin: 8px 0;
     }
 }
