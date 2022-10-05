@@ -1,4 +1,4 @@
-<blui-drawer-layout [variant]="getVariant()" (backdropClick)="closeDrawer()">
+<blui-drawer-layout [variant]="getVariant()" (backdropClick)="closeDrawer()" [width]="300">
     <blui-drawer blui-drawer [open]="isOpen()" [sideBorder]="true">
         <blui-drawer-header class="app-navigation-drawer">
             <div blui-title-content style="display: flex; flex-direction: column; justify-content: center">
@@ -12,7 +12,7 @@
                                 src="../../assets/angular-shield.svg"
                                 style="background-color: unset; height: 16px; width: 16px"
                             />
-                            <div class="mat-overline">Angular</div>
+                            <div>Angular</div>
                         </mat-chip>
                     </mat-chip-list>
                 </div>
