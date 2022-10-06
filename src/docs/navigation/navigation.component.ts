@@ -5,7 +5,6 @@ import { Subscription } from 'rxjs';
 import { ViewportService } from '../services/viewport/viewport.service';
 import { DrawerStateService } from '../services/drawer-state/drawer-state.service';
 import { APP_NAV_ITEMS, COMPONENT_NAV_ITEMS, DRAWER_NAV_ITEMS, NavItem } from './nav-items';
-import { Tab } from '../pages/component-docs/shared/scaffold/scaffold.component';
 import { TabService } from '../services/tab/tab.service';
 
 @Component({
