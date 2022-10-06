@@ -2,6 +2,7 @@
 .sm .tabs-container .mat-tab-header {
     top: 56px !important;
 }
+
 .scaffold-container {
     display: flex;
     flex-direction: column;
@@ -45,12 +46,15 @@
         .example-demo-wrapper {
             border-radius: 4px;
         }
-        .examples-tab-content-wrapper {
+        $marginSide: 24px;
+
+        .examples-tab-content-wrapper,
+        .doc-tab-content {
             padding: 48px 0px 32px 0px;
 
-            @media only screen and (max-width: 1590px) {
-                margin-left: 32px;
-                margin-right: 32px;
+            @media only screen and (max-width: 1560px) {
+                margin-left: $marginSide;
+                margin-right: $marginSide;
             }
 
             > div {
@@ -69,7 +73,6 @@
 
         /* API (README) Section */
         .doc-tab-content {
-            padding: 48px 32px 32px 32px;
             img {
                 margin: 16px 0px;
             }
@@ -110,7 +113,7 @@
             }
             div {
                 width: 100%;
-                max-width: calc(100vw - 64px);
+                max-width: calc(100vw - calc(2 * $marginSide));
                 display: block;
                 margin-bottom: 24px;
                 table {

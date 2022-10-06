@@ -24,6 +24,7 @@ body {
     display: none;
 }
 /** Examples Pages */
+
 .app-example {
     .example-page-title {
         font-weight: 400;
@@ -38,7 +39,6 @@ body {
     .example-section {
         margin-bottom: 64px;
     }
-    $codeExampleMaxWidth: min(1200px, calc(100vw - 64px)); // 64px represents padding on container
     .example-demo-wrapper {
         margin: 16px 0 0 0;
         background-color: #eeeeee;
@@ -67,16 +67,17 @@ body {
 }
 
 $drawerWidth: 300px;
-$marginLeftRightSum: 64px;
-
+$marginLeftRightSum: 48px;
 .app-example {
     app-example-code,
+    .doc-tab-content,
     .example-demo-wrapper {
         max-width: min(1200px, calc(100vw - $drawerWidth - $marginLeftRightSum));
     }
 }
 .md .app-example {
     app-example-code,
+    .doc-tab-content,
     .example-demo-wrapper {
         max-width: calc(100vw - $marginLeftRightSum);
     }
