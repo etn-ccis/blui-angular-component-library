@@ -66,6 +66,11 @@ export class NavigationComponent {
         return this._viewportService.isMedium();
     }
 
+    isSmall(): boolean {
+        return this._viewportService.isSmall();
+    }
+
+
     toggleDrawerOpen(): void {
         this._stateService.setDrawerOpen(!this._stateService.getDrawerOpen());
     }
