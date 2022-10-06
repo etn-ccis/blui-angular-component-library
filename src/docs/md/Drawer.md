@@ -24,19 +24,19 @@ Parent element (`<blui-drawer>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input                        | Description                                                                                   | Type      | Required | Default |
-| ----------------------------- |-----------------------------------------------------------------------------------------------| --------- | -------- | ------- |
-| condensed                     | Skinny view for `rail` variant                                                                | `boolean` | no       | false   |
-| disableRailTooltip            | Hide tooltips on hover for the `rail` variant                                                 | `boolean` | no       | false   |
-| disableActiveItemParentStyles | If true, Drawer Nav Items will not have a bold title when a child Drawer Nav Item is selected | `boolean` | no       | false   |
-| openOnHover                   | Automatically open the drawer on hover when closed (persistent variant only)                  | `boolean` | no       | true    |
-| open                          | State for the drawer                                                                          | `boolean` | yes      |         |
-| openOnHoverDelay              | Delay in milliseconds before a hover event opens the drawer (persistent variant only)         | `number`  | no       | 500     |
-| sideBorder                    | Toggle a side border instead of shadow                                                        | `boolean` | no       | false   |
+| @Input                        | Description                                                                                    | Type      | Required | Default |
+| ----------------------------- |------------------------------------------------------------------------------------------------| --------- | -------- | ------- |
+| condensed                     | Skinny view for `'rail'` variant                                                               | `boolean` | no       | false   |
+| disableRailTooltip            | Hide tooltips on hover for the `'rail'` variant                                                | `boolean` | no       | false   |
+| disableActiveItemParentStyles | If true, Drawer Nav Items will not have a bold title when a child Drawer Nav Item is selected  | `boolean` | no       | false   |
+| openOnHover                   | Automatically open the drawer on hover when closed (persistent variant only)                   | `boolean` | no       | true    |
+| open                          | State for the drawer                                                                           | `boolean` | yes      |         |
+| openOnHoverDelay              | Delay in milliseconds before a hover event opens the drawer (persistent variant only)          | `number`  | no       | 500     |
+| sideBorder                    | Toggle a side border instead of shadow                                                         | `boolean` | no       | false   |
 
 </div>
 
-> \*\* The `condensed` attribute won't have any effect on the `<blui-drawer>` unless the `rail` variant is set on the `<blui-drawer-layout>` component. Each item in a navigation rail will be sized 72 x 72px. When using a `condensed` rail, each item will be sized 56 x 56px.
+> \*\* The `'condensed'` attribute won't have any effect on the `<blui-drawer>` unless the `'rail'` variant is set on the `<blui-drawer-layout>` component. Each item in a navigation rail will be sized 72 x 72px. When using a `'condensed'` rail, each item will be sized 56 x 56px.
 
 The following child elements are projected into `<blui-drawer>`:
 
@@ -57,14 +57,14 @@ Each Brightlayer UI component has classes which can be used to override componen
 
 <div style="overflow: auto;">
 
-| Name                       | Description                                               |
-| -------------------------- | --------------------------------------------------------- |
-| blui-drawer                | Styles applied to the tag                                 |
-| blui-drawer-content        | Styles applied to the root element                        |
-| blui-drawer-hover-area     | Hoverable area that temporarily opens drawer              |
-| blui-drawer-collapse       | Styles applied when the drawer is collapsed               |
-| blui-drawer-temp-variant   | Styles applied to `temporary` drawer variant              |
-| blui-drawer-condensed-rail | Styles applied to `rail` variant with `condensed` setting |
+| Name                       | Description                                                   |
+| -------------------------- |---------------------------------------------------------------|
+| blui-drawer                | Styles applied to the tag                                     |
+| blui-drawer-content        | Styles applied to the root element                            |
+| blui-drawer-hover-area     | Hoverable area that temporarily opens drawer                  |
+| blui-drawer-collapse       | Styles applied when the drawer is collapsed                   |
+| blui-drawer-temp-variant   | Styles applied to `'temporary'` drawer variant                |
+| blui-drawer-condensed-rail | Styles applied to `'rail'` variant with `'condensed'` setting |
 
 </div>
 
@@ -78,10 +78,10 @@ Parent element (`<blui-drawer-layout>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input  | Description             | Type                                                             | Required | Default |
-| ------- | ----------------------- |------------------------------------------------------------------|----------|---------|
-| variant | Sets the drawer variant | 'permanent' &#124; 'persistent' &#124; 'temporary' &#124; 'rail' | yes      |         |
-| width   | Drawer pixel width      | `number`                                                         | no       | 350     | 
+| @Input  | Description             | Type                                                                     | Required | Default |
+| ------- | ----------------------- |--------------------------------------------------------------------------|----------|---------|
+| variant | Sets the drawer variant | `'permanent'` &#124; `'persistent'` &#124; `'temporary'` &#124; `'rail'` | yes      |         |
+| width   | Drawer pixel width      | `number`                                                                 | no       | 350     | 
 
 </div>
 
@@ -129,12 +129,12 @@ Parent element (`<blui-drawer-header>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input   | Description                         | Type                                                        | Required   | Default    |
-| -------- | ----------------------------------- |-------------------------------------------------------------|------------|------------|
-| color    | Mat toolbar color variant           | 'primary' &#124; 'accent' &#124; 'warn'  &#124; `undefined` | no         | 'primary'  |
-| divider  | Show a divider below footer         | `boolean`                                                   | no         | false      |
-| subtitle | The text to show on the second line | `string`                                                    | no         |            |
-| title    | The text to show on the first line  | `string`                                                    | no         |            |
+| @Input   | Description                         | Type                                                              | Required   | Default    |
+| -------- | ----------------------------------- |-------------------------------------------------------------------|------------|------------|
+| color    | Mat toolbar color variant           | `'primary'` &#124; `'accent'` &#124; `'warn'`  &#124; `undefined` | no         | `'primary'`  |
+| divider  | Show a divider below footer         | `boolean`                                                         | no         | false      |
+| subtitle | The text to show on the second line | `string`                                                          | no         |            |
+| title    | The text to show on the first line  | `string`                                                          | no         |            |
 
 </div>
 
@@ -277,19 +277,19 @@ Parent element (`<blui-drawer-nav-item>`) attributes:
 
 <div style="overflow: auto;">
 
-| @input                    | Description                           | Type                      | Required | Default   | 
-| ------------------------- | ------------------------------------- |---------------------------|----------|-----------|
-| activeItemBackgroundShape | Sets the active item background shape | 'round'  &#124; 'square'  | no       | 'square'  |
-| chevron                   | Sets whether to show chevron          | `boolean`                 | no       | false     |
-| divider                   | Sets whether to show divider          | `boolean`                 | no       | false     |
-| expanded                  | Sets whether to show nested nav items | `boolean`                 | no       | false     |
-| hidePadding               | Sets whether to show/hide padding     | `boolean`                 | no       |           | 
-| hidden                    | Sets whether to hide the nav item     | `boolean`                 | no       | false     |
-| ripple                    | Sets whether to show/hide ripple      | `boolean`                 | no       | true      |
-| selected                  | Sets whether an item is selected      | `boolean`                 | no       |           |
-| statusColor               | Status stripe color                   | `string`                  | no       |           |
-| subtitle                  | Text to display as a subtitle         | `string`                  | no       |           |
-| title                     | Text to display as a title            | `string`                  | no       |           |
+| @input                    | Description                           | Type                         | Required  | Default    | 
+| ------------------------- | ------------------------------------- |------------------------------|-----------|------------|
+| activeItemBackgroundShape | Sets the active item background shape | `'round'`  &#124; `'square'` | no        | `'square'` |
+| chevron                   | Sets whether to show chevron          | `boolean`                    | no        | false      |
+| divider                   | Sets whether to show divider          | `boolean`                    | no        | false      |
+| expanded                  | Sets whether to show nested nav items | `boolean`                    | no        | false      |
+| hidePadding               | Sets whether to show/hide padding     | `boolean`                    | no        |            | 
+| hidden                    | Sets whether to hide the nav item     | `boolean`                    | no        | false      |
+| ripple                    | Sets whether to show/hide ripple      | `boolean`                    | no        | true       |
+| selected                  | Sets whether an item is selected      | `boolean`                    | no        |            |
+| statusColor               | Status stripe color                   | `string`                     | no        |            |
+| subtitle                  | Text to display as a subtitle         | `string`                     | no        |            |
+| title                     | Text to display as a title            | `string`                     | no        |            |
 
 </div>
 

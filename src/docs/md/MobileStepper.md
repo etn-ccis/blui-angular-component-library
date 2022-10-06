@@ -1,6 +1,6 @@
 # Mobile Stepper
 
-The `<blui-mobile-stepper>` is used to minimally display progress when completing a workflow that requires multiple steps. There are three types of progress indicators supported, `dots` (default), `text`, and `progress`.
+The `<blui-mobile-stepper>` is used to minimally display progress when completing a workflow that requires multiple steps. There are three types of progress indicators supported, `'dots'` (default), `'text'`, and `'progress'`.
 
 <div style="text-align:center; margin-bottom:20px">
     <img width="100%" style="max-width: 600px" alt="Mobile Stepper used " src="./images/dotStepper.png">

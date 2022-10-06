@@ -34,10 +34,10 @@ Parent element (`<blui-hero>`) attributes:
 
 | @Input    | Description                                   | Type                             | Required | Default       |
 | --------- | --------------------------------------------- | -------------------------------- | -------- | ------------- |
-| iconSize  | The size of the primary icon (10-48)          | `number`                         | no       | 'normal' (36) |
+| iconSize  | The size of the primary icon (10-48)          | `number`                         | no       | `'normal'` (36) |
 | label     | The text shown below the Channel Value        | `string`                         | yes      |               |
 | units     | Text to show after the value                  | `string`                         | no       |               |
-| unitSpace | Show/Hide spacing between the value and units | `'auto'` \| `'hide'` \| `'show'` | no       | 'auto'        |
+| unitSpace | Show/Hide spacing between the value and units | `'auto'` \| `'hide'` \| `'show'` | no       | `'auto'`        |
 | value     | The value for the channel                     | `string` \| `number`             | no       |               |
 
 </div>

@@ -106,19 +106,22 @@
                 margin: 0;
                 border-left: solid 4px;
                 padding-left: 16px;
-                margin-bottom: 24px;
+                margin-bottom: 36px;
             }
             div {
                 width: 100%;
                 max-width: calc(100vw - 64px);
                 display: block;
                 margin-bottom: 24px;
+                table {
+                    margin-bottom: 0;
+                }
             }
             table {
-                margin-bottom: 16px;
                 width: 100%;
                 border-collapse: collapse;
                 border-radius: 4px;
+                margin-bottom: 24px;
                 * {
                     box-sizing: border-box;
                 }

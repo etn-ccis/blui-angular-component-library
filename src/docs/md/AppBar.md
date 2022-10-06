@@ -1,7 +1,7 @@
 # App Bar
 
 The `<blui-app-bar>` component is a wrapper around the `<mat-toolbar>` that can be resized as the page is scrolled. 
-It supports three variants: `snap`, `collapsed`, and `expanded`.
+It supports three variants: `'snap'`, `'collapsed'`, and `'expanded'`.
 
 <div style="text-align:center; margin-bottom:20px">
     <img width="100%" style="max-width: 600px; margin-bottom: 20px; border: 1px solid #0002;" alt="App Bar Three Liner" src="./gifs/appBarThreeLiner.gif">
