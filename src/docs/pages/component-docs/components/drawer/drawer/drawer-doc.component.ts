@@ -143,7 +143,6 @@ export class DrawerDocComponent {
         private readonly _markdownService: MarkdownService
     ) {}
 
-
     ngOnInit(): void {
         this._markdownService.getSource(`src/assets/md/Drawer.md`).subscribe((data) => {
             const delimiterTop = '## Drawer';

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Tab} from "../../pages/component-docs/shared/scaffold/scaffold.component";
+import { Tab } from '../../pages/component-docs/shared/scaffold/scaffold.component';
 
 @Injectable({
     providedIn: 'root',

@@ -10,7 +10,7 @@ import { WithStatusComponent } from './examples/with-status.component';
 import { WithinListComponent } from './examples/within-list.component';
 import { PlaygroundComponent } from './examples/playground.component';
 import { DenseComponent } from './examples/dense.component';
-import {WithLeftRightContentComponent} from "./examples/with-left-right-content.component";
+import { WithLeftRightContentComponent } from './examples/with-left-right-content.component';
 
 @NgModule({
     declarations: [

@@ -6,7 +6,7 @@ import { SUBTITLE } from './examples/with-subtitle.component';
 import { WITHIN_LIST } from './examples/within-list.component';
 import { InfoListItemPlaygroundKnobs } from './examples/playground.component';
 import { DENSE } from './examples/dense.component';
-import {LEFT_RIGHT_CONTENT} from "./examples/with-left-right-content.component";
+import { LEFT_RIGHT_CONTENT } from './examples/with-left-right-content.component';
 
 @Component({
     selector: 'app-info-list-item-doc',
@@ -17,9 +17,8 @@ import {LEFT_RIGHT_CONTENT} from "./examples/with-left-right-content.component";
                     <div class="example-heading">Info List Item</div>
                     <div class="example-description">
                         A <code>&lt;blui-info-list-item&gt;</code> is a wrapper around the Material List Item that
-                        provides
-                        convenient styling and content arrangement options. A basic use case displays a combination of
-                        title, subtitle, and icon.
+                        provides convenient styling and content arrangement options. A basic use case displays a
+                        combination of title, subtitle, and icon.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-basic-info-list-item-demo></app-basic-info-list-item-demo>
@@ -47,10 +46,8 @@ import {LEFT_RIGHT_CONTENT} from "./examples/with-left-right-content.component";
                     <div class="example-heading">Indicating Status</div>
                     <div class="example-description">
                         You can apply a status to a list item using the <code>statusColor</code> input. This will apply
-                        a
-                        colored stripe on the side of the list item and can be paired with the <code>avatar</code> input
-                        to
-                        add additional highlighting around the icon.
+                        a colored stripe on the side of the list item and can be paired with the
+                        <code>avatar</code> input to add additional highlighting around the icon.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-with-status-info-list-item-demo></app-with-status-info-list-item-demo>
@@ -92,13 +89,14 @@ import {LEFT_RIGHT_CONTENT} from "./examples/with-left-right-content.component";
             </div>
 
             <app-info-list-item-playground
-                    class="info-list-item-playground"
-                    playground
-                    [inputs]="allProps"
-                    (codeChange)="generatedCode = $event"
+                class="info-list-item-playground"
+                playground
+                [inputs]="allProps"
+                (codeChange)="generatedCode = $event"
             ></app-info-list-item-playground>
             <app-example-code code [snippet]="generatedCode" [copyButtonOnHover]="true"></app-example-code>
-        </app-component-doc-scaffold> `,
+        </app-component-doc-scaffold>
+    `,
     styleUrls: ['./info-list-item-doc.component.scss'],
 })
 export class InfoListItemDocComponent {
@@ -218,7 +216,6 @@ export class InfoListItemDocComponent {
             value: true,
             type: 'boolean',
         },
-
     };
     allProps = Object.assign({}, this.requiredProps, this.optionalProps, this.otherProps);
     knobGroups = [

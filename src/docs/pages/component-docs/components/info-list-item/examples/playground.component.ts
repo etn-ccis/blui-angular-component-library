@@ -51,16 +51,23 @@ export type InfoListItemPlaygroundKnobs = {
         >
             devices
         </mat-icon>
-        <div blui-left-content *ngIf="inputs.showLeftContent.value" 
-             style="display: flex; flex-direction: column; margin-right: 32px">
+        <div
+            blui-left-content
+            *ngIf="inputs.showLeftContent.value"
+            style="display: flex; flex-direction: column; margin-right: 32px"
+        >
             <div class="mat-caption"><strong>8:32 </strong> AM</div>
             <div class="mat-caption" style="margin-top: -4px">11/21/21</div>
         </div>
         <div blui-title>{{ inputs.title.value }}</div>
         <div blui-subtitle>{{ inputs.subtitle.value }}</div>
         <div blui-info>{{ inputs.info.value }}</div>
-        <blui-channel-value *ngIf="inputs.showRightContent.value"  
-            blui-right-content [value]="15" units="A"></blui-channel-value>
+        <blui-channel-value
+            *ngIf="inputs.showRightContent.value"
+            blui-right-content
+            [value]="15"
+            units="A"
+        ></blui-channel-value>
     </blui-info-list-item>`,
 })
 export class PlaygroundComponent implements OnDestroy {

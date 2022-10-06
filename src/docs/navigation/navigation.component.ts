@@ -6,7 +6,7 @@ import { ViewportService } from '../services/viewport/viewport.service';
 import { DrawerStateService } from '../services/drawer-state/drawer-state.service';
 import { APP_NAV_ITEMS, COMPONENT_NAV_ITEMS, DRAWER_NAV_ITEMS, NavItem } from './nav-items';
 import { Tab } from '../pages/component-docs/shared/scaffold/scaffold.component';
-import {TabService} from "../services/tab/tab.service";
+import { TabService } from '../services/tab/tab.service';
 
 @Component({
     selector: 'app-navigation',
@@ -37,7 +37,7 @@ export class NavigationComponent {
         private readonly _router: Router,
         private readonly _viewportService: ViewportService,
         private readonly _stateService: DrawerStateService,
-        private readonly _tabService: TabService,
+        private readonly _tabService: TabService
     ) {
         this._listenForRouteChanges();
     }
@@ -69,7 +69,6 @@ export class NavigationComponent {
     isSmall(): boolean {
         return this._viewportService.isSmall();
     }
-
 
     toggleDrawerOpen(): void {
         this._stateService.setDrawerOpen(!this._stateService.getDrawerOpen());

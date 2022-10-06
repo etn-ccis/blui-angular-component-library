@@ -6,7 +6,7 @@ import { Subscription } from 'rxjs';
 import { ViewportService } from '../../../../services/viewport/viewport.service';
 import { PlaygroundService } from '../../../../services/playground/playground.service';
 import { COMPONENT_NAV_ITEMS } from '../../../../navigation/nav-items';
-import {TabService} from "../../../../services/tab/tab.service";
+import { TabService } from '../../../../services/tab/tab.service';
 
 export type Tab = 'examples' | 'api-docs' | 'playground';
 
