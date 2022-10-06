@@ -41,7 +41,8 @@
         border-left: solid 1px $divider;
     }
 
-    .example-description, .doc-tab-content {
+    .example-description,
+    .doc-tab-content {
         a code:not(.language-typescript) {
             @include code-snippet-href();
         }
