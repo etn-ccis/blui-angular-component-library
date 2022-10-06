@@ -38,6 +38,9 @@
         }
 
         /* Examples Section */
+        .example-demo-wrapper {
+            border-radius: 4px;
+        }
         .examples-tab-content-wrapper {
             padding: 48px 0px 32px 0px;
 
@@ -108,19 +111,14 @@
                 margin-bottom: 24px;
             }
             table {
-                margin-bottom: 8px;
                 width: 100%;
-                box-sizing: border-box;
                 border-collapse: collapse;
-                tr th {
-                    border: unset;
-                    border-left: 0;
-                    border-right: 0;
+                border-radius: 4px;
+                * {
+                    box-sizing: border-box;
                 }
-                tr {
-                    &:last-of-type {
-                        border-bottom: 0;
-                    }
+                tr td {
+                    padding: 6px 13px;
                 }
                 tr th {
                     text-align: left;
