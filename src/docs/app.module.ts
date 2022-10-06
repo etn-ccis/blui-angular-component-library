@@ -27,6 +27,7 @@ import { AppRoutingModule } from './app.routing';
 import { NavigationComponent } from './navigation/navigation.component';
 import { HomeComponent } from './pages/home/home.component';
 import { ComponentDocsModule } from './pages/component-docs/component-docs.module';
+import { MatChipsModule } from '@angular/material/chips';
 
 @NgModule({
     declarations: [AppComponent, HomeComponent, NavigationComponent],
@@ -44,6 +45,7 @@ import { ComponentDocsModule } from './pages/component-docs/component-docs.modul
         MatToolbarModule,
         MatIconModule,
         RouterModule,
+        MatChipsModule,
     ],
     bootstrap: [AppComponent],
 })
