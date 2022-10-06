@@ -13,7 +13,7 @@ export class ViewCodeButtonComponent {
     @Input() examplePath;
 
     master =
-        'https://github.com/brightlayer-ui/angular-component-library/tree/release/dev-docs/src/docs/pages/component-docs/components';
+        'https://github.com/brightlayer-ui/angular-component-library/tree/dev/src/docs/pages/component-docs/components';
 
     viewCodeOnGitHub(): void {
         window.open(`${this.master}/${this.examplePath}.component.ts`, '_blank');
