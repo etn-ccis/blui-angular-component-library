@@ -14,7 +14,7 @@
         "build:lib": "bash scripts/buildLib.sh",
         "prettier": "prettier \"src/**/**.{ts,js,json,css,scss,html}\" --write",
         "prettier:check": "prettier \"src/**/**.{ts,js,json,css,scss,html}\" --check",
-        "lint": "eslint \"src/**/**.ts\"",
+        "lint": "",
         "lint:fix": "eslint \"src/**/**.ts\" --fix",
         "test": "ng test demo",
         "test:ci": "ng test demo --watch false",
