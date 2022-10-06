@@ -19,7 +19,7 @@ import { FormControl } from '@angular/forms';
                     [cpPosition]="'bottom'"
                     [cpPositionOffset]="'-750px'"
                     [cpPositionRelativeToArrow]="true"
-                    (colorPickerChange)="updateValue($event)"
+                    (colorPickerChange)="colorInput.setValue($event); updateValue($event)"
                     [(colorPicker)]="value"
                 >
                     <mat-icon>{{ hasValidColor ? 'colorize' : 'question_mark' }}</mat-icon>
@@ -50,7 +50,6 @@ export class KnobColorComponent {
     }
 
     updateValue(e: string): void {
-        this.value = e;
         this.valueChange.emit(e);
         this.hasValidColor = this._checkValidColor();
         if (this.hasValidColor) {
@@ -61,12 +60,12 @@ export class KnobColorComponent {
     }
 
     private _checkValidColor(): boolean {
-        if (!this.value) {
+        if (!this.colorInput.value) {
             return true;
         }
 
         const s = new Option().style;
-        s.color = this.value;
+        s.color = this.colorInput.value;
         const valid = s.color !== '';
         return valid;
     }
