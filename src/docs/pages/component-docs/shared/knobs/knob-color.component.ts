@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import {FormControl, Validators} from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-color-knob',

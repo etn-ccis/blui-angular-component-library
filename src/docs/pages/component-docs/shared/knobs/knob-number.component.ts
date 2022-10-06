@@ -83,6 +83,7 @@ export class KnobNumberComponent {
 
     updateValue(e: MatSliderChange): void {
         this.value = e.value;
+        this.control.setValue(e.value);
         this.valueChange.emit(e.value);
     }
 
