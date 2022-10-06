@@ -66,13 +66,16 @@ body {
     }
 }
 
+$drawerWidth: 300px;
+$marginLeftRightSum: 64px;
+
 .app-example {
     app-example-code, .example-demo-wrapper {
-        max-width: min(1200px, calc(100vw - 350px - 64px));
+        max-width: min(1200px, calc(100vw - $drawerWidth - $marginLeftRightSum));
     }
 }
 .md .app-example {
     app-example-code, .example-demo-wrapper {
-        max-width: calc(100vw - 64px);
+        max-width: calc(100vw - $marginLeftRightSum);
     }
 }
