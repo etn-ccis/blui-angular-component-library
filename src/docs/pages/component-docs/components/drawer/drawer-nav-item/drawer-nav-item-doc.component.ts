@@ -128,7 +128,7 @@ export class DrawerNavItemDocComponent {
         hidePadding: {
             value: true,
             type: 'boolean',
-            hint: 'Allow padding, used with icons',
+            hint: 'Sets whether to show/hide padding',
         },
         ripple: {
             value: true,

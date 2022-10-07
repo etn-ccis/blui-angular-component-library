@@ -218,7 +218,7 @@ export class UserMenuDocComponent {
 
     otherProps: Partial<UserMenuPlaygroundKnobs> = {
         showAvatarImage: {
-            label: 'Show Avatar Image',
+            label: 'Use Avatar Image',
             value: false,
             type: 'boolean',
             hint: '',

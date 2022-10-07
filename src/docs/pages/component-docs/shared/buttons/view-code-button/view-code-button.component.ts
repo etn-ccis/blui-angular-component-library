@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { environment } from '../../../../../../environments/environment';
 
 @Component({
     selector: 'app-view-code-button',
@@ -12,8 +13,7 @@ import { Component, Input } from '@angular/core';
 export class ViewCodeButtonComponent {
     @Input() examplePath;
 
-    master =
-        'https://github.com/brightlayer-ui/angular-component-library/tree/release/dev-docs/src/docs/pages/component-docs/components';
+    master = `https://github.com/brightlayer-ui/angular-component-library/tree/${environment.devDocsCodeSnippetBranch}/src/docs/pages/component-docs/components`;
 
     viewCodeOnGitHub(): void {
         window.open(`${this.master}/${this.examplePath}.component.ts`, '_blank');

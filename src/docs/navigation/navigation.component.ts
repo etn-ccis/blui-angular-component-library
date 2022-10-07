@@ -5,7 +5,7 @@ import { Subscription } from 'rxjs';
 import { ViewportService } from '../services/viewport/viewport.service';
 import { DrawerStateService } from '../services/drawer-state/drawer-state.service';
 import { APP_NAV_ITEMS, COMPONENT_NAV_ITEMS, DRAWER_NAV_ITEMS, NavItem } from './nav-items';
-import { TabName } from '../pages/component-docs/shared/scaffold/scaffold.component';
+import { TabService } from '../services/tab/tab.service';
 
 @Component({
     selector: 'app-navigation',
@@ -16,7 +16,6 @@ export class NavigationComponent {
     toolbarTitle: string;
     routeListener: Subscription;
     variant: DrawerLayoutVariantType;
-    navItems = [APP_NAV_ITEMS.home];
     componentNavItems = [
         COMPONENT_NAV_ITEMS.appBar,
         COMPONENT_NAV_ITEMS.channelValue,
@@ -36,7 +35,8 @@ export class NavigationComponent {
     constructor(
         private readonly _router: Router,
         private readonly _viewportService: ViewportService,
-        private readonly _stateService: DrawerStateService
+        private readonly _stateService: DrawerStateService,
+        private readonly _tabService: TabService
     ) {
         this._listenForRouteChanges();
     }
@@ -55,11 +55,18 @@ export class NavigationComponent {
             return;
         }
 
-        const defaultTab: TabName = 'examples';
-        this.navigate(`${navItem.route}/${defaultTab}`);
+        this.navigate(`${navItem.route}/${this._tabService.getPreviousTab()}`);
         if (this._viewportService.isMedium()) {
             this._stateService.setDrawerOpen(false);
         }
+    }
+
+    isMedium(): boolean {
+        return this._viewportService.isMedium();
+    }
+
+    isSmall(): boolean {
+        return this._viewportService.isSmall();
     }
 
     toggleDrawerOpen(): void {
@@ -111,12 +118,12 @@ export class NavigationComponent {
     }
 
     getVariant(): DrawerLayoutVariantType {
-        if (this.variant === 'permanent' && this._viewportService.isMedium()) {
+        if (this.variant === 'permanent' && this.isMedium()) {
             this._stateService.setDrawerOpen(false);
-        } else if (this.variant === 'temporary' && !this._viewportService.isMedium()) {
+        } else if (this.variant === 'temporary' && !this.isMedium()) {
             this._stateService.setDrawerOpen(true);
         }
-        this.variant = this._viewportService.isMedium() ? 'temporary' : 'permanent';
+        this.variant = this.isMedium() ? 'temporary' : 'permanent';
         return this.variant;
     }
 }

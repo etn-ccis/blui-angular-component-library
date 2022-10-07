@@ -62,7 +62,7 @@ export class DrawerFooterDocComponent {
             value: true,
             componentDefault: true,
             type: 'boolean',
-            hint: 'Show divider under subheader',
+            hint: 'Show divider above footer',
         },
         hideContentOnCollapse: {
             value: true,

@@ -6,7 +6,7 @@ import { ANATOMY } from './examples/anatomy.component';
 import { DRAWER_NAV_ITEMS } from '../../../../../navigation/nav-items';
 import { FROM_LIST } from './examples/from-list.component';
 import { DrawerPlaygroundKnobs } from './examples/playground.component';
-import { TabName } from '../../../shared/scaffold/scaffold.component';
+import { Tab } from '../../../shared/scaffold/scaffold.component';
 
 @Component({
     selector: 'app-drawer-doc',
@@ -145,12 +145,15 @@ export class DrawerDocComponent {
 
     ngOnInit(): void {
         this._markdownService.getSource(`src/assets/md/Drawer.md`).subscribe((data) => {
-            this.md = data.replace('images/', 'src/assets/md/images/');
+            const delimiterTop = '## Drawer';
+            const delimiterBottom = '## Drawer Layout';
+            const subsection = this._splitService.subsection(data, delimiterTop, delimiterBottom);
+            this.md = subsection.replace('images/', 'src/assets/md/images/');
         });
     }
 
     createRouterLink(route: string): string {
-        const tab: TabName = 'examples';
+        const tab: Tab = 'examples';
         return `/${route}/${tab}`;
     }
 }

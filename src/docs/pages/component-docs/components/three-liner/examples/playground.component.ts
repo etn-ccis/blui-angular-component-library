@@ -48,10 +48,15 @@ export class PlaygroundComponent implements OnDestroy {
         });
     }
     private _createGeneratedCode(): string {
-        const code = `<blui-three-liner
-    ${this._playgroundService.addOptionalProp(this.inputs, 'title')}
-    ${this._playgroundService.addOptionalProp(this.inputs, 'subtitle')}
-    ${this._playgroundService.addOptionalProp(this.inputs, 'info')}>
+        const code = `<blui-three-liner${this._playgroundService.addOptionalProp(
+            this.inputs,
+            'title',
+            true
+        )}${this._playgroundService.addOptionalProp(
+            this.inputs,
+            'subtitle',
+            true
+        )}${this._playgroundService.addOptionalProp(this.inputs, 'info', true)}>
 </blui-three-liner>`;
 
         return this._playgroundService.removeEmptyLines(code);

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { BASIC } from './examples/basic.component';
 import { COMPLEX } from './examples/complex.component';
 import { COMPONENT_NAV_ITEMS } from '../../../../navigation/nav-items';
-import { TabName } from '../../shared/scaffold/scaffold.component';
+import { Tab } from '../../shared/scaffold/scaffold.component';
 import { ThreeLinerPlaygroundKnobs } from './examples/playground.component';
 
 @Component({
@@ -59,16 +59,19 @@ export class ThreeLinerDocComponent {
         title: {
             value: 'Title',
             type: 'string',
+            componentDefault: '',
             hint: 'First line content',
         },
         subtitle: {
             value: 'Subtitle',
             type: 'string',
+            componentDefault: '',
             hint: 'Second line content',
         },
         info: {
             value: 'Info',
             type: 'string',
+            componentDefault: '',
             hint: 'Third line content',
         },
     };
@@ -87,7 +90,7 @@ export class ThreeLinerDocComponent {
     }
 
     createRouterLink(route: string): string {
-        const tab: TabName = 'examples';
+        const tab: Tab = 'examples';
         return `/${route}/${tab}`;
     }
 }

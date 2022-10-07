@@ -39,7 +39,7 @@ import { EmptyStatePlaygroundKnobs } from './examples/playground.component';
                 </div>
             </div>
             <div class="example-section">
-                <div class="example-heading">Customing the Title and Description</div>
+                <div class="example-heading">Customizing the Title and Description</div>
                 <div class="example-description">
                     If you need to pass in more than simple strings, you can provide a <code>blui-title</code> and / or
                     <code>blui-description</code> content.
