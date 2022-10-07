@@ -26,7 +26,6 @@
         "generate:licenses": "npm-license-crawler -onlyDirectDependencies -json LICENSES.json",
         "update:submodule": "git submodule update --remote"
     },
-    "private": true,
     "repository": {
         "type": "git",
         "url": "git+https://github.com/brightlayer-ui/angular-component-library.git"
