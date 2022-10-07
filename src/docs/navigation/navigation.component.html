@@ -25,6 +25,7 @@
                     [title]="navItem.title"
                     [hidePadding]="true"
                     [selected]="navItem.title === getSelectedItem()"
+                    activeItemBackgroundShape="round"
                     (select)="selectItem(navItem)"
                 >
                     <blui-drawer-nav-item
@@ -32,6 +33,7 @@
                         [title]="nestedNavItem.title"
                         [hidePadding]="false"
                         [selected]="nestedNavItem.title === getSelectedItem()"
+                        activeItemBackgroundShape="round"
                         (select)="selectItem(nestedNavItem)"
                     >
                     </blui-drawer-nav-item>
