@@ -9,7 +9,7 @@ import { FormControl } from '@angular/forms';
                 <mat-label>{{ label }}: string</mat-label>
                 <mat-hint>{{ hint }}</mat-hint>
                 <mat-error *ngIf="colorInput.errors?.['colorInvalid']"> Color value not recognized </mat-error>
-                <input matInput [formControl]="colorInput" [(ngModel)]="value" (ngModelChange)="updateValue($event)" />
+                <input matInput [formControl]="colorInput" (ngModelChange)="updateValue($event)" />
                 <button
                     mat-icon-button
                     matSuffix
@@ -19,7 +19,7 @@ import { FormControl } from '@angular/forms';
                     [cpPosition]="'bottom'"
                     [cpPositionOffset]="'-750px'"
                     [cpPositionRelativeToArrow]="true"
-                    (colorPickerChange)="valueChange.emit($event)"
+                    (colorPickerChange)="colorInput.setValue($event); updateValue($event)"
                     [(colorPicker)]="value"
                 >
                     <mat-icon>{{ hasValidColor ? 'colorize' : 'question_mark' }}</mat-icon>
@@ -43,8 +43,13 @@ export class KnobColorComponent {
     hasValidColor: boolean;
     colorInput = new FormControl('', []);
 
+    ngOnInit(): void {
+        this.colorInput = new FormControl(this.value, []);
+        this.colorInput.markAsTouched();
+        this.hasValidColor = this._checkValidColor();
+    }
+
     updateValue(e: string): void {
-        this.value = e;
         this.valueChange.emit(e);
         this.hasValidColor = this._checkValidColor();
         if (this.hasValidColor) {
@@ -55,12 +60,12 @@ export class KnobColorComponent {
     }
 
     private _checkValidColor(): boolean {
-        if (!this.value) {
+        if (!this.colorInput.value) {
             return true;
         }
 
         const s = new Option().style;
-        s.color = this.value;
+        s.color = this.colorInput.value;
         const valid = s.color !== '';
         return valid;
     }

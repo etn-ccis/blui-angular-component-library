@@ -5,9 +5,7 @@ The `<blui-channel-value>` component is used to display a channel value (and uni
 Icons are passed in as a child element of the `<blui-channel-value>` component.
 
 <div style="text-align:center; margin-bottom:20px">
-    <img width="100%" style="max-width: 600px" alt="Channel Value in Hero" src="./images/heroes.png">
-    <hr/>
-    <img width="100%" style="max-width: 600px" alt="Channel Value in a list item" src="./images/channelValue.png">
+    <img width="100%" style="max-width: 400px" alt="Channel Value in a list item" src="./images/channelValue.png">
 </div>
 
 ## Usage
@@ -31,16 +29,16 @@ Parent element (`<blui-channel-value>`) attributes:
 
 <div style="overflow: auto;">
 
-| @Input     | Description                                    | Type                             | Required | Default |
-|------------| ---------------------------------------------- | -------------------------------- | -------- | ------  |
-| prefix     | If true, shows units before the value          | `boolean`                        | no       | false   |
-| units      | Text to display for the units                  | `string`                         | no       |         |
-| unitSpace* | Show/Hide spacing between the value and units  | `'auto'` \| `'hide'` \| `'show'` | no       | 'auto'  |
-| value      | Text to display for the value                  | `string` \| `number`             | yes      |         |
+| @Input     | Description                                    | Type                             | Required | Default  |
+|------------| ---------------------------------------------- | -------------------------------- | -------- |----------|
+| prefix     | If true, shows units before the value          | `boolean`                        | no       | false    |
+| units      | Text to display for the units                  | `string`                         | no       |          |
+| unitSpace* | Show/Hide spacing between the value and units  | `'auto'` \| `'hide'` \| `'show'` | no       | `'auto'`  |
+| value      | Text to display for the value                  | `string` \| `number`             | yes      |          |
 
 </div>
 
-> *Setting unitSpace to 'auto' will show a space for all units except for '%', '℉', '°C', and '°'. When prefix is true, the space will be shown for all units except for '$'.
+> *Setting `unitSpace` to 'auto' will show a space for all units except for '%', '℉', '°C', and '°'. When prefix is true, the space will be shown for all units except for '$'.
 
 The following child element is projected into `<blui-channel-value>`:
 

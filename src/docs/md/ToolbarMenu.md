@@ -1,6 +1,6 @@
 # Toolbar Menu
 
-The `<blui-toolbar-menu>` component is used to display a dropdown menu with label, primarily inside of a `<mat-toolbar>`element. 
+The `<blui-toolbar-menu>` component is used to display a dropdown menu with label, primarily inside a `<mat-toolbar>` element. 
 
 <div style="text-align:center">
 <img width="100%" style="max-width:600px" alt="Toolbar Menu" src="./images/toolbarmenuAnatomy.png">

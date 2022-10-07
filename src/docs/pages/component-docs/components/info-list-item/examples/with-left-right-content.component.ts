@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-export const LEFT_CONTENT = `<blui-info-list-item>
+export const LEFT_RIGHT_CONTENT = `<blui-info-list-item>
     <mat-icon style="color: #007bc1" blui-icon>battery_charging_full</mat-icon>
     <div blui-left-content style="display: flex; flex-direction: column; margin-right: 40px">
         <div class="mat-caption"><strong>8:32 </strong> AM</div>
@@ -13,7 +13,7 @@ export const LEFT_CONTENT = `<blui-info-list-item>
 `;
 
 @Component({
-    selector: 'app-with-left-content-info-list-item-demo',
-    template: LEFT_CONTENT,
+    selector: 'app-with-left-right-content-info-list-item-demo',
+    template: LEFT_RIGHT_CONTENT,
 })
-export class WithLeftContentComponent {}
+export class WithLeftRightContentComponent {}

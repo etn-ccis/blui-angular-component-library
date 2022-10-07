@@ -9,7 +9,7 @@ import { FormControl, Validators } from '@angular/forms';
             <mat-hint *ngIf="isRequired && value">{{ hint }}</mat-hint>
             <mat-hint *ngIf="isRequired && !value">{{ label }} is required</mat-hint>
             <mat-hint *ngIf="!isRequired">{{ hint }}</mat-hint>
-            <input matInput [(ngModel)]="value" (ngModelChange)="valueChange.emit($event)" [formControl]="control" />
+            <input matInput (ngModelChange)="valueChange.emit($event)" [formControl]="control" />
         </mat-form-field>
     `,
 })

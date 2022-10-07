@@ -1,5 +1,16 @@
 @use '@brightlayer-ui/colors/palette.scss' as blui;
 
+@mixin code-snippet($divider) {
+    color: map-get(blui.$blui-black, 500);
+    background: map-get(blui.$blui-white, 200);
+    border: solid 1px $divider;
+}
+
+@mixin code-snippet-href() {
+    color: map-get(blui.$blui-blue, 500);
+    background: rgba(#007bc1, 0.05);
+}
+
 @mixin light-theme() {
     $primary: map-get(blui.$blui-blue, 500);
     $divider: rgba(map-get(blui.$blui-black, 500), 0.12);
@@ -30,6 +41,16 @@
         border-left: solid 1px $divider;
     }
 
+    .example-description,
+    .doc-tab-content {
+        a code:not(.language-typescript) {
+            @include code-snippet-href();
+        }
+        code:not(.language-typescript) {
+            @include code-snippet($divider);
+        }
+    }
+
     .emptySelectOption {
         border-bottom: solid 1px $divider;
     }
@@ -50,6 +71,7 @@
             }
         }
     }
+
     .fixed-tab-group-banner {
         box-sizing: border-box;
         border-bottom: solid 1px $divider;
@@ -63,23 +85,12 @@
         h2 {
             border-bottom: 1px solid rgb(213, 216, 218);
         }
-        code {
-            background: map-get(blui.$blui-black, 50);
-        }
         blockquote {
-            border-left-color: $primary !important;
-            background-color: map-get(blui.$blui-black, 50);
+            border-left-color: map-get(blui.$blui-gray, 100) !important;
         }
         table {
             $border: map-get(blui.$blui-black, 100);
             border: solid 1px $border;
-            * {
-                box-sizing: border-box;
-            }
-            tr td {
-                padding: 6px 13px;
-                border: unset;
-            }
             tr {
                 border-bottom: 1px solid $border;
             }

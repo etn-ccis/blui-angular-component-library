@@ -1,3 +1,8 @@
+/* Mobile Styles */
+.sm .tabs-container .mat-tab-header {
+    top: 56px !important;
+}
+
 .scaffold-container {
     display: flex;
     flex-direction: column;
@@ -38,12 +43,18 @@
         }
 
         /* Examples Section */
-        .examples-tab-content-wrapper {
+        .example-demo-wrapper {
+            border-radius: 4px;
+        }
+        $marginSide: 24px;
+
+        .examples-tab-content-wrapper,
+        .doc-tab-content {
             padding: 48px 0px 32px 0px;
 
-            @media only screen and (max-width: 1590px) {
-                margin-left: 32px;
-                margin-right: 32px;
+            @media only screen and (max-width: 1560px) {
+                margin-left: $marginSide;
+                margin-right: $marginSide;
             }
 
             > div {
@@ -62,7 +73,6 @@
 
         /* API (README) Section */
         .doc-tab-content {
-            padding: 48px 32px 32px 32px;
             img {
                 margin: 16px 0px;
             }
@@ -99,28 +109,27 @@
                 margin: 0;
                 border-left: solid 4px;
                 padding-left: 16px;
-                margin-bottom: 24px;
+                margin-bottom: 36px;
             }
             div {
                 width: 100%;
-                max-width: calc(100vw - 64px);
+                max-width: calc(100vw - calc(2 * $marginSide));
                 display: block;
                 margin-bottom: 24px;
+                table {
+                    margin-bottom: 0;
+                }
             }
             table {
-                margin-bottom: 8px;
                 width: 100%;
-                box-sizing: border-box;
                 border-collapse: collapse;
-                tr th {
-                    border: unset;
-                    border-left: 0;
-                    border-right: 0;
+                border-radius: 4px;
+                margin-bottom: 24px;
+                * {
+                    box-sizing: border-box;
                 }
-                tr {
-                    &:last-of-type {
-                        border-bottom: 0;
-                    }
+                tr td {
+                    padding: 1rem;
                 }
                 tr th {
                     text-align: left;
@@ -167,6 +176,7 @@
         .mat-checkbox-label,
         .mat-select-value-text {
             font-family: monospace;
+            white-space: pre-wrap;
         }
         .non-prop {
             input,

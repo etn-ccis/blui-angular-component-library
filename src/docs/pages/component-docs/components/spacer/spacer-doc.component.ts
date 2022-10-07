@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { FLEX } from './examples/flex.component';
 import { PIXELS } from './examples/pixel.component';
 import { DRAWER_NAV_ITEMS } from '../../../../navigation/nav-items';
-import { TabName } from '../../shared/scaffold/scaffold.component';
+import { Tab } from '../../shared/scaffold/scaffold.component';
 
 @Component({
     selector: 'app-spacer-doc',
@@ -51,7 +51,7 @@ export class SpacerDocComponent {
     PIXELS = PIXELS;
 
     createRouterLink(route: string): string {
-        const tab: TabName = 'examples';
+        const tab: Tab = 'examples';
         return `/${route}/${tab}`;
     }
 }

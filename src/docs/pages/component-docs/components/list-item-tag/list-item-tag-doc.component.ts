@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { BASIC } from './examples/basic.component';
 import { COMPLEX } from './examples/complex.component';
-import { TabName } from '../../shared/scaffold/scaffold.component';
+import { Tab } from '../../shared/scaffold/scaffold.component';
 import { COMPONENT_NAV_ITEMS } from '../../../../navigation/nav-items';
 import { ListItemTagPlaygroundKnobs } from './examples/playground.component';
 
@@ -99,7 +99,7 @@ export class ListItemTagDocComponent {
     }
 
     createRouterLink(route: string): string {
-        const tab: TabName = 'examples';
+        const tab: Tab = 'examples';
         return `/${route}/${tab}`;
     }
 }

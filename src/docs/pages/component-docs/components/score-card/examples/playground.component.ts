@@ -125,7 +125,7 @@ export class PlaygroundComponent implements OnDestroy {
     ${this._playgroundService.addOptionalProp(this.inputs, 'headerInfo')}
     ${this._playgroundService.addOptionalProp(this.inputs, 'badgeOffset')}
     [headerTitle]="${this.inputs.headerTitle.value}">
-   <ng-container blui-action-items>
+    <ng-container blui-action-items>
         <mat-icon>star</mat-icon>
         <mat-icon>settings</mat-icon>
         <mat-icon>more_vert</mat-icon>

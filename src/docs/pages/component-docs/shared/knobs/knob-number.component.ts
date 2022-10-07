@@ -19,7 +19,6 @@ import { FormControl, Validators } from '@angular/forms';
                 [class.hiddenArrows]="true"
                 [formControl]="control"
                 matInput
-                [(ngModel)]="value"
                 (ngModelChange)="valueChange.emit($event)"
             />
         </mat-form-field>
@@ -84,6 +83,7 @@ export class KnobNumberComponent {
 
     updateValue(e: MatSliderChange): void {
         this.value = e.value;
+        this.control.setValue(e.value);
         this.valueChange.emit(e.value);
     }
 
