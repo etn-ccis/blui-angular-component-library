@@ -38,7 +38,7 @@ Parent element (`<blui-channel-value>`) attributes:
 
 </div>
 
-> *Setting unitSpace to 'auto' will show a space for all units except for '%', '℉', '°C', and '°'. When prefix is true, the space will be shown for all units except for '$'.
+> *Setting `unitSpace` to 'auto' will show a space for all units except for '%', '℉', '°C', and '°'. When prefix is true, the space will be shown for all units except for '$'.
 
 The following child element is projected into `<blui-channel-value>`:
 
