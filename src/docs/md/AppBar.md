@@ -33,14 +33,14 @@ Parent element (`<blui-app-bar>`) attributes:
 | @Input                   | Description                                            | Type                                      | Required | Default                          |
 | ------------------------ |--------------------------------------------------------| ----------------------------------------- | -------- | -------------------------------- |
 | collapsedHeight          | Height of the AppBar when collapsed                    | `number`                                  | no       | theme default                    |
-| color                    | Color variant which is passed to the `<mat-toolbar>`   | `'primary'` \| `'accent'` \| `'warn'`     | no       | 'primary'                        |
+| color                    | Color variant which is passed to the `<mat-toolbar>`   | `'primary'` \| `'accent'` \| `'warn'`     | no       | `'primary'`                        |
 | expandedHeight           | Height of the AppBar when expanded                     | `number`                                  | no       | 200                              |
 | collapsedChange          | Event emitter for when the appbar opens or closes      | `EventEmitter<boolean>`                   | no       |                                  |
 | scrollContainerElement   | Scrollable element which dynamic app bar responds to   | `Element`                                 | no       |                                  |
 | scrollContainerClassName | Class name, index number of scrollable element         | `{ name: string, index: number }`         | no       |                                  |
 | scrollContainerId        | Id of the scrollable element                           | `string`                                  | no       |                                  |
 | scrollThreshold          | Distance in pixels to scroll before collapsing toolbar | `number`                                  | no       | expandedHeight - collapsedHeight |
-| variant                  | Behavior of the App Bar                                | `'expanded'` \| `'collapsed'` \| `'snap'` | no       | 'collapsed'                      |
+| variant                  | Behavior of the App Bar                                | `'expanded'` \| `'collapsed'` \| `'snap'` | no       | `'collapsed'`                      |
 
 </div>
 
