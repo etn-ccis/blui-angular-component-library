@@ -122,19 +122,13 @@ jobs:
             name: Build Documentation Site
             command: |
               if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
-                yarn build:demo --base-href=/angular/
+                yarn build:demo --base-href=/angular/ -c production
+                STORYBOOK_GA_ID=$MASTER_GA
               else
-                yarn build:demo --base-href=/angular-dev/
+                yarn build:demo --base-href=/angular-dev/ -c development
+                STORYBOOK_GA_ID=$DEV_GA
               fi
               cp src/404.html build
-              
-              # master and dev branches should configure Google Analytics IDs before the build.
-              # if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
-              #   STORYBOOK_GA_ID=$MASTER_GA
-              # fi
-              # if [ $CIRCLE_BRANCH == $DEV_BRANCH ]; then
-              #   STORYBOOK_GA_ID=$DEV_GA
-              # fi
               cd build
               touch .nojekyll
         - persist_to_workspace:
