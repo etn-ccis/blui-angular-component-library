@@ -123,10 +123,8 @@ jobs:
             command: |
               if [ $CIRCLE_BRANCH == $MASTER_BRANCH ]; then
                 yarn build:demo --base-href=/angular/ -c production
-                STORYBOOK_GA_ID=$MASTER_GA
               else
                 yarn build:demo --base-href=/angular-dev/ -c development
-                STORYBOOK_GA_ID=$DEV_GA
               fi
               cp src/404.html build
               cd build
