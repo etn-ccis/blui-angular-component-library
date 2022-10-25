@@ -27,6 +27,8 @@ import { AppRoutingModule } from './app.routing';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ComponentDocsModule } from './pages/component-docs/component-docs.module';
 import { MatChipsModule } from '@angular/material/chips';
+import { environment } from '../environments/environment';
+import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
 
 @NgModule({
     declarations: [AppComponent, NavigationComponent],
@@ -45,6 +47,8 @@ import { MatChipsModule } from '@angular/material/chips';
         MatIconModule,
         RouterModule,
         MatChipsModule,
+        NgxGoogleAnalyticsModule.forRoot(environment.ga),
+        NgxGoogleAnalyticsRouterModule,
     ],
     bootstrap: [AppComponent],
 })

@@ -108,8 +108,30 @@
                 ],
                 "outputHashing": "all"
               },
-              "npm": {
-                "tsConfig": "config/tsconfig.npm.json",
+              "development": {
+                "tsConfig": "config/tsconfig.app.json",
+                "budgets": [
+                  {
+                    "type": "initial",
+                    "maximumWarning": "500kb",
+                    "maximumError": "2mb"
+                  },
+                  {
+                    "type": "anyComponentStyle",
+                    "maximumWarning": "10kb",
+                    "maximumError": "20kb"
+                  }
+                ],
+                "fileReplacements": [
+                  {
+                    "replace": "src/environments/environment.ts",
+                    "with": "src/environments/environment.dev.ts"
+                  }
+                ],
+                "outputHashing": "all"
+              },
+              "local": {
+                "tsConfig": "config/tsconfig.app.json",
                 "buildOptimizer": false,
                 "optimization": false,
                 "vendorChunk": true,
@@ -117,8 +139,8 @@
                 "sourceMap": true,
                 "namedChunks": true
               },
-              "development": {
-                "tsConfig": "config/tsconfig.app.json",
+              "npm": {
+                "tsConfig": "config/tsconfig.npm.json",
                 "buildOptimizer": false,
                 "optimization": false,
                 "vendorChunk": true,
@@ -132,14 +154,14 @@
           "serve": {
             "builder": "@angular-devkit/build-angular:dev-server",
             "configurations": {
-              "development": {
-                "browserTarget": "demo:build:development"
+              "local": {
+                "browserTarget": "demo:build:local"
               },
               "npm": {
                 "browserTarget": "demo:build:npm"
               }
             },
-            "defaultConfiguration": "development"
+            "defaultConfiguration": "local"
           },
           "extract-i18n": {
             "builder": "@angular-devkit/build-angular:extract-i18n",

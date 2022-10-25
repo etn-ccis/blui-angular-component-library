@@ -6343,6 +6343,13 @@ ngx-color-picker@12.0.1:
   dependencies:
     tslib "^2.3.0"
 
+ngx-google-analytics@^13.0.1:
+  version "13.0.1"
+  resolved "https://registry.yarnpkg.com/ngx-google-analytics/-/ngx-google-analytics-13.0.1.tgz#874a7714545ec9dd0769766b4e57fd55a51f4a6a"
+  integrity sha512-YAsBArqiImSaRFbyHGtwZuUYyKsEJiuqQOUAACf77/k+rfT3HEiOmak99/YqBd4P85LStNfXp8zpoMfBsERCNg==
+  dependencies:
+    tslib "^2.0.0"
+
 ngx-markdown@^13.0.0:
   version "13.1.0"
   resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-13.1.0.tgz#7c5aff7feb591aa4b51d049b55cd7b24d3e21720"
