@@ -10,6 +10,7 @@
 - Fixed `<blui-drawer-layout>` styles affecting deep nested`<blui-drawer>` children  ([#472](https://github.com/brightlayer-ui/angular-component-library/issues/472)).
 - Fixed `blui-title-content` not showing in `<blui-nav-group>`  ([#475](https://github.com/brightlayer-ui/angular-component-library/issues/475)).
 - Fixed `blui-app-bar` not listening to scroll containers when rendered in a `<ng-template>` ([#508](https://github.com/brightlayer-ui/angular-component-library/issues/508)).
+- Fixed `blui-score-card` `badgeOffset` not being updated correctly when set to 0 after initialization ([#534](https://github.com/brightlayer-ui/angular-component-library/issues/534)).
 
 ## v7.0.2 (June 8, 2022)
 
