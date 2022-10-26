@@ -7,7 +7,7 @@ import { MultipleGroupsComponent } from './examples/multiple-groups.component';
 import { WithSpacerComponent } from './examples/with-spacer.component';
 import { PlaygroundComponent } from './examples/playground.component';
 import { WithCustomContentComponent } from './examples/with-custom-content.component';
-import {RouterModule} from "@angular/router";
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [

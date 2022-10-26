@@ -6,8 +6,8 @@ import { MULTIPLE_GROUPS } from './examples/multiple-groups.component';
 import { SPACER } from './examples/with-spacer.component';
 import { NavGroupPlaygroundKnobs } from './examples/playground.component';
 import { CUSTOM_CONTENT } from './examples/with-custom-content.component';
-import {Tab} from "../../../shared/scaffold/scaffold.component";
-import {COMPONENT_NAV_ITEMS} from "../../../../../navigation/nav-items";
+import { Tab } from '../../../shared/scaffold/scaffold.component';
+import { COMPONENT_NAV_ITEMS } from '../../../../../navigation/nav-items';
 
 @Component({
     selector: 'app-drawer-nav-group-doc',
@@ -36,7 +36,7 @@ import {COMPONENT_NAV_ITEMS} from "../../../../../navigation/nav-items";
                         <a [routerLink]="createRouterLink(routes.spacer.route)">
                             <code>&lt;blui-spacer&gt;</code>
                         </a>
-                        
+
                         component.
                     </div>
                     <div class="example-demo-wrapper">
