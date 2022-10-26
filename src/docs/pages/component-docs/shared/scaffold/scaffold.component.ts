@@ -256,6 +256,8 @@ export class ScaffoldComponent implements OnInit, OnDestroy {
 
     /** Called when a user clicks a tab. */
     userChangeTab(event: MatTabChangeEvent): void {
+        /* This triggers a code-highlighting event. */
+        window.dispatchEvent(new Event('resize'));
         const tabName = this._tabIndexToName(event.index);
         this._tabService.setActiveTab(tabName);
         this.updateRouteFromTab(tabName);

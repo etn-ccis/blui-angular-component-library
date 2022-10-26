@@ -6,6 +6,8 @@ import { MULTIPLE_GROUPS } from './examples/multiple-groups.component';
 import { SPACER } from './examples/with-spacer.component';
 import { NavGroupPlaygroundKnobs } from './examples/playground.component';
 import { CUSTOM_CONTENT } from './examples/with-custom-content.component';
+import {Tab} from "../../../shared/scaffold/scaffold.component";
+import {COMPONENT_NAV_ITEMS} from "../../../../../navigation/nav-items";
 
 @Component({
     selector: 'app-drawer-nav-group-doc',
@@ -31,7 +33,11 @@ import { CUSTOM_CONTENT } from './examples/with-custom-content.component';
                     <div class="example-heading">Spacing the Groups</div>
                     <div class="example-description">
                         If you want to add an extra space between your groups, you can use a
-                        <code>&lt;blui-spacer&gt;</code> component.
+                        <a [routerLink]="createRouterLink(routes.spacer.route)">
+                            <code>&lt;blui-spacer&gt;</code>
+                        </a>
+                        
+                        component.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-spacer-between-nav-group-demo></app-spacer-between-nav-group-demo>
@@ -69,6 +75,8 @@ import { CUSTOM_CONTENT } from './examples/with-custom-content.component';
     styleUrls: ['./drawer-nav-group-doc.component.scss'],
 })
 export class DrawerNavGroupDocComponent {
+    routes = COMPONENT_NAV_ITEMS;
+
     md: string;
     BASIC = BASIC;
     MULTIPLE_GROUPS = MULTIPLE_GROUPS;
@@ -111,5 +119,10 @@ export class DrawerNavGroupDocComponent {
             const subsection = this._splitService.subsection(data, delimiterTop, delimiterBottom);
             this.md = subsection.replace('images/', 'src/assets/md/images/');
         });
+    }
+
+    createRouterLink(route: string): string {
+        const tab: Tab = 'examples';
+        return `/${route}/${tab}`;
     }
 }

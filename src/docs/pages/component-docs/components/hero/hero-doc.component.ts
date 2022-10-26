@@ -64,7 +64,7 @@ import { HeroPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Icon Formatting</div>
                     <div class="example-description">
-                        The primary icon of a Hero can be provided in a variety of formats and sizes.
+                        The primary icon of a Hero supports a variety of sizes and formats.
                     </div>
                     <div class="example-demo-wrapper">
                         <app-icon-diffs-hero-demo></app-icon-diffs-hero-demo>

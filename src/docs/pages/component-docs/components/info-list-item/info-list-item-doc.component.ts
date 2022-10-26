@@ -16,7 +16,7 @@ import { LEFT_RIGHT_CONTENT } from './examples/with-left-right-content.component
                 <div class="example-section">
                     <div class="example-heading">Info List Item</div>
                     <div class="example-description">
-                        A <code>&lt;blui-info-list-item&gt;</code> is a wrapper around the Material List Item that
+                        A <code>&lt;blui-info-list-item&gt;</code> is a wrapper around the <a href="https://material.angular.io/components/list/overview" target="_blank">Angular Material List Item</a> that
                         provides convenient styling and content arrangement options. A basic use case displays a
                         combination of title, subtitle, and icon.
                     </div>

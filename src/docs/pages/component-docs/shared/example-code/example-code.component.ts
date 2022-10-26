@@ -29,6 +29,7 @@ export class ExampleCodeComponent {
     isHoverSnippet: boolean;
 
     ngAfterViewInit(): void {
+        /* This triggers a code-highlighting event. */
         window.dispatchEvent(new Event('resize'));
     }
 }
