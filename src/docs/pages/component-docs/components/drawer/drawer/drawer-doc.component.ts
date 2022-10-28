@@ -30,10 +30,10 @@ import { Tab } from '../../../shared/scaffold/scaffold.component';
                                 <a [routerLink]="createRouterLink(routes.drawerBody.route)"> Drawer Body </a>
                             </li>
                             <li>
-                                <a [routerLink]="createRouterLink(routes.drawerNavItem.route)"> Drawer Nav Item </a>
+                                <a [routerLink]="createRouterLink(routes.drawerNavGroup.route)"> Drawer Nav Group </a>
                             </li>
                             <li>
-                                <a [routerLink]="createRouterLink(routes.drawerNavGroup.route)"> Drawer Nav Group </a>
+                                <a [routerLink]="createRouterLink(routes.drawerNavItem.route)"> Drawer Nav Item </a>
                             </li>
                             <li>
                                 <a [routerLink]="createRouterLink(routes.drawerFooter.route)"> Drawer Footer </a>

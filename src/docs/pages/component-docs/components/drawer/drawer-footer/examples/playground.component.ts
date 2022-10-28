@@ -18,7 +18,9 @@ export type DrawerFooterPlaygroundKnobs = {
         </blui-drawer-header>
         <blui-drawer-body>
             <blui-drawer-nav-group>
-                <blui-drawer-nav-item title="Nav Item"></blui-drawer-nav-item>
+                <blui-drawer-nav-item title="Nav Item 1">
+                    <mat-icon blui-icon>looks_one</mat-icon>
+                </blui-drawer-nav-item>
             </blui-drawer-nav-group>
         </blui-drawer-body>
         <blui-drawer-footer
@@ -76,7 +78,9 @@ export class PlaygroundComponent implements OnDestroy {
     </blui-drawer-header>
     <blui-drawer-body>
         <blui-drawer-nav-group>
-            <blui-drawer-nav-item title="Nav Item"></blui-drawer-nav-item>
+            <blui-drawer-nav-item title="Nav Item 1">
+                <mat-icon blui-icon>looks_one</mat-icon>
+            </blui-drawer-nav-item>
         </blui-drawer-nav-group>
     </blui-drawer-body>
     <blui-footer${this._playgroundService.addOptionalProp(

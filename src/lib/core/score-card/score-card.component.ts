@@ -28,7 +28,7 @@ import { requireInput } from '../../utils/utils';
             <mat-card-content>
                 <div class="blui-score-card-body">
                     <ng-content select="[blui-body]"></ng-content>
-                    <div class="blui-score-card-badge-wrapper" [style.marginTop.px]="badgeOffset || 'inherit'">
+                    <div class="blui-score-card-badge-wrapper" [style.marginTop.px]="getBadgeOffset()">
                         <ng-content select="[blui-badge]"></ng-content>
                     </div>
                 </div>
@@ -62,5 +62,12 @@ export class ScoreCardComponent {
 
     ngOnChanges(): void {
         requireInput<ScoreCardComponent>(['headerTitle'], this);
+    }
+
+    getBadgeOffset(): string | number {
+        if (isNaN(this.badgeOffset)) {
+            return 'inherit';
+        }
+        return this.badgeOffset;
     }
 }

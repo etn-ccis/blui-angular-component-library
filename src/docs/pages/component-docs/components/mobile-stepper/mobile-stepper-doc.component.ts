@@ -13,7 +13,7 @@ import { MobileStepperPlaygroundKnobs } from './examples/playground.component';
                 <div class="example-section">
                     <div class="example-heading">Mobile Stepper</div>
                     <div class="example-description">
-                        A <code>&lt;blui-mobile-stepper&gt;</code> shows a user their progress while completing a
+                        A <code>&lt;blui-mobile-stepper&gt;</code> shows users their progress while completing a
                         workflow. Back and Next buttons can be projected to navigate through the steps. You can
                         configure the Mobile Stepper to show progress via dots, text or an
                         <a href="https://material.angular.io/components/progress-bar/overview" target="_blank">

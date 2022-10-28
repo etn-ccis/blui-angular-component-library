@@ -7,6 +7,7 @@ import { MultipleGroupsComponent } from './examples/multiple-groups.component';
 import { WithSpacerComponent } from './examples/with-spacer.component';
 import { PlaygroundComponent } from './examples/playground.component';
 import { WithCustomContentComponent } from './examples/with-custom-content.component';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
     declarations: [
@@ -17,7 +18,7 @@ import { WithCustomContentComponent } from './examples/with-custom-content.compo
         WithSpacerComponent,
         PlaygroundComponent,
     ],
-    imports: [DrawerModule, ListItemTagModule, SharedCompDocsModule],
+    imports: [DrawerModule, ListItemTagModule, SharedCompDocsModule, RouterModule],
     exports: [DrawerNavGroupDocComponent],
 })
 export class DrawerNavGroupDocModule {}
