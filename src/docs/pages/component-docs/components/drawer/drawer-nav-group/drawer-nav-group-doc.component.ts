@@ -33,10 +33,7 @@ import { COMPONENT_NAV_ITEMS } from '../../../../../navigation/nav-items';
                     <div class="example-heading">Spacing the Groups</div>
                     <div class="example-description">
                         If you want to add an extra space between your groups, you can use a
-                        <a [routerLink]="createRouterLink(routes.spacer.route)">
-                            <code>&lt;blui-spacer&gt;</code>
-                        </a>
-
+                        <a [routerLink]="createRouterLink(routes.spacer.route)"> Spacer</a>
                         component.
                     </div>
                     <div class="example-demo-wrapper">
