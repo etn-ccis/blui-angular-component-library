@@ -91,7 +91,11 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     remSizePx: number;
     dirChangeSubscription = Subscription.EMPTY;
 
+    /** This is the immediate drawer child. */
     @ContentChild(DrawerComponent) drawer: DrawerComponent;
+
+    /** Whenever there is not an immediate drawer child (nested content), listen for new state instance created. */
+    drawerInstanceCreatedListener: Subscription;
 
     content: HTMLElement;
 
@@ -100,8 +104,16 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
         changeDetectorRef: ChangeDetectorRef,
         private readonly _dir: Directionality
     ) {
-        // The DrawerState that is created by the DrawerLayout is temporary & replaced by the DrawerState found by its Drawer child.
+        // The DrawerState that is created by the DrawerStateManagerService is temporary & replaced by the DrawerState found by its Drawer child.
         super(stateManagerService, changeDetectorRef, true);
+        this.drawerInstanceCreatedListener = stateManagerService.newStateInstanceSubject.subscribe((drawerState) => {
+            // If there is no immediate drawer child, listen for a drawer state creation event and use that state.
+            if (!this.drawer) {
+                this.drawerState = drawerState;
+                this.drawerState.setDrawerVariant(this.variant);
+                this.drawerInstanceCreatedListener.unsubscribe();
+            }
+        });
         this.dirChangeSubscription = _dir.change.subscribe((direction: Direction) => {
             this.isRtl = direction === 'rtl';
             changeDetectorRef.detectChanges();
@@ -110,10 +122,12 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
 
     ngAfterViewInit(): void {
         this.isRtl = this._dir.value === 'rtl';
-        // Drawer Layout gets its DrawerState instance from its immediate DrawerComponent child.
-        this.drawerState = this.drawer.drawerState;
-        this.drawerState.setDrawerVariant(this.variant);
-        this.changeDetector.detectChanges();
+        // Drawer Layout attempts to get its DrawerState instance from its immediate DrawerComponent child.
+        if (this.drawer) {
+            this.drawerState = this.drawer.drawerState;
+            this.drawerState.setDrawerVariant(this.variant);
+            this.changeDetector.detectChanges();
+        }
     }
 
     ngOnChanges(simpleChanges: SimpleChanges): void {
@@ -142,6 +156,9 @@ export class DrawerLayoutComponent extends StateListener implements AfterViewIni
     ngOnDestroy(): void {
         this.unsubscribeListeners();
         this.dirChangeSubscription.unsubscribe();
+        if (this.drawerInstanceCreatedListener) {
+            this.drawerInstanceCreatedListener.unsubscribe();
+        }
     }
 
     getMode(): MatDrawerMode {
