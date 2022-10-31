@@ -80,6 +80,7 @@ export class DrawerComponent extends StateListener implements OnInit, OnChanges 
     /** Drawer component instantiates a new DrawerState object when it is constructed. */
     constructor(stateManagerService: DrawerStateManagerService, changeDetectorRef: ChangeDetectorRef) {
         super(stateManagerService, changeDetectorRef, true);
+        this.broadcastDrawerStateCreated();
     }
 
     ngOnInit(): void {

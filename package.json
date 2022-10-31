@@ -1,6 +1,6 @@
 {
     "name": "@brightlayer-ui/angular-components",
-    "version": "7.0.3-beta.4",
+    "version": "7.0.3",
     "description": "Angular components for Brightlayer UI applications",
     "main": "index.js",
     "prettier": "@brightlayer-ui/prettier-config",
@@ -9,7 +9,7 @@
         "install:dependencies": "yarn && cd showcase && yarn",
         "start": "ng serve demo -c local --open --host 0.0.0.0",
         "start:npm": "ng serve demo -c npm --open",
-        "start:showcase": "yarn initialize && yarn install:dependencies && cd showcase && yarn start",
+        "start:showcase": "yarn initialize && yarn install:dependencies && cd showcase && yarn start:lib",
         "build:demo": "ng build demo",
         "build:lib": "bash scripts/buildLib.sh",
         "prettier": "prettier \"src/**/**.{ts,js,json,css,scss,html}\" --write",
@@ -24,7 +24,17 @@
         "tag:package": "yarn tag:package",
         "precommit": "yarn initialize && yarn install:dependencies && yarn prettier && yarn lint && yarn test:ci && yarn build && yarn test:artifacts && yarn generate:licenses",
         "generate:licenses": "npm-license-crawler -onlyDirectDependencies -json LICENSES.json",
-        "update:submodule": "git submodule update --remote"
+        "update:submodule": "git submodule update --remote",
+        "watch:showcase": "npm-watch",
+        "copy-to-showcase": "cp -r src/lib/. showcase/src/lib/"
+    },
+    "watch": {
+        "copy-to-showcase": {
+            "patterns": ["src"],
+            "extensions": "ts,html,scss",
+            "quiet": false,
+            "runOnChangeOnly": false
+        }
     },
     "repository": {
         "type": "git",

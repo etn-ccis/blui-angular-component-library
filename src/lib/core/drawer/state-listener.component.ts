@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, OnDestroy, OnInit, Directive, Injectable } from '@angular/core';
-import { Subscription } from 'rxjs';
+import { Subject, Subscription } from 'rxjs';
 import { DrawerState } from './drawerState';
 
 const stateMap = new Map<number, DrawerState>();
@@ -10,6 +10,7 @@ const stateMap = new Map<number, DrawerState>();
 })
 export class DrawerStateManagerService {
     private numberOfDrawerStateInstances = 0;
+    newStateInstanceSubject: Subject<DrawerState> = new Subject<DrawerState>();
 
     incrementNumberOfDrawerStateInstances(): number {
         this.numberOfDrawerStateInstances++;
@@ -45,6 +46,10 @@ export class StateListener implements OnInit, OnDestroy {
         const drawerId = this.drawerStateManagerService.getNumberOfDrawerStateInstances();
         stateMap.set(drawerId, newDrawerStateInstance);
         this.drawerState = newDrawerStateInstance;
+    }
+
+    public broadcastDrawerStateCreated(): void {
+        this.drawerStateManagerService.newStateInstanceSubject.next(this.drawerState);
     }
 
     public ngOnInit(): void {
