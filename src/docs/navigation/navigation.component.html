@@ -1,0 +1,58 @@
+<blui-drawer-layout [variant]="getVariant()" (backdropClick)="closeDrawer()" [width]="300">
+    <blui-drawer blui-drawer [open]="isOpen()" [sideBorder]="true" class="app-navigation-drawer">
+        <blui-drawer-header>
+            <div blui-title-content style="display: flex; flex-direction: column; justify-content: center">
+                <div class="mat-subheading-1">Brightlayer User Interface</div>
+                <div style="display: flex; align-items: center">
+                    <div class="mat-body-2">Developer Docs</div>
+                    <mat-chip-list class="framework-chip">
+                        <mat-chip>
+                            <img
+                                matChipAvatar
+                                src="assets/angular-shield.svg"
+                                style="background-color: unset; height: 16px; width: 16px"
+                            />
+                            <div>Angular</div>
+                        </mat-chip>
+                    </mat-chip-list>
+                </div>
+            </div>
+        </blui-drawer-header>
+        <blui-drawer-body>
+            <blui-drawer-nav-group title="Components" [divider]="false">
+                <blui-drawer-nav-item
+                    *ngFor="let navItem of componentNavItems"
+                    [title]="navItem.title"
+                    [hidePadding]="true"
+                    [selected]="navItem.title === getSelectedItem()"
+                    activeItemBackgroundShape="round"
+                    (select)="selectItem(navItem)"
+                >
+                    <blui-drawer-nav-item
+                        *ngFor="let nestedNavItem of navItem.children"
+                        [title]="nestedNavItem.title"
+                        [hidePadding]="false"
+                        [selected]="nestedNavItem.title === getSelectedItem()"
+                        activeItemBackgroundShape="round"
+                        (select)="selectItem(nestedNavItem)"
+                    >
+                    </blui-drawer-nav-item>
+                </blui-drawer-nav-item>
+            </blui-drawer-nav-group>
+        </blui-drawer-body>
+    </blui-drawer>
+    <div blui-content class="drawer-content" [class.md]="isMedium()" [class.sm]="isSmall()">
+        <mat-toolbar class="toolbar">
+            <button
+                mat-icon-button
+                *ngIf="variant === 'temporary'"
+                (click)="openDrawer()"
+                style="margin-right: 16px; margin-left: -16px"
+            >
+                <mat-icon>menu</mat-icon>
+            </button>
+            <h2>{{ toolbarTitle }}</h2>
+        </mat-toolbar>
+        <router-outlet></router-outlet>
+    </div>
+</blui-drawer-layout>

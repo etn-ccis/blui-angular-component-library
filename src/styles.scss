@@ -1,0 +1,84 @@
+@use '@brightlayer-ui/colors/palette.scss' as blui;
+@use './themes/doc-light.scss';
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.blui-blue {
+    @include doc-light.light-theme();
+}
+
+// This is required for the demos, otherwise will need to specify the height on the drawer in each demo.
+.app-example,
+.playground-container {
+    .blui-drawer-content blui-drawer-body {
+        overflow: unset;
+    }
+}
+
+.color-picker .arrow.arrow-bottom {
+    display: none;
+}
+/** Examples Pages */
+
+.app-example {
+    .example-page-title {
+        font-weight: 400;
+        font-size: 2.125rem;
+        margin-bottom: 1rem;
+    }
+
+    .example-heading {
+        font-weight: 600;
+        font-size: 1.25rem;
+    }
+    .example-section {
+        margin-bottom: 64px;
+    }
+    .example-demo-wrapper {
+        margin: 16px 0 0 0;
+        background-color: #eeeeee;
+        padding: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-sizing: border-box;
+        overflow: auto;
+    }
+    .example-actions {
+        padding-top: 16px;
+        display: flex;
+        justify-content: flex-end;
+    }
+    .example-description {
+        code {
+            background-color: #e7e7e7;
+        }
+    }
+    app-example-code {
+        display: flex;
+        overflow: auto;
+        margin-top: 16px;
+    }
+}
+
+$drawerWidth: 300px;
+$marginLeftRightSum: 48px;
+.app-example {
+    app-example-code,
+    .doc-tab-content,
+    .example-demo-wrapper {
+        max-width: min(1200px, calc(100vw - $drawerWidth - $marginLeftRightSum));
+    }
+}
+.md .app-example {
+    app-example-code,
+    .doc-tab-content,
+    .example-demo-wrapper {
+        max-width: calc(100vw - $marginLeftRightSum);
+    }
+}

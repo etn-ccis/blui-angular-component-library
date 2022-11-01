@@ -1,0 +1,22 @@
+{
+    "compileOnSave": false,
+    "compilerOptions": {
+      "baseUrl": ".",
+      "sourceMap": true,
+      "declaration": false,
+      "target": "es2015",
+      "module": "es2020",
+      "moduleResolution": "node",
+      "emitDecoratorMetadata": true,
+      "experimentalDecorators": true,
+      "importHelpers": true,
+        "paths": {
+            "@blui-lab/angular": ["src/lab"],
+        }, 
+        "lib": [
+            "es2018",
+            "dom"
+        ]
+    }
+}
+    

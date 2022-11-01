@@ -31,14 +31,9 @@ cd angular-component-library
 The library can be built by running the following command. The resulting output will be in the /dist folder.
 
 ```
-yarn build
+yarn build:lib
 ```
 
-There is also a demo project (/component-demo) in this repository that shows the components in use. You can automatically build the component library and link them to the node modules for the demo by running:
-
-```
-yarn link:components
-```
 
 ## Compatibility
 
@@ -50,24 +45,30 @@ The following table outlines which versions of Angular and Brightlayer UI resour
 | `^6.0.0`                           | `^6.3.0`                       | `^12.x`                      |
 | `^7.0.0`                           | `^7.0.0`                       | `^13.x`                      |
 
-## Running the demo projects
+## Peer Dependencies
 
-This repository comes with two demo projects found within the `/demos` folder.
-The first is a [Storybook](https://storybook.js.org/) application that allows you to see the components in isolation and interact with their properties. The second is a Showcase project that shows a combination of components in the context of a realistic interface.
+The following peer dependencies are added to `package.json`:
 
-You can build, link, and start the demo applications in a single step by calling either
+| Package Name      | Version |
+| ----------------- | ------- |
+| @angular/core     | ^13.0.0 |
+| @angular/material | ^13.0.0 |
+| @angular/cdk      | ^13.0.0 |
+
+## Running the Demo Projects
+
+To start the [documentation site](https://brightlayer-ui-components.github.io/angular) that is included in this repository, run:
+
+```
+yarn start
+```
+
+The second demo is a [showcase project](https://blui-angular-showcase.web.app/) that shows a combination of components in the context of a realistic interface.  To start the showcase, run: 
 
 ```
 yarn start:showcase
 ```
 
-or
-
-```
-yarn start:storybook
-```
-
-from the root directory.
 
 ## Using the Components
 

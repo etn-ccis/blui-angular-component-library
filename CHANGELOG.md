@@ -1,5 +1,17 @@
 # Change Log
 
+## v7.0.3 (October 31, 2022)
+
+### Fixed
+
+- Fixed incorrect styling of nested `<mat-drawer-content>` ([#463](https://github.com/brightlayer-ui/angular-component-library/issues/463)).
+- Fixed `<blui-drawer>` sharing a single instance of drawer state ([#453](https://github.com/brightlayer-ui/angular-component-library/issues/453)).
+- Fixed `<blui-drawer-header>` not responding to dynamic icon content. ([#473](https://github.com/brightlayer-ui/angular-component-library/issues/473)).
+- Fixed `<blui-drawer-layout>` styles affecting deep nested`<blui-drawer>` children  ([#472](https://github.com/brightlayer-ui/angular-component-library/issues/472)).
+- Fixed `blui-title-content` not showing in `<blui-nav-group>`  ([#475](https://github.com/brightlayer-ui/angular-component-library/issues/475)).
+- Fixed `blui-app-bar` not listening to scroll containers when rendered in a `<ng-template>` ([#508](https://github.com/brightlayer-ui/angular-component-library/issues/508)).
+- Fixed `blui-score-card` `badgeOffset` not being updated correctly when set to 0 after initialization ([#534](https://github.com/brightlayer-ui/angular-component-library/issues/534)).
+
 ## v7.0.2 (June 8, 2022)
 
 ### Fixed 

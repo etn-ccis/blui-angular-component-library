@@ -1,0 +1,46 @@
+.app-example-code {
+    border-radius: 4px;
+    display: flex;
+    height: 100%;
+    code,
+    pre {
+        font-family: monospace !important;
+    }
+    > code {
+        padding-left: 0 !important;
+    }
+    > pre > code {
+        display: inline-flex;
+    }
+    pre {
+        padding: 0 !important;
+        box-sizing: border-box;
+        margin: 0 !important;
+        width: 100%;
+        .line-highlight {
+            z-index: 2;
+            margin-top: 1rem; // Adjust me when font-size of pre > code changes.
+            width: 100% !important;
+        }
+        .line-highlight::before,
+        .line-highlight::after {
+            display: none; // No line numbers
+        }
+    }
+    pre.language-html {
+        padding-left: 2rem !important;
+        padding-top: 1rem !important;
+        padding-bottom: 1rem !important;
+    }
+    pre > code {
+        width: 100%;
+        box-sizing: border-box;
+        font-size: 1rem !important; // If this gets adjusted, the .line-hightlight margin needs adjusted.
+    }
+    pre[class*='language-']:before {
+        display: none !important;
+    }
+    pre[class*='language-']:after {
+        display: none !important;
+    }
+}
