@@ -106,6 +106,8 @@ jobs:
     build_documentation_site:
       docker:
         - image: cimg/node:14.19.0-browsers
+      environment:
+        - MASTER_BRANCH: master
       steps:
         - checkout
         - attach_workspace:
