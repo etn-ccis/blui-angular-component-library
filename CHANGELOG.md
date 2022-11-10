@@ -4,7 +4,11 @@
 
 ### Changed
 
--   Updated to Angular 14 for building the library.
+- Updated to Angular 14 for building the library.
+
+### Removed
+
+-   Removed `<blui-dropdown-toolbar>` component.
 
 ## v7.0.3 (October 31, 2022)
 

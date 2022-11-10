@@ -51,11 +51,13 @@ describe('UserMenuComponent', () => {
     });
 
     it('should initialize', () => {
+        component.open = false;
         fixture.detectChanges();
         void expect(component).toBeTruthy();
     });
 
     it('should render text in the avatar', () => {
+        component.open = false;
         component.avatarValue = 'HA';
         fixture.detectChanges();
         const avatar = fixture.nativeElement.querySelector('.blui-user-menu-avatar');
@@ -63,6 +65,7 @@ describe('UserMenuComponent', () => {
     });
 
     it('should render the menu open is true', () => {
+        component.open = false;
         fixture.detectChanges();
         let menu = document.getElementsByClassName('.blui-user-menu-overlay');
         void expect(menu).toBeTruthy();
