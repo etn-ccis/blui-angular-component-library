@@ -1,6 +1,6 @@
-import { Injectable } from '@angular/core';
 import { Subject } from 'rxjs';
 import { Knob } from '../../pages/component-docs/shared/scaffold/scaffold.component';
+import { Injectable } from '@angular/core';
 
 @Injectable({
     providedIn: 'root',
@@ -14,10 +14,11 @@ export class PlaygroundService {
             return '';
         }
         const type = knob.type;
+        const input = String(name);
         if (type === 'string' || type === 'color' || type === 'select') {
-            return `${prefixSpace ? ' ' : ''}${name}="${knob.value}"`;
+            return `${prefixSpace ? ' ' : ''}${input}="${knob.value}"`;
         }
-        return `${prefixSpace ? ' ' : ''}[${name}]="${knob.value}"`;
+        return `${prefixSpace ? ' ' : ''}[${input}]="${knob.value}"`;
     }
 
     removeEmptyLines(code: string): string {
