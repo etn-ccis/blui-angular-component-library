@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { UntypedFormControl, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-select-knob',
@@ -27,10 +27,10 @@ export class KnobSelectComponent {
     @Input() hint;
     @Input() label;
     @Output() valueChange = new EventEmitter<string>();
-    control: UntypedFormControl;
+    control: FormControl;
 
     ngOnInit(): void {
-        this.control = new UntypedFormControl(this.value, this.isRequired ? [Validators.required] : []);
+        this.control = new FormControl<string>(this.value, this.isRequired ? [Validators.required] : []);
         this.control.markAsTouched();
     }
 }

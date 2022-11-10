@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { UntypedFormControl } from '@angular/forms';
+import { FormControl } from '@angular/forms';
 
 @Component({
     selector: 'app-color-knob',
@@ -41,10 +41,10 @@ export class KnobColorComponent {
     @Output() valueChange = new EventEmitter<string>();
 
     hasValidColor: boolean;
-    colorInput = new UntypedFormControl('', []);
+    colorInput = new FormControl<string | null>('', []);
 
     ngOnInit(): void {
-        this.colorInput = new UntypedFormControl(this.value, []);
+        this.colorInput = new FormControl<string | null>(this.value, []);
         this.colorInput.markAsTouched();
         this.hasValidColor = this._checkValidColor();
     }
