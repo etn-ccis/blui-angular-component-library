@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { MatSliderChange } from '@angular/material/slider';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-number-knob',
@@ -72,12 +72,12 @@ export class KnobNumberComponent {
     @Input() label;
     @Input() isRequired: boolean;
     @Output() valueChange = new EventEmitter<number>();
-    control: FormControl;
+    control: UntypedFormControl;
 
     isOpen: boolean;
 
     ngOnInit(): void {
-        this.control = new FormControl(this.value, this.isRequired ? [Validators.required] : []);
+        this.control = new UntypedFormControl(this.value, this.isRequired ? [Validators.required] : []);
         this.control.markAsTouched();
     }
 

@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 
 @Component({
     selector: 'app-text-knob',
@@ -19,10 +19,10 @@ export class KnobTextComponent {
     @Input() hint: string;
     @Input() value: string;
     @Output() valueChange = new EventEmitter<string>();
-    control: FormControl;
+    control: UntypedFormControl;
 
     ngOnInit(): void {
-        this.control = new FormControl(this.value, this.isRequired ? [Validators.required] : []);
+        this.control = new UntypedFormControl(this.value, this.isRequired ? [Validators.required] : []);
         this.control.markAsTouched();
     }
 }
