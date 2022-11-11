@@ -20,12 +20,6 @@
     overflow: hidden;
     padding: 1rem 8px;
 
-    .blui-hero-primary-wrapper {
-        border-radius: 50%;
-        margin-bottom: 0.5rem;
-        text-align: center;
-    }
-
     .blui-hero-channel-value-wrapper {
         display: flex;
         font-size: 1.25rem;
@@ -45,6 +39,12 @@
     }
 
     .blui-hero-primary-wrapper {
+        border-radius: 50%;
+        margin-bottom: 0.5rem;
+        text-align: center;
+        .mat-icon {
+            overflow: visible;
+        }
         * {
             display: flex;
             align-items: center;
