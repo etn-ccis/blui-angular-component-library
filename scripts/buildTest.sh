@@ -51,7 +51,7 @@ echo "Checking Spacer..."
 echo -ne "  spacer.component: "
 if [ ! -f ./core/utility/spacer.module.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
-echo "Checking Toolbar Menur..."
+echo "Checking Toolbar Menu..."
 echo -ne "  dropdownToolbar.component: "
 if [ ! -f ./core/toolbar-menu/toolbar-menu.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
