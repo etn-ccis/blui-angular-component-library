@@ -41,10 +41,10 @@ export class KnobColorComponent {
     @Output() valueChange = new EventEmitter<string>();
 
     hasValidColor: boolean;
-    colorInput = new FormControl('', []);
+    colorInput = new FormControl<string | null>('', []);
 
     ngOnInit(): void {
-        this.colorInput = new FormControl(this.value, []);
+        this.colorInput = new FormControl<string | null>(this.value, []);
         this.colorInput.markAsTouched();
         this.hasValidColor = this._checkValidColor();
     }

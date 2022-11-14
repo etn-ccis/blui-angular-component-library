@@ -77,7 +77,7 @@ export class KnobNumberComponent {
     isOpen: boolean;
 
     ngOnInit(): void {
-        this.control = new FormControl(this.value, this.isRequired ? [Validators.required] : []);
+        this.control = new FormControl<number | null>(this.value, this.isRequired ? [Validators.required] : []);
         this.control.markAsTouched();
     }
 
