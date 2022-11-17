@@ -26,10 +26,11 @@
         margin-bottom: 1rem;
         line-height: 1;
         > * {
+            $size: 96px;
             display: block;
-            font-size: 96px;
-            height: 100%;
-            width: 100%;
+            font-size: $size;
+            height: $size;
+            width: $size;
             text-align: center;
         }
     }
