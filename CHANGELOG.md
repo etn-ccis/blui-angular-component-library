@@ -8,7 +8,11 @@
 
 ### Removed
 
--   Removed `<blui-dropdown-toolbar>` component.
+- Removed `<blui-dropdown-toolbar>` component.
+
+### Fixed
+
+- Fixed `<blui-empty-state>` not sizing non-material icons correctly. ([#530](https://github.com/brightlayer-ui/angular-component-library/issues/530)).
 
 ## v7.0.3 (October 31, 2022)
 
