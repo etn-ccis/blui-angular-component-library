@@ -1,6 +1,6 @@
 # Change Log
 
-## v8.0.0 (November 11, 2022)
+## v8.0.0 (November 21, 2022)
 
 ### Changed
 
