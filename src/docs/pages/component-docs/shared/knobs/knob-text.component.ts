@@ -22,7 +22,7 @@ export class KnobTextComponent {
     control: FormControl;
 
     ngOnInit(): void {
-        this.control = new FormControl(this.value, this.isRequired ? [Validators.required] : []);
+        this.control = new FormControl<string | null>(this.value, this.isRequired ? [Validators.required] : []);
         this.control.markAsTouched();
     }
 }

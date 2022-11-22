@@ -40,20 +40,21 @@ yarn build:lib
 The following table outlines which versions of Angular and Brightlayer UI resources will work together.
 
 | @brightlayer-ui/angular-components | @brightlayer-ui/angular-themes | @angular + @angular/material |
-| ---------------------------------- | ------------------------------ | ---------------------------- |
-| `^5.0.0`                           | `^6.1.0`                       | `^11.x`                      |
-| `^6.0.0`                           | `^6.3.0`                       | `^12.x`                      |
-| `^7.0.0`                           | `^7.0.0`                       | `^13.x`                      |
+|------------------------------------|--------------------------------|-----------------------------|
+| `^5.0.0`                           | `^6.1.0`                       | `^11.x`                     |
+| `^6.0.0`                           | `^6.3.0`                       | `^12.x`                     |
+| `^7.0.0`                           | `^7.0.0`                       | `^13.x`                     |
+| `^8.0.0`                           | `^8.0.0`                       | `^14.x`                     |
 
 ## Peer Dependencies
 
 The following peer dependencies are added to `package.json`:
 
 | Package Name      | Version |
-| ----------------- | ------- |
-| @angular/core     | ^13.0.0 |
-| @angular/material | ^13.0.0 |
-| @angular/cdk      | ^13.0.0 |
+| ----------------- |---------|
+| @angular/core     | ^14.0.0 |
+| @angular/material | ^14.0.0 |
+| @angular/cdk      | ^14.0.0 |
 
 ## Running the Demo Projects
 

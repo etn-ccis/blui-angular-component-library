@@ -1,5 +1,19 @@
 # Change Log
 
+## v8.0.0 (November 21, 2022)
+
+### Changed
+
+- Updated to Angular 14 for building the library.
+
+### Removed
+
+- Removed `<blui-dropdown-toolbar>` component.
+
+### Fixed
+
+- Fixed `<blui-empty-state>` not sizing non-material icons correctly. ([#530](https://github.com/brightlayer-ui/angular-component-library/issues/530)).
+
 ## v7.0.3 (October 31, 2022)
 
 ### Fixed

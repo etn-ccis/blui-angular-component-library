@@ -30,7 +30,7 @@ export class KnobSelectComponent {
     control: FormControl;
 
     ngOnInit(): void {
-        this.control = new FormControl(this.value, this.isRequired ? [Validators.required] : []);
+        this.control = new FormControl<string>(this.value, this.isRequired ? [Validators.required] : []);
         this.control.markAsTouched();
     }
 }

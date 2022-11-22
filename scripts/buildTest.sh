@@ -23,10 +23,6 @@ echo "Checking Drawer..."
 echo -ne "  drawer.component: "
 if [ ! -f ./core/drawer/drawer.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
-echo "Checking Dropdown Toolbar..."
-echo -ne "  dropdownToolbar.component: "
-if [ ! -f ./core/dropdown-toolbar/dropdown-toolbar.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
-
 echo "Checking EmptyState..."
 echo -ne "  empty-state.component: "
 if [ ! -f ./core/empty-state/empty-state.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
@@ -54,6 +50,10 @@ if [ ! -f ./core/score-card/score-card.component.d.ts  ]; then echo -e "${RED}No
 echo "Checking Spacer..."
 echo -ne "  spacer.component: "
 if [ ! -f ./core/utility/spacer.module.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
+
+echo "Checking Toolbar Menu..."
+echo -ne "  dropdownToolbar.component: "
+if [ ! -f ./core/toolbar-menu/toolbar-menu.component.d.ts  ]; then echo -e "${RED}Not Found${NC}" && exit 1; else echo -e "${GREEN}Found${NC}"; fi
 
 echo "Checking UserMenu..."
 echo -ne "  user-menu.component: "
