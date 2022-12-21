@@ -1,0 +1,10 @@
+# Specifically build for a version
+ng build demo --output-path build-v8
+
+# Aliases
+firebase target:apply hosting current blui-angular-docs
+firebase target:apply hosting v8 blui-angular-docs-v8
+
+# Pick which Aliases / versions to deploy
+firebase deploy --only hosting:v8
+firebase deploy --only hosting:current

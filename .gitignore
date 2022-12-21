@@ -24,3 +24,5 @@ coverage
 /showcase/src/lib/
 
 build
+build-v7
+build-v8
