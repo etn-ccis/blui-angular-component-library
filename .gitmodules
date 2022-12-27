@@ -1,4 +1,4 @@
 [submodule "showcase"]
 	path = showcase
-	url = https://github.com/etn-ccis/angular-showcase-demo.git
+	url = https://github.com/etn-ccis/blui-angular-showcase-demo.git
 	branch = dev
