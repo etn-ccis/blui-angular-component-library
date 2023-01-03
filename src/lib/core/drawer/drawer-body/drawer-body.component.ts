@@ -22,7 +22,7 @@ import { DrawerStateManagerService, StateListener } from '../state-listener.comp
                 flex-direction: column;
             }
             .blui-drawer-body-closed {
-                overflow: hidden;
+                overflow-x: hidden;
             }
         `,
     ],
