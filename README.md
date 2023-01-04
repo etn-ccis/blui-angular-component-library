@@ -5,7 +5,7 @@
 
 This is a library of custom components for use in Brightlayer UI applications. For the most part, these components are meant to simplify building your application by providing re-usable components that implement common use cases in Brightlayer UI and eliminating the need to multiple teams to build their own components for these.
 
-Refer to the [Component Library](https://brightlayer-ui-components.github.io/angular) API documentation site for a list of available components and the for each individual component.
+Refer to the [Component Library](https://brightlayer-ui-components.github.io/angular) API documentation site for a list of available components and the document for each individual component.
 
 ## Installation
 
