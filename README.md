@@ -1,11 +1,11 @@
 # Brightlayer UI Angular Components
 
-[![](https://img.shields.io/circleci/project/github/brightlayer-ui/angular-component-library/master.svg?style=flat)](https://circleci.com/gh/brightlayer-ui/angular-component-library/tree/master)
-![npm](https://img.shields.io/npm/v/@brightlayer-ui/angular-components?label=%40brightlayer-ui%2Fangular-components) [![codecov](https://codecov.io/gh/brightlayer-ui/angular-component-library/branch/master/graph/badge.svg?token=DB9EMVFAFJ)](https://codecov.io/gh/brightlayer-ui/angular-component-library)
+[![](https://img.shields.io/circleci/project/github/etn-ccis/blui-angular-component-library/master.svg?style=flat)](https://circleci.com/gh/etn-ccis/blui-angular-component-library/tree/master)
+![npm](https://img.shields.io/npm/v/@brightlayer-ui/angular-components?label=%40brightlayer-ui%2Fangular-components) [![codecov](https://codecov.io/gh/etn-ccis/blui-angular-component-library/branch/master/graph/badge.svg?token=DB9EMVFAFJ)](https://codecov.io/gh/etn-ccis/blui-angular-component-library)
 
 This is a library of custom components for use in Brightlayer UI applications. For the most part, these components are meant to simplify building your application by providing re-usable components that implement common use cases in Brightlayer UI and eliminating the need to multiple teams to build their own components for these.
 
-Refer to the [Component Library](https://brightlayer-ui-components.github.io/angular/?path=/story/intro-welcome--to-brightlayer-ui) API documentation site for a list of available components or see the repository the [documentation](https://github.com/brightlayer-ui/angular-component-library/tree/master/docs) for each individual component.
+Refer to the [Component Library](https://brightlayer-ui-components.github.io/angular) API documentation site for a list of available components or see the repository the [documentation](https://github.com/brightlayer-ui/angular-component-library/tree/master/docs) for each individual component.
 
 ## Installation
 
@@ -17,14 +17,14 @@ yarn add @brightlayer-ui/angular-components
 
 > **NOTE**: This install command will install the package from NPM. If you are a Brightlayer UI developer working with components locally, you will want to follow the manual linking instructions - see below.
 
-> **NOTE**: This component library requires that your application have @brightlayer-ui/themes and @angular/material installed.
+> **NOTE**: This component library requires that your application have @brightlayer-ui/angular-themes and @angular/material installed.
 
 ## Building the Library
 
 To work with this library, first clone down the repository:
 
 ```
-git clone https://github.com/brightlayer-ui/angular-component-library
+git clone https://github.com/etn-ccis/blui-angular-component-library
 cd angular-component-library
 ```
 
@@ -73,7 +73,7 @@ yarn start:showcase
 
 ## Using the Components
 
-See the [documentation](https://github.com/brightlayer-ui/angular-component-library/tree/master/docs) for information on using these components.
+See the [documentation](https://brightlayer-ui-components.github.io/angular) for information on using these components.
 
 ## Browser Support
 
