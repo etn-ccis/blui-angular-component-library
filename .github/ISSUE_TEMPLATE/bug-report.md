@@ -7,9 +7,7 @@ assignees: ''
 
 ---
 
-#### Describe the bug
-
-#### What is the expected behavior?
+#### Describe the bug / expected behavior
 
 #### What are the steps to reproduce?
 1. Go to...

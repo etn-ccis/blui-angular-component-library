@@ -7,11 +7,13 @@ assignees: ''
 
 ---
 
-#### Describe the desired behavior
+#### Describe the desired feature/functionality
 
-#### Describe the current behavior
+#### Additional Context (where / how would this be used)
 
 #### Is this request related to a current issue?
+
+#### Suggested implementation details
 
 #### Additional Context
 <!-- Add any other context or screenshots about the feature request here. -->
