@@ -2,7 +2,7 @@
 name: Bug Report
 about: Report a bug with a Brightlayer UI resource
 title: ''
-labels: 'bug, needs-review'
+labels: 'bug, needs-review, brightlayer-ui'
 assignees: ''
 
 ---
