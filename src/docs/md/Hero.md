@@ -50,7 +50,7 @@ The following child elements are projected into `<blui-hero>`:
 | Selector        | Description                                                 | Required | Default |
 | --------------- | ----------------------------------------------------------- | -------- | ------- |
 | (child)         | The `<blui-channel-value>` to display under the primary icon | no       |         |
-| [blui-primary]   | The large icon displayed on the top                         | no       |         |
+| [blui-primary]   | The large icon displayed on the top                         | yes      |         |
 | [blui-secondary] | The icon displayed to the left of the value and units       | no       |         |
 
 </div>
