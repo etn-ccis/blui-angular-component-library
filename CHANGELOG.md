@@ -1,5 +1,11 @@
 # Change Log
 
+## v8.0.1 (Unreleased)
+
+### Added
+
+- `prefix` input to `<blui-hero>` component ([#501](https://github.com/etn-ccis/blui-angular-component-library/issues/501)).
+
 ## v8.0.0 (November 21, 2022)
 
 ### Changed
