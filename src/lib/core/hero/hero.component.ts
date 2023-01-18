@@ -39,7 +39,13 @@ import { UnitSpaceType } from '../channel-value/channel-value.component';
             </div>
             <span class="blui-hero-channel-value-wrapper">
                 <ng-content select="blui-channel-value" *ngIf="value === undefined"></ng-content>
-                <blui-channel-value *ngIf="value !== undefined" [value]="value" [units]="units" [unitSpace]="unitSpace">
+                <blui-channel-value
+                    *ngIf="value !== undefined"
+                    [value]="value"
+                    [units]="units"
+                    [unitSpace]="unitSpace"
+                    [prefix]="prefix"
+                >
                     <ng-content select="[blui-secondary]"></ng-content>
                 </blui-channel-value>
             </span>
@@ -51,6 +57,11 @@ import { UnitSpaceType } from '../channel-value/channel-value.component';
     },
 })
 export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChecked {
+    /** If true, shows units before the value
+     *
+     * @default false
+     * */
+    @Input() prefix = false;
     /** Color of the hero icon */
     @Input() color: string;
     /** Color of the hero background */

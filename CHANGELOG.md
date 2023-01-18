@@ -2,6 +2,10 @@
 
 ## v8.0.1 (Unreleased)
 
+### Added
+
+- `prefix` input to `<blui-hero>` component ([#501](https://github.com/etn-ccis/blui-angular-component-library/issues/501)).
+
 ### Changed
 
 - Updated `blui-primary` selector in `<blui-hero>` component to be required ([#507](https://github.com/etn-ccis/blui-angular-component-library/issues/507)).

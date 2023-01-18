@@ -125,6 +125,12 @@ export class HeroDocComponent {
             type: 'string',
             hint: 'Text to show after the value',
         },
+        prefix: {
+            componentDefault: false,
+            value: false,
+            type: 'boolean',
+            hint: 'If true, shows units before the value',
+        },
         iconSize: {
             componentDefault: 36,
             value: 36,

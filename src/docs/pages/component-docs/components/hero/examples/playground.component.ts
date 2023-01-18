@@ -12,6 +12,7 @@ export type HeroPlaygroundKnobs = {
     value: Knob;
     iconSize: Knob;
     units: Knob;
+    prefix: Knob;
 
     // Other
     showSecondary: Knob;
@@ -23,6 +24,7 @@ export type HeroPlaygroundKnobs = {
         [label]="inputs.label.value"
         [unitSpace]="inputs.unitSpace.value"
         [units]="inputs.units.value"
+        [prefix]="inputs.prefix.value"
         [value]="inputs.value.value"
         [iconSize]="inputs.iconSize.value"
     >
@@ -64,6 +66,7 @@ export class PlaygroundComponent implements OnDestroy {
         const code = `<blui-hero
     ${this._playgroundService.addOptionalProp(this.inputs, 'unitSpace')}
     ${this._playgroundService.addOptionalProp(this.inputs, 'units')}
+    ${this._playgroundService.addOptionalProp(this.inputs, 'prefix')}
     ${this._playgroundService.addOptionalProp(this.inputs, 'value')}
     ${this._playgroundService.addOptionalProp(this.inputs, 'iconSize')}
     [label]="${this.inputs.label.value}">
