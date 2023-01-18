@@ -10,7 +10,7 @@ import {
     ViewChild,
     ViewEncapsulation,
 } from '@angular/core';
-import { requireInput } from '../../utils/utils';
+import { requireContent, requireInput } from '../../utils/utils';
 import { UnitSpaceType } from '../channel-value/channel-value.component';
 /**
  * [Hero Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-hero--readme)
@@ -93,6 +93,9 @@ export class HeroComponent implements OnChanges, AfterViewInit, AfterContentChec
     }
 
     ngAfterViewInit(): void {
+        const required = { selector: 'primaryContainer', ref: this.primaryContainer };
+        requireContent([required], this);
+
         this.hasMatSvgIcon = Boolean(this.getMatSvgIcon());
         this._ref.detectChanges();
     }
