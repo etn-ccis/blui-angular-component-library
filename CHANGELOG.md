@@ -1,6 +1,6 @@
 # Change Log
 
-## v8.0.1 (Unreleased)
+## v8.0.1 (January 25, 2023)
 
 ### Added
 
