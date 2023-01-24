@@ -13,7 +13,7 @@ import { environment } from '../../../../../../environments/environment';
 export class ViewCodeButtonComponent {
     @Input() examplePath;
 
-    master = `https://github.com/brightlayer-ui/angular-component-library/tree/${environment.devDocsCodeSnippetBranch}/src/docs/pages/component-docs/components`;
+    master = `https://github.com/etn-ccis/blui-angular-component-library/tree/${environment.devDocsCodeSnippetBranch}/src/docs/pages/component-docs/components`;
 
     viewCodeOnGitHub(): void {
         window.open(`${this.master}/${this.examplePath}.component.ts`, '_blank');

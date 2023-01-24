@@ -8,7 +8,7 @@ The `<blui-hero>` components are used to call attention to particular values tha
 
 The `<blui-hero>` component displays a particular icon, value/units, and a label. Icon components are passed as a child element with the `primary` attribute - these will typically be a Material icon, Brightlayer UI icon, or Progress Icon. It will also accept Text/Emoji values inside of a `<span>` element.
 
-The value section of the `<blui-hero>` utilizes a [`<blui-channel-value>`](./ChannelValue.md) component. To display a single simple value, the information can be passed as attributes (`value`, `units`, `unitSpace`). An icon can be passed as a child of the `<blui-hero>` component with the `secondary` attribute. For more complex values (such as a duration that displays hours and minutes), you can pass in multiple `<blui-channel-value>` components as children and they will be displayed inline.
+The value section of the `<blui-hero>` utilizes a [`<blui-channel-value>`](./ChannelValue.md) component. To display a single simple value, the information can be passed as attributes (`value`, `units`, `unitSpace`, `prefix`). An icon can be passed as a child of the `<blui-hero>` component with the `secondary` attribute. For more complex values (such as a duration that displays hours and minutes), you can pass in multiple `<blui-channel-value>` components as children and they will be displayed inline.
 
 ## Hero Usage
 
@@ -36,6 +36,7 @@ Parent element (`<blui-hero>`) attributes:
 | --------- | --------------------------------------------- | -------------------------------- | -------- | ------------- |
 | iconSize  | The size of the primary icon (10-48)          | `number`                         | no       | `'normal'` (36) |
 | label     | The text shown below the Channel Value        | `string`                         | yes      |               |
+| prefix    | If true, shows units before the value         | `boolean`                        | no       | false         |
 | units     | Text to show after the value                  | `string`                         | no       |               |
 | unitSpace | Show/Hide spacing between the value and units | `'auto'` \| `'hide'` \| `'show'` | no       | `'auto'`        |
 | value     | The value for the channel                     | `string` \| `number`             | no       |               |
@@ -49,7 +50,7 @@ The following child elements are projected into `<blui-hero>`:
 | Selector        | Description                                                 | Required | Default |
 | --------------- | ----------------------------------------------------------- | -------- | ------- |
 | (child)         | The `<blui-channel-value>` to display under the primary icon | no       |         |
-| [blui-primary]   | The large icon displayed on the top                         | no       |         |
+| [blui-primary]   | The large icon displayed on the top                         | yes      |         |
 | [blui-secondary] | The icon displayed to the left of the value and units       | no       |         |
 
 </div>
