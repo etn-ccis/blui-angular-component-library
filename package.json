@@ -57,8 +57,8 @@
     "doc": "src/docs/md"
   },
   "peerDependencies": {
-    "@angular/core": "^14.0.0",
     "@angular/cdk": "^14.0.0",
+    "@angular/core": "^14.0.0",
     "@angular/material": "^14.0.0"
   },
   "devDependencies": {
@@ -88,7 +88,6 @@
     "@types/node": "^18.11.9",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",
-    "codecov": "^3.8.3",
     "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "jasmine-core": "~4.5.0",
