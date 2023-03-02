@@ -41,6 +41,13 @@ describe('ChannelValueComponent', () => {
         void expect(value.innerText).toBe('Test Value');
     });
 
+    it('should render 0 integer value', () => {
+        component.value = 0;
+        fixture.detectChanges();
+        const value = fixture.nativeElement.querySelector('.blui-channel-value-value');
+        void expect(value.innerText).toBe('0');
+    });
+
     it('should render units to the left', () => {
         component.value = 'Test Value';
         component.units = 'hz';
