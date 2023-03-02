@@ -1,49 +1,55 @@
 # Change Log
 
+## v8.1.0 (Unreleased)
+
+### Fixed
+
+-   Fixed Channel value issue with zero value in `<blui-channel-value>` ([#556](https://github.com/etn-ccis/blui-angular-component-library/issues/556)).
+
 ## v8.0.1 (January 25, 2023)
 
 ### Added
 
-- `prefix` input to `<blui-hero>` component ([#501](https://github.com/etn-ccis/blui-angular-component-library/issues/501)).
+-   `prefix` input to `<blui-hero>` component ([#501](https://github.com/etn-ccis/blui-angular-component-library/issues/501)).
 
 ### Changed
 
-- Updated `blui-primary` selector in `<blui-hero>` component to be required ([#507](https://github.com/etn-ccis/blui-angular-component-library/issues/507)).
+-   Updated `blui-primary` selector in `<blui-hero>` component to be required ([#507](https://github.com/etn-ccis/blui-angular-component-library/issues/507)).
 
 ## v8.0.0 (November 21, 2022)
 
 ### Changed
 
-- Updated to Angular 14 for building the library.
+-   Updated to Angular 14 for building the library.
 
 ### Removed
 
-- Removed `<blui-dropdown-toolbar>` component.
+-   Removed `<blui-dropdown-toolbar>` component.
 
 ### Fixed
 
-- Fixed `<blui-empty-state>` not sizing non-material icons correctly ([#530](https://github.com/etn-ccis/blui-angular-component-library/issues/530)).
+-   Fixed `<blui-empty-state>` not sizing non-material icons correctly ([#530](https://github.com/etn-ccis/blui-angular-component-library/issues/530)).
 
 ## v7.0.3 (October 31, 2022)
 
 ### Fixed
 
-- Fixed incorrect styling of nested `<mat-drawer-content>` ([#463](https://github.com/etn-ccis/blui-angular-component-library/issues/463)).
-- Fixed `<blui-drawer>` sharing a single instance of drawer state ([#453](https://github.com/etn-ccis/blui-angular-component-library/issues/453)).
-- Fixed `<blui-drawer-header>` not responding to dynamic icon content. ([#473](https://github.com/etn-ccis/blui-angular-component-library/issues/473)).
-- Fixed `<blui-drawer-layout>` styles affecting deep nested`<blui-drawer>` children ([#472](https://github.com/etn-ccis/blui-angular-component-library/issues/472)).
-- Fixed `blui-title-content` not showing in `<blui-nav-group>` ([#475](https://github.com/etn-ccis/blui-angular-component-library/issues/475)).
-- Fixed `blui-app-bar` not listening to scroll containers when rendered in a `<ng-template>` ([#508](https://github.com/etn-ccis/blui-angular-component-library/issues/508)).
-- Fixed `blui-score-card` `badgeOffset` not being updated correctly when set to 0 after initialization ([#534](https://github.com/etn-ccis/blui-angular-component-library/issues/534)).
+-   Fixed incorrect styling of nested `<mat-drawer-content>` ([#463](https://github.com/etn-ccis/blui-angular-component-library/issues/463)).
+-   Fixed `<blui-drawer>` sharing a single instance of drawer state ([#453](https://github.com/etn-ccis/blui-angular-component-library/issues/453)).
+-   Fixed `<blui-drawer-header>` not responding to dynamic icon content. ([#473](https://github.com/etn-ccis/blui-angular-component-library/issues/473)).
+-   Fixed `<blui-drawer-layout>` styles affecting deep nested`<blui-drawer>` children ([#472](https://github.com/etn-ccis/blui-angular-component-library/issues/472)).
+-   Fixed `blui-title-content` not showing in `<blui-nav-group>` ([#475](https://github.com/etn-ccis/blui-angular-component-library/issues/475)).
+-   Fixed `blui-app-bar` not listening to scroll containers when rendered in a `<ng-template>` ([#508](https://github.com/etn-ccis/blui-angular-component-library/issues/508)).
+-   Fixed `blui-score-card` `badgeOffset` not being updated correctly when set to 0 after initialization ([#534](https://github.com/etn-ccis/blui-angular-component-library/issues/534)).
 
 ## v7.0.2 (June 8, 2022)
 
-### Fixed 
+### Fixed
 
-- Fixed escape key permanently dismissing `<blui-drawer>` ([#426](https://github.com/etn-ccis/blui-angular-component-library/issues/426)).
-- Fixed `<blui-drawer-layout>` opening side nav when transitioning to a `temporary` state ([#82](https://github.com/etn-ccis/blui-angular-component-library/issues/82)).
-- Fixed escape key permanently dismissing `<blui-user-menu>` ([#434](https://github.com/etn-ccis/blui-angular-component-library/issues/434)).
-- Fixed `<blui-empty-state>` not being centered when a description is not provided ([#378](https://github.com/etn-ccis/blui-angular-component-library/issues/378)).
+-   Fixed escape key permanently dismissing `<blui-drawer>` ([#426](https://github.com/etn-ccis/blui-angular-component-library/issues/426)).
+-   Fixed `<blui-drawer-layout>` opening side nav when transitioning to a `temporary` state ([#82](https://github.com/etn-ccis/blui-angular-component-library/issues/82)).
+-   Fixed escape key permanently dismissing `<blui-user-menu>` ([#434](https://github.com/etn-ccis/blui-angular-component-library/issues/434)).
+-   Fixed `<blui-empty-state>` not being centered when a description is not provided ([#378](https://github.com/etn-ccis/blui-angular-component-library/issues/378)).
 
 ## v7.0.1 (April 15, 2022)
 
@@ -55,7 +61,7 @@
 
 ### Added
 
--  Added `<blui-toolbar-menu>` component ([#374](https://github.com/etn-ccis/blui-angular-component-library/issues/374)).
+-   Added `<blui-toolbar-menu>` component ([#374](https://github.com/etn-ccis/blui-angular-component-library/issues/374)).
 
 ### Changed
 
@@ -83,7 +89,7 @@
 ### Changed
 
 -   Added 1rem default padding to `<blui-empty-state>` ([#336](https://github.com/etn-ccis/blui-angular-component-library/issues/336)).
--   Added a list `peerDependencies` to component's `package.json` ([#351](https://github.com/etn-ccis/blui-angular-component-library/issues/351)). 
+-   Added a list `peerDependencies` to component's `package.json` ([#351](https://github.com/etn-ccis/blui-angular-component-library/issues/351)).
 
 ### Fixed
 
@@ -91,7 +97,6 @@
 -   Fixed `<blui-user-menu>` not rendering bottomsheet content when quickly dismissing and then reopening. ([#345](https://github.com/etn-ccis/blui-angular-component-library/issues/345))
 -   Fixed `<blui-drawer-nav-item>` not responding to `expanded` input updates. ([#326](https://github.com/etn-ccis/blui-angular-component-library/issues/326))
 -   Fixed `<blui-drawer-nav-item>` not applying correct `depth` class for asynchronously loaded items. ([#356](https://github.com/etn-ccis/blui-angular-component-library/issues/356))
-
 
 ## v6.0.1 (December 17, 2021)
 
