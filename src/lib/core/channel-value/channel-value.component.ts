@@ -2,7 +2,6 @@ import { ChangeDetectionStrategy, Component, Input, OnChanges, ViewEncapsulation
 import { requireInput } from '../../utils/utils';
 
 export type UnitSpaceType = 'show' | 'hide' | 'auto';
-//console.log(value);
 /** [ChannelValue Component](https://brightlayer-ui-components.github.io/angular/?path=/info/components-channel-value--readme)
  *
  * Displays a value/unit combination.
@@ -29,7 +28,7 @@ export type UnitSpaceType = 'show' | 'hide' | 'auto';
                 class="blui-channel-value-value"
                 [class.blui-channel-value-remove-space]="unitSpace === 'hide'"
             >
-                {{ value }}
+                {{ getValueAsString() }}
             </div>
             <div
                 *ngIf="units && !prefix"
@@ -54,14 +53,7 @@ export class ChannelValueComponent implements OnChanges {
     /** The text to display for the units (light text) */
     @Input() units: string;
     /** The text to display for the value (bold text)*/
-    @Input('value')
-    get value(): string | number {
-        return this._value;
-    }
-    set value(newValue: string | number) {
-        this._updateRenderedValue(newValue);
-    }
-    private _value: string | number;
+    @Input() value: string | number;
     /** Text color */
     @Input() color: string;
     /** Show a space between the value and units. Can be `show` | `hide` | `auto`
@@ -89,12 +81,7 @@ export class ChannelValueComponent implements OnChanges {
             ? this.prefixUnitWhitelist.includes(this.units)
             : this.suffixUnitWhitelist.includes(this.units);
     }
-
-    /** Update the text of the Channel value element in the DOM, creating the element if necessary. */
-    private _updateRenderedValue(newValue: string | number): void {
-        const newValueNormalized: any = `${newValue ?? ''}`.trim();
-
-        // Check the value as interger and convert into the string value
-        this._value = !isNaN(Number(newValueNormalized)) ? String(newValueNormalized) : newValueNormalized;
+    getValueAsString(): string {
+        return String(this.value);
     }
 }
