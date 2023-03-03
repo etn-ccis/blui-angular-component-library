@@ -1,113 +1,113 @@
 {
-    "name": "@brightlayer-ui/angular-components",
-    "version": "8.1.0",
-    "description": "Angular components for Brightlayer UI applications",
-    "main": "index.js",
-    "prettier": "@brightlayer-ui/prettier-config",
-    "scripts": {
-        "initialize": "bash scripts/initializeSubmodule.sh",
-        "install:dependencies": "yarn && cd showcase && yarn",
-        "start": "ng serve demo -c local --open --host 0.0.0.0",
-        "start:npm": "ng serve demo -c npm --open",
-        "start:showcase": "yarn initialize && yarn install:dependencies && cd showcase && yarn start:lib",
-        "build:demo": "ng build demo",
-        "build:lib": "bash scripts/buildLib.sh",
-        "prettier": "prettier \"src/**/**.{ts,js,json,css,scss,html}\" --write",
-        "prettier:check": "prettier \"src/**/**.{ts,js,json,css,scss,html}\" --check",
-        "lint": "eslint \"src/**/**.ts\"",
-        "lint:fix": "eslint \"src/**/**.ts\" --fix",
-        "test": "ng test demo",
-        "test:ci": "ng test demo --watch false",
-        "test:artifacts": "bash scripts/buildTest.sh",
-        "coverage": "yarn test --no-watch --code-coverage",
-        "publish:package": "cd dist && rm -f *.tgz && set npm_config_yes=true && npx -p @brightlayer-ui/publish blui-publish",
-        "tag:package": "npx -p @brightlayer-ui/tag blui-tag -s -blui-angular-components",
-        "precommit": "yarn initialize && yarn install:dependencies && yarn prettier && yarn lint && yarn test:ci && yarn build && yarn test:artifacts && yarn generate:licenses",
-        "generate:licenses": "npm-license-crawler -onlyDirectDependencies -json LICENSES.json",
-        "update:submodule": "git submodule update --remote",
-        "watch:showcase": "npm-watch",
-        "copy-to-showcase": "cp -r src/lib/. showcase/src/lib/"
-    },
-    "watch": {
-        "copy-to-showcase": {
-            "patterns": [
-                "src"
-            ],
-            "extensions": "ts,html,scss",
-            "quiet": false,
-            "runOnChangeOnly": false
-        }
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/etn-ccis/blui-angular-component-library.git"
-    },
-    "keywords": [
-        "angular",
-        "components",
-        "brightlayer-ui"
-    ],
-    "author": "brightlayer-ui <brightlayer-ui@eaton.com>",
-    "license": "BSD-3-Clause",
-    "bugs": {
-        "url": "https://github.com/etn-ccis/blui-angular-component-library/issues"
-    },
-    "homepage": "https://brightlayer-ui-components.github.io/angular",
-    "directories": {
-        "doc": "src/docs/md"
-    },
-    "peerDependencies": {
-        "@angular/cdk": "^14.0.0",
-        "@angular/core": "^14.0.0",
-        "@angular/material": "^14.0.0"
-    },
-    "devDependencies": {
-        "@angular-devkit/build-angular": "^14.2.9",
-        "@angular/animations": "^14.2.10",
-        "@angular/cdk": "^14.2.7",
-        "@angular/cli": "^14.2.9",
-        "@angular/common": "^14.2.10",
-        "@angular/compiler": "^14.2.10",
-        "@angular/compiler-cli": "^14.2.10",
-        "@angular/core": "^14.2.10",
-        "@angular/flex-layout": "^14.0.0-beta.41",
-        "@angular/forms": "^14.2.10",
-        "@angular/material": "^14.2.7",
-        "@angular/platform-browser": "^14.2.10",
-        "@angular/platform-browser-dynamic": "^14.2.10",
-        "@angular/router": "^14.2.10",
-        "@brightlayer-ui/angular-components": "^7.0.3",
-        "@brightlayer-ui/angular-themes": "^8.0.0",
-        "@brightlayer-ui/colors": "^3.1.1",
-        "@brightlayer-ui/eslint-config": "^3.0.0",
-        "@brightlayer-ui/icons": "^1.10.0",
-        "@brightlayer-ui/icons-svg": "^1.11.0",
-        "@brightlayer-ui/prettier-config": "^1.0.3",
-        "@types/jasmine": "~4.3.0",
-        "@types/jasminewd2": "~2.0.10",
-        "@types/node": "^18.11.9",
-        "@typescript-eslint/eslint-plugin": "^5.42.1",
-        "@typescript-eslint/parser": "^5.42.1",
-        "eslint": "^8.27.0",
-        "eslint-config-prettier": "^8.5.0",
-        "jasmine-core": "~4.5.0",
-        "jasmine-spec-reporter": "~7.0.0",
-        "karma": "^6.4.1",
-        "karma-chrome-launcher": "~3.1.0",
-        "karma-coverage": "^2.0.3",
-        "karma-jasmine": "~5.1.0",
-        "karma-jasmine-html-reporter": "^2.0.0",
-        "ng-packagr": "^14.2.2",
-        "ngx-color-picker": "12.0.1",
-        "ngx-google-analytics": "^14.0.1",
-        "ngx-markdown": "^14.0.0",
-        "npm-watch": "^0.11.0",
-        "prettier": "^2.5.1",
-        "rxjs": "~6.6.0",
-        "ts-node": "~10.9.1",
-        "tslib": "^2.4.1",
-        "typescript": "4.8.4",
-        "yarn-audit-fix": "^9.3.7",
-        "zone.js": "~0.11.8"
+  "name": "@brightlayer-ui/angular-components",
+  "version": "8.1.0",
+  "description": "Angular components for Brightlayer UI applications",
+  "main": "index.js",
+  "prettier": "@brightlayer-ui/prettier-config",
+  "scripts": {
+    "initialize": "bash scripts/initializeSubmodule.sh",
+    "install:dependencies": "yarn && cd showcase && yarn",
+    "start": "ng serve demo -c local --open --host 0.0.0.0",
+    "start:npm": "ng serve demo -c npm --open",
+    "start:showcase": "yarn initialize && yarn install:dependencies && cd showcase && yarn start:lib",
+    "build:demo": "ng build demo",
+    "build:lib": "bash scripts/buildLib.sh",
+    "prettier": "prettier \"src/**/**.{ts,js,json,css,scss,html}\" --write",
+    "prettier:check": "prettier \"src/**/**.{ts,js,json,css,scss,html}\" --check",
+    "lint": "eslint \"src/**/**.ts\"",
+    "lint:fix": "eslint \"src/**/**.ts\" --fix",
+    "test": "ng test demo",
+    "test:ci": "ng test demo --watch false",
+    "test:artifacts": "bash scripts/buildTest.sh",
+    "coverage": "yarn test --no-watch --code-coverage",
+    "publish:package": "cd dist && rm -f *.tgz && set npm_config_yes=true && npx -p @brightlayer-ui/publish blui-publish",
+    "tag:package": "npx -p @brightlayer-ui/tag blui-tag -s -blui-angular-components",
+    "precommit": "yarn initialize && yarn install:dependencies && yarn prettier && yarn lint && yarn test:ci && yarn build && yarn test:artifacts && yarn generate:licenses",
+    "generate:licenses": "npm-license-crawler -onlyDirectDependencies -json LICENSES.json",
+    "update:submodule": "git submodule update --remote",
+    "watch:showcase": "npm-watch",
+    "copy-to-showcase": "cp -r src/lib/. showcase/src/lib/"
+  },
+  "watch": {
+    "copy-to-showcase": {
+      "patterns": [
+        "src"
+      ],
+      "extensions": "ts,html,scss",
+      "quiet": false,
+      "runOnChangeOnly": false
     }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/etn-ccis/blui-angular-component-library.git"
+  },
+  "keywords": [
+    "angular",
+    "components",
+    "brightlayer-ui"
+  ],
+  "author": "brightlayer-ui <brightlayer-ui@eaton.com>",
+  "license": "BSD-3-Clause",
+  "bugs": {
+    "url": "https://github.com/etn-ccis/blui-angular-component-library/issues"
+  },
+  "homepage": "https://brightlayer-ui-components.github.io/angular",
+  "directories": {
+    "doc": "src/docs/md"
+  },
+  "peerDependencies": {
+    "@angular/cdk": "^14.0.0",
+    "@angular/core": "^14.0.0",
+    "@angular/material": "^14.0.0"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^14.2.9",
+    "@angular/animations": "^14.2.10",
+    "@angular/cdk": "^14.2.7",
+    "@angular/cli": "^14.2.9",
+    "@angular/common": "^14.2.10",
+    "@angular/compiler": "^14.2.10",
+    "@angular/compiler-cli": "^14.2.10",
+    "@angular/core": "^14.2.10",
+    "@angular/flex-layout": "^14.0.0-beta.41",
+    "@angular/forms": "^14.2.10",
+    "@angular/material": "^14.2.7",
+    "@angular/platform-browser": "^14.2.10",
+    "@angular/platform-browser-dynamic": "^14.2.10",
+    "@angular/router": "^14.2.10",
+    "@brightlayer-ui/angular-components": "^7.0.3",
+    "@brightlayer-ui/angular-themes": "^8.0.0",
+    "@brightlayer-ui/colors": "^3.1.1",
+    "@brightlayer-ui/eslint-config": "^3.0.0",
+    "@brightlayer-ui/icons": "^1.10.0",
+    "@brightlayer-ui/icons-svg": "^1.11.0",
+    "@brightlayer-ui/prettier-config": "^1.0.3",
+    "@types/jasmine": "~4.3.0",
+    "@types/jasminewd2": "~2.0.10",
+    "@types/node": "^18.11.9",
+    "@typescript-eslint/eslint-plugin": "^5.42.1",
+    "@typescript-eslint/parser": "^5.42.1",
+    "eslint": "^8.27.0",
+    "eslint-config-prettier": "^8.5.0",
+    "jasmine-core": "~4.5.0",
+    "jasmine-spec-reporter": "~7.0.0",
+    "karma": "^6.4.1",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "^2.0.3",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "^2.0.0",
+    "ng-packagr": "^14.2.2",
+    "ngx-color-picker": "12.0.1",
+    "ngx-google-analytics": "^14.0.1",
+    "ngx-markdown": "^14.0.0",
+    "npm-watch": "^0.11.0",
+    "prettier": "^2.5.1",
+    "rxjs": "~6.6.0",
+    "ts-node": "~10.9.1",
+    "tslib": "^2.4.1",
+    "typescript": "4.8.4",
+    "yarn-audit-fix": "^9.3.7",
+    "zone.js": "~0.11.8"
+  }
 }
