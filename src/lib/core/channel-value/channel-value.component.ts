@@ -28,7 +28,7 @@ export type UnitSpaceType = 'show' | 'hide' | 'auto';
                 class="blui-channel-value-value"
                 [class.blui-channel-value-remove-space]="unitSpace === 'hide'"
             >
-                {{ value }}
+                {{ getValueAsString() }}
             </div>
             <div
                 *ngIf="units && !prefix"
@@ -80,5 +80,8 @@ export class ChannelValueComponent implements OnChanges {
         this.isWhiteListedUnit = this.prefix
             ? this.prefixUnitWhitelist.includes(this.units)
             : this.suffixUnitWhitelist.includes(this.units);
+    }
+    getValueAsString(): string {
+        return String(this.value);
     }
 }

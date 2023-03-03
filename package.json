@@ -1,6 +1,6 @@
 {
   "name": "@brightlayer-ui/angular-components",
-  "version": "8.0.1",
+  "version": "8.1.0",
   "description": "Angular components for Brightlayer UI applications",
   "main": "index.js",
   "prettier": "@brightlayer-ui/prettier-config",

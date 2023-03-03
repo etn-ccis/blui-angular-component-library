@@ -1,5 +1,11 @@
 # Change Log
 
+## v8.1.0 (Unreleased)
+
+### Fixed
+
+-  Fixed Channel value issue with zero value in `<blui-channel-value>` ([#556](https://github.com/etn-ccis/blui-angular-component-library/issues/556)).
+
 ## v8.0.1 (January 25, 2023)
 
 ### Added
