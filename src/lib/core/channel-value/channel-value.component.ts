@@ -24,7 +24,7 @@ export type UnitSpaceType = 'show' | 'hide' | 'auto';
                 {{ units }}
             </div>
             <div
-                *ngIf="value"
+                *ngIf="getValueAsString()"
                 class="blui-channel-value-value"
                 [class.blui-channel-value-remove-space]="unitSpace === 'hide'"
             >
