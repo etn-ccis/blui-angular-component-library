@@ -6,6 +6,10 @@
 
 -  Fixed Channel value issue with zero value in `<blui-channel-value>` ([#556](https://github.com/etn-ccis/blui-angular-component-library/issues/556)).
 
+### Fixed
+
+-  Fixed Ripple not disabled in NavItem `<blui-drawer-nav-item>` ([#468](https://github.com/etn-ccis/blui-angular-component-library/issues/468)).
+
 ## v8.0.1 (January 25, 2023)
 
 ### Added
