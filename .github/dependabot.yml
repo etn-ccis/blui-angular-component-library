@@ -8,4 +8,5 @@ updates:
     open-pull-requests-limit: 1
     target-branch: "dev"
     labels:
-      - "external-dependency"   
+      - "external-dependency"
+      - 'brightlayer-ui'
