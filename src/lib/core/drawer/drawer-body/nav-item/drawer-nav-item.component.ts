@@ -49,6 +49,7 @@ export type ActiveItemBackgroundShape = 'round' | 'square';
                 class="blui-drawer-nav-item-content"
                 #navItem
                 matRipple
+                [matRippleDisabled]="!ripple ?? true"
                 [class.blui-drawer-nav-item-active]="selected"
                 [class.blui-drawer-nav-item-compact]="false"
             >
