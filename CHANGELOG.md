@@ -6,6 +6,10 @@
 
 -  Fixed Channel value issue with zero value in `<blui-channel-value>` ([#556](https://github.com/etn-ccis/blui-angular-component-library/issues/556)).
 
+### Fixed
+
+-  Fixed Divider effect not working in `<blui-hero-banner>` ([#491](https://github.com/etn-ccis/blui-angular-component-library/issues/491)).
+
 ## v8.0.1 (January 25, 2023)
 
 ### Added
