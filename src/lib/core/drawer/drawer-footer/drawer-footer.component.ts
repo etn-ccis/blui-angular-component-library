@@ -12,11 +12,11 @@ import { DrawerStateManagerService, StateListener } from '../state-listener.comp
     changeDetection: ChangeDetectionStrategy.OnPush,
     encapsulation: ViewEncapsulation.None,
     template: `
+        <mat-divider *ngIf="divider"></mat-divider>
         <div
             class="blui-drawer-footer-content"
             [style.visibility]="hideContentOnCollapse ? (isOpen() ? 'visible' : 'hidden') : 'visible'"
         >
-            <mat-divider *ngIf="divider"></mat-divider>
             <ng-content></ng-content>
         </div>
     `,
