@@ -6,6 +6,10 @@
 
 -  Fixed Channel value issue with zero value in `<blui-channel-value>` ([#556](https://github.com/etn-ccis/blui-angular-component-library/issues/556)).
 
+### Fixed
+
+-  Fixed Ability to use chevron and right component prop on the Info List Item at the same time in `<blui-info-list-item>` ([#418](https://github.com/etn-ccis/blui-angular-component-library/issues/418)).
+
 ## v8.0.1 (January 25, 2023)
 
 ### Added
