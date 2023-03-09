@@ -9,6 +9,8 @@
 ### Fixed
 
 -  Fixed Toolbar Menu left icon should be vertically centered in `<blui-toolbar-menu>` ([#515](https://github.com/etn-ccis/blui-angular-component-library/issues/515)).
+-  Fixed Divider effect not working in `<blui-hero-banner>` ([#491](https://github.com/etn-ccis/blui-angular-component-library/issues/491)).
+-  Fixed Drawer footer should preserve its divider when the drawer collapses in `<blui-drawer-footer>` ([#484](https://github.com/etn-ccis/blui-angular-component-library/issues/484)).
 
 ## v8.0.1 (January 25, 2023)
 
