@@ -73,7 +73,7 @@ type DividerType = 'full' | 'partial' | undefined;
                 <div #right class="blui-info-list-item-right-content-wrapper">
                     <ng-content select="[blui-right-content]"></ng-content>
                 </div>
-                <mat-icon *ngIf="chevron && isEmpty(rightEl)" class="blui-chevron">chevron_right</mat-icon>
+                <mat-icon *ngIf="chevron" class="blui-chevron">chevron_right</mat-icon>
             </div>
         </mat-list-item>
         <mat-divider
