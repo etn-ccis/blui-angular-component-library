@@ -1,5 +1,16 @@
 # Change Log
 
+## v8.1.0 (March 14, 2023)
+
+### Fixed
+
+-  Fixed Channel value issue with zero value in `<blui-channel-value>` ([#556](https://github.com/etn-ccis/blui-angular-component-library/issues/556)).
+-  Fixed Ability to use chevron and right component prop on the Info List Item at the same time in `<blui-info-list-item>` ([#418](https://github.com/etn-ccis/blui-angular-component-library/issues/418)).
+-  Fixed Ripple not disabled in NavItem `<blui-drawer-nav-item>` ([#468](https://github.com/etn-ccis/blui-angular-component-library/issues/468)).
+-  Fixed Toolbar Menu left icon should be vertically centered in `<blui-toolbar-menu>` ([#515](https://github.com/etn-ccis/blui-angular-component-library/issues/515)).
+-  Fixed Divider effect not working in `<blui-hero-banner>` ([#491](https://github.com/etn-ccis/blui-angular-component-library/issues/491)).
+-  Fixed Drawer footer should preserve its divider when the drawer collapses in `<blui-drawer-footer>` ([#484](https://github.com/etn-ccis/blui-angular-component-library/issues/484)).
+
 ## v8.0.1 (January 25, 2023)
 
 ### Added

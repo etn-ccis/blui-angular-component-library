@@ -1,6 +1,6 @@
 {
   "name": "@brightlayer-ui/angular-components",
-  "version": "8.0.1",
+  "version": "8.1.0",
   "description": "Angular components for Brightlayer UI applications",
   "main": "index.js",
   "prettier": "@brightlayer-ui/prettier-config",
@@ -57,8 +57,8 @@
     "doc": "src/docs/md"
   },
   "peerDependencies": {
-    "@angular/core": "^14.0.0",
     "@angular/cdk": "^14.0.0",
+    "@angular/core": "^14.0.0",
     "@angular/material": "^14.0.0"
   },
   "devDependencies": {
@@ -80,7 +80,7 @@
     "@brightlayer-ui/angular-themes": "^8.0.0",
     "@brightlayer-ui/colors": "^3.1.1",
     "@brightlayer-ui/eslint-config": "^3.0.0",
-    "@brightlayer-ui/icons": "^1.10.0",
+    "@brightlayer-ui/icons": "^2.1.0",
     "@brightlayer-ui/icons-svg": "^1.11.0",
     "@brightlayer-ui/prettier-config": "^1.0.3",
     "@types/jasmine": "~4.3.0",
@@ -88,7 +88,6 @@
     "@types/node": "^18.11.9",
     "@typescript-eslint/eslint-plugin": "^5.42.1",
     "@typescript-eslint/parser": "^5.42.1",
-    "codecov": "^3.8.3",
     "eslint": "^8.27.0",
     "eslint-config-prettier": "^8.5.0",
     "jasmine-core": "~4.5.0",

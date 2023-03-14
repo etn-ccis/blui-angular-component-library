@@ -3,9 +3,10 @@ updates:
   - package-ecosystem: "npm"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
       day: "monday"
     open-pull-requests-limit: 1
     target-branch: "dev"
     labels:
-      - "external-dependency"   
+      - "external-dependency"
+      - 'brightlayer-ui'
