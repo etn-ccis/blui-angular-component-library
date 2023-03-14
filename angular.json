@@ -70,7 +70,7 @@
               ],
               "styles": [
                 "src/styles.scss",
-                "./node_modules/@brightlayer-ui/icons/iconfont/BrightlayerUIIcons.css",
+                "./node_modules/@brightlayer-ui/icons/BrightlayerUIIcons.css",
                 "node_modules/prismjs/themes/prism-tomorrow.css",
                 "node_modules/prismjs/plugins/line-highlight/prism-line-highlight.css",
                 "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css",
