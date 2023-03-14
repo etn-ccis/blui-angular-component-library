@@ -80,7 +80,7 @@
     "@brightlayer-ui/angular-themes": "^8.0.0",
     "@brightlayer-ui/colors": "^3.1.1",
     "@brightlayer-ui/eslint-config": "^3.0.0",
-    "@brightlayer-ui/icons": "^1.10.0",
+    "@brightlayer-ui/icons": "^2.1.0",
     "@brightlayer-ui/icons-svg": "^1.11.0",
     "@brightlayer-ui/prettier-config": "^1.0.3",
     "@types/jasmine": "~4.3.0",
