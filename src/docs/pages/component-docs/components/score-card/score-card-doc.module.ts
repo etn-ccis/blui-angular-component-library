@@ -5,7 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { BasicComponent } from './examples/basic.component';
 import { ScoreCardDocComponent } from './score-card-doc.component';
-import { MatListModule } from '@angular/material/list';
+import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
 import { MultiLineComponent } from './examples/multi-line.component';
 import { WithActionsComponent } from './examples/with-actions.component';
 import { WithHeroesComponent } from './examples/with-heroes.component';

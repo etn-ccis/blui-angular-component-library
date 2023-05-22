@@ -5,7 +5,7 @@ import { OverlayModule } from '@angular/cdk/overlay';
 import { InfoListItemModule } from '../info-list-item/info-list-item.module';
 import { UserMenuAvatarComponent } from './user-menu-avatar.component';
 import { DrawerHeaderModule } from '../drawer/drawer-header/drawer-header.module';
-import { MatCardModule } from '@angular/material/card';
+import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
 import { MatBottomSheetModule } from '@angular/material/bottom-sheet';
 import { UserMenuHeaderComponent } from './user-menu-header/user-menu-header.component';
 import { MatToolbarModule } from '@angular/material/toolbar';

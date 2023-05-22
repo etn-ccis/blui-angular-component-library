@@ -2,7 +2,7 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { UserMenuModule } from './user-menu.module';
 import { UserMenuComponent } from './user-menu.component';
 import { Component } from '@angular/core';
-import { MatListModule } from '@angular/material/list';
+import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
 import { count } from '../../utils/test-utils';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 

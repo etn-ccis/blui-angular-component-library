@@ -1,22 +1,24 @@
 {
     "compileOnSave": false,
     "compilerOptions": {
-      "baseUrl": ".",
-      "sourceMap": true,
-      "declaration": false,
-      "target": "es2020",
-      "module": "es2020",
-      "moduleResolution": "node",
-      "emitDecoratorMetadata": true,
-      "experimentalDecorators": true,
-      "importHelpers": true,
+        "baseUrl": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "target": "es2022",
+        "module": "es2020",
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "useDefineForClassFields": false,
         "paths": {
-            "@blui-lab/angular": ["src/lab"],
-        }, 
+            "@blui-lab/angular": [
+                "src/lab"
+            ],
+        },
         "lib": [
             "es2018",
             "dom"
         ]
     }
 }
-    
