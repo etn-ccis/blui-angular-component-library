@@ -7,8 +7,8 @@ import { ThreeLinerDocComponent } from './three-liner-doc.component';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { PlaygroundComponent } from './examples/playground.component';
-import { MatButtonModule } from '@angular/material/button';
-import { MatMenuModule } from '@angular/material/menu';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+import { MatLegacyMenuModule as MatMenuModule } from '@angular/material/legacy-menu';
 
 @NgModule({
     declarations: [ThreeLinerDocComponent, BasicExample, ComplexExample, PlaygroundComponent],

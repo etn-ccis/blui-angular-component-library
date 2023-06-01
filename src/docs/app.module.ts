@@ -18,7 +18,7 @@ import { DrawerModule, EmptyStateModule } from '@brightlayer-ui/angular-componen
 
 //material modules
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { MatButtonModule } from '@angular/material/button';
+import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
 import { MatIconModule } from '@angular/material/icon';
 
 // app
@@ -26,7 +26,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app.routing';
 import { NavigationComponent } from './navigation/navigation.component';
 import { ComponentDocsModule } from './pages/component-docs/component-docs.module';
-import { MatChipsModule } from '@angular/material/chips';
+import { MatLegacyChipsModule as MatChipsModule } from '@angular/material/legacy-chips';
 import { environment } from '../environments/environment';
 import { NgxGoogleAnalyticsModule, NgxGoogleAnalyticsRouterModule } from 'ngx-google-analytics';
 
