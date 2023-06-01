@@ -25,10 +25,6 @@ describe('DrawerNavItemComponent', () => {
         spyOn(component, 'ngOnDestroy').and.stub();
     });
 
-    afterEach(() => {
-        fixture.destroy();
-    });
-
     it('should create', () => {
         fixture.detectChanges();
         void expect(component).toBeTruthy();
@@ -51,7 +47,6 @@ describe('DrawerNavItemComponent', () => {
         fixture.detectChanges();
         let classList = [
             '.blui-drawer-nav-item-content',
-            //       '.blui-drawer-nav-item-expand-icon', // TODO: Fix me.
             '.blui-drawer-nested-nav-item',
             '.blui-drawer-nav-item-active-square',
             '.blui-drawer-nav-item-active',

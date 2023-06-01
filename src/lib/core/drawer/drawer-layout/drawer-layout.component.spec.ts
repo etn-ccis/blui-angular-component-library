@@ -30,10 +30,6 @@ describe('DrawerLayoutComponent', () => {
         spyOn(component, 'ngOnDestroy').and.stub();
     });
 
-    afterEach(() => {
-        fixture.destroy();
-    });
-
     it('should render the drawer', () => {
         const customFixture = TestBed.createComponent(DrawerRenderTest);
         customFixture.detectChanges();
