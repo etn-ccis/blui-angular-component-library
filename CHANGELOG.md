@@ -1,5 +1,11 @@
 # Change Log
 
+## v9.0.0 (July 5, 2023)
+
+### Changed
+
+-   Updated to Angular 15 for building the library. The lib will use the legacy Material components (not the MDC Web).
+
 ## v8.1.0 (March 14, 2023)
 
 ### Fixed
