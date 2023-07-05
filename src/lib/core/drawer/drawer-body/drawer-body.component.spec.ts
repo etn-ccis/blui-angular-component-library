@@ -9,7 +9,6 @@ describe('DrawerBodyComponent', () => {
 
     beforeEach(() => {
         void TestBed.configureTestingModule({
-            declarations: [],
             imports: [DrawerBodyModule],
         }).compileComponents();
         fixture = TestBed.createComponent(DrawerBodyComponent);

@@ -6,7 +6,7 @@ orbs:
 jobs:
     build_library:
         docker:
-            - image: cimg/node:16.20.1-browsers
+            - image: cimg/node:16.19.1-browsers
         steps:
             - checkout
             - browser-tools/install-browser-tools
@@ -55,7 +55,7 @@ jobs:
     coverage_report:
         working_directory: ~/angular-component-library
         docker:
-            - image: cimg/node:16.20.1-browsers
+            - image: cimg/node:16.19.1-browsers
         steps:
             - checkout
             - attach_workspace:
@@ -65,47 +65,47 @@ jobs:
                   token: CODECOV_TOKEN
 
     # Builds the Showcase md using @brightlayer-ui/angular-components persisted in /dist folder.
-    build_showcase:
-        docker:
-            - image: cimg/node:16.20.1-browsers
-        environment:
-            - MASTER_BRANCH: master
-        steps:
-            - checkout
-            - attach_workspace:
-                  at: .
-            - run:
-                  name: Initialize Submodule
-                  command: |
-                      git submodule init && git submodule update
-            - restore_cache:
-                  keys:
-                      - v2-dependencies-angular-{{ checksum "showcase/yarn.lock" }}
-            - run:
-                  name: Install Dependencies
-                  command: |
-                      cd showcase
-                      yarn install --frozen-lockfile
+    # build_showcase:
+    #     docker:
+    #         - image: cimg/node:16.19.1-browsers
+    #     environment:
+    #         - MASTER_BRANCH: master
+    #     steps:
+    #         - checkout
+    #         - attach_workspace:
+    #               at: .
+    #         - run:
+    #               name: Initialize Submodule
+    #               command: |
+    #                   git submodule init && git submodule update
+    #         - restore_cache:
+    #               keys:
+    #                   - v2-dependencies-angular-{{ checksum "showcase/yarn.lock" }}
+    #         - run:
+    #               name: Install Dependencies
+    #               command: |
+    #                   cd showcase
+    #                   yarn install --frozen-lockfile
 
-                      # Install the packed version of @brightlayer-ui/angular-components
-                      PACKAGED_VERSION=`node -p "require('../dist/package.json').version"`
-                      yarn add ../dist/brightlayer-ui-angular-components-$PACKAGED_VERSION.tgz
-            - save_cache:
-                  name: Save Cache
-                  paths:
-                      - showcase/node_modules
-                  key: v2-dependencies-angular-{{ checksum "showcase/yarn.lock" }}
-            - attach_workspace:
-                  at: .
-            - run:
-                  name: Build Showcase
-                  command: |
-                      cd showcase && yarn build
+    #                   # Install the packed version of @brightlayer-ui/angular-components
+    #                   PACKAGED_VERSION=`node -p "require('../dist/package.json').version"`
+    #                   yarn add ../dist/brightlayer-ui-angular-components-$PACKAGED_VERSION.tgz
+    #         - save_cache:
+    #               name: Save Cache
+    #               paths:
+    #                   - showcase/node_modules
+    #               key: v2-dependencies-angular-{{ checksum "showcase/yarn.lock" }}
+    #         - attach_workspace:
+    #               at: .
+    #         - run:
+    #               name: Build Showcase
+    #               command: |
+    #                   cd showcase && yarn build
 
     # Builds the Storybook app using @brightlayer-ui/angular-components persisted in /dist folder.
     build_documentation_site:
         docker:
-            - image: cimg/node:16.20.1-browsers
+            - image: cimg/node:16.19.1-browsers
         environment:
             - MASTER_BRANCH: master
         steps:
@@ -138,7 +138,7 @@ jobs:
 
     deploy_documentation_site:
         docker:
-            - image: cimg/node:16.20.1-browsers
+            - image: cimg/node:16.19.1-browsers
         environment:
             - MASTER_BRANCH: master
             - DEV_BRANCH: dev
@@ -171,7 +171,7 @@ jobs:
 
     publish:
         docker:
-            - image: cimg/node:16.20.1-browsers
+            - image: cimg/node:16.19.1-browsers
         steps:
             - checkout
             - attach_workspace:
@@ -191,9 +191,9 @@ workflows:
     angular_library:
         jobs:
             - build_library
-            - build_showcase:
-                  requires:
-                      - build_library
+            # - build_showcase:
+            #     requires:
+            #         - build_library
             - build_documentation_site:
                   requires:
                       - build_library
@@ -208,7 +208,7 @@ workflows:
             - publish:
                   requires:
                       - build_documentation_site
-                      - build_showcase
+                      # - build_showcase
                   filters:
                       branches:
                           only:

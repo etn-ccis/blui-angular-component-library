@@ -9,17 +9,12 @@ describe('DrawerNavGroupComponent', () => {
 
     beforeEach(() => {
         void TestBed.configureTestingModule({
-            declarations: [],
             imports: [DrawerBodyModule],
         }).compileComponents();
         fixture = TestBed.createComponent(DrawerNavGroupComponent);
         component = fixture.componentInstance;
         spyOn(component, 'ngOnInit').and.stub();
         spyOn(component, 'ngOnDestroy').and.stub();
-    });
-
-    afterEach(() => {
-        fixture.destroy();
     });
 
     it('should create', () => {
