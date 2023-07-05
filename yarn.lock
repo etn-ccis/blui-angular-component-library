@@ -1317,7 +1317,7 @@
   dependencies:
     tslib "^2.3.0"
 
-"@brightlayer-ui/angular-themes@9.0.0":
+"@brightlayer-ui/angular-themes@^9.0.0":
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/@brightlayer-ui/angular-themes/-/angular-themes-9.0.0.tgz#7758b3576c55e0426b7c208687770690a164df22"
   integrity sha512-1zPTxA09SLuXUzF80DYqeUkTm7JPU6XFUd6Qh8T6zhAad8MbGZujLxQIEkJZYvLo+WpB34jkF13Qc3L/tcS6vw==
