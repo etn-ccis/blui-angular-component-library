@@ -1,0 +1,201 @@
+<div class="showcase-container">
+    <mat-card class="ng-comp-card">
+        <mat-card-header>
+            <div mat-card-title>AppBar</div>
+        </mat-card-header>
+        <mat-card-content>
+            <div id="app-bar-basic" class="app-bar-container">
+                <blui-app-bar
+                    expandedHeight="200"
+                    collapsedHeight="64"
+                    scrollThreshold="100"
+                    scrollContainerId="app-bar-basic"
+                    variant="snap"
+                >
+                    <div>Content</div>
+                </blui-app-bar>
+                {{ loremIpsum }}
+            </div>
+            <div id="app-bar-dynamic" class="app-bar-container" style="margin-top: 2rem">
+                <blui-app-bar
+                    expandedHeight="200"
+                    collapsedHeight="64"
+                    scrollThreshold="100"
+                    (collapsedChange)="isDynamicCollapsed = $event"
+                    scrollContainerId="app-bar-dynamic"
+                    variant="snap"
+                >
+                    <blui-three-liner
+                        title="W/ Dynamic Content"
+                        subtitle="Subtitle"
+                        info="Info"
+                        [style.top.px]="isDynamicCollapsed ? 0 : 80"
+                    >
+                    </blui-three-liner>
+                </blui-app-bar>
+                {{ loremIpsum }}
+            </div>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="ng-comp-card">
+        <mat-card-header>
+            <div mat-card-title>Toolbar Menu</div>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-toolbar color="primary">
+                <blui-toolbar-menu [label]="subtitle1">
+                    <ng-container blui-toolbar-menu-items>
+                        <button mat-menu-item (click)="subtitle1 = 'Item 1'">Item 1</button>
+                    </ng-container>
+                </blui-toolbar-menu>
+            </mat-toolbar>
+
+            <mat-toolbar color="primary" style="margin-top: 16px">
+                <button mat-icon-button style="margin: 0 -8px">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <div style="margin: 0 12px">
+                    <div class="mat-title" style="margin-bottom: -8px">Title</div>
+                    <blui-toolbar-menu [label]="subtitle5">
+                        <ng-container blui-toolbar-menu-items>
+                            <button mat-menu-item (click)="subtitle5 = 'Item 1'">Item 1</button>
+                        </ng-container>
+                    </blui-toolbar-menu>
+                </div>
+            </mat-toolbar>
+
+            <mat-toolbar style="margin-top: 16px" color="primary">
+                <blui-toolbar-menu [label]="subtitle2">
+                    <mat-icon blui-icon>account_circle</mat-icon>
+                    <ng-container blui-toolbar-menu-items>
+                        <button mat-menu-item (click)="subtitle2 = 'Item 1'">Item 1</button>
+                        <button mat-menu-item (click)="subtitle2 = 'Item 2'">Item 2</button>
+                        <button mat-menu-item (click)="subtitle2 = 'Item 3'">Item 3</button>
+                    </ng-container>
+                </blui-toolbar-menu>
+            </mat-toolbar>
+
+            <mat-toolbar style="margin-top: 16px" color="primary">
+                <blui-toolbar-menu [label]="subtitle3">
+                    <mat-icon size="16" blui-icon>account_circle</mat-icon>
+                    <mat-nav-list blui-toolbar-menu-items [style.paddingTop.px]="0">
+                        <blui-info-list-item [dense]="true" (click)="subtitle3 = 'Atlanta'">
+                            <mat-icon blui-icon [style.color]="colors.blue[500]" style="transform: unset">
+                                business
+                            </mat-icon>
+                            <span blui-title>Atlanta</span>
+                        </blui-info-list-item>
+                        <blui-info-list-item
+                            [dense]="true"
+                            [statusColor]="colors.red[500]"
+                            (click)="subtitle3 = 'Pittsburgh'"
+                        >
+                            <mat-icon blui-icon [style.color]="colors.red[500]" style="transform: unset"
+                                >house</mat-icon
+                            >
+                            <span blui-title>Pittsburgh</span>
+                        </blui-info-list-item>
+                        <blui-info-list-item [dense]="true" (click)="subtitle3 = 'New York'">
+                            <mat-icon blui-icon [style.color]="colors.blue[500]" style="transform: unset">
+                                apartment
+                            </mat-icon>
+                            <span blui-title>New York</span>
+                        </blui-info-list-item>
+                    </mat-nav-list>
+                </blui-toolbar-menu>
+            </mat-toolbar>
+
+            <mat-toolbar style="margin-top: 16px" color="primary">
+                <button mat-icon-button style="margin: 0 -8px">
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <blui-toolbar-menu [label]="subtitle4" style="margin: 0 12px">
+                    <ng-container blui-toolbar-menu-items>
+                        <button mat-menu-item (click)="subtitle4 = 'Item 1'">Item 1</button>
+                        <button mat-menu-item (click)="subtitle4 = 'Item 2'">Item 2</button>
+                        <button mat-menu-item (click)="subtitle4 = 'Item 3'">Item 3</button>
+                    </ng-container>
+                </blui-toolbar-menu>
+            </mat-toolbar>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="ng-comp-card">
+        <mat-card-header>
+            <div mat-card-title>Score Card</div>
+        </mat-card-header>
+        <mat-card-content>
+            <blui-score-card headerTitle="Basic Usage">
+                <mat-list blui-body>
+                    <mat-list-item>Body Content</mat-list-item>
+                </mat-list>
+            </blui-score-card>
+            <blui-score-card headerTitle="Custom Header" headerSubtitle="Subtitle" headerInfo="4 Devices">
+                <mat-list blui-body>
+                    <mat-list-item>Body Content</mat-list-item>
+                </mat-list>
+            </blui-score-card>
+            <blui-score-card headerTitle="W/ Actions" headerSubtitle="High Humidity Alarm" headerInfo="4 Devices">
+                <ng-container blui-action-items>
+                    <ng-container *ngFor="let action of actions">
+                        <mat-icon>{{ action }}</mat-icon>
+                    </ng-container>
+                </ng-container>
+                <mat-list blui-body>
+                    <mat-list-item>Body Content</mat-list-item>
+                </mat-list>
+                <ng-template [ngTemplateOutlet]="viewLocation" blui-action-row></ng-template>
+            </blui-score-card>
+            <blui-score-card headerTitle="Substation 3" headerSubtitle="High Humidity Alarm" headerInfo="4 Devices">
+                <mat-icon blui-action-items>more_vert</mat-icon>
+                <mat-list blui-body>
+                    <mat-list-item>
+                        <p mat-line>Body Content</p>
+                    </mat-list-item>
+                </mat-list>
+                <blui-hero-banner blui-badge>
+                    <blui-hero label="Temperature" value="98" units="°F" [iconSize]="36">
+                        <i blui-primary class="blui-temp"></i>
+                    </blui-hero>
+                    <blui-hero label="Humidity" value="54" units="%" [iconSize]="36">
+                        <i blui-primary [style.color]="colors.blue[300]" class="blui-moisture"></i>
+                    </blui-hero>
+                </blui-hero-banner>
+                <ng-template [ngTemplateOutlet]="viewLocation" blui-action-row></ng-template>
+            </blui-score-card>
+            <blui-score-card
+                headerTitle="Substation 3"
+                headerSubtitle="High Humidity Alarm"
+                headerInfo="4 Devices"
+                [badgeOffset]="-74"
+            >
+                <mat-icon blui-action-items>more_vert</mat-icon>
+                <mat-list blui-body class="score-badge-example-content" [class.rtl]="rtl.isRtl()">
+                    <mat-list-item>
+                        <p mat-line style="font-weight: 400">0 Alarms</p>
+                        <mat-icon mat-list-icon>notifications</mat-icon>
+                    </mat-list-item>
+                    <mat-list-item [style.color]="colors.blue[500]">
+                        <p mat-line style="font-weight: 600">1 Event</p>
+                        <mat-icon mat-list-icon>list_alt</mat-icon>
+                    </mat-list-item>
+                    <mat-list-item>
+                        <p mat-line style="font-weight: 400">Online</p>
+                        <mat-icon mat-list-icon>cloud</mat-icon>
+                    </mat-list-item>
+                </mat-list>
+                <blui-hero blui-badge label="Grade" value="98" units="/100" [iconSize]="72">
+                    <i blui-primary [style.color]="colors.green[500]" class="blui-grade_a"></i>
+                </blui-hero>
+                <ng-template [ngTemplateOutlet]="viewLocation" blui-action-row></ng-template>
+            </blui-score-card>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<ng-template #viewLocation>
+    <blui-info-list-item chevron="true" hidePadding="true" dense="true">
+        <div blui-title>View Location</div>
+    </blui-info-list-item>
+</ng-template>

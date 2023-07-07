@@ -1,0 +1,121 @@
+<div class="showcase-container">
+    <mat-card class="ng-comp-card">
+        <mat-card-header>
+            <div mat-card-title>AppBar</div>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-toolbar class="mat-elevation-z4" style="margin-bottom: 16px">
+                <button mat-icon-button>
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <div style="margin: 0px 16px">Default</div>
+            </mat-toolbar>
+            <mat-toolbar class="mat-elevation-z4" color="primary" style="margin-bottom: 16px">
+                <button mat-icon-button>
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <div style="margin: 0px 16px">Primary</div>
+            </mat-toolbar>
+            <mat-toolbar class="mat-elevation-z4" color="accent" style="margin-bottom: 16px">
+                <button mat-icon-button>
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <div style="margin: 0px 16px">Accent</div>
+            </mat-toolbar>
+            <mat-toolbar class="mat-elevation-z4" color="warn" style="margin-bottom: 16px">
+                <button mat-icon-button>
+                    <mat-icon>menu</mat-icon>
+                </button>
+                <div style="margin: 0px 16px">Warn</div>
+            </mat-toolbar>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="ng-comp-card">
+        <mat-card-header>
+            <div mat-card-title>Paper</div>
+        </mat-card-header>
+        <mat-card-content>
+            <div style="display: flex; justify-content: space-around; flex-wrap: wrap">
+                <div class="elevation-example">Elevation: 0</div>
+                <div class="elevation-example mat-elevation-z2">Elevation: 2</div>
+                <div class="elevation-example mat-elevation-z4">Elevation: 4</div>
+                <div class="elevation-example mat-elevation-z6">Elevation: 6</div>
+                <div class="elevation-example mat-elevation-z8">Elevation: 8</div>
+                <div class="elevation-example mat-elevation-z12">Elevation: 12</div>
+                <div class="elevation-example mat-elevation-z18">Elevation: 18</div>
+                <div class="elevation-example mat-elevation-z24">Elevation: 24</div>
+                <div class="elevation-example outlined">Outlined</div>
+            </div>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="ng-comp-card card-example">
+        <mat-card-header>
+            <div mat-card-title>Card</div>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-card class="mat-elevation-z4">
+                <div class="word-of-day">Word of the Day</div>
+                <div class="pronounce">de · fault</div>
+                <div class="type">noun</div>
+                <div class="definition">
+                    A noun is a word that refers to a thing (book), a person (Betty Crocker), an animal (cat), a place
+                    (Omaha), a quality (softness), an idea (justice), or an action (yodeling).
+                </div>
+                <div class="variant">"This is the default variant."</div>
+            </mat-card>
+            <mat-card class="outlined">
+                <div class="word-of-day">Word of the Day</div>
+                <div class="pronounce">out · line</div>
+                <div class="type">verb</div>
+                <div class="definition">Dsraw, trace, or define the outer edge or shape of (something).</div>
+                <div class="variant">"This is the outlined variant."</div>
+            </mat-card>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="ng-comp-card">
+        <mat-card-header>
+            <div mat-card-title>Accordion</div>
+        </mat-card-header>
+        <mat-card-content>
+            <mat-accordion>
+                <mat-expansion-panel [expanded]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title> Default Expanded Accordion </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ng-template [ngTemplateOutlet]="filler"></ng-template>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title> Another Accordion </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ng-template [ngTemplateOutlet]="filler"></ng-template>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title> One More Accordion </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ng-template [ngTemplateOutlet]="filler"></ng-template>
+                </mat-expansion-panel>
+                <mat-expansion-panel>
+                    <mat-expansion-panel-header>
+                        <mat-panel-title> ...And Another </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ng-template [ngTemplateOutlet]="filler"></ng-template>
+                </mat-expansion-panel>
+                <mat-expansion-panel [disabled]="true">
+                    <mat-expansion-panel-header>
+                        <mat-panel-title> Disabled Accordion </mat-panel-title>
+                    </mat-expansion-panel-header>
+                    <ng-template [ngTemplateOutlet]="filler"></ng-template>
+                </mat-expansion-panel>
+            </mat-accordion>
+        </mat-card-content>
+    </mat-card>
+</div>
+
+<ng-template #filler>
+    <p>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+        magna aliqua.
+    </p>
+</ng-template>

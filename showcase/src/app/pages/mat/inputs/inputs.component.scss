@@ -1,0 +1,73 @@
+.button-demo-showcase {
+    > div {
+        margin: 8px;
+    }
+    div {
+        display: flex;
+        justify-content: space-around;
+    }
+}
+.button-demo-showcase.uniform-size {
+    button,
+    a {
+        width: 150px;
+    }
+}
+.icon-button-demo {
+    div div {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        flex: 1;
+    }
+}
+
+.fab-demo {
+    div {
+        display: flex;
+        justify-content: space-around;
+        margin: 16px;
+    }
+}
+
+.mat-checkbox {
+    display: flex;
+}
+.checkbox-demo,
+.radio-demo {
+    .check-item-line {
+        margin-top: 16px;
+    }
+}
+
+.mat-select-demo {
+    > div {
+        margin: 16px 0;
+        width: 100%;
+        mat-form-field {
+            width: 100%;
+        }
+    }
+}
+
+.slider-subtype {
+    font-size: 14px;
+}
+.slider-demo {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slide-row {
+    display: flex;
+    justify-content: space-around;
+    margin: 8px 0px 16px 0px;
+    > div {
+        flex: 1 1 0;
+        font-size: 14px;
+        margin: 8px 0;
+        text-align: center;
+    }
+}
