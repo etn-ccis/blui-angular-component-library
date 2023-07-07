@@ -4608,10 +4608,10 @@ emoji-regex@^9.2.2:
   resolved "https://registry.yarnpkg.com/emoji-regex/-/emoji-regex-9.2.2.tgz#840c8803b0d8047f4ff0cf963176b32d4ef3ed72"
   integrity sha512-L18DaJsXSUk2+42pv8mLs5jJT2hqFkFE4j21wOmgbUqsZ2hL72NsUU785g9RXgo3s0ZNgVl42TiHp3ZtOv/Vyg==
 
-emoji-toolkit@^6.6.0:
-  version "6.6.0"
-  resolved "https://registry.yarnpkg.com/emoji-toolkit/-/emoji-toolkit-6.6.0.tgz#e7287c43a96f940ec4c5428cd7100a40e57518f1"
-  integrity sha512-pEu0kow2p1N8zCKnn/L6H0F3rWUBB3P3hVjr/O5yl1fK7N9jU4vO4G7EFapC5Y3XwZLUCY0FZbOPyTkH+4V2eQ==
+emoji-toolkit@^7.0.0:
+  version "7.0.1"
+  resolved "https://registry.yarnpkg.com/emoji-toolkit/-/emoji-toolkit-7.0.1.tgz#4ea2a78fe4b40c7cdbe7ef5725c7011299932f09"
+  integrity sha512-l5aJyAhpC5s4mDuoVuqt4SzVjwIsIvakPh4ZGJJE4KWuWFCEHaXacQFkStVdD9zbRR+/BbRXob7u99o0lQFr8A==
 
 emojis-list@^3.0.0:
   version "3.0.0"
@@ -6905,19 +6905,18 @@ ngx-google-analytics@^14.0.1:
   dependencies:
     tslib "^2.4.0"
 
-ngx-markdown@^14.0.0:
-  version "14.0.1"
-  resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-14.0.1.tgz#5e97d91012dd3f429635aa7a18b2b75051eea85e"
-  integrity sha512-y5CY4e0QM0uR6+MvU1rnh1Ks+rku14309kVVojyXLcWl4zlrt8VAYCcf/+A+8z/IDOaz38yTrxNBnvYDJzNzYA==
+ngx-markdown@^15.0.0:
+  version "15.1.2"
+  resolved "https://registry.yarnpkg.com/ngx-markdown/-/ngx-markdown-15.1.2.tgz#e78ffc5f96a79e4775b9cdf09f10d5b1401b5317"
+  integrity sha512-mAUORpUnHCV4tnxEHV4oS5YEdIaolUclulCblUrvAEU3AEND8MMTxlwHujqVC2M398/aKH0SBSrjLzDbMUJCoQ==
   dependencies:
-    "@types/marked" "^4.0.3"
+    tslib "^2.3.0"
+  optionalDependencies:
     clipboard "^2.0.11"
-    emoji-toolkit "^6.6.0"
+    emoji-toolkit "^7.0.0"
     katex "^0.16.0"
-    marked "^4.0.17"
     mermaid "^9.1.2"
     prismjs "^1.28.0"
-    tslib "^2.3.0"
 
 nice-napi@^1.0.2:
   version "1.0.2"
