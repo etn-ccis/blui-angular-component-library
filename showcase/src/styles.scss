@@ -1,0 +1,163 @@
+@use '@angular/material' as mat;
+@use '@brightlayer-ui/colors/palette.scss' as blui;
+@use '@brightlayer-ui/angular-themes/theme-bases' as theme-bases;
+@use 'refresh';
+
+:root {
+    --blui-primary-50: rgb(224, 239, 248);
+    --blui-primary-100: rgb(179, 215, 236);
+    --blui-primary-200: rgb(128, 189, 224);
+    --blui-primary-300: rgb(77, 163, 212);
+    --blui-primary-500: rgb(0, 123, 193);
+    --blui-primary-700: rgb(0, 104, 179);
+
+    --blui-primary-contrast-50: black;
+    --blui-primary-contrast-100: black;
+    --blui-primary-contrast-200: black;
+    --blui-primary-contrast-500: white;
+    --blui-primary-contrast-700: white;
+
+    --blui-accent-50: rgb(215, 253, 180);
+    --blui-accent-100: rgb(178, 247, 114);
+    --blui-accent-200: rgb(156, 250, 68);
+    --blui-accent-300: rgb(125, 245, 12);
+    --blui-accent-500: rgb(95, 194, 2);
+    --blui-accent-700: rgb(75, 150, 5);
+    --blui-accent-contrast-100: black;
+    --blui-accent-contrast-500: black;
+    --blui-accent-contrast-700: black;
+
+    --blui-warn-50: rgb(249, 232, 232);
+    --blui-warn-100: rgb(239, 197, 197);
+    --blui-warn-200: rgb(229, 158, 158);
+    --blui-warn-300: rgb(218, 119, 119);
+    --blui-warn-500: rgb(202, 60, 61);
+    --blui-warn-700: rgb(189, 46, 47);
+    --blui-warn-contrast-100: black;
+    --blui-warn-contrast-500: black;
+    --blui-warn-contrast-700: white;
+}
+
+$primary: (
+    50: var(--blui-primary-50),
+    100: var(--blui-primary-100),
+    200: var(--blui-primary-200),
+    300: var(--blui-primary-300),
+    500: var(--blui-primary-500),
+    700: var(--blui-primary-700),
+    contrast: (
+        50: var(--blui-primary-contrast-50),
+        100: var(--blui-primary-contrast-100),
+        200: var(--blui-primary-contrast-200),
+        500: var(--blui-primary-contrast-500),
+        700: var(--blui-primary-contrast-700),
+    ),
+);
+$accent: (
+    50: var(--blui-accent-50),
+    100: var(--blui-accent-100),
+    200: var(--blui-accent-200),
+    300: var(--blui-accent-300),
+    500: var(--blui-accent-500),
+    700: var(--blui-accent-700),
+    contrast: (
+        100: var(--blui-accent-contrast-100),
+        500: var(--blui-accent-contrast-500),
+        700: var(--blui-accent-contrast-700),
+    ),
+);
+$warn: (
+    50: var(--blui-warn-50),
+    100: var(--blui-warn-100),
+    200: var(--blui-warn-200),
+    300: var(--blui-warn-300),
+    500: var(--blui-warn-500),
+    700: var(--blui-warn-700),
+    contrast: (
+        100: var(--blui-warn-contrast-100),
+        500: var(--blui-warn-contrast-500),
+        700: var(--blui-warn-contrast-700),
+    ),
+);
+
+@include theme-bases.shared();
+
+.blui-blue {
+    $blui-blue-primary: theme-bases.$blui-blue-primary;
+    $blui-blue-accent: theme-bases.$blui-blue-accent;
+    $blui-blue-warn: theme-bases.$blui-blue-warn;
+
+    // Use these variables to test the styling with CSS Custom properties
+    // $blui-blue-primary: mat.define-palette($primary);
+    // $blui-blue-accent: mat.define-palette($accent);
+    // $blui-blue-warn: mat.define-palette($warn);
+
+    @include theme-bases.light-theme($blui-blue-primary, $blui-blue-accent, $blui-blue-warn);
+}
+
+.blui-blue-dark {
+    $blui-blue-dark-primary: theme-bases.$blui-blue-dark-primary;
+    $blui-blue-dark-accent: theme-bases.$blui-blue-dark-accent;
+    $blui-blue-dark-warn: theme-bases.$blui-blue-dark-warn;
+
+    @include theme-bases.dark-theme($blui-blue-dark-primary, $blui-blue-dark-accent, $blui-blue-dark-warn);
+}
+
+body {
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+#type-table {
+    td,
+    th {
+        border: solid 1px black;
+    }
+}
+
+[dir='rtl'] .invert-rtl {
+    transform: scaleX(-1);
+}
+
+.template-root {
+    box-sizing: border-box;
+    max-width: 1200px;
+    width: 100%;
+    padding: 16px;
+    justify-content: center;
+    padding-bottom: 48px;
+}
+
+.showcase-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 8px;
+    padding-bottom: 48px;
+
+    .mat-card-header-text {
+        margin: 0;
+        margin-bottom: 1rem;
+    }
+
+    mat-card.ng-comp-card {
+        width: 100%;
+        max-width: 400px;
+        min-width: 350px;
+        box-sizing: border-box;
+        margin: 8px 8px;
+        padding: 16px;
+    }
+    .story-title {
+        font-size: 1rem;
+        margin: 2rem 0 1rem 0;
+    }
+    .multi-line-example {
+        display: flex;
+        text-align: center;
+        justify-content: center;
+        div {
+            flex: 1;
+        }
+    }
+}

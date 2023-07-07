@@ -1,0 +1,75 @@
+<div class="settings-root template-root">
+    <mat-card>
+        <mat-card-header>Organization</mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-nav-list>
+            <blui-info-list-item iconAlign="center" divider="full">
+                <mat-icon blui-icon>business</mat-icon>
+                <div blui-title>Acme Steel Co.</div>
+                <div blui-subtitle>Organization Name</div>
+            </blui-info-list-item>
+            <blui-info-list-item iconAlign="center">
+                <mat-icon blui-icon>place</mat-icon>
+                <div blui-title>1000 Acme Way Gary, In 46402</div>
+                <div blui-subtitle>Address</div>
+            </blui-info-list-item>
+        </mat-nav-list>
+    </mat-card>
+
+    <mat-card style="margin-top: 24px">
+        <mat-card-header>Account</mat-card-header>
+        <mat-divider></mat-divider>
+        <mat-list>
+            <blui-info-list-item iconAlign="center" divider="full">
+                <mat-icon blui-icon>account_circle</mat-icon>
+                <div blui-title>Marshall Sutter</div>
+                <div blui-subtitle>Name</div>
+            </blui-info-list-item>
+            <blui-info-list-item iconAlign="center" divider="full">
+                <mat-icon blui-icon>account_circle</mat-icon>
+                <div blui-title>{{ nickname }}</div>
+                <div blui-subtitle>Nickname</div>
+                <div blui-right-content style="display: flex; justify-content: center">
+                    <mat-form-field appearance="outline" style="height: 72px">
+                        <input matInput placeholder="Nickname" [(ngModel)]="nickname" />
+                        <mat-label>Nickname</mat-label>
+                    </mat-form-field>
+                </div>
+            </blui-info-list-item>
+            <blui-info-list-item iconAlign="center" divider="full">
+                <mat-icon blui-icon>email</mat-icon>
+                <div blui-title>msutter@acmesteelco.com</div>
+                <div blui-subtitle>Email</div>
+            </blui-info-list-item>
+            <blui-info-list-item iconAlign="center" divider="full">
+                <mat-icon blui-icon>phone</mat-icon>
+                <div blui-title>+1 (724) 998-0938</div>
+                <div blui-subtitle>Phone Number</div>
+            </blui-info-list-item>
+            <blui-info-list-item iconAlign="center" divider="full">
+                <mat-icon blui-icon>lock</mat-icon>
+                <div blui-title>**************</div>
+                <div blui-subtitle>Change Password</div>
+                <button blui-right-content color="primary" mat-stroked-button>Change Password</button>
+            </blui-info-list-item>
+            <blui-info-list-item iconAlign="center" divider="full">
+                <mat-icon blui-icon>{{ notifications ? 'notifications' : 'notifications_off' }}</mat-icon>
+                <div blui-title>Email Notifications</div>
+                <div blui-subtitle>Notifications {{ notifications ? 'Enabled' : 'Disabled' }}</div>
+                <mat-slide-toggle [(ngModel)]="notifications" blui-right-content></mat-slide-toggle>
+            </blui-info-list-item>
+            <blui-info-list-item iconAlign="center" divider="full">
+                <mat-icon blui-icon>{{ textNotifications ? 'notifications' : 'notifications_off' }}</mat-icon>
+                <div blui-title>Text Notifications</div>
+                <div blui-subtitle>Notifications {{ textNotifications ? 'Enabled' : 'Disabled' }}</div>
+                <mat-slide-toggle [(ngModel)]="textNotifications" blui-right-content></mat-slide-toggle>
+            </blui-info-list-item>
+            <blui-info-list-item iconAlign="center" divider="full">
+                <mat-icon blui-icon>{{ autoLogout ? 'lock' : 'lock_open' }}</mat-icon>
+                <div blui-title>Automatic Logout</div>
+                <div blui-subtitle>{{ autoLogout ? 'Enabled (Recommended)' : 'Disabled' }}</div>
+                <mat-slide-toggle [(ngModel)]="autoLogout" blui-right-content></mat-slide-toggle>
+            </blui-info-list-item>
+        </mat-list>
+    </mat-card>
+</div>

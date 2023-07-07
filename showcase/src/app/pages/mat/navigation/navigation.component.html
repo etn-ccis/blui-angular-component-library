@@ -1,0 +1,119 @@
+<div class="showcase-container">
+    <mat-card class="ng-comp-card">
+        <mat-card-header>
+            <div mat-card-title>Menu</div>
+        </mat-card-header>
+        <mat-card-content style="text-align: center">
+            <button
+                mat-stroked-button
+                color="primary"
+                [matMenuTriggerFor]="menu"
+                style="width: 250px; margin-bottom: 8px"
+            >
+                Open Simple Menu
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item>Profile</button>
+                <button mat-menu-item>My Account</button>
+                <button mat-menu-item>Logout</button>
+            </mat-menu>
+        </mat-card-content>
+    </mat-card>
+
+    <mat-card class="ng-comp-card">
+        <mat-card-header>
+            <div mat-card-title>Tabs</div>
+        </mat-card-header>
+        <mat-card-content>
+            <div style="margin-bottom: 24px; margin-top: 8px">Standard Tabs</div>
+            <mat-tab-group>
+                <mat-tab label="ITEM ONE"></mat-tab>
+                <mat-tab label="ITEM TWO"></mat-tab>
+            </mat-tab-group>
+            <div style="margin-bottom: 24px; margin-top: 32px">Full Width Tabs</div>
+            <mat-tab-group class="full-width-tabs">
+                <mat-tab label="ITEM ONE" style="flex: 1"></mat-tab>
+                <mat-tab label="ITEM TWO"></mat-tab>
+            </mat-tab-group>
+            <div style="margin-bottom: 24px; margin-top: 32px">Scrollable Tabs</div>
+            <mat-tab-group>
+                <mat-tab label="ITEM ONE"></mat-tab>
+                <mat-tab label="ITEM TWO"></mat-tab>
+                <mat-tab label="ITEM THREE"></mat-tab>
+            </mat-tab-group>
+        </mat-card-content>
+    </mat-card>
+    <mat-card class="ng-comp-card" class="mobile-stepper-demo">
+        <mat-card-header>
+            <div mat-card-title>Stepper</div>
+        </mat-card-header>
+        <mat-card-content>
+            <div>Horizontal Stepper</div>
+            <mat-horizontal-stepper [linear]="true">
+                <mat-step>
+                    <form>
+                        <ng-template matStepLabel>Fill out your name</ng-template>
+                        <mat-form-field>
+                            <input matInput placeholder="Full Name" required />
+                        </mat-form-field>
+                        <div>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step>
+                    <form>
+                        <ng-template matStepLabel>Fill out your employee</ng-template>
+                        <mat-form-field>
+                            <input matInput placeholder="Current Employer" required />
+                        </mat-form-field>
+                        <div>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Done</ng-template>
+                    You are now done.
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button>Reset</button>
+                    </div>
+                </mat-step>
+            </mat-horizontal-stepper>
+            <div>Vertical Stepper</div>
+            <mat-vertical-stepper [linear]="true">
+                <mat-step>
+                    <form>
+                        <ng-template matStepLabel>Fill out your name</ng-template>
+                        <mat-form-field>
+                            <input matInput placeholder="Full Name" required />
+                        </mat-form-field>
+                        <div>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step>
+                    <form>
+                        <ng-template matStepLabel>Fill out your age</ng-template>
+                        <mat-form-field>
+                            <input matInput placeholder="Age" required />
+                        </mat-form-field>
+                        <div>
+                            <button mat-button matStepperNext>Next</button>
+                        </div>
+                    </form>
+                </mat-step>
+                <mat-step>
+                    <ng-template matStepLabel>Done</ng-template>
+                    You are now done.
+                    <div>
+                        <button mat-button matStepperPrevious>Back</button>
+                        <button mat-button>Reset</button>
+                    </div>
+                </mat-step>
+            </mat-vertical-stepper>
+        </mat-card-content>
+    </mat-card>
+</div>

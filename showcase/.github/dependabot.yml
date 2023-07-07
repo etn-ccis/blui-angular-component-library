@@ -1,0 +1,11 @@
+version: 2
+updates:
+    - package-ecosystem: 'npm'
+      directory: '/'
+      schedule:
+          interval: 'monthly'
+          day: 'monday'
+      open-pull-requests-limit: 1
+      target-branch: 'dev'
+      labels:
+          - 'external-dependency'

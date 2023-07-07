@@ -1,0 +1,19 @@
+name: 'Comment on PR'
+on:
+  pull_request:
+    branches:
+      - master
+
+jobs:
+  example_comment_pr:
+    runs-on: ubuntu-latest
+    name: comment PR if needed
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Comment PR
+        uses: thollander/actions-comment-pull-request@v1
+        with:
+           message: 'Thank you for the master pull request. 👍 Please be sure this pull request is for the master branch. The master branch is used for items that are ready for publishing.
+           The dev branch is our working branch for all issues and enhancements. Please read our [Contributing Guidelines](https://github.com/etn-ccis/blui-doc-it/blob/master/src/docs/community/contributing-guideline.md) for more information.'
+           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
