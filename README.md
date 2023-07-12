@@ -1,4 +1,4 @@
-# Brightlayer UI Angular Components
+ # Brightlayer UI Angular Components
 
 [![](https://img.shields.io/circleci/project/github/etn-ccis/blui-angular-component-library/master.svg?style=flat)](https://circleci.com/gh/etn-ccis/blui-angular-component-library/tree/master)
 ![npm](https://img.shields.io/npm/v/@brightlayer-ui/angular-components?label=%40brightlayer-ui%2Fangular-components) [![codecov](https://codecov.io/gh/etn-ccis/blui-angular-component-library/branch/master/graph/badge.svg?token=DB9EMVFAFJ)](https://codecov.io/gh/etn-ccis/blui-angular-component-library)
@@ -45,16 +45,18 @@ The following table outlines which versions of Angular and Brightlayer UI resour
 | `^6.0.0`                           | `^6.3.0`                       | `^12.x`                     |
 | `^7.0.0`                           | `^7.0.0`                       | `^13.x`                     |
 | `^8.0.0`                           | `^8.0.0`                       | `^14.x`                     |
+| `^9.0.0`                           | `^9.0.0`                       | `^15.x`                     |
 
 ## Peer Dependencies
 
 The following peer dependencies are added to `package.json`:
 
-| Package Name      | Version |
-| ----------------- |---------|
-| @angular/core     | ^14.0.0 |
-| @angular/material | ^14.0.0 |
-| @angular/cdk      | ^14.0.0 |
+|        Package Name            |       Version      |
+| ------------------------------ |--------------------|
+| @angular/core                  | ^15.0.0 || ^16.0.0 |
+| @angular/material              | ^15.0.0 || ^16.0.0 |
+| @angular/cdk                   | ^15.0.0 || ^16.0.0 |
+| @brightlayer-ui/angular-themes | ^9.0.0             |
 
 ## Running the Demo Projects
 
