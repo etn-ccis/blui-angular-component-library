@@ -1,4 +1,4 @@
- # Brightlayer UI Angular Components
+# Brightlayer UI Angular Components
 
 [![](https://img.shields.io/circleci/project/github/etn-ccis/blui-angular-component-library/master.svg?style=flat)](https://circleci.com/gh/etn-ccis/blui-angular-component-library/tree/master)
 ![npm](https://img.shields.io/npm/v/@brightlayer-ui/angular-components?label=%40brightlayer-ui%2Fangular-components) [![codecov](https://codecov.io/gh/etn-ccis/blui-angular-component-library/branch/master/graph/badge.svg?token=DB9EMVFAFJ)](https://codecov.io/gh/etn-ccis/blui-angular-component-library)
