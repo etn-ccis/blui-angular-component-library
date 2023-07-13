@@ -1,6 +1,6 @@
 # Change Log
 
-## v9.0.0 (July 7, 2023)
+## v9.0.0 (July 14, 2023)
 
 ### Changed
 
