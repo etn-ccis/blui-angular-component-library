@@ -1302,13 +1302,6 @@
   resolved "https://registry.yarnpkg.com/@braintree/sanitize-url/-/sanitize-url-6.0.2.tgz#6110f918d273fe2af8ea1c4398a88774bb9fc12f"
   integrity sha512-Tbsj02wXCbqGmzdnXNk0SOF19ChhRU70BsroIi4Pm6Ehp56in6vch94mfbdQ17DozxkL3BAVjbZ4Qc1a0HFRAg==
 
-"@brightlayer-ui/angular-components@9.0.0-alpha.1":
-  version "9.0.0-alpha.1"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/angular-components/-/angular-components-9.0.0-alpha.1.tgz#4a0d25f3ba0f663de8ccd48d76dbe797663719c6"
-  integrity sha512-eQAPkIOvlMuERQBmBmTMf7nfZiE3Y+jpChP//t6+VUgS4DDXsyKAdFuJAXmY/oocSkx+TjzMNumvwd2EJAMsOw==
-  dependencies:
-    tslib "^2.3.0"
-
 "@brightlayer-ui/angular-themes@^9.0.0":
   version "9.0.0"
   resolved "https://registry.yarnpkg.com/@brightlayer-ui/angular-themes/-/angular-themes-9.0.0.tgz#7758b3576c55e0426b7c208687770690a164df22"

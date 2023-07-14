@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { AppBarModule, ThreeLinerModule } from '@brightlayer-ui/angular-components';
+import { AppBarModule, ThreeLinerModule } from 'src/lib/core';
 import { SharedCompDocsModule } from '../../shared/shared-comp-docs.module';
 import { AppBarDocComponent } from './app-bar-doc.component';
 import { ThreeLinerComponent } from './examples/three-liner.component';

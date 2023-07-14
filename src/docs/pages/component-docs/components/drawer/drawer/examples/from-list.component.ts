@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DrawerNavItem } from '@brightlayer-ui/angular-components';
+import { DrawerNavItem } from 'src/lib/core';
 import * as Colors from '@brightlayer-ui/colors';
 
 export const FROM_LIST = `<blui-drawer style="width: 300px; height: 620px; overflow: auto">
