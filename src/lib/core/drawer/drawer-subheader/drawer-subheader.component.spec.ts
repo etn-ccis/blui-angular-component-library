@@ -28,10 +28,6 @@ describe('DrawerSubheaderComponent', () => {
         spyOn(component, 'ngOnDestroy').and.stub();
     });
 
-    afterEach(() => {
-        fixture.destroy();
-    });
-
     it('should create', () => {
         fixture.detectChanges();
         void expect(component).toBeTruthy();

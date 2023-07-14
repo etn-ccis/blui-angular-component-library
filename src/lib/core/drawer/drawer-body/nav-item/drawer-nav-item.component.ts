@@ -10,6 +10,7 @@ import {
     SimpleChanges,
     ViewChild,
     ViewEncapsulation,
+    forwardRef,
 } from '@angular/core';
 import { DrawerStateManagerService, StateListener } from '../../state-listener.component';
 import { isEmptyView } from '../../../../utils/utils';
@@ -176,7 +177,7 @@ export class DrawerNavItemComponent extends StateListener implements Omit<Drawer
     /** Event triggered on nav item select */
     @Output() select: EventEmitter<string> = new EventEmitter<string>();
 
-    @ContentChildren(DrawerNavItemComponent, { descendants: false }) nestedNavItems;
+    @ContentChildren(forwardRef(() => DrawerNavItemComponent), { descendants: false }) nestedNavItems;
     @ViewChild('expandIcon') expandIconEl: ElementRef;
     @ViewChild('icon') iconEl: ElementRef;
     @ViewChild('collapseIcon') collapseIconEl: ElementRef;

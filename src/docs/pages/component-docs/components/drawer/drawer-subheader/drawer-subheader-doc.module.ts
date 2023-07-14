@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
-import { DrawerModule } from '@brightlayer-ui/angular-components';
+import { DrawerModule } from 'src/lib/core';
 import { SharedCompDocsModule } from '../../../shared/shared-comp-docs.module';
 import { DrawerSubheaderDocComponent } from './drawer-subheader-doc.component';
 import { BasicExampleComponent } from './examples/basic.component';
 import { ComplexComponent } from './examples/complex.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatSelectModule } from '@angular/material/select';
+import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
+import { MatLegacySelectModule as MatSelectModule } from '@angular/material/legacy-select';
 import { PlaygroundComponent } from './examples/playground.component';
 
 @NgModule({

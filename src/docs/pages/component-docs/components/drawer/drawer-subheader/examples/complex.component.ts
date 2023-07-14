@@ -1,5 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
-import { DrawerNavItem } from '@brightlayer-ui/angular-components';
+import { DrawerNavItem } from 'src/lib/core';
 
 export const COMPLEX = `<blui-drawer style="width: 250px" [openOnHover]="false">
     <blui-drawer-header title="Energy Co."></blui-drawer-header>

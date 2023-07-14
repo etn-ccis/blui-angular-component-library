@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { ChannelValueModule } from '@brightlayer-ui/angular-components';
+import { ChannelValueModule } from 'src/lib/core';
 import { SharedCompDocsModule } from '../../shared/shared-comp-docs.module';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';

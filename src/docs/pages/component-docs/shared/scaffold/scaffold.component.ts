@@ -1,7 +1,7 @@
 import { Component, Input, OnDestroy, OnInit, SimpleChanges, TemplateRef, ViewEncapsulation } from '@angular/core';
 import { MarkdownService } from 'ngx-markdown';
 import { ActivatedRoute, Router } from '@angular/router';
-import { MatTabChangeEvent } from '@angular/material/tabs';
+import { MatLegacyTabChangeEvent as MatTabChangeEvent } from '@angular/material/legacy-tabs';
 import { Subscription } from 'rxjs';
 import { ViewportService } from '../../../../services/viewport/viewport.service';
 import { PlaygroundService } from '../../../../services/playground/playground.service';

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DrawerLayoutVariantType } from '@brightlayer-ui/angular-components';
+import { DrawerLayoutVariantType } from 'src/lib/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ViewportService } from '../services/viewport/viewport.service';

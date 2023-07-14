@@ -44,10 +44,6 @@ describe('UserMenuHeaderComponent', () => {
         component = fixture.componentInstance;
     });
 
-    afterEach(() => {
-        fixture.destroy();
-    });
-
     it('should create', () => {
         fixture.detectChanges();
         void expect(component).toBeTruthy();

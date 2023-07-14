@@ -7,6 +7,7 @@ import {
     Input,
     OnDestroy,
     ViewEncapsulation,
+    forwardRef,
 } from '@angular/core';
 import { DrawerNavItem, DrawerNavItemComponent } from '../nav-item/drawer-nav-item.component';
 import { DrawerStateManagerService, StateListener } from '../../state-listener.component';
@@ -77,7 +78,7 @@ export class DrawerNavGroupComponent
     @Input() divider = false;
     /** Component to render a group title */
     @Input() title: string;
-    @ContentChildren(DrawerNavItemComponent) navItems;
+    @ContentChildren(forwardRef(() => DrawerNavItemComponent)) navItems;
 
     navItemLifeCycleListener: Subscription;
 

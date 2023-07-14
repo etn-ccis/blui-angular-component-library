@@ -1,12 +1,12 @@
 import { NgModule } from '@angular/core';
-import { ToolbarMenuModule } from '@brightlayer-ui/angular-components';
+import { ToolbarMenuModule } from 'src/lib/core';
 import { SharedCompDocsModule } from '../../shared/shared-comp-docs.module';
 import { MatIconModule } from '@angular/material/icon';
 import { RouterModule } from '@angular/router';
 import { BasicComponent } from './examples/basic.component';
-import { MatListModule } from '@angular/material/list';
+import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
 import { ToolbarMenuDocComponent } from './toolbar-menu-doc.component';
-import { MatMenuModule } from '@angular/material/menu';
+import { MatLegacyMenuModule as MatMenuModule } from '@angular/material/legacy-menu';
 import { WithIconComponent } from './examples/with-icon.component';
 import { WithinToolbarComponent } from './examples/within-toolbar.component';
 import { MatToolbarModule } from '@angular/material/toolbar';

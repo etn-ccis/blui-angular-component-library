@@ -2,5 +2,5 @@
 export const environment = {
     production: true,
     devDocsCodeSnippetBranch: 'dev',
-    ga: 'UA-139646200-7',
+    ga: 'G-FWWGC9WJWD',
 };
