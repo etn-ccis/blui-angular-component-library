@@ -2,7 +2,7 @@ import { Component, EventEmitter, Input, OnDestroy, Output } from '@angular/core
 import { PlaygroundService } from '../../../../../../services/playground/playground.service';
 import { Subscription } from 'rxjs';
 import { Knob } from '../../../../shared/scaffold/scaffold.component';
-import { DrawerNavItem } from '@brightlayer-ui/angular-components';
+import { DrawerNavItem } from 'src/lib/core';
 import * as Colors from '@brightlayer-ui/colors';
 
 export type DrawerPlaygroundKnobs = {

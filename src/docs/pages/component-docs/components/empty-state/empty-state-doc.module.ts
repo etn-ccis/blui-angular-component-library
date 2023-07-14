@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { EmptyStateModule } from '@brightlayer-ui/angular-components';
+import { EmptyStateModule } from 'src/lib/core';
 import { SharedCompDocsModule } from '../../shared/shared-comp-docs.module';
 import { EmptyStateDocComponent } from './empty-state-doc.component';
 import { BasicExampleComponent } from './examples/basic.component';

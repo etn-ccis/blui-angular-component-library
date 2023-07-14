@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { MobileStepperModule } from '@brightlayer-ui/angular-components';
+import { MobileStepperModule } from 'src/lib/core';
 import { SharedCompDocsModule } from '../../shared/shared-comp-docs.module';
 import { MatIconModule } from '@angular/material/icon';
 import { BasicExampleComponent } from './examples/basic.component';
