@@ -1,3 +1,0 @@
-master: ['hotfix/*', 'release/*', 'dev/*', 'dev*']
-external-dependency: ['combined/*', 'combined-dependabots/*']
-brightlayer-ui: ['feature/*', 'bug/*', 'fix/*', 'experiment/*', 'dev/*', 'dev*']

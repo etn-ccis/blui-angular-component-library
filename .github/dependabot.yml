@@ -9,4 +9,3 @@ updates:
     target-branch: "dev"
     labels:
       - "external-dependency"
-      - 'brightlayer-ui'

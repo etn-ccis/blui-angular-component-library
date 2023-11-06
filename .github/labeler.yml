@@ -1,3 +1,0 @@
-# Add brightlayer-ui label to any root file changes on fork pull requests
-brightlayer-ui:
-- '*'
