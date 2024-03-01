@@ -2,7 +2,7 @@ version: 2.1
 orbs:
     codecov: codecov/codecov@3.2.2
     gh: circleci/github-cli@1.0.3
-    browser-tools: circleci/browser-tools@1.4.6
+    browser-tools: circleci/browser-tools@1.4.8
 jobs:
     build_library:
         docker:
