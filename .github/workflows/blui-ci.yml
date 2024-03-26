@@ -51,7 +51,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
     - run: yarn install:dependencies
-    - run: yarn test --no-watch --code-coverage
+    - run: yarn coverage
     - name: Upload to Codecov
       uses: codecov/codecov-action@v3
       with:
@@ -176,7 +176,7 @@ jobs:
         path: tarball
     - run: |
         PACKAGED_VERSION=`node -p "require('./tarball/package.json').version"`
-        yarn add ./tarball/brightlayer-ui-react-components-$PACKAGED_VERSION.tgz
+        yarn add ./tarball/brightlayer-ui-angular-components-$PACKAGED_VERSION.tgz
     - uses: actions/checkout@v4
     - name: Use Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
