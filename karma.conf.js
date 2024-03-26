@@ -30,6 +30,7 @@ module.exports = function (config) {
       reporters: [
         { type: 'html' },
         { type: 'lcovonly' },
+        { type: 'cobertura' },
         { type: 'text-summary' }
       ]
     },
