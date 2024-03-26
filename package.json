@@ -19,7 +19,7 @@
     "test": "ng test demo",
     "test:ci": "ng test demo --watch false",
     "test:artifacts": "bash scripts/buildTest.sh",
-    "coverage": "yarn test --no-watch --code-coverage",
+    "coverage": "ng test demo --no-watch --code-coverage",
     "publish:package": "cd dist && rm -f *.tgz && set npm_config_yes=true && npx -p @brightlayer-ui/publish blui-publish",
     "tag:package": "npx -p @brightlayer-ui/tag blui-tag -s -blui-angular-components",
     "precommit": "yarn initialize && yarn install:dependencies && yarn prettier && yarn lint && yarn test:ci && yarn build && yarn test:artifacts && yarn generate:licenses",
