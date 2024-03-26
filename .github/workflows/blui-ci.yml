@@ -1,0 +1,269 @@
+name: CI Run
+
+on:
+  push:
+    branches: [ "dev", "master" ]
+  pull_request:
+    branches: [ "dev", "master" ]
+  pull_request_target:
+    types:
+      - opened
+    branches:
+      - '*/*'
+
+permissions:
+  pull-requests: write
+  contents: read
+
+jobs:
+  prettier_lint:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+    - run: yarn install:dependencies
+    - run: yarn prettier
+    - run: yarn lint
+
+  unit_test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+    - run: yarn install:dependencies
+    - run: yarn test --no-watch --code-coverage
+    - name: Upload to Codecov
+      uses: codecov/codecov-action@v3
+      with:
+        directory: ./coverage/
+        files: lcov.info
+        flags: unittests
+        name: codecov-report
+        verbose: true
+
+  build_library:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+    - run: yarn --frozen-lockfile
+    - run: yarn build:lib
+    - name: Save build
+      uses: actions/upload-artifact@v3
+      with:
+        name: dist
+        if-no-files-found: error
+        path: dist
+
+  test_artifacts:
+    runs-on: ubuntu-latest
+    needs: build_library
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Download the dist folder
+      uses: actions/download-artifact@v3
+      with:
+        name: dist
+        path: dist
+    - run: yarn test:artifacts
+
+  npm_pack:
+    runs-on: ubuntu-latest
+    needs: build_library
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Download the dist folder
+      uses: actions/download-artifact@v3
+      with:
+        name: dist
+        path: dist
+    - run: npm pack
+      working-directory: dist
+    - name: Save npm pack
+      uses: actions/upload-artifact@v3
+      with:
+        name: tarball
+        if-no-files-found: error
+        path: dist
+
+  build_showcase:
+    runs-on: ubuntu-latest
+    needs: npm_pack
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+    - run: git submodule init && git submodule update
+    - run: yarn --frozen-lockfile
+      working-directory: showcase
+    - name: Download tarball
+      uses: actions/download-artifact@v3
+      with:
+        name: tarball
+        path: tarball
+    - run: |
+        PACKAGED_VERSION=`node -p "require('./tarball/package.json').version"`
+        yarn add ./tarball/brightlayer-ui-angular-components-$PACKAGED_VERSION.tgz
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+    - run: yarn build
+      working-directory: showcase
+
+  build_documentation_site:
+    runs-on: ubuntu-latest
+    needs: npm_pack
+
+    strategy:
+      matrix:
+        node-version: [18.x]
+    env:
+        environment.dev:  ${{ github.ref == 'refs/heads/master' && 'dev' }}
+        environment.prod:  ${{ github.ref == 'refs/heads/master' && 'master' }}
+        base-href: ${{ github.ref == 'refs/heads/master' && '/angular' || '/angular-dev' }}
+
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Download tarball
+      uses: actions/download-artifact@v3
+      with:
+        name: tarball
+        path: tarball
+    - run: |
+        PACKAGED_VERSION=`node -p "require('./tarball/package.json').version"`
+        yarn add ./tarball/brightlayer-ui-react-components-$PACKAGED_VERSION.tgz
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+    - run: yarn --frozen-lockfile
+      # working-directory: ./
+    - run: yarn build:demo
+      # working-directory: ./
+    - name: Save build
+      uses: actions/upload-artifact@v3
+      with:
+        name: build
+        if-no-files-found: error
+        path: ./
+
+  # deploy_angular_doc_site_dev:
+  #   runs-on: ubuntu-latest
+  #   if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/dev' }}
+  #   needs: build_documentation_site
+  #   env:
+  #     DEV_DEPLOY_TOKEN: ${{secrets.DEV_DEPLOY_TOKEN}}
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #     - name: Download build
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: dist
+  #         path: ./
+  #     - name: deploy
+  #       uses: JamesIves/github-pages-deploy-action@v4
+  #       with:
+  #           folder: dist
+  #           token: ${{env.DEV_DEPLOY_TOKEN}}
+  #           repository-name: brightlayer-ui-components/react-dev
+  #           branch: master
+  #           git-config-name: Brightlayer UI Agent
+  #           git-config-email: brightlayer-ui@eaton.com
+  #           commit-message: "Automated deployment to GitHub Pages ${{github.sha}}"
+
+  # deploy_angular_doc_site_prod:
+  #   runs-on: ubuntu-latest
+  #   if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+  #   needs: build_documentation_site
+  #   env:
+  #     DEV_DEPLOY_TOKEN: ${{secrets.DEV_DEPLOY_TOKEN}}
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #     - name: Download build
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: dist
+  #         path: ./
+  #     - name: deploy
+  #       uses: JamesIves/github-pages-deploy-action@v4
+  #       with:
+  #           folder: dist
+  #           token: ${{env.DEV_DEPLOY_TOKEN}}
+  #           repository-name: brightlayer-ui-components/react
+  #           branch: master
+  #           git-config-name: Brightlayer UI Agent
+  #           git-config-email: brightlayer-ui@eaton.com
+  #           commit-message: "Automated deployment to GitHub Pages ${{github.sha}}"
+
+  # publish:
+  #   runs-on: ubuntu-latest
+  #   if: ${{ github.event_name == 'push' && (github.ref == 'refs/heads/master' || github.ref == 'refs/heads/dev') }}
+  #   needs: build_library
+  #   strategy:
+  #     matrix:
+  #       node-version: [18.x]
+  #   env:
+  #     NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  #     BRANCH: ${{ github.ref == 'refs/heads/master' && 'master' || 'dev' }}
+  #   steps:
+  #     - uses: actions/checkout@v4
+  #     - name: Download dist
+  #       uses: actions/download-artifact@v3
+  #       with:
+  #         name: dist
+  #         path: dist
+  #     - uses: actions/setup-node@v3
+  #       with:
+  #         node-version: ${{ matrix.node-version }}
+  #         registry-url: 'https://registry.npmjs.org'
+  #     - run: yarn --frozen-lockfile
+  #     - run: yarn publish:package -b ${{env.BRANCH}}
