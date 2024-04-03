@@ -20,6 +20,6 @@ echo -e "${BLUE}Copying Package Resources${NC}"
 cp -r README.md ./dist/README.md
 cp -r LICENSE ./dist/LICENSE
 cp -r CHANGELOG.md ./dist/CHANGELOG.md
-cp -r components/LICENSES.json ./dist/LICENSES.json
+cp -r LICENSES.json ./dist/LICENSES.json
 
 echo -e "${GRAY}Complete${NC}\r\n"
