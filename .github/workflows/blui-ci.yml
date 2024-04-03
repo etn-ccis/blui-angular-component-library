@@ -217,30 +217,30 @@ jobs:
             git-config-email: brightlayer-ui@eaton.com
             commit-message: "Automated deployment to GitHub Pages ${{github.sha}}"
 
-  # deploy_doc_site_prod:
-  #   runs-on: ubuntu-latest
-  #   if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
-  #   needs: build_documentation_site
-  #   env:
-  #     DEV_DEPLOY_TOKEN: ${{secrets.DEV_DEPLOY_TOKEN}}
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-  #     - name: Download build
-  #       uses: actions/download-artifact@v3
-  #       with:
-  #         name: dist
-  #         path: ./
-  #     - name: deploy
-  #       uses: JamesIves/github-pages-deploy-action@v4
-  #       with:
-  #           folder: dist
-  #           token: ${{env.DEV_DEPLOY_TOKEN}}
-  #           repository-name: brightlayer-ui-components/react
-  #           branch: master
-  #           git-config-name: Brightlayer UI Agent
-  #           git-config-email: brightlayer-ui@eaton.com
-  #           commit-message: "Automated deployment to GitHub Pages ${{github.sha}}"
+  deploy_angular_doc_site_prod:
+    runs-on: ubuntu-latest
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+    needs: build_ng_doc_site
+    env:
+      DEV_DEPLOY_TOKEN: ${{secrets.DEV_DEPLOY_TOKEN}}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Download build
+        uses: actions/download-artifact@v3
+        with:
+          name: dist
+          path: dist
+      - name: deploy
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+            folder: dist
+            token: ${{env.DEV_DEPLOY_TOKEN}}
+            repository-name: brightlayer-ui-components/angular
+            branch: master
+            git-config-name: Brightlayer UI Agent
+            git-config-email: brightlayer-ui@eaton.com
+            commit-message: "Automated deployment to GitHub Pages ${{github.sha}}"
 
   # publish:
   #   runs-on: ubuntu-latest
