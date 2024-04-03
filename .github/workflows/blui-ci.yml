@@ -134,7 +134,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-        cache-dependency-path: ./showcase
     - run: yarn initialize
     - run: yarn --frozen-lockfile
       working-directory: showcase
@@ -152,7 +151,6 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-        cache-dependency-path: ./showcase
     - run: yarn build
       working-directory: showcase
 
