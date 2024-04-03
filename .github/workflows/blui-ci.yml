@@ -154,45 +154,45 @@ jobs:
     - run: yarn build
       working-directory: showcase
 
-  # build_documentation_site:
-  #   runs-on: ubuntu-latest
-  #   needs: npm_pack
+  build_documentation_site:
+    runs-on: ubuntu-latest
+    needs: npm_pack
 
-  #   strategy:
-  #     matrix:
-  #       node-version: [18.x]
-  #   env:
-  #       environment.dev:  ${{ github.ref == 'refs/heads/master' && 'dev' }}
-  #       environment.prod:  ${{ github.ref == 'refs/heads/master' && 'master' }}
-  #       base-href: ${{ github.ref == 'refs/heads/master' && '/angular' || '/angular-dev' }}
+    strategy:
+      matrix:
+        node-version: [18.x]
+    env:
+        environment.dev:  ${{ github.ref == 'refs/heads/master' && 'dev' }}
+        environment.prod:  ${{ github.ref == 'refs/heads/master' && 'master' }}
+        base-href: ${{ github.ref == 'refs/heads/master' && '/angular' || '/angular-dev' }}
 
-  #   steps:
-  #   - name: Checkout
-  #     uses: actions/checkout@v4
-  #   - name: Download tarball
-  #     uses: actions/download-artifact@v3
-  #     with:
-  #       name: tarball
-  #       path: tarball
-  #   - run: |
-  #       PACKAGED_VERSION=`node -p "require('./tarball/package.json').version"`
-  #       yarn add ./tarball/brightlayer-ui-angular-components-$PACKAGED_VERSION.tgz
-  #   - uses: actions/checkout@v4
-  #   - name: Use Node.js ${{ matrix.node-version }}
-  #     uses: actions/setup-node@v4
-  #     with:
-  #       node-version: ${{ matrix.node-version }}
-  #       cache: 'yarn'
-  #   - run: yarn --frozen-lockfile
-  #     # working-directory: ./
-  #   - run: yarn build:demo
-  #     # working-directory: ./
-  #   - name: Save build
-  #     uses: actions/upload-artifact@v3
-  #     with:
-  #       name: build
-  #       if-no-files-found: error
-  #       path: build
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+    - name: Download tarball
+      uses: actions/download-artifact@v3
+      with:
+        name: tarball
+        path: tarball
+    - run: |
+        PACKAGED_VERSION=`node -p "require('./tarball/package.json').version"`
+        yarn add ./tarball/brightlayer-ui-angular-components-$PACKAGED_VERSION.tgz
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'yarn'
+    - run: yarn --frozen-lockfile
+      # working-directory: ./
+    - run: yarn build:lib
+      # working-directory: ./
+    - name: Save build
+      uses: actions/upload-artifact@v3
+      with:
+        name: build
+        if-no-files-found: error
+        path: build
 
   # deploy_angular_doc_site_dev:
   #   runs-on: ubuntu-latest
