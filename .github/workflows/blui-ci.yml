@@ -76,7 +76,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-    - run: yarn --frozen-lockfile
+    - run: --immutable
     - run: yarn build:lib
     - name: Save build
       uses: actions/upload-artifact@v3
@@ -135,7 +135,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
     - run: yarn initialize
-    - run: yarn --frozen-lockfile
+    - run: yarn --immutable
       working-directory: showcase
     - name: Download tarball
       uses: actions/download-artifact@v3
@@ -183,7 +183,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-    - run: yarn --frozen-lockfile
+    - run: yarn --immutable
     - run: yarn build:demo
     - name: Save build
       uses: actions/upload-artifact@v3
@@ -263,5 +263,5 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: 'https://registry.npmjs.org'
-      - run: yarn --frozen-lockfile
+      - run: yarn --immutable
       - run: npm run publish:package -b ${{env.BRANCH}}
