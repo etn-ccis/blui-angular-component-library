@@ -76,7 +76,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-    - run: --immutable
+    - run: yarn --immutable
     - run: yarn build:lib
     - name: Save build
       uses: actions/upload-artifact@v3
