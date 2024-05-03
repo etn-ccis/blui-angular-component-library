@@ -1,4 +1,4 @@
-name: CI Run
+name: Build
 
 on:
   push:
@@ -76,7 +76,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-    - run: yarn --frozen-lockfile
+    - run: yarn --immutable
     - run: yarn build:lib
     - name: Save build
       uses: actions/upload-artifact@v3
@@ -135,7 +135,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
     - run: yarn initialize
-    - run: yarn --frozen-lockfile
+    - run: yarn --immutable
       working-directory: showcase
     - name: Download tarball
       uses: actions/download-artifact@v3
@@ -183,14 +183,14 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
-    - run: yarn --frozen-lockfile
-    - run: yarn build:lib
+    - run: yarn --immutable
+    - run: yarn build:demo
     - name: Save build
       uses: actions/upload-artifact@v3
       with:
-        name: dist
+        name: build
         if-no-files-found: error
-        path: dist
+        path: build
 
   deploy_angular_doc_site_dev:
     runs-on: ubuntu-latest
@@ -204,12 +204,12 @@ jobs:
       - name: Download build
         uses: actions/download-artifact@v3
         with:
-          name: dist
-          path: dist
+          name: build
+          path: build
       - name: deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-            folder: dist
+            folder: build
             token: ${{env.DEV_DEPLOY_TOKEN}}
             repository-name: brightlayer-ui-components/angular-dev
             branch: master
@@ -229,12 +229,12 @@ jobs:
       - name: Download build
         uses: actions/download-artifact@v3
         with:
-          name: dist
-          path: dist
+          name: build
+          path: build
       - name: deploy
         uses: JamesIves/github-pages-deploy-action@v4
         with:
-            folder: dist
+            folder: build
             token: ${{env.DEV_DEPLOY_TOKEN}}
             repository-name: brightlayer-ui-components/angular
             branch: master
@@ -263,5 +263,5 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           registry-url: 'https://registry.npmjs.org'
-      - run: yarn --frozen-lockfile
+      - run: yarn --immutable
       - run: npm run publish:package -b ${{env.BRANCH}}
