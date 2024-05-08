@@ -21,7 +21,7 @@ yarn add @brightlayer-ui/angular-components
 
 ## Building the Library
 
-To work with this library, first clone down the repository.
+To work with this library, first clone down the repository:
 
 ```
 git clone https://github.com/etn-ccis/blui-angular-component-library
