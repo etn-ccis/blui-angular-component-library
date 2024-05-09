@@ -264,4 +264,4 @@ jobs:
           node-version: ${{ matrix.node-version }}
           registry-url: 'https://registry.npmjs.org'
       - run: yarn --immutable
-      - run: npm run publish:package -b ${{env.BRANCH}}
+      - run: npm run publish:package -- -b ${{env.BRANCH}}
