@@ -162,9 +162,8 @@ jobs:
       matrix:
         node-version: [20.x]
     env:
-        environment.dev:  ${{ github.ref == 'refs/heads/master' && 'dev' }}
-        environment.prod:  ${{ github.ref == 'refs/heads/master' && 'master' }}
-        base-href: ${{ github.ref == 'refs/heads/master' && '/angular' || '/angular-dev' }}
+        base-href: ${{ github.ref == 'refs/heads/master' && '/angular/' || '/angular-dev/' }}
+        build-type: ${{ github.ref == 'refs/heads/master' && 'production' || 'development' }}
 
     steps:
     - name: Checkout
@@ -184,7 +183,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
     - run: yarn --immutable
-    - run: yarn build:demo
+    - run: yarn build:demo --base-href ${{env.base-href}} -c ${{env.build-type}}
     - name: Save build
       uses: actions/upload-artifact@v3
       with:
