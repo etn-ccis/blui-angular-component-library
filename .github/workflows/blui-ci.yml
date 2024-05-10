@@ -183,7 +183,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'yarn'
     - run: yarn --immutable
-    - run: yarn build:demo --base-href ${{env.base-href}} -c ${{env.build-type}}
+    - run: yarn build:demo --base-href ${{env.base-href}} -c ${{env.build-type}} && cp src/404.html build && touch ./build/.nojekyll
     - name: Save build
       uses: actions/upload-artifact@v3
       with:
