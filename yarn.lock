@@ -1406,9 +1406,9 @@
   integrity sha512-s5HBvia4g+cAlSZxKnCCS8O0Id3CoTjKxoxLNG+ctP1kNQ13A9brpjcsqACqZp1Icv+1BfszW+kF6ojnqiTzsg==
 
 "@brightlayer-ui/icons@^2.1.0":
-  version "2.2.0"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/icons/-/icons-2.2.0.tgz#758c0de5577a48dce00f72573bd36a3e66d231f4"
-  integrity sha512-H2njPi5xupmj4aEfzbZkLT+J5D/tOdBGatvoFNbEVPsCGBxgAahinGdsvD4Jbpj8/tK/c9LYA6vtL0Tn9rt6Pw==
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/icons/-/icons-2.3.0.tgz#6b8dfc732cf8d20355f1f9a3f8804babf4c36f04"
+  integrity sha512-IFftJELIXr72xoFviPwI4BTL7Cizi4TJlkObEFwOd3CThHnhv3ZM77g6N4NXa8F8pt8xetP/mfD6SgFTqqIB0A==
 
 "@brightlayer-ui/prettier-config@^1.0.3":
   version "1.0.3"
