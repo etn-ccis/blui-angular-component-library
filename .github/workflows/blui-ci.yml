@@ -93,7 +93,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Download the dist folder
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4.1.7
       with:
         name: dist
         path: dist
@@ -106,7 +106,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Download the dist folder
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4.1.7
       with:
         name: dist
         path: dist
@@ -139,7 +139,7 @@ jobs:
     - run: yarn --immutable
       working-directory: showcase
     - name: Download tarball
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4.1.7
       with:
         name: tarball
         path: tarball
@@ -170,7 +170,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
     - name: Download tarball
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4.1.7
       with:
         name: tarball
         path: tarball
@@ -202,7 +202,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Download build
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: build
           path: build
@@ -227,7 +227,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Download build
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: build
           path: build
@@ -255,7 +255,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Download dist
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4.1.7
         with:
           name: dist
           path: dist
