@@ -1371,12 +1371,12 @@
   integrity sha512-Tbsj02wXCbqGmzdnXNk0SOF19ChhRU70BsroIi4Pm6Ehp56in6vch94mfbdQ17DozxkL3BAVjbZ4Qc1a0HFRAg==
 
 "@brightlayer-ui/angular-themes@^9.0.0":
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/angular-themes/-/angular-themes-9.0.0.tgz#7758b3576c55e0426b7c208687770690a164df22"
-  integrity sha512-1zPTxA09SLuXUzF80DYqeUkTm7JPU6XFUd6Qh8T6zhAad8MbGZujLxQIEkJZYvLo+WpB34jkF13Qc3L/tcS6vw==
+  version "9.0.2"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/angular-themes/-/angular-themes-9.0.2.tgz#dc795b881482c8157f5ad2feb202bcea7158236c"
+  integrity sha512-lVbheqoHfKeeP1Q8LQH7LH5xuEunj+AEQslMI/DFxTs2+170nIIKeBgF9+BFP6n47ps3ZW2ls/boThqYOMq23w==
   dependencies:
     "@brightlayer-ui/colors" "^3.0.0"
-    "@fontsource/open-sans" "^4.1.0"
+    "@fontsource/open-sans" "^5.0.5"
 
 "@brightlayer-ui/colors@^3.0.0", "@brightlayer-ui/colors@^3.1.1":
   version "3.1.1"
@@ -1684,10 +1684,10 @@
   resolved "https://registry.yarnpkg.com/@eslint/js/-/js-8.44.0.tgz#961a5903c74139390478bdc808bcde3fc45ab7af"
   integrity sha512-Ag+9YM4ocKQx9AarydN0KY2j0ErMHNIocPDrVo8zAE44xLTjEtz81OdR68/cydGtk6m6jDb5Za3r2useMzYmSw==
 
-"@fontsource/open-sans@^4.1.0":
-  version "4.5.14"
-  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-4.5.14.tgz#b3e1665c0b3fdfc1f030ded2843749e3cf3a5900"
-  integrity sha512-mBXIIETBlW8q/ocuUN0hyGow2iuf75hQEHQt8R/RJ/HcphVbLg8KB7pHYGbFGDqs75W+SWvTC7JkVeAjT65BuQ==
+"@fontsource/open-sans@^5.0.5":
+  version "5.1.0"
+  resolved "https://registry.yarnpkg.com/@fontsource/open-sans/-/open-sans-5.1.0.tgz#3fb106a5e0a208bbe8e66ac5e9a2130afff6b859"
+  integrity sha512-g+mjF8gWUDwck9DrRCkhmFeEj7fskjtKZJKAQguVzSg93lc6ThakTHMRgs0dZfe5qBbktrV839tDrb4bIDyZSA==
 
 "@humanwhocodes/config-array@^0.11.10":
   version "0.11.10"
