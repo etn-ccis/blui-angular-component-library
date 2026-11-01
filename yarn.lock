@@ -1379,9 +1379,9 @@
     "@fontsource/open-sans" "^5.0.5"
 
 "@brightlayer-ui/colors@^3.0.0", "@brightlayer-ui/colors@^3.1.1":
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/@brightlayer-ui/colors/-/colors-3.1.1.tgz#7bc86498e30172c410ba4c3237149b16a2eed4c6"
-  integrity sha512-fV10E5JDuVGDQ0gCY3pEfDwUo1+lvDFC5pmOAAGpN7YDramS6ggUpJ/LmYavKAudw7FNcaJnPi7tsQWJjvv/7w==
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/@brightlayer-ui/colors/-/colors-3.3.0.tgz#cac4a901451d15e04abbe9db3890e05ab9f54eae"
+  integrity sha512-JiI32f6xrfqd4CbrTM6PjL+pNDK4cTZZGVMcZygwQxgTpZV8IgwHNGlzeYdf87Thq6MioyvP6cKWYEq9g+F8jA==
   dependencies:
     "@brightlayer-ui/types" "^2.0.0"
 
